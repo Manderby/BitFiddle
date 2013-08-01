@@ -1,0 +1,19 @@
+Bit Fiddle Changelog
+
+- Fixed a bug where the wrong window is opened at startup
+
+Version 1.1
+-----------
+- Recompile with new NALib
+- Added Menu commands
+- ASCII representation of the data can be entered and is presented.
+- Encoding is UTF-8, Non-ASCII characters as well as control characters
+  are displayed as a question mark.
+- Rearranged the complement converter window
+- ASCII table included with informations about the characters
+
+
+Version 1.0
+-----------
+Bit Fiddle is a small utility program to quickly compute integer number
+representations of various sizes and in various encodings.
