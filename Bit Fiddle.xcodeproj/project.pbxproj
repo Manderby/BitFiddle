@@ -7,6 +7,7 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		B90E36EC17B27EE4009DAA12 /* BitFiddlePreferencesController.m in Sources */ = {isa = PBXBuildFile; fileRef = B90E36EB17B27EE4009DAA12 /* BitFiddlePreferencesController.m */; };
 		B93FC156179E242100CFB0AD /* BitFiddleChangelog.txt in Resources */ = {isa = PBXBuildFile; fileRef = B93FC155179E242100CFB0AD /* BitFiddleChangelog.txt */; };
 		B93FC24217A1D53800CFB0AD /* ASCIIWindowController.m in Sources */ = {isa = PBXBuildFile; fileRef = B93FC24117A1D53800CFB0AD /* ASCIIWindowController.m */; };
 		B9657167177C26B900E13222 /* NAArray.c in Sources */ = {isa = PBXBuildFile; fileRef = B9657155177C26B900E13222 /* NAArray.c */; };
@@ -30,6 +31,8 @@
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
+		B90E36EA17B27EE4009DAA12 /* BitFiddlePreferencesController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = BitFiddlePreferencesController.h; sourceTree = "<group>"; };
+		B90E36EB17B27EE4009DAA12 /* BitFiddlePreferencesController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = BitFiddlePreferencesController.m; sourceTree = "<group>"; };
 		B93FC155179E242100CFB0AD /* BitFiddleChangelog.txt */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; path = BitFiddleChangelog.txt; sourceTree = "<group>"; };
 		B93FC24017A1D53800CFB0AD /* ASCIIWindowController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ASCIIWindowController.h; sourceTree = "<group>"; };
 		B93FC24117A1D53800CFB0AD /* ASCIIWindowController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ASCIIWindowController.m; sourceTree = "<group>"; };
@@ -176,6 +179,8 @@
 			children = (
 				B9A057B6178435ED00809BBB /* BitFiddleApplication.h */,
 				B9A057B7178435ED00809BBB /* BitFiddleApplication.m */,
+				B90E36EA17B27EE4009DAA12 /* BitFiddlePreferencesController.h */,
+				B90E36EB17B27EE4009DAA12 /* BitFiddlePreferencesController.m */,
 				B9A057B8178435ED00809BBB /* ComplementWindowController.h */,
 				B9A057B9178435ED00809BBB /* ComplementWindowController.m */,
 				B9A057BA178435ED00809BBB /* main.m */,
@@ -279,6 +284,7 @@
 				B9A057D3178435ED00809BBB /* NumberOutputField.m in Sources */,
 				B98602031798620A00258F97 /* NABitArray.c in Sources */,
 				B93FC24217A1D53800CFB0AD /* ASCIIWindowController.m in Sources */,
+				B90E36EC17B27EE4009DAA12 /* BitFiddlePreferencesController.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

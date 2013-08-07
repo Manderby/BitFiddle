@@ -728,12 +728,12 @@ const char* addinfo[128] = {
   [[self window] makeKeyAndOrderFront:self];
 }
 
-- (BOOL)windowShouldClose:(id)sender{
-  NSUserDefaults* userdefaults = [NSUserDefaults standardUserDefaults];
-  [userdefaults setInteger:0 forKey:@"showascii"];
-  return YES;
-}
-
+//- (BOOL)windowShouldClose:(id)sender{
+//  NSUserDefaults* userdefaults = [NSUserDefaults standardUserDefaults];
+//  [userdefaults setInteger:-1 forKey:@"showascii"];
+//  return YES;
+//}
+//
 -(void)update{
 
   NSUserDefaults* userdefaults = [NSUserDefaults standardUserDefaults];

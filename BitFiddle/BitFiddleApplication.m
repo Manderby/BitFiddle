@@ -15,11 +15,14 @@
 
 - (void)applicationDidFinishLaunching:(NSNotification *)notification{
   NSUserDefaults* userdefaults = [NSUserDefaults standardUserDefaults];
-  BOOL showcomplement = [userdefaults integerForKey:@"showcomplement"];
-  BOOL showascii = [userdefaults integerForKey:@"showascii"];
-  if(!showcomplement && !showascii){showcomplement = YES;}
-  if(showascii){[self showASCII:self];}
-  if(showcomplement){[self showComplement:self];}
+  int showascii = [userdefaults integerForKey:@"showascii"];
+  if(!showascii){
+    showascii = 1;
+    [userdefaults setInteger:1 forKey:@"showcomplement"];
+    [userdefaults synchronize];
+  }
+  if(showascii == 1){[self showASCII:self];}
+  [self showComplement:self];
 }
 
 
@@ -32,16 +35,20 @@
   [aboutwindowcontroller showDialog];
 }
 
+- (IBAction) showPreferences:(id)sender{
+  [preferenceswindowcontroller showDialog];
+}
+
 - (IBAction) showComplement:(id)sender{
   [complementwindowcontroller showDialog];
-  NSUserDefaults* userdefaults = [NSUserDefaults standardUserDefaults];
-  [userdefaults setInteger:1 forKey:@"showcomplement"];
+//  NSUserDefaults* userdefaults = [NSUserDefaults standardUserDefaults];
+//  [userdefaults setInteger:1 forKey:@"showcomplement"];
 }
 
 - (IBAction) showASCII:(id)sender{
   [asciiwindowcontroller showDialog];
-  NSUserDefaults* userdefaults = [NSUserDefaults standardUserDefaults];
-  [userdefaults setInteger:1 forKey:@"showascii"];
+//  NSUserDefaults* userdefaults = [NSUserDefaults standardUserDefaults];
+//  [userdefaults setInteger:1 forKey:@"showascii"];
 }
 
 @end

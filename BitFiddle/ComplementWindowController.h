@@ -61,7 +61,7 @@ typedef enum{
 
 - (void)awakeFromNib;
 - (void)showDialog;
-- (BOOL)windowShouldClose:(id)sender;
+//- (BOOL)windowShouldClose:(id)sender;
 - (void)update;
 
 

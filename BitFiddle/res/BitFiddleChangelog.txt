@@ -1,6 +1,11 @@
 Bit Fiddle Changelog
 
-- Fixed a bug where the wrong window is opened at startup
+Version 1.1.1
+-------------
+- Fixed the title of the About window
+- Fixed a bug where the wrong window is opened at startup.
+- All windows are opened at first start.
+- Added Preferences to open ASCII window at startup or not.
 
 Version 1.1
 -----------

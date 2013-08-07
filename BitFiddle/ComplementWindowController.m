@@ -67,11 +67,11 @@
 }
 
 
-- (BOOL)windowShouldClose:(id)sender{
-  NSUserDefaults* userdefaults = [NSUserDefaults standardUserDefaults];
-  [userdefaults setInteger:0 forKey:@"showcomplement"];
-  return YES;
-}
+//- (BOOL)windowShouldClose:(id)sender{
+//  NSUserDefaults* userdefaults = [NSUserDefaults standardUserDefaults];
+//  [userdefaults setInteger:-1 forKey:@"showcomplement"];
+//  return YES;
+//}
 
 
 - (void)update{
