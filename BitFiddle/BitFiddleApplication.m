@@ -15,7 +15,7 @@
 
 - (void)applicationDidFinishLaunching:(NSNotification *)notification{
   NSUserDefaults* userdefaults = [NSUserDefaults standardUserDefaults];
-  int showascii = [userdefaults integerForKey:@"showascii"];
+  NSInteger showascii = [userdefaults integerForKey:@"showascii"];
   if(!showascii){
     showascii = 1;
     [userdefaults setInteger:1 forKey:@"showcomplement"];
