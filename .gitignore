@@ -2,5 +2,5 @@
 .gitignore
 build/
 publishedbundles/
-Bit\ Fiddle.xcodeproj/project.xcworkspace/xcshareddata/
+*xcshareddata*
 *xcuserdata*
