@@ -2,5 +2,6 @@
 .gitignore
 build/
 publishedbundles/
+*xcodeproj/manderim.*
 *xcshareddata*
 *xcuserdata*

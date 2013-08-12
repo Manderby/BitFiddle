@@ -6,6 +6,7 @@ Version 1.1.1
 - Fixed a bug where the wrong window is opened at startup.
 - All windows are opened at first start.
 - Added Preferences to open ASCII window at startup or not.
+- Transferred whole project to git.
 
 Version 1.1
 -----------
