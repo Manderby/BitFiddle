@@ -14,7 +14,7 @@
 
 - (void)awakeFromNib{
   NSUserDefaults* userdefaults = [NSUserDefaults standardUserDefaults];
-  int showascii = [userdefaults integerForKey:@"showascii"];
+  NSInteger showascii = [userdefaults integerForKey:@"showascii"];
   [showasciiwindowatstartupcheckbox setState:(showascii==1)?NSOnState:NSOffState];
 }
 
