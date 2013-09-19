@@ -19,9 +19,9 @@
     [mutablestring setString:@"0"];
   }else{
     if(withdecsign){
-      [mutablestring setString:[NSString stringWithFormat:@"-%s", naGetStringPrintfArgument(string)]];
+      [mutablestring setString:[NSString stringWithFormat:@"-%s", naGetStringMutableUTF8Pointer(string)]];
     }else{
-      [mutablestring setString:[NSString stringWithUTF8String:naGetStringPrintfArgument(string)]];
+      [mutablestring setString:[NSString stringWithUTF8String:naGetStringMutableUTF8Pointer(string)]];
     }
   }
 }

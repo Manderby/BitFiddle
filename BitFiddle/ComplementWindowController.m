@@ -2,6 +2,7 @@
 
 #import "ComplementWindowController.h"
 #include "NAString.h"
+#include "NABitArray.h"
 
 
 @implementation ComplementWindowController
@@ -207,13 +208,13 @@
     naCreateStringWithUTF8CString(&chrstr8, "");
   }else{
     NAInt arraysize = naGetByteArraySize(&bytearraychr8);
-    NAByte* curbyte = naGetByteArrayPointer(&bytearraychr8);
+    NAByte* curbyte = naGetByteArrayMutablePointer(&bytearraychr8);
     while(arraysize){
       if((*curbyte < 32) || (*curbyte > 126)){*curbyte = '?';}
       curbyte++;
       arraysize--;
     }
-    naCreateStringWithUTF8CString(&chrstr8, (NAUTF8Char*)naGetByteArrayPointer(&bytearraychr8));
+    naCreateStringWithUTF8CString(&chrstr8, (NAUTF8Char*)naGetByteArrayConstPointer(&bytearraychr8));
   }
   [outchr8 fillWithString:&chrstr8 withDecSign:NA_FALSE];
 
@@ -223,13 +224,13 @@
     naCreateStringWithUTF8CString(&chrstr16, "");
   }else{
     NAInt arraysize = naGetByteArraySize(&bytearraychr16);
-    NAByte* curbyte = naGetByteArrayPointer(&bytearraychr16);
+    NAByte* curbyte = naGetByteArrayMutablePointer(&bytearraychr16);
     while(arraysize){
       if((*curbyte < 32) || (*curbyte > 126)){*curbyte = '?';}
       curbyte++;
       arraysize--;
     }
-    naCreateStringWithUTF8CString(&chrstr16, (NAUTF8Char*)naGetByteArrayPointer(&bytearraychr16));
+    naCreateStringWithUTF8CString(&chrstr16, (NAUTF8Char*)naGetByteArrayConstPointer(&bytearraychr16));
   }
   [outchr16 fillWithString:&chrstr16 withDecSign:NA_FALSE];
 
@@ -239,13 +240,13 @@
     naCreateStringWithUTF8CString(&chrstr32, "");
   }else{
     NAInt arraysize = naGetByteArraySize(&bytearraychr32);
-    NAByte* curbyte = naGetByteArrayPointer(&bytearraychr32);
+    NAByte* curbyte = naGetByteArrayMutablePointer(&bytearraychr32);
     while(arraysize){
       if((*curbyte < 32) || (*curbyte > 126)){*curbyte = '?';}
       curbyte++;
       arraysize--;
     }
-    naCreateStringWithUTF8CString(&chrstr32, (NAUTF8Char*)naGetByteArrayPointer(&bytearraychr32));
+    naCreateStringWithUTF8CString(&chrstr32, (NAUTF8Char*)naGetByteArrayConstPointer(&bytearraychr32));
   }
   [outchr32 fillWithString:&chrstr32 withDecSign:NA_FALSE];
 
@@ -257,8 +258,8 @@
     NAInt arraysize = naGetByteArraySize(&bytearraychr64);
     NAInt separators = (arraysize-1) / 4;
     naCreateStringWithSize(&chrstr64, arraysize + separators);
-    NAUTF8Char* curchar = naGetStringChar(&chrstr64, 0);
-    NAByte* curbyte = naGetByteArrayPointer(&bytearraychr64);
+    NAUTF8Char* curchar = naGetStringMutableChar(&chrstr64, 0);
+    const NAByte* curbyte = naGetByteArrayConstPointer(&bytearraychr64);
     for(NAInt i=0; i<arraysize; i++){
       if(i && (i % 4) == 0){*curchar++ = '\n';}
       if((*curbyte < 32) || (*curbyte > 126)){*curchar = '?';}else{*curchar = *curbyte;}
@@ -276,8 +277,8 @@
     NAInt arraysize = naGetByteArraySize(&bytearraychrn);
     NAInt separators = (arraysize-1) / 4;
     naCreateStringWithSize(&chrstrn, arraysize + separators);
-    NAUTF8Char* curchar = naGetStringChar(&chrstrn, 0);
-    NAByte* curbyte = naGetByteArrayPointer(&bytearraychrn);
+    NAUTF8Char* curchar = naGetStringMutableChar(&chrstrn, 0);
+    const NAByte* curbyte = naGetByteArrayConstPointer(&bytearraychrn);
     for(NAInt i=0; i<arraysize; i++){
       if(i && (i % 4) == 0){*curchar++ = '\n';}
       if((*curbyte < 32) || (*curbyte > 126)){*curchar = '?';}else{*curchar = *curbyte;}
@@ -348,7 +349,7 @@
   [indec setStringValue:@""];
   [inhex setStringValue:@""];
   [inbin setStringValue:@""];
-  naCreateBitArrayFromString(&bitarray, &instring, -8);
+  naCreateBitArrayFromASCIIString(&bitarray, &instring, -8);
   naClearString(&instring, NA_FALSE);
   [self update];
 }
