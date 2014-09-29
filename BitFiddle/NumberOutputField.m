@@ -19,9 +19,9 @@
     [mutablestring setString:@"0"];
   }else{
     if(withdecsign){
-      [mutablestring setString:[NSString stringWithFormat:@"-%s", naGetStringPrintfArgument(string)]];
+      [mutablestring setString:[NSString stringWithFormat:@"-%s", naGetStringConstUTF8Pointer(string)]];
     }else{
-      [mutablestring setString:[NSString stringWithUTF8String:naGetStringPrintfArgument(string)]];
+      [mutablestring setString:[NSString stringWithUTF8String:naGetStringConstUTF8Pointer(string)]];
     }
   }
 }
@@ -57,7 +57,7 @@
     break;
   }
   [self fillWithString:&outstring withDecSign:withdecsign];
-  naClearString(&outstring, NA_FALSE);
+  naClearString(&outstring);
 //  naClearBitArray(&clamparray);
 }
 
