@@ -1,13 +1,13 @@
 
 #import <Cocoa/Cocoa.h>
+#import "ManderimApplication.h"
 
-@class AboutWindowController;
+@class ManderimAboutWindowController;
 @class BitFiddlePreferencesController;
 @class ComplementWindowController;
 @class ASCIIWindowController;
 
-@interface BitFiddleApplication : NSApplication <NSApplicationDelegate> {
-  IBOutlet AboutWindowController* aboutwindowcontroller;
+@interface BitFiddleApplication : ManderimApplication {
   IBOutlet BitFiddlePreferencesController* preferenceswindowcontroller;
   IBOutlet ComplementWindowController* complementwindowcontroller;
   IBOutlet ASCIIWindowController* asciiwindowcontroller;
@@ -17,7 +17,7 @@
 
 - (void)applicationDidFinishLaunching:(NSNotification *)notification;
 
-- (IBAction) showAbout:(id)sender;
+//- (IBAction) showAbout:(id)sender;
 - (IBAction) showPreferences:(id)sender;
 - (IBAction) showComplement:(id)sender;
 - (IBAction) showASCII:(id)sender;
