@@ -1,14 +1,14 @@
 
 
 #import "BitFiddleApplication.h"
-#import "AboutWindowController.h"
+#import "ManderimAboutWindowController.h"
 #import "ComplementWindowController.h"
 #import "ASCIIWindowController.h"
 
 @implementation BitFiddleApplication
 
 - (id)init{
-  self = [super init];
+  self = [super initWithDescription:@"Conversion tool for binary values\nDesign and implementation: Tobias Stamm"];
   [self setDelegate:self];
   return self;
 }
@@ -30,10 +30,6 @@
   return TRUE;
 }
 
-- (IBAction) showAbout:(id)sender{
-  if(!aboutwindowcontroller){[NSBundle loadNibNamed:@"AboutWindow" owner:self];}
-  [aboutwindowcontroller showDialog];
-}
 
 - (IBAction) showPreferences:(id)sender{
   [preferenceswindowcontroller showDialog];

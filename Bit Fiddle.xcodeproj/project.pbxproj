@@ -16,9 +16,6 @@
 		B9432DA017E61B4F0075F638 /* NAString.c in Sources */ = {isa = PBXBuildFile; fileRef = B9432D9917E61B4F0075F638 /* NAString.c */; };
 		B9432DA117E61B4F0075F638 /* NASystem.c in Sources */ = {isa = PBXBuildFile; fileRef = B9432D9B17E61B4F0075F638 /* NASystem.c */; };
 		B9848B41177B99B400E21D96 /* Cocoa.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = B9848B40177B99B400E21D96 /* Cocoa.framework */; };
-		B9A0534C1782FB7900809BBB /* AboutWindow.xib in Resources */ = {isa = PBXBuildFile; fileRef = B9A053491782FB7900809BBB /* AboutWindow.xib */; };
-		B9A0534D1782FB7900809BBB /* AboutWindowController.mm in Sources */ = {isa = PBXBuildFile; fileRef = B9A0534B1782FB7900809BBB /* AboutWindowController.mm */; };
-		B9A053501782FBBA00809BBB /* manderim.png in Resources */ = {isa = PBXBuildFile; fileRef = B9A0534F1782FBBA00809BBB /* manderim.png */; };
 		B9A057D0178435ED00809BBB /* BitFiddleApplication.m in Sources */ = {isa = PBXBuildFile; fileRef = B9A057B7178435ED00809BBB /* BitFiddleApplication.m */; };
 		B9A057D1178435ED00809BBB /* ComplementWindowController.m in Sources */ = {isa = PBXBuildFile; fileRef = B9A057B9178435ED00809BBB /* ComplementWindowController.m */; };
 		B9A057D2178435ED00809BBB /* main.m in Sources */ = {isa = PBXBuildFile; fileRef = B9A057BA178435ED00809BBB /* main.m */; };
@@ -26,6 +23,10 @@
 		B9A057D5178435ED00809BBB /* BitFiddle.icns in Resources */ = {isa = PBXBuildFile; fileRef = B9A057BF178435ED00809BBB /* BitFiddle.icns */; };
 		B9A057E1178435ED00809BBB /* InfoPlist.strings in Resources */ = {isa = PBXBuildFile; fileRef = B9A057CC178435ED00809BBB /* InfoPlist.strings */; };
 		B9A057E2178435ED00809BBB /* MainMenu.xib in Resources */ = {isa = PBXBuildFile; fileRef = B9A057CE178435ED00809BBB /* MainMenu.xib */; };
+		B9EA7B9F19E03C1E00D7B828 /* manderim.png in Resources */ = {isa = PBXBuildFile; fileRef = B9EA7B7819E03C1E00D7B828 /* manderim.png */; };
+		B9EA7BA019E03C1E00D7B828 /* ManderimAboutWindow.xib in Resources */ = {isa = PBXBuildFile; fileRef = B9EA7B7919E03C1E00D7B828 /* ManderimAboutWindow.xib */; };
+		B9EA7BA119E03C1E00D7B828 /* ManderimAboutWindowController.m in Sources */ = {isa = PBXBuildFile; fileRef = B9EA7B7C19E03C1E00D7B828 /* ManderimAboutWindowController.m */; };
+		B9EA7BA219E03C1E00D7B828 /* ManderimApplication.m in Sources */ = {isa = PBXBuildFile; fileRef = B9EA7B7E19E03C1E00D7B828 /* ManderimApplication.m */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -59,10 +60,6 @@
 		B9848B43177B99B400E21D96 /* AppKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = AppKit.framework; path = System/Library/Frameworks/AppKit.framework; sourceTree = SDKROOT; };
 		B9848B44177B99B400E21D96 /* CoreData.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = CoreData.framework; path = System/Library/Frameworks/CoreData.framework; sourceTree = SDKROOT; };
 		B9848B45177B99B400E21D96 /* Foundation.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Foundation.framework; path = System/Library/Frameworks/Foundation.framework; sourceTree = SDKROOT; };
-		B9A053491782FB7900809BBB /* AboutWindow.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = AboutWindow.xib; sourceTree = "<group>"; };
-		B9A0534A1782FB7900809BBB /* AboutWindowController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = AboutWindowController.h; sourceTree = "<group>"; };
-		B9A0534B1782FB7900809BBB /* AboutWindowController.mm */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.objcpp; path = AboutWindowController.mm; sourceTree = "<group>"; };
-		B9A0534F1782FBBA00809BBB /* manderim.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = manderim.png; sourceTree = "<group>"; };
 		B9A057B6178435ED00809BBB /* BitFiddleApplication.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = BitFiddleApplication.h; sourceTree = "<group>"; };
 		B9A057B7178435ED00809BBB /* BitFiddleApplication.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = BitFiddleApplication.m; sourceTree = "<group>"; };
 		B9A057B8178435ED00809BBB /* ComplementWindowController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ComplementWindowController.h; sourceTree = "<group>"; };
@@ -75,6 +72,12 @@
 		B9A057CD178435ED00809BBB /* en */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.strings; name = en; path = en.lproj/InfoPlist.strings; sourceTree = "<group>"; };
 		B9A057CF178435ED00809BBB /* en */ = {isa = PBXFileReference; lastKnownFileType = file.xib; name = en; path = en.lproj/MainMenu.xib; sourceTree = "<group>"; };
 		B9C161811784595F00C9F817 /* Bit Fiddle.entitlements */ = {isa = PBXFileReference; lastKnownFileType = text.xml; path = "Bit Fiddle.entitlements"; sourceTree = "<group>"; };
+		B9EA7B7819E03C1E00D7B828 /* manderim.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = manderim.png; sourceTree = "<group>"; };
+		B9EA7B7919E03C1E00D7B828 /* ManderimAboutWindow.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = ManderimAboutWindow.xib; sourceTree = "<group>"; };
+		B9EA7B7B19E03C1E00D7B828 /* ManderimAboutWindowController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ManderimAboutWindowController.h; sourceTree = "<group>"; };
+		B9EA7B7C19E03C1E00D7B828 /* ManderimAboutWindowController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ManderimAboutWindowController.m; sourceTree = "<group>"; };
+		B9EA7B7D19E03C1E00D7B828 /* ManderimApplication.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ManderimApplication.h; sourceTree = "<group>"; };
+		B9EA7B7E19E03C1E00D7B828 /* ManderimApplication.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ManderimApplication.m; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -122,9 +125,9 @@
 			children = (
 				B9C161811784595F00C9F817 /* Bit Fiddle.entitlements */,
 				B9432D8817E61B4F0075F638 /* NALib */,
+				B9EA7B4019E03C1E00D7B828 /* ManderimApplication */,
 				B9A057B5178435ED00809BBB /* BitFiddle */,
 				B9A057BD178435ED00809BBB /* res */,
-				B9A053481782FB7900809BBB /* About */,
 				B9848B3F177B99B400E21D96 /* Frameworks */,
 				B9848B3E177B99B400E21D96 /* Products */,
 			);
@@ -157,17 +160,6 @@
 			name = "Other Frameworks";
 			sourceTree = "<group>";
 		};
-		B9A053481782FB7900809BBB /* About */ = {
-			isa = PBXGroup;
-			children = (
-				B9A053491782FB7900809BBB /* AboutWindow.xib */,
-				B9A0534A1782FB7900809BBB /* AboutWindowController.h */,
-				B9A0534B1782FB7900809BBB /* AboutWindowController.mm */,
-				B9A0534F1782FBBA00809BBB /* manderim.png */,
-			);
-			path = About;
-			sourceTree = "<group>";
-		};
 		B9A057B5178435ED00809BBB /* BitFiddle */ = {
 			isa = PBXGroup;
 			children = (
@@ -197,6 +189,36 @@
 			);
 			name = res;
 			path = BitFiddle/res;
+			sourceTree = "<group>";
+		};
+		B9EA7B4019E03C1E00D7B828 /* ManderimApplication */ = {
+			isa = PBXGroup;
+			children = (
+				B9EA7B7719E03C1E00D7B828 /* res */,
+				B9EA7B7A19E03C1E00D7B828 /* src */,
+			);
+			name = ManderimApplication;
+			path = ../ManderimApplication;
+			sourceTree = SOURCE_ROOT;
+		};
+		B9EA7B7719E03C1E00D7B828 /* res */ = {
+			isa = PBXGroup;
+			children = (
+				B9EA7B7819E03C1E00D7B828 /* manderim.png */,
+				B9EA7B7919E03C1E00D7B828 /* ManderimAboutWindow.xib */,
+			);
+			path = res;
+			sourceTree = "<group>";
+		};
+		B9EA7B7A19E03C1E00D7B828 /* src */ = {
+			isa = PBXGroup;
+			children = (
+				B9EA7B7B19E03C1E00D7B828 /* ManderimAboutWindowController.h */,
+				B9EA7B7C19E03C1E00D7B828 /* ManderimAboutWindowController.m */,
+				B9EA7B7D19E03C1E00D7B828 /* ManderimApplication.h */,
+				B9EA7B7E19E03C1E00D7B828 /* ManderimApplication.m */,
+			);
+			path = src;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -249,12 +271,12 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				B9A0534C1782FB7900809BBB /* AboutWindow.xib in Resources */,
-				B9A053501782FBBA00809BBB /* manderim.png in Resources */,
 				B9A057D5178435ED00809BBB /* BitFiddle.icns in Resources */,
 				B9A057E1178435ED00809BBB /* InfoPlist.strings in Resources */,
 				B9A057E2178435ED00809BBB /* MainMenu.xib in Resources */,
 				B93FC156179E242100CFB0AD /* BitFiddleChangelog.txt in Resources */,
+				B9EA7B9F19E03C1E00D7B828 /* manderim.png in Resources */,
+				B9EA7BA019E03C1E00D7B828 /* ManderimAboutWindow.xib in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -265,7 +287,6 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				B9A0534D1782FB7900809BBB /* AboutWindowController.mm in Sources */,
 				B9A057D0178435ED00809BBB /* BitFiddleApplication.m in Sources */,
 				B9A057D1178435ED00809BBB /* ComplementWindowController.m in Sources */,
 				B9A057D2178435ED00809BBB /* main.m in Sources */,
@@ -277,6 +298,8 @@
 				B9432D9F17E61B4F0075F638 /* NAGrowingSpace.c in Sources */,
 				B9432DA017E61B4F0075F638 /* NAString.c in Sources */,
 				B9432DA117E61B4F0075F638 /* NASystem.c in Sources */,
+				B9EA7BA119E03C1E00D7B828 /* ManderimAboutWindowController.m in Sources */,
+				B9EA7BA219E03C1E00D7B828 /* ManderimApplication.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -326,7 +349,7 @@
 				CLANG_WARN_INT_CONVERSION = YES;
 				CLANG_WARN__DUPLICATE_METHOD_MATCH = YES;
 				CODE_SIGN_ENTITLEMENTS = "Bit Fiddle.entitlements";
-				CODE_SIGN_IDENTITY = "3rd Party Mac Developer Application";
+				CODE_SIGN_IDENTITY = "Don't Code Sign";
 				COMBINE_HIDPI_IMAGES = YES;
 				COPY_PHASE_STRIP = YES;
 				DEBUG_INFORMATION_FORMAT = "dwarf-with-dsym";
@@ -340,7 +363,6 @@
 				INFOPLIST_FILE = "BitFiddle/res/Bit Fiddle-Info.plist";
 				MACOSX_DEPLOYMENT_TARGET = 10.6;
 				PRODUCT_NAME = "$(TARGET_NAME)";
-				PROVISIONING_PROFILE = "";
 				SDKROOT = macosx;
 				WRAPPER_EXTENSION = app;
 			};
@@ -379,7 +401,7 @@
 				CLANG_WARN_INT_CONVERSION = YES;
 				CLANG_WARN__DUPLICATE_METHOD_MATCH = YES;
 				CODE_SIGN_ENTITLEMENTS = "Bit Fiddle.entitlements";
-				CODE_SIGN_IDENTITY = "3rd Party Mac Developer Application";
+				CODE_SIGN_IDENTITY = "Don't Code Sign";
 				COMBINE_HIDPI_IMAGES = YES;
 				COPY_PHASE_STRIP = NO;
 				GCC_DYNAMIC_NO_PIC = NO;
@@ -397,7 +419,6 @@
 				MACOSX_DEPLOYMENT_TARGET = 10.6;
 				ONLY_ACTIVE_ARCH = YES;
 				PRODUCT_NAME = "$(TARGET_NAME)";
-				PROVISIONING_PROFILE = "";
 				SDKROOT = macosx;
 				WRAPPER_EXTENSION = app;
 			};
@@ -413,7 +434,7 @@
 				CLANG_WARN_INT_CONVERSION = YES;
 				CLANG_WARN__DUPLICATE_METHOD_MATCH = YES;
 				CODE_SIGN_ENTITLEMENTS = "Bit Fiddle.entitlements";
-				CODE_SIGN_IDENTITY = "3rd Party Mac Developer Application";
+				CODE_SIGN_IDENTITY = "Don't Code Sign";
 				COMBINE_HIDPI_IMAGES = YES;
 				COPY_PHASE_STRIP = YES;
 				DEBUG_INFORMATION_FORMAT = "dwarf-with-dsym";
@@ -427,7 +448,6 @@
 				INFOPLIST_FILE = "BitFiddle/res/Bit Fiddle-Info.plist";
 				MACOSX_DEPLOYMENT_TARGET = 10.6;
 				PRODUCT_NAME = "$(TARGET_NAME)";
-				PROVISIONING_PROFILE = "";
 				SDKROOT = macosx;
 				WRAPPER_EXTENSION = app;
 			};

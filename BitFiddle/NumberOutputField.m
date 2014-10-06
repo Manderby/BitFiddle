@@ -57,7 +57,7 @@
     break;
   }
   [self fillWithString:&outstring withDecSign:withdecsign];
-  naClearString(&outstring, NA_FALSE);
+  naClearString(&outstring);
 //  naClearBitArray(&clamparray);
 }
 
