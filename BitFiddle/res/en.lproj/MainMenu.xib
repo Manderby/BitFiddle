@@ -11,6 +11,7 @@
 			<string key="NS.object.0">851</string>
 		</object>
 		<array class="NSMutableArray" key="IBDocument.EditedObjectIDs">
+			<integer value="897"/>
 			<integer value="81"/>
 		</array>
 		<array key="IBDocument.PluginDependencies">
@@ -3510,7 +3511,7 @@
 				<nil key="NSViewClass"/>
 				<string key="NSWindowContentMaxSize">{1.79769e+308, 1.79769e+308}</string>
 				<object class="NSView" key="NSWindowView" id="130232042">
-					<nil key="NSNextResponder"/>
+					<reference key="NSNextResponder"/>
 					<int key="NSvFlags">256</int>
 					<array class="NSMutableArray" key="NSSubviews">
 						<object class="NSTextField" id="102938321">
@@ -4133,7 +4134,7 @@
 						<object class="NSSegmentedControl" id="331989921">
 							<reference key="NSNextResponder" ref="130232042"/>
 							<int key="NSvFlags">268</int>
-							<string key="NSFrame">{{176, 6}, {76, 19}}</string>
+							<string key="NSFrame">{{175, 6}, {99, 19}}</string>
 							<reference key="NSSuperview" ref="130232042"/>
 							<reference key="NSNextKeyView" ref="881665827"/>
 							<bool key="NSEnabled">YES</bool>
@@ -4144,10 +4145,12 @@
 								<reference key="NSControlView" ref="331989921"/>
 								<array class="NSMutableArray" key="NSSegmentImages">
 									<object class="NSSegmentItem">
+										<double key="NSSegmentItemWidth">48</double>
 										<string key="NSSegmentItemLabel">Hex</string>
 										<int key="NSSegmentItemImageScaling">0</int>
 									</object>
 									<object class="NSSegmentItem">
+										<double key="NSSegmentItemWidth">48</double>
 										<string key="NSSegmentItemLabel">Dec</string>
 										<int key="NSSegmentItemTag">1</int>
 										<bool key="NSSegmentItemSelected">YES</bool>
@@ -4161,7 +4164,7 @@
 						<object class="NSSegmentedControl" id="607386620">
 							<reference key="NSNextResponder" ref="130232042"/>
 							<int key="NSvFlags">268</int>
-							<string key="NSFrame">{{24, 6}, {100, 19}}</string>
+							<string key="NSFrame">{{23, 6}, {131, 19}}</string>
 							<reference key="NSSuperview" ref="130232042"/>
 							<reference key="NSNextKeyView" ref="331989921"/>
 							<bool key="NSEnabled">YES</bool>
@@ -4172,10 +4175,12 @@
 								<reference key="NSControlView" ref="607386620"/>
 								<array class="NSMutableArray" key="NSSegmentImages">
 									<object class="NSSegmentItem">
+										<double key="NSSegmentItemWidth">64</double>
 										<string key="NSSegmentItemLabel">Escape</string>
 										<int key="NSSegmentItemImageScaling">0</int>
 									</object>
 									<object class="NSSegmentItem">
+										<double key="NSSegmentItemWidth">64</double>
 										<string key="NSSegmentItemLabel">Code</string>
 										<int key="NSSegmentItemTag">1</int>
 										<bool key="NSSegmentItemSelected">YES</bool>
@@ -8642,6 +8647,7 @@
 						</object>
 					</array>
 					<string key="NSFrameSize">{828, 408}</string>
+					<reference key="NSSuperview"/>
 					<reference key="NSNextKeyView" ref="625966684"/>
 				</object>
 				<string key="NSScreenRect">{{0, 0}, {1280, 778}}</string>
@@ -12977,8 +12983,8 @@
 							<reference ref="796693888"/>
 							<reference ref="1049782826"/>
 							<reference ref="881665827"/>
-							<reference ref="331989921"/>
 							<reference ref="607386620"/>
+							<reference ref="331989921"/>
 						</array>
 						<reference key="parent" ref="217371377"/>
 					</object>
@@ -16869,8 +16875,11 @@
 				<string key="-3.IBPluginDependency">com.apple.InterfaceBuilder.CocoaPlugin</string>
 				<string key="112.IBPluginDependency">com.apple.InterfaceBuilder.CocoaPlugin</string>
 				<string key="1200.IBPluginDependency">com.apple.InterfaceBuilder.CocoaPlugin</string>
+				<object class="NSAffineTransform" key="1200.IBViewBoundsToFrameTransform">
+					<bytes key="NSTransformStruct">P4AAAL+AAABDMAAAwbgAAA</bytes>
+				</object>
 				<string key="1201.IBPluginDependency">com.apple.InterfaceBuilder.CocoaPlugin</string>
-				<integer value="1" key="1201.IBSegmentedControlInspectorSelectedSegmentMetadataKey"/>
+				<integer value="0" key="1201.IBSegmentedControlInspectorSelectedSegmentMetadataKey"/>
 				<string key="1202.IBPluginDependency">com.apple.InterfaceBuilder.CocoaPlugin</string>
 				<string key="1203.IBPluginDependency">com.apple.InterfaceBuilder.CocoaPlugin</string>
 				<string key="1204.IBPluginDependency">com.apple.InterfaceBuilder.CocoaPlugin</string>
@@ -17398,6 +17407,11 @@
 				<string key="1756.IBPluginDependency">com.apple.InterfaceBuilder.CocoaPlugin</string>
 				<string key="1757.IBPluginDependency">com.apple.InterfaceBuilder.CocoaPlugin</string>
 				<string key="1897.IBPluginDependency">com.apple.InterfaceBuilder.CocoaPlugin</string>
+				<integer value="0" key="1897.IBSegmentedControlTracker.RoundRobinState"/>
+				<integer value="0" key="1897.IBSegmentedControlTracker.WasGrowing"/>
+				<object class="NSAffineTransform" key="1897.IBViewBoundsToFrameTransform">
+					<bytes key="NSTransformStruct">P4AAAL+AAABBwAAAwbgAAA</bytes>
+				</object>
 				<string key="1898.IBPluginDependency">com.apple.InterfaceBuilder.CocoaPlugin</string>
 				<integer value="1" key="1898.IBSegmentedControlInspectorSelectedSegmentMetadataKey"/>
 				<string key="1943.IBPluginDependency">com.apple.InterfaceBuilder.CocoaPlugin</string>
@@ -17646,8 +17660,9 @@
 				<string key="866.IBPluginDependency">com.apple.InterfaceBuilder.CocoaPlugin</string>
 				<string key="867.IBPluginDependency">com.apple.InterfaceBuilder.CocoaPlugin</string>
 				<string key="876.IBPluginDependency">com.apple.InterfaceBuilder.CocoaPlugin</string>
+				<string key="896.IBEditorWindowLastContentRect">{{63, 246}, {828, 408}}</string>
 				<string key="896.IBPluginDependency">com.apple.InterfaceBuilder.CocoaPlugin</string>
-				<string key="896.IBWindowTemplateEditedContentRect">{{329, 257}, {828, 408}}</string>
+				<string key="896.IBWindowTemplateEditedContentRect">{{63, 246}, {828, 408}}</string>
 				<boolean value="NO" key="896.NSWindowTemplate.visibleAtLaunch"/>
 				<string key="897.IBPluginDependency">com.apple.InterfaceBuilder.CocoaPlugin</string>
 				<string key="908.IBPluginDependency">com.apple.InterfaceBuilder.CocoaPlugin</string>

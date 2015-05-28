@@ -1,5 +1,7 @@
 Bit Fiddle Changelog
 
+- Corrected some UI elements for Yosemite
+
 Version 1.2
 -----------
 - Recompiled with new NALib
