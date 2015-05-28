@@ -1,7 +1,7 @@
 
 
 #import <Cocoa/Cocoa.h>
-#include "NABitArray.h"
+#include "BitArray.h"
 #import "NumberOutputField.h"
 
 typedef enum{
@@ -41,12 +41,12 @@ typedef enum{
   IBOutlet NSMenuItem* unsignedmenuitem;
   IBOutlet NSMenuItem* onescomplementmenuitem;
   IBOutlet NSMenuItem* twoscomplementmenuitem;
-  NABitArray bitarray;
-  NABitArray bitarray8;
-  NABitArray bitarray16;
-  NABitArray bitarray32;
-  NABitArray bitarray64;
-  NABitArray bitarrayn;
+  BitArray bitarray;
+  BitArray bitarray8;
+  BitArray bitarray16;
+  BitArray bitarray32;
+  BitArray bitarray64;
+  BitArray bitarrayn;
   NAByteArray bytearraychr8;
   NAByteArray bytearraychr16;
   NAByteArray bytearraychr32;

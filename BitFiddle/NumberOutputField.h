@@ -2,7 +2,7 @@
 #import <Cocoa/Cocoa.h>
 
 #include "NAString.h"
-#include "NABitArray.h"
+#include "BitArray.h"
 
 
 typedef enum{
@@ -20,6 +20,6 @@ typedef enum{
 - (void)setSystem:(NumberSystem)system withBitCount:(NAInt)count;
 
 - (void)fillWithString:(NAString*) string withDecSign:(NABool)withdecsign;
-- (void)fillWithBitArray:(NABitArray*) bitarray withDecSign:(NABool)withdecsign;
+- (void)fillWithBitArray:(BitArray*) bitarray withDecSign:(NABool)withdecsign;
 
 @end

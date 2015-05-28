@@ -2,7 +2,7 @@
 
 #import "ComplementWindowController.h"
 #include "NAString.h"
-#include "NABitArray.h"
+#include "BitArray.h"
 
 
 @implementation ComplementWindowController
@@ -95,22 +95,22 @@
   naClearString(&chrstrn);
   naCreateBitArrayExtraction(&bitarrayn, &bitarray, 0, -1);
   if(ncount < 8){
-    naCreateBitArrayExtension(&bitarray8, &bitarray, 0, 8);
+    naCreateBitArrayShiftExtension(&bitarray8, &bitarray, 0, 8);
   }else{
     naCreateBitArrayExtraction(&bitarray8, &bitarray, 0, 8);
   }
   if(ncount < 16){
-    naCreateBitArrayExtension(&bitarray16, &bitarray, 0, 16);
+    naCreateBitArrayShiftExtension(&bitarray16, &bitarray, 0, 16);
   }else{
     naCreateBitArrayExtraction(&bitarray16, &bitarray, 0, 16);
   }
   if(ncount < 32){
-    naCreateBitArrayExtension(&bitarray32, &bitarray, 0, 32);
+    naCreateBitArrayShiftExtension(&bitarray32, &bitarray, 0, 32);
   }else{
     naCreateBitArrayExtraction(&bitarray32, &bitarray, 0, 32);
   }
   if(ncount < 64){
-    naCreateBitArrayExtension(&bitarray64, &bitarray, 0, 64);
+    naCreateBitArrayShiftExtension(&bitarray64, &bitarray, 0, 64);
   }else{
     naCreateBitArrayExtraction(&bitarray64, &bitarray, 0, 64);
   }
@@ -257,8 +257,9 @@
   }else{
     NAInt arraysize = naGetByteArraySize(&bytearraychr64);
     NAInt separators = (arraysize-1) / 4;
-    naCreateStringWithSize(&chrstr64, arraysize + separators);
-    NAUTF8Char* curchar = naGetStringMutableChar(&chrstr64, 0);
+    NAUTF8Char* stringbuf = naAllocate(-(arraysize + separators));
+    naCreateStringWithMutableUTF8Buffer(&chrstr64, stringbuf, -(arraysize + separators), NA_TRUE);
+    NAUTF8Char* curchar = stringbuf;
     const NAByte* curbyte = naGetByteArrayConstPointer(&bytearraychr64);
     for(NAInt i=0; i<arraysize; i++){
       if(i && (i % 4) == 0){*curchar++ = '\n';}
@@ -276,8 +277,9 @@
   }else{
     NAInt arraysize = naGetByteArraySize(&bytearraychrn);
     NAInt separators = (arraysize-1) / 4;
-    naCreateStringWithSize(&chrstrn, arraysize + separators);
-    NAUTF8Char* curchar = naGetStringMutableChar(&chrstrn, 0);
+    NAUTF8Char* stringbuf = naAllocate(-(arraysize + separators));
+    naCreateStringWithMutableUTF8Buffer(&chrstrn, stringbuf, -(arraysize + separators), NA_TRUE);
+    NAUTF8Char* curchar = stringbuf;
     const NAByte* curbyte = naGetByteArrayConstPointer(&bytearraychrn);
     for(NAInt i=0; i<arraysize; i++){
       if(i && (i % 4) == 0){*curchar++ = '\n';}
@@ -316,7 +318,7 @@
   [inhex setStringValue:@""];
   [inbin setStringValue:@""];
   [inasc setStringValue:@""];
-  naCreateBitArrayFromDecString(&bitarray, &instring, -8);
+  naCreateBitArrayWithDecString(&bitarray, &instring, -8);
   naClearString(&instring);
   [self update];
 }
@@ -327,7 +329,7 @@
   [indec setStringValue:@""];
   [inbin setStringValue:@""];
   [inasc setStringValue:@""];
-  naCreateBitArrayFromHexString(&bitarray, &instring, -8);
+  naCreateBitArrayWithHexString(&bitarray, &instring, -8);
   naClearString(&instring);
   [self update];
 }
@@ -338,19 +340,23 @@
   [indec setStringValue:@""];
   [inhex setStringValue:@""];
   [inasc setStringValue:@""];
-  naCreateBitArrayFromBinString(&bitarray, &instring, -8);
+  naCreateBitArrayWithBinString(&bitarray, &instring, -8);
   naClearString(&instring);
   [self update];
 }
 
 - (void)valueChangeAsc:(NSControl*)sender{
   NAString instring;
+  NAByteArray inarray;
   naCreateStringWithUTF8CStringLiteral(&instring, [[sender stringValue] UTF8String]);
+  naCreateByteArrayWithConstBuffer(&inarray, naGetStringChar(&instring, 0), naGetStringSize(&instring));
+  naDecoupleByteArray(&inarray, NA_FALSE);
   [indec setStringValue:@""];
   [inhex setStringValue:@""];
   [inbin setStringValue:@""];
-  naCreateBitArrayFromASCIIString(&bitarray, &instring, -8);
+  naCreateBitArrayWithByteArray(&bitarray, &inarray, -8);
   naClearString(&instring);
+  naClearByteArray(&inarray);
   [self update];
 }
 

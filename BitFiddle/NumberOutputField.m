@@ -1,6 +1,6 @@
 
 #import "NumberOutputField.h"
-#include "NABitArray.h"
+#include "BitArray.h"
 
 
 @implementation NumberOutputField
@@ -19,21 +19,21 @@
     [mutablestring setString:@"0"];
   }else{
     if(withdecsign){
-      [mutablestring setString:[NSString stringWithFormat:@"-%s", naGetStringMutableUTF8Pointer(string)]];
+      [mutablestring setString:[NSString stringWithFormat:@"-%s", naGetStringUTF8Pointer(string)]];
     }else{
-      [mutablestring setString:[NSString stringWithUTF8String:naGetStringMutableUTF8Pointer(string)]];
+      [mutablestring setString:[NSString stringWithUTF8String:naGetStringUTF8Pointer(string)]];
     }
   }
 }
 
 
-- (void)fillWithBitArray:(NABitArray*) bitarray withDecSign:(NABool)withdecsign{
+- (void)fillWithBitArray:(BitArray*) bitarray withDecSign:(NABool)withdecsign{
   NAString outstring;
-  NABitArray decsignarray;
+  BitArray decsignarray;
   
 //  
 //  if(bitcount > naGetBitArrayCount(bitarray)){
-//    naCreateBitArrayExtension(&clamparray, bitarray, 0, bitcount);
+//    naCreateBitArrayShiftExtension(&clamparray, bitarray, 0, bitcount);
 //  }else{
 //    naCreateBitArrayExtraction(&clamparray, bitarray, 0, bitcount);
 //  }

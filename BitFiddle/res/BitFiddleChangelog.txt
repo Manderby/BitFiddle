@@ -1,6 +1,9 @@
 Bit Fiddle Changelog
 
+Version 1.2
+-----------
 - Recompiled with new NALib
+- German localization
 
 Version 1.1.1
 -------------

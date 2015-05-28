@@ -8,7 +8,11 @@
 @implementation BitFiddleApplication
 
 - (id)init{
-  self = [super initWithDescription:@"Conversion tool for binary values\nDesign and implementation: Tobias Stamm"];
+  self = [super init];
+  NAInt* price = malloc(sizeof(NAInt));
+  *price = 2;
+  [super setMetaData:price forIndex:MANDERIM_METADATA_PRICE];
+
   [self setDelegate:self];
   return self;
 }

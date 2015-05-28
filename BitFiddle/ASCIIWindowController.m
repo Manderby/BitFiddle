@@ -1095,7 +1095,9 @@ const char* addinfo[128] = {
   }else{
     [comment1 setStringValue:[NSString stringWithFormat:@"%i   0x%02x   \'%s\'\n%s", ord, ord, codes[ord], unicodenames[ord]]];
   }
-  [comment2 setStringValue:[NSString stringWithCString:addinfo[ord] encoding:NSUTF8StringEncoding]];
+  NSString* addinfostring = [[NSBundle mainBundle] localizedStringForKey:[NSString stringWithFormat:@"BitFiddleAdditionalInfo%02x", ord] value:nil table:nil];
+  [comment2 setStringValue:addinfostring];
+//  [comment2 setStringValue:[NSString stringWithCString:addinfo[ord] encoding:NSUTF8StringEncoding]];
   currenthighlight = ord;
 }
 
