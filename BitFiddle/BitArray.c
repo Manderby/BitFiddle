@@ -445,7 +445,7 @@ NAString* naCreateStringDecFromBitArray(NAString* string,
   
   NAUTF8Char* stringbuf = naAllocate(-bitcount);
   charptr = &(stringbuf[bitcount-1]);
-  naCreateStringWithMutableUTF8Buffer(string, stringbuf, bitcount, NA_TRUE);
+  naCreateStringWithMutableUTF8Buffer(string, stringbuf, -bitcount, NA_TRUE);
 
   outputlen = 0;
   finalstringcount = 0;
