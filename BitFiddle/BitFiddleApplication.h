@@ -2,7 +2,7 @@
 #import <Cocoa/Cocoa.h>
 #import "ManderimApplication.h"
 
-@class AboutWindowController;
+@class ManderimAboutWindowController;
 @class BitFiddlePreferencesController;
 @class ComplementWindowController;
 @class ASCIIWindowController;
