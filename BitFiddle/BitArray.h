@@ -174,12 +174,9 @@ NAUInt naGetBitArrayCount(BitArray* bitarray);
 
 
 // Creates string representations of the given bitarray as an integer number.
-NAString* naCreateStringDecFromBitArray(NAString* string,
-                                             BitArray* bitarray);
-NAString* naCreateStringHexFromBitArray(NAString* string,
-                                             BitArray* bitarray);
-NAString* naCreateStringBinFromBitArray(NAString* string,
-                                             BitArray* bitarray);
+NAString* naNewStringDecFromBitArray(BitArray* bitarray);
+NAString* naNewStringHexFromBitArray(BitArray* bitarray);
+NAString* naNewStringBinFromBitArray(BitArray* bitarray);
 
 // Creates a byte array out of the given bit array. Every 8 bits are combined
 // into one single byte. The byte array is guaranteed to be null-terminated.

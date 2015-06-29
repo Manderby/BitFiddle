@@ -728,12 +728,6 @@ const char* addinfo[128] = {
   [[self window] makeKeyAndOrderFront:self];
 }
 
-//- (BOOL)windowShouldClose:(id)sender{
-//  NSUserDefaults* userdefaults = [NSUserDefaults standardUserDefaults];
-//  [userdefaults setInteger:-1 forKey:@"showascii"];
-//  return YES;
-//}
-//
 -(void)update{
 
   NSUserDefaults* userdefaults = [NSUserDefaults standardUserDefaults];
@@ -1079,12 +1073,6 @@ const char* addinfo[128] = {
   [self update];
 }
 
-//-(IBAction)entryclicked:(NSControl*)sender{
-//  if(sender == asc20){
-//    [comment1 setStringValue:@"Unicode-Name:\nSPACE"];
-//    [comment2 setStringValue:@"Code: SPC or SP"];
-//  }
-//}
 
 
 
@@ -1097,14 +1085,11 @@ const char* addinfo[128] = {
   }
   NSString* addinfostring = [[NSBundle mainBundle] localizedStringForKey:[NSString stringWithFormat:@"BitFiddleAdditionalInfo%02x", ord] value:nil table:nil];
   [comment2 setStringValue:addinfostring];
-//  [comment2 setStringValue:[NSString stringWithCString:addinfo[ord] encoding:NSUTF8StringEncoding]];
   currenthighlight = ord;
 }
 
 - (void)mouseExited:(NSEvent *)theEvent{
   currenthighlight = -1;
-//  [comment1 setStringValue:@""];
-//  [comment2 setStringValue:@""];
 }
 
 @end

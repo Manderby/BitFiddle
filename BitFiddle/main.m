@@ -1,16 +1,13 @@
 
 
 #import <Cocoa/Cocoa.h>
+#include "NARuntime.h"
 
-//#include "BitArray.h"
+
 
 int main(int argc, char *argv[]){
+  naStartRuntime();
+  int retval = NSApplicationMain(argc, (const char **)argv);
 
-
-//  NAString* string = naCreateStringWithUTF8CString(string, "1");
-//  BitArray* array = naCreateBitArrayFromDecString(array, string, 0);
-//  NAString* outstring = naCreateStringBinFromBitArray(outstring, array);
-//  printf("%s\n", naGetStringPrintfArgument(outstring));
-
-  return NSApplicationMain(argc, (const char **)argv);
+  return retval;
 }

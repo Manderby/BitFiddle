@@ -29,11 +29,11 @@
   naCreateByteArray(&bytearraychr32);
   naCreateByteArray(&bytearraychr64);
   naCreateByteArray(&bytearraychrn);
-  naCreateString(&chrstr8);
-  naCreateString(&chrstr16);
-  naCreateString(&chrstr32);
-  naCreateString(&chrstr64);
-  naCreateString(&chrstrn);
+  chrstr8 = naNewString();
+  chrstr16 = naNewString();
+  chrstr32 = naNewString();
+  chrstr64 = naNewString();
+  chrstrn = naNewString();
   [indec setStringValue:@""];
   [inhex setStringValue:@""];
   [inbin setStringValue:@""];
@@ -88,11 +88,11 @@
   naClearByteArray(&bytearraychr32);
   naClearByteArray(&bytearraychr64);
   naClearByteArray(&bytearraychrn);
-  naClearString(&chrstr8);
-  naClearString(&chrstr16);
-  naClearString(&chrstr32);
-  naClearString(&chrstr64);
-  naClearString(&chrstrn);
+  naDelete(chrstr8);
+  naDelete(chrstr16);
+  naDelete(chrstr32);
+  naDelete(chrstr64);
+  naDelete(chrstrn);
   naCreateBitArrayExtraction(&bitarrayn, &bitarray, 0, -1);
   if(ncount < 8){
     naCreateBitArrayShiftExtension(&bitarray8, &bitarray, 0, 8);
@@ -205,7 +205,7 @@
 
   naCreateByteArrayFromBitArray(&bytearraychr8, &bitarray8);
   if(naIsByteArrayEmpty(&bytearraychr8)){
-    naCreateStringWithUTF8CStringLiteral(&chrstr8, "");
+    chrstr8 = naNewStringWithUTF8CStringLiteral("");
   }else{
     NAInt arraysize = naGetByteArraySize(&bytearraychr8);
     NAByte* curbyte = naGetByteArrayMutablePointer(&bytearraychr8);
@@ -214,14 +214,14 @@
       curbyte++;
       arraysize--;
     }
-    naCreateStringWithUTF8CStringLiteral(&chrstr8, (NAUTF8Char*)naGetByteArrayConstPointer(&bytearraychr8));
+    chrstr8 = naNewStringWithUTF8CStringLiteral((NAUTF8Char*)naGetByteArrayConstPointer(&bytearraychr8));
   }
-  [outchr8 fillWithString:&chrstr8 withDecSign:NA_FALSE];
+  [outchr8 fillWithString:chrstr8 withDecSign:NA_FALSE];
 
 
   naCreateByteArrayFromBitArray(&bytearraychr16, &bitarray16);
   if(naIsByteArrayEmpty(&bytearraychr16)){
-    naCreateStringWithUTF8CStringLiteral(&chrstr16, "");
+    chrstr16 = naNewStringWithUTF8CStringLiteral("");
   }else{
     NAInt arraysize = naGetByteArraySize(&bytearraychr16);
     NAByte* curbyte = naGetByteArrayMutablePointer(&bytearraychr16);
@@ -230,14 +230,14 @@
       curbyte++;
       arraysize--;
     }
-    naCreateStringWithUTF8CStringLiteral(&chrstr16, (NAUTF8Char*)naGetByteArrayConstPointer(&bytearraychr16));
+    chrstr16 = naNewStringWithUTF8CStringLiteral((NAUTF8Char*)naGetByteArrayConstPointer(&bytearraychr16));
   }
-  [outchr16 fillWithString:&chrstr16 withDecSign:NA_FALSE];
+  [outchr16 fillWithString:chrstr16 withDecSign:NA_FALSE];
 
 
   naCreateByteArrayFromBitArray(&bytearraychr32, &bitarray32);
   if(naIsByteArrayEmpty(&bytearraychr32)){
-    naCreateStringWithUTF8CStringLiteral(&chrstr32, "");
+    chrstr32 = naNewStringWithUTF8CStringLiteral("");
   }else{
     NAInt arraysize = naGetByteArraySize(&bytearraychr32);
     NAByte* curbyte = naGetByteArrayMutablePointer(&bytearraychr32);
@@ -246,19 +246,19 @@
       curbyte++;
       arraysize--;
     }
-    naCreateStringWithUTF8CStringLiteral(&chrstr32, (NAUTF8Char*)naGetByteArrayConstPointer(&bytearraychr32));
+    chrstr32 = naNewStringWithUTF8CStringLiteral((NAUTF8Char*)naGetByteArrayConstPointer(&bytearraychr32));
   }
-  [outchr32 fillWithString:&chrstr32 withDecSign:NA_FALSE];
+  [outchr32 fillWithString:chrstr32 withDecSign:NA_FALSE];
 
 
   naCreateByteArrayFromBitArray(&bytearraychr64, &bitarray64);
   if(naIsByteArrayEmpty(&bytearraychr64)){
-    naCreateStringWithUTF8CStringLiteral(&chrstr64, "");
+    chrstr64 = naNewStringWithUTF8CStringLiteral("");
   }else{
     NAInt arraysize = naGetByteArraySize(&bytearraychr64);
     NAInt separators = (arraysize-1) / 4;
     NAUTF8Char* stringbuf = naAllocate(-(arraysize + separators));
-    naCreateStringWithMutableUTF8Buffer(&chrstr64, stringbuf, -(arraysize + separators), NA_TRUE);
+    chrstr64 = naNewStringWithMutableUTF8Buffer(stringbuf, -(arraysize + separators), NA_TRUE);
     NAUTF8Char* curchar = stringbuf;
     const NAByte* curbyte = naGetByteArrayConstPointer(&bytearraychr64);
     for(NAInt i=0; i<arraysize; i++){
@@ -268,17 +268,17 @@
       curchar++;
     }
   }
-  [outchr64 fillWithString:&chrstr64 withDecSign:NA_FALSE];
+  [outchr64 fillWithString:chrstr64 withDecSign:NA_FALSE];
 
 
   naCreateByteArrayFromBitArray(&bytearraychrn, &bitarrayn);
   if(naIsByteArrayEmpty(&bytearraychrn)){
-    naCreateStringWithUTF8CStringLiteral(&chrstrn, "");
+    chrstrn = naNewStringWithUTF8CStringLiteral("");
   }else{
     NAInt arraysize = naGetByteArraySize(&bytearraychrn);
     NAInt separators = (arraysize-1) / 4;
     NAUTF8Char* stringbuf = naAllocate(-(arraysize + separators));
-    naCreateStringWithMutableUTF8Buffer(&chrstrn, stringbuf, -(arraysize + separators), NA_TRUE);
+    chrstrn = naNewStringWithMutableUTF8Buffer(stringbuf, -(arraysize + separators), NA_TRUE);
     NAUTF8Char* curchar = stringbuf;
     const NAByte* curbyte = naGetByteArrayConstPointer(&bytearraychrn);
     for(NAInt i=0; i<arraysize; i++){
@@ -288,7 +288,7 @@
       curchar++;
     }
   }
-  [outchrn fillWithString:&chrstrn withDecSign:NA_FALSE];
+  [outchrn fillWithString:chrstrn withDecSign:NA_FALSE];
 
 
 }
@@ -313,49 +313,49 @@
 
 
 - (void)valueChangeDec:(NSControl*)sender{
-  NAString instring;
-  naCreateStringWithUTF8CStringLiteral(&instring, [[sender stringValue] UTF8String]);
+  NAString* instring;
+  instring = naNewStringWithUTF8CStringLiteral([[sender stringValue] UTF8String]);
   [inhex setStringValue:@""];
   [inbin setStringValue:@""];
   [inasc setStringValue:@""];
-  naCreateBitArrayWithDecString(&bitarray, &instring, -8);
-  naClearString(&instring);
+  naCreateBitArrayWithDecString(&bitarray, instring, -8);
+  naDelete(instring);
   [self update];
 }
 
 - (void)valueChangeHex:(NSControl*)sender{
-  NAString instring;
-  naCreateStringWithUTF8CStringLiteral(&instring, [[sender stringValue] UTF8String]);
+  NAString* instring;
+  instring = naNewStringWithUTF8CStringLiteral([[sender stringValue] UTF8String]);
   [indec setStringValue:@""];
   [inbin setStringValue:@""];
   [inasc setStringValue:@""];
-  naCreateBitArrayWithHexString(&bitarray, &instring, -8);
-  naClearString(&instring);
+  naCreateBitArrayWithHexString(&bitarray, instring, -8);
+  naDelete(instring);
   [self update];
 }
 
 - (void)valueChangeBin:(NSControl*)sender{
-  NAString instring;
-  naCreateStringWithUTF8CStringLiteral(&instring, [[sender stringValue] UTF8String]);
+  NAString* instring;
+  instring = naNewStringWithUTF8CStringLiteral([[sender stringValue] UTF8String]);
   [indec setStringValue:@""];
   [inhex setStringValue:@""];
   [inasc setStringValue:@""];
-  naCreateBitArrayWithBinString(&bitarray, &instring, -8);
-  naClearString(&instring);
+  naCreateBitArrayWithBinString(&bitarray, instring, -8);
+  naDelete(instring);
   [self update];
 }
 
 - (void)valueChangeAsc:(NSControl*)sender{
-  NAString instring;
+  NAString* instring;
   NAByteArray inarray;
-  naCreateStringWithUTF8CStringLiteral(&instring, [[sender stringValue] UTF8String]);
-  naCreateByteArrayWithConstBuffer(&inarray, naGetStringChar(&instring, 0), naGetStringSize(&instring));
+  instring = naNewStringWithUTF8CStringLiteral([[sender stringValue] UTF8String]);
+  naCreateByteArrayWithConstBuffer(&inarray, naGetStringChar(instring, 0), naGetStringSize(instring));
   naDecoupleByteArray(&inarray, NA_FALSE);
   [indec setStringValue:@""];
   [inhex setStringValue:@""];
   [inbin setStringValue:@""];
   naCreateBitArrayWithByteArray(&bitarray, &inarray, -8);
-  naClearString(&instring);
+  naDelete(instring);
   naClearByteArray(&inarray);
   [self update];
 }

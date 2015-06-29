@@ -431,21 +431,22 @@ NAUInt naGetBitArrayCount(BitArray* bitarray){
 
 
 
-NAString* naCreateStringDecFromBitArray(NAString* string,
-                                    BitArray* bitarray){
+NAString* naNewStringDecFromBitArray(BitArray* bitarray){
   NAUTF8Char* charptr;
   NAInt outputlen;
   NAInt finalstringcount;
   BitArray* work;
   NAUInt i;
   NAUInt j;
+  NAString* string;
+  NAString* retstring;
 
   NAUInt bitcount = naGetBitArrayCount(bitarray);
-  if(!bitcount){return naCreateString(string);}
+  if(!bitcount){return naNewString();}
   
   NAUTF8Char* stringbuf = naAllocate(-bitcount);
   charptr = &(stringbuf[bitcount-1]);
-  naCreateStringWithMutableUTF8Buffer(string, stringbuf, -bitcount, NA_TRUE);
+  string = naNewStringWithMutableUTF8Buffer(stringbuf, -bitcount, NA_TRUE);
 
   outputlen = 0;
   finalstringcount = 0;
@@ -520,17 +521,18 @@ NAString* naCreateStringDecFromBitArray(NAString* string,
   
   if(finalstringcount){
     naDestroyBitArray(work);
-    return naCreateStringExtraction(string, string, -finalstringcount, -1);
+    retstring = naNewStringExtraction(string, -finalstringcount, -1);
+    
   }else{
-    naClearString(string);
-    return naCreateStringWithUTF8CStringLiteral(string, "0");
+    retstring = naNewStringWithUTF8CStringLiteral("0");
   }
+  naDelete(string);
+  return retstring;
 }
 
 
 
-NAString* naCreateStringHexFromBitArray(NAString* string,
-                                    BitArray* bitarray){
+NAString* naNewStringHexFromBitArray(BitArray* bitarray){
   NAUTF8Char* charptr;
   NABit* bitptr;
   uint8 nibble;
@@ -538,11 +540,10 @@ NAString* naCreateStringHexFromBitArray(NAString* string,
   NAUInt bitcount = naGetBitArrayCount(bitarray);
   NAInt nibblecount = (bitcount % 4)?(bitcount / 4 + 1):(bitcount / 4);
   NAInt delimiters = (nibblecount - 1) / 2;
-  if(!nibblecount){return naCreateString(string);}
+  if(!nibblecount){return naNewString();}
 
   NAUTF8Char* stringbuf = naAllocate(-(nibblecount + delimiters));
   charptr = stringbuf;
-  string = naCreateStringWithMutableUTF8Buffer(string, stringbuf, -(nibblecount + delimiters), NA_TRUE);
 
   bitptr = naGetBitArrayBit(bitarray, -1);
   nibble = 0;
@@ -563,23 +564,21 @@ NAString* naCreateStringHexFromBitArray(NAString* string,
       }
     }
   }
-  return string;
+  return naNewStringWithMutableUTF8Buffer(stringbuf, -(nibblecount + delimiters), NA_TRUE);
 }
 
 
 
-NAString* naCreateStringBinFromBitArray(NAString* string,
-                                    BitArray* bitarray){
+NAString* naNewStringBinFromBitArray(BitArray* bitarray){
   NAUTF8Char* charptr;
   NABit* bitptr;
 
   NAUInt bitcount = naGetBitArrayCount(bitarray);
   NAInt delimiters = (bitcount - 1) / 8;
-  if(!bitcount){return naCreateString(string);}
+  if(!bitcount){return naNewString();}
 
   NAUTF8Char* stringbuf = naAllocate(-(bitcount + delimiters));
   charptr = stringbuf;
-  string = naCreateStringWithMutableUTF8Buffer(string, stringbuf, -(bitcount + delimiters), NA_TRUE);
 
   bitptr = naGetBitArrayBit(bitarray, -1);
   while(bitcount){
@@ -589,7 +588,7 @@ NAString* naCreateStringBinFromBitArray(NAString* string,
       *charptr++ = ' ';
     }
   }
-  return string;
+  return naNewStringWithMutableUTF8Buffer(stringbuf, -(bitcount + delimiters), NA_TRUE);
 }
 
 

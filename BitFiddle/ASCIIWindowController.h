@@ -285,10 +285,8 @@
 
 -(void)awakeFromNib;
 -(void)showDialog;
-//- (BOOL)windowShouldClose:(id)sender;
 -(void)update;
 -(IBAction)segmentControlChange:(NSControl*)sender;
-//-(IBAction)entryclicked:(NSControl*)sender;
 - (void)mouseEntered:(NSEvent *)theEvent;
 - (void)mouseExited:(NSEvent *)theEvent;
 

@@ -52,11 +52,11 @@ typedef enum{
   NAByteArray bytearraychr32;
   NAByteArray bytearraychr64;
   NAByteArray bytearraychrn;
-  NAString  chrstr8;
-  NAString  chrstr16;
-  NAString  chrstr32;
-  NAString  chrstr64;
-  NAString  chrstrn;
+  NAString* chrstr8;
+  NAString* chrstr16;
+  NAString* chrstr32;
+  NAString* chrstr64;
+  NAString* chrstrn;
 }
 
 - (void)awakeFromNib;

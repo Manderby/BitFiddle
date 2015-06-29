@@ -28,15 +28,9 @@
 
 
 - (void)fillWithBitArray:(BitArray*) bitarray withDecSign:(NABool)withdecsign{
-  NAString outstring;
+  NAString* outstring;
   BitArray decsignarray;
   
-//  
-//  if(bitcount > naGetBitArrayCount(bitarray)){
-//    naCreateBitArrayShiftExtension(&clamparray, bitarray, 0, bitcount);
-//  }else{
-//    naCreateBitArrayExtraction(&clamparray, bitarray, 0, bitcount);
-//  }
   switch(numbersystem){
   case NUMBER_SYSTEM_DEC:
     naCreateBitArrayExtraction(&decsignarray, bitarray, 0, -1);
@@ -46,19 +40,18 @@
     }else{
       withdecsign = NA_FALSE;
     }
-    naCreateStringDecFromBitArray(&outstring, &decsignarray);
+    outstring = naNewStringDecFromBitArray(&decsignarray);
     naClearBitArray(&decsignarray);
     break;
   case NUMBER_SYSTEM_HEX:
-    naCreateStringHexFromBitArray(&outstring, bitarray);
+    outstring = naNewStringHexFromBitArray(bitarray);
     break;
   case NUMBER_SYSTEM_BIN:
-    naCreateStringBinFromBitArray(&outstring, bitarray);
+    outstring = naNewStringBinFromBitArray(bitarray);
     break;
   }
-  [self fillWithString:&outstring withDecSign:withdecsign];
-  naClearString(&outstring);
-//  naClearBitArray(&clamparray);
+  [self fillWithString:outstring withDecSign:withdecsign];
+  naDelete(outstring);
 }
 
 
