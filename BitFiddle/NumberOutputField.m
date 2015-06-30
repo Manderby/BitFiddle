@@ -33,7 +33,7 @@
   
   switch(numbersystem){
   case NUMBER_SYSTEM_DEC:
-    naCreateBitArrayExtraction(&decsignarray, bitarray, 0, -1);
+    naInitBitArrayExtraction(&decsignarray, bitarray, 0, -1);
     if(bitarray && naGetBitArrayCount(bitarray) && withdecsign && *naGetBitArrayBit(bitarray, -1)){
       naDecoupleBitArray(&decsignarray);
       naComputeBitArrayTwosComplement(&decsignarray);

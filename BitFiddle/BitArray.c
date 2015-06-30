@@ -9,32 +9,38 @@
 
 
 
-BitArray* naCreateBitArray(BitArray* bitarray){
-  bitarray = naAllocNALibStruct(bitarray, BitArray);
+BitArray* naInitBitArray(BitArray* bitarray){
+  #ifndef NDEBUG
+    if(!bitarray)
+      {naCrash("naInitBitArray", "bitarray is NULL"); return NA_NULL;}
+  #endif
   // Create two empty byte arrays
-  naCreateByteArray(&(bitarray->fullstorage));
-  naCreateByteArray(&(bitarray->bits));
+  naInitByteArray(&(bitarray->fullstorage));
+  naInitByteArray(&(bitarray->bits));
   return bitarray;
 }
 
 
 
-BitArray* naCreateBitArrayWithCount(BitArray* bitarray, NAInt count){
-  if(!count){return naCreateBitArray(bitarray);}
-  bitarray = naAllocNALibStruct(bitarray, BitArray);
+BitArray* naInitBitArrayWithCount(BitArray* bitarray, NAInt count){
+  #ifndef NDEBUG
+    if(!bitarray)
+      {naCrash("naInitBitArrayWithCount", "bitarray is NULL"); return NA_NULL;}
+  #endif
+  if(!count){return naInitBitArray(bitarray);}
   if(count > 0){
-    naCreateByteArrayWithSize(&(bitarray->fullstorage), count);
-    naCreateByteArrayExtraction(&(bitarray->bits), &(bitarray->fullstorage), 0, -1);
+    naInitByteArrayWithSize(&(bitarray->fullstorage), count);
+    naInitByteArrayExtraction(&(bitarray->bits), &(bitarray->fullstorage), 0, -1);
   }else{
-    naCreateByteArrayWithSize(&(bitarray->fullstorage), -count);
-    naCreateByteArray(&(bitarray->bits));
+    naInitByteArrayWithSize(&(bitarray->fullstorage), -count);
+    naInitByteArray(&(bitarray->bits));
   }
   return bitarray;
 }
 
 
 
-BitArray* naCreateBitArrayShiftExtension( BitArray* dstarray, BitArray* srcarray, NAInt shift, NAInt size){
+BitArray* naInitBitArrayShiftExtension( BitArray* dstarray, BitArray* srcarray, NAInt shift, NAInt size){
 //  NABool arithmetic = NA_FALSE;
   NAInt i = 0;
   NABit* srcptr;
@@ -44,11 +50,11 @@ BitArray* naCreateBitArrayShiftExtension( BitArray* dstarray, BitArray* srcarray
 
   #ifndef NDEBUG
     if(!srcarray)
-      naError("naCreateBitArrayShiftExtension", "srcarray is Null-Pointer");
+      naError("naInitBitArrayShiftExtension", "srcarray is Null-Pointer");
   #endif
-  if(!size){return naCreateBitArray(dstarray);}
+  if(!size){return naInitBitArray(dstarray);}
   if(size<0){/*arithmetic = NA_TRUE; */size = -size;}
-  dstarray = naCreateBitArrayWithCount(dstarray, size);
+  dstarray = naInitBitArrayWithCount(dstarray, size);
   dstptr = naGetBitArrayBit(dstarray, 0);
 
   srccount = naGetBitArrayCount(srcarray);
@@ -90,17 +96,20 @@ BitArray* naCreateBitArrayShiftExtension( BitArray* dstarray, BitArray* srcarray
 
 
 
-BitArray* naCreateBitArrayExtraction( BitArray* dstarray,
+BitArray* naInitBitArrayExtraction( BitArray* dstarray,
                           BitArray* srcarray,
                           NAInt offset,
                           NAInt size){
-  dstarray = naAllocNALibStruct(dstarray, BitArray);
+  #ifndef NDEBUG
+    if(!dstarray)
+      {naCrash("naInitBitArrayWithCount", "dstarray is NULL"); return NA_NULL;}
+  #endif
   // An extractions fullstorage corresponds to the source bits not the source
   // fullstorage. This is for safety reasons such that an extracted array can
   // not change bits of its originated array outside of the extracted area.
-  naCreateByteArrayExtraction(&(dstarray->fullstorage), &(srcarray->bits), offset, size);
+  naInitByteArrayExtraction(&(dstarray->fullstorage), &(srcarray->bits), offset, size);
   // Set the bits field to the whole fullstorage.
-  naCreateByteArrayExtraction(&(dstarray->bits), &(dstarray->fullstorage), 0, -1);
+  naInitByteArrayExtraction(&(dstarray->bits), &(dstarray->fullstorage), 0, -1);
   return dstarray;
 }
 
@@ -139,15 +148,15 @@ void naEnsureBitArraySizeHint(BitArray* bitarray, NAInt sizehint){
   if(!bitcount){
     // if the bitarray was completely empty, just fill it with zeros.
     naNulln(naGetByteArrayMutablePointer(&(bitarray->fullstorage)), sizediff);
-    naCreateByteArrayExtraction(&(bitarray->bits), &(bitarray->fullstorage), 0, arraycount);
+    naInitByteArrayExtraction(&(bitarray->bits), &(bitarray->fullstorage), 0, arraycount);
   }else if(sizediff > 0){
     // The bitarray has fewer bits than needed. Fill with zero.
     naNulln(naGetByteArrayMutableByte(&(bitarray->bits), -1) + 1, sizediff);
-    naCreateByteArrayExtraction(&(bitarray->bits), &(bitarray->fullstorage), 0, arraycount);
+    naInitByteArrayExtraction(&(bitarray->bits), &(bitarray->fullstorage), 0, arraycount);
   }else if(sizediff < 0){
     // The bit array has more bits stored than needed. Extract the relevant
     // part.
-    naCreateByteArrayExtraction(&(bitarray->bits), &(bitarray->bits), 0, arraycount);
+    naInitByteArrayExtraction(&(bitarray->bits), &(bitarray->bits), 0, arraycount);
   }else{
     // The Bit array already has the precise size needed. Do nothing.
   }
@@ -155,7 +164,7 @@ void naEnsureBitArraySizeHint(BitArray* bitarray, NAInt sizehint){
 
 
 
-BitArray* naCreateBitArrayWithBinString(BitArray* bitarray,
+BitArray* naInitBitArrayWithBinString(BitArray* bitarray,
                                             NAString* string,
                                                 NAInt sizehint){
   NAUInt stringsize;
@@ -165,12 +174,15 @@ BitArray* naCreateBitArrayWithBinString(BitArray* bitarray,
   NAInt bitcount;
   NAUInt i;
 
-  bitarray = naAllocNALibStruct(bitarray, BitArray);
+  #ifndef NDEBUG
+    if(!bitarray)
+      {naCrash("naInitBitArrayWithBinString", "bitarray is NULL"); return NA_NULL;}
+  #endif
   // We assume that the string does not contain many garbage characters, so
   // we just take the string size as our guess how long the bin array will be.
   stringsize = naGetStringSize(string);
   arraycount = getBitArraySizeHintCount(sizehint, stringsize);
-  naCreateBitArrayWithCount(bitarray, -arraycount);
+  naInitBitArrayWithCount(bitarray, -arraycount);
   if(!stringsize){return bitarray;}
 
   // todo: Add caching
@@ -200,7 +212,7 @@ BitArray* naCreateBitArrayWithBinString(BitArray* bitarray,
     // unneccessary. But we should be consistend anyhow. Just think about what
     // would happen if one day, the implementation of ByteArray changes...
     naClearByteArray(&(bitarray->bits));
-    naCreateByteArrayExtraction(&(bitarray->bits), &(bitarray->fullstorage), 0, bitcount);
+    naInitByteArrayExtraction(&(bitarray->bits), &(bitarray->fullstorage), 0, bitcount);
   }
   naEnsureBitArraySizeHint(bitarray, sizehint);
   return bitarray;
@@ -208,7 +220,7 @@ BitArray* naCreateBitArrayWithBinString(BitArray* bitarray,
 
 
 
-BitArray* naCreateBitArrayWithDecString(BitArray* bitarray,
+BitArray* naInitBitArrayWithDecString(BitArray* bitarray,
                                             NAString* string,
                                                 NAInt sizehint){
   NAUInt stringsize;
@@ -219,22 +231,25 @@ BitArray* naCreateBitArrayWithDecString(BitArray* bitarray,
   BitArray tenarray;
   NAUInt i;
 
-  bitarray = naAllocNALibStruct(bitarray, BitArray);
+  #ifndef NDEBUG
+    if(!bitarray)
+      {naCrash("naInitBitArrayWithDecString", "bitarray is NULL"); return NA_NULL;}
+  #endif
   // We assume that the string does not contain many garbage characters, so
   // we just take the string size times 4 as our guess how long the bin array
   // will be.
   stringsize = naGetStringSize(string);
   arraycount = getBitArraySizeHintCount(sizehint, stringsize * 4);
-  naCreateBitArrayWithCount(bitarray, -arraycount);
+  naInitBitArrayWithCount(bitarray, -arraycount);
   if(!stringsize){return bitarray;}
 
   // todo: Add caching
   // Fill the bit array from lsb to msb by parsing the string from msb to lsb.
   curchar = naGetStringChar(string, 0);
   
-  naCreateBitArrayWithCount(&nibble, 4); // todo: use existing storage.
+  naInitBitArrayWithCount(&nibble, 4); // todo: use existing storage.
   nibbleptr = (NANibble*)naGetBitArrayBit(&nibble, 0);
-  naCreateBitArrayWithCount(&tenarray, stringsize * -4);
+  naInitBitArrayWithCount(&tenarray, stringsize * -4);
   
   curchar--;
   for(i = 0; i < stringsize; i++){
@@ -264,7 +279,7 @@ BitArray* naCreateBitArrayWithDecString(BitArray* bitarray,
 }
 
 
-BitArray* naCreateBitArrayWithHexString(BitArray* bitarray,
+BitArray* naInitBitArrayWithHexString(BitArray* bitarray,
                                             NAString* string,
                                                 NAInt sizehint){
   NAUInt stringsize;
@@ -275,12 +290,15 @@ BitArray* naCreateBitArrayWithHexString(BitArray* bitarray,
   NAInt bitcount;
   NAUInt i;
 
-  bitarray = naAllocNALibStruct(bitarray, BitArray);
+  #ifndef NDEBUG
+    if(!bitarray)
+      {naCrash("naInitBitArrayWithHexString", "bitarray is NULL"); return NA_NULL;}
+  #endif
   // We assume that the string does not contain many garbage characters, so
   // we just take the string size as our guess how long the bin array will be.
   stringsize = naGetStringSize(string);
   arraycount = getBitArraySizeHintCount(sizehint, stringsize * 4);
-  naCreateBitArrayWithCount(bitarray, -arraycount);
+  naInitBitArrayWithCount(bitarray, -arraycount);
   if(!stringsize){return bitarray;}
 
   // Fill the bit array from lsb to msb.
@@ -318,7 +336,7 @@ BitArray* naCreateBitArrayWithHexString(BitArray* bitarray,
     // unneccessary. But we should be consistend anyhow. Just think about what
     // would happen if one day, the implementation of ByteArray changes...
     naClearByteArray(&(bitarray->bits));
-    naCreateByteArrayExtraction(&(bitarray->bits), &(bitarray->fullstorage), 0, bitcount);
+    naInitByteArrayExtraction(&(bitarray->bits), &(bitarray->fullstorage), 0, bitcount);
   }
   naEnsureBitArraySizeHint(bitarray, sizehint);
   return bitarray;
@@ -327,7 +345,7 @@ BitArray* naCreateBitArrayWithHexString(BitArray* bitarray,
 
 
 
-BitArray* naCreateBitArrayWithByteArray(BitArray* bitarray, NAByteArray* bytearray, NAInt sizehint){
+BitArray* naInitBitArrayWithByteArray(BitArray* bitarray, NAByteArray* bytearray, NAInt sizehint){
   NAUInt bytearraysize;
   NAInt arraycount;
   NAInt bitcount = 0;
@@ -335,10 +353,13 @@ BitArray* naCreateBitArrayWithByteArray(BitArray* bitarray, NAByteArray* bytearr
   NABit* curbit;
   NAUInt i;
 
-  bitarray = naAllocNALibStruct(bitarray, BitArray);
+  #ifndef NDEBUG
+    if(!bitarray)
+      {naCrash("naInitBitArrayWithByteArray", "bitarray is NULL"); return NA_NULL;}
+  #endif
   bytearraysize = naGetByteArraySize(bytearray);
   arraycount = getBitArraySizeHintCount(sizehint, bytearraysize * 8);
-  naCreateBitArrayWithCount(bitarray, -arraycount);
+  naInitBitArrayWithCount(bitarray, -arraycount);
   if(!bytearraysize){return bitarray;}
 
   // todo: caching.
@@ -360,7 +381,7 @@ BitArray* naCreateBitArrayWithByteArray(BitArray* bitarray, NAByteArray* bytearr
   
   if(bitcount){
     naClearByteArray(&(bitarray->bits));
-    naCreateByteArrayExtraction(&(bitarray->bits), &(bitarray->fullstorage), 0, bitcount);
+    naInitByteArrayExtraction(&(bitarray->bits), &(bitarray->fullstorage), 0, bitcount);
   }
 
   naEnsureBitArraySizeHint(bitarray, sizehint);
@@ -385,14 +406,14 @@ void naDecoupleBitArray(BitArray* bitarray){
     // This array points to an empty bit array. Make the fullstorage empty
     // as well to be consistent.
     naClearByteArray(&(bitarray->fullstorage));
-    naCreateByteArray(&(bitarray->fullstorage));
+    naInitByteArray(&(bitarray->fullstorage));
     return;
   }
   naClearByteArray(&(bitarray->fullstorage));
-  naCreateByteArrayExtraction(&(bitarray->fullstorage), &(bitarray->bits), 0, -1);
+  naInitByteArrayExtraction(&(bitarray->fullstorage), &(bitarray->bits), 0, -1);
   naDecoupleByteArray(&(bitarray->fullstorage), NA_FALSE);
   naClearByteArray(&(bitarray->bits));
-  naCreateByteArrayExtraction(&(bitarray->bits), &(bitarray->fullstorage), 0, -1);
+  naInitByteArrayExtraction(&(bitarray->bits), &(bitarray->fullstorage), 0, -1);
 }
 
 
@@ -444,13 +465,13 @@ NAString* naNewStringDecFromBitArray(BitArray* bitarray){
   NAUInt bitcount = naGetBitArrayCount(bitarray);
   if(!bitcount){return naNewString();}
   
-  NAUTF8Char* stringbuf = naAllocate(-bitcount);
+  NAUTF8Char* stringbuf = naMalloc(-bitcount);
   charptr = &(stringbuf[bitcount-1]);
   string = naNewStringWithMutableUTF8Buffer(stringbuf, -bitcount, NA_TRUE);
 
   outputlen = 0;
   finalstringcount = 0;
-  work = naCreateBitArrayExtraction(NULL, bitarray, 0, -1);
+  work = naInitBitArrayExtraction(naAlloc(BitArray), bitarray, 0, -1);
   naDecoupleBitArray(work);
 
   while(bitcount){
@@ -542,7 +563,7 @@ NAString* naNewStringHexFromBitArray(BitArray* bitarray){
   NAInt delimiters = (nibblecount - 1) / 2;
   if(!nibblecount){return naNewString();}
 
-  NAUTF8Char* stringbuf = naAllocate(-(nibblecount + delimiters));
+  NAUTF8Char* stringbuf = naMalloc(-(nibblecount + delimiters));
   charptr = stringbuf;
 
   bitptr = naGetBitArrayBit(bitarray, -1);
@@ -577,7 +598,7 @@ NAString* naNewStringBinFromBitArray(BitArray* bitarray){
   NAInt delimiters = (bitcount - 1) / 8;
   if(!bitcount){return naNewString();}
 
-  NAUTF8Char* stringbuf = naAllocate(-(bitcount + delimiters));
+  NAUTF8Char* stringbuf = naMalloc(-(bitcount + delimiters));
   charptr = stringbuf;
 
   bitptr = naGetBitArrayBit(bitarray, -1);
@@ -593,13 +614,17 @@ NAString* naNewStringBinFromBitArray(BitArray* bitarray){
 
 
 
-NAByteArray* naCreateByteArrayFromBitArray(NAByteArray* bytearray,
+NAByteArray* naInitByteArrayFromBitArray(NAByteArray* bytearray,
                                             BitArray* bitarray){
+  #ifndef NDEBUG
+    if(!bytearray)
+      {naCrash("naInitByteArrayFromBitArray", "bytearray is NULL"); return NA_NULL;}
+  #endif
   NAByte* curbyte;
   NABit* curbit;
   int b;
   NAUInt bytecount = naGetBitArrayCount(bitarray) / 8;
-  bytearray = naCreateByteArrayWithSize(bytearray, -bytecount);
+  bytearray = naInitByteArrayWithSize(bytearray, -bytecount);
   if(!bytecount){return bytearray;}
   
   curbyte = naGetByteArrayMutablePointer(bytearray);
@@ -701,7 +726,7 @@ NABit naComputeBitArrayAddBitArray( BitArray* dstarray,
     dstcount--;
   }
   
-  naCreateByteArrayExtraction(&(dstarray->bits), &(dstarray->fullstorage), 0, -1 - dstcount);
+  naInitByteArrayExtraction(&(dstarray->bits), &(dstarray->fullstorage), 0, -1 - dstcount);
   return carry;
 }
 
@@ -722,7 +747,7 @@ void naComputeBitArrayMulTen(BitArray* dstarray, BitArray* srcarray){
   if(!dstcount){return;}
   if(!srccount){
     naClearByteArray(&(dstarray->bits));
-    naCreateByteArray(&(dstarray->bits));
+    naInitByteArray(&(dstarray->bits));
     return;
   }
 
@@ -781,7 +806,7 @@ void naComputeBitArrayMulTen(BitArray* dstarray, BitArray* srcarray){
     dstcount--;
   }
 
-  naCreateByteArrayExtraction(&(dstarray->bits), &(dstarray->fullstorage), 0, -1 - dstcount);
+  naInitByteArrayExtraction(&(dstarray->bits), &(dstarray->fullstorage), 0, -1 - dstcount);
 }
 
 

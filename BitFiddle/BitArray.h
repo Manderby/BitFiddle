@@ -70,7 +70,7 @@ struct BitArray{
 
 
 // Creates an empty bit array.
-BitArray* naCreateBitArray(BitArray* bitarray);
+BitArray* naInitBitArray(BitArray* bitarray);
 
 
 // Creates a bit array with the specified count.
@@ -85,7 +85,7 @@ BitArray* naCreateBitArray(BitArray* bitarray);
 // - If count is zero, an empty bit array is returned.
 //
 // The returned bit array is always unititialized.
-BitArray* naCreateBitArrayWithCount( BitArray* bitarray,
+BitArray* naInitBitArrayWithCount( BitArray* bitarray,
                                                     NAInt count);
 
 
@@ -112,7 +112,7 @@ BitArray* naCreateBitArrayWithCount( BitArray* bitarray,
 //          shift  2 size   8 ->   11010100
 //          shift -2 size   8 ->   00101101
 //          shift -2 size  -8 ->   11101101
-BitArray * naCreateBitArrayShiftExtension(BitArray* dstarray,
+BitArray * naInitBitArrayShiftExtension(BitArray* dstarray,
                                                    BitArray* srcarray,
                                                          NAInt shift,
                                                          NAInt size);
@@ -122,7 +122,7 @@ BitArray * naCreateBitArrayShiftExtension(BitArray* dstarray,
 // The resulting bit array will dereference the fullstorage in the given
 // range and set the bits array to that very same range. Meaning: The new
 // bit array will not overwrite the original values even after operations.
-BitArray* naCreateBitArrayExtraction(BitArray* dstarray,
+BitArray* naInitBitArrayExtraction(BitArray* dstarray,
                                               BitArray* srcarray,
                                                     NAInt offset,
                                                     NAInt size);
@@ -142,16 +142,16 @@ BitArray* naCreateBitArrayExtraction(BitArray* dstarray,
 //   24, 32, ... bits, but never something in between.
 // Note that strings are always expected to be in natural reading order,
 // meaning, the trailing of the string contains the least significant values.
-BitArray* naCreateBitArrayWithBinString(  BitArray* bitarray,
+BitArray* naInitBitArrayWithBinString(  BitArray* bitarray,
                                                      NAString* string,
                                                          NAInt sizehint);
-BitArray* naCreateBitArrayWithDecString(  BitArray* bitarray,
+BitArray* naInitBitArrayWithDecString(  BitArray* bitarray,
                                                      NAString* string,
                                                          NAInt sizehint);
-BitArray* naCreateBitArrayWithHexString(  BitArray* bitarray,
+BitArray* naInitBitArrayWithHexString(  BitArray* bitarray,
                                                      NAString* string,
                                                          NAInt sizehint);
-BitArray* naCreateBitArrayWithByteArray(  BitArray* bitarray,
+BitArray* naInitBitArrayWithByteArray(  BitArray* bitarray,
                                                   NAByteArray* bytearray,
                                                          NAInt sizehint);
 
@@ -181,8 +181,8 @@ NAString* naNewStringBinFromBitArray(BitArray* bitarray);
 // Creates a byte array out of the given bit array. Every 8 bits are combined
 // into one single byte. The byte array is guaranteed to be null-terminated.
 // Careful: Only works properly when bitcount can be divided by 8! Use
-// naCreateBitArrayShiftExtension first, if this is not the case.
-NAByteArray* naCreateByteArrayFromBitArray(NAByteArray* bytearray,
+// naInitBitArrayShiftExtension first, if this is not the case.
+NAByteArray* naInitByteArrayFromBitArray(NAByteArray* bytearray,
                                                    BitArray* bitarray);
 
 
@@ -201,7 +201,7 @@ NAByteArray* naCreateByteArrayFromBitArray(NAByteArray* bytearray,
 //   less bits, but never more.
 // - All operations will be performed as UNSIGNED integers. Be careful: This can
 //   lead to false computations when trying to add signed integers of different
-//   bit sizes! Extend the smaller arrays using naCreateBitArrayShiftExtension first.
+//   bit sizes! Extend the smaller arrays using naInitBitArrayShiftExtension first.
 
 
 // Adds two bit arrays and puts it into the storage of dstarray. All pointers
@@ -230,7 +230,7 @@ void naComputeBitArrayOnesComplement(BitArray* array);
 void naComputeBitArrayTwosComplement(BitArray* array);
 
 // Swaps the byte order. Careful: Only works properly when bitcount can be
-// divided by 8! Use naCreateBitArrayShiftExtension first, if this is not the case.
+// divided by 8! Use naInitBitArrayShiftExtension first, if this is not the case.
 void naComputeBitArraySwapBytes(BitArray* array);
 
 
