@@ -1,5 +1,14 @@
 Bit Fiddle Changelog
 
+
+Version 1.2.2
+-------------
+- Added German and English help
+- Corrected a memory bug which caused the sign bit to disappear.
+
+Version 1.2.1
+-------------
+- New Icon
 - Corrected some UI elements for Yosemite
 
 Version 1.2

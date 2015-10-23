@@ -1,0 +1,137 @@
+<!DOCTYPE HTML>
+<html lang="de">
+
+<head>
+  <meta charset="utf-8"/>
+  <meta name="viewport" content="width=768"/>
+  <meta name="author" content="Tobias Stamm"/>
+  <link rel="stylesheet" type="text/css" href="css.css"/>
+  <title>UTC Scroll</title>
+</head>
+<body>
+
+<h1>Matrix Buddy</h1>
+
+<article>
+<header>
+<h2>What does this application do?</h2>
+</header>
+<p>Vector algebra in 2D, 3D and 4D. Matrix and Vector. Basic operations.</p>
+</article>
+
+
+
+<article>
+<header>
+<h2>Quick reference</h2>
+</header>
+<p><b>Top of the window</b>: You can see many buttons each denoting a different kind of matrix or vector operation. Click on one of the buttons and the desired operation becomes active. They are explained in detail further below in the <a href="#vectorops">vector operations</a> and <a href="#matrixops">matrix operations</a> section.</p>
+
+<p><b>Dimension chooser</b>: Select the number of dimensions (2D, 3D, 4D) with the control on top in the middle.</p>
+
+<p><b>Gear icon (in the middle on the top)</b>: All kinds of <a href="#settings">settings</a>.</p>
+
+<p><b>Bottom of the window</b>: This is where the operation is performed. Enter the matrix or vector values in the textfields. Results will be computed immediately and are indicated by a <span style="color:green">green</span> color.</p>
+
+</article>
+
+
+
+<article id="settings">
+<header>
+<h2>Settings</h2>
+</header>
+<p><b>Quick Help Line</b>: Displays or hides a one-line help denoting what the currently selected operation does.</p>
+<p><b>Identifiers</b>: Displays or hides the identifiers above a matrix or vector. Note: <span style="color:red">errors</span> and <span style="color:orange">warnings</span> will still be displayed, even if this is turned off.</p>
+<p><b>Tab order</b>: Defines how you advance through a matrix with the tab key.</p>
+<p><b>Code style</b>: Displays or hides the code text field below a matrix or vector. You can choose between different <a href="#codestyle">code styles</a>.</p>
+<p><b>Help</b>: Displays this help.</p>
+</article>
+
+
+<article id="codestyle">
+<header>
+<h2>Code Style</h2>
+</header>
+<p>There does not exist a standard method on how a matrix or a vector shall be copied and pasted between applications. The easiest way is to encode the matrix in a string. When enabling a specific code style in the <a href="#settings">Settings</a>, you can copy and paste a matrix or vector from and to different applications.</p>
+<p>There are different code styles which you can choose from:</p>
+<table>
+<tr><td>No code</td><td></td><td>Hides the code textfield</td></tr>
+<tr><td>C row first 1D</td><td><code>{1, 2, 3, 4}</code></td><td></td></tr>
+<tr><td>C row first 2D</td><td><code>{{1, 2}, {3, 4}}</code></td><td></td></tr>
+<tr><td>C column first 1D</td><td><code>{1, 3, 2, 4}</code></td><td></td></tr>
+<tr><td>C column first 2D</td><td><code>{{1, 3}, {2, 4}}</code></td><td></td></tr>
+<tr><td>Mathematica</td><td><code>{{1, 2}, {3, 4}}</code></td><td>always row first</td></tr>
+<tr><td>Matlab</td><td><code>[1 2; 3 4]</code></td><td>always row first</td></tr>
+<tr><td>Maple</td><td><code>[[1, 2], [3, 4]]</code></td><td>always row first</td></tr>
+</table>
+<p><b>Important</b>: The code styles are only for outputting. When you paste code from - for example - Matlab into Matrix Buddy, no special construction operators are allowed!</p>
+
+<p>When you paste code into the code textfield, Matrix Buddy tries to find all values in the given string as a strictly sequential list and fills all remaining values with 0 if not found. Pasted code starting with a curly bracket <code>{</code> will always be interpreted as C style code and hence will be interpreted column first if you have selected one of the column first options. In any other case, the pasted values will be interpreted row first.</p>
+
+<p>Note that support for storing a matrix or a vector internally in a list is planned but not implemented yet. For now, just use a plain text editor to store your matrix or vector data.</p>
+</article>
+
+
+
+<article id="vectorops">
+<header>
+<h2>Vector operations</h2>
+</header>
+
+
+<p><b>v×s</b>: Scalar multiplication of a vector. a × s = b. Scales all components of a with the factor s.</p>
+<p><b>v÷s</b>: Scalar division of a vector. a ÷ s = b. Divides all components of a by s. An <span style="color:red">error</span> or <span style="color:orange">warning</span> will be emitted if s is zero or close to zero.</p>
+<p><b>v⊙v</b>: Componentwise multiplication of a vector with another vector. a ⊙ b = c. Also known as <q>elementwise multiplication</q>. Multiplies all components of a by the corresponding component of b.</p>
+<p><b>v⊘v</b>: Componentwise division of a vector with another vector. a ⊘ b = c. Also known as <q>elementwise division</q>. Divides all components of a by the corresponding component of b. An <span style="color:red">error</span> or <span style="color:orange">warning</span> will be emitted if any of the components of b is zero or close to zero.</p>
+
+<p>&nbsp;</p>
+
+<p><b>−v</b>: Negation of a vector. v ⟷ -v. You can fill in either side to compute the other vector.</p>
+<p><b>v+v</b>: Addition of a vector to another vector. a + b = c. You can either choose to fill in a and b which computes c or you can choose to fill in a and c which solves the equation resulting in b.</p>
+<p><b>v−v</b>: Subtraction of a vector from another vector. a − b = c. You can either choose to fill in a and b which computes c or you can choose to fill in a and c which solves the equation resulting in b.</p>
+<p><b>v·v</b>: Computes the dot product of two vectors. a · b = s. Also known as the <q>scalar product</q>.</p>
+<p><b>v×v</b>: Computes the cross product of two vectors. a × b = c. Only defined for 3D vectors.</p>
+<p><b>|v|</b>: Computes the euclidian length of a vector. v ⟶ |v|. Also known as <q>2-Norm</q>.</p>
+
+<p>&nbsp;</p>
+
+<p><b>Normalize</b>: Normalizes the given vector. a ⟶ b. The b vector will have length 1. An <span style="color:red">error</span> or <span style="color:orange">warning</span> will be emitted if a had an initial length of zero or close to zero.</p>
+<p><b>Orthogonalize</b>: Makes a orthogonal to b. a ⊥ b ⟶ c. The c vector will be orthogonal to b. An <span style="color:red">error</span> or <span style="color:orange">warning</span> will be emitted if a or b had an initial length of zero or close to zero as well as if a was colinear to b or close to colinear. Orthogonalization is performed using the Gram-Schmidt method.</p>
+<p><b>Mirror</b>: Mirrors the vector a along a surface with normal n. a ↥ n ⟶ b. A <span style="color:orange">warning</span> will be emitted if the lenght of n is unequal 1.</p>
+
+</article>
+
+
+
+<article id="matrixops">
+<header>
+<h2>Matrix operations</h2>
+</header>
+
+
+<p><b>M×s</b>: Scalar multiplication of a matrix. A × s = B. Scales all components of A with the factor s. This is the same as multiplying matrix A with a diagonal matrix having s in all diagonal components.</p>
+<p><b>M÷s</b>: Scalar division of a matrix. A ÷ s = B. Divides all components of A by s. An <span style="color:red">error</span> or <span style="color:orange">warning</span> will be emitted if s is zero or close to zero.</p>
+<p><b>M⊙v</b>: Componentwise multiplication of a matrix with a vector. A ⊙ v = B. Also known as <q>elementwise multiplication</q>. Multiplies all column vectors of A by the corresponding component of v. This is the same as multiplying matrix A with a diagonal matrix constructed out of v.</p>
+<p><b>M⊘v</b>: Componentwise division of a matrix with a vector. A ⊘ v = B. Also known as <q>elementwise division</q>. Divides all column vectors of A by the corresponding component of v. This is the same as multiplying matrix A with a diagonal matrix constructed out of the inverse values of v. An <span style="color:red">error</span> or <span style="color:orange">warning</span> will be emitted if any of the components of v is zero or close to zero.</p>
+<p><b>M⊙M</b>: Componentwise multiplication of a matrix. A ⊙ B = C. Also known as <q>elementwise multiplication</q> or <q>Hadamard product</q>. Multiplies all components of A by the corresponding component of B.</p>
+<p><b>M⊘M</b>: Componentwise division of a matrix. A ⊘ B = C. Also known as <q>elementwise division</q>. Divides all components of A by the corresponding component of B. An <span style="color:red">error</span> or <span style="color:orange">warning</span> will be emitted if any of the components of B is zero or close to zero.</p>
+
+<p>&nbsp;</p>
+
+<p><b>−M</b>: Negation of a matrix. A ⟷ -A. You can fill in either side to compute the other matrix.</p>
+<p><b>M+M</b>: Addition of a matrix to another matrix. A + B = C. You can either choose to fill in A and B which computes C or you can choose to fill in A and C which solves the equation resulting in B.</p>
+<p><b>M−M</b>: Subtraction of a matrix from another matrix. A − B = C. You can either choose to fill in A and B which computes C or you can choose to fill in A and C which solves the equation resulting in B.</p>
+<p><b>M×v</b>: Multiplication of a matrix with a vector. A × b = x. You can either choose to fill in A and b which computes x or you can choose to fill in A and x which solves a linear equation system resulting in the b vector. If the matrix A can not be inverted, it will be indicated by an <span style="color:red">error</span> or <span style="color:orange">warning</span>.</p>
+<p><b>M×M</b>: Multiplication of a matrix with a matrix. A × B = C. You can either choose to fill in A and B which computes C or you can choose to fill in A and C which solves the equation resulting in B. If the matrix A can not be inverted, it will be indicated by an <span style="color:red">error</span> or <span style="color:orange">warning</span>.</p>
+
+<p>&nbsp;</p>
+
+<p><b>Diag(s)</b>: Create a diagonal matrix out of a scalar. s ⟶ A. Fill in s to compute A.</p>
+<p><b>Diag(v)</b>: Create a diagonal matrix out of a vector. v ⟶ A. Fill in v to compute A.</p>
+<p><b>Transpose</b>: Creates a transposed matrix. A ⟷ Transpose(A). You can fill in either side to compute the other matrix.</p>
+<p><b>Invert</b>: Creates the inverse of a matrix. A ⟷ Invert(A). You can fill in either side to compute the other matrix. If the input matric can not be inverted, it will be indicated by an <span style="color:red">error</span> or <span style="color:orange">warning</span></p>
+
+</article>
+
+</body></html>

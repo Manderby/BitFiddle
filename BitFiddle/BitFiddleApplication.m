@@ -18,6 +18,11 @@
 
 - (void)applicationDidFinishLaunching:(NSNotification *)notification{
 
+  [super applicationDidFinishLaunching:notification];
+  
+  NSURL* url = [[NSBundle mainBundle] URLForResource:@"index" withExtension:@"html" subdirectory:@"help"];
+  [self setHelpDocument:url];
+
   NSUserDefaults* userdefaults = [NSUserDefaults standardUserDefaults];
   NSInteger showascii = [userdefaults integerForKey:@"showascii"];
   if(!showascii){

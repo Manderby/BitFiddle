@@ -83,5 +83,6 @@ typedef enum{
 - (IBAction)switchToUnsigned:(id)sender;
 - (IBAction)switchToOnesComplement:(id)sender;
 - (IBAction)switchToTwosComplement:(id)sender;
+- (IBAction)switchToNegTwosComplement:(id)sender;
 
 @end

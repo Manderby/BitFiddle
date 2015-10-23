@@ -173,6 +173,16 @@
     break;
   }
 
+  [outhex8  fillWithBitArray:&bitarray8 withDecSign:NA_FALSE];
+  [outhex16 fillWithBitArray:&bitarray16 withDecSign:NA_FALSE];
+  [outhex32 fillWithBitArray:&bitarray32 withDecSign:NA_FALSE];
+  [outhex64 fillWithBitArray:&bitarray64 withDecSign:NA_FALSE];
+  [outhexn  fillWithBitArray:&bitarrayn withDecSign:NA_FALSE];
+  [outbin8  fillWithBitArray:&bitarray8 withDecSign:NA_FALSE];
+  [outbin16 fillWithBitArray:&bitarray16 withDecSign:NA_FALSE];
+  [outbin32 fillWithBitArray:&bitarray32 withDecSign:NA_FALSE];
+  [outbin64 fillWithBitArray:&bitarray64 withDecSign:NA_FALSE];
+  [outbinn  fillWithBitArray:&bitarrayn withDecSign:NA_FALSE];
   if(conversion == COMPUTE_ONES_COMPLEMENT){
     [outdec8  fillWithString:NULL withDecSign:NA_FALSE];
     [outdec16 fillWithString:NULL withDecSign:NA_FALSE];
@@ -192,16 +202,6 @@
     [outdec64 fillWithBitArray:&bitarray64 withDecSign:NA_FALSE];
     [outdecn  fillWithBitArray:&bitarrayn withDecSign:NA_FALSE];
   }
-  [outhex8  fillWithBitArray:&bitarray8 withDecSign:NA_FALSE];
-  [outhex16 fillWithBitArray:&bitarray16 withDecSign:NA_FALSE];
-  [outhex32 fillWithBitArray:&bitarray32 withDecSign:NA_FALSE];
-  [outhex64 fillWithBitArray:&bitarray64 withDecSign:NA_FALSE];
-  [outhexn  fillWithBitArray:&bitarrayn withDecSign:NA_FALSE];
-  [outbin8  fillWithBitArray:&bitarray8 withDecSign:NA_FALSE];
-  [outbin16 fillWithBitArray:&bitarray16 withDecSign:NA_FALSE];
-  [outbin32 fillWithBitArray:&bitarray32 withDecSign:NA_FALSE];
-  [outbin64 fillWithBitArray:&bitarray64 withDecSign:NA_FALSE];
-  [outbinn  fillWithBitArray:&bitarrayn withDecSign:NA_FALSE];
 
   naInitByteArrayFromBitArray(&bytearraychr8, &bitarray8);
   if(naIsByteArrayEmpty(&bytearraychr8)){
@@ -386,6 +386,10 @@
 }
 - (IBAction)switchToTwosComplement:(id)sender{
   [segcontrol setSelectedSegment:2];
+  [self segmentControlChange:sender];
+}
+- (IBAction)switchToNegTwosComplement:(id)sender{
+  [segcontrol setSelectedSegment:3];
   [self segmentControlChange:sender];
 }
 

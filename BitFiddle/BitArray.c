@@ -484,7 +484,7 @@ NAString* naNewStringDecFromBitArray(BitArray* bitarray){
     uint32 value;
     i = 0;
     j = naGetBitArrayCount(bitarray) - 1;
-    while(j >= (bitarray->bits.size - bitcount) + 3){
+    while(j >= (naGetByteArraySize(&(bitarray->bits)) - bitcount) + 3){
       // walk through the remaining value
       bit0 = naGetByteArrayConstPointer(&(work->bits))[j-3];
       bit1 = naGetByteArrayConstPointer(&(work->bits))[j-2];
@@ -513,12 +513,12 @@ NAString* naNewStringDecFromBitArray(BitArray* bitarray){
     }
     // extract the decimal value of the remaining bits
     if(bitcount==1){
-      bit0 = naGetByteArrayConstPointer(&(work->bits))[bitarray->bits.size - 1];
+      bit0 = naGetByteArrayConstPointer(&(work->bits))[naGetByteArraySize(&(bitarray->bits)) - 1];
       bit1 = BIT0;
       bit2 = BIT0;
     }else if(bitcount==2){
-      bit0 = naGetByteArrayConstPointer(&(work->bits))[bitarray->bits.size - 2];
-      bit1 = naGetByteArrayConstPointer(&(work->bits))[bitarray->bits.size - 1];
+      bit0 = naGetByteArrayConstPointer(&(work->bits))[naGetByteArraySize(&(bitarray->bits)) - 2];
+      bit1 = naGetByteArrayConstPointer(&(work->bits))[naGetByteArraySize(&(bitarray->bits)) - 1];
       bit2 = BIT0;
     }else{
       bit0 = naGetByteArrayConstPointer(&(work->bits))[j-2];
@@ -598,7 +598,8 @@ NAString* naNewStringBinFromBitArray(BitArray* bitarray){
   NAInt delimiters = (bitcount - 1) / 8;
   if(!bitcount){return naNewString();}
 
-  NAUTF8Char* stringbuf = naMalloc(-(bitcount + delimiters));
+  NAInt arraylen = -(bitcount + delimiters);
+  NAUTF8Char* stringbuf = naMalloc(arraylen);
   charptr = stringbuf;
 
   bitptr = naGetBitArrayBit(bitarray, -1);
@@ -609,7 +610,7 @@ NAString* naNewStringBinFromBitArray(BitArray* bitarray){
       *charptr++ = ' ';
     }
   }
-  return naNewStringWithMutableUTF8Buffer(stringbuf, -(bitcount + delimiters), NA_TRUE);
+  return naNewStringWithMutableUTF8Buffer(stringbuf, arraylen, NA_TRUE);
 }
 
 
