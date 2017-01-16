@@ -2,6 +2,23 @@
 /* Strings for ManderimApplication */
 ManderimApplicationDescription = "Conversion tool for binary values\nDesign and implementation: Tobias Stamm.";
 
+/* Expressions in Main Window */
+
+BitFiddleConversionUnsigned = "Unsigned";
+BitFiddleConversionOnesComp = "1's Complement";
+BitFiddleConversionTwosComp = "2's Complement";
+BitFiddleConversionByteSwap = "Little ↔ Big";
+
+/* Expressions in Preferences window */
+
+BitFiddlePrefsAtStartup     = "At application startup";
+BitFiddlePrefsShowASCII     = "Show ASCII window";
+BitFiddlePrefsResetSettings = "Reset converter settings";
+
+BitFiddlePrefsKeepOnTop     = "Keep window in foreground";
+BitFiddlePrefsMaxiVersion   = "Extended window";
+BitFiddlePrefsMiniVersion   = "Mini window";
+
 /* Additional information for ascii characters */
 
 BitFiddleAdditionalInfo00 = "C-escape: \\0";

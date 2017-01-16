@@ -1,7 +1,7 @@
 
 
 #import <Cocoa/Cocoa.h>
-#include "NARuntime.h"
+#include "NAMemory.h"
 
 
 

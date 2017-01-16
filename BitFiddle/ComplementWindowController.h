@@ -4,11 +4,6 @@
 #include "BitArray.h"
 #import "NumberOutputField.h"
 
-typedef enum{
-  COMPUTE_UNSIGNED = 0,
-  COMPUTE_ONES_COMPLEMENT,
-  COMPUTE_TWOS_COMPLEMENT,
-} ConversionType;
 
 @interface ComplementWindowController : NSWindowController <NSWindowDelegate>{
   IBOutlet NSTextField* indec;
@@ -37,10 +32,6 @@ typedef enum{
   IBOutlet NumberOutputField* outchrn;
   IBOutlet NSSegmentedControl* segcontrol;
   IBOutlet NSButton* byteswapcheckbox;
-  IBOutlet NSMenuItem* byteswapmenuitem;
-  IBOutlet NSMenuItem* unsignedmenuitem;
-  IBOutlet NSMenuItem* onescomplementmenuitem;
-  IBOutlet NSMenuItem* twoscomplementmenuitem;
   BitArray bitarray;
   BitArray bitarray8;
   BitArray bitarray16;
@@ -57,11 +48,14 @@ typedef enum{
   NAString* chrstr32;
   NAString* chrstr64;
   NAString* chrstrn;
+  
+  NABool isMini;
 }
 
 - (void)awakeFromNib;
+- (void)setMini:(NABool)ismini;
 - (void)showDialog;
-//- (BOOL)windowShouldClose:(id)sender;
+- (void)hideDialog;
 - (void)update;
 
 
@@ -74,15 +68,17 @@ typedef enum{
 - (void)valueChangeBin:(NSControl*)sender;
 - (void)valueChangeAsc:(NSControl*)sender;
 
+- (void)resetValue;
+
+
 // UI elements
-- (IBAction)byteswapChange:(NSControl*)sender;
-- (IBAction)segmentControlChange:(NSControl*)sender;
+//- (IBAction)byteswapChange:(NSControl*)sender;
+//- (IBAction)segmentControlChange:(NSControl*)sender;
 
 // Menu commands
-- (IBAction)switchByteSwap:(id)sender;
-- (IBAction)switchToUnsigned:(id)sender;
-- (IBAction)switchToOnesComplement:(id)sender;
-- (IBAction)switchToTwosComplement:(id)sender;
-- (IBAction)switchToNegTwosComplement:(id)sender;
+//- (IBAction)switchByteSwap:(id)sender;
+//- (IBAction)switchToUnsigned:(id)sender;
+//- (IBAction)switchToOnesComplement:(id)sender;
+//- (IBAction)switchToTwosComplement:(id)sender;
 
 @end

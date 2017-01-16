@@ -1,6 +1,15 @@
 Bit Fiddle Changelog
 
 
+Version 1.3
+-----------
+- Refined User Interface due to a user request.
+- Added checkbox for switching to a mini version.
+- Made both versions able to stay in foreground via preferences.
+- Made preference to forget the converter settings from last application run.
+- Removed NSURL warning which happened due to sandboxing.
+- Internal improvements
+
 Version 1.2.2
 -------------
 - Added German and English help

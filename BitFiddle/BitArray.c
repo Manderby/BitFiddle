@@ -3,6 +3,7 @@
 // intended for didactical purposes. Full license notice at the bottom.
 
 #include "NABinaryData.h"
+#include "NAByteArray.h"
 #include "BitArray.h"
 #include "NAString.h"
 
@@ -29,10 +30,10 @@ BitArray* naInitBitArrayWithCount(BitArray* bitarray, NAInt count){
   #endif
   if(!count){return naInitBitArray(bitarray);}
   if(count > 0){
-    naInitByteArrayWithSize(&(bitarray->fullstorage), count);
+    naInitByteArrayWithBytesize(&(bitarray->fullstorage), count);
     naInitByteArrayExtraction(&(bitarray->bits), &(bitarray->fullstorage), 0, -1);
   }else{
-    naInitByteArrayWithSize(&(bitarray->fullstorage), -count);
+    naInitByteArrayWithBytesize(&(bitarray->fullstorage), -count);
     naInitByteArray(&(bitarray->bits));
   }
   return bitarray;
@@ -141,7 +142,7 @@ NAInt getBitArraySizeHintCount(NAInt sizehint, NAInt desiredcount){
 // fills the padding bits with zero if necessary. Warning: expects fullstorage
 // to have enough bits allocated.
 void naEnsureBitArraySizeHint(BitArray* bitarray, NAInt sizehint){
-  NAUInt bitcount = naGetByteArraySize(&(bitarray->bits));
+  NAUInt bitcount = naGetByteArrayBytesize(&(bitarray->bits));
   NAInt arraycount = getBitArraySizeHintCount(sizehint, bitcount);
 
   NAInt sizediff = arraycount - bitcount;
@@ -180,7 +181,7 @@ BitArray* naInitBitArrayWithBinString(BitArray* bitarray,
   #endif
   // We assume that the string does not contain many garbage characters, so
   // we just take the string size as our guess how long the bin array will be.
-  stringsize = naGetStringSize(string);
+  stringsize = naGetStringLength(string);
   arraycount = getBitArraySizeHintCount(sizehint, stringsize);
   naInitBitArrayWithCount(bitarray, -arraycount);
   if(!stringsize){return bitarray;}
@@ -238,7 +239,7 @@ BitArray* naInitBitArrayWithDecString(BitArray* bitarray,
   // We assume that the string does not contain many garbage characters, so
   // we just take the string size times 4 as our guess how long the bin array
   // will be.
-  stringsize = naGetStringSize(string);
+  stringsize = naGetStringLength(string);
   arraycount = getBitArraySizeHintCount(sizehint, stringsize * 4);
   naInitBitArrayWithCount(bitarray, -arraycount);
   if(!stringsize){return bitarray;}
@@ -296,7 +297,7 @@ BitArray* naInitBitArrayWithHexString(BitArray* bitarray,
   #endif
   // We assume that the string does not contain many garbage characters, so
   // we just take the string size as our guess how long the bin array will be.
-  stringsize = naGetStringSize(string);
+  stringsize = naGetStringLength(string);
   arraycount = getBitArraySizeHintCount(sizehint, stringsize * 4);
   naInitBitArrayWithCount(bitarray, -arraycount);
   if(!stringsize){return bitarray;}
@@ -357,7 +358,7 @@ BitArray* naInitBitArrayWithByteArray(BitArray* bitarray, NAByteArray* bytearray
     if(!bitarray)
       {naCrash("naInitBitArrayWithByteArray", "bitarray is NULL"); return NA_NULL;}
   #endif
-  bytearraysize = naGetByteArraySize(bytearray);
+  bytearraysize = naGetByteArrayBytesize(bytearray);
   arraycount = getBitArraySizeHintCount(sizehint, bytearraysize * 8);
   naInitBitArrayWithCount(bitarray, -arraycount);
   if(!bytearraysize){return bitarray;}
@@ -439,7 +440,7 @@ NAUInt naGetBitArrayCount(BitArray* bitarray){
       return 0;
     }
   #endif
-  return naGetByteArraySize(&(bitarray->bits));
+  return naGetByteArrayBytesize(&(bitarray->bits));
 }
 
 
@@ -467,7 +468,7 @@ NAString* naNewStringDecFromBitArray(BitArray* bitarray){
   
   NAUTF8Char* stringbuf = naMalloc(-bitcount);
   charptr = &(stringbuf[bitcount-1]);
-  string = naNewStringWithMutableUTF8Buffer(stringbuf, -bitcount, NA_TRUE);
+  string = naNewStringWithMutableUTF8Buffer(stringbuf, -bitcount, NA_MEMORY_CLEANUP_FREE);
 
   outputlen = 0;
   finalstringcount = 0;
@@ -484,7 +485,7 @@ NAString* naNewStringDecFromBitArray(BitArray* bitarray){
     uint32 value;
     i = 0;
     j = naGetBitArrayCount(bitarray) - 1;
-    while(j >= (naGetByteArraySize(&(bitarray->bits)) - bitcount) + 3){
+    while(j >= (naGetByteArrayBytesize(&(bitarray->bits)) - bitcount) + 3){
       // walk through the remaining value
       bit0 = naGetByteArrayConstPointer(&(work->bits))[j-3];
       bit1 = naGetByteArrayConstPointer(&(work->bits))[j-2];
@@ -513,12 +514,12 @@ NAString* naNewStringDecFromBitArray(BitArray* bitarray){
     }
     // extract the decimal value of the remaining bits
     if(bitcount==1){
-      bit0 = naGetByteArrayConstPointer(&(work->bits))[naGetByteArraySize(&(bitarray->bits)) - 1];
+      bit0 = naGetByteArrayConstPointer(&(work->bits))[naGetByteArrayBytesize(&(bitarray->bits)) - 1];
       bit1 = BIT0;
       bit2 = BIT0;
     }else if(bitcount==2){
-      bit0 = naGetByteArrayConstPointer(&(work->bits))[naGetByteArraySize(&(bitarray->bits)) - 2];
-      bit1 = naGetByteArrayConstPointer(&(work->bits))[naGetByteArraySize(&(bitarray->bits)) - 1];
+      bit0 = naGetByteArrayConstPointer(&(work->bits))[naGetByteArrayBytesize(&(bitarray->bits)) - 2];
+      bit1 = naGetByteArrayConstPointer(&(work->bits))[naGetByteArrayBytesize(&(bitarray->bits)) - 1];
       bit2 = BIT0;
     }else{
       bit0 = naGetByteArrayConstPointer(&(work->bits))[j-2];
@@ -585,7 +586,7 @@ NAString* naNewStringHexFromBitArray(BitArray* bitarray){
       }
     }
   }
-  return naNewStringWithMutableUTF8Buffer(stringbuf, -(nibblecount + delimiters), NA_TRUE);
+  return naNewStringWithMutableUTF8Buffer(stringbuf, -(nibblecount + delimiters), NA_MEMORY_CLEANUP_FREE);
 }
 
 
@@ -610,7 +611,7 @@ NAString* naNewStringBinFromBitArray(BitArray* bitarray){
       *charptr++ = ' ';
     }
   }
-  return naNewStringWithMutableUTF8Buffer(stringbuf, arraylen, NA_TRUE);
+  return naNewStringWithMutableUTF8Buffer(stringbuf, arraylen, NA_MEMORY_CLEANUP_FREE);
 }
 
 
@@ -625,7 +626,7 @@ NAByteArray* naInitByteArrayFromBitArray(NAByteArray* bytearray,
   NABit* curbit;
   int b;
   NAUInt bytecount = naGetBitArrayCount(bitarray) / 8;
-  bytearray = naInitByteArrayWithSize(bytearray, -bytecount);
+  bytearray = naInitByteArrayWithBytesize(bytearray, -bytecount);
   if(!bytecount){return bytearray;}
   
   curbyte = naGetByteArrayMutablePointer(bytearray);
@@ -680,9 +681,9 @@ NABit naComputeBitArrayAddBitArray( BitArray* dstarray,
   NABit carry;  // Note that carry can be 0, 1, 2 or 3 during the computation
                 // but will be 0 or 1 in the end.
 
-  NAUInt dstcount = naGetByteArraySize(&(dstarray->fullstorage));
-  NAUInt srccount1 = naGetByteArraySize(&(srcarray1->bits));
-  NAUInt srccount2 = naGetByteArraySize(&(srcarray2->bits));
+  NAUInt dstcount = naGetByteArrayBytesize(&(dstarray->fullstorage));
+  NAUInt srccount1 = naGetByteArrayBytesize(&(srcarray1->bits));
+  NAUInt srccount2 = naGetByteArrayBytesize(&(srcarray2->bits));
 
   if(!dstcount){return BIT0;}
 
@@ -742,8 +743,8 @@ void naComputeBitArrayMulTen(BitArray* dstarray, BitArray* srcarray){
   NABit bit2 = BIT0;
 
   // todo: only correct if src != dst.
-  NAUInt dstcount = naGetByteArraySize(&(dstarray->fullstorage));
-  NAUInt srccount = naGetByteArraySize(&(srcarray->bits));
+  NAUInt dstcount = naGetByteArrayBytesize(&(dstarray->fullstorage));
+  NAUInt srccount = naGetByteArrayBytesize(&(srcarray->bits));
 
   if(!dstcount){return;}
   if(!srccount){
@@ -842,7 +843,7 @@ void naComputeBitArraySwapBytes(BitArray* array){
       naCrash("naComputeBitArraySwapBytes", "array is Null-Pointer.");
       return;
     }else{
-      if(naGetByteArraySize(&(array->bits)) % 8)
+      if(naGetByteArrayBytesize(&(array->bits)) % 8)
         naError("naComputeBitArraySwapBytes", "size of bitarray can not be divided by 8.");
     }
   #endif

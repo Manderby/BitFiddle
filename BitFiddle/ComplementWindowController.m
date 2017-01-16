@@ -1,6 +1,7 @@
 
 
 #import "ComplementWindowController.h"
+#import "BitFiddleApplication.h"
 #include "NAString.h"
 #include "BitArray.h"
 
@@ -12,11 +13,13 @@
 
   [[self window] setDelegate:self];
 
-  NSUserDefaults* userdefaults = [NSUserDefaults standardUserDefaults];
-  NSInteger segmentindex = [userdefaults integerForKey:@"complementencoding"];
-  [segcontrol setSelectedSegment:segmentindex];
-  BOOL byteswap = [userdefaults integerForKey:@"byteswap"];
-  [byteswapcheckbox setState:(byteswap?NSOnState:NSOffState)];
+  NSString* stringu = [[NSBundle mainBundle] localizedStringForKey:@"BitFiddleConversionUnsigned" value:nil table:nil];
+  NSString* string1 = [[NSBundle mainBundle] localizedStringForKey:@"BitFiddleConversionOnesComp" value:nil table:nil];
+  NSString* string2 = [[NSBundle mainBundle] localizedStringForKey:@"BitFiddleConversionTwosComp" value:nil table:nil];
+  [segcontrol setLabel:stringu forSegment:0];
+  [segcontrol setLabel:string1 forSegment:1];
+  [segcontrol setLabel:string2 forSegment:2];
+  [segcontrol sizeToFit];
 
   naInitBitArray(&bitarray);
   naInitBitArray(&bitarray8);
@@ -59,23 +62,26 @@
   [outchr32  setSystem:NUMBER_SYSTEM_BIN withBitCount:32];
   [outchr64  setSystem:NUMBER_SYSTEM_BIN withBitCount:64];
   [outchrn  setSystem:NUMBER_SYSTEM_BIN withBitCount:0];
-  [self update];
+}
+
+
+- (void)setMini:(NABool)ismini{
+  isMini = ismini;
 }
 
 
 - (void)showDialog{
   [[self window] makeKeyAndOrderFront:self];
+  [self update];
+}
+
+- (void)hideDialog{
+  [[self window] orderOut:nil];
 }
 
 
-//- (BOOL)windowShouldClose:(id)sender{
-//  NSUserDefaults* userdefaults = [NSUserDefaults standardUserDefaults];
-//  [userdefaults setInteger:-1 forKey:@"showcomplement"];
-//  return YES;
-//}
-
-
 - (void)update{
+
   NAInt ncount = naGetBitArrayCount(&bitarray);
   
   naClearBitArray(&bitarray8);
@@ -114,12 +120,12 @@
   }else{
     naInitBitArrayExtraction(&bitarray64, &bitarray, 0, 64);
   }
-
-  ConversionType conversion = (ConversionType)[segcontrol selectedSegment];
   
-  if([byteswapcheckbox state] == NSOnState){
-    [byteswapmenuitem setState:NSOnState];
-//    [byteswapcheckbox setHidden:NO];
+  NABool byteswap = [(BitFiddleApplication*)NSApp byteswap];
+  [byteswapcheckbox setState:byteswap?NSOnState:NSOffState];
+  NSString* stringbyteswap = nil;
+  if(byteswap){
+    stringbyteswap = [[NSBundle mainBundle] localizedStringForKey:@"BitFiddleConversionByteSwap" value:nil table:nil];
     naDecoupleBitArray(&bitarray8);
     naDecoupleBitArray(&bitarray16);
     naDecoupleBitArray(&bitarray32);
@@ -130,21 +136,18 @@
     naComputeBitArraySwapBytes(&bitarray32);
     naComputeBitArraySwapBytes(&bitarray64);
     naComputeBitArraySwapBytes(&bitarrayn);
-  }else{
-    [byteswapmenuitem setState:NSOffState];
-//    [byteswapcheckbox setHidden:YES];
   }
 
-  switch(conversion){
+  ConversionType conversiontype = [(BitFiddleApplication*)NSApp conversiontype];
+  [segcontrol setSelectedSegment:conversiontype];
+  
+  NSString* stringconversion = nil;
+  switch(conversiontype){
   case COMPUTE_UNSIGNED:
-    [unsignedmenuitem setState:NSOnState];
-    [onescomplementmenuitem setState:NSOffState];
-    [twoscomplementmenuitem setState:NSOffState];
+    stringconversion = [[NSBundle mainBundle] localizedStringForKey:@"BitFiddleConversionUnsigned" value:nil table:nil];
     break;
   case COMPUTE_ONES_COMPLEMENT:
-    [unsignedmenuitem setState:NSOffState];
-    [onescomplementmenuitem setState:NSOnState];
-    [twoscomplementmenuitem setState:NSOffState];
+    stringconversion = [[NSBundle mainBundle] localizedStringForKey:@"BitFiddleConversionOnesComp" value:nil table:nil];
     naDecoupleBitArray(&bitarray8);
     naDecoupleBitArray(&bitarray16);
     naDecoupleBitArray(&bitarray32);
@@ -157,9 +160,7 @@
     naComputeBitArrayOnesComplement(&bitarrayn);
     break;
   case COMPUTE_TWOS_COMPLEMENT:
-    [unsignedmenuitem setState:NSOffState];
-    [onescomplementmenuitem setState:NSOffState];
-    [twoscomplementmenuitem setState:NSOnState];
+    stringconversion = [[NSBundle mainBundle] localizedStringForKey:@"BitFiddleConversionTwosComp" value:nil table:nil];
     naDecoupleBitArray(&bitarray8);
     naDecoupleBitArray(&bitarray16);
     naDecoupleBitArray(&bitarray32);
@@ -172,6 +173,15 @@
     naComputeBitArrayTwosComplement(&bitarrayn);
     break;
   }
+  
+  if(isMini){
+    if(stringbyteswap){
+      [[self window] setTitle:[NSString stringWithFormat:@"BitFiddle     %@     %@", stringconversion, stringbyteswap]];
+    }else{
+      [[self window] setTitle:[NSString stringWithFormat:@"BitFiddle     %@", stringconversion]];
+    }
+  }
+  
 
   [outhex8  fillWithBitArray:&bitarray8 withDecSign:NA_FALSE];
   [outhex16 fillWithBitArray:&bitarray16 withDecSign:NA_FALSE];
@@ -183,13 +193,13 @@
   [outbin32 fillWithBitArray:&bitarray32 withDecSign:NA_FALSE];
   [outbin64 fillWithBitArray:&bitarray64 withDecSign:NA_FALSE];
   [outbinn  fillWithBitArray:&bitarrayn withDecSign:NA_FALSE];
-  if(conversion == COMPUTE_ONES_COMPLEMENT){
+  if(conversiontype == COMPUTE_ONES_COMPLEMENT){
     [outdec8  fillWithString:NULL withDecSign:NA_FALSE];
     [outdec16 fillWithString:NULL withDecSign:NA_FALSE];
     [outdec32 fillWithString:NULL withDecSign:NA_FALSE];
     [outdec64 fillWithString:NULL withDecSign:NA_FALSE];
     [outdecn  fillWithString:NULL withDecSign:NA_FALSE];
-  }else if(conversion == COMPUTE_TWOS_COMPLEMENT){
+  }else if(conversiontype == COMPUTE_TWOS_COMPLEMENT){
     [outdec8  fillWithBitArray:&bitarray8 withDecSign:NA_TRUE];
     [outdec16 fillWithBitArray:&bitarray16 withDecSign:NA_TRUE];
     [outdec32 fillWithBitArray:&bitarray32 withDecSign:NA_TRUE];
@@ -207,7 +217,7 @@
   if(naIsByteArrayEmpty(&bytearraychr8)){
     chrstr8 = naNewStringWithUTF8CStringLiteral("");
   }else{
-    NAInt arraysize = naGetByteArraySize(&bytearraychr8);
+    NAInt arraysize = naGetByteArrayBytesize(&bytearraychr8);
     NAByte* curbyte = naGetByteArrayMutablePointer(&bytearraychr8);
     while(arraysize){
       if((*curbyte < 32) || (*curbyte > 126)){*curbyte = '?';}
@@ -223,7 +233,7 @@
   if(naIsByteArrayEmpty(&bytearraychr16)){
     chrstr16 = naNewStringWithUTF8CStringLiteral("");
   }else{
-    NAInt arraysize = naGetByteArraySize(&bytearraychr16);
+    NAInt arraysize = naGetByteArrayBytesize(&bytearraychr16);
     NAByte* curbyte = naGetByteArrayMutablePointer(&bytearraychr16);
     while(arraysize){
       if((*curbyte < 32) || (*curbyte > 126)){*curbyte = '?';}
@@ -239,7 +249,7 @@
   if(naIsByteArrayEmpty(&bytearraychr32)){
     chrstr32 = naNewStringWithUTF8CStringLiteral("");
   }else{
-    NAInt arraysize = naGetByteArraySize(&bytearraychr32);
+    NAInt arraysize = naGetByteArrayBytesize(&bytearraychr32);
     NAByte* curbyte = naGetByteArrayMutablePointer(&bytearraychr32);
     while(arraysize){
       if((*curbyte < 32) || (*curbyte > 126)){*curbyte = '?';}
@@ -255,10 +265,10 @@
   if(naIsByteArrayEmpty(&bytearraychr64)){
     chrstr64 = naNewStringWithUTF8CStringLiteral("");
   }else{
-    NAInt arraysize = naGetByteArraySize(&bytearraychr64);
+    NAInt arraysize = naGetByteArrayBytesize(&bytearraychr64);
     NAInt separators = (arraysize-1) / 4;
     NAUTF8Char* stringbuf = naMalloc(-(arraysize + separators));
-    chrstr64 = naNewStringWithMutableUTF8Buffer(stringbuf, -(arraysize + separators), NA_TRUE);
+    chrstr64 = naNewStringWithMutableUTF8Buffer(stringbuf, -(arraysize + separators), NA_MEMORY_CLEANUP_FREE);
     NAUTF8Char* curchar = stringbuf;
     const NAByte* curbyte = naGetByteArrayConstPointer(&bytearraychr64);
     for(NAInt i=0; i<arraysize; i++){
@@ -275,10 +285,10 @@
   if(naIsByteArrayEmpty(&bytearraychrn)){
     chrstrn = naNewStringWithUTF8CStringLiteral("");
   }else{
-    NAInt arraysize = naGetByteArraySize(&bytearraychrn);
+    NAInt arraysize = naGetByteArrayBytesize(&bytearraychrn);
     NAInt separators = (arraysize-1) / 4;
     NAUTF8Char* stringbuf = naMalloc(-(arraysize + separators));
-    chrstrn = naNewStringWithMutableUTF8Buffer(stringbuf, -(arraysize + separators), NA_TRUE);
+    chrstrn = naNewStringWithMutableUTF8Buffer(stringbuf, -(arraysize + separators), NA_MEMORY_CLEANUP_FREE);
     NAUTF8Char* curchar = stringbuf;
     const NAByte* curbyte = naGetByteArrayConstPointer(&bytearraychrn);
     for(NAInt i=0; i<arraysize; i++){
@@ -295,13 +305,6 @@
 
 
 
-
-
-//- (NSSize)windowWillResize:(NSWindow *)sender toSize:(NSSize)frameSize{
-//  frameSize.width = [[self window] frame].size.width;
-//  return frameSize;
-//}
-//
 
 - (void)controlTextDidChange:(NSNotification *)note{
   NSTextField * changedField = [note object];
@@ -349,7 +352,12 @@
   NAString* instring;
   NAByteArray inarray;
   instring = naNewStringWithUTF8CStringLiteral([[sender stringValue] UTF8String]);
-  naInitByteArrayWithConstBuffer(&inarray, naGetStringChar(instring, 0), naGetStringSize(instring));
+  NAUInt stringsize = naGetStringLength(instring);
+  if(stringsize){
+    naInitByteArrayWithConstBuffer(&inarray, naGetStringChar(instring, 0), stringsize);
+  }else{
+    naInitByteArray(&inarray);
+  }
   naDecoupleByteArray(&inarray, NA_FALSE);
   [indec setStringValue:@""];
   [inhex setStringValue:@""];
@@ -360,37 +368,28 @@
   [self update];
 }
 
-- (IBAction)byteswapChange:(NSControl*)sender{
-  NSUserDefaults* userdefaults = [NSUserDefaults standardUserDefaults];
-  [userdefaults setInteger:[byteswapcheckbox state] forKey:@"byteswap"];
+
+- (void)resetValue{
+  [indec setStringValue:@""];
+  [inhex setStringValue:@""];
+  [inbin setStringValue:@""];
+  [inasc setStringValue:@""];
+  NAString* instring = naNewStringWithFormat("");
+  naInitBitArrayWithBinString(&bitarray, instring, -8);
+  naDelete(instring);
   [self update];
 }
+
 
 - (IBAction)segmentControlChange:(NSControl*)sender{
-  NSUserDefaults* userdefaults = [NSUserDefaults standardUserDefaults];
-  [userdefaults setInteger:[segcontrol selectedSegment] forKey:@"complementencoding"];
-  [self update];
+  ConversionType conversiontype = (ConversionType)[segcontrol selectedSegment];
+  switch(conversiontype){
+  case COMPUTE_UNSIGNED: [(BitFiddleApplication*)NSApp switchToUnsigned:sender]; break;
+  case COMPUTE_ONES_COMPLEMENT: [(BitFiddleApplication*)NSApp switchToOnesComplement:sender]; break;
+  case COMPUTE_TWOS_COMPLEMENT: [(BitFiddleApplication*)NSApp switchToTwosComplement:sender]; break;
+  }
 }
 
-- (IBAction)switchByteSwap:(id)sender{
-  [byteswapcheckbox setState:([byteswapcheckbox state] == NSOnState)?NSOffState:NSOnState];
-  [self byteswapChange:sender];
-}
-- (IBAction)switchToUnsigned:(id)sender{
-  [segcontrol setSelectedSegment:0];
-  [self segmentControlChange:sender];
-}
-- (IBAction)switchToOnesComplement:(id)sender{
-  [segcontrol setSelectedSegment:1];
-  [self segmentControlChange:sender];
-}
-- (IBAction)switchToTwosComplement:(id)sender{
-  [segcontrol setSelectedSegment:2];
-  [self segmentControlChange:sender];
-}
-- (IBAction)switchToNegTwosComplement:(id)sender{
-  [segcontrol setSelectedSegment:3];
-  [self segmentControlChange:sender];
-}
+
 
 @end
