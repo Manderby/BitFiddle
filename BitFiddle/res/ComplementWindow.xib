@@ -1,8 +1,9 @@
-<?xml version="1.0" encoding="UTF-8" standalone="no"?>
-<document type="com.apple.InterfaceBuilder3.Cocoa.XIB" version="3.0" toolsVersion="9531" systemVersion="15D21" targetRuntime="MacOSX.Cocoa" propertyAccessControl="none" customObjectInstantitationMethod="direct">
+<?xml version="1.0" encoding="UTF-8"?>
+<document type="com.apple.InterfaceBuilder3.Cocoa.XIB" version="3.0" toolsVersion="11762" systemVersion="16E195" targetRuntime="MacOSX.Cocoa" propertyAccessControl="none" customObjectInstantitationMethod="direct">
     <dependencies>
         <deployment identifier="macosx"/>
-        <plugIn identifier="com.apple.InterfaceBuilder.CocoaPlugin" version="9531"/>
+        <plugIn identifier="com.apple.InterfaceBuilder.CocoaPlugin" version="11762"/>
+        <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
     </dependencies>
     <objects>
         <customObject id="-2" userLabel="File's Owner" customClass="BitFiddleApplication">
@@ -20,16 +21,16 @@
                 <outlet property="inbin" destination="XMZ-Zs-wXl" id="MAk-gU-x4a"/>
                 <outlet property="indec" destination="oaz-Ib-jE1" id="VqO-au-YFb"/>
                 <outlet property="inhex" destination="yVH-1M-jXt" id="azE-uA-5QD"/>
+                <outlet property="outasc16" destination="fRj-Ob-Y5A" id="f3u-JS-RKb"/>
+                <outlet property="outasc32" destination="gLj-g6-vkG" id="oxR-a0-i5z"/>
+                <outlet property="outasc64" destination="lbt-kJ-IQX" id="j2f-Fn-vbj"/>
+                <outlet property="outasc8" destination="ncK-k7-Zx1" id="zLg-em-GWs"/>
+                <outlet property="outascn" destination="WXl-oQ-c7R" id="a5I-up-dqY"/>
                 <outlet property="outbin16" destination="lMa-Hb-2SW" id="Up3-b7-4sN"/>
                 <outlet property="outbin32" destination="VzR-Sb-fsh" id="MCy-p9-PWH"/>
                 <outlet property="outbin64" destination="3ab-Ac-LCn" id="K2k-6z-ki7"/>
                 <outlet property="outbin8" destination="4wu-on-Z2C" id="Wux-4D-YX7"/>
                 <outlet property="outbinn" destination="NWN-bu-d8K" id="E8s-zd-CSE"/>
-                <outlet property="outchr16" destination="fRj-Ob-Y5A" id="Xq0-TR-rQ8"/>
-                <outlet property="outchr32" destination="gLj-g6-vkG" id="Yjb-l3-45Q"/>
-                <outlet property="outchr64" destination="lbt-kJ-IQX" id="X1b-qs-RvN"/>
-                <outlet property="outchr8" destination="ncK-k7-Zx1" id="P6A-7H-2js"/>
-                <outlet property="outchrn" destination="WXl-oQ-c7R" id="UlK-Qj-xQt"/>
                 <outlet property="outdec16" destination="8Ua-1W-f59" id="LMn-Ch-r7p"/>
                 <outlet property="outdec32" destination="pkF-tG-aM5" id="e2l-Xg-NJd"/>
                 <outlet property="outdec64" destination="kuY-NU-07Y" id="sbJ-ak-2Dk"/>
@@ -50,12 +51,12 @@
                 <outlet property="inbin" destination="B3a-wk-tFA" id="8JF-hn-JlR"/>
                 <outlet property="indec" destination="wnH-6Q-Y4c" id="5DO-fI-UH4"/>
                 <outlet property="inhex" destination="cze-3W-f4y" id="YFM-mV-khm"/>
+                <outlet property="outasc32" destination="FV6-ho-Ghc" id="5Yf-j2-9e6"/>
+                <outlet property="outasc64" destination="BmI-mQ-4QV" id="c4s-FS-0UJ"/>
+                <outlet property="outasc8" destination="IOI-oO-mOp" id="x0s-pv-hLw"/>
                 <outlet property="outbin32" destination="Tx1-ms-lz2" id="lad-dy-c9L"/>
                 <outlet property="outbin64" destination="se8-dW-Igf" id="Ia8-5O-d1N"/>
                 <outlet property="outbin8" destination="g5e-Mp-ZS7" id="vmb-YR-VGM"/>
-                <outlet property="outchr32" destination="FV6-ho-Ghc" id="cqg-d6-qii"/>
-                <outlet property="outchr64" destination="BmI-mQ-4QV" id="X8t-zK-eTb"/>
-                <outlet property="outchr8" destination="IOI-oO-mOp" id="szV-tT-Xk1"/>
                 <outlet property="outdec32" destination="Zl0-x2-ce2" id="IuB-Le-iju"/>
                 <outlet property="outdec64" destination="SFL-8J-Ffy" id="C5b-K8-8qC"/>
                 <outlet property="outdec8" destination="Nig-5c-kGC" id="8DH-ZL-dCG"/>
@@ -104,7 +105,7 @@
                             <rect key="frame" x="0.0" y="0.0" width="55" height="60"/>
                             <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                             <subviews>
-                                <textView editable="NO" importsGraphics="NO" richText="NO" findStyle="panel" verticallyResizable="YES" allowsNonContiguousLayout="YES" smartInsertDelete="YES" id="WXl-oQ-c7R" customClass="NumberOutputField">
+                                <textView editable="NO" importsGraphics="NO" richText="NO" findStyle="panel" allowsNonContiguousLayout="YES" smartInsertDelete="YES" id="WXl-oQ-c7R" customClass="NumberOutputField">
                                     <rect key="frame" x="0.0" y="0.0" width="55" height="60"/>
                                     <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                                     <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
@@ -119,8 +120,6 @@
                                         </fragment>
                                     </attributedString>
                                     <color key="insertionPointColor" name="controlTextColor" catalog="System" colorSpace="catalog"/>
-                                    <size key="minSize" width="55" height="60"/>
-                                    <size key="maxSize" width="463" height="10000000"/>
                                     <allowedInputSourceLocales>
                                         <string>NSAllRomanInputSourcesLocaleIdentifier</string>
                                     </allowedInputSourceLocales>
@@ -137,12 +136,9 @@
                             <autoresizingMask key="autoresizingMask"/>
                         </scroller>
                     </scrollView>
-                    <box horizontalHuggingPriority="750" title="Box" boxType="separator" titlePosition="noTitle" id="ZCe-Lf-E9d">
+                    <box horizontalHuggingPriority="750" boxType="separator" id="ZCe-Lf-E9d">
                         <rect key="frame" x="50" y="108" width="5" height="136"/>
                         <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMinY="YES"/>
-                        <color key="borderColor" white="0.0" alpha="0.41999999999999998" colorSpace="calibratedWhite"/>
-                        <color key="fillColor" white="0.0" alpha="0.0" colorSpace="calibratedWhite"/>
-                        <font key="titleFont" metaFont="system"/>
                     </box>
                     <textField verticalHuggingPriority="750" id="T9S-3Y-M5d">
                         <rect key="frame" x="19" y="142" width="18" height="14"/>
@@ -189,12 +185,9 @@
                             <color key="backgroundColor" name="controlColor" catalog="System" colorSpace="catalog"/>
                         </textFieldCell>
                     </textField>
-                    <box verticalHuggingPriority="750" title="Box" boxType="separator" titlePosition="noTitle" id="x2j-lN-vhk">
+                    <box verticalHuggingPriority="750" boxType="separator" id="x2j-lN-vhk">
                         <rect key="frame" x="0.0" y="203" width="755" height="5"/>
                         <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMinY="YES"/>
-                        <color key="borderColor" white="0.0" alpha="0.41999999999999998" colorSpace="calibratedWhite"/>
-                        <color key="fillColor" white="0.0" alpha="0.0" colorSpace="calibratedWhite"/>
-                        <font key="titleFont" metaFont="system"/>
                     </box>
                     <textField verticalHuggingPriority="750" id="oaz-Ib-jE1">
                         <rect key="frame" x="70" y="214" width="115" height="22"/>
@@ -216,7 +209,7 @@
                             <rect key="frame" x="0.0" y="0.0" width="115" height="26"/>
                             <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                             <subviews>
-                                <textView editable="NO" importsGraphics="NO" richText="NO" findStyle="panel" verticallyResizable="YES" allowsNonContiguousLayout="YES" smartInsertDelete="YES" id="kuY-NU-07Y" customClass="NumberOutputField">
+                                <textView editable="NO" importsGraphics="NO" richText="NO" findStyle="panel" allowsNonContiguousLayout="YES" smartInsertDelete="YES" id="kuY-NU-07Y" customClass="NumberOutputField">
                                     <rect key="frame" x="0.0" y="0.0" width="115" height="26"/>
                                     <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                                     <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
@@ -231,8 +224,6 @@
                                         </fragment>
                                     </attributedString>
                                     <color key="insertionPointColor" name="controlTextColor" catalog="System" colorSpace="catalog"/>
-                                    <size key="minSize" width="115" height="26"/>
-                                    <size key="maxSize" width="463" height="10000000"/>
                                     <allowedInputSourceLocales>
                                         <string>NSAllRomanInputSourcesLocaleIdentifier</string>
                                     </allowedInputSourceLocales>
@@ -256,7 +247,7 @@
                             <rect key="frame" x="0.0" y="0.0" width="115" height="13"/>
                             <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                             <subviews>
-                                <textView editable="NO" importsGraphics="NO" richText="NO" findStyle="panel" verticallyResizable="YES" allowsNonContiguousLayout="YES" smartInsertDelete="YES" id="pkF-tG-aM5" customClass="NumberOutputField">
+                                <textView editable="NO" importsGraphics="NO" richText="NO" findStyle="panel" allowsNonContiguousLayout="YES" smartInsertDelete="YES" id="pkF-tG-aM5" customClass="NumberOutputField">
                                     <rect key="frame" x="0.0" y="-3" width="115" height="13"/>
                                     <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                                     <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
@@ -271,8 +262,6 @@
                                         </fragment>
                                     </attributedString>
                                     <color key="insertionPointColor" name="controlTextColor" catalog="System" colorSpace="catalog"/>
-                                    <size key="minSize" width="115" height="13"/>
-                                    <size key="maxSize" width="463" height="10000000"/>
                                     <allowedInputSourceLocales>
                                         <string>NSAllRomanInputSourcesLocaleIdentifier</string>
                                     </allowedInputSourceLocales>
@@ -296,7 +285,7 @@
                             <rect key="frame" x="0.0" y="0.0" width="60" height="13"/>
                             <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                             <subviews>
-                                <textView editable="NO" importsGraphics="NO" richText="NO" findStyle="panel" verticallyResizable="YES" allowsNonContiguousLayout="YES" smartInsertDelete="YES" id="8Ua-1W-f59" customClass="NumberOutputField">
+                                <textView editable="NO" importsGraphics="NO" richText="NO" findStyle="panel" allowsNonContiguousLayout="YES" smartInsertDelete="YES" id="8Ua-1W-f59" customClass="NumberOutputField">
                                     <rect key="frame" x="0.0" y="-3" width="60" height="13"/>
                                     <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                                     <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
@@ -311,8 +300,6 @@
                                         </fragment>
                                     </attributedString>
                                     <color key="insertionPointColor" name="controlTextColor" catalog="System" colorSpace="catalog"/>
-                                    <size key="minSize" width="60" height="13"/>
-                                    <size key="maxSize" width="463" height="10000000"/>
                                     <allowedInputSourceLocales>
                                         <string>NSAllRomanInputSourcesLocaleIdentifier</string>
                                     </allowedInputSourceLocales>
@@ -336,7 +323,7 @@
                             <rect key="frame" x="0.0" y="0.0" width="45" height="13"/>
                             <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                             <subviews>
-                                <textView editable="NO" importsGraphics="NO" richText="NO" findStyle="panel" verticallyResizable="YES" allowsNonContiguousLayout="YES" smartInsertDelete="YES" id="8or-rE-waY" customClass="NumberOutputField">
+                                <textView editable="NO" importsGraphics="NO" richText="NO" findStyle="panel" allowsNonContiguousLayout="YES" smartInsertDelete="YES" id="8or-rE-waY" customClass="NumberOutputField">
                                     <rect key="frame" x="0.0" y="-3" width="45" height="13"/>
                                     <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                                     <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
@@ -351,8 +338,6 @@
                                         </fragment>
                                     </attributedString>
                                     <color key="insertionPointColor" name="controlTextColor" catalog="System" colorSpace="catalog"/>
-                                    <size key="minSize" width="45" height="13"/>
-                                    <size key="maxSize" width="463" height="10000000"/>
                                     <allowedInputSourceLocales>
                                         <string>NSAllRomanInputSourcesLocaleIdentifier</string>
                                     </allowedInputSourceLocales>
@@ -378,12 +363,9 @@
                             <color key="backgroundColor" name="controlColor" catalog="System" colorSpace="catalog"/>
                         </textFieldCell>
                     </textField>
-                    <box horizontalHuggingPriority="750" title="Box" boxType="separator" titlePosition="noTitle" id="S7h-Ci-efy">
+                    <box horizontalHuggingPriority="750" boxType="separator" id="S7h-Ci-efy">
                         <rect key="frame" x="200" y="108" width="5" height="136"/>
                         <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMinY="YES"/>
-                        <color key="borderColor" white="0.0" alpha="0.41999999999999998" colorSpace="calibratedWhite"/>
-                        <color key="fillColor" white="0.0" alpha="0.0" colorSpace="calibratedWhite"/>
-                        <font key="titleFont" metaFont="system"/>
                     </box>
                     <scrollView focusRingType="exterior" borderType="none" autohidesScrollers="YES" horizontalLineScroll="10" horizontalPageScroll="10" verticalLineScroll="10" verticalPageScroll="10" hasHorizontalScroller="NO" usesPredominantAxisScrolling="NO" id="BAS-7M-Aq5">
                         <rect key="frame" x="55" y="40" width="130" height="60"/>
@@ -392,7 +374,7 @@
                             <rect key="frame" x="0.0" y="0.0" width="130" height="60"/>
                             <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                             <subviews>
-                                <textView editable="NO" importsGraphics="NO" richText="NO" findStyle="panel" verticallyResizable="YES" allowsNonContiguousLayout="YES" smartInsertDelete="YES" id="KdN-Oe-wty" customClass="NumberOutputField">
+                                <textView editable="NO" importsGraphics="NO" richText="NO" findStyle="panel" allowsNonContiguousLayout="YES" smartInsertDelete="YES" id="KdN-Oe-wty" customClass="NumberOutputField">
                                     <rect key="frame" x="0.0" y="0.0" width="130" height="60"/>
                                     <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                                     <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
@@ -407,8 +389,6 @@
                                         </fragment>
                                     </attributedString>
                                     <color key="insertionPointColor" name="controlTextColor" catalog="System" colorSpace="catalog"/>
-                                    <size key="minSize" width="130" height="60"/>
-                                    <size key="maxSize" width="463" height="10000000"/>
                                     <allowedInputSourceLocales>
                                         <string>NSAllRomanInputSourcesLocaleIdentifier</string>
                                     </allowedInputSourceLocales>
@@ -445,8 +425,8 @@
                             <rect key="frame" x="0.0" y="0.0" width="85" height="26"/>
                             <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                             <subviews>
-                                <textView editable="NO" importsGraphics="NO" richText="NO" findStyle="panel" verticallyResizable="YES" allowsNonContiguousLayout="YES" smartInsertDelete="YES" id="uQh-l7-dTO" customClass="NumberOutputField">
-                                    <rect key="frame" x="28" y="13" width="85" height="39"/>
+                                <textView editable="NO" importsGraphics="NO" richText="NO" findStyle="panel" allowsNonContiguousLayout="YES" smartInsertDelete="YES" id="uQh-l7-dTO" customClass="NumberOutputField">
+                                    <rect key="frame" x="28" y="13" width="85" height="26"/>
                                     <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                                     <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                                     <size key="minSize" width="85" height="26"/>
@@ -460,8 +440,6 @@
                                         </fragment>
                                     </attributedString>
                                     <color key="insertionPointColor" name="controlTextColor" catalog="System" colorSpace="catalog"/>
-                                    <size key="minSize" width="85" height="26"/>
-                                    <size key="maxSize" width="463" height="10000000"/>
                                     <allowedInputSourceLocales>
                                         <string>NSAllRomanInputSourcesLocaleIdentifier</string>
                                     </allowedInputSourceLocales>
@@ -485,8 +463,8 @@
                             <rect key="frame" x="0.0" y="0.0" width="85" height="13"/>
                             <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                             <subviews>
-                                <textView editable="NO" importsGraphics="NO" richText="NO" findStyle="panel" verticallyResizable="YES" allowsNonContiguousLayout="YES" smartInsertDelete="YES" id="3ck-7a-pUn" customClass="NumberOutputField">
-                                    <rect key="frame" x="28" y="10" width="85" height="26"/>
+                                <textView editable="NO" importsGraphics="NO" richText="NO" findStyle="panel" allowsNonContiguousLayout="YES" smartInsertDelete="YES" id="3ck-7a-pUn" customClass="NumberOutputField">
+                                    <rect key="frame" x="28" y="10" width="85" height="13"/>
                                     <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                                     <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                                     <size key="minSize" width="85" height="13"/>
@@ -500,8 +478,6 @@
                                         </fragment>
                                     </attributedString>
                                     <color key="insertionPointColor" name="controlTextColor" catalog="System" colorSpace="catalog"/>
-                                    <size key="minSize" width="85" height="13"/>
-                                    <size key="maxSize" width="463" height="10000000"/>
                                     <allowedInputSourceLocales>
                                         <string>NSAllRomanInputSourcesLocaleIdentifier</string>
                                     </allowedInputSourceLocales>
@@ -525,7 +501,7 @@
                             <rect key="frame" x="0.0" y="0.0" width="45" height="13"/>
                             <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                             <subviews>
-                                <textView editable="NO" importsGraphics="NO" richText="NO" findStyle="panel" verticallyResizable="YES" allowsNonContiguousLayout="YES" smartInsertDelete="YES" id="EKW-1E-0YO" customClass="NumberOutputField">
+                                <textView editable="NO" importsGraphics="NO" richText="NO" findStyle="panel" allowsNonContiguousLayout="YES" smartInsertDelete="YES" id="EKW-1E-0YO" customClass="NumberOutputField">
                                     <rect key="frame" x="0.0" y="-3" width="45" height="13"/>
                                     <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                                     <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
@@ -540,8 +516,6 @@
                                         </fragment>
                                     </attributedString>
                                     <color key="insertionPointColor" name="controlTextColor" catalog="System" colorSpace="catalog"/>
-                                    <size key="minSize" width="45" height="13"/>
-                                    <size key="maxSize" width="463" height="10000000"/>
                                     <allowedInputSourceLocales>
                                         <string>NSAllRomanInputSourcesLocaleIdentifier</string>
                                     </allowedInputSourceLocales>
@@ -565,7 +539,7 @@
                             <rect key="frame" x="0.0" y="0.0" width="25" height="13"/>
                             <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                             <subviews>
-                                <textView editable="NO" importsGraphics="NO" richText="NO" findStyle="panel" verticallyResizable="YES" allowsNonContiguousLayout="YES" smartInsertDelete="YES" id="8nH-wX-dtv" customClass="NumberOutputField">
+                                <textView editable="NO" importsGraphics="NO" richText="NO" findStyle="panel" allowsNonContiguousLayout="YES" smartInsertDelete="YES" id="8nH-wX-dtv" customClass="NumberOutputField">
                                     <rect key="frame" x="0.0" y="-3" width="25" height="13"/>
                                     <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                                     <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
@@ -580,8 +554,6 @@
                                         </fragment>
                                     </attributedString>
                                     <color key="insertionPointColor" name="controlTextColor" catalog="System" colorSpace="catalog"/>
-                                    <size key="minSize" width="25" height="13"/>
-                                    <size key="maxSize" width="463" height="10000000"/>
                                     <allowedInputSourceLocales>
                                         <string>NSAllRomanInputSourcesLocaleIdentifier</string>
                                     </allowedInputSourceLocales>
@@ -607,12 +579,9 @@
                             <color key="backgroundColor" name="controlColor" catalog="System" colorSpace="catalog"/>
                         </textFieldCell>
                     </textField>
-                    <box horizontalHuggingPriority="750" title="Box" boxType="separator" titlePosition="noTitle" id="nAY-nY-orG">
+                    <box horizontalHuggingPriority="750" boxType="separator" id="nAY-nY-orG">
                         <rect key="frame" x="320" y="108" width="5" height="136"/>
                         <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMinY="YES"/>
-                        <color key="borderColor" white="0.0" alpha="0.41999999999999998" colorSpace="calibratedWhite"/>
-                        <color key="fillColor" white="0.0" alpha="0.0" colorSpace="calibratedWhite"/>
-                        <font key="titleFont" metaFont="system"/>
                     </box>
                     <scrollView focusRingType="exterior" borderType="none" autohidesScrollers="YES" horizontalLineScroll="10" horizontalPageScroll="10" verticalLineScroll="10" verticalPageScroll="10" hasHorizontalScroller="NO" usesPredominantAxisScrolling="NO" id="725-0W-wY8">
                         <rect key="frame" x="205" y="40" width="100" height="60"/>
@@ -621,7 +590,7 @@
                             <rect key="frame" x="0.0" y="0.0" width="100" height="60"/>
                             <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                             <subviews>
-                                <textView editable="NO" importsGraphics="NO" richText="NO" findStyle="panel" verticallyResizable="YES" allowsNonContiguousLayout="YES" smartInsertDelete="YES" id="9be-eq-0yL" customClass="NumberOutputField">
+                                <textView editable="NO" importsGraphics="NO" richText="NO" findStyle="panel" allowsNonContiguousLayout="YES" smartInsertDelete="YES" id="9be-eq-0yL" customClass="NumberOutputField">
                                     <rect key="frame" x="0.0" y="0.0" width="100" height="60"/>
                                     <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                                     <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
@@ -636,8 +605,6 @@
                                         </fragment>
                                     </attributedString>
                                     <color key="insertionPointColor" name="controlTextColor" catalog="System" colorSpace="catalog"/>
-                                    <size key="minSize" width="100" height="60"/>
-                                    <size key="maxSize" width="463" height="10000000"/>
                                     <allowedInputSourceLocales>
                                         <string>NSAllRomanInputSourcesLocaleIdentifier</string>
                                     </allowedInputSourceLocales>
@@ -674,7 +641,7 @@
                             <rect key="frame" x="0.0" y="0.0" width="255" height="26"/>
                             <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                             <subviews>
-                                <textView editable="NO" importsGraphics="NO" richText="NO" findStyle="panel" verticallyResizable="YES" allowsNonContiguousLayout="YES" smartInsertDelete="YES" id="3ab-Ac-LCn" customClass="NumberOutputField">
+                                <textView editable="NO" importsGraphics="NO" richText="NO" findStyle="panel" allowsNonContiguousLayout="YES" smartInsertDelete="YES" id="3ab-Ac-LCn" customClass="NumberOutputField">
                                     <rect key="frame" x="0.0" y="0.0" width="255" height="26"/>
                                     <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                                     <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
@@ -689,8 +656,6 @@
                                         </fragment>
                                     </attributedString>
                                     <color key="insertionPointColor" name="controlTextColor" catalog="System" colorSpace="catalog"/>
-                                    <size key="minSize" width="255" height="26"/>
-                                    <size key="maxSize" width="463" height="10000000"/>
                                     <allowedInputSourceLocales>
                                         <string>NSAllRomanInputSourcesLocaleIdentifier</string>
                                     </allowedInputSourceLocales>
@@ -714,7 +679,7 @@
                             <rect key="frame" x="0.0" y="0.0" width="255" height="13"/>
                             <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                             <subviews>
-                                <textView editable="NO" importsGraphics="NO" richText="NO" findStyle="panel" verticallyResizable="YES" allowsNonContiguousLayout="YES" smartInsertDelete="YES" id="VzR-Sb-fsh" customClass="NumberOutputField">
+                                <textView editable="NO" importsGraphics="NO" richText="NO" findStyle="panel" allowsNonContiguousLayout="YES" smartInsertDelete="YES" id="VzR-Sb-fsh" customClass="NumberOutputField">
                                     <rect key="frame" x="0.0" y="-3" width="255" height="13"/>
                                     <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                                     <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
@@ -729,8 +694,6 @@
                                         </fragment>
                                     </attributedString>
                                     <color key="insertionPointColor" name="controlTextColor" catalog="System" colorSpace="catalog"/>
-                                    <size key="minSize" width="255" height="13"/>
-                                    <size key="maxSize" width="463" height="10000000"/>
                                     <allowedInputSourceLocales>
                                         <string>NSAllRomanInputSourcesLocaleIdentifier</string>
                                     </allowedInputSourceLocales>
@@ -754,7 +717,7 @@
                             <rect key="frame" x="0.0" y="0.0" width="140" height="13"/>
                             <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                             <subviews>
-                                <textView editable="NO" importsGraphics="NO" richText="NO" findStyle="panel" verticallyResizable="YES" allowsNonContiguousLayout="YES" smartInsertDelete="YES" id="lMa-Hb-2SW" customClass="NumberOutputField">
+                                <textView editable="NO" importsGraphics="NO" richText="NO" findStyle="panel" allowsNonContiguousLayout="YES" smartInsertDelete="YES" id="lMa-Hb-2SW" customClass="NumberOutputField">
                                     <rect key="frame" x="0.0" y="-3" width="140" height="13"/>
                                     <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                                     <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
@@ -769,8 +732,6 @@
                                         </fragment>
                                     </attributedString>
                                     <color key="insertionPointColor" name="controlTextColor" catalog="System" colorSpace="catalog"/>
-                                    <size key="minSize" width="140" height="13"/>
-                                    <size key="maxSize" width="463" height="10000000"/>
                                     <allowedInputSourceLocales>
                                         <string>NSAllRomanInputSourcesLocaleIdentifier</string>
                                     </allowedInputSourceLocales>
@@ -794,7 +755,7 @@
                             <rect key="frame" x="0.0" y="0.0" width="70" height="13"/>
                             <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                             <subviews>
-                                <textView editable="NO" importsGraphics="NO" richText="NO" findStyle="panel" verticallyResizable="YES" allowsNonContiguousLayout="YES" smartInsertDelete="YES" id="4wu-on-Z2C" customClass="NumberOutputField">
+                                <textView editable="NO" importsGraphics="NO" richText="NO" findStyle="panel" allowsNonContiguousLayout="YES" smartInsertDelete="YES" id="4wu-on-Z2C" customClass="NumberOutputField">
                                     <rect key="frame" x="0.0" y="-3" width="70" height="13"/>
                                     <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                                     <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
@@ -809,8 +770,6 @@
                                         </fragment>
                                     </attributedString>
                                     <color key="insertionPointColor" name="controlTextColor" catalog="System" colorSpace="catalog"/>
-                                    <size key="minSize" width="70" height="13"/>
-                                    <size key="maxSize" width="463" height="10000000"/>
                                     <allowedInputSourceLocales>
                                         <string>NSAllRomanInputSourcesLocaleIdentifier</string>
                                     </allowedInputSourceLocales>
@@ -836,12 +795,9 @@
                             <color key="backgroundColor" name="controlColor" catalog="System" colorSpace="catalog"/>
                         </textFieldCell>
                     </textField>
-                    <box horizontalHuggingPriority="750" title="Box" boxType="separator" titlePosition="noTitle" id="mbf-wX-muV">
+                    <box horizontalHuggingPriority="750" boxType="separator" id="mbf-wX-muV">
                         <rect key="frame" x="610" y="108" width="5" height="136"/>
                         <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMinY="YES"/>
-                        <color key="borderColor" white="0.0" alpha="0.41999999999999998" colorSpace="calibratedWhite"/>
-                        <color key="fillColor" white="0.0" alpha="0.0" colorSpace="calibratedWhite"/>
-                        <font key="titleFont" metaFont="system"/>
                     </box>
                     <scrollView focusRingType="exterior" borderType="none" autohidesScrollers="YES" horizontalLineScroll="10" horizontalPageScroll="10" verticalLineScroll="10" verticalPageScroll="10" hasHorizontalScroller="NO" usesPredominantAxisScrolling="NO" id="uzl-rM-Onj">
                         <rect key="frame" x="325" y="40" width="270" height="60"/>
@@ -850,7 +806,7 @@
                             <rect key="frame" x="0.0" y="0.0" width="270" height="60"/>
                             <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                             <subviews>
-                                <textView editable="NO" importsGraphics="NO" richText="NO" findStyle="panel" verticallyResizable="YES" allowsNonContiguousLayout="YES" smartInsertDelete="YES" id="NWN-bu-d8K" customClass="NumberOutputField">
+                                <textView editable="NO" importsGraphics="NO" richText="NO" findStyle="panel" allowsNonContiguousLayout="YES" smartInsertDelete="YES" id="NWN-bu-d8K" customClass="NumberOutputField">
                                     <rect key="frame" x="0.0" y="0.0" width="270" height="60"/>
                                     <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                                     <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
@@ -865,8 +821,6 @@
                                         </fragment>
                                     </attributedString>
                                     <color key="insertionPointColor" name="controlTextColor" catalog="System" colorSpace="catalog"/>
-                                    <size key="minSize" width="270" height="60"/>
-                                    <size key="maxSize" width="463" height="10000000"/>
                                     <allowedInputSourceLocales>
                                         <string>NSAllRomanInputSourcesLocaleIdentifier</string>
                                     </allowedInputSourceLocales>
@@ -903,7 +857,7 @@
                             <rect key="frame" x="0.0" y="0.0" width="40" height="26"/>
                             <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                             <subviews>
-                                <textView editable="NO" importsGraphics="NO" richText="NO" findStyle="panel" verticallyResizable="YES" allowsNonContiguousLayout="YES" smartInsertDelete="YES" id="lbt-kJ-IQX" customClass="NumberOutputField">
+                                <textView editable="NO" importsGraphics="NO" richText="NO" findStyle="panel" allowsNonContiguousLayout="YES" smartInsertDelete="YES" id="lbt-kJ-IQX" customClass="NumberOutputField">
                                     <rect key="frame" x="0.0" y="0.0" width="40" height="26"/>
                                     <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                                     <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
@@ -918,8 +872,6 @@
                                         </fragment>
                                     </attributedString>
                                     <color key="insertionPointColor" name="controlTextColor" catalog="System" colorSpace="catalog"/>
-                                    <size key="minSize" width="40" height="26"/>
-                                    <size key="maxSize" width="463" height="10000000"/>
                                     <allowedInputSourceLocales>
                                         <string>NSAllRomanInputSourcesLocaleIdentifier</string>
                                     </allowedInputSourceLocales>
@@ -943,7 +895,7 @@
                             <rect key="frame" x="0.0" y="0.0" width="40" height="13"/>
                             <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                             <subviews>
-                                <textView editable="NO" importsGraphics="NO" richText="NO" findStyle="panel" verticallyResizable="YES" allowsNonContiguousLayout="YES" smartInsertDelete="YES" id="gLj-g6-vkG" customClass="NumberOutputField">
+                                <textView editable="NO" importsGraphics="NO" richText="NO" findStyle="panel" allowsNonContiguousLayout="YES" smartInsertDelete="YES" id="gLj-g6-vkG" customClass="NumberOutputField">
                                     <rect key="frame" x="0.0" y="-3" width="40" height="13"/>
                                     <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                                     <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
@@ -958,8 +910,6 @@
                                         </fragment>
                                     </attributedString>
                                     <color key="insertionPointColor" name="controlTextColor" catalog="System" colorSpace="catalog"/>
-                                    <size key="minSize" width="40" height="13"/>
-                                    <size key="maxSize" width="463" height="10000000"/>
                                     <allowedInputSourceLocales>
                                         <string>NSAllRomanInputSourcesLocaleIdentifier</string>
                                     </allowedInputSourceLocales>
@@ -983,7 +933,7 @@
                             <rect key="frame" x="0.0" y="0.0" width="25" height="13"/>
                             <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                             <subviews>
-                                <textView editable="NO" importsGraphics="NO" richText="NO" findStyle="panel" verticallyResizable="YES" allowsNonContiguousLayout="YES" smartInsertDelete="YES" id="fRj-Ob-Y5A" customClass="NumberOutputField">
+                                <textView editable="NO" importsGraphics="NO" richText="NO" findStyle="panel" allowsNonContiguousLayout="YES" smartInsertDelete="YES" id="fRj-Ob-Y5A" customClass="NumberOutputField">
                                     <rect key="frame" x="0.0" y="-3" width="25" height="13"/>
                                     <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                                     <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
@@ -998,8 +948,6 @@
                                         </fragment>
                                     </attributedString>
                                     <color key="insertionPointColor" name="controlTextColor" catalog="System" colorSpace="catalog"/>
-                                    <size key="minSize" width="25" height="13"/>
-                                    <size key="maxSize" width="463" height="10000000"/>
                                     <allowedInputSourceLocales>
                                         <string>NSAllRomanInputSourcesLocaleIdentifier</string>
                                     </allowedInputSourceLocales>
@@ -1023,7 +971,7 @@
                             <rect key="frame" x="0.0" y="0.0" width="16" height="13"/>
                             <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                             <subviews>
-                                <textView importsGraphics="NO" richText="NO" findStyle="panel" verticallyResizable="YES" allowsNonContiguousLayout="YES" smartInsertDelete="YES" id="ncK-k7-Zx1" customClass="NumberOutputField">
+                                <textView importsGraphics="NO" richText="NO" findStyle="panel" allowsNonContiguousLayout="YES" smartInsertDelete="YES" id="ncK-k7-Zx1" customClass="NumberOutputField">
                                     <rect key="frame" x="0.0" y="-3" width="16" height="13"/>
                                     <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                                     <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
@@ -1038,8 +986,6 @@
                                         </fragment>
                                     </attributedString>
                                     <color key="insertionPointColor" name="controlTextColor" catalog="System" colorSpace="catalog"/>
-                                    <size key="minSize" width="16" height="13"/>
-                                    <size key="maxSize" width="463" height="10000000"/>
                                     <allowedInputSourceLocales>
                                         <string>NSAllRomanInputSourcesLocaleIdentifier</string>
                                     </allowedInputSourceLocales>
@@ -1133,7 +1079,7 @@
                             <rect key="frame" x="0.0" y="0.0" width="25" height="13"/>
                             <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                             <subviews>
-                                <textView editable="NO" importsGraphics="NO" richText="NO" findStyle="panel" verticallyResizable="YES" allowsNonContiguousLayout="YES" smartInsertDelete="YES" id="QVo-xo-Pdy" customClass="NumberOutputField">
+                                <textView editable="NO" importsGraphics="NO" richText="NO" findStyle="panel" allowsNonContiguousLayout="YES" smartInsertDelete="YES" id="QVo-xo-Pdy" customClass="NumberOutputField">
                                     <rect key="frame" x="0.0" y="-4" width="25" height="13"/>
                                     <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                                     <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
@@ -1148,8 +1094,6 @@
                                         </fragment>
                                     </attributedString>
                                     <color key="insertionPointColor" name="controlTextColor" catalog="System" colorSpace="catalog"/>
-                                    <size key="minSize" width="25" height="13"/>
-                                    <size key="maxSize" width="463" height="10000000"/>
                                     <allowedInputSourceLocales>
                                         <string>NSAllRomanInputSourcesLocaleIdentifier</string>
                                     </allowedInputSourceLocales>
@@ -1166,12 +1110,9 @@
                             <autoresizingMask key="autoresizingMask"/>
                         </scroller>
                     </scrollView>
-                    <box horizontalHuggingPriority="750" title="Box" boxType="separator" titlePosition="noTitle" id="rkw-VO-ahm">
+                    <box horizontalHuggingPriority="750" boxType="separator" id="rkw-VO-ahm">
                         <rect key="frame" x="50" y="0.0" width="5" height="127"/>
                         <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMinY="YES"/>
-                        <color key="borderColor" white="0.0" alpha="0.41999999999999998" colorSpace="calibratedWhite"/>
-                        <color key="fillColor" white="0.0" alpha="0.0" colorSpace="calibratedWhite"/>
-                        <font key="titleFont" metaFont="system"/>
                     </box>
                     <textField verticalHuggingPriority="750" id="Jxz-0G-KrH">
                         <rect key="frame" x="20" y="46" width="18" height="14"/>
@@ -1200,12 +1141,9 @@
                             <color key="backgroundColor" name="controlColor" catalog="System" colorSpace="catalog"/>
                         </textFieldCell>
                     </textField>
-                    <box verticalHuggingPriority="750" title="Box" boxType="separator" titlePosition="noTitle" id="D65-DI-bg3">
+                    <box verticalHuggingPriority="750" boxType="separator" id="D65-DI-bg3">
                         <rect key="frame" x="0.0" y="86" width="755" height="5"/>
                         <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMinY="YES"/>
-                        <color key="borderColor" white="0.0" alpha="0.41999999999999998" colorSpace="calibratedWhite"/>
-                        <color key="fillColor" white="0.0" alpha="0.0" colorSpace="calibratedWhite"/>
-                        <font key="titleFont" metaFont="system"/>
                     </box>
                     <textField verticalHuggingPriority="750" id="nvS-KA-dfV">
                         <rect key="frame" x="218" y="67" width="25" height="14"/>
@@ -1223,8 +1161,8 @@
                             <rect key="frame" x="0.0" y="0.0" width="85" height="26"/>
                             <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                             <subviews>
-                                <textView editable="NO" importsGraphics="NO" richText="NO" findStyle="panel" verticallyResizable="YES" allowsNonContiguousLayout="YES" smartInsertDelete="YES" id="fpG-bl-Pgu" customClass="NumberOutputField">
-                                    <rect key="frame" x="28" y="26" width="85" height="39"/>
+                                <textView editable="NO" importsGraphics="NO" richText="NO" findStyle="panel" allowsNonContiguousLayout="YES" smartInsertDelete="YES" id="fpG-bl-Pgu" customClass="NumberOutputField">
+                                    <rect key="frame" x="28" y="26" width="85" height="26"/>
                                     <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                                     <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                                     <size key="minSize" width="85" height="26"/>
@@ -1238,8 +1176,6 @@
                                         </fragment>
                                     </attributedString>
                                     <color key="insertionPointColor" name="controlTextColor" catalog="System" colorSpace="catalog"/>
-                                    <size key="minSize" width="85" height="26"/>
-                                    <size key="maxSize" width="463" height="10000000"/>
                                     <allowedInputSourceLocales>
                                         <string>NSAllRomanInputSourcesLocaleIdentifier</string>
                                     </allowedInputSourceLocales>
@@ -1263,8 +1199,8 @@
                             <rect key="frame" x="0.0" y="0.0" width="85" height="13"/>
                             <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                             <subviews>
-                                <textView editable="NO" importsGraphics="NO" richText="NO" findStyle="panel" verticallyResizable="YES" allowsNonContiguousLayout="YES" smartInsertDelete="YES" id="c1S-ZQ-O1K" customClass="NumberOutputField">
-                                    <rect key="frame" x="28" y="22" width="85" height="26"/>
+                                <textView editable="NO" importsGraphics="NO" richText="NO" findStyle="panel" allowsNonContiguousLayout="YES" smartInsertDelete="YES" id="c1S-ZQ-O1K" customClass="NumberOutputField">
+                                    <rect key="frame" x="28" y="22" width="85" height="13"/>
                                     <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                                     <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                                     <size key="minSize" width="85" height="13"/>
@@ -1278,8 +1214,6 @@
                                         </fragment>
                                     </attributedString>
                                     <color key="insertionPointColor" name="controlTextColor" catalog="System" colorSpace="catalog"/>
-                                    <size key="minSize" width="85" height="13"/>
-                                    <size key="maxSize" width="463" height="10000000"/>
                                     <allowedInputSourceLocales>
                                         <string>NSAllRomanInputSourcesLocaleIdentifier</string>
                                     </allowedInputSourceLocales>
@@ -1316,7 +1250,7 @@
                             <rect key="frame" x="0.0" y="0.0" width="45" height="13"/>
                             <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                             <subviews>
-                                <textView editable="NO" importsGraphics="NO" richText="NO" findStyle="panel" verticallyResizable="YES" allowsNonContiguousLayout="YES" smartInsertDelete="YES" id="Nig-5c-kGC" customClass="NumberOutputField">
+                                <textView editable="NO" importsGraphics="NO" richText="NO" findStyle="panel" allowsNonContiguousLayout="YES" smartInsertDelete="YES" id="Nig-5c-kGC" customClass="NumberOutputField">
                                     <rect key="frame" x="0.0" y="-4" width="45" height="13"/>
                                     <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                                     <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
@@ -1331,8 +1265,6 @@
                                         </fragment>
                                     </attributedString>
                                     <color key="insertionPointColor" name="controlTextColor" catalog="System" colorSpace="catalog"/>
-                                    <size key="minSize" width="45" height="13"/>
-                                    <size key="maxSize" width="463" height="10000000"/>
                                     <allowedInputSourceLocales>
                                         <string>NSAllRomanInputSourcesLocaleIdentifier</string>
                                     </allowedInputSourceLocales>
@@ -1365,7 +1297,7 @@
                             <rect key="frame" x="0.0" y="0.0" width="115" height="26"/>
                             <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                             <subviews>
-                                <textView editable="NO" importsGraphics="NO" richText="NO" findStyle="panel" verticallyResizable="YES" allowsNonContiguousLayout="YES" smartInsertDelete="YES" id="SFL-8J-Ffy" customClass="NumberOutputField">
+                                <textView editable="NO" importsGraphics="NO" richText="NO" findStyle="panel" allowsNonContiguousLayout="YES" smartInsertDelete="YES" id="SFL-8J-Ffy" customClass="NumberOutputField">
                                     <rect key="frame" x="0.0" y="0.0" width="115" height="26"/>
                                     <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                                     <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
@@ -1380,8 +1312,6 @@
                                         </fragment>
                                     </attributedString>
                                     <color key="insertionPointColor" name="controlTextColor" catalog="System" colorSpace="catalog"/>
-                                    <size key="minSize" width="115" height="26"/>
-                                    <size key="maxSize" width="463" height="10000000"/>
                                     <allowedInputSourceLocales>
                                         <string>NSAllRomanInputSourcesLocaleIdentifier</string>
                                     </allowedInputSourceLocales>
@@ -1405,7 +1335,7 @@
                             <rect key="frame" x="0.0" y="0.0" width="115" height="13"/>
                             <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                             <subviews>
-                                <textView editable="NO" importsGraphics="NO" richText="NO" findStyle="panel" verticallyResizable="YES" allowsNonContiguousLayout="YES" smartInsertDelete="YES" id="Zl0-x2-ce2" customClass="NumberOutputField">
+                                <textView editable="NO" importsGraphics="NO" richText="NO" findStyle="panel" allowsNonContiguousLayout="YES" smartInsertDelete="YES" id="Zl0-x2-ce2" customClass="NumberOutputField">
                                     <rect key="frame" x="0.0" y="-4" width="115" height="13"/>
                                     <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                                     <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
@@ -1420,8 +1350,6 @@
                                         </fragment>
                                     </attributedString>
                                     <color key="insertionPointColor" name="controlTextColor" catalog="System" colorSpace="catalog"/>
-                                    <size key="minSize" width="115" height="13"/>
-                                    <size key="maxSize" width="463" height="10000000"/>
                                     <allowedInputSourceLocales>
                                         <string>NSAllRomanInputSourcesLocaleIdentifier</string>
                                     </allowedInputSourceLocales>
@@ -1438,19 +1366,13 @@
                             <autoresizingMask key="autoresizingMask"/>
                         </scroller>
                     </scrollView>
-                    <box horizontalHuggingPriority="750" title="Box" boxType="separator" titlePosition="noTitle" id="XeD-jp-HvK">
+                    <box horizontalHuggingPriority="750" boxType="separator" id="XeD-jp-HvK">
                         <rect key="frame" x="200" y="0.0" width="5" height="127"/>
                         <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMinY="YES"/>
-                        <color key="borderColor" white="0.0" alpha="0.41999999999999998" colorSpace="calibratedWhite"/>
-                        <color key="fillColor" white="0.0" alpha="0.0" colorSpace="calibratedWhite"/>
-                        <font key="titleFont" metaFont="system"/>
                     </box>
-                    <box horizontalHuggingPriority="750" title="Box" boxType="separator" titlePosition="noTitle" id="A0H-KN-ABF">
+                    <box horizontalHuggingPriority="750" boxType="separator" id="A0H-KN-ABF">
                         <rect key="frame" x="320" y="0.0" width="5" height="127"/>
                         <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMinY="YES"/>
-                        <color key="borderColor" white="0.0" alpha="0.41999999999999998" colorSpace="calibratedWhite"/>
-                        <color key="fillColor" white="0.0" alpha="0.0" colorSpace="calibratedWhite"/>
-                        <font key="titleFont" metaFont="system"/>
                     </box>
                     <textField verticalHuggingPriority="750" id="B3a-wk-tFA">
                         <rect key="frame" x="340" y="97" width="255" height="22"/>
@@ -1472,7 +1394,7 @@
                             <rect key="frame" x="0.0" y="0.0" width="70" height="13"/>
                             <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                             <subviews>
-                                <textView editable="NO" importsGraphics="NO" richText="NO" findStyle="panel" verticallyResizable="YES" allowsNonContiguousLayout="YES" smartInsertDelete="YES" id="g5e-Mp-ZS7" customClass="NumberOutputField">
+                                <textView editable="NO" importsGraphics="NO" richText="NO" findStyle="panel" allowsNonContiguousLayout="YES" smartInsertDelete="YES" id="g5e-Mp-ZS7" customClass="NumberOutputField">
                                     <rect key="frame" x="0.0" y="-4" width="70" height="13"/>
                                     <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                                     <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
@@ -1487,8 +1409,6 @@
                                         </fragment>
                                     </attributedString>
                                     <color key="insertionPointColor" name="controlTextColor" catalog="System" colorSpace="catalog"/>
-                                    <size key="minSize" width="70" height="13"/>
-                                    <size key="maxSize" width="463" height="10000000"/>
                                     <allowedInputSourceLocales>
                                         <string>NSAllRomanInputSourcesLocaleIdentifier</string>
                                     </allowedInputSourceLocales>
@@ -1521,7 +1441,7 @@
                             <rect key="frame" x="0.0" y="0.0" width="255" height="26"/>
                             <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                             <subviews>
-                                <textView editable="NO" importsGraphics="NO" richText="NO" findStyle="panel" verticallyResizable="YES" allowsNonContiguousLayout="YES" smartInsertDelete="YES" id="se8-dW-Igf" customClass="NumberOutputField">
+                                <textView editable="NO" importsGraphics="NO" richText="NO" findStyle="panel" allowsNonContiguousLayout="YES" smartInsertDelete="YES" id="se8-dW-Igf" customClass="NumberOutputField">
                                     <rect key="frame" x="0.0" y="0.0" width="255" height="26"/>
                                     <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                                     <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
@@ -1536,8 +1456,6 @@
                                         </fragment>
                                     </attributedString>
                                     <color key="insertionPointColor" name="controlTextColor" catalog="System" colorSpace="catalog"/>
-                                    <size key="minSize" width="255" height="26"/>
-                                    <size key="maxSize" width="463" height="10000000"/>
                                     <allowedInputSourceLocales>
                                         <string>NSAllRomanInputSourcesLocaleIdentifier</string>
                                     </allowedInputSourceLocales>
@@ -1561,7 +1479,7 @@
                             <rect key="frame" x="0.0" y="0.0" width="255" height="13"/>
                             <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                             <subviews>
-                                <textView editable="NO" importsGraphics="NO" richText="NO" findStyle="panel" verticallyResizable="YES" allowsNonContiguousLayout="YES" smartInsertDelete="YES" id="Tx1-ms-lz2" customClass="NumberOutputField">
+                                <textView editable="NO" importsGraphics="NO" richText="NO" findStyle="panel" allowsNonContiguousLayout="YES" smartInsertDelete="YES" id="Tx1-ms-lz2" customClass="NumberOutputField">
                                     <rect key="frame" x="0.0" y="-4" width="255" height="13"/>
                                     <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                                     <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
@@ -1576,8 +1494,6 @@
                                         </fragment>
                                     </attributedString>
                                     <color key="insertionPointColor" name="controlTextColor" catalog="System" colorSpace="catalog"/>
-                                    <size key="minSize" width="255" height="13"/>
-                                    <size key="maxSize" width="463" height="10000000"/>
                                     <allowedInputSourceLocales>
                                         <string>NSAllRomanInputSourcesLocaleIdentifier</string>
                                     </allowedInputSourceLocales>
@@ -1594,12 +1510,9 @@
                             <autoresizingMask key="autoresizingMask"/>
                         </scroller>
                     </scrollView>
-                    <box horizontalHuggingPriority="750" title="Box" boxType="separator" titlePosition="noTitle" id="BDV-k2-Gtm">
+                    <box horizontalHuggingPriority="750" boxType="separator" id="BDV-k2-Gtm">
                         <rect key="frame" x="610" y="0.0" width="5" height="127"/>
                         <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMinY="YES"/>
-                        <color key="borderColor" white="0.0" alpha="0.41999999999999998" colorSpace="calibratedWhite"/>
-                        <color key="fillColor" white="0.0" alpha="0.0" colorSpace="calibratedWhite"/>
-                        <font key="titleFont" metaFont="system"/>
                     </box>
                     <textField verticalHuggingPriority="750" id="GtV-Fo-xzB">
                         <rect key="frame" x="630" y="97" width="40" height="22"/>
@@ -1630,7 +1543,7 @@
                             <rect key="frame" x="0.0" y="0.0" width="40" height="26"/>
                             <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                             <subviews>
-                                <textView editable="NO" importsGraphics="NO" richText="NO" findStyle="panel" verticallyResizable="YES" allowsNonContiguousLayout="YES" smartInsertDelete="YES" id="BmI-mQ-4QV" customClass="NumberOutputField">
+                                <textView editable="NO" importsGraphics="NO" richText="NO" findStyle="panel" allowsNonContiguousLayout="YES" smartInsertDelete="YES" id="BmI-mQ-4QV" customClass="NumberOutputField">
                                     <rect key="frame" x="0.0" y="0.0" width="40" height="26"/>
                                     <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                                     <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
@@ -1645,8 +1558,6 @@
                                         </fragment>
                                     </attributedString>
                                     <color key="insertionPointColor" name="controlTextColor" catalog="System" colorSpace="catalog"/>
-                                    <size key="minSize" width="40" height="26"/>
-                                    <size key="maxSize" width="463" height="10000000"/>
                                     <allowedInputSourceLocales>
                                         <string>NSAllRomanInputSourcesLocaleIdentifier</string>
                                     </allowedInputSourceLocales>
@@ -1670,7 +1581,7 @@
                             <rect key="frame" x="0.0" y="0.0" width="40" height="13"/>
                             <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                             <subviews>
-                                <textView editable="NO" importsGraphics="NO" richText="NO" findStyle="panel" verticallyResizable="YES" allowsNonContiguousLayout="YES" smartInsertDelete="YES" id="FV6-ho-Ghc" customClass="NumberOutputField">
+                                <textView editable="NO" importsGraphics="NO" richText="NO" findStyle="panel" allowsNonContiguousLayout="YES" smartInsertDelete="YES" id="FV6-ho-Ghc" customClass="NumberOutputField">
                                     <rect key="frame" x="0.0" y="-4" width="40" height="13"/>
                                     <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                                     <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
@@ -1685,8 +1596,6 @@
                                         </fragment>
                                     </attributedString>
                                     <color key="insertionPointColor" name="controlTextColor" catalog="System" colorSpace="catalog"/>
-                                    <size key="minSize" width="40" height="13"/>
-                                    <size key="maxSize" width="463" height="10000000"/>
                                     <allowedInputSourceLocales>
                                         <string>NSAllRomanInputSourcesLocaleIdentifier</string>
                                     </allowedInputSourceLocales>
@@ -1710,7 +1619,7 @@
                             <rect key="frame" x="0.0" y="0.0" width="16" height="13"/>
                             <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                             <subviews>
-                                <textView importsGraphics="NO" richText="NO" findStyle="panel" verticallyResizable="YES" allowsNonContiguousLayout="YES" smartInsertDelete="YES" id="IOI-oO-mOp" customClass="NumberOutputField">
+                                <textView importsGraphics="NO" richText="NO" findStyle="panel" allowsNonContiguousLayout="YES" smartInsertDelete="YES" id="IOI-oO-mOp" customClass="NumberOutputField">
                                     <rect key="frame" x="0.0" y="-4" width="16" height="13"/>
                                     <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                                     <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
@@ -1725,8 +1634,6 @@
                                         </fragment>
                                     </attributedString>
                                     <color key="insertionPointColor" name="controlTextColor" catalog="System" colorSpace="catalog"/>
-                                    <size key="minSize" width="16" height="13"/>
-                                    <size key="maxSize" width="463" height="10000000"/>
                                     <allowedInputSourceLocales>
                                         <string>NSAllRomanInputSourcesLocaleIdentifier</string>
                                     </allowedInputSourceLocales>

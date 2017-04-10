@@ -55,7 +55,6 @@
     alert.alertStyle = NSInformationalAlertStyle;
     alert.messageText = [NSString stringWithFormat:@"Welcome to Version %@", versionstring];
     alert.informativeText = @"Check out the new mini button!\nAnd have a look at the Preferences.";
-//    [alert layout];
     [alert runModal];
     [alert release];
   }
@@ -63,6 +62,12 @@
 
 
 - (void)applicationWillTerminate:(NSNotification *)notification{
+  
+  [preferenceswindowcontroller release];
+  [complementwindowcontroller release];
+  [minicomplementwindowcontroller release];
+  [asciiwindowcontroller release];
+
   naStopRuntime();
 }
 

@@ -6,12 +6,11 @@
 @implementation NumberOutputField
 
 
-- (void)setSystem:(NumberSystem)newsystem withBitCount:(NAInt)newcount{
+- (void)setSystem:(NumberSystem)newsystem{
   numbersystem = newsystem;
-  bitcount = newcount;
 }
 
-- (void)fillWithString:(NAString*) string withDecSign:(NABool)withdecsign{
+- (void)fillWithString:(NAString*)string withDecSign:(NABool)withdecsign{
   NSMutableString* mutablestring = [[self textStorage] mutableString];
   if(!string){
     [mutablestring setString:@" "];
@@ -27,31 +26,34 @@
 }
 
 
-- (void)fillWithBitArray:(BitArray*) bitarray withDecSign:(NABool)withdecsign{
-  NAString* outstring;
-  BitArray decsignarray;
+
+- (void)fillWithBitArray:(const NABuffer*)bitarray withDecSign:(NABool)withdecsign{
+  NAString outstring;
   
   switch(numbersystem){
   case NUMBER_SYSTEM_DEC:
-    naInitBitArrayExtraction(&decsignarray, bitarray, 0, -1);
-    if(bitarray && naGetBitArrayCount(bitarray) && withdecsign && *naGetBitArrayBit(bitarray, -1)){
-      naDecoupleBitArray(&decsignarray);
-      naComputeBitArrayTwosComplement(&decsignarray);
+    if(bitarray && naGetBufferRange(bitarray).length && withdecsign && naGetBufferByteAtIndex(bitarray, naGetRangeiMax(naGetBufferRange(bitarray)))){
+      NABuffer* twocomp = naCreateBufferCopy(bitarray, naGetBufferRange(bitarray), NA_FALSE);
+      naComputeBitArrayTwosComplement(twocomp);
+      outstring = naMakeStringDecWithBitArray(twocomp);
+      naReleaseBuffer(twocomp);
     }else{
       withdecsign = NA_FALSE;
+      outstring = naMakeStringDecWithBitArray(bitarray);
     }
-    outstring = naNewStringDecFromBitArray(&decsignarray);
-    naClearBitArray(&decsignarray);
     break;
   case NUMBER_SYSTEM_HEX:
-    outstring = naNewStringHexFromBitArray(bitarray);
+    outstring = naMakeStringHexWithBitArray(bitarray);
     break;
   case NUMBER_SYSTEM_BIN:
-    outstring = naNewStringBinFromBitArray(bitarray);
+    outstring = naMakeStringBinWithBitArray(bitarray);
+    break;
+  case NUMBER_SYSTEM_ASC:
+    outstring = naMakeStringAscWithBitArray(bitarray);
     break;
   }
-  [self fillWithString:outstring withDecSign:withdecsign];
-  naDelete(outstring);
+  [self fillWithString:&outstring withDecSign:withdecsign];
+  naClearString(&outstring);
 }
 
 

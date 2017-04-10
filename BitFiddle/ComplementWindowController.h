@@ -25,29 +25,14 @@
   IBOutlet NumberOutputField* outbin32;
   IBOutlet NumberOutputField* outbin64;
   IBOutlet NumberOutputField* outbinn;
-  IBOutlet NumberOutputField* outchr8;
-  IBOutlet NumberOutputField* outchr16;
-  IBOutlet NumberOutputField* outchr32;
-  IBOutlet NumberOutputField* outchr64;
-  IBOutlet NumberOutputField* outchrn;
+  IBOutlet NumberOutputField* outasc8;
+  IBOutlet NumberOutputField* outasc16;
+  IBOutlet NumberOutputField* outasc32;
+  IBOutlet NumberOutputField* outasc64;
+  IBOutlet NumberOutputField* outascn;
   IBOutlet NSSegmentedControl* segcontrol;
   IBOutlet NSButton* byteswapcheckbox;
-  BitArray bitarray;
-  BitArray bitarray8;
-  BitArray bitarray16;
-  BitArray bitarray32;
-  BitArray bitarray64;
-  BitArray bitarrayn;
-  NAByteArray bytearraychr8;
-  NAByteArray bytearraychr16;
-  NAByteArray bytearraychr32;
-  NAByteArray bytearraychr64;
-  NAByteArray bytearraychrn;
-  NAString* chrstr8;
-  NAString* chrstr16;
-  NAString* chrstr32;
-  NAString* chrstr64;
-  NAString* chrstrn;
+  NABuffer* bitarray;
   
   NABool isMini;
 }
