@@ -39,7 +39,7 @@ NABuffer* naCreateBitArrayCopyWithFixedSize(NABuffer* srcarray, NAInt size){
 
 
 void naPadBitArray(NABuffer* bitarray, NAInt padsize){
-  NABufferIterator iter = naMakeBufferIteratorModifier(bitarray);
+  NABufferIterator iter = naMakeBufferModifier(bitarray);
   while((naGetBufferRange(bitarray).length == 0) || (naGetBufferRange(bitarray).length % padsize)){
     naWriteBufferu8(&iter, 0);
   }
@@ -141,8 +141,8 @@ NABuffer* naCreateBitArrayWithBinString(NAString* string){
   NABit curbit;
 
   bitarray = naCreateBuffer(NA_FALSE);
-  iterin = naMakeBufferIteratorAccessor(naGetStringBufferConst(string));
-  iterout = naMakeBufferIteratorModifier(bitarray);
+  iterin = naMakeBufferAccessor(naGetStringBufferConst(string));
+  iterout = naMakeBufferModifier(bitarray);
   
   while(naIterateBuffer(&iterin, -1)){
     NAByte curchar = naGetBufferu8(&iterin);
@@ -174,14 +174,14 @@ NABuffer* naCreateBitArrayWithDecString(NAString* string){
 
   bitarray = naCreateBufferPlain();
   
-  iterin = naMakeBufferIteratorAccessor(naGetStringBufferConst(string));
+  iterin = naMakeBufferAccessor(naGetStringBufferConst(string));
   while(naIterateBuffer(&iterin, 1)){
     NAByte curchar = naGetBufferu8(&iterin);
     if((curchar < '0') || (curchar > '9')){continue;}
     curchar -= '0';
 
     digit = naCreateBuffer(NA_FALSE);
-    iterdigit = naMakeBufferIteratorModifier(digit);
+    iterdigit = naMakeBufferModifier(digit);
     naWriteBufferu8(&iterdigit, (curchar & 0x01) == 0x01);
     naWriteBufferu8(&iterdigit, (curchar & 0x02) == 0x02);
     naWriteBufferu8(&iterdigit, (curchar & 0x04) == 0x04);
@@ -207,8 +207,8 @@ NABuffer* naCreateBitArrayWithHexString(NAString* string){
   NABufferIterator iterout;
 
   bitarray = naCreateBuffer(NA_FALSE);
-  iterin = naMakeBufferIteratorAccessor(naGetStringBufferConst(string));
-  iterout = naMakeBufferIteratorModifier(bitarray);
+  iterin = naMakeBufferAccessor(naGetStringBufferConst(string));
+  iterout = naMakeBufferModifier(bitarray);
   
   while(naIterateBuffer(&iterin, -1)){
     NAByte curchar = naGetBufferu8(&iterin);
@@ -232,8 +232,8 @@ NABuffer* naCreateBitArrayWithAscString(NAString* string){
   NABufferIterator iterout;
 
   bitarray = naCreateBuffer(NA_FALSE);
-  iterin = naMakeBufferIteratorAccessor(naGetStringBufferConst(string));
-  iterout = naMakeBufferIteratorModifier(bitarray);
+  iterin = naMakeBufferAccessor(naGetStringBufferConst(string));
+  iterout = naMakeBufferModifier(bitarray);
   
   while(naIterateBuffer(&iterin, -1)){
     NAByte curchar = naGetBufferu8(&iterin);
@@ -293,7 +293,7 @@ NAString naMakeStringDecWithBitArray(const NABuffer* bitarray){
     i = 0;
     j = naGetBufferRange(bitarray).length - 1;
     
-    NABufferIterator workiter = naMakeBufferIteratorMutator(work);
+    NABufferIterator workiter = naMakeBufferMutator(work);
     naSeekBufferFromStart(&workiter, j-3);
     while(j >= (naGetBufferRange(bitarray).length - bitcount) + 3){
       // walk through the remaining value
@@ -379,8 +379,8 @@ NAString naMakeStringHexWithBitArray(const NABuffer* bitarray){
   NAString string = naMakeString();
   NABuffer* buffer = naGetStringBufferMutable(&string);
   
-  iterin = naMakeBufferIteratorAccessor(bitarray);
-  iterout = naMakeBufferIteratorModifier(buffer);
+  iterin = naMakeBufferAccessor(bitarray);
+  iterout = naMakeBufferModifier(buffer);
   
   bitcount = naGetBufferRange(bitarray).length;
   nibble = 0;
@@ -418,8 +418,8 @@ NAString naMakeStringBinWithBitArray(const NABuffer* bitarray){
   NAString string = naMakeString();
   NABuffer* buffer = naGetStringBufferMutable(&string);
   
-  iterin = naMakeBufferIteratorAccessor(bitarray);
-  iterout = naMakeBufferIteratorModifier(buffer);
+  iterin = naMakeBufferAccessor(bitarray);
+  iterout = naMakeBufferModifier(buffer);
   
   bitcount = 0;
   while(naIterateBuffer(&iterin, -1)){
@@ -454,7 +454,7 @@ NAString naMakeStringAscWithBitArray(const NABuffer* bitarray){
     NAInt bitcount = 0;
     NAUTF8Char newchar = 0;
     
-    NABufferIterator iter = naMakeBufferIteratorAccessor(bitarray);
+    NABufferIterator iter = naMakeBufferAccessor(bitarray);
     while(naIterateBuffer(&iter, -1)){
       NAByte curbit = naGetBufferu8(&iter);
       newchar = newchar << 1 | curbit;
@@ -477,7 +477,7 @@ NABit naComputeBitArrayAddOne(NABuffer* bitarray){
   NABufferIterator iter;
   NABit carry = BIT1;
   
-  iter = naMakeBufferIteratorMutator(bitarray);
+  iter = naMakeBufferMutator(bitarray);
   
   // Remember, BitArray stores in Little Endian.
   while(carry && naIterateBuffer(&iter, 1)){
@@ -500,9 +500,9 @@ NABuffer* naCreateBitArrayAddBitArray(NABuffer* srcarray1, NABuffer* srcarray2){
                 // but will be 0 or 1 in the end.
   
   NABuffer* bitarray = naCreateBuffer(NA_FALSE);
-  dstiter = naMakeBufferIteratorModifier(bitarray);
-  srciter1 = naMakeBufferIteratorAccessor(srcarray1);
-  srciter2 = naMakeBufferIteratorAccessor(srcarray2);
+  dstiter = naMakeBufferModifier(bitarray);
+  srciter1 = naMakeBufferAccessor(srcarray1);
+  srciter2 = naMakeBufferAccessor(srcarray2);
   
   NAUInt srccount1 = naGetBufferRange(srcarray1).length;
   NAUInt srccount2 = naGetBufferRange(srcarray2).length;
@@ -559,8 +559,8 @@ NABuffer* naCreateBitArrayMulTen(NABuffer* srcarray){
   NABuffer* bitarray2 = naCreateBufferExtraction(srcarray, naMakeRangei(2, naGetBufferRange(srcarray).length - 2));
   NABuffer* addbuffer = naCreateBitArrayAddBitArray(srcarray, bitarray2);
   
-  NABufferIterator iter = naMakeBufferIteratorModifier(bitarray);
-  NABufferIterator iter2 = naMakeBufferIteratorAccessor(srcarray);
+  NABufferIterator iter = naMakeBufferModifier(bitarray);
+  NABufferIterator iter2 = naMakeBufferAccessor(srcarray);
   
   naWriteBufferu8(&iter, 0);
   naWriteBufferu8(&iter, naReadBufferu8(&iter2));
@@ -578,7 +578,7 @@ NABuffer* naCreateBitArrayMulTen(NABuffer* srcarray){
 
 
 void naComputeBitArrayOnesComplement(NABuffer* bitarray){
-  NABufferIterator iter = naMakeBufferIteratorMutator(bitarray);
+  NABufferIterator iter = naMakeBufferMutator(bitarray);
   while(naIterateBuffer(&iter, 1)){
     naSetBufferu8(&iter, 1 - naGetBufferu8(&iter));
   }
@@ -603,8 +603,8 @@ void naComputeBitArraySwapBytes(NABuffer* bitarray){
   #endif
 
   naCacheBufferRange(bitarray, naGetBufferRange(bitarray), NA_FALSE);
-  iter1 = naMakeBufferIteratorMutator(bitarray);
-  iter2 = naMakeBufferIteratorMutator(bitarray);
+  iter1 = naMakeBufferMutator(bitarray);
+  iter2 = naMakeBufferMutator(bitarray);
   naIterateBuffer(&iter1, 1);
   naIterateBuffer(&iter2, -8);
   
