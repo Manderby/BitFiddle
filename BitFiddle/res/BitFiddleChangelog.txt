@@ -1,5 +1,6 @@
 Bit Fiddle Changelog
 
+- Internal improvements
 
 Version 1.3
 -----------

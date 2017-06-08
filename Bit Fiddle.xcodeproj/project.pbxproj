@@ -30,6 +30,7 @@
 		9063E0A61C9054F50023BFB6 /* ComplementWindow.xib in Resources */ = {isa = PBXBuildFile; fileRef = 9063E0A51C9054F50023BFB6 /* ComplementWindow.xib */; };
 		9063E0A81C909CAD0023BFB6 /* Preferences.xib in Resources */ = {isa = PBXBuildFile; fileRef = 9063E0A71C909CAD0023BFB6 /* Preferences.xib */; };
 		9063E0AA1C909E2E0023BFB6 /* ManderimAboutWindow.xib in Resources */ = {isa = PBXBuildFile; fileRef = 9063E0A91C909E2E0023BFB6 /* ManderimAboutWindow.xib */; };
+		907A78F71ED8352C0080B94C /* ExpertWindow.xib in Resources */ = {isa = PBXBuildFile; fileRef = 907A78F61ED8352C0080B94C /* ExpertWindow.xib */; };
 		90B032BE1BBC0BD700516B0E /* .gitignore in Resources */ = {isa = PBXBuildFile; fileRef = 90B032AD1BBC0BD700516B0E /* .gitignore */; };
 		90B032C01BBC0BD700516B0E /* ManderimApplication.strings in Resources */ = {isa = PBXBuildFile; fileRef = 90B032B11BBC0BD700516B0E /* ManderimApplication.strings */; };
 		90B032C11BBC0BD700516B0E /* manderim.png in Resources */ = {isa = PBXBuildFile; fileRef = 90B032B51BBC0BD700516B0E /* manderim.png */; };
@@ -128,6 +129,7 @@
 		9063E0A71C909CAD0023BFB6 /* Preferences.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = Preferences.xib; sourceTree = "<group>"; };
 		9063E0A91C909E2E0023BFB6 /* ManderimAboutWindow.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = ManderimAboutWindow.xib; sourceTree = "<group>"; };
 		9063E0AB1C90A1020023BFB6 /* ManderimApplicationStringConstants.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = ManderimApplicationStringConstants.h; sourceTree = "<group>"; };
+		907A78F61ED8352C0080B94C /* ExpertWindow.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = ExpertWindow.xib; sourceTree = "<group>"; };
 		90B032AD1BBC0BD700516B0E /* .gitignore */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; path = .gitignore; sourceTree = "<group>"; };
 		90B032B21BBC0BD700516B0E /* de */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = de; path = de.lproj/ManderimApplication.strings; sourceTree = "<group>"; };
 		90B032B41BBC0BD700516B0E /* en */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = en; path = en.lproj/ManderimApplication.strings; sourceTree = "<group>"; };
@@ -386,6 +388,7 @@
 				B9A99F131AF0FAF600CC6EFF /* Localizable.strings */,
 				B9A057CC178435ED00809BBB /* InfoPlist.strings */,
 				B9A057CE178435ED00809BBB /* MainMenu.xib */,
+				907A78F61ED8352C0080B94C /* ExpertWindow.xib */,
 				9063E0A51C9054F50023BFB6 /* ComplementWindow.xib */,
 				9063E0A71C909CAD0023BFB6 /* Preferences.xib */,
 			);
@@ -453,6 +456,7 @@
 				9063E0A81C909CAD0023BFB6 /* Preferences.xib in Resources */,
 				B9A057E1178435ED00809BBB /* InfoPlist.strings in Resources */,
 				B9A057E2178435ED00809BBB /* MainMenu.xib in Resources */,
+				907A78F71ED8352C0080B94C /* ExpertWindow.xib in Resources */,
 				B93FC156179E242100CFB0AD /* BitFiddleChangelog.txt in Resources */,
 				90B032C01BBC0BD700516B0E /* ManderimApplication.strings in Resources */,
 				900B784B1BD6C07100796AAB /* help in Resources */,

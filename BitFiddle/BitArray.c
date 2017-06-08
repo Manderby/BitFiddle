@@ -276,7 +276,7 @@ NAString naMakeStringDecWithBitArray(const NABuffer* bitarray){
   
   NAUTF8Char* stringbuf = naMalloc(-bitcount);
   charptr = &(stringbuf[bitcount-1]);
-  string = naMakeStringWithMutableUTF8Buffer(stringbuf, -bitcount, NA_MEMORY_CLEANUP_FREE);
+  string = naMakeStringWithMutableUTF8Buffer(stringbuf, -bitcount, NA_MEMORY_CLEANUP_NA_FREE);
 
   outputlen = 0;
   finalstringcount = 0;
@@ -466,7 +466,7 @@ NAString naMakeStringAscWithBitArray(const NABuffer* bitarray){
       }
     }
     naClearBufferIterator(&iter);
-    string = naMakeStringWithMutableUTF8Buffer(stringbuffer, arraysize, NA_MEMORY_CLEANUP_FREE);
+    string = naMakeStringWithMutableUTF8Buffer(stringbuffer, arraysize, NA_MEMORY_CLEANUP_NA_FREE);
   }
   return string;
 }
