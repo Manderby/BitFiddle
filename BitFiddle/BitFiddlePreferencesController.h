@@ -1,10 +1,4 @@
-//
-//  BitFiddlePreferencesController.h
-//  Bit Fiddle
-//
-//  Created by Manderim on 07.08.13.
-//
-//
+
 
 #import <Cocoa/Cocoa.h>
 

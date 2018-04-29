@@ -1,6 +1,4 @@
 
-// This file is part of NALib, a collection of C and C++ source code
-// intended for didactical purposes. Full license notice at the bottom.
 
 #include "NABinaryData.h"
 #include "BitArray.h"
@@ -10,9 +8,76 @@
 
 
 
+// Zero fill
+//
+// The following function returns for a given negative bytesize, how big a
+// buffer must be, to include the appended zero bytes.
+//
+// The allocation functions of NALib expect a positive or negative bytesize.
+// If the bytesize is negative, the absolute value is used to allocate
+// sufficient space but a certain number of bytes is appended to the memory
+// block which will be initialized with binary zero but will not be visible to
+// the programmer.
+// 
+// The following holds true:
+//
+// - The additional bytes are all guaranteed to be initialized with binary
+//   zero.
+// - There are AT LEAST as many bytes appended as one address requires.
+//   Or more precise: 4 Bytes on 32 Bit systems, 8 Bytes on 64 Bit systems
+// - There are as many bytes allocated such that the total bytesize of the
+//   allocated block is a multiple of an address bytesize, meaning 4 or 8 Bytes
+//   depending on the system (32 Bit or 64 Bit).
+// - The total bytesize (desired space plus null bytes) is at minimum 2 times
+//   the number of bytes needed for an address.
+// - When using naMalloc, the part without the additional bytes might partially
+//   become initialized with binary zero.
+// Example for a 32bit system:
+// 0 is a zero-filled byte.
+// x is a desired byte,
+// z is a desired byte which initially gets overwritten with zero.
+// 0:  0000 0000
+// 1:  z000 0000
+// 2:  zz00 0000
+// 3:  zzz0 0000
+// 4:  zzzz 0000
+// 5:  xxxx z000 0000
+// 8:  xxxx zzzz 0000
+// 9:  xxxx xxxx z000 0000
+// 12: xxxx xxxx zzzz 0000
+// 13: xxxx xxxx xxxx z000 0000
+
+NA_HIDEF NAInt naGetNullTerminationBytesize(NAInt bytesize){
+  NAInt returnbytesize;
+  #ifndef NDEBUG
+    if((bytesize >= NA_ZERO))
+      naError("naGetNullTerminationBytesize", "size is not negative");
+  #endif
+  returnbytesize = (-bytesize - NA_ONE) + (NA_SYSTEM_ADDRESS_BYTES << 1) - ((-bytesize - NA_ONE) % NA_SYSTEM_ADDRESS_BYTES);
+  #ifndef NDEBUG
+    if(returnbytesize < NA_ZERO)
+      naError("naGetNullTerminationBytesize", "given negative size is too close to the minimal integer value");
+  #endif
+  return returnbytesize;
+}
+
+
+void* naBitFiddleMalloc(NAInt bytesize){
+  void* retptr;
+  if(bytesize < 0){
+    NAInt positivebytesize = naGetNullTerminationBytesize(bytesize);
+    retptr = naMalloc(positivebytesize);
+    naNulln(&(((NAByte*)retptr)[positivebytesize - 8]), 8);
+  }else{
+    retptr = naMalloc(bytesize);
+  }
+  return retptr;
+}
+
+
 
 NABuffer* naCreateBitArrayWithCount(NAInt count){
-  NABuffer* bitarray = naCreateBuffer(NA_FALSE);
+  NABuffer* bitarray = naNewBuffer(NA_FALSE);
   naCacheBufferRange(bitarray, naMakeRangei(0, count), NA_FALSE);
   return bitarray;
 }
@@ -23,14 +88,14 @@ NABuffer* naCreateBitArrayCopyWithFixedSize(NABuffer* srcarray, NAInt size){
   NABuffer* bitarray;
   NARangei range = naGetBufferRange(srcarray);
   if(size < 0){
-    bitarray = naCreateBufferCopy(srcarray, range, NA_FALSE);
+    bitarray = naNewBufferCopy(srcarray, range, NA_FALSE);
     naPadBitArray(bitarray, -size);
   }else{
     if(range.length < size){
-      bitarray = naCreateBufferCopy(srcarray, range, NA_FALSE);
+      bitarray = naNewBufferCopy(srcarray, range, NA_FALSE);
       naPadBitArray(bitarray, size);
     }else{
-      bitarray = naCreateBufferCopy(srcarray, naMakeRangei(0, size), NA_FALSE);
+      bitarray = naNewBufferCopy(srcarray, naMakeRangei(0, size), NA_FALSE);
     }
   }
   return bitarray;
@@ -60,7 +125,7 @@ NABuffer* naInitBitArrayShiftExtension( NABuffer* dstarray, NABuffer* srcarray, 
 //    if(!srcarray)
 //      naError("naInitBitArrayShiftExtension", "srcarray is Null-Pointer");
 //  #endif
-//  if(!size){return naCreateBufferPlain();}
+//  if(!size){return naNewBufferPlain();}
 //  if(size<0){/*arithmetic = NA_TRUE; */size = -size;}
 //  dstarray = naCreateBitArrayWithCount(size);
 //  dstptr = naGetBufferByteAtIndex(dstarray, 0);
@@ -140,7 +205,7 @@ NABuffer* naCreateBitArrayWithBinString(NAString* string){
   NABufferIterator iterout;
   NABit curbit;
 
-  bitarray = naCreateBuffer(NA_FALSE);
+  bitarray = naNewBuffer(NA_FALSE);
   iterin = naMakeBufferAccessor(naGetStringBufferConst(string));
   iterout = naMakeBufferModifier(bitarray);
   
@@ -172,7 +237,7 @@ NABuffer* naCreateBitArrayWithDecString(NAString* string){
   NABufferIterator iterin;
   NABufferIterator iterdigit;
 
-  bitarray = naCreateBufferPlain();
+  bitarray = naNewBufferPlain();
   
   iterin = naMakeBufferAccessor(naGetStringBufferConst(string));
   while(naIterateBuffer(&iterin, 1)){
@@ -180,7 +245,7 @@ NABuffer* naCreateBitArrayWithDecString(NAString* string){
     if((curchar < '0') || (curchar > '9')){continue;}
     curchar -= '0';
 
-    digit = naCreateBuffer(NA_FALSE);
+    digit = naNewBuffer(NA_FALSE);
     iterdigit = naMakeBufferModifier(digit);
     naWriteBufferu8(&iterdigit, (curchar & 0x01) == 0x01);
     naWriteBufferu8(&iterdigit, (curchar & 0x02) == 0x02);
@@ -189,10 +254,10 @@ NABuffer* naCreateBitArrayWithDecString(NAString* string){
     naClearBufferIterator(&iterdigit);
     
     NABuffer* tentimes = naCreateBitArrayMulTen(bitarray);
-    naReleaseBuffer(bitarray);
+    naRelease(bitarray);
     bitarray = naCreateBitArrayAddBitArray(tentimes, digit);
-    naReleaseBuffer(tentimes);
-    naReleaseBuffer(digit);
+    naRelease(tentimes);
+    naRelease(digit);
   }
   naClearBufferIterator(&iterin);
   
@@ -206,16 +271,24 @@ NABuffer* naCreateBitArrayWithHexString(NAString* string){
   NABufferIterator iterin;
   NABufferIterator iterout;
 
-  bitarray = naCreateBuffer(NA_FALSE);
+  bitarray = naNewBuffer(NA_FALSE);
   iterin = naMakeBufferAccessor(naGetStringBufferConst(string));
   iterout = naMakeBufferModifier(bitarray);
   
   while(naIterateBuffer(&iterin, -1)){
     NAByte curchar = naGetBufferu8(&iterin);
-    naWriteBufferu8(&iterout, (curchar & 0x01) == 0x01);
-    naWriteBufferu8(&iterout, (curchar & 0x02) == 0x02);
-    naWriteBufferu8(&iterout, (curchar & 0x04) == 0x04);
-    naWriteBufferu8(&iterout, (curchar & 0x08) == 0x08);
+    if((curchar >= '0') && (curchar <= '9')){
+      naWriteBufferu8(&iterout, (curchar & 0x01) == 0x01);
+      naWriteBufferu8(&iterout, (curchar & 0x02) == 0x02);
+      naWriteBufferu8(&iterout, (curchar & 0x04) == 0x04);
+      naWriteBufferu8(&iterout, (curchar & 0x08) == 0x08);
+    }else if(((curchar >= 'A') && (curchar <= 'F')) || ((curchar >= 'a') && (curchar <= 'f'))){
+      curchar += 9;
+      naWriteBufferu8(&iterout, (curchar & 0x01) == 0x01);
+      naWriteBufferu8(&iterout, (curchar & 0x02) == 0x02);
+      naWriteBufferu8(&iterout, (curchar & 0x04) == 0x04);
+      naWriteBufferu8(&iterout, (curchar & 0x08) == 0x08);
+    }
   }
   naClearBufferIterator(&iterin);
   naClearBufferIterator(&iterout);
@@ -231,7 +304,7 @@ NABuffer* naCreateBitArrayWithAscString(NAString* string){
   NABufferIterator iterin;
   NABufferIterator iterout;
 
-  bitarray = naCreateBuffer(NA_FALSE);
+  bitarray = naNewBuffer(NA_FALSE);
   iterin = naMakeBufferAccessor(naGetStringBufferConst(string));
   iterout = naMakeBufferModifier(bitarray);
   
@@ -254,33 +327,33 @@ NABuffer* naCreateBitArrayWithAscString(NAString* string){
 
 
 void naClearBitArray(NABuffer* bitarray){
-  naReleaseBuffer(bitarray);
+  naRelease(bitarray);
 }
 
 
 
 
 
-NAString naMakeStringDecWithBitArray(const NABuffer* bitarray){
+NAString* naNewStringDecWithBitArray(const NABuffer* bitarray){
   NAUTF8Char* charptr;
   NAInt outputlen;
   NAInt finalstringcount;
   NABuffer* work;
   NAUInt i;
   NAUInt j;
-  NAString string;
-  NAString retstring;
+  NAString* string;
+  NAString* retstring;
 
   NAUInt bitcount = naGetBufferRange(bitarray).length;
-  if(!bitcount){return naMakeString();}
+  if(!bitcount){return naNewString();}
   
-  NAUTF8Char* stringbuf = naMalloc(-bitcount);
+  NAUTF8Char* stringbuf = naBitFiddleMalloc(-bitcount);
   charptr = &(stringbuf[bitcount-1]);
-  string = naMakeStringWithMutableUTF8Buffer(stringbuf, -bitcount, NA_MEMORY_CLEANUP_NA_FREE);
+  string = naNewStringWithMutableUTF8Buffer(stringbuf, -bitcount, (NAMutator)naFree);
 
   outputlen = 0;
   finalstringcount = 0;
-  work = naCreateBufferCopy(bitarray, naGetBufferRange(bitarray), NA_TRUE);
+  work = naNewBufferCopy(bitarray, naGetBufferRange(bitarray), NA_TRUE);
 
   while(bitcount){
     // as long as a remaining value exists
@@ -359,25 +432,25 @@ NAString naMakeStringDecWithBitArray(const NABuffer* bitarray){
   }
   
   if(finalstringcount){
-    retstring = naMakeStringExtraction(&string, -finalstringcount, -1);
+    retstring = naNewStringExtraction(string, -finalstringcount, -1);
   }else{
-    retstring = naMakeStringWithUTF8CStringLiteral("0");
+    retstring = naNewStringWithUTF8CStringLiteral("0");
   }
-  naClearString(&string);
-  naReleaseBuffer(work);
+  naDelete(string);
+  naRelease(work);
   return retstring;
 }
 
 
 
-NAString naMakeStringHexWithBitArray(const NABuffer* bitarray){
+NAString* naNewStringHexWithBitArray(const NABuffer* bitarray){
   NABufferIterator iterin;
   NABufferIterator iterout;
   NAInt bitcount;
   uint8 nibble;
   
-  NAString string = naMakeString();
-  NABuffer* buffer = naGetStringBufferMutable(&string);
+  NAString* string = naNewString();
+  NABuffer* buffer = naGetStringBufferMutable(string);
   
   iterin = naMakeBufferAccessor(bitarray);
   iterout = naMakeBufferModifier(buffer);
@@ -410,13 +483,13 @@ NAString naMakeStringHexWithBitArray(const NABuffer* bitarray){
 
 
 
-NAString naMakeStringBinWithBitArray(const NABuffer* bitarray){
+NAString* naNewStringBinWithBitArray(const NABuffer* bitarray){
   NABufferIterator iterin;
   NABufferIterator iterout;
   NAInt bitcount;
   
-  NAString string = naMakeString();
-  NABuffer* buffer = naGetStringBufferMutable(&string);
+  NAString* string = naNewString();
+  NABuffer* buffer = naGetStringBufferMutable(string);
   
   iterin = naMakeBufferAccessor(bitarray);
   iterout = naMakeBufferModifier(buffer);
@@ -439,17 +512,17 @@ NAString naMakeStringBinWithBitArray(const NABuffer* bitarray){
 
 
 
-NAString naMakeStringAscWithBitArray(const NABuffer* bitarray){
-  NAString string;
+NAString* naNewStringAscWithBitArray(const NABuffer* bitarray){
+  NAString* string;
   if(naIsBufferEmpty(bitarray)){
-    string = naMakeString();
+    string = naNewString();
   }else{
     #ifndef NDEBUG
       if(naGetBufferRange(bitarray).length % 8)
-        naError("naMakeStringAscWithBitArray", "buffer length not divisible by 8");
+        naError("naNewStringAscWithBitArray", "buffer length not divisible by 8");
     #endif
     NAInt arraysize = naGetBufferRange(bitarray).length / 8;
-    NAUTF8Char* stringbuffer = naMalloc(arraysize); 
+    NAUTF8Char* stringbuffer = naBitFiddleMalloc(arraysize); 
     NAUTF8Char* curchar = stringbuffer;
     NAInt bitcount = 0;
     NAUTF8Char newchar = 0;
@@ -466,7 +539,7 @@ NAString naMakeStringAscWithBitArray(const NABuffer* bitarray){
       }
     }
     naClearBufferIterator(&iter);
-    string = naMakeStringWithMutableUTF8Buffer(stringbuffer, arraysize, NA_MEMORY_CLEANUP_NA_FREE);
+    string = naNewStringWithMutableUTF8Buffer(stringbuffer, arraysize, (NAMutator)naFree);
   }
   return string;
 }
@@ -499,7 +572,7 @@ NABuffer* naCreateBitArrayAddBitArray(NABuffer* srcarray1, NABuffer* srcarray2){
   NABit carry;  // Note that carry can be 0, 1, 2 or 3 during the computation
                 // but will be 0 or 1 in the end.
   
-  NABuffer* bitarray = naCreateBuffer(NA_FALSE);
+  NABuffer* bitarray = naNewBuffer(NA_FALSE);
   dstiter = naMakeBufferModifier(bitarray);
   srciter1 = naMakeBufferAccessor(srcarray1);
   srciter2 = naMakeBufferAccessor(srcarray2);
@@ -553,10 +626,10 @@ NABuffer* naCreateBitArrayAddBitArray(NABuffer* srcarray1, NABuffer* srcarray2){
 
 
 NABuffer* naCreateBitArrayMulTen(NABuffer* srcarray){
-  if(naIsBufferEmpty(srcarray)){return naCreateBufferPlain();}
+  if(naIsBufferEmpty(srcarray)){return naNewBufferPlain();}
   
-  NABuffer* bitarray = naCreateBuffer(NA_FALSE);
-  NABuffer* bitarray2 = naCreateBufferExtraction(srcarray, naMakeRangei(2, naGetBufferRange(srcarray).length - 2));
+  NABuffer* bitarray = naNewBuffer(NA_FALSE);
+  NABuffer* bitarray2 = naNewBufferExtraction(srcarray, naMakeRangei(2, naGetBufferRange(srcarray).length - 2));
   NABuffer* addbuffer = naCreateBitArrayAddBitArray(srcarray, bitarray2);
   
   NABufferIterator iter = naMakeBufferModifier(bitarray);
@@ -566,8 +639,8 @@ NABuffer* naCreateBitArrayMulTen(NABuffer* srcarray){
   naWriteBufferu8(&iter, naReadBufferu8(&iter2));
   naWriteBufferu8(&iter, naReadBufferu8(&iter2));
   naWriteBufferBuffer(&iter, addbuffer, naGetBufferRange(addbuffer));
-  naReleaseBuffer(addbuffer);
-  naReleaseBuffer(bitarray2);
+  naRelease(addbuffer);
+  naRelease(bitarray2);
   
   naClearBufferIterator(&iter2);
   naClearBufferIterator(&iter);
@@ -625,28 +698,3 @@ void naComputeBitArraySwapBytes(NABuffer* bitarray){
 
 
 
-// Copyright (c) NALib, Tobias Stamm, Manderim GmbH
-//
-// Permission is hereby granted, free of charge, to any person obtaining
-// a copy of this software and associated documentation files (the
-// "Software"), to deal in the Software without restriction, including
-// without limitation the rights to use, copy, modify, merge, publish,
-// distribute, sublicense, and/or sell copies of the Software, and to
-// permit persons to whom the Software is furnished to do so, subject to
-// the following conditions:
-//
-// The above copyright notice and this permission notice shall be included
-// in all copies or substantial portions of the source-code.
-//
-// In case the source-code of this software is inaccessible to the end-user,
-// the above copyright notice and this permission notice shall be included
-// in any source-code which is dependent on this software and is accessible
-// to the end-user.
-//
-// THE SOFTWARE IS PROVIDED "AS IS", WITHOUT WARRANTY OF ANY KIND,
-// EXPRESS OR IMPLIED, INCLUDING BUT NOT LIMITED TO THE WARRANTIES OF
-// MERCHANTABILITY, FITNESS FOR A PARTICULAR PURPOSE AND NONINFRINGEMENT.
-// IN NO EVENT SHALL THE AUTHORS OR COPYRIGHT HOLDERS BE LIABLE FOR ANY
-// CLAIM, DAMAGES OR OTHER LIABILITY, WHETHER IN AN ACTION OF CONTRACT,
-// TORT OR OTHERWISE, ARISING FROM, OUT OF OR IN CONNECTION WITH THE
-// SOFTWARE OR THE USE OR OTHER DEALINGS IN THE SOFTWARE.

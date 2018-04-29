@@ -140,10 +140,10 @@ void naClearBitArray(NABuffer* array);
 // into one single byte. The byte array is guaranteed to be null-terminated.
 // Careful: Only works properly when bitcount can be divided by 8! Use
 // naInitBitArrayShiftExtension first, if this is not the case.
-NAString naMakeStringDecWithBitArray(const NABuffer* bitarray);
-NAString naMakeStringHexWithBitArray(const NABuffer* bitarray);
-NAString naMakeStringBinWithBitArray(const NABuffer* bitarray);
-NAString naMakeStringAscWithBitArray(const NABuffer* bitarray);
+NAString* naNewStringDecWithBitArray(const NABuffer* bitarray);
+NAString* naNewStringHexWithBitArray(const NABuffer* bitarray);
+NAString* naNewStringBinWithBitArray(const NABuffer* bitarray);
+NAString* naNewStringAscWithBitArray(const NABuffer* bitarray);
 
 
 // //////////////////////////////////
@@ -191,6 +191,8 @@ void naComputeBitArrayTwosComplement(NABuffer* array);
 // Swaps the byte order. Careful: Only works properly when bitcount can be
 // divided by 8! Use naInitBitArrayShiftExtension first, if this is not the case.
 void naComputeBitArraySwapBytes(NABuffer* array);
+
+
 
 
 

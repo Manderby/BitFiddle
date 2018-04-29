@@ -1,13 +1,13 @@
-<?xml version="1.0" encoding="UTF-8" standalone="no"?>
-<document type="com.apple.InterfaceBuilder3.Cocoa.XIB" version="3.0" toolsVersion="9531" systemVersion="15D21" targetRuntime="MacOSX.Cocoa" propertyAccessControl="none">
+<?xml version="1.0" encoding="UTF-8"?>
+<document type="com.apple.InterfaceBuilder3.Cocoa.XIB" version="3.0" toolsVersion="14109" targetRuntime="MacOSX.Cocoa" propertyAccessControl="none">
     <dependencies>
         <deployment identifier="macosx"/>
-        <plugIn identifier="com.apple.InterfaceBuilder.CocoaPlugin" version="9531"/>
+        <plugIn identifier="com.apple.InterfaceBuilder.CocoaPlugin" version="14109"/>
+        <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
     </dependencies>
     <objects>
         <customObject id="-2" userLabel="File's Owner" customClass="BitFiddleApplication">
             <connections>
-                <outlet property="aboutMenuItem" destination="58" id="2192"/>
                 <outlet property="asciiwindowcontroller" destination="1204" id="2119"/>
                 <outlet property="byteswapmenuitem" destination="867" id="X3X-9c-j0j"/>
                 <outlet property="helpMenuItem" destination="492" id="2198"/>
@@ -555,13 +555,13 @@
                         </textFieldCell>
                     </textField>
                     <segmentedControl verticalHuggingPriority="750" id="1200">
-                        <rect key="frame" x="176" y="6" width="99" height="19"/>
+                        <rect key="frame" x="176" y="6" width="106" height="19"/>
                         <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMinY="YES"/>
                         <segmentedCell key="cell" controlSize="small" borderStyle="border" alignment="left" style="texturedSquare" trackingMode="selectOne" id="1201">
                             <font key="font" metaFont="smallSystem"/>
                             <segments>
-                                <segment label="Hex" width="48"/>
-                                <segment label="Dec" width="48" selected="YES" tag="1"/>
+                                <segment label="Hex" width="50"/>
+                                <segment label="Dec" width="50" selected="YES" tag="1"/>
                             </segments>
                         </segmentedCell>
                         <connections>
@@ -569,13 +569,13 @@
                         </connections>
                     </segmentedControl>
                     <segmentedControl verticalHuggingPriority="750" id="1897">
-                        <rect key="frame" x="24" y="6" width="131" height="19"/>
+                        <rect key="frame" x="24" y="6" width="127" height="19"/>
                         <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMinY="YES"/>
                         <segmentedCell key="cell" controlSize="small" borderStyle="border" alignment="left" style="texturedSquare" trackingMode="selectOne" id="1898">
                             <font key="font" metaFont="smallSystem"/>
                             <segments>
-                                <segment label="Escape" width="64"/>
-                                <segment label="Code" width="64" selected="YES" tag="1"/>
+                                <segment label="Escape" width="61"/>
+                                <segment label="Code" width="60" selected="YES" tag="1"/>
                             </segments>
                         </segmentedCell>
                         <connections>
@@ -2616,54 +2616,33 @@
                             <color key="backgroundColor" name="controlColor" catalog="System" colorSpace="catalog"/>
                         </textFieldCell>
                     </textField>
-                    <box horizontalHuggingPriority="750" title="Box" boxType="separator" titlePosition="noTitle" id="1943">
+                    <box horizontalHuggingPriority="750" boxType="separator" id="1943">
                         <rect key="frame" x="110" y="52" width="5" height="336"/>
                         <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMinY="YES"/>
-                        <color key="borderColor" white="0.0" alpha="0.41999999999999998" colorSpace="calibratedWhite"/>
-                        <color key="fillColor" white="0.0" alpha="0.0" colorSpace="calibratedWhite"/>
-                        <font key="titleFont" metaFont="system"/>
                     </box>
-                    <box horizontalHuggingPriority="750" title="Box" boxType="separator" titlePosition="noTitle" id="1944">
+                    <box horizontalHuggingPriority="750" boxType="separator" id="1944">
                         <rect key="frame" x="211" y="52" width="5" height="336"/>
                         <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMinY="YES"/>
-                        <color key="borderColor" white="0.0" alpha="0.41999999999999998" colorSpace="calibratedWhite"/>
-                        <color key="fillColor" white="0.0" alpha="0.0" colorSpace="calibratedWhite"/>
-                        <font key="titleFont" metaFont="system"/>
                     </box>
-                    <box horizontalHuggingPriority="750" title="Box" boxType="separator" titlePosition="noTitle" id="1945">
+                    <box horizontalHuggingPriority="750" boxType="separator" id="1945">
                         <rect key="frame" x="312" y="52" width="5" height="336"/>
                         <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMinY="YES"/>
-                        <color key="borderColor" white="0.0" alpha="0.41999999999999998" colorSpace="calibratedWhite"/>
-                        <color key="fillColor" white="0.0" alpha="0.0" colorSpace="calibratedWhite"/>
-                        <font key="titleFont" metaFont="system"/>
                     </box>
-                    <box horizontalHuggingPriority="750" title="Box" boxType="separator" titlePosition="noTitle" id="1946">
+                    <box horizontalHuggingPriority="750" boxType="separator" id="1946">
                         <rect key="frame" x="413" y="52" width="5" height="336"/>
                         <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMinY="YES"/>
-                        <color key="borderColor" white="0.0" alpha="0.41999999999999998" colorSpace="calibratedWhite"/>
-                        <color key="fillColor" white="0.0" alpha="0.0" colorSpace="calibratedWhite"/>
-                        <font key="titleFont" metaFont="system"/>
                     </box>
-                    <box horizontalHuggingPriority="750" title="Box" boxType="separator" titlePosition="noTitle" id="1947">
+                    <box horizontalHuggingPriority="750" boxType="separator" id="1947">
                         <rect key="frame" x="514" y="52" width="5" height="336"/>
                         <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMinY="YES"/>
-                        <color key="borderColor" white="0.0" alpha="0.41999999999999998" colorSpace="calibratedWhite"/>
-                        <color key="fillColor" white="0.0" alpha="0.0" colorSpace="calibratedWhite"/>
-                        <font key="titleFont" metaFont="system"/>
                     </box>
-                    <box horizontalHuggingPriority="750" title="Box" boxType="separator" titlePosition="noTitle" id="1948">
+                    <box horizontalHuggingPriority="750" boxType="separator" id="1948">
                         <rect key="frame" x="615" y="52" width="5" height="336"/>
                         <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMinY="YES"/>
-                        <color key="borderColor" white="0.0" alpha="0.41999999999999998" colorSpace="calibratedWhite"/>
-                        <color key="fillColor" white="0.0" alpha="0.0" colorSpace="calibratedWhite"/>
-                        <font key="titleFont" metaFont="system"/>
                     </box>
-                    <box horizontalHuggingPriority="750" title="Box" boxType="separator" titlePosition="noTitle" id="1949">
+                    <box horizontalHuggingPriority="750" boxType="separator" id="1949">
                         <rect key="frame" x="716" y="52" width="5" height="336"/>
                         <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMinY="YES"/>
-                        <color key="borderColor" white="0.0" alpha="0.41999999999999998" colorSpace="calibratedWhite"/>
-                        <color key="fillColor" white="0.0" alpha="0.0" colorSpace="calibratedWhite"/>
-                        <font key="titleFont" metaFont="system"/>
                     </box>
                 </subviews>
             </view>

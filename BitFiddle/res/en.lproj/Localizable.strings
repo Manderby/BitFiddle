@@ -1,6 +1,6 @@
 
-/* Strings for ManderimApplication */
-ManderimApplicationDescription = "Conversion tool for binary values\nDesign and implementation: Tobias Stamm.";
+/* Strings for MandApplication */
+MandDescription = "Conversion tool for binary values\nDesign and implementation: Tobias Stamm.";
 
 /* Expressions in Main Window */
 

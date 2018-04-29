@@ -1,8 +1,8 @@
 
 #import <Cocoa/Cocoa.h>
-#import "ManderimApplication.h"
+#import "MandApplication.h"
 
-@class ManderimAboutWindowController;
+@class MandAboutWindowController;
 @class BitFiddlePreferencesController;
 @class ComplementWindowController;
 @class ASCIIWindowController;
@@ -16,7 +16,7 @@ typedef enum{
 
 
 
-@interface BitFiddleApplication : ManderimApplication {
+@interface BitFiddleApplication : MandApplication {
   IBOutlet BitFiddlePreferencesController* preferenceswindowcontroller;
   IBOutlet ComplementWindowController* complementwindowcontroller;
   IBOutlet ComplementWindowController* minicomplementwindowcontroller;

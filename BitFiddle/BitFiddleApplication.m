@@ -1,7 +1,7 @@
 
 
 #import "BitFiddleApplication.h"
-#import "ManderimAboutWindowController.h"
+#import "MandAboutWindowController.h"
 #import "ComplementWindowController.h"
 #import "ASCIIWindowController.h"
 
@@ -30,12 +30,12 @@
   [self setHelpDocument:url];
 
   
-  NSUserDefaults* userdefaults = [NSUserDefaults standardUserDefaults];
-  byteswap = [userdefaults integerForKey:@"byteswap"];
-  conversiontype = (ConversionType)[userdefaults integerForKey:@"complementencoding"];
-  usemini = [userdefaults integerForKey:@"usemini"];
+  byteswap = mandGetUserDefaultBool("byteswap");
+  conversiontype = (ConversionType)mandGetUserDefaultEnum("complementencoding");
+  if(((int32)conversiontype < COMPUTE_UNSIGNED) || (int32)conversiontype > COMPUTE_TWOS_COMPLEMENT){conversiontype = 0;}
+  usemini = mandGetUserDefaultBool("usemini");
   
-  NABool resetsettings = (NABool)[userdefaults integerForKey:@"resetsettings"];
+  NABool resetsettings = mandGetUserDefaultBool("resetsettings");
   if(resetsettings){
     byteswap = NA_FALSE;
     conversiontype = COMPUTE_UNSIGNED;
@@ -44,13 +44,17 @@
   [self update];
   [self showComplement:self];
 
-  NABool showascii = (NABool)[userdefaults integerForKey:@"showascii"];
+  NABool showascii = mandGetUserDefaultBool("showascii");
   if(showascii){[self showASCII:self];}
 
   NSString* versionstring = [[NSBundle mainBundle] objectForInfoDictionaryKey:@"CFBundleShortVersionString"];
-//  if(1){
-  if(![versionstring isEqualToString:[userdefaults stringForKey:@"lastrunningversion"]]){
-    [userdefaults setObject:versionstring forKey:@"lastrunningversion"];
+  NAString* lastrunversion = mandNewUserDefaultString("lastrunningversion");
+
+  if(![versionstring isEqualToString:[NSString stringWithUTF8String:naGetStringUTF8Pointer(lastrunversion)]]){
+    NAString* curversionstring = naNewStringWithFormat("%s", [versionstring UTF8String]);
+    mandSetUserDefaultString(curversionstring, "lastrunningversion");
+    naDelete(curversionstring);
+    
     NSAlert* alert = [[NSAlert alloc] init];
     alert.alertStyle = NSInformationalAlertStyle;
     alert.messageText = [NSString stringWithFormat:@"Welcome to Version %@", versionstring];
@@ -58,6 +62,7 @@
     [alert runModal];
     [alert release];
   }
+  naDelete(lastrunversion);
 }
 
 
@@ -84,9 +89,8 @@
 
 
 - (void)update{
-  NSUserDefaults* userdefaults = [NSUserDefaults standardUserDefaults];
-  NABool keepmaxiontop = [userdefaults integerForKey:@"keepmaxiontop"];
-  NABool keepminiontop = [userdefaults integerForKey:@"keepminiontop"];
+  NABool keepmaxiontop = mandGetUserDefaultBool("keepmaxiontop");
+  NABool keepminiontop = mandGetUserDefaultBool("keepminiontop");
 
   [byteswapmenuitem setState:byteswap ? NSOnState : NSOffState];
   [unsignedmenuitem setState:(conversiontype == COMPUTE_UNSIGNED)?NSOnState:NSOffState];
@@ -130,11 +134,10 @@
 - (IBAction) switchMini:(id)sender{
   usemini = !usemini;
 
-  NSUserDefaults* userdefaults = [NSUserDefaults standardUserDefaults];
   if(usemini){
-    [userdefaults setInteger:1 forKey:@"usemini"];
+    mandSetUserDefaultInt(1, "usemini");
   }else{
-    [userdefaults setInteger:0 forKey:@"usemini"];
+    mandSetUserDefaultInt(0, "usemini");
   }
   [complementwindowcontroller resetValue];
   [minicomplementwindowcontroller resetValue];
@@ -146,8 +149,7 @@
 - (IBAction)switchByteSwap:(id)sender{
   byteswap = !byteswap;
   
-  NSUserDefaults* userdefaults = [NSUserDefaults standardUserDefaults];
-  [userdefaults setInteger:(NSInteger)byteswap forKey:@"byteswap"];
+  mandSetUserDefaultInt((NSInteger)byteswap, "byteswap");
   [self update];
   [complementwindowcontroller update];
   [minicomplementwindowcontroller update];
@@ -155,8 +157,7 @@
 
 
 - (void)updateConversionType{
-  NSUserDefaults* userdefaults = [NSUserDefaults standardUserDefaults];
-  [userdefaults setInteger:conversiontype forKey:@"complementencoding"];
+  mandSetUserDefaultEnum(conversiontype, "complementencoding");
   [self update];
   [complementwindowcontroller update];
   [minicomplementwindowcontroller update];

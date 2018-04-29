@@ -1,14 +1,6 @@
-//
-//  BitFiddlePreferencesController.m
-//  Bit Fiddle
-//
-//  Created by Manderim on 07.08.13.
-//
-//
 
 #import "BitFiddlePreferencesController.h"
 #import "BitFiddleApplication.h"
-#import "ManderimApplicationStringConstants.h"
 
 
 @implementation BitFiddlePreferencesController
@@ -25,18 +17,16 @@
   [keepmaxiontopcheckbox setTitle:[[NSBundle mainBundle] localizedStringForKey:@"BitFiddlePrefsMaxiVersion" value:nil table:nil]];
   [keepminiontopcheckbox setTitle:[[NSBundle mainBundle] localizedStringForKey:@"BitFiddlePrefsMiniVersion" value:nil table:nil]];
 
-  [donebutton setTitle:[[NSBundle mainBundle] localizedStringForKey:MANDERIM_APPLICATION_DONE_KEY value:nil table:@"ManderimApplication"]];
+  [donebutton setTitle:[[NSBundle mainBundle] localizedStringForKey:@"MandDone" value:nil table:@"MandApplication"]];
 
 
-  NSUserDefaults* userdefaults = [NSUserDefaults standardUserDefaults];
-
-  NSInteger showascii = [userdefaults integerForKey:@"showascii"];
+  NSInteger showascii = mandGetUserDefaultInt("showascii");
   [showasciiwindowatstartupcheckbox setState:(showascii==1)?NSOnState:NSOffState];
-  NSInteger resetsettings = [userdefaults integerForKey:@"resetsettings"];
+  NSInteger resetsettings = mandGetUserDefaultInt("resetsettings");
   [resetsettingsatstartupcheckbox setState:(resetsettings==1)?NSOnState:NSOffState];
-  NSInteger keepmaxi = [userdefaults integerForKey:@"keepmaxiontop"];
+  NSInteger keepmaxi = mandGetUserDefaultInt("keepmaxiontop");
   [keepmaxiontopcheckbox setState:keepmaxi?NSOnState:NSOffState];
-  NSInteger keepmini = [userdefaults integerForKey:@"keepminiontop"];
+  NSInteger keepmini = mandGetUserDefaultInt("keepminiontop");
   [keepminiontopcheckbox setState:keepmini?NSOnState:NSOffState];
 }
 
@@ -47,24 +37,21 @@
 
 
 - (IBAction)changeShowASCIIatStartup:(id)sender{
-  NSUserDefaults* userdefaults = [NSUserDefaults standardUserDefaults];
-  [userdefaults setInteger:([sender state] == NSOnState)?1:0 forKey:@"showascii"];
+  mandSetUserDefaultInt(([sender state] == NSOnState)?1:0, "showascii");
 }
 
 
 - (IBAction)changeResetSettingsAtStartup:(id)sender{
-  NSUserDefaults* userdefaults = [NSUserDefaults standardUserDefaults];
-  [userdefaults setInteger:([sender state] == NSOnState)?1:0 forKey:@"resetsettings"];
+  mandSetUserDefaultInt(([sender state] == NSOnState)?1:0, "resetsettings");
 }
 
 
 - (IBAction)changeKeepWindowOnTop:(id)sender{
-  NSUserDefaults* userdefaults = [NSUserDefaults standardUserDefaults];
   NABool keepmaxi = ([keepmaxiontopcheckbox state] == NSOnState)?NA_TRUE:NA_FALSE;
   NABool keepmini = ([keepminiontopcheckbox state] == NSOnState)?NA_TRUE:NA_FALSE;
   
-  [userdefaults setInteger:(NSInteger)keepmaxi forKey:@"keepmaxiontop"];
-  [userdefaults setInteger:(NSInteger)keepmini forKey:@"keepminiontop"];
+  mandSetUserDefaultInt((NSInteger)keepmaxi, "keepmaxiontop");
+  mandSetUserDefaultInt((NSInteger)keepmini, "keepminiontop");
   [(BitFiddleApplication*)NSApp update];
 }
 

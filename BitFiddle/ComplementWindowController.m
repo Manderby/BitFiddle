@@ -21,7 +21,7 @@
   [segcontrol setLabel:string2 forSegment:2];
   [segcontrol sizeToFit];
 
-  bitarray = naCreateBufferPlain();
+  bitarray = naNewBufferPlain();
   [indec setStringValue:@""];
   [inhex setStringValue:@""];
   [inbin setStringValue:@""];
@@ -54,7 +54,7 @@
 
 
 - (void)dealloc{
-  naReleaseBuffer(bitarray);
+  naRelease(bitarray);
   [super dealloc];
 }
 
@@ -200,10 +200,10 @@
   [inbin setStringValue:@""];
   [inasc setStringValue:@""];
   
-  naReleaseBuffer(bitarray);
-  NAString instring = naMakeStringWithUTF8CStringLiteral([[sender stringValue] UTF8String]);
-  bitarray = naCreateBitArrayWithDecString(&instring);
-  naClearString(&instring);
+  naRelease(bitarray);
+  NAString* instring = naNewStringWithUTF8CStringLiteral([[sender stringValue] UTF8String]);
+  bitarray = naCreateBitArrayWithDecString(instring);
+  naDelete(instring);
 
   [self update];
 }
@@ -215,10 +215,10 @@
   [inbin setStringValue:@""];
   [inasc setStringValue:@""];
 
-  naReleaseBuffer(bitarray);
-  NAString instring = naMakeStringWithUTF8CStringLiteral([[sender stringValue] UTF8String]);
-  bitarray = naCreateBitArrayWithHexString(&instring);
-  naClearString(&instring);
+  naRelease(bitarray);
+  NAString* instring = naNewStringWithUTF8CStringLiteral([[sender stringValue] UTF8String]);
+  bitarray = naCreateBitArrayWithHexString(instring);
+  naDelete(instring);
 
   [self update];
 }
@@ -230,10 +230,10 @@
   [inhex setStringValue:@""];
   [inasc setStringValue:@""];
 
-  naReleaseBuffer(bitarray);
-  NAString instring = naMakeStringWithUTF8CStringLiteral([[sender stringValue] UTF8String]);
-  bitarray = naCreateBitArrayWithBinString(&instring);
-  naClearString(&instring);
+  naRelease(bitarray);
+  NAString* instring = naNewStringWithUTF8CStringLiteral([[sender stringValue] UTF8String]);
+  bitarray = naCreateBitArrayWithBinString(instring);
+  naDelete(instring);
 
   [self update];
 }
@@ -245,10 +245,10 @@
   [inhex setStringValue:@""];
   [inbin setStringValue:@""];
 
-  naReleaseBuffer(bitarray);
-  NAString instring = naMakeStringWithUTF8CStringLiteral([[sender stringValue] UTF8String]);
-  bitarray = naCreateBitArrayWithAscString(&instring);
-  naClearString(&instring);
+  naRelease(bitarray);
+  NAString* instring = naNewStringWithUTF8CStringLiteral([[sender stringValue] UTF8String]);
+  bitarray = naCreateBitArrayWithAscString(instring);
+  naDelete(instring);
 
   [self update];
 }
@@ -260,8 +260,8 @@
   [inbin setStringValue:@""];
   [inasc setStringValue:@""];
   
-  naReleaseBuffer(bitarray);
-  bitarray = naCreateBufferPlain();
+  naRelease(bitarray);
+  bitarray = naNewBufferPlain();
   
   [self update];
 }

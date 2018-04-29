@@ -1,12 +1,7 @@
-//
-//  ASCIIWindowController.m
-//  Bit Fiddle
-//
-//  Created by Manderim on 25.07.13.
-//  Copyright 2013 __MyCompanyName__. All rights reserved.
-//
+
 
 #import "ASCIIWindowController.h"
+#include "MandEnvironment.h"
 
 #define SETHOVER(guielem, integer) \
   [[[self window] contentView] addTrackingArea:[[[NSTrackingArea alloc] initWithRect:[guielem frame] options:NSTrackingActiveInKeyWindow | NSTrackingMouseEnteredAndExited owner:self userInfo:[NSDictionary dictionaryWithObject:[NSNumber numberWithInteger:integer] forKey:@"ord"]] autorelease]];
@@ -437,11 +432,10 @@ const char* addinfo[128] = {
 
   [[self window] setDelegate:self];
 
-  NSUserDefaults* userdefaults = [NSUserDefaults standardUserDefaults];
   NSInteger segmentindex;
-  segmentindex = [userdefaults integerForKey:@"asciinumbersystem"];
+  segmentindex = mandGetUserDefaultInt("asciinumbersystem");
   [numbercontrol setSelectedSegment:segmentindex];
-  segmentindex = [userdefaults integerForKey:@"asciicodeswitch"];
+  segmentindex = mandGetUserDefaultInt("asciicodeswitch");
   [codecontrol setSelectedSegment:segmentindex];
 
 
@@ -730,8 +724,7 @@ const char* addinfo[128] = {
 
 -(void)update{
 
-  NSUserDefaults* userdefaults = [NSUserDefaults standardUserDefaults];
-  [userdefaults setInteger:[numbercontrol selectedSegment] forKey:@"asciinumbersystem"];
+  mandSetUserDefaultInt([numbercontrol selectedSegment], "asciinumbersystem");
 
   if([numbercontrol selectedSegment] == 0){
     [asc00 setStringValue:@"00"];
@@ -994,7 +987,7 @@ const char* addinfo[128] = {
   }
 
 
-  [userdefaults setInteger:[codecontrol selectedSegment] forKey:@"asciicodeswitch"];
+  mandSetUserDefaultInt([codecontrol selectedSegment], "asciicodeswitch");
 
   if([codecontrol selectedSegment] == 0){
     [chr00 setStringValue:@"\\0"];
