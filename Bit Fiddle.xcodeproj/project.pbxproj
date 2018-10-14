@@ -634,6 +634,7 @@
 				GCC_PREPROCESSOR_DEFINITIONS = NDEBUG;
 				GCC_VERSION = "";
 				STRIP_INSTALLED_PRODUCT = NO;
+				VALID_ARCHS = x86_64;
 			};
 			name = Optimize;
 		};
@@ -678,6 +679,7 @@
 				GCC_OPTIMIZATION_LEVEL = 0;
 				GCC_VERSION = "";
 				ONLY_ACTIVE_ARCH = YES;
+				VALID_ARCHS = x86_64;
 			};
 			name = Debug;
 		};
@@ -690,6 +692,7 @@
 				GCC_GENERATE_DEBUGGING_SYMBOLS = NO;
 				GCC_PREPROCESSOR_DEFINITIONS = NDEBUG;
 				GCC_VERSION = "";
+				VALID_ARCHS = x86_64;
 			};
 			name = Release;
 		};

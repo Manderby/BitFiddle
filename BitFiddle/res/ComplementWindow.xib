@@ -1038,12 +1038,12 @@
             <windowStyleMask key="styleMask" titled="YES" closable="YES" miniaturizable="YES" resizable="YES" utility="YES" texturedBackground="YES"/>
             <windowCollectionBehavior key="collectionBehavior" fullScreenNone="YES"/>
             <windowPositionMask key="initialPositionMask" leftStrut="YES" rightStrut="YES" topStrut="YES" bottomStrut="YES"/>
-            <rect key="contentRect" x="90" y="130" width="537" height="119"/>
+            <rect key="contentRect" x="90" y="130" width="500" height="120"/>
             <rect key="screenRect" x="0.0" y="0.0" width="1440" height="900"/>
-            <value key="minSize" type="size" width="537" height="119"/>
-            <value key="maxSize" type="size" width="537" height="119"/>
+            <value key="minSize" type="size" width="500" height="120"/>
+            <value key="maxSize" type="size" width="500" height="120"/>
             <view key="contentView" id="YFY-mW-FN5">
-                <rect key="frame" x="0.0" y="0.0" width="537" height="119"/>
+                <rect key="frame" x="0.0" y="0.0" width="500" height="120"/>
                 <autoresizingMask key="autoresizingMask"/>
                 <subviews>
                     <textField verticalHuggingPriority="750" allowsCharacterPickerTouchBarItem="YES" id="OyW-Lo-ie0">
@@ -1056,7 +1056,7 @@
                         </textFieldCell>
                     </textField>
                     <textField verticalHuggingPriority="750" allowsCharacterPickerTouchBarItem="YES" id="Y7T-xt-cAM">
-                        <rect key="frame" x="156" y="91" width="85" height="22"/>
+                        <rect key="frame" x="137" y="91" width="85" height="22"/>
                         <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMinY="YES"/>
                         <textFieldCell key="cell" scrollable="YES" lineBreakMode="clipping" selectable="YES" editable="YES" sendsActionOnEndEditing="YES" state="on" borderStyle="bezel" alignment="right" title="00 00 00 00" drawsBackground="YES" id="MuX-Yb-kuy">
                             <font key="font" size="11" name="Menlo-Regular"/>
@@ -1069,7 +1069,7 @@
                         </connections>
                     </textField>
                     <scrollView focusRingType="exterior" borderType="none" horizontalLineScroll="10" horizontalPageScroll="10" verticalLineScroll="10" verticalPageScroll="10" hasHorizontalScroller="NO" hasVerticalScroller="NO" usesPredominantAxisScrolling="NO" id="d40-Yu-bUI">
-                        <rect key="frame" x="216" y="61" width="25" height="13"/>
+                        <rect key="frame" x="197" y="61" width="25" height="13"/>
                         <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMinY="YES"/>
                         <clipView key="contentView" drawsBackground="NO" id="eu6-iW-N9a">
                             <rect key="frame" x="0.0" y="0.0" width="25" height="13"/>
@@ -1108,7 +1108,7 @@
                         </scroller>
                     </scrollView>
                     <textField verticalHuggingPriority="750" allowsCharacterPickerTouchBarItem="YES" id="QH5-pm-SHG">
-                        <rect key="frame" x="154" y="61" width="25" height="14"/>
+                        <rect key="frame" x="135" y="61" width="25" height="14"/>
                         <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMinY="YES"/>
                         <textFieldCell key="cell" controlSize="small" scrollable="YES" lineBreakMode="clipping" sendsActionOnEndEditing="YES" alignment="left" title="Hex" id="KrX-R3-Vfy">
                             <font key="font" metaFont="smallSystem"/>
@@ -1117,7 +1117,7 @@
                         </textFieldCell>
                     </textField>
                     <scrollView focusRingType="exterior" borderType="none" horizontalLineScroll="10" horizontalPageScroll="10" verticalLineScroll="10" verticalPageScroll="10" hasHorizontalScroller="NO" hasVerticalScroller="NO" usesPredominantAxisScrolling="NO" id="bIN-wN-z7r">
-                        <rect key="frame" x="156" y="6" width="85" height="26"/>
+                        <rect key="frame" x="137" y="6" width="85" height="26"/>
                         <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMinY="YES"/>
                         <clipView key="contentView" drawsBackground="NO" id="Mrn-Lr-gQQ">
                             <rect key="frame" x="0.0" y="0.0" width="85" height="26"/>
@@ -1156,7 +1156,7 @@
                         </scroller>
                     </scrollView>
                     <scrollView focusRingType="exterior" borderType="none" horizontalLineScroll="10" horizontalPageScroll="10" verticalLineScroll="10" verticalPageScroll="10" hasHorizontalScroller="NO" hasVerticalScroller="NO" usesPredominantAxisScrolling="NO" id="t5d-GQ-sYS">
-                        <rect key="frame" x="156" y="40" width="85" height="13"/>
+                        <rect key="frame" x="137" y="40" width="85" height="13"/>
                         <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMinY="YES"/>
                         <clipView key="contentView" drawsBackground="NO" id="Fgf-OY-uuB">
                             <rect key="frame" x="0.0" y="0.0" width="85" height="13"/>
@@ -1195,9 +1195,9 @@
                         </scroller>
                     </scrollView>
                     <textField verticalHuggingPriority="750" allowsCharacterPickerTouchBarItem="YES" id="dqa-HV-3gg">
-                        <rect key="frame" x="6" y="91" width="115" height="22"/>
+                        <rect key="frame" x="6" y="91" width="105" height="22"/>
                         <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMinY="YES"/>
-                        <textFieldCell key="cell" scrollable="YES" lineBreakMode="clipping" selectable="YES" editable="YES" sendsActionOnEndEditing="YES" state="on" borderStyle="bezel" alignment="right" title="-00 000 000 000" drawsBackground="YES" id="Lgp-Vy-Kmj">
+                        <textFieldCell key="cell" scrollable="YES" lineBreakMode="clipping" selectable="YES" editable="YES" sendsActionOnEndEditing="YES" state="on" borderStyle="bezel" alignment="right" title="-0 000 000 000" drawsBackground="YES" id="Lgp-Vy-Kmj">
                             <font key="font" size="11" name="Menlo-Regular"/>
                             <color key="textColor" name="controlTextColor" catalog="System" colorSpace="catalog"/>
                             <color key="backgroundColor" name="textBackgroundColor" catalog="System" colorSpace="catalog"/>
@@ -1208,18 +1208,18 @@
                         </connections>
                     </textField>
                     <scrollView focusRingType="exterior" borderType="none" horizontalLineScroll="10" horizontalPageScroll="10" verticalLineScroll="10" verticalPageScroll="10" hasHorizontalScroller="NO" hasVerticalScroller="NO" usesPredominantAxisScrolling="NO" id="V9a-Oy-d62">
-                        <rect key="frame" x="76" y="61" width="45" height="13"/>
+                        <rect key="frame" x="71" y="61" width="40" height="13"/>
                         <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMinY="YES"/>
                         <clipView key="contentView" drawsBackground="NO" id="r0R-UR-UgE">
-                            <rect key="frame" x="0.0" y="0.0" width="45" height="13"/>
+                            <rect key="frame" x="0.0" y="0.0" width="40" height="13"/>
                             <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                             <subviews>
                                 <textView editable="NO" importsGraphics="NO" richText="NO" verticallyResizable="YES" findStyle="panel" allowsNonContiguousLayout="YES" smartInsertDelete="YES" id="CZV-uO-l2b" customClass="NumberOutputField">
-                                    <rect key="frame" x="0.0" y="-5" width="45" height="13"/>
+                                    <rect key="frame" x="0.0" y="-5" width="40" height="13"/>
                                     <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                                     <color key="textColor" name="textColor" catalog="System" colorSpace="catalog"/>
                                     <color key="backgroundColor" name="textBackgroundColor" catalog="System" colorSpace="catalog"/>
-                                    <size key="minSize" width="45" height="13"/>
+                                    <size key="minSize" width="40" height="13"/>
                                     <size key="maxSize" width="463" height="10000000"/>
                                     <attributedString key="textStorage">
                                         <fragment content="-000">
@@ -1247,21 +1247,21 @@
                         </scroller>
                     </scrollView>
                     <scrollView focusRingType="exterior" borderType="none" horizontalLineScroll="10" horizontalPageScroll="10" verticalLineScroll="10" verticalPageScroll="10" hasHorizontalScroller="NO" hasVerticalScroller="NO" usesPredominantAxisScrolling="NO" id="pbU-ye-6Jy">
-                        <rect key="frame" x="6" y="6" width="115" height="26"/>
+                        <rect key="frame" x="6" y="6" width="105" height="26"/>
                         <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMinY="YES"/>
                         <clipView key="contentView" drawsBackground="NO" id="ANR-UO-VKC">
-                            <rect key="frame" x="0.0" y="0.0" width="115" height="26"/>
+                            <rect key="frame" x="0.0" y="0.0" width="105" height="26"/>
                             <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                             <subviews>
                                 <textView editable="NO" importsGraphics="NO" richText="NO" verticallyResizable="YES" findStyle="panel" allowsNonContiguousLayout="YES" smartInsertDelete="YES" id="k0i-jf-ScM" customClass="NumberOutputField">
-                                    <rect key="frame" x="0.0" y="0.0" width="115" height="26"/>
+                                    <rect key="frame" x="0.0" y="0.0" width="105" height="26"/>
                                     <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                                     <color key="textColor" name="textColor" catalog="System" colorSpace="catalog"/>
                                     <color key="backgroundColor" name="textBackgroundColor" catalog="System" colorSpace="catalog"/>
-                                    <size key="minSize" width="115" height="26"/>
+                                    <size key="minSize" width="105" height="26"/>
                                     <size key="maxSize" width="463" height="10000000"/>
                                     <attributedString key="textStorage">
-                                        <fragment content="-00 000 000 000 000 000 000">
+                                        <fragment content="-0 000 000 000 000 000 000">
                                             <attributes>
                                                 <color key="NSColor" name="textColor" catalog="System" colorSpace="catalog"/>
                                                 <font key="NSFont" size="11" name="Menlo-Regular"/>
@@ -1286,18 +1286,18 @@
                         </scroller>
                     </scrollView>
                     <scrollView focusRingType="exterior" borderType="none" horizontalLineScroll="10" horizontalPageScroll="10" verticalLineScroll="10" verticalPageScroll="10" hasHorizontalScroller="NO" hasVerticalScroller="NO" usesPredominantAxisScrolling="NO" id="nCU-Yy-hSL">
-                        <rect key="frame" x="6" y="40" width="115" height="13"/>
+                        <rect key="frame" x="6" y="40" width="105" height="13"/>
                         <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMinY="YES"/>
                         <clipView key="contentView" drawsBackground="NO" id="Z10-Y4-shU">
-                            <rect key="frame" x="0.0" y="0.0" width="115" height="13"/>
+                            <rect key="frame" x="0.0" y="0.0" width="105" height="13"/>
                             <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                             <subviews>
                                 <textView editable="NO" importsGraphics="NO" richText="NO" verticallyResizable="YES" findStyle="panel" allowsNonContiguousLayout="YES" smartInsertDelete="YES" id="eLL-yi-00S" customClass="NumberOutputField">
-                                    <rect key="frame" x="0.0" y="-5" width="115" height="13"/>
+                                    <rect key="frame" x="0.0" y="-5" width="105" height="13"/>
                                     <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                                     <color key="textColor" name="textColor" catalog="System" colorSpace="catalog"/>
                                     <color key="backgroundColor" name="textBackgroundColor" catalog="System" colorSpace="catalog"/>
-                                    <size key="minSize" width="115" height="13"/>
+                                    <size key="minSize" width="105" height="13"/>
                                     <size key="maxSize" width="463" height="10000000"/>
                                     <attributedString key="textStorage">
                                         <fragment content="-0 000 000 000">
@@ -1325,7 +1325,7 @@
                         </scroller>
                     </scrollView>
                     <textField verticalHuggingPriority="750" allowsCharacterPickerTouchBarItem="YES" id="Eir-Or-fHa">
-                        <rect key="frame" x="276" y="91" width="255" height="22"/>
+                        <rect key="frame" x="248" y="91" width="245" height="22"/>
                         <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMinY="YES"/>
                         <textFieldCell key="cell" scrollable="YES" lineBreakMode="clipping" selectable="YES" editable="YES" sendsActionOnEndEditing="YES" state="on" borderStyle="bezel" alignment="right" title="00000000 00000000 00000000 00000000" drawsBackground="YES" id="zSU-zu-QOw">
                             <font key="font" size="11" name="Menlo-Regular"/>
@@ -1337,7 +1337,7 @@
                         </connections>
                     </textField>
                     <textField verticalHuggingPriority="750" allowsCharacterPickerTouchBarItem="YES" id="eWY-86-ywG">
-                        <rect key="frame" x="274" y="61" width="25" height="14"/>
+                        <rect key="frame" x="246" y="61" width="25" height="14"/>
                         <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMinY="YES"/>
                         <textFieldCell key="cell" controlSize="small" scrollable="YES" lineBreakMode="clipping" sendsActionOnEndEditing="YES" alignment="left" title="Bin" id="Lcj-Wm-pNT">
                             <font key="font" metaFont="smallSystem"/>
@@ -1346,25 +1346,64 @@
                         </textFieldCell>
                     </textField>
                     <scrollView focusRingType="exterior" borderType="none" horizontalLineScroll="10" horizontalPageScroll="10" verticalLineScroll="10" verticalPageScroll="10" hasHorizontalScroller="NO" hasVerticalScroller="NO" usesPredominantAxisScrolling="NO" id="xIm-m0-j3a">
-                        <rect key="frame" x="276" y="6" width="255" height="26"/>
+                        <rect key="frame" x="248" y="6" width="245" height="26"/>
                         <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMinY="YES"/>
                         <clipView key="contentView" drawsBackground="NO" id="CXx-mb-Wyk">
-                            <rect key="frame" x="0.0" y="0.0" width="255" height="26"/>
+                            <rect key="frame" x="0.0" y="0.0" width="245" height="26"/>
                             <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                             <subviews>
                                 <textView editable="NO" importsGraphics="NO" richText="NO" verticallyResizable="YES" findStyle="panel" allowsNonContiguousLayout="YES" smartInsertDelete="YES" id="3jH-bQ-8os" customClass="NumberOutputField">
-                                    <rect key="frame" x="0.0" y="0.0" width="255" height="26"/>
+                                    <rect key="frame" x="0.0" y="0.0" width="245" height="26"/>
                                     <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                                     <color key="textColor" name="textColor" catalog="System" colorSpace="catalog"/>
                                     <color key="backgroundColor" name="textBackgroundColor" catalog="System" colorSpace="catalog"/>
-                                    <size key="minSize" width="255" height="26"/>
+                                    <size key="minSize" width="245" height="26"/>
                                     <size key="maxSize" width="463" height="10000000"/>
                                     <attributedString key="textStorage">
-                                        <fragment content="00 00 00 00 00 00 00 00">
+                                        <fragment content="00000000 00000000 00000000 00000000">
                                             <attributes>
                                                 <color key="NSColor" name="textColor" catalog="System" colorSpace="catalog"/>
                                                 <font key="NSFont" size="11" name="Menlo-Regular"/>
-                                                <paragraphStyle key="NSParagraphStyle" alignment="right" lineBreakMode="wordWrapping" baseWritingDirection="natural" tighteningFactorForTruncation="0.0" allowsDefaultTighteningForTruncation="NO"/>
+                                                <paragraphStyle key="NSParagraphStyle" alignment="right" lineBreakMode="wordWrapping" baseWritingDirection="natural" tighteningFactorForTruncation="0.0" allowsDefaultTighteningForTruncation="NO">
+                                                    <tabStops>
+                                                        <textTab alignment="left" location="28">
+                                                            <options/>
+                                                        </textTab>
+                                                        <textTab alignment="left" location="56">
+                                                            <options/>
+                                                        </textTab>
+                                                        <textTab alignment="left" location="84">
+                                                            <options/>
+                                                        </textTab>
+                                                        <textTab alignment="left" location="112">
+                                                            <options/>
+                                                        </textTab>
+                                                        <textTab alignment="left" location="140">
+                                                            <options/>
+                                                        </textTab>
+                                                        <textTab alignment="left" location="168">
+                                                            <options/>
+                                                        </textTab>
+                                                        <textTab alignment="left" location="196">
+                                                            <options/>
+                                                        </textTab>
+                                                        <textTab alignment="left" location="224">
+                                                            <options/>
+                                                        </textTab>
+                                                        <textTab alignment="left" location="252">
+                                                            <options/>
+                                                        </textTab>
+                                                        <textTab alignment="left" location="280">
+                                                            <options/>
+                                                        </textTab>
+                                                        <textTab alignment="left" location="308">
+                                                            <options/>
+                                                        </textTab>
+                                                        <textTab alignment="left" location="336">
+                                                            <options/>
+                                                        </textTab>
+                                                    </tabStops>
+                                                </paragraphStyle>
                                             </attributes>
                                         </fragment>
                                     </attributedString>
@@ -1385,18 +1424,18 @@
                         </scroller>
                     </scrollView>
                     <scrollView focusRingType="exterior" borderType="none" horizontalLineScroll="10" horizontalPageScroll="10" verticalLineScroll="10" verticalPageScroll="10" hasHorizontalScroller="NO" hasVerticalScroller="NO" usesPredominantAxisScrolling="NO" id="iFT-FE-923">
-                        <rect key="frame" x="276" y="40" width="255" height="13"/>
+                        <rect key="frame" x="248" y="40" width="245" height="13"/>
                         <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMinY="YES"/>
                         <clipView key="contentView" drawsBackground="NO" id="yRB-0C-1xv">
-                            <rect key="frame" x="0.0" y="0.0" width="255" height="13"/>
+                            <rect key="frame" x="0.0" y="0.0" width="245" height="13"/>
                             <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                             <subviews>
                                 <textView editable="NO" importsGraphics="NO" richText="NO" verticallyResizable="YES" findStyle="panel" allowsNonContiguousLayout="YES" smartInsertDelete="YES" id="oFa-JY-5h8" customClass="NumberOutputField">
-                                    <rect key="frame" x="0.0" y="-5" width="255" height="13"/>
+                                    <rect key="frame" x="0.0" y="-5" width="245" height="13"/>
                                     <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                                     <color key="textColor" name="textColor" catalog="System" colorSpace="catalog"/>
                                     <color key="backgroundColor" name="textBackgroundColor" catalog="System" colorSpace="catalog"/>
-                                    <size key="minSize" width="255" height="13"/>
+                                    <size key="minSize" width="245" height="13"/>
                                     <size key="maxSize" width="463" height="10000000"/>
                                     <attributedString key="textStorage">
                                         <fragment content="00 00 00 00">
@@ -1424,7 +1463,7 @@
                         </scroller>
                     </scrollView>
                     <scrollView focusRingType="exterior" borderType="none" horizontalLineScroll="10" horizontalPageScroll="10" verticalLineScroll="10" verticalPageScroll="10" hasHorizontalScroller="NO" hasVerticalScroller="NO" usesPredominantAxisScrolling="NO" id="LOt-v9-zHr">
-                        <rect key="frame" x="461" y="61" width="70" height="13"/>
+                        <rect key="frame" x="423" y="61" width="70" height="13"/>
                         <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMinY="YES"/>
                         <clipView key="contentView" drawsBackground="NO" id="nNP-KX-7lR">
                             <rect key="frame" x="0.0" y="0.0" width="70" height="13"/>
@@ -1464,7 +1503,7 @@
                     </scrollView>
                 </subviews>
             </view>
-            <point key="canvasLocation" x="113" y="511"/>
+            <point key="canvasLocation" x="89" y="511"/>
         </window>
     </objects>
 </document>
