@@ -41,6 +41,7 @@
 		90734D8C2095BD310098F9FE /* MandAboutWindow.xib in Resources */ = {isa = PBXBuildFile; fileRef = 90734D7B2095BD310098F9FE /* MandAboutWindow.xib */; };
 		90734D8D2095BD310098F9FE /* manderc.png in Resources */ = {isa = PBXBuildFile; fileRef = 90734D7C2095BD310098F9FE /* manderc.png */; };
 		907A78F71ED8352C0080B94C /* ExpertWindow.xib in Resources */ = {isa = PBXBuildFile; fileRef = 907A78F61ED8352C0080B94C /* ExpertWindow.xib */; };
+		90BAF47D21739AAA001665BF /* BitFiddleWindow.m in Sources */ = {isa = PBXBuildFile; fileRef = 90BAF47C21739AAA001665BF /* BitFiddleWindow.m */; };
 		B90E36EC17B27EE4009DAA12 /* BitFiddlePreferencesController.m in Sources */ = {isa = PBXBuildFile; fileRef = B90E36EB17B27EE4009DAA12 /* BitFiddlePreferencesController.m */; };
 		B93FC156179E242100CFB0AD /* BitFiddleChangelog.txt in Resources */ = {isa = PBXBuildFile; fileRef = B93FC155179E242100CFB0AD /* BitFiddleChangelog.txt */; };
 		B93FC24217A1D53800CFB0AD /* ASCIIWindowController.m in Sources */ = {isa = PBXBuildFile; fileRef = B93FC24117A1D53800CFB0AD /* ASCIIWindowController.m */; };
@@ -167,6 +168,8 @@
 		90734D7C2095BD310098F9FE /* manderc.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = manderc.png; sourceTree = "<group>"; };
 		907A78F61ED8352C0080B94C /* ExpertWindow.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = ExpertWindow.xib; sourceTree = "<group>"; };
 		90B032C61BBC0BF700516B0E /* MandConfiguration.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = MandConfiguration.h; sourceTree = "<group>"; };
+		90BAF47C21739AAA001665BF /* BitFiddleWindow.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = BitFiddleWindow.m; sourceTree = "<group>"; };
+		90BAF47E21739ABF001665BF /* BitFiddleWindow.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = BitFiddleWindow.h; sourceTree = "<group>"; };
 		B90E36EA17B27EE4009DAA12 /* BitFiddlePreferencesController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = BitFiddlePreferencesController.h; sourceTree = "<group>"; };
 		B90E36EB17B27EE4009DAA12 /* BitFiddlePreferencesController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = BitFiddlePreferencesController.m; sourceTree = "<group>"; };
 		B93FC155179E242100CFB0AD /* BitFiddleChangelog.txt */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; path = BitFiddleChangelog.txt; sourceTree = "<group>"; };
@@ -428,6 +431,8 @@
 				B9A057BC178435ED00809BBB /* NumberOutputField.m */,
 				B93FC24017A1D53800CFB0AD /* ASCIIWindowController.h */,
 				B93FC24117A1D53800CFB0AD /* ASCIIWindowController.m */,
+				90BAF47E21739ABF001665BF /* BitFiddleWindow.h */,
+				90BAF47C21739AAA001665BF /* BitFiddleWindow.m */,
 			);
 			path = BitFiddle;
 			sourceTree = "<group>";
@@ -479,7 +484,8 @@
 				LastUpgradeCheck = 0500;
 				TargetAttributes = {
 					B9848B3C177B99B400E21D96 = {
-						DevelopmentTeam = 5LH5X82V78;
+						DevelopmentTeam = YH3QFD54JB;
+						ProvisioningStyle = Automatic;
 					};
 				};
 			};
@@ -557,6 +563,7 @@
 				9000C3F320B69C88005CE984 /* NAPNG.c in Sources */,
 				9000C3EC20B69C88005CE984 /* NAQuadTree.c in Sources */,
 				9000C3FA20B69C88005CE984 /* NABinaryData.c in Sources */,
+				90BAF47D21739AAA001665BF /* BitFiddleWindow.m in Sources */,
 				B9A30AD01ACDF2DD00CB297B /* BitArray.c in Sources */,
 				9000C40E20B69D7E005CE984 /* MandAboutWindowController.m in Sources */,
 				9000C3EB20B69C88005CE984 /* NACocoaHelper.m in Sources */,
@@ -643,9 +650,11 @@
 				CODE_SIGN_ENTITLEMENTS = "Bit Fiddle.entitlements";
 				CODE_SIGN_IDENTITY = "Mac Developer";
 				"CODE_SIGN_IDENTITY[sdk=macosx*]" = "Mac Developer";
+				CODE_SIGN_STYLE = Automatic;
 				COMBINE_HIDPI_IMAGES = YES;
 				COPY_PHASE_STRIP = YES;
 				DEBUG_INFORMATION_FORMAT = "dwarf-with-dsym";
+				DEVELOPMENT_TEAM = YH3QFD54JB;
 				GCC_ENABLE_OBJC_EXCEPTIONS = YES;
 				GCC_PRECOMPILE_PREFIX_HEADER = YES;
 				GCC_WARN_64_TO_32_BIT_CONVERSION = YES;
@@ -656,6 +665,7 @@
 				MACOSX_DEPLOYMENT_TARGET = 10.6;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				PROVISIONING_PROFILE = "";
+				PROVISIONING_PROFILE_SPECIFIER = "";
 				WRAPPER_EXTENSION = app;
 			};
 			name = Optimize;
@@ -696,8 +706,10 @@
 				CODE_SIGN_ENTITLEMENTS = "Bit Fiddle.entitlements";
 				CODE_SIGN_IDENTITY = "Mac Developer";
 				"CODE_SIGN_IDENTITY[sdk=macosx*]" = "Mac Developer";
+				CODE_SIGN_STYLE = Automatic;
 				COMBINE_HIDPI_IMAGES = YES;
 				COPY_PHASE_STRIP = NO;
+				DEVELOPMENT_TEAM = YH3QFD54JB;
 				GCC_DYNAMIC_NO_PIC = NO;
 				GCC_ENABLE_OBJC_EXCEPTIONS = YES;
 				GCC_OPTIMIZATION_LEVEL = 0;
@@ -713,6 +725,7 @@
 				ONLY_ACTIVE_ARCH = YES;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				PROVISIONING_PROFILE = "";
+				PROVISIONING_PROFILE_SPECIFIER = "";
 				WRAPPER_EXTENSION = app;
 			};
 			name = Debug;
@@ -730,9 +743,11 @@
 				CODE_SIGN_ENTITLEMENTS = "Bit Fiddle.entitlements";
 				CODE_SIGN_IDENTITY = "Mac Developer";
 				"CODE_SIGN_IDENTITY[sdk=macosx*]" = "Mac Developer";
+				CODE_SIGN_STYLE = Automatic;
 				COMBINE_HIDPI_IMAGES = YES;
 				COPY_PHASE_STRIP = YES;
 				DEBUG_INFORMATION_FORMAT = "dwarf-with-dsym";
+				DEVELOPMENT_TEAM = YH3QFD54JB;
 				GCC_ENABLE_OBJC_EXCEPTIONS = YES;
 				GCC_PRECOMPILE_PREFIX_HEADER = YES;
 				GCC_WARN_64_TO_32_BIT_CONVERSION = YES;
@@ -743,6 +758,7 @@
 				MACOSX_DEPLOYMENT_TARGET = 10.6;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				PROVISIONING_PROFILE = "";
+				PROVISIONING_PROFILE_SPECIFIER = "";
 				WRAPPER_EXTENSION = app;
 			};
 			name = Release;

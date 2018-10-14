@@ -11,6 +11,7 @@
 - (id)init{
   self = [super init];
   [self setDelegate:self];
+  switchingWindowMode = NA_FALSE;
   return self;
 }
 
@@ -58,7 +59,7 @@
     NSAlert* alert = [[NSAlert alloc] init];
     alert.alertStyle = NSInformationalAlertStyle;
     alert.messageText = [NSString stringWithFormat:@"Welcome to Version %@", versionstring];
-    alert.informativeText = @"Check out the new mini button!\nAnd have a look at the Preferences.";
+    alert.informativeText = @"Enjoy the new dark mode on the latest macOS!\nSwitch to Mini and back using the green button.";
     [alert runModal];
     [alert release];
   }
@@ -78,7 +79,8 @@
 
 
 - (BOOL)applicationShouldTerminateAfterLastWindowClosed:(NSApplication *)sender{
-  return TRUE;
+  return FALSE;
+//  return switchingWindowMode ? FALSE : TRUE;
 }
 
 
@@ -111,6 +113,7 @@
 
 
 - (IBAction) showComplement:(id)sender{
+  switchingWindowMode = NA_TRUE;
   if(usemini == 1){
     NSRect curframe = [[complementwindowcontroller window] frame];
     [[minicomplementwindowcontroller window] setFrameTopLeftPoint:NSMakePoint(curframe.origin.x, curframe.origin.y + curframe.size.height)];
@@ -122,6 +125,7 @@
     [complementwindowcontroller showDialog];
     [minicomplementwindowcontroller hideDialog];
   }
+  switchingWindowMode = NA_FALSE;
 }
 
 

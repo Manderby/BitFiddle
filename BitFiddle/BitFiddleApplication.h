@@ -29,6 +29,7 @@ typedef enum{
 
   IBOutlet NSMenuItem* minimenuitem;
 
+  NABool switchingWindowMode;
   NABool byteswap;
   ConversionType conversiontype;
   NABool usemini;
@@ -42,6 +43,8 @@ typedef enum{
 - (IBAction) showPreferences:(id)sender;
 - (IBAction) showComplement:(id)sender;
 - (IBAction) showASCII:(id)sender;
+
+- (IBAction) switchMini:(id)sender;
 
 - (IBAction)switchByteSwap:(id)sender;
 - (IBAction)switchToUnsigned:(id)sender;
