@@ -1,8 +1,8 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<document type="com.apple.InterfaceBuilder3.Cocoa.XIB" version="3.0" toolsVersion="14109" targetRuntime="MacOSX.Cocoa" propertyAccessControl="none">
+<document type="com.apple.InterfaceBuilder3.Cocoa.XIB" version="3.0" toolsVersion="14313.18" targetRuntime="MacOSX.Cocoa" propertyAccessControl="none">
     <dependencies>
         <deployment identifier="macosx"/>
-        <plugIn identifier="com.apple.InterfaceBuilder.CocoaPlugin" version="14109"/>
+        <plugIn identifier="com.apple.InterfaceBuilder.CocoaPlugin" version="14313.18"/>
         <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
     </dependencies>
     <objects>
@@ -415,7 +415,7 @@
                         <items>
                             <menuItem title="Bit Fiddle Help" keyEquivalent="?" id="492">
                                 <connections>
-                                    <action selector="showHelp:" target="-2" id="2199"/>
+                                    <action selector="openHelp:" target="-2" id="tfd-KK-nM4"/>
                                 </connections>
                             </menuItem>
                         </items>
@@ -423,7 +423,7 @@
                 </menuItem>
             </items>
         </menu>
-        <window title="ASCII" allowsToolTipsWhenApplicationIsInactive="NO" autorecalculatesKeyViewLoop="NO" oneShot="NO" showsToolbarButton="NO" visibleAtLaunch="NO" animationBehavior="default" id="896">
+        <window title="ASCII" allowsToolTipsWhenApplicationIsInactive="NO" autorecalculatesKeyViewLoop="NO" visibleAtLaunch="NO" animationBehavior="default" id="896">
             <windowStyleMask key="styleMask" titled="YES" closable="YES" miniaturizable="YES"/>
             <windowPositionMask key="initialPositionMask" leftStrut="YES" rightStrut="YES" topStrut="YES"/>
             <rect key="contentRect" x="0.0" y="0.0" width="828" height="408"/>
@@ -2796,7 +2796,7 @@
                         <rect key="frame" x="716" y="52" width="5" height="336"/>
                         <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMinY="YES"/>
                     </box>
-                    <segmentedControl verticalHuggingPriority="750" misplaced="YES" id="1200">
+                    <segmentedControl verticalHuggingPriority="750" id="1200">
                         <rect key="frame" x="174" y="6" width="128" height="19"/>
                         <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMinY="YES"/>
                         <segmentedCell key="cell" controlSize="small" borderStyle="border" alignment="left" style="texturedSquare" trackingMode="selectOne" id="1201">

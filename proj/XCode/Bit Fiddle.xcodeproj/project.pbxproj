@@ -50,11 +50,7 @@
 		90BAF74B21759CC6001665BF /* Localizable.strings in Resources */ = {isa = PBXBuildFile; fileRef = 90BAF73321759CC6001665BF /* Localizable.strings */; };
 		90BAF74C21759CC6001665BF /* InfoPlist.strings in Resources */ = {isa = PBXBuildFile; fileRef = 90BAF73521759CC6001665BF /* InfoPlist.strings */; };
 		90BAF74D21759CC6001665BF /* MainMenu.xib in Resources */ = {isa = PBXBuildFile; fileRef = 90BAF73721759CC6001665BF /* MainMenu.xib */; };
-		90BAF74E21759CC6001665BF /* index.html in Resources */ = {isa = PBXBuildFile; fileRef = 90BAF73A21759CC6001665BF /* index.html */; };
-		90BAF74F21759CC6001665BF /* css.css in Resources */ = {isa = PBXBuildFile; fileRef = 90BAF73B21759CC6001665BF /* css.css */; };
 		90BAF75021759CC6001665BF /* ExpertWindow.xib in Resources */ = {isa = PBXBuildFile; fileRef = 90BAF73C21759CC6001665BF /* ExpertWindow.xib */; };
-		90BAF75121759CC6001665BF /* index.html in Resources */ = {isa = PBXBuildFile; fileRef = 90BAF74121759CC6001665BF /* index.html */; };
-		90BAF75221759CC6001665BF /* css.css in Resources */ = {isa = PBXBuildFile; fileRef = 90BAF74221759CC6001665BF /* css.css */; };
 		90BAF75321759CC6001665BF /* ComplementWindow.xib in Resources */ = {isa = PBXBuildFile; fileRef = 90BAF74321759CC6001665BF /* ComplementWindow.xib */; };
 		90BAF75521759CC6001665BF /* BitFiddleChangelog.txt in Resources */ = {isa = PBXBuildFile; fileRef = 90BAF74521759CC6001665BF /* BitFiddleChangelog.txt */; };
 		90BAF75621759CC6001665BF /* Preferences.xib in Resources */ = {isa = PBXBuildFile; fileRef = 90BAF74621759CC6001665BF /* Preferences.xib */; };
@@ -189,14 +185,10 @@
 		90BAF73421759CC6001665BF /* de */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = de; path = de.lproj/Localizable.strings; sourceTree = "<group>"; };
 		90BAF73621759CC6001665BF /* de */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = de; path = de.lproj/InfoPlist.strings; sourceTree = "<group>"; };
 		90BAF73821759CC6001665BF /* de */ = {isa = PBXFileReference; lastKnownFileType = file.xib; name = de; path = de.lproj/MainMenu.xib; sourceTree = "<group>"; };
-		90BAF73A21759CC6001665BF /* index.html */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.html; path = index.html; sourceTree = "<group>"; };
-		90BAF73B21759CC6001665BF /* css.css */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.css; path = css.css; sourceTree = "<group>"; };
 		90BAF73C21759CC6001665BF /* ExpertWindow.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = ExpertWindow.xib; sourceTree = "<group>"; };
 		90BAF73D21759CC6001665BF /* en */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = en; path = en.lproj/Localizable.strings; sourceTree = "<group>"; };
 		90BAF73E21759CC6001665BF /* en */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = en; path = en.lproj/InfoPlist.strings; sourceTree = "<group>"; };
 		90BAF73F21759CC6001665BF /* en */ = {isa = PBXFileReference; lastKnownFileType = file.xib; name = en; path = en.lproj/MainMenu.xib; sourceTree = "<group>"; };
-		90BAF74121759CC6001665BF /* index.html */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.html; path = index.html; sourceTree = "<group>"; };
-		90BAF74221759CC6001665BF /* css.css */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.css; path = css.css; sourceTree = "<group>"; };
 		90BAF74321759CC6001665BF /* ComplementWindow.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = ComplementWindow.xib; sourceTree = "<group>"; };
 		90BAF74421759CC6001665BF /* bitfiddle.psd */ = {isa = PBXFileReference; lastKnownFileType = file; path = bitfiddle.psd; sourceTree = "<group>"; };
 		90BAF74521759CC6001665BF /* BitFiddleChangelog.txt */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; path = BitFiddleChangelog.txt; sourceTree = "<group>"; };
@@ -225,21 +217,21 @@
 		90BAF65E21759A85001665BF /* src */ = {
 			isa = PBXGroup;
 			children = (
-				90BAF65F21759A85001665BF /* BitArray.h */,
-				90BAF66021759A85001665BF /* BitFiddlePreferencesController.h */,
-				90BAF66121759A85001665BF /* ComplementWindowController.m */,
-				90BAF66221759A85001665BF /* ASCIIWindowController.m */,
-				90BAF66321759A85001665BF /* BitFiddleApplication.m */,
-				90BAF66421759A85001665BF /* BitFiddleWindow.h */,
-				90BAF66521759A85001665BF /* NumberOutputField.h */,
-				90BAF66621759A85001665BF /* BitArray.c */,
-				90BAF66721759A85001665BF /* main.m */,
-				90BAF66821759A85001665BF /* BitFiddleApplication.h */,
 				90BAF66921759A85001665BF /* ASCIIWindowController.h */,
-				90BAF66A21759A85001665BF /* ComplementWindowController.h */,
+				90BAF66221759A85001665BF /* ASCIIWindowController.m */,
+				90BAF66621759A85001665BF /* BitArray.c */,
+				90BAF65F21759A85001665BF /* BitArray.h */,
+				90BAF66821759A85001665BF /* BitFiddleApplication.h */,
+				90BAF66321759A85001665BF /* BitFiddleApplication.m */,
+				90BAF66021759A85001665BF /* BitFiddlePreferencesController.h */,
 				90BAF66B21759A85001665BF /* BitFiddlePreferencesController.m */,
+				90BAF66421759A85001665BF /* BitFiddleWindow.h */,
 				90BAF66C21759A85001665BF /* BitFiddleWindow.m */,
+				90BAF66A21759A85001665BF /* ComplementWindowController.h */,
+				90BAF66121759A85001665BF /* ComplementWindowController.m */,
+				90BAF66721759A85001665BF /* main.m */,
 				90BAF66D21759A85001665BF /* MandConfiguration.h */,
+				90BAF66521759A85001665BF /* NumberOutputField.h */,
 				90BAF66E21759A85001665BF /* NumberOutputField.m */,
 			);
 			name = src;
@@ -429,9 +421,7 @@
 				90BAF73321759CC6001665BF /* Localizable.strings */,
 				90BAF73521759CC6001665BF /* InfoPlist.strings */,
 				90BAF73721759CC6001665BF /* MainMenu.xib */,
-				90BAF73921759CC6001665BF /* help */,
 				90BAF73C21759CC6001665BF /* ExpertWindow.xib */,
-				90BAF74021759CC6001665BF /* help */,
 				90BAF74321759CC6001665BF /* ComplementWindow.xib */,
 				90BAF74421759CC6001665BF /* bitfiddle.psd */,
 				90BAF74521759CC6001665BF /* BitFiddleChangelog.txt */,
@@ -443,26 +433,6 @@
 			);
 			name = res;
 			path = ../../res;
-			sourceTree = "<group>";
-		};
-		90BAF73921759CC6001665BF /* help */ = {
-			isa = PBXGroup;
-			children = (
-				90BAF73A21759CC6001665BF /* index.html */,
-				90BAF73B21759CC6001665BF /* css.css */,
-			);
-			name = help;
-			path = de.lproj/help;
-			sourceTree = "<group>";
-		};
-		90BAF74021759CC6001665BF /* help */ = {
-			isa = PBXGroup;
-			children = (
-				90BAF74121759CC6001665BF /* index.html */,
-				90BAF74221759CC6001665BF /* css.css */,
-			);
-			name = help;
-			path = en.lproj/help;
 			sourceTree = "<group>";
 		};
 		B9848B32177B996600E21D96 = {
@@ -552,17 +522,13 @@
 			buildActionMask = 2147483647;
 			files = (
 				90BAF74B21759CC6001665BF /* Localizable.strings in Resources */,
-				90BAF75121759CC6001665BF /* index.html in Resources */,
 				90BAF75821759CC6001665BF /* BitFiddle.icns in Resources */,
 				90BAF75621759CC6001665BF /* Preferences.xib in Resources */,
 				90BAF74C21759CC6001665BF /* InfoPlist.strings in Resources */,
-				90BAF75221759CC6001665BF /* css.css in Resources */,
 				90BAF6B621759AA3001665BF /* MandApplication.strings in Resources */,
 				90BAF6B721759AA3001665BF /* MandAboutWindow.xib in Resources */,
 				90BAF6B921759AA3001665BF /* .gitignore in Resources */,
-				90BAF74E21759CC6001665BF /* index.html in Resources */,
 				90BAF75521759CC6001665BF /* BitFiddleChangelog.txt in Resources */,
-				90BAF74F21759CC6001665BF /* css.css in Resources */,
 				90BAF74D21759CC6001665BF /* MainMenu.xib in Resources */,
 				90BAF6B821759AA3001665BF /* manderc.png in Resources */,
 				90BAF75321759CC6001665BF /* ComplementWindow.xib in Resources */,

@@ -27,10 +27,6 @@
   [complementwindowcontroller setMini:NA_FALSE];
   [minicomplementwindowcontroller setMini:NA_TRUE];
   
-  NSURL* url = [[NSBundle mainBundle] URLForResource:@"index" withExtension:@"html" subdirectory:@"help"];
-  [self setHelpDocument:url];
-
-  
   byteswap = mandGetUserDefaultBool("byteswap");
   conversiontype = (ConversionType)mandGetUserDefaultEnum("complementencoding");
   if(((int32)conversiontype < COMPUTE_UNSIGNED) || (int32)conversiontype > COMPUTE_TWOS_COMPLEMENT){conversiontype = 0;}
@@ -84,8 +80,19 @@
 }
 
 
+- (IBAction)openHelp:(NSMenuItem*)sender{
+  NA_UNUSED(sender);
+  NSString* language = [[NSLocale currentLocale] languageCode];
+  if([language isEqualToString:@"de"]){
+    [[NSWorkspace sharedWorkspace] openURL:[NSURL URLWithString:@"http://manderc.com/apps/bitfiddle/help/index.php"]];
+  }else{
+    [[NSWorkspace sharedWorkspace] openURL:[NSURL URLWithString:@"http://manderc.com/apps/bitfiddle/help/index_en.php"]];
+  }
+}
 
-- (IBAction) showPreferences:(id)sender{
+
+
+- (IBAction)showPreferences:(id)sender{
   [preferenceswindowcontroller showDialog];
 }
 
@@ -112,7 +119,7 @@
 }
 
 
-- (IBAction) showComplement:(id)sender{
+- (IBAction)showComplement:(id)sender{
   switchingWindowMode = NA_TRUE;
   if(usemini == 1){
     NSRect curframe = [[complementwindowcontroller window] frame];
@@ -130,7 +137,7 @@
 
 
 
-- (IBAction) showASCII:(id)sender{
+- (IBAction)showASCII:(id)sender{
   [asciiwindowcontroller showDialog];
 }
 

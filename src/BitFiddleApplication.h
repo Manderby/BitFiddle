@@ -40,9 +40,10 @@ typedef enum{
 - (void)applicationDidFinishLaunching:(NSNotification *)notification;
 - (void)update;
 
-- (IBAction) showPreferences:(id)sender;
-- (IBAction) showComplement:(id)sender;
-- (IBAction) showASCII:(id)sender;
+- (IBAction)openHelp:(NSMenuItem*)sender;
+- (IBAction)showPreferences:(id)sender;
+- (IBAction)showComplement:(id)sender;
+- (IBAction)showASCII:(id)sender;
 
 - (IBAction) switchMini:(id)sender;
 
