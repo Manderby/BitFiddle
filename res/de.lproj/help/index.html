@@ -1,0 +1,130 @@
+<!DOCTYPE HTML>
+<html lang="de">
+
+<head>
+  <meta charset="utf-8"/>
+  <meta name="viewport" content="width=768"/>
+  <meta name="author" content="Tobias Stamm"/>
+  <link rel="stylesheet" type="text/css" href="css.css"/>
+  <title>Bit Fiddle</title>
+</head>
+<body>
+
+<h1>Bit Fiddle</h1>
+
+<article>
+<header>
+<h2>Was tut dieses Programm?</h2>
+</header>
+<ul>
+<li>Konvertierung von beliebig grossen Integer-Zahlen im Dezimal-, Hexadezimal- und Binärsystem und in ASCII-Zeichen.</li>
+<li>Berechnung des Einer- und Zweierkomplements.</li>
+<li>Austausch der Bytes des Inputs, um zwischen Little- und Big-Endian zu konvertieren.</li>
+<li>Anzeige einer einfachen ASCII-Tabelle mit Zusatzinformation zu jedem Zeichen.</li>
+</ul>
+</article>
+
+
+
+<article>
+<header>
+<h2>Bedienelemente des Hauptfensters</h2>
+</header>
+<p>Das Hauptfenster existiert in zwei Varianten: Ein ausführliches Fenster und eine Mini-Version. Zwischen den beiden Versionen kann hin und her gewechselt werden, in dem der grüne Knopf in der Titelleiste gedrückt oder der entsprechende Befehl im Fenster-Menu ausgewählt wird.</p>
+
+<p>Das Fenster ist unterteilt in die Eingabefelder oben, die Ausgabefelder in der Mitte und die Einstellungs-Auswahl unten.</p>
+<p>Die Ein- und Ausgabefelder sind in einer Tabelle angeordnet, wobei in den Spalten die verschiedenen Basen angeordnet sind. In den Zeilen finden sich die Zahlen in verschiedenen Byte-Grössen wieder: 8, 16, 32, 64 und n Bytes. Bei n Bytes werden automatisch soviele Bytes benutzt, wie für eine Unsigned-Zahl benötigt werden.</p>
+<p>Bei der Eingabe der Zahlen sind nur ganz bestimmte Ziffern erlaubt. Sämtliche abweichenden Ziffern werden ignoriert (auch das negativ-Zeichen, siehe weiter unten).</p>
+<ul>
+<li><b>Dec</b>: Dezimalzahlen. Zahlen mit der Basis 10. Die natürlichen Zahlen, mit denen Menschen rechnen. Ziffern: 0123456789</li>
+<li><b>Hex</b>: Hexadezimalzahlen. Zahlen mit der Basis 16, sehr häufig in Computerprogrammen anzutreffen. Ziffern: 0123456789abcdef sowie ABCDEF</li>
+<li><b>Bin</b>: Binärzahlen. Jede Ziffer hat nur zwei Wertigkeiten: 0 und 1. Als Eingabe sind zusätzlich die Zeichen oO, iI und L erlaubt.</li>
+<li><b>Asc</b>: ASCII-Zeichen. Die Zahlen werden als eine Aneinanderreihung von 8-Bit-Characters aufgefasst und als ASCII-7 mit führender 0 dargestellt. Sämtliche Zeichen des ASCII-Zeichensatzes sind verfügbar. Zahlen, welche keinem gültigen 7-Bit-ASCII-Zeichen entsprechen, werden als Fragezeichen ? dargestellt.</li>
+</ul>
+
+<p>Im ausführlichen Fenster gibt es zudem Einstellungen, welche direkt im Fenster oder durch die entsprechenden Menu-Befehle gemacht werden können:</p>
+<ul>
+<li><b>Little ↔︎ Big</b>: Austausch der Bytes des Inputs, um zwischen Little- und Big-Endian zu konvertieren. Vorsicht: Nur aktivieren, wenn man sich sicher ist, dass es das ist, was man will.</li>
+<li><b>Unsigned</b>: Die Eingabe wird als Unsigned-Zahl angenommen und direkt in alle anderen Zahlen umkonvertiert.</li>
+<li><b>Einerkomplement</b>: Die Eingabe wird als Unsigned-Zahl angenommen, mit dem Einerkomplement umgewandelt und so in alle anderen Zahlen umkonvertiert.</li>
+<li><b>Zweierkomplement</b>: Die Eingabe wird als Unsigned-Zahl angenommen, mit dem Zweierkomplement umgewandelt und so in alle anderen Zahlen umkonvertiert.</li>
+<li><b>ASCII</b>: Anzeige einer einfachen ASCII-Tabelle in einem separaten Fenster mit Zusatzinformation zu jedem Zeichen.</li>
+<li><b>Menu Einstellungen</b>: Verschiedene Einstellungen betreffend der Anzeige und dem verstecken der verschiedenen Fenster.</li>
+</ul>
+</article>
+
+
+<article>
+<header>
+<h2>Bedienelemente des ASCII-Fensters</h2>
+</header>
+<p>Das Fenster ist unterteilt in die ASCII-Zeichen oben und die Darstellungs-Optionen unten.</p>
+<p>Durch Darüberfahren mit der Maus werden zudem zu jedem ASCII-Zeichen im unteren Bereich zusätzliche Informationen eingeblendet.</p>
+<ul>
+<li><b>Escape / Code</b> In Programmiersprachen mit der C-Syntax können manche ASCII-Zeichen nur mittels sogenannter Escape-Codes genutzt werden. Durch auswählen dieser Option werden diese anstelle der offiziellen ISO-Codes der ersten 32 Zeichen angezeigt.</li>
+<li><b>Hex / Dec</b>: Hexadezimale oder Dezimale Nummerierung der Zeichen.</li>
+</ul>
+</article>
+
+
+<article>
+<header>
+<h2>Einstellungen</h2>
+</header>
+<p>Beim Start des Programmes:</p>
+<ul>
+<li><b>ASCII-Fenster verstecken</b>: Das Fenster mit den ASCII-Angaben wird bei Programmstart versteckt.</li>
+<li><b>Einstellungen auf Standard zurücksetzen</b>: Die Umrechnung wird bei Programmstart auf Unsigned gestellt ohne Endianness-Konvertierung.</li>
+</ul>
+
+<p>Fenster im Vordergrund behalten:</p>
+<ul>
+<li><b>Ausführliches Fenster</b>: Das ausführliche Fenster wird stets im Vordergrund behalten.</li>
+<li><b>Mini-Version</b>: Die Mini-Version wird stets im Vordergrund behalten.</li>
+</ul>
+</article>
+
+
+<article>
+<header>
+<h2>Wieso ist mein Zweierkomplement nicht negativ?</h2>
+</header>
+<p>Es herrscht häufig Verwirrung darum, was genau ein Zweierkomplement ist. Viele denken, das in einem Computer das Zweierkomplement dasselbe ist wie eine negative Zahl. Das stimmt so aber nicht.</p>
+<p>Wir Menschen rechnen im Dezimalsystem mit den Ziffern 0 bis 9. Um eine negative Zahl zu kennzeichnen haben wir ein zusätzliches Zeichen: Das Minus-Zeichen. Ein Computer jedoch rechnet nur mit den zwei Ziffern 0 und 1 und besitzt kein zusätzliches Zeichen für negative Zahlen. Somit muss eine Ganzzahl irgendwie speziell codiert werden, um sowohl positive, als auch negative Zahlen speichern zu können. Die heute gebräuchlichste Variante ist das Speichern von negativen Zahlen als das Zweierkomplement des Absolutwertes.</p>
+<p>Das Zweierkomplement bezeichnet somit stets eine Umrechnung eines Absolutwertes, gespeichert als binärer Wert. Wie dass ein binärer Wert jedoch schlussendlich interpretiert werden soll, sprich als Vorzeichenbehaftet oder Vorzeichenlos, ist dem Wert per se nicht ansehbar. Für das Zweierkomplement ist dies jedoch irrelevant, es bezeichnet schlicht nur eine ganz bestimmte Umwandlung des binären Wertes.</p>
+
+<p>Die vielem Möglichkeiten, einen binären Wert zu interpretieren, umzukonvertieren, zu Kürzen oder zu Erweitern und allgemein dem Benutzer darzustellen sind vielseitig und verwirrend. Wenn alle Möglichkeiten in das Programm eingebaut werden würden, würde das User Interface von Bit Fiddle sehr kompliziert werden. Der Entwickler hat sich entschieden, nur die wirklich notwendigsten Umkonvertierungen darzubieten. Hierbei konvertiert das Programm stets nach dem gleichen Schema:</p>
+
+<p><b>Der genaue Ablauf der Konvertierung</b></p>
+
+<ul>
+<li>Zuerst wird die Eingabe (Dec, Hex, Bin oder Asc) in ein internes Format, bestehend aus einzelnen Bits umgewandelt. Hierbei werden tatsächlich nur die oben aufgeführten Ziffern beachtet, alles andere wird ignoriert. Eine negative Dezimalzahl wird somit stets als ihr Absolutbetrag aufgefasst. Die Anzahl Bits der internen Darstellung entspricht exakt der Anzahl Bits, welche für eine unsigned-Darstellung mittels des kleinsten möglichen Vielfachen von 8 Bits benötigt werden.</li>
+<li>Dann werden, falls die <q>Little ↔︎ Big</q>-Option aktiviert ist, die Bytes des internen Formates umgedreht.</li>
+<li>Dann wird die Konvertierung angewendet, sprich <q>Unsigned</q> (Was nichts bewirkt), <q>Einerkomplement</q> oder <q>Zweierkomplement</q>.</li>
+<li>Danach werden die RESULTIERENDEN Bits in die verschiedenen Ausgabe-Grössen verpackt.
+  <ul>
+    <li>Wenn die interne Darstellung mehr Platz als die Ausgabe benötigt, so werden die höchstwertigen Bits schlicht abgeschnitten. Beispielsweise entsteht so aus der internen Darstellung 0b00110011 10101010 die 8-Bit-Ausgabe 0b10101010. Dies entspricht dem Integer-Umwandlungs-Mechanismus vieler Programmiersprachen.</li>
+    <li>Wenn die interne Darstellung weniger Platz als die Ausgabe benötigt, so werden die höchstwertigen Bits ARITHMETISCH erweitert. Dies bedeutet, dass die Zahl VORZEICHENBEHAFTET interpretiert wird. Beispielsweise entsteht so aus der internen Darstellung 0b10101010 die 16-Bit-Ausgabe 0b11111111 10101010. Dies wurde im Programm Bit Fiddle deswegen so gelöst, da die nicht-arithmetische Umwandlung (sprich, die Zahl wird mit Nullen aufgefüllt) trivial ist und somit ausgelassen werden kann. Es wird erwartet, dass ein Benutzer sofort erkennt, dass diese Umwandlung arithmetisch erfolgte.</li>
+  </ul>
+</li>
+<li>Dann werden die Ausgabe-Grossen in die verschiedenen Zahlenformate umgewandelt. Aus der internen Darstellung entstehen so wiederum Dezimalzahlen, Hexadezimalzahlen, Binärzahlen und ASCII-Strings.
+  <ul>
+    <li>Dezimalziffern werden als 3er-Tupel bestehend aus den Dezimalziffern 0 bis 9 ausgegeben, mit jeweils einem Leerzeichen dazwischen. Im Falle der Umwandlung mittels des Einerkomplements wird keine Ausgabe für die Dezimalzahlen generiert. Falls (und wirklich nur falls) die Umwandlung mittels des Zweierkomplements erfolgte, wird der Wert als vorzeichenbehaftete Zahl ausgegeben.</li>
+    <li>Hexadezimalzahlen werden als paarweise Hexadezimalziffern ausgegeben, mit jeweils einem Leerzeichen dazwischen. Die Buchstaben werden als Kleinbuchstaben ausgegeben.</li>
+    <li>Binärzahlen werden als 8er-Tupel bestehend aus den Binärziffern 0 und 1 ausgegeben, mit jeweils einem Leerzeichen dazwischen.</li>
+    <li>ASCII-Strings werden als reine 7-Bit-ASCII-Zeichen ausgegeben wobei das achte Bit auf 0 gesetzt wird. Einzelne Bytes, welche keinem gültigen ASCII-Zeichen entsprechen, werden als Fragezeichen ? dargestellt.</li>
+  </ul>
+</li>
+</ul>
+
+<p>Diese Umwandlung deckt sämtliche nicht-trivialen Umwandlungen von Integer-Zahlen ab.</p>
+
+<p>Da die Eingabe stets als Unsigned angenommen wird, ist es nicht möglich, eine vorzeichenbehaftete Zahl als Hex einzugeben und sie als vorzeichenbehaftete Dezimalzahl auszugeben. Für diejenigen, welche an der Interpretation einer Dezimalzahl als negative Ganzzahl interessiert sind, können jedoch einfach das Zweierkomplement einschalten und der resultierenden Dezimalzahl ein Minus vorne anhängen.</p>
+</article>
+
+
+
+
+
+
+</body></html>

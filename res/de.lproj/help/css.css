@@ -1,0 +1,48 @@
+html{
+  margin:0;
+  padding:0;
+}
+
+body{
+  font-family:Verdana,sans-serif;
+  font-size:10pt;
+  line-height:1.3em;
+  background-color:#ffffff;
+  color:#333333;
+  text-align:justify;
+  margin:0;
+  padding:0;
+  -webkit-text-size-adjust:100%;
+}
+
+q{
+  quotes:"\0022" "\0022";
+}
+
+div{
+  margin:0;
+  padding:0;
+}
+
+h1{
+  font-weight:100;
+  margin:10px
+}
+
+h2{
+  font-weight:100;
+  margin-top:40px;
+}
+
+article{
+  margin:10px;
+}
+
+table{
+  border:0 none transparent;
+}
+
+td{
+  padding:0 10px;
+  border:0 none transparent;
+}

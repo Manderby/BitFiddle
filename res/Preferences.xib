@@ -1,0 +1,117 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<document type="com.apple.InterfaceBuilder3.Cocoa.XIB" version="3.0" toolsVersion="9531" systemVersion="15D21" targetRuntime="MacOSX.Cocoa" propertyAccessControl="none" customObjectInstantitationMethod="direct">
+    <dependencies>
+        <deployment identifier="macosx"/>
+        <plugIn identifier="com.apple.InterfaceBuilder.CocoaPlugin" version="9531"/>
+    </dependencies>
+    <objects>
+        <customObject id="-2" userLabel="File's Owner" customClass="BitFiddleApplication">
+            <connections>
+                <outlet property="preferenceswindowcontroller" destination="ofC-HV-Ggu" id="yto-Lx-IQe"/>
+            </connections>
+        </customObject>
+        <customObject id="-1" userLabel="First Responder" customClass="FirstResponder"/>
+        <customObject id="-3" userLabel="Application" customClass="NSObject"/>
+        <customObject id="ofC-HV-Ggu" customClass="BitFiddlePreferencesController">
+            <connections>
+                <outlet property="atapplicationstartuplabel" destination="7eF-1v-63h" id="qZ8-eQ-DLo"/>
+                <outlet property="donebutton" destination="Ycj-dn-60m" id="Zai-0b-O36"/>
+                <outlet property="keepinfrontlabel" destination="KxM-FI-1a3" id="A7a-M2-Mr3"/>
+                <outlet property="keepmaxiontopcheckbox" destination="gB0-jU-Q5o" id="1Ln-mR-ORu"/>
+                <outlet property="keepminiontopcheckbox" destination="0rP-NB-LWN" id="m2J-BV-0Fy"/>
+                <outlet property="resetsettingsatstartupcheckbox" destination="DIc-rb-MNo" id="xLB-jN-jAi"/>
+                <outlet property="showasciiwindowatstartupcheckbox" destination="UyQ-WR-pDN" id="Ibf-Ro-pZv"/>
+                <outlet property="window" destination="4qa-3e-83Q" id="F7f-kZ-kkT"/>
+            </connections>
+        </customObject>
+        <window title="Window" allowsToolTipsWhenApplicationIsInactive="NO" autorecalculatesKeyViewLoop="NO" oneShot="NO" releasedWhenClosed="NO" showsToolbarButton="NO" visibleAtLaunch="NO" frameAutosaveName="" animationBehavior="default" id="4qa-3e-83Q">
+            <windowStyleMask key="styleMask" titled="YES" closable="YES" miniaturizable="YES" resizable="YES"/>
+            <windowPositionMask key="initialPositionMask" leftStrut="YES" rightStrut="YES" topStrut="YES" bottomStrut="YES"/>
+            <rect key="contentRect" x="163" y="205" width="253" height="208"/>
+            <rect key="screenRect" x="0.0" y="0.0" width="1680" height="1050"/>
+            <view key="contentView" id="rg5-yr-M6c">
+                <rect key="frame" x="0.0" y="0.0" width="253" height="208"/>
+                <autoresizingMask key="autoresizingMask"/>
+                <subviews>
+                    <button id="UyQ-WR-pDN">
+                        <rect key="frame" x="30" y="147" width="205" height="18"/>
+                        <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMinY="YES"/>
+                        <buttonCell key="cell" type="check" title="Show ASCII Window" bezelStyle="regularSquare" imagePosition="left" state="on" inset="2" id="EZi-jM-G5F">
+                            <behavior key="behavior" changeContents="YES" doesNotDimImage="YES" lightByContents="YES"/>
+                            <font key="font" metaFont="system"/>
+                        </buttonCell>
+                        <connections>
+                            <action selector="changeShowASCIIatStartup:" target="ofC-HV-Ggu" id="k1T-tG-fgd"/>
+                        </connections>
+                    </button>
+                    <button id="DIc-rb-MNo">
+                        <rect key="frame" x="30" y="127" width="205" height="18"/>
+                        <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMinY="YES"/>
+                        <buttonCell key="cell" type="check" title="Reset Settings to Default" bezelStyle="regularSquare" imagePosition="left" state="on" inset="2" id="MKc-xI-9QD">
+                            <behavior key="behavior" changeContents="YES" doesNotDimImage="YES" lightByContents="YES"/>
+                            <font key="font" metaFont="system"/>
+                        </buttonCell>
+                        <connections>
+                            <action selector="changeResetSettingsAtStartup:" target="ofC-HV-Ggu" id="MIZ-W6-xGk"/>
+                        </connections>
+                    </button>
+                    <button id="gB0-jU-Q5o">
+                        <rect key="frame" x="30" y="79" width="205" height="18"/>
+                        <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMinY="YES"/>
+                        <buttonCell key="cell" type="check" title="Extended Window" bezelStyle="regularSquare" imagePosition="left" state="on" inset="2" id="xr9-6V-Tl1">
+                            <behavior key="behavior" changeContents="YES" doesNotDimImage="YES" lightByContents="YES"/>
+                            <font key="font" metaFont="system"/>
+                        </buttonCell>
+                        <connections>
+                            <action selector="changeKeepWindowOnTop:" target="ofC-HV-Ggu" id="WrW-GK-AKr"/>
+                        </connections>
+                    </button>
+                    <button id="0rP-NB-LWN">
+                        <rect key="frame" x="30" y="59" width="205" height="18"/>
+                        <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMinY="YES"/>
+                        <buttonCell key="cell" type="check" title="Mini Window" bezelStyle="regularSquare" imagePosition="left" state="on" inset="2" id="0WI-Fb-Q7k">
+                            <behavior key="behavior" changeContents="YES" doesNotDimImage="YES" lightByContents="YES"/>
+                            <font key="font" metaFont="system"/>
+                        </buttonCell>
+                        <connections>
+                            <action selector="changeKeepWindowOnTop:" target="ofC-HV-Ggu" id="3WG-t8-Euu"/>
+                        </connections>
+                    </button>
+                    <textField verticalHuggingPriority="750" id="7eF-1v-63h">
+                        <rect key="frame" x="18" y="171" width="217" height="17"/>
+                        <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMinY="YES"/>
+                        <textFieldCell key="cell" scrollable="YES" lineBreakMode="clipping" sendsActionOnEndEditing="YES" title="At startup:" id="hpv-rF-VsQ">
+                            <font key="font" metaFont="system"/>
+                            <color key="textColor" name="controlTextColor" catalog="System" colorSpace="catalog"/>
+                            <color key="backgroundColor" name="controlColor" catalog="System" colorSpace="catalog"/>
+                        </textFieldCell>
+                    </textField>
+                    <button verticalHuggingPriority="750" id="Ycj-dn-60m">
+                        <rect key="frame" x="127" y="13" width="112" height="32"/>
+                        <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMinY="YES"/>
+                        <buttonCell key="cell" type="push" title="Done" bezelStyle="rounded" alignment="center" borderStyle="border" imageScaling="proportionallyDown" inset="2" id="vwk-KB-WuI">
+                            <behavior key="behavior" pushIn="YES" lightByBackground="YES" lightByGray="YES"/>
+                            <font key="font" metaFont="system"/>
+                            <string key="keyEquivalent" base64-UTF8="YES">
+DQ
+</string>
+                        </buttonCell>
+                        <connections>
+                            <action selector="performClose:" target="4qa-3e-83Q" id="Gbe-r7-ldd"/>
+                        </connections>
+                    </button>
+                    <textField verticalHuggingPriority="750" id="KxM-FI-1a3">
+                        <rect key="frame" x="18" y="103" width="217" height="17"/>
+                        <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMinY="YES"/>
+                        <textFieldCell key="cell" scrollable="YES" lineBreakMode="clipping" sendsActionOnEndEditing="YES" title="Keep Window on top:" id="hAI-Uk-DR9">
+                            <font key="font" metaFont="system"/>
+                            <color key="textColor" name="controlTextColor" catalog="System" colorSpace="catalog"/>
+                            <color key="backgroundColor" name="controlColor" catalog="System" colorSpace="catalog"/>
+                        </textFieldCell>
+                    </textField>
+                </subviews>
+            </view>
+            <point key="canvasLocation" x="351.5" y="561"/>
+        </window>
+    </objects>
+</document>

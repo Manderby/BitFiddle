@@ -1,0 +1,158 @@
+
+/* Strings for MandApplication */
+MandDescription = "Umwandlung von binären Werten.\nDesign und Implementation: Tobias Stamm.";
+
+/* Expressions in Main Window */
+
+BitFiddleConversionUnsigned = "Unsigned";
+BitFiddleConversionOnesComp = "Einerkomplement";
+BitFiddleConversionTwosComp = "Zweierkomplement";
+BitFiddleConversionByteSwap = "Little ↔ Big";
+
+/* Expressions in Preferences window */
+
+BitFiddlePrefsAtStartup     = "Bei Programmstart";
+BitFiddlePrefsShowASCII     = "ASCII-Fenster anzeigen";
+BitFiddlePrefsResetSettings = "Konvertierung zurücksetzen";
+BitFiddlePrefsKeepOnTop     = "Fenster im Vordergrund behalten";
+BitFiddlePrefsMaxiVersion   = "Erweitertes Fenster";
+BitFiddlePrefsMiniVersion   = "Mini-Version";
+
+/* Additional information for ascii characters */
+
+BitFiddleAdditionalInfo00 = "C-escape: \\0";
+BitFiddleAdditionalInfo01 = "";
+BitFiddleAdditionalInfo02 = "";
+BitFiddleAdditionalInfo03 = "Terminal ctrl-C: Abort";
+BitFiddleAdditionalInfo04 = "";
+BitFiddleAdditionalInfo05 = "";
+BitFiddleAdditionalInfo06 = "";
+BitFiddleAdditionalInfo07 = "Piept auf manchen Systemen";
+BitFiddleAdditionalInfo08 = "C-escape: \\b";
+BitFiddleAdditionalInfo09 = "C-escape: \\t";
+BitFiddleAdditionalInfo0a = "C-escape: \\n\nZeilenende Unix LF Windows CR-LF";
+BitFiddleAdditionalInfo0b = "C-escape: \\v";
+BitFiddleAdditionalInfo0c = "C-escape: \\f";
+BitFiddleAdditionalInfo0d = "C-escape: \\r\nZeilenende Windows CR-LF altes MacOS CR";
+BitFiddleAdditionalInfo0e = "";
+BitFiddleAdditionalInfo0f = "";
+
+BitFiddleAdditionalInfo10 = "";
+BitFiddleAdditionalInfo11 = "Code manchmal XON";
+BitFiddleAdditionalInfo12 = "";
+BitFiddleAdditionalInfo13 = "Code manchmal XOFF";
+BitFiddleAdditionalInfo14 = "";
+BitFiddleAdditionalInfo15 = "Terminal ctrl-U: Zeile löschen";
+BitFiddleAdditionalInfo16 = "";
+BitFiddleAdditionalInfo17 = "Terminal ctrl-W: Wort löschen";
+BitFiddleAdditionalInfo18 = "";
+BitFiddleAdditionalInfo19 = "";
+BitFiddleAdditionalInfo1a = "Terminal ctrl-Z: Anhalten (Suspend)";
+BitFiddleAdditionalInfo1b = "C-escape bei manchen Compilern: \\e";
+BitFiddleAdditionalInfo1c = "";
+BitFiddleAdditionalInfo1d = "";
+BitFiddleAdditionalInfo1e = "";
+BitFiddleAdditionalInfo1f = "";
+
+BitFiddleAdditionalInfo20 = "Code manchmal SP";
+BitFiddleAdditionalInfo21 = "";
+BitFiddleAdditionalInfo22 = "C-escape: \\\"\nHTML-escape: &quot;";
+BitFiddleAdditionalInfo23 = "Latex-escape: \\#\nUmgangssprachlich \"Hash\" genannt";
+BitFiddleAdditionalInfo24 = "Latex-escape: \\$";
+BitFiddleAdditionalInfo25 = "Latex-escape: \\%";
+BitFiddleAdditionalInfo26 = "HTML-escape: &amp;\nLatex-escape: \\&";
+BitFiddleAdditionalInfo27 = "C-escape:\\\'\nHTML-escape:&#39;";
+BitFiddleAdditionalInfo28 = "";
+BitFiddleAdditionalInfo29 = "";
+BitFiddleAdditionalInfo2a = "Umgangssprachlich \"Multiplikation\" genannt";
+BitFiddleAdditionalInfo2b = "";
+BitFiddleAdditionalInfo2c = "";
+BitFiddleAdditionalInfo2d = "Umgangssprachlich \"Strich\" genannt";
+BitFiddleAdditionalInfo2e = "Umgangssprachlich \"Punkt\" genannt";
+BitFiddleAdditionalInfo2f = "Umgangssprachlich \"Slash\" oder \"Division\" genannt";
+
+BitFiddleAdditionalInfo30 = "";
+BitFiddleAdditionalInfo31 = "";
+BitFiddleAdditionalInfo32 = "";
+BitFiddleAdditionalInfo33 = "";
+BitFiddleAdditionalInfo34 = "";
+BitFiddleAdditionalInfo35 = "";
+BitFiddleAdditionalInfo36 = "";
+BitFiddleAdditionalInfo37 = "";
+BitFiddleAdditionalInfo38 = "";
+BitFiddleAdditionalInfo39 = "";
+BitFiddleAdditionalInfo3a = "";
+BitFiddleAdditionalInfo3b = "";
+BitFiddleAdditionalInfo3c = "HTML-escape: &lt;";
+BitFiddleAdditionalInfo3d = "";
+BitFiddleAdditionalInfo3e = "HTML-escape: &gt";
+BitFiddleAdditionalInfo3f = "C-escape: \\\? (bei Trigraphen)";
+
+BitFiddleAdditionalInfo40 = "";
+BitFiddleAdditionalInfo41 = "";
+BitFiddleAdditionalInfo42 = "";
+BitFiddleAdditionalInfo43 = "";
+BitFiddleAdditionalInfo44 = "";
+BitFiddleAdditionalInfo45 = "";
+BitFiddleAdditionalInfo46 = "";
+BitFiddleAdditionalInfo47 = "";
+BitFiddleAdditionalInfo48 = "";
+BitFiddleAdditionalInfo49 = "";
+BitFiddleAdditionalInfo4a = "";
+BitFiddleAdditionalInfo4b = "";
+BitFiddleAdditionalInfo4c = "";
+BitFiddleAdditionalInfo4d = "Der Lieblings-Buchstabe des Autors";
+BitFiddleAdditionalInfo4e = "";
+BitFiddleAdditionalInfo4f = "";
+
+BitFiddleAdditionalInfo50 = "";
+BitFiddleAdditionalInfo51 = "";
+BitFiddleAdditionalInfo52 = "";
+BitFiddleAdditionalInfo53 = "";
+BitFiddleAdditionalInfo54 = "";
+BitFiddleAdditionalInfo55 = "";
+BitFiddleAdditionalInfo56 = "";
+BitFiddleAdditionalInfo57 = "";
+BitFiddleAdditionalInfo58 = "";
+BitFiddleAdditionalInfo59 = "";
+BitFiddleAdditionalInfo5a = "";
+BitFiddleAdditionalInfo5b = "";
+BitFiddleAdditionalInfo5c = "C-escape: \\\\\nUmgangssprachlich \"Backslash\" genannt";
+BitFiddleAdditionalInfo5d = "";
+BitFiddleAdditionalInfo5e = "Latex-escape: \\^\nUmgangssprachlich \"Karet\" oder \"Hoch\" genannt";
+BitFiddleAdditionalInfo5f = "Latex-escape: \\_\nUmgangssprachlich \"Unterstrich\" oder \"Underscore\" genannt";
+
+BitFiddleAdditionalInfo60 = "";
+BitFiddleAdditionalInfo61 = "";
+BitFiddleAdditionalInfo62 = "";
+BitFiddleAdditionalInfo63 = "";
+BitFiddleAdditionalInfo64 = "";
+BitFiddleAdditionalInfo65 = "";
+BitFiddleAdditionalInfo66 = "";
+BitFiddleAdditionalInfo67 = "";
+BitFiddleAdditionalInfo68 = "";
+BitFiddleAdditionalInfo69 = "";
+BitFiddleAdditionalInfo6a = "";
+BitFiddleAdditionalInfo6b = "";
+BitFiddleAdditionalInfo6c = "";
+BitFiddleAdditionalInfo6d = "";
+BitFiddleAdditionalInfo6e = "";
+BitFiddleAdditionalInfo6f = "";
+
+BitFiddleAdditionalInfo70 = "";
+BitFiddleAdditionalInfo71 = "";
+BitFiddleAdditionalInfo72 = "";
+BitFiddleAdditionalInfo73 = "";
+BitFiddleAdditionalInfo74 = "";
+BitFiddleAdditionalInfo75 = "";
+BitFiddleAdditionalInfo76 = "";
+BitFiddleAdditionalInfo77 = "";
+BitFiddleAdditionalInfo78 = "";
+BitFiddleAdditionalInfo79 = "";
+BitFiddleAdditionalInfo7a = "";
+BitFiddleAdditionalInfo7b = "Latex-escape: \\{";
+BitFiddleAdditionalInfo7c = "Umgangssprachlich \"Bar\" oder \"Pipe\" genannt\nManchmal mit oder ohne Lücke (Broken Bar)";
+BitFiddleAdditionalInfo7d = "Latex-escape: \\}";
+BitFiddleAdditionalInfo7e = "";
+BitFiddleAdditionalInfo7f = "";
+
