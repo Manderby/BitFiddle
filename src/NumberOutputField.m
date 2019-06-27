@@ -27,7 +27,7 @@
 
 
 
-- (void)fillWithBitArray:(const NABuffer*)bitarray withDecSign:(NABool)withdecsign{
+- (void)fillWithBitArray:(NABuffer*)bitarray withDecSign:(NABool)withdecsign{
   NAString* outstring;
   
   switch(numbersystem){

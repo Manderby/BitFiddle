@@ -2,6 +2,7 @@
 
 #import "ASCIIWindowController.h"
 #include "MandEnvironment.h"
+#include "BitFiddleTranslations.h"
 
 #define SETHOVER(guielem, integer) \
   [[[self window] contentView] addTrackingArea:[[[NSTrackingArea alloc] initWithRect:[guielem frame] options:NSTrackingActiveInKeyWindow | NSTrackingMouseEnteredAndExited owner:self userInfo:[NSDictionary dictionaryWithObject:[NSNumber numberWithInteger:integer] forKey:@"ord"]] autorelease]];
@@ -1076,7 +1077,8 @@ const char* addinfo[128] = {
   }else{
     [comment1 setStringValue:[NSString stringWithFormat:@"%i   0x%02x   \'%s\'\n%s", ord, ord, codes[ord], unicodenames[ord]]];
   }
-  NSString* addinfostring = [[NSBundle mainBundle] localizedStringForKey:[NSString stringWithFormat:@"BitFiddleAdditionalInfo%02x", ord] value:nil table:nil];
+  
+  NSString* addinfostring = [NSString stringWithUTF8String:naTranslate(TR_BITFIDDLE, BitFiddleAdditionalInfo00 + ord)];
   [comment2 setStringValue:addinfostring];
   currenthighlight = ord;
 }

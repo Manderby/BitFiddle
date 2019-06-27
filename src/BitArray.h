@@ -141,9 +141,9 @@ void naClearBitArray(NABuffer* array);
 // Careful: Only works properly when bitcount can be divided by 8! Use
 // naInitBitArrayShiftExtension first, if this is not the case.
 NAString* naNewStringDecWithBitArray(const NABuffer* bitarray);
-NAString* naNewStringHexWithBitArray(const NABuffer* bitarray);
-NAString* naNewStringBinWithBitArray(const NABuffer* bitarray);
-NAString* naNewStringAscWithBitArray(const NABuffer* bitarray);
+NAString* naNewStringHexWithBitArray(NABuffer* bitarray);
+NAString* naNewStringBinWithBitArray(NABuffer* bitarray);
+NAString* naNewStringAscWithBitArray(NABuffer* bitarray);
 
 
 // //////////////////////////////////

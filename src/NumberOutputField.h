@@ -20,6 +20,6 @@ typedef enum{
 - (void)setSystem:(NumberSystem)system;
 
 - (void)fillWithString:(NAString*) string withDecSign:(NABool)withdecsign;
-- (void)fillWithBitArray:(const NABuffer*) bitarray withDecSign:(NABool)withdecsign;
+- (void)fillWithBitArray:(NABuffer*) bitarray withDecSign:(NABool)withdecsign;
 
 @end

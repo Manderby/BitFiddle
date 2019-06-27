@@ -5,6 +5,8 @@
 #include "NAString.h"
 #include "BitArray.h"
 
+#include "BitFiddleTranslations.h"
+
 
 @implementation ComplementWindowController
 
@@ -13,15 +15,15 @@
 
   [[self window] setDelegate:self];
 
-  NSString* stringu = [[NSBundle mainBundle] localizedStringForKey:@"BitFiddleConversionUnsigned" value:nil table:nil];
-  NSString* string1 = [[NSBundle mainBundle] localizedStringForKey:@"BitFiddleConversionOnesComp" value:nil table:nil];
-  NSString* string2 = [[NSBundle mainBundle] localizedStringForKey:@"BitFiddleConversionTwosComp" value:nil table:nil];
+  NSString* stringu = [NSString stringWithUTF8String:naTranslate(TR_BITFIDDLE, BitFiddleConversionUnsigned)];
+  NSString* string1 = [NSString stringWithUTF8String:naTranslate(TR_BITFIDDLE, BitFiddleConversionOnesComp)];
+  NSString* string2 = [NSString stringWithUTF8String:naTranslate(TR_BITFIDDLE, BitFiddleConversionTwosComp)];
   [segcontrol setLabel:stringu forSegment:0];
   [segcontrol setLabel:string1 forSegment:1];
   [segcontrol setLabel:string2 forSegment:2];
   [segcontrol sizeToFit];
 
-  bitarray = naNewBufferPlain();
+  bitarray = naNewBuffer(NA_FALSE);
   [indec setStringValue:@""];
   [inhex setStringValue:@""];
   [inbin setStringValue:@""];
@@ -83,6 +85,7 @@
   NABuffer* bitarray64;
   NABuffer* bitarrayn;
 
+
   bitarray8 = naCreateBitArrayCopyWithFixedSize(bitarray, 8);
   bitarray16 = naCreateBitArrayCopyWithFixedSize(bitarray, 16);
   bitarray32 = naCreateBitArrayCopyWithFixedSize(bitarray, 32);
@@ -93,7 +96,7 @@
   [byteswapcheckbox setState:byteswap?NSOnState:NSOffState];
   NSString* stringbyteswap = nil;
   if(byteswap){
-    stringbyteswap = [[NSBundle mainBundle] localizedStringForKey:@"BitFiddleConversionByteSwap" value:nil table:nil];
+    stringbyteswap = [NSString stringWithUTF8String:naTranslate(TR_BITFIDDLE, BitFiddleConversionByteSwap)];
     naComputeBitArraySwapBytes(bitarray8);
     naComputeBitArraySwapBytes(bitarray16);
     naComputeBitArraySwapBytes(bitarray32);
@@ -107,10 +110,10 @@
   NSString* stringconversion = nil;
   switch(conversiontype){
   case COMPUTE_UNSIGNED:
-    stringconversion = [[NSBundle mainBundle] localizedStringForKey:@"BitFiddleConversionUnsigned" value:nil table:nil];
+    stringconversion = [NSString stringWithUTF8String:naTranslate(TR_BITFIDDLE, BitFiddleConversionUnsigned)];
     break;
   case COMPUTE_ONES_COMPLEMENT:
-    stringconversion = [[NSBundle mainBundle] localizedStringForKey:@"BitFiddleConversionOnesComp" value:nil table:nil];
+    stringconversion = [NSString stringWithUTF8String:naTranslate(TR_BITFIDDLE, BitFiddleConversionOnesComp)];
     naComputeBitArrayOnesComplement(bitarray8);
     naComputeBitArrayOnesComplement(bitarray16);
     naComputeBitArrayOnesComplement(bitarray32);
@@ -118,7 +121,7 @@
     naComputeBitArrayOnesComplement(bitarrayn);
     break;
   case COMPUTE_TWOS_COMPLEMENT:
-    stringconversion = [[NSBundle mainBundle] localizedStringForKey:@"BitFiddleConversionTwosComp" value:nil table:nil];
+    stringconversion = [NSString stringWithUTF8String:naTranslate(TR_BITFIDDLE, BitFiddleConversionTwosComp)];
     naComputeBitArrayTwosComplement(bitarray8);
     naComputeBitArrayTwosComplement(bitarray16);
     naComputeBitArrayTwosComplement(bitarray32);
@@ -136,7 +139,6 @@
     }
   }
   
-
   if(conversiontype == COMPUTE_ONES_COMPLEMENT){
     [outdec8  fillWithString:NULL withDecSign:NA_FALSE];
     [outdec16 fillWithString:NULL withDecSign:NA_FALSE];
@@ -261,7 +263,7 @@
   [inasc setStringValue:@""];
   
   naRelease(bitarray);
-  bitarray = naNewBufferPlain();
+  bitarray = naNewBuffer(NA_FALSE);
   
   [self update];
 }

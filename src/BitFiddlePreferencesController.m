@@ -1,7 +1,7 @@
 
 #import "BitFiddlePreferencesController.h"
 #import "BitFiddleApplication.h"
-
+#include "BitFiddleTranslations.h"
 
 @implementation BitFiddlePreferencesController
 
@@ -9,13 +9,13 @@
 - (void)awakeFromNib{
 
   // Set the button text
-  [atapplicationstartuplabel setStringValue:[[NSBundle mainBundle] localizedStringForKey:@"BitFiddlePrefsAtStartup" value:nil table:nil]];
-  [showasciiwindowatstartupcheckbox setTitle:[[NSBundle mainBundle] localizedStringForKey:@"BitFiddlePrefsShowASCII" value:nil table:nil]];
-  [resetsettingsatstartupcheckbox setTitle:[[NSBundle mainBundle] localizedStringForKey:@"BitFiddlePrefsResetSettings" value:nil table:nil]];
+  [atapplicationstartuplabel setStringValue:[NSString stringWithUTF8String:naTranslate(TR_BITFIDDLE, BitFiddlePrefsAtStartup)]];
+  [showasciiwindowatstartupcheckbox setTitle:[NSString stringWithUTF8String:naTranslate(TR_BITFIDDLE, BitFiddlePrefsShowASCII)]];
+  [resetsettingsatstartupcheckbox setTitle:[NSString stringWithUTF8String:naTranslate(TR_BITFIDDLE, BitFiddlePrefsResetSettings)]];
 
-  [keepinfrontlabel setStringValue:[[NSBundle mainBundle] localizedStringForKey:@"BitFiddlePrefsKeepOnTop" value:nil table:nil]];
-  [keepmaxiontopcheckbox setTitle:[[NSBundle mainBundle] localizedStringForKey:@"BitFiddlePrefsMaxiVersion" value:nil table:nil]];
-  [keepminiontopcheckbox setTitle:[[NSBundle mainBundle] localizedStringForKey:@"BitFiddlePrefsMiniVersion" value:nil table:nil]];
+  [keepinfrontlabel setStringValue:[NSString stringWithUTF8String:naTranslate(TR_BITFIDDLE, BitFiddlePrefsKeepOnTop)]];
+  [keepmaxiontopcheckbox setTitle:[NSString stringWithUTF8String:naTranslate(TR_BITFIDDLE, BitFiddlePrefsMaxiVersion)]];
+  [keepminiontopcheckbox setTitle:[NSString stringWithUTF8String:naTranslate(TR_BITFIDDLE, BitFiddlePrefsMiniVersion)]];
 
   [donebutton setTitle:[[NSBundle mainBundle] localizedStringForKey:@"MandDone" value:nil table:@"MandApplication"]];
 

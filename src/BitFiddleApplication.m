@@ -5,6 +5,7 @@
 #import "ComplementWindowController.h"
 #import "ASCIIWindowController.h"
 
+#include "BitFiddleTranslations.h"
 
 @implementation BitFiddleApplication
 
@@ -18,8 +19,15 @@
 
 
 - (void)applicationDidFinishLaunching:(NSNotification *)notification{
-
   [super applicationDidFinishLaunching:notification];
+
+  #include "BitFiddleStrings_en.h"
+  #include "BitFiddleStrings_de.h"
+
+//  NSString* language = [[NSLocale preferredLanguages] objectAtIndex:0];
+//  NSString* canon = [NSLocale canonicalLanguageIdentifierFromString:language];
+//  NSArray<NSString *>* codes = [NSLocale ISOLanguageCodes];
+//  [locale displayNameForKey:NSLocaleIdentifier value:@"ar"]
 
   [NSBundle loadNibNamed:@"ComplementWindow" owner:self];
   [NSBundle loadNibNamed:@"Preferences" owner:self];
@@ -46,7 +54,6 @@
 
   NSString* versionstring = [[NSBundle mainBundle] objectForInfoDictionaryKey:@"CFBundleShortVersionString"];
   NAString* lastrunversion = mandNewUserDefaultString("lastrunningversion");
-
   if(![versionstring isEqualToString:[NSString stringWithUTF8String:naGetStringUTF8Pointer(lastrunversion)]]){
     NAString* curversionstring = naNewStringWithFormat("%s", [versionstring UTF8String]);
     mandSetUserDefaultString(curversionstring, "lastrunningversion");
