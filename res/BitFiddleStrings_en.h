@@ -2,9 +2,9 @@
 // //////////////////////////////////
 // English
 //
-NA_LOC_LANG(NA_LANG_ENG);
+NA_LOC_LANG("eng");
 
-NA_LOC_GROUP(TR_BITFIDDLE);
+NA_LOC(BitFiddleApplicationDescription, "Conversion tool for binary values\nDesign and implementation: Tobias Stamm");
 
 /* Expressions in Main Window */
 NA_LOC(BitFiddleConversionUnsigned, "Unsigned");

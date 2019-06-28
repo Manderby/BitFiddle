@@ -2,9 +2,9 @@
 // //////////////////////////////////
 // German
 //
-NA_LOC_LANG(NA_LANG_DEU);
+NA_LOC_LANG("deu");
 
-NA_LOC_GROUP(TR_BITFIDDLE);
+NA_LOC(BitFiddleApplicationDescription, "Umwandlung von binären Werten.\nDesign und Implementation: Tobias Stamm");
 
 // Expressions in Main Window
 NA_LOC(BitFiddleConversionUnsigned, "Unsigned");

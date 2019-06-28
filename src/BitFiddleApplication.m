@@ -21,13 +21,20 @@
 - (void)applicationDidFinishLaunching:(NSNotification *)notification{
   [super applicationDidFinishLaunching:notification];
 
+  translatorGroup = naRegisterTranslatorGroup();
   #include "BitFiddleStrings_en.h"
   #include "BitFiddleStrings_de.h"
 
-//  NSString* language = [[NSLocale preferredLanguages] objectAtIndex:0];
-//  NSString* canon = [NSLocale canonicalLanguageIdentifierFromString:language];
-//  NSArray<NSString *>* codes = [NSLocale ISOLanguageCodes];
-//  [locale displayNameForKey:NSLocaleIdentifier value:@"ar"]
+  // Set the translator languages.
+  NAInt lang = (NAInt)[[NSLocale preferredLanguages] count] - 1;
+  while(lang >= 0){
+    NSString* language = [[NSLocale preferredLanguages] objectAtIndex:(NSUInteger)lang];
+    NALanguageCode3 langcode = naGetLanguageCode([language UTF8String]);
+    naSetTranslatorLanguagePreference(langcode);
+    lang--;
+  }
+
+  [self setApplicationDescription:naTranslate(translatorGroup, BitFiddleApplicationDescription)];
 
   [NSBundle loadNibNamed:@"ComplementWindow" owner:self];
   [NSBundle loadNibNamed:@"Preferences" owner:self];
@@ -77,6 +84,7 @@
   [minicomplementwindowcontroller release];
   [asciiwindowcontroller release];
 
+  naStopTranslator();
   naStopRuntime();
 }
 
@@ -125,6 +133,9 @@
   }
 }
 
+- (NAInt)getTranslatorGroup{
+  return translatorGroup;
+}
 
 - (IBAction)showComplement:(id)sender{
   switchingWindowMode = NA_TRUE;

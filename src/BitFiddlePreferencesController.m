@@ -9,15 +9,15 @@
 - (void)awakeFromNib{
 
   // Set the button text
-  [atapplicationstartuplabel setStringValue:[NSString stringWithUTF8String:naTranslate(TR_BITFIDDLE, BitFiddlePrefsAtStartup)]];
-  [showasciiwindowatstartupcheckbox setTitle:[NSString stringWithUTF8String:naTranslate(TR_BITFIDDLE, BitFiddlePrefsShowASCII)]];
-  [resetsettingsatstartupcheckbox setTitle:[NSString stringWithUTF8String:naTranslate(TR_BITFIDDLE, BitFiddlePrefsResetSettings)]];
+  [atapplicationstartuplabel setStringValue:[NSString stringWithUTF8String:BIT_TRANSLATE(BitFiddlePrefsAtStartup)]];
+  [showasciiwindowatstartupcheckbox setTitle:[NSString stringWithUTF8String:BIT_TRANSLATE(BitFiddlePrefsShowASCII)]];
+  [resetsettingsatstartupcheckbox setTitle:[NSString stringWithUTF8String:BIT_TRANSLATE( BitFiddlePrefsResetSettings)]];
 
-  [keepinfrontlabel setStringValue:[NSString stringWithUTF8String:naTranslate(TR_BITFIDDLE, BitFiddlePrefsKeepOnTop)]];
-  [keepmaxiontopcheckbox setTitle:[NSString stringWithUTF8String:naTranslate(TR_BITFIDDLE, BitFiddlePrefsMaxiVersion)]];
-  [keepminiontopcheckbox setTitle:[NSString stringWithUTF8String:naTranslate(TR_BITFIDDLE, BitFiddlePrefsMiniVersion)]];
+  [keepinfrontlabel setStringValue:[NSString stringWithUTF8String:BIT_TRANSLATE(BitFiddlePrefsKeepOnTop)]];
+  [keepmaxiontopcheckbox setTitle:[NSString stringWithUTF8String:BIT_TRANSLATE(BitFiddlePrefsMaxiVersion)]];
+  [keepminiontopcheckbox setTitle:[NSString stringWithUTF8String:BIT_TRANSLATE(BitFiddlePrefsMiniVersion)]];
 
-  [donebutton setTitle:[[NSBundle mainBundle] localizedStringForKey:@"MandDone" value:nil table:@"MandApplication"]];
+  [donebutton setTitle:[[NSBundle mainBundle] localizedStringForKey:@"MandDone" value:nil table:@"ManderApp"]];
 
 
   NSInteger showascii = mandGetUserDefaultInt("showascii");

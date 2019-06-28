@@ -1078,7 +1078,7 @@ const char* addinfo[128] = {
     [comment1 setStringValue:[NSString stringWithFormat:@"%i   0x%02x   \'%s\'\n%s", ord, ord, codes[ord], unicodenames[ord]]];
   }
   
-  NSString* addinfostring = [NSString stringWithUTF8String:naTranslate(TR_BITFIDDLE, BitFiddleAdditionalInfo00 + ord)];
+  NSString* addinfostring = [NSString stringWithUTF8String:BIT_TRANSLATE(BitFiddleAdditionalInfo00 + ord)];
   [comment2 setStringValue:addinfostring];
   currenthighlight = ord;
 }

@@ -1,11 +1,12 @@
 
 #include "NATranslator.h"
+#include "BitFiddleApplication.h"
+
+#define BIT_TRANSLATE(id) naTranslate([(BitFiddleApplication*)NSApp getTranslatorGroup], id)
 
 typedef enum{
-  TR_BITFIDDLE,
-} TrGroups;
+  BitFiddleApplicationDescription,
 
-typedef enum{
   // Expressions in Main Window
   BitFiddleConversionUnsigned,
   BitFiddleConversionOnesComp,

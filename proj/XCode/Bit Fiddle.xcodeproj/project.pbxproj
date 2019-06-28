@@ -13,7 +13,7 @@
 		90AEE11A229C44F700DD2DCF /* MandTranslation.c in Sources */ = {isa = PBXBuildFile; fileRef = 90AEE113229C44F700DD2DCF /* MandTranslation.c */; };
 		90AEE11B229C44F700DD2DCF /* MandEnvironment.m in Sources */ = {isa = PBXBuildFile; fileRef = 90AEE114229C44F700DD2DCF /* MandEnvironment.m */; };
 		90AEE11C229C44F700DD2DCF /* MandMenuHelper.m in Sources */ = {isa = PBXBuildFile; fileRef = 90AEE115229C44F700DD2DCF /* MandMenuHelper.m */; };
-		90AEE11D229C44F700DD2DCF /* MandApplication.m in Sources */ = {isa = PBXBuildFile; fileRef = 90AEE117229C44F700DD2DCF /* MandApplication.m */; };
+		90AEE11D229C44F700DD2DCF /* ManderApp.m in Sources */ = {isa = PBXBuildFile; fileRef = 90AEE117229C44F700DD2DCF /* ManderApp.m */; };
 		90AEE124229C450700DD2DCF /* ManderApp.strings in Resources */ = {isa = PBXBuildFile; fileRef = 90AEE11F229C450700DD2DCF /* ManderApp.strings */; };
 		90AEE125229C450700DD2DCF /* MandAboutWindow.xib in Resources */ = {isa = PBXBuildFile; fileRef = 90AEE122229C450700DD2DCF /* MandAboutWindow.xib */; };
 		90AEE126229C450700DD2DCF /* manderc.png in Resources */ = {isa = PBXBuildFile; fileRef = 90AEE123229C450700DD2DCF /* manderc.png */; };
@@ -25,7 +25,6 @@
 		90BAF67421759A85001665BF /* BitFiddlePreferencesController.m in Sources */ = {isa = PBXBuildFile; fileRef = 90BAF66B21759A85001665BF /* BitFiddlePreferencesController.m */; };
 		90BAF67521759A85001665BF /* BitFiddleWindow.m in Sources */ = {isa = PBXBuildFile; fileRef = 90BAF66C21759A85001665BF /* BitFiddleWindow.m */; };
 		90BAF67621759A85001665BF /* NumberOutputField.m in Sources */ = {isa = PBXBuildFile; fileRef = 90BAF66E21759A85001665BF /* NumberOutputField.m */; };
-		90BAF74B21759CC6001665BF /* Localizable.strings in Resources */ = {isa = PBXBuildFile; fileRef = 90BAF73321759CC6001665BF /* Localizable.strings */; };
 		90BAF74C21759CC6001665BF /* InfoPlist.strings in Resources */ = {isa = PBXBuildFile; fileRef = 90BAF73521759CC6001665BF /* InfoPlist.strings */; };
 		90BAF74D21759CC6001665BF /* MainMenu.xib in Resources */ = {isa = PBXBuildFile; fileRef = 90BAF73721759CC6001665BF /* MainMenu.xib */; };
 		90BAF75021759CC6001665BF /* ExpertWindow.xib in Resources */ = {isa = PBXBuildFile; fileRef = 90BAF73C21759CC6001665BF /* ExpertWindow.xib */; };
@@ -84,7 +83,7 @@
 		90AEE114229C44F700DD2DCF /* MandEnvironment.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = MandEnvironment.m; sourceTree = "<group>"; };
 		90AEE115229C44F700DD2DCF /* MandMenuHelper.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = MandMenuHelper.m; sourceTree = "<group>"; };
 		90AEE116229C44F700DD2DCF /* MandCocoaHelper.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MandCocoaHelper.h; sourceTree = "<group>"; };
-		90AEE117229C44F700DD2DCF /* MandApplication.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = MandApplication.m; sourceTree = "<group>"; };
+		90AEE117229C44F700DD2DCF /* ManderApp.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ManderApp.m; sourceTree = "<group>"; };
 		90AEE120229C450700DD2DCF /* de */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = de; path = de.lproj/ManderApp.strings; sourceTree = "<group>"; };
 		90AEE121229C450700DD2DCF /* en */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = en; path = en.lproj/ManderApp.strings; sourceTree = "<group>"; };
 		90AEE122229C450700DD2DCF /* MandAboutWindow.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = MandAboutWindow.xib; sourceTree = "<group>"; };
@@ -105,11 +104,9 @@
 		90BAF66C21759A85001665BF /* BitFiddleWindow.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = BitFiddleWindow.m; sourceTree = "<group>"; };
 		90BAF66D21759A85001665BF /* MandConfiguration.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MandConfiguration.h; sourceTree = "<group>"; };
 		90BAF66E21759A85001665BF /* NumberOutputField.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = NumberOutputField.m; sourceTree = "<group>"; };
-		90BAF73421759CC6001665BF /* de */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = de; path = de.lproj/Localizable.strings; sourceTree = "<group>"; };
 		90BAF73621759CC6001665BF /* de */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = de; path = de.lproj/InfoPlist.strings; sourceTree = "<group>"; };
 		90BAF73821759CC6001665BF /* de */ = {isa = PBXFileReference; lastKnownFileType = file.xib; name = de; path = de.lproj/MainMenu.xib; sourceTree = "<group>"; };
 		90BAF73C21759CC6001665BF /* ExpertWindow.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = ExpertWindow.xib; sourceTree = "<group>"; };
-		90BAF73D21759CC6001665BF /* en */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = en; path = en.lproj/Localizable.strings; sourceTree = "<group>"; };
 		90BAF73E21759CC6001665BF /* en */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = en; path = en.lproj/InfoPlist.strings; sourceTree = "<group>"; };
 		90BAF73F21759CC6001665BF /* en */ = {isa = PBXFileReference; lastKnownFileType = file.xib; name = en; path = en.lproj/MainMenu.xib; sourceTree = "<group>"; };
 		90BAF74321759CC6001665BF /* ComplementWindow.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = ComplementWindow.xib; sourceTree = "<group>"; };
@@ -283,18 +280,18 @@
 		90AEE10B229C44F700DD2DCF /* src */ = {
 			isa = PBXGroup;
 			children = (
-				90AEE10C229C44F700DD2DCF /* ManderApp.h */,
 				90AEE10D229C44F700DD2DCF /* MandAboutWindowController.h */,
-				90AEE10E229C44F700DD2DCF /* MandMenuHelper.h */,
-				90AEE10F229C44F700DD2DCF /* MandEnvironment.h */,
-				90AEE110229C44F700DD2DCF /* MandTranslation.h */,
-				90AEE111229C44F700DD2DCF /* MandCocoaHelper.m */,
 				90AEE112229C44F700DD2DCF /* MandAboutWindowController.m */,
-				90AEE113229C44F700DD2DCF /* MandTranslation.c */,
-				90AEE114229C44F700DD2DCF /* MandEnvironment.m */,
-				90AEE115229C44F700DD2DCF /* MandMenuHelper.m */,
 				90AEE116229C44F700DD2DCF /* MandCocoaHelper.h */,
-				90AEE117229C44F700DD2DCF /* MandApplication.m */,
+				90AEE111229C44F700DD2DCF /* MandCocoaHelper.m */,
+				90AEE10F229C44F700DD2DCF /* MandEnvironment.h */,
+				90AEE114229C44F700DD2DCF /* MandEnvironment.m */,
+				90AEE10C229C44F700DD2DCF /* ManderApp.h */,
+				90AEE117229C44F700DD2DCF /* ManderApp.m */,
+				90AEE10E229C44F700DD2DCF /* MandMenuHelper.h */,
+				90AEE115229C44F700DD2DCF /* MandMenuHelper.m */,
+				90AEE113229C44F700DD2DCF /* MandTranslation.c */,
+				90AEE110229C44F700DD2DCF /* MandTranslation.h */,
 			);
 			path = src;
 			sourceTree = "<group>";
@@ -339,7 +336,6 @@
 			children = (
 				90D6ED2022C4189D00E752C5 /* BitFiddleStrings_de.h */,
 				90D6ED2122C4189D00E752C5 /* BitFiddleStrings_en.h */,
-				90BAF73321759CC6001665BF /* Localizable.strings */,
 				90BAF73521759CC6001665BF /* InfoPlist.strings */,
 				90BAF73721759CC6001665BF /* MainMenu.xib */,
 				90BAF73C21759CC6001665BF /* ExpertWindow.xib */,
@@ -689,7 +685,6 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				90BAF74B21759CC6001665BF /* Localizable.strings in Resources */,
 				90BAF75821759CC6001665BF /* BitFiddle.icns in Resources */,
 				90BAF75621759CC6001665BF /* Preferences.xib in Resources */,
 				90E3274522218B65005712B0 /* .gitignore in Resources */,
@@ -747,7 +742,7 @@
 				90D6ED1F22C413BF00E752C5 /* NAMoney.c in Sources */,
 				90D6ED1922C413BF00E752C5 /* NADeflate.c in Sources */,
 				90D6ED1D22C413BF00E752C5 /* NARuntime.c in Sources */,
-				90AEE11D229C44F700DD2DCF /* MandApplication.m in Sources */,
+				90AEE11D229C44F700DD2DCF /* ManderApp.m in Sources */,
 				90D6ED0022C413BF00E752C5 /* NABufferPart.c in Sources */,
 				90D6ED0C22C413BF00E752C5 /* NATreeQuad.c in Sources */,
 				90D6ED1A22C413BF00E752C5 /* NAFile.c in Sources */,
@@ -772,15 +767,6 @@
 				90AEE121229C450700DD2DCF /* en */,
 			);
 			name = ManderApp.strings;
-			sourceTree = "<group>";
-		};
-		90BAF73321759CC6001665BF /* Localizable.strings */ = {
-			isa = PBXVariantGroup;
-			children = (
-				90BAF73421759CC6001665BF /* de */,
-				90BAF73D21759CC6001665BF /* en */,
-			);
-			name = Localizable.strings;
 			sourceTree = "<group>";
 		};
 		90BAF73521759CC6001665BF /* InfoPlist.strings */ = {
