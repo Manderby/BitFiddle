@@ -22,8 +22,8 @@
   [super applicationDidFinishLaunching:notification];
 
   translatorGroup = naRegisterTranslatorGroup();
-  #include "BitFiddleStrings_en.h"
-  #include "BitFiddleStrings_de.h"
+  #include "BitFiddleStrings_eng.h"
+  #include "BitFiddleStrings_deu.h"
 
   // Set the translator languages.
   NAInt lang = (NAInt)[[NSLocale preferredLanguages] count] - 1;

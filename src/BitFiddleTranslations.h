@@ -4,7 +4,7 @@
 
 #define BIT_TRANSLATE(id) naTranslate([(BitFiddleApplication*)NSApp getTranslatorGroup], id)
 
-typedef enum{
+enum{
   BitFiddleApplicationDescription,
 
   // Expressions in Main Window
@@ -158,4 +158,4 @@ typedef enum{
   BitFiddleAdditionalInfo7e,
   BitFiddleAdditionalInfo7f,
 
-} TrBitFiddle;
+};

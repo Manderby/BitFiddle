@@ -10,11 +10,9 @@
 		900B78481BD6BF9200796AAB /* WebKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 900B78471BD6BF9200796AAB /* WebKit.framework */; };
 		90AEE118229C44F700DD2DCF /* MandCocoaHelper.m in Sources */ = {isa = PBXBuildFile; fileRef = 90AEE111229C44F700DD2DCF /* MandCocoaHelper.m */; };
 		90AEE119229C44F700DD2DCF /* MandAboutWindowController.m in Sources */ = {isa = PBXBuildFile; fileRef = 90AEE112229C44F700DD2DCF /* MandAboutWindowController.m */; };
-		90AEE11A229C44F700DD2DCF /* MandTranslation.c in Sources */ = {isa = PBXBuildFile; fileRef = 90AEE113229C44F700DD2DCF /* MandTranslation.c */; };
 		90AEE11B229C44F700DD2DCF /* MandEnvironment.m in Sources */ = {isa = PBXBuildFile; fileRef = 90AEE114229C44F700DD2DCF /* MandEnvironment.m */; };
 		90AEE11C229C44F700DD2DCF /* MandMenuHelper.m in Sources */ = {isa = PBXBuildFile; fileRef = 90AEE115229C44F700DD2DCF /* MandMenuHelper.m */; };
 		90AEE11D229C44F700DD2DCF /* ManderApp.m in Sources */ = {isa = PBXBuildFile; fileRef = 90AEE117229C44F700DD2DCF /* ManderApp.m */; };
-		90AEE124229C450700DD2DCF /* ManderApp.strings in Resources */ = {isa = PBXBuildFile; fileRef = 90AEE11F229C450700DD2DCF /* ManderApp.strings */; };
 		90AEE125229C450700DD2DCF /* MandAboutWindow.xib in Resources */ = {isa = PBXBuildFile; fileRef = 90AEE122229C450700DD2DCF /* MandAboutWindow.xib */; };
 		90AEE126229C450700DD2DCF /* manderc.png in Resources */ = {isa = PBXBuildFile; fileRef = 90AEE123229C450700DD2DCF /* manderc.png */; };
 		90BAF66F21759A85001665BF /* ComplementWindowController.m in Sources */ = {isa = PBXBuildFile; fileRef = 90BAF66121759A85001665BF /* ComplementWindowController.m */; };
@@ -76,16 +74,12 @@
 		90AEE10D229C44F700DD2DCF /* MandAboutWindowController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MandAboutWindowController.h; sourceTree = "<group>"; };
 		90AEE10E229C44F700DD2DCF /* MandMenuHelper.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MandMenuHelper.h; sourceTree = "<group>"; };
 		90AEE10F229C44F700DD2DCF /* MandEnvironment.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MandEnvironment.h; sourceTree = "<group>"; };
-		90AEE110229C44F700DD2DCF /* MandTranslation.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MandTranslation.h; sourceTree = "<group>"; };
 		90AEE111229C44F700DD2DCF /* MandCocoaHelper.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = MandCocoaHelper.m; sourceTree = "<group>"; };
 		90AEE112229C44F700DD2DCF /* MandAboutWindowController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = MandAboutWindowController.m; sourceTree = "<group>"; };
-		90AEE113229C44F700DD2DCF /* MandTranslation.c */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.c; path = MandTranslation.c; sourceTree = "<group>"; };
 		90AEE114229C44F700DD2DCF /* MandEnvironment.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = MandEnvironment.m; sourceTree = "<group>"; };
 		90AEE115229C44F700DD2DCF /* MandMenuHelper.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = MandMenuHelper.m; sourceTree = "<group>"; };
 		90AEE116229C44F700DD2DCF /* MandCocoaHelper.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MandCocoaHelper.h; sourceTree = "<group>"; };
 		90AEE117229C44F700DD2DCF /* ManderApp.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ManderApp.m; sourceTree = "<group>"; };
-		90AEE120229C450700DD2DCF /* de */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = de; path = de.lproj/ManderApp.strings; sourceTree = "<group>"; };
-		90AEE121229C450700DD2DCF /* en */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = en; path = en.lproj/ManderApp.strings; sourceTree = "<group>"; };
 		90AEE122229C450700DD2DCF /* MandAboutWindow.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = MandAboutWindow.xib; sourceTree = "<group>"; };
 		90AEE123229C450700DD2DCF /* manderc.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = manderc.png; sourceTree = "<group>"; };
 		90BAF65F21759A85001665BF /* BitArray.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = BitArray.h; sourceTree = "<group>"; };
@@ -256,9 +250,12 @@
 		90D6ECFB22C413BF00E752C5 /* NATranslator.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = NATranslator.h; sourceTree = "<group>"; };
 		90D6ECFC22C413BF00E752C5 /* NACoord.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = NACoord.h; sourceTree = "<group>"; };
 		90D6ECFD22C413BF00E752C5 /* NAPool.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = NAPool.h; sourceTree = "<group>"; };
-		90D6ED2022C4189D00E752C5 /* BitFiddleStrings_de.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = BitFiddleStrings_de.h; sourceTree = "<group>"; };
-		90D6ED2122C4189D00E752C5 /* BitFiddleStrings_en.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = BitFiddleStrings_en.h; sourceTree = "<group>"; };
+		90D6ED2022C4189D00E752C5 /* BitFiddleStrings_deu.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = BitFiddleStrings_deu.h; sourceTree = "<group>"; };
+		90D6ED2122C4189D00E752C5 /* BitFiddleStrings_eng.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = BitFiddleStrings_eng.h; sourceTree = "<group>"; };
 		90D6ED2222C418D100E752C5 /* BitFiddleTranslations.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = BitFiddleTranslations.h; sourceTree = "<group>"; };
+		90D7BAE122C758BD002BA392 /* ManderApp_eng.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = ManderApp_eng.h; sourceTree = "<group>"; };
+		90D7BAE222C758BD002BA392 /* ManderApp_deu.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = ManderApp_deu.h; sourceTree = "<group>"; };
+		90D7BAE322C7597D002BA392 /* ManderAppTranslations.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = ManderAppTranslations.h; sourceTree = "<group>"; };
 		90E3273422218B65005712B0 /* .gitignore */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; path = .gitignore; sourceTree = "<group>"; };
 		B9848B3D177B99B400E21D96 /* Bit Fiddle.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = "Bit Fiddle.app"; sourceTree = BUILT_PRODUCTS_DIR; };
 		B9848B40177B99B400E21D96 /* Cocoa.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Cocoa.framework; path = System/Library/Frameworks/Cocoa.framework; sourceTree = SDKROOT; };
@@ -288,10 +285,9 @@
 				90AEE114229C44F700DD2DCF /* MandEnvironment.m */,
 				90AEE10C229C44F700DD2DCF /* ManderApp.h */,
 				90AEE117229C44F700DD2DCF /* ManderApp.m */,
+				90D7BAE322C7597D002BA392 /* ManderAppTranslations.h */,
 				90AEE10E229C44F700DD2DCF /* MandMenuHelper.h */,
 				90AEE115229C44F700DD2DCF /* MandMenuHelper.m */,
-				90AEE113229C44F700DD2DCF /* MandTranslation.c */,
-				90AEE110229C44F700DD2DCF /* MandTranslation.h */,
 			);
 			path = src;
 			sourceTree = "<group>";
@@ -299,8 +295,9 @@
 		90AEE11E229C450700DD2DCF /* res */ = {
 			isa = PBXGroup;
 			children = (
-				90AEE11F229C450700DD2DCF /* ManderApp.strings */,
 				90AEE122229C450700DD2DCF /* MandAboutWindow.xib */,
+				90D7BAE222C758BD002BA392 /* ManderApp_deu.h */,
+				90D7BAE122C758BD002BA392 /* ManderApp_eng.h */,
 				90AEE123229C450700DD2DCF /* manderc.png */,
 			);
 			path = res;
@@ -334,8 +331,8 @@
 		90BAF73221759CC6001665BF /* res */ = {
 			isa = PBXGroup;
 			children = (
-				90D6ED2022C4189D00E752C5 /* BitFiddleStrings_de.h */,
-				90D6ED2122C4189D00E752C5 /* BitFiddleStrings_en.h */,
+				90D6ED2022C4189D00E752C5 /* BitFiddleStrings_deu.h */,
+				90D6ED2122C4189D00E752C5 /* BitFiddleStrings_eng.h */,
 				90BAF73521759CC6001665BF /* InfoPlist.strings */,
 				90BAF73721759CC6001665BF /* MainMenu.xib */,
 				90BAF73C21759CC6001665BF /* ExpertWindow.xib */,
@@ -690,7 +687,6 @@
 				90E3274522218B65005712B0 /* .gitignore in Resources */,
 				90AEE126229C450700DD2DCF /* manderc.png in Resources */,
 				90BAF74C21759CC6001665BF /* InfoPlist.strings in Resources */,
-				90AEE124229C450700DD2DCF /* ManderApp.strings in Resources */,
 				90AEE125229C450700DD2DCF /* MandAboutWindow.xib in Resources */,
 				90BAF75521759CC6001665BF /* BitFiddleChangelog.txt in Resources */,
 				90BAF74D21759CC6001665BF /* MainMenu.xib in Resources */,
@@ -717,7 +713,6 @@
 				90D6ED0B22C413BF00E752C5 /* NATreeOct.c in Sources */,
 				90D6ED1722C413BF00E752C5 /* NATranslator.c in Sources */,
 				90BAF67621759A85001665BF /* NumberOutputField.m in Sources */,
-				90AEE11A229C44F700DD2DCF /* MandTranslation.c in Sources */,
 				90D6ED1522C413BF00E752C5 /* NACocoaHelper.m in Sources */,
 				90D6ED1C22C413BF00E752C5 /* NAURL.c in Sources */,
 				90AEE11C229C44F700DD2DCF /* MandMenuHelper.m in Sources */,
@@ -760,15 +755,6 @@
 /* End PBXSourcesBuildPhase section */
 
 /* Begin PBXVariantGroup section */
-		90AEE11F229C450700DD2DCF /* ManderApp.strings */ = {
-			isa = PBXVariantGroup;
-			children = (
-				90AEE120229C450700DD2DCF /* de */,
-				90AEE121229C450700DD2DCF /* en */,
-			);
-			name = ManderApp.strings;
-			sourceTree = "<group>";
-		};
 		90BAF73521759CC6001665BF /* InfoPlist.strings */ = {
 			isa = PBXVariantGroup;
 			children = (
