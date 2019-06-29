@@ -20,6 +20,7 @@ enum{
   BitFiddlePrefsKeepOnTop,    
   BitFiddlePrefsMaxiVersion,  
   BitFiddlePrefsMiniVersion,  
+  BitFiddlePrefsDone,
 
   // Additional information for ascii characters
   BitFiddleAdditionalInfo00,

@@ -17,7 +17,7 @@
   [keepmaxiontopcheckbox setTitle:[NSString stringWithUTF8String:BIT_TRANSLATE(BitFiddlePrefsMaxiVersion)]];
   [keepminiontopcheckbox setTitle:[NSString stringWithUTF8String:BIT_TRANSLATE(BitFiddlePrefsMiniVersion)]];
 
-  [donebutton setTitle:[[NSBundle mainBundle] localizedStringForKey:@"MandDone" value:nil table:@"ManderApp"]];
+  [donebutton setTitle:[NSString stringWithUTF8String:BIT_TRANSLATE(BitFiddlePrefsDone)]];
 
 
   NSInteger showascii = mandGetUserDefaultInt("showascii");

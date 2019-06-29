@@ -19,6 +19,7 @@ NA_LOC(BitFiddlePrefsResetSettings, "Konvertierung zurücksetzen");
 NA_LOC(BitFiddlePrefsKeepOnTop,     "Fenster im Vordergrund behalten");
 NA_LOC(BitFiddlePrefsMaxiVersion,   "Erweitertes Fenster");
 NA_LOC(BitFiddlePrefsMiniVersion,   "Mini-Version");
+NA_LOC(BitFiddlePrefsDone,          "Fertig");
 
 // Additional information for ascii characters
 NA_LOC(BitFiddleAdditionalInfo00, "C-escape: \\0");
