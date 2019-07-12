@@ -8,6 +8,7 @@
 
 /* Begin PBXBuildFile section */
 		900B78481BD6BF9200796AAB /* WebKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 900B78471BD6BF9200796AAB /* WebKit.framework */; };
+		9029EC3B22C937B500F823EC /* ASCIIWindow.c in Sources */ = {isa = PBXBuildFile; fileRef = 9029EC3922C937B500F823EC /* ASCIIWindow.c */; };
 		90AEE118229C44F700DD2DCF /* MandCocoaHelper.m in Sources */ = {isa = PBXBuildFile; fileRef = 90AEE111229C44F700DD2DCF /* MandCocoaHelper.m */; };
 		90AEE119229C44F700DD2DCF /* MandAboutWindowController.m in Sources */ = {isa = PBXBuildFile; fileRef = 90AEE112229C44F700DD2DCF /* MandAboutWindowController.m */; };
 		90AEE11B229C44F700DD2DCF /* MandEnvironment.m in Sources */ = {isa = PBXBuildFile; fileRef = 90AEE114229C44F700DD2DCF /* MandEnvironment.m */; };
@@ -70,6 +71,8 @@
 
 /* Begin PBXFileReference section */
 		900B78471BD6BF9200796AAB /* WebKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = WebKit.framework; path = System/Library/Frameworks/WebKit.framework; sourceTree = SDKROOT; };
+		9029EC3922C937B500F823EC /* ASCIIWindow.c */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.c; path = ASCIIWindow.c; sourceTree = "<group>"; };
+		9029EC3A22C937B500F823EC /* ASCIIWindow.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ASCIIWindow.h; sourceTree = "<group>"; };
 		90AEE10C229C44F700DD2DCF /* ManderApp.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ManderApp.h; sourceTree = "<group>"; };
 		90AEE10D229C44F700DD2DCF /* MandAboutWindowController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MandAboutWindowController.h; sourceTree = "<group>"; };
 		90AEE10E229C44F700DD2DCF /* MandMenuHelper.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MandMenuHelper.h; sourceTree = "<group>"; };
@@ -306,6 +309,8 @@
 		90BAF65E21759A85001665BF /* src */ = {
 			isa = PBXGroup;
 			children = (
+				9029EC3922C937B500F823EC /* ASCIIWindow.c */,
+				9029EC3A22C937B500F823EC /* ASCIIWindow.h */,
 				90D6ED2222C418D100E752C5 /* BitFiddleTranslations.h */,
 				90BAF66921759A85001665BF /* ASCIIWindowController.h */,
 				90BAF66221759A85001665BF /* ASCIIWindowController.m */,
@@ -599,8 +604,8 @@
 			isa = PBXGroup;
 			children = (
 				90E3272D22218B65005712B0 /* ManderApp */,
-				90BAF73221759CC6001665BF /* res */,
 				90D6EC6722C413BF00E752C5 /* NALib */,
+				90BAF73221759CC6001665BF /* res */,
 				90BAF65E21759A85001665BF /* src */,
 				B9848B3F177B99B400E21D96 /* Frameworks */,
 				B9848B3E177B99B400E21D96 /* Products */,
@@ -733,6 +738,7 @@
 				90D6ECFE22C413BF00E752C5 /* NAHeap.c in Sources */,
 				90D6ED1822C413BF00E752C5 /* NAUICore.c in Sources */,
 				90BAF67421759A85001665BF /* BitFiddlePreferencesController.m in Sources */,
+				9029EC3B22C937B500F823EC /* ASCIIWindow.c in Sources */,
 				90D6ED0122C413BF00E752C5 /* NABufferRead.c in Sources */,
 				90D6ED1F22C413BF00E752C5 /* NAMoney.c in Sources */,
 				90D6ED1922C413BF00E752C5 /* NADeflate.c in Sources */,

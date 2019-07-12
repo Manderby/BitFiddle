@@ -6,6 +6,7 @@
 #import "ASCIIWindowController.h"
 
 #include "BitFiddleTranslations.h"
+#include "NAUI.h"
 
 @implementation BitFiddleApplication
 
@@ -19,7 +20,7 @@
 
 
 - (void)applicationDidFinishLaunching:(NSNotification *)notification{
-  [super applicationDidFinishLaunching:notification];
+  NA_UNUSED(notification);
 
   translatorGroup = naRegisterTranslatorGroup();
   #include "BitFiddleStrings_eng.h"
@@ -84,7 +85,7 @@
   [minicomplementwindowcontroller release];
   [asciiwindowcontroller release];
 
-  naStopTranslator();
+  naStopApplication();
   naStopRuntime();
 }
 
