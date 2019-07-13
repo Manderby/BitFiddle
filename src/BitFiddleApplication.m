@@ -134,10 +134,6 @@
   }
 }
 
-- (NAInt)getTranslatorGroup{
-  return translatorGroup;
-}
-
 - (IBAction)showComplement:(id)sender{
   switchingWindowMode = NA_TRUE;
   if(usemini == 1){

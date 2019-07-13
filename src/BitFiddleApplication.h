@@ -33,15 +33,12 @@ typedef enum{
   NABool byteswap;
   ConversionType conversiontype;
   NABool usemini;
-  NAInt translatorGroup;
 }
 
 - (id)init;
 
 - (void)applicationDidFinishLaunching:(NSNotification *)notification;
 - (void)update;
-
-- (NAInt)getTranslatorGroup;
 
 - (IBAction)openHelp:(NSMenuItem*)sender;
 - (IBAction)showPreferences:(id)sender;

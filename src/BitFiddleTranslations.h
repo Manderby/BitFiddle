@@ -1,8 +1,10 @@
 
 #include "NATranslator.h"
-#include "BitFiddleApplication.h"
+//#include "BitFiddleApplication.h"
 
-#define BIT_TRANSLATE(id) naTranslate([(BitFiddleApplication*)NSApp getTranslatorGroup], id)
+extern NAInt translatorGroup;
+
+#define BIT_TRANSLATE(id) naTranslate(translatorGroup, id)
 
 enum{
   BitFiddleApplicationDescription,

@@ -8,6 +8,7 @@
 #include "ASCIIWindow.h"
 
 NAWindow* asciiwindow;
+NAInt translatorGroup;
 
 
 void poststartup(void* arg){

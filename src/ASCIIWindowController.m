@@ -148,7 +148,7 @@ const char* codes[128] = {
   "DEL",
 };
 
-const char* unicodenames[128] = {
+const char* unicodenamesOld[128] = {
   "NULL",
   "START OF HEADING",
   "START OF TEXT",
@@ -1073,9 +1073,9 @@ const char* addinfo[128] = {
 - (void)mouseEntered:(NSEvent *)theEvent{
   int ord = [[(NSDictionary*)[theEvent userData] objectForKey:@"ord"] intValue];
   if((ord <= 32) || (ord == 127)){
-    [comment1 setStringValue:[NSString stringWithFormat:@"%i   0x%02x   %s\n%s", ord, ord, codes[ord], unicodenames[ord]]];
+    [comment1 setStringValue:[NSString stringWithFormat:@"%i   0x%02x   %s\n%s", ord, ord, codes[ord], unicodenamesOld[ord]]];
   }else{
-    [comment1 setStringValue:[NSString stringWithFormat:@"%i   0x%02x   \'%s\'\n%s", ord, ord, codes[ord], unicodenames[ord]]];
+    [comment1 setStringValue:[NSString stringWithFormat:@"%i   0x%02x   \'%s\'\n%s", ord, ord, codes[ord], unicodenamesOld[ord]]];
   }
   
   NSString* addinfostring = [NSString stringWithUTF8String:BIT_TRANSLATE(BitFiddleAdditionalInfo00 + ord)];

@@ -99,7 +99,6 @@
 		90BAF66A21759A85001665BF /* ComplementWindowController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ComplementWindowController.h; sourceTree = "<group>"; };
 		90BAF66B21759A85001665BF /* BitFiddlePreferencesController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = BitFiddlePreferencesController.m; sourceTree = "<group>"; };
 		90BAF66C21759A85001665BF /* BitFiddleWindow.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = BitFiddleWindow.m; sourceTree = "<group>"; };
-		90BAF66D21759A85001665BF /* MandConfiguration.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MandConfiguration.h; sourceTree = "<group>"; };
 		90BAF66E21759A85001665BF /* NumberOutputField.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = NumberOutputField.m; sourceTree = "<group>"; };
 		90BAF73621759CC6001665BF /* de */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = de; path = de.lproj/InfoPlist.strings; sourceTree = "<group>"; };
 		90BAF73821759CC6001665BF /* de */ = {isa = PBXFileReference; lastKnownFileType = file.xib; name = de; path = de.lproj/MainMenu.xib; sourceTree = "<group>"; };
@@ -325,7 +324,6 @@
 				90BAF66A21759A85001665BF /* ComplementWindowController.h */,
 				90BAF66121759A85001665BF /* ComplementWindowController.m */,
 				90BAF66721759A85001665BF /* main.m */,
-				90BAF66D21759A85001665BF /* MandConfiguration.h */,
 				90BAF66521759A85001665BF /* NumberOutputField.h */,
 				90BAF66E21759A85001665BF /* NumberOutputField.m */,
 			);
