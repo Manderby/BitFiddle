@@ -6,7 +6,7 @@
 #import "ASCIIWindowController.h"
 
 #include "BitFiddleTranslations.h"
-#include "NAUI.h"
+#include "ASCIIWindow.h"
 
 @implementation BitFiddleApplication
 
@@ -36,6 +36,8 @@
   }
 
   [self setApplicationDescription:naTranslate(translatorGroup, BitFiddleApplicationDescription)];
+
+  asciiwindow = createASCIIWindow();
 
   [NSBundle loadNibNamed:@"ComplementWindow" owner:self];
   [NSBundle loadNibNamed:@"Preferences" owner:self];
@@ -83,7 +85,8 @@
   [preferenceswindowcontroller release];
   [complementwindowcontroller release];
   [minicomplementwindowcontroller release];
-  [asciiwindowcontroller release];
+//  [asciiwindowcontroller release];
+//  naReleaseUIElement(asciiwindow);
 
   naStopApplication();
   naStopRuntime();
@@ -153,7 +156,8 @@
 
 
 - (IBAction)showASCII:(id)sender{
-  [asciiwindowcontroller showDialog];
+  naShowWindow(asciiwindow);
+//  [asciiwindowcontroller showDialog];
 }
 
 

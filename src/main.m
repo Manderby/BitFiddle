@@ -7,14 +7,11 @@
 #include "BitFiddleApplication.h"
 #include "ASCIIWindow.h"
 
-NAWindow* asciiwindow;
 NAInt translatorGroup;
 
 
 void poststartup(void* arg){
   [NSBundle loadNibNamed:@"MainMenu" owner:NSApp];
-
-  asciiwindow = createASCIIWindow();
 }
 
 int main(int argc, char *argv[]){

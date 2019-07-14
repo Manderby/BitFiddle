@@ -7,6 +7,7 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		900A9C6822DA314F00BBE4FD /* NAPreferencesCocoa.m in Sources */ = {isa = PBXBuildFile; fileRef = 900A9C6722DA314F00BBE4FD /* NAPreferencesCocoa.m */; };
 		900B78481BD6BF9200796AAB /* WebKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 900B78471BD6BF9200796AAB /* WebKit.framework */; };
 		9029EC3B22C937B500F823EC /* ASCIIWindow.c in Sources */ = {isa = PBXBuildFile; fileRef = 9029EC3922C937B500F823EC /* ASCIIWindow.c */; };
 		90AEE118229C44F700DD2DCF /* MandCocoaHelper.m in Sources */ = {isa = PBXBuildFile; fileRef = 90AEE111229C44F700DD2DCF /* MandCocoaHelper.m */; };
@@ -70,6 +71,8 @@
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
+		900A9C6722DA314F00BBE4FD /* NAPreferencesCocoa.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = NAPreferencesCocoa.m; sourceTree = "<group>"; };
+		900A9C6922DA316500BBE4FD /* NAPreferences.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = NAPreferences.h; sourceTree = "<group>"; };
 		900B78471BD6BF9200796AAB /* WebKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = WebKit.framework; path = System/Library/Frameworks/WebKit.framework; sourceTree = SDKROOT; };
 		9029EC3922C937B500F823EC /* ASCIIWindow.c */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.c; path = ASCIIWindow.c; sourceTree = "<group>"; };
 		9029EC3A22C937B500F823EC /* ASCIIWindow.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ASCIIWindow.h; sourceTree = "<group>"; };
@@ -355,40 +358,41 @@
 		90D6EC6722C413BF00E752C5 /* NALib */ = {
 			isa = PBXGroup;
 			children = (
-				90D6EC6822C413BF00E752C5 /* NAMathConstants.h */,
-				90D6EC6922C413BF00E752C5 /* NAMemory.h */,
+				90D6EC6E22C413BF00E752C5 /* NAArray.h */,
+				90D6ECA522C413BF00E752C5 /* NABase */,
+				90D6EC6C22C413BF00E752C5 /* NABase.h */,
+				90D6ECC822C413BF00E752C5 /* NABinaryData.h */,
+				90D6EC6D22C413BF00E752C5 /* NABuffer.h */,
+				90D6ECE322C413BF00E752C5 /* NACircularBuffer.h */,
 				90D6EC6A22C413BF00E752C5 /* NAComplex.h */,
 				90D6EC6B22C413BF00E752C5 /* NAConfiguration.h */,
-				90D6EC6C22C413BF00E752C5 /* NABase.h */,
-				90D6EC6D22C413BF00E752C5 /* NABuffer.h */,
-				90D6EC6E22C413BF00E752C5 /* NAArray.h */,
-				90D6EC6F22C413BF00E752C5 /* NAThreading.h */,
-				90D6EC7022C413BF00E752C5 /* NAStack.h */,
-				90D6EC7122C413BF00E752C5 /* NADeflate.h */,
-				90D6EC7222C413BF00E752C5 /* NAList.h */,
-				90D6EC7322C413BF00E752C5 /* NAString.h */,
-				90D6EC7422C413BF00E752C5 /* NARandom.h */,
-				90D6EC7522C413BF00E752C5 /* NAStruct */,
-				90D6ECA522C413BF00E752C5 /* NABase */,
-				90D6ECB422C413BF00E752C5 /* NAURL.h */,
-				90D6ECB522C413BF00E752C5 /* NAHeap.h */,
-				90D6ECB622C413BF00E752C5 /* NAVisual */,
-				90D6ECC222C413BF00E752C5 /* NAPNG.h */,
-				90D6ECC322C413BF00E752C5 /* NAFile.h */,
-				90D6ECC422C413BF00E752C5 /* NAMoney.h */,
-				90D6ECC522C413BF00E752C5 /* NAVectorAlgebra.h */,
-				90D6ECC622C413BF00E752C5 /* NAMathOperators.h */,
-				90D6ECC722C413BF00E752C5 /* NADateTime.h */,
-				90D6ECC822C413BF00E752C5 /* NABinaryData.h */,
-				90D6ECC922C413BF00E752C5 /* NAUI.h */,
-				90D6ECCA22C413BF00E752C5 /* NACore */,
-				90D6ECE122C413BF00E752C5 /* NAKey.h */,
-				90D6ECE222C413BF00E752C5 /* NATree.h */,
-				90D6ECE322C413BF00E752C5 /* NACircularBuffer.h */,
-				90D6ECE422C413BF00E752C5 /* NAMath */,
-				90D6ECFB22C413BF00E752C5 /* NATranslator.h */,
 				90D6ECFC22C413BF00E752C5 /* NACoord.h */,
+				90D6ECCA22C413BF00E752C5 /* NACore */,
+				90D6ECC722C413BF00E752C5 /* NADateTime.h */,
+				90D6EC7122C413BF00E752C5 /* NADeflate.h */,
+				90D6ECC322C413BF00E752C5 /* NAFile.h */,
+				90D6ECB522C413BF00E752C5 /* NAHeap.h */,
+				90D6ECE122C413BF00E752C5 /* NAKey.h */,
+				90D6EC7222C413BF00E752C5 /* NAList.h */,
+				90D6ECE422C413BF00E752C5 /* NAMath */,
+				90D6EC6822C413BF00E752C5 /* NAMathConstants.h */,
+				90D6ECC622C413BF00E752C5 /* NAMathOperators.h */,
+				90D6EC6922C413BF00E752C5 /* NAMemory.h */,
+				90D6ECC422C413BF00E752C5 /* NAMoney.h */,
+				90D6ECC222C413BF00E752C5 /* NAPNG.h */,
 				90D6ECFD22C413BF00E752C5 /* NAPool.h */,
+				900A9C6922DA316500BBE4FD /* NAPreferences.h */,
+				90D6EC7422C413BF00E752C5 /* NARandom.h */,
+				90D6EC7022C413BF00E752C5 /* NAStack.h */,
+				90D6EC7322C413BF00E752C5 /* NAString.h */,
+				90D6EC7522C413BF00E752C5 /* NAStruct */,
+				90D6EC6F22C413BF00E752C5 /* NAThreading.h */,
+				90D6ECFB22C413BF00E752C5 /* NATranslator.h */,
+				90D6ECE222C413BF00E752C5 /* NATree.h */,
+				90D6ECC922C413BF00E752C5 /* NAUI.h */,
+				90D6ECB422C413BF00E752C5 /* NAURL.h */,
+				90D6ECC522C413BF00E752C5 /* NAVectorAlgebra.h */,
+				90D6ECB622C413BF00E752C5 /* NAVisual */,
 			);
 			name = NALib;
 			path = ../../../NALib/src/NALib;
@@ -493,17 +497,18 @@
 		90D6ECB622C413BF00E752C5 /* NAVisual */ = {
 			isa = PBXGroup;
 			children = (
-				90D6ECB722C413BF00E752C5 /* NAUICore.h */,
-				90D6ECB822C413BF00E752C5 /* NAPNG.c */,
-				90D6ECB922C413BF00E752C5 /* NAUI.c */,
-				90D6ECBA22C413BF00E752C5 /* NAUIWINAPI.c */,
 				90D6ECBB22C413BF00E752C5 /* NACocoaHelper.m */,
-				90D6ECBC22C413BF00E752C5 /* NAUICocoa.m */,
-				90D6ECBD22C413BF00E752C5 /* NATranslator.c */,
-				90D6ECBE22C413BF00E752C5 /* NAUICore.c */,
-				90D6ECBF22C413BF00E752C5 /* NAUIWINAPI.h */,
 				90D6ECC022C413BF00E752C5 /* NADeflate.c */,
+				90D6ECB822C413BF00E752C5 /* NAPNG.c */,
+				900A9C6722DA314F00BBE4FD /* NAPreferencesCocoa.m */,
+				90D6ECBD22C413BF00E752C5 /* NATranslator.c */,
+				90D6ECB922C413BF00E752C5 /* NAUI.c */,
 				90D6ECC122C413BF00E752C5 /* NAUICocoa.h */,
+				90D6ECBC22C413BF00E752C5 /* NAUICocoa.m */,
+				90D6ECBE22C413BF00E752C5 /* NAUICore.c */,
+				90D6ECB722C413BF00E752C5 /* NAUICore.h */,
+				90D6ECBA22C413BF00E752C5 /* NAUIWINAPI.c */,
+				90D6ECBF22C413BF00E752C5 /* NAUIWINAPI.h */,
 			);
 			path = NAVisual;
 			sourceTree = "<group>";
@@ -734,6 +739,7 @@
 				90D6ED1B22C413BF00E752C5 /* NADateTime.c in Sources */,
 				90D6ED0A22C413BF00E752C5 /* NATreeBin.c in Sources */,
 				90D6ECFE22C413BF00E752C5 /* NAHeap.c in Sources */,
+				900A9C6822DA314F00BBE4FD /* NAPreferencesCocoa.m in Sources */,
 				90D6ED1822C413BF00E752C5 /* NAUICore.c in Sources */,
 				90BAF67421759A85001665BF /* BitFiddlePreferencesController.m in Sources */,
 				9029EC3B22C937B500F823EC /* ASCIIWindow.c in Sources */,

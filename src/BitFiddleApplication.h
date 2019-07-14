@@ -1,6 +1,7 @@
 
 #import <Cocoa/Cocoa.h>
 #import "ManderApp.h"
+#include "NAUI.h"
 
 @class MandAboutWindowController;
 @class BitFiddlePreferencesController;
@@ -20,7 +21,7 @@ typedef enum{
   IBOutlet BitFiddlePreferencesController* preferenceswindowcontroller;
   IBOutlet ComplementWindowController* complementwindowcontroller;
   IBOutlet ComplementWindowController* minicomplementwindowcontroller;
-  IBOutlet ASCIIWindowController* asciiwindowcontroller;
+//  IBOutlet ASCIIWindowController* asciiwindowcontroller;
   
   IBOutlet NSMenuItem* byteswapmenuitem;
   IBOutlet NSMenuItem* unsignedmenuitem;
@@ -33,6 +34,8 @@ typedef enum{
   NABool byteswap;
   ConversionType conversiontype;
   NABool usemini;
+
+  NAWindow* asciiwindow;
 }
 
 - (id)init;

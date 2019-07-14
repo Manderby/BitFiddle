@@ -2,6 +2,7 @@
 #include "ASCIIWindow.h"
 #include "NAString.h"
 #include "BitFiddleTranslations.h"
+#include "NAPreferences.h"
 
 NAButton* escapeButton;
 NAButton* codeButton;
@@ -202,10 +203,7 @@ void redrawWindow(){
 
 
 
-NABool hoverItem(void* controllerdata, NAUIElement* uielement, NAUICommand command, void* arg){
-  NA_UNUSED(controllerdata);
-  NA_UNUSED(command);
-  NA_UNUSED(arg);
+NAInt getUISpaceIndex(NAUIElement* uielement){
   NAInt itemIndex;
   for(itemIndex = 0; itemIndex < 128; itemIndex++){
     if(spaces[itemIndex] == uielement){break;}
@@ -214,6 +212,16 @@ NABool hoverItem(void* controllerdata, NAUIElement* uielement, NAUICommand comma
     if(itemIndex == 128)
       naError("Hovered element not recognized");
   #endif
+  return itemIndex;
+}
+
+
+
+NABool hoverItem(void* controllerdata, NAUIElement* uielement, NAUICommand command, void* arg){
+  NA_UNUSED(controllerdata);
+  NA_UNUSED(command);
+  NA_UNUSED(arg);
+  NAInt itemIndex = getUISpaceIndex(uielement);
   
   naSetSpaceAlternateBackground(spaces[itemIndex], NA_TRUE);
   
@@ -238,15 +246,7 @@ NABool unhoverItem(void* controllerdata, NAUIElement* uielement, NAUICommand com
   NA_UNUSED(controllerdata);
   NA_UNUSED(command);
   NA_UNUSED(arg);
-  NAInt itemIndex;
-  for(itemIndex = 0; itemIndex < 128; itemIndex++){
-    if(spaces[itemIndex] == uielement){break;}
-  }
-  #ifndef NDEBUG
-    if(itemIndex == 128)
-      naError("Hovered element not recognized");
-  #endif
-  
+  NAInt itemIndex = getUISpaceIndex(uielement);  
   naSetSpaceAlternateBackground(spaces[itemIndex], NA_FALSE);
   return NA_TRUE;
 }
@@ -259,12 +259,16 @@ NABool switchDisplayMode(void* controllerdata, NAUIElement* uielement, NAUIComma
   NA_UNUSED(arg);
   if(uielement == escapeButton){
     useEscape = NA_TRUE;
+    naSetPreferencesBool("ASCIIUseEscape", NA_TRUE);
   }else if(uielement == codeButton){
     useEscape = NA_FALSE;
+    naSetPreferencesBool("ASCIIUseEscape", NA_FALSE);
   }else if(uielement == hexButton){
     useHex = NA_TRUE;
+    naSetPreferencesBool("ASCIIUseHex", NA_TRUE);
   }else if(uielement == decButton){
     useHex = NA_FALSE;
+    naSetPreferencesBool("ASCIIUseHex", NA_FALSE);
   }else{
     #ifndef NDEBUG
       naError("Unknown uielement sent message");
@@ -340,7 +344,10 @@ NAWindow* createASCIIWindow(){
 //  naSetLabelTextAlignment(chars[curindex], NA_TEXT_ALIGNMENT_CENTER);
   naAddSpaceChild(space, info2);
 
+  useEscape = naGetPreferencesBool("ASCIIUseEscape");
+  useHex = naGetPreferencesBool("ASCIIUseHex");
+
   redrawWindow();
-  naShowWindow(window);
   return window;
 }
+
