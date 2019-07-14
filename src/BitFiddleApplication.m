@@ -3,7 +3,6 @@
 #import "BitFiddleApplication.h"
 #import "MandAboutWindowController.h"
 #import "ComplementWindowController.h"
-#import "ASCIIWindowController.h"
 
 #include "BitFiddleTranslations.h"
 #include "ASCIIWindow.h"

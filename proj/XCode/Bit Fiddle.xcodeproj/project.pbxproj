@@ -18,7 +18,6 @@
 		90AEE125229C450700DD2DCF /* MandAboutWindow.xib in Resources */ = {isa = PBXBuildFile; fileRef = 90AEE122229C450700DD2DCF /* MandAboutWindow.xib */; };
 		90AEE126229C450700DD2DCF /* manderc.png in Resources */ = {isa = PBXBuildFile; fileRef = 90AEE123229C450700DD2DCF /* manderc.png */; };
 		90BAF66F21759A85001665BF /* ComplementWindowController.m in Sources */ = {isa = PBXBuildFile; fileRef = 90BAF66121759A85001665BF /* ComplementWindowController.m */; };
-		90BAF67021759A85001665BF /* ASCIIWindowController.m in Sources */ = {isa = PBXBuildFile; fileRef = 90BAF66221759A85001665BF /* ASCIIWindowController.m */; };
 		90BAF67121759A85001665BF /* BitFiddleApplication.m in Sources */ = {isa = PBXBuildFile; fileRef = 90BAF66321759A85001665BF /* BitFiddleApplication.m */; };
 		90BAF67221759A85001665BF /* BitArray.c in Sources */ = {isa = PBXBuildFile; fileRef = 90BAF66621759A85001665BF /* BitArray.c */; };
 		90BAF67321759A85001665BF /* main.m in Sources */ = {isa = PBXBuildFile; fileRef = 90BAF66721759A85001665BF /* main.m */; };
@@ -91,14 +90,12 @@
 		90BAF65F21759A85001665BF /* BitArray.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = BitArray.h; sourceTree = "<group>"; };
 		90BAF66021759A85001665BF /* BitFiddlePreferencesController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = BitFiddlePreferencesController.h; sourceTree = "<group>"; };
 		90BAF66121759A85001665BF /* ComplementWindowController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ComplementWindowController.m; sourceTree = "<group>"; };
-		90BAF66221759A85001665BF /* ASCIIWindowController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ASCIIWindowController.m; sourceTree = "<group>"; };
 		90BAF66321759A85001665BF /* BitFiddleApplication.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = BitFiddleApplication.m; sourceTree = "<group>"; };
 		90BAF66421759A85001665BF /* BitFiddleWindow.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = BitFiddleWindow.h; sourceTree = "<group>"; };
 		90BAF66521759A85001665BF /* NumberOutputField.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = NumberOutputField.h; sourceTree = "<group>"; };
 		90BAF66621759A85001665BF /* BitArray.c */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.c; path = BitArray.c; sourceTree = "<group>"; };
 		90BAF66721759A85001665BF /* main.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = main.m; sourceTree = "<group>"; };
 		90BAF66821759A85001665BF /* BitFiddleApplication.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = BitFiddleApplication.h; sourceTree = "<group>"; };
-		90BAF66921759A85001665BF /* ASCIIWindowController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ASCIIWindowController.h; sourceTree = "<group>"; };
 		90BAF66A21759A85001665BF /* ComplementWindowController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ComplementWindowController.h; sourceTree = "<group>"; };
 		90BAF66B21759A85001665BF /* BitFiddlePreferencesController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = BitFiddlePreferencesController.m; sourceTree = "<group>"; };
 		90BAF66C21759A85001665BF /* BitFiddleWindow.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = BitFiddleWindow.m; sourceTree = "<group>"; };
@@ -314,8 +311,6 @@
 				9029EC3922C937B500F823EC /* ASCIIWindow.c */,
 				9029EC3A22C937B500F823EC /* ASCIIWindow.h */,
 				90D6ED2222C418D100E752C5 /* BitFiddleTranslations.h */,
-				90BAF66921759A85001665BF /* ASCIIWindowController.h */,
-				90BAF66221759A85001665BF /* ASCIIWindowController.m */,
 				90BAF66621759A85001665BF /* BitArray.c */,
 				90BAF65F21759A85001665BF /* BitArray.h */,
 				90BAF66821759A85001665BF /* BitFiddleApplication.h */,
@@ -715,7 +710,6 @@
 				90D6ECFF22C413BF00E752C5 /* NABufferManipulation.c in Sources */,
 				90D6ED1E22C413BF00E752C5 /* NABinaryData.c in Sources */,
 				90D6ED0522C413BF00E752C5 /* NABuffer.c in Sources */,
-				90BAF67021759A85001665BF /* ASCIIWindowController.m in Sources */,
 				90D6ED1022C413BF00E752C5 /* NAList.c in Sources */,
 				90BAF67221759A85001665BF /* BitArray.c in Sources */,
 				90D6ED0B22C413BF00E752C5 /* NATreeOct.c in Sources */,
