@@ -6,7 +6,6 @@
 @class MandAboutWindowController;
 @class BitFiddlePreferencesController;
 @class ComplementWindowController;
-@class ASCIIWindowController;
 
 
 typedef enum{
@@ -18,10 +17,8 @@ typedef enum{
 
 
 @interface BitFiddleApplication : ManderApp {
-  IBOutlet BitFiddlePreferencesController* preferenceswindowcontroller;
   IBOutlet ComplementWindowController* complementwindowcontroller;
   IBOutlet ComplementWindowController* minicomplementwindowcontroller;
-//  IBOutlet ASCIIWindowController* asciiwindowcontroller;
   
   IBOutlet NSMenuItem* byteswapmenuitem;
   IBOutlet NSMenuItem* unsignedmenuitem;
@@ -35,7 +32,8 @@ typedef enum{
   ConversionType conversiontype;
   NABool usemini;
 
-  NAWindow* asciiwindow;
+  NAWindow* asciiWindow;
+  NAWindow* preferencesWindow;
 }
 
 - (id)init;

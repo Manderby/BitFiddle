@@ -1,6 +1,5 @@
 
 #include "NATranslator.h"
-//#include "BitFiddleApplication.h"
 
 extern NAInt translatorGroup;
 

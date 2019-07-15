@@ -5,7 +5,10 @@
 #import "ComplementWindowController.h"
 
 #include "BitFiddleTranslations.h"
+#include "BitFiddlePreferences.h"
+
 #include "ASCIIWindow.h"
+#include "PreferencesWindow.h"
 
 @implementation BitFiddleApplication
 
@@ -21,25 +24,12 @@
 - (void)applicationDidFinishLaunching:(NSNotification *)notification{
   NA_UNUSED(notification);
 
-  translatorGroup = naRegisterTranslatorGroup();
-  #include "BitFiddleStrings_eng.h"
-  #include "BitFiddleStrings_deu.h"
-
-  // Set the translator languages.
-  NAInt lang = (NAInt)[[NSLocale preferredLanguages] count] - 1;
-  while(lang >= 0){
-    NSString* language = [[NSLocale preferredLanguages] objectAtIndex:(NSUInteger)lang];
-    NALanguageCode3 langcode = naGetLanguageCode([language UTF8String]);
-    naSetTranslatorLanguagePreference(langcode);
-    lang--;
-  }
-
   [self setApplicationDescription:naTranslate(translatorGroup, BitFiddleApplicationDescription)];
 
-  asciiwindow = createASCIIWindow();
+  asciiWindow = createASCIIWindow();
+  preferencesWindow = createPreferencesWindow();
 
   [NSBundle loadNibNamed:@"ComplementWindow" owner:self];
-  [NSBundle loadNibNamed:@"Preferences" owner:self];
   
   [complementwindowcontroller setMini:NA_FALSE];
   [minicomplementwindowcontroller setMini:NA_TRUE];
@@ -49,7 +39,7 @@
   if(((int32)conversiontype < COMPUTE_UNSIGNED) || (int32)conversiontype > COMPUTE_TWOS_COMPLEMENT){conversiontype = 0;}
   usemini = mandGetUserDefaultBool("usemini");
   
-  NABool resetsettings = mandGetUserDefaultBool("resetsettings");
+  NABool resetsettings = naGetPreferencesBool(bitPrefResetConversionOnStartup);
   if(resetsettings){
     byteswap = NA_FALSE;
     conversiontype = COMPUTE_UNSIGNED;
@@ -58,8 +48,8 @@
   [self update];
   [self showComplement:self];
 
-  NABool showascii = mandGetUserDefaultBool("showascii");
-  if(showascii){[self showASCII:self];}
+  NABool showASCIIOnStartup = naGetPreferencesBool(bitPrefShowASCIIOnStartup);
+  if(showASCIIOnStartup){[self showASCII:self];}
 
   NSString* versionstring = [[NSBundle mainBundle] objectForInfoDictionaryKey:@"CFBundleShortVersionString"];
   NAString* lastrunversion = mandNewUserDefaultString("lastrunningversion");
@@ -81,11 +71,8 @@
 
 - (void)applicationWillTerminate:(NSNotification *)notification{
   
-  [preferenceswindowcontroller release];
   [complementwindowcontroller release];
   [minicomplementwindowcontroller release];
-//  [asciiwindowcontroller release];
-//  naReleaseUIElement(asciiwindow);
 
   naStopApplication();
   naStopRuntime();
@@ -111,25 +98,25 @@
 
 
 - (IBAction)showPreferences:(id)sender{
-  [preferenceswindowcontroller showDialog];
+  naShowWindow(preferencesWindow);
 }
 
 
 - (void)update{
-  NABool keepmaxiontop = mandGetUserDefaultBool("keepmaxiontop");
-  NABool keepminiontop = mandGetUserDefaultBool("keepminiontop");
+  NABool keepMaxiOnTop = naGetPreferencesBool(bitPrefKeepMaxiOnTop);
+  NABool keepMiniOnTop = naGetPreferencesBool(bitPrefKeepMiniOnTop);
 
   [byteswapmenuitem setState:byteswap ? NSOnState : NSOffState];
   [unsignedmenuitem setState:(conversiontype == COMPUTE_UNSIGNED)?NSOnState:NSOffState];
   [onescomplementmenuitem setState:(conversiontype == COMPUTE_ONES_COMPLEMENT)?NSOnState:NSOffState];
   [twoscomplementmenuitem setState:(conversiontype == COMPUTE_TWOS_COMPLEMENT)?NSOnState:NSOffState];
   [minimenuitem setState:usemini ? NSOnState : NSOffState];
-  if(keepmaxiontop){
+  if(keepMaxiOnTop){
     [[complementwindowcontroller window] setLevel:NSFloatingWindowLevel];
   }else{
     [[complementwindowcontroller window] setLevel:NSNormalWindowLevel];
   }
-  if(keepminiontop){
+  if(keepMiniOnTop){
     [[minicomplementwindowcontroller window] setLevel:NSFloatingWindowLevel];
   }else{
     [[minicomplementwindowcontroller window] setLevel:NSNormalWindowLevel];
@@ -155,8 +142,7 @@
 
 
 - (IBAction)showASCII:(id)sender{
-  naShowWindow(asciiwindow);
-//  [asciiwindowcontroller showDialog];
+  naShowWindow(asciiWindow);
 }
 
 

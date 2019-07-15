@@ -87,7 +87,7 @@ NA_LOC(BitFiddleAdditionalInfo3a, "");
 NA_LOC(BitFiddleAdditionalInfo3b, "");
 NA_LOC(BitFiddleAdditionalInfo3c, "HTML-escape: &lt;");
 NA_LOC(BitFiddleAdditionalInfo3d, "");
-NA_LOC(BitFiddleAdditionalInfo3e, "HTML-escape: &gt");
+NA_LOC(BitFiddleAdditionalInfo3e, "HTML-escape: &gt;");
 NA_LOC(BitFiddleAdditionalInfo3f, "C-escape: \\\? (when using trigraphs)");
 
 NA_LOC(BitFiddleAdditionalInfo40, "");

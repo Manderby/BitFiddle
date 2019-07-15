@@ -10,6 +10,7 @@
 		900A9C6822DA314F00BBE4FD /* NAPreferencesCocoa.m in Sources */ = {isa = PBXBuildFile; fileRef = 900A9C6722DA314F00BBE4FD /* NAPreferencesCocoa.m */; };
 		900B78481BD6BF9200796AAB /* WebKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 900B78471BD6BF9200796AAB /* WebKit.framework */; };
 		9029EC3B22C937B500F823EC /* ASCIIWindow.c in Sources */ = {isa = PBXBuildFile; fileRef = 9029EC3922C937B500F823EC /* ASCIIWindow.c */; };
+		909D438922DBDD660093849F /* PreferencesWindow.c in Sources */ = {isa = PBXBuildFile; fileRef = 909D438722DBDD660093849F /* PreferencesWindow.c */; };
 		90AEE118229C44F700DD2DCF /* MandCocoaHelper.m in Sources */ = {isa = PBXBuildFile; fileRef = 90AEE111229C44F700DD2DCF /* MandCocoaHelper.m */; };
 		90AEE119229C44F700DD2DCF /* MandAboutWindowController.m in Sources */ = {isa = PBXBuildFile; fileRef = 90AEE112229C44F700DD2DCF /* MandAboutWindowController.m */; };
 		90AEE11B229C44F700DD2DCF /* MandEnvironment.m in Sources */ = {isa = PBXBuildFile; fileRef = 90AEE114229C44F700DD2DCF /* MandEnvironment.m */; };
@@ -29,7 +30,6 @@
 		90BAF75021759CC6001665BF /* ExpertWindow.xib in Resources */ = {isa = PBXBuildFile; fileRef = 90BAF73C21759CC6001665BF /* ExpertWindow.xib */; };
 		90BAF75321759CC6001665BF /* ComplementWindow.xib in Resources */ = {isa = PBXBuildFile; fileRef = 90BAF74321759CC6001665BF /* ComplementWindow.xib */; };
 		90BAF75521759CC6001665BF /* BitFiddleChangelog.txt in Resources */ = {isa = PBXBuildFile; fileRef = 90BAF74521759CC6001665BF /* BitFiddleChangelog.txt */; };
-		90BAF75621759CC6001665BF /* Preferences.xib in Resources */ = {isa = PBXBuildFile; fileRef = 90BAF74621759CC6001665BF /* Preferences.xib */; };
 		90BAF75821759CC6001665BF /* BitFiddle.icns in Resources */ = {isa = PBXBuildFile; fileRef = 90BAF74821759CC6001665BF /* BitFiddle.icns */; };
 		90D6ECFE22C413BF00E752C5 /* NAHeap.c in Sources */ = {isa = PBXBuildFile; fileRef = 90D6EC7922C413BF00E752C5 /* NAHeap.c */; };
 		90D6ECFF22C413BF00E752C5 /* NABufferManipulation.c in Sources */ = {isa = PBXBuildFile; fileRef = 90D6EC7D22C413BF00E752C5 /* NABufferManipulation.c */; };
@@ -75,6 +75,9 @@
 		900B78471BD6BF9200796AAB /* WebKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = WebKit.framework; path = System/Library/Frameworks/WebKit.framework; sourceTree = SDKROOT; };
 		9029EC3922C937B500F823EC /* ASCIIWindow.c */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.c; path = ASCIIWindow.c; sourceTree = "<group>"; };
 		9029EC3A22C937B500F823EC /* ASCIIWindow.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ASCIIWindow.h; sourceTree = "<group>"; };
+		909D438722DBDD660093849F /* PreferencesWindow.c */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.c; path = PreferencesWindow.c; sourceTree = "<group>"; };
+		909D438822DBDD660093849F /* PreferencesWindow.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = PreferencesWindow.h; sourceTree = "<group>"; };
+		909D438A22DC58BB0093849F /* BitFiddlePreferences.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = BitFiddlePreferences.h; sourceTree = "<group>"; };
 		90AEE10C229C44F700DD2DCF /* ManderApp.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ManderApp.h; sourceTree = "<group>"; };
 		90AEE10D229C44F700DD2DCF /* MandAboutWindowController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MandAboutWindowController.h; sourceTree = "<group>"; };
 		90AEE10E229C44F700DD2DCF /* MandMenuHelper.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MandMenuHelper.h; sourceTree = "<group>"; };
@@ -108,7 +111,6 @@
 		90BAF74321759CC6001665BF /* ComplementWindow.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = ComplementWindow.xib; sourceTree = "<group>"; };
 		90BAF74421759CC6001665BF /* bitfiddle.psd */ = {isa = PBXFileReference; lastKnownFileType = file; path = bitfiddle.psd; sourceTree = "<group>"; };
 		90BAF74521759CC6001665BF /* BitFiddleChangelog.txt */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; path = BitFiddleChangelog.txt; sourceTree = "<group>"; };
-		90BAF74621759CC6001665BF /* Preferences.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = Preferences.xib; sourceTree = "<group>"; };
 		90BAF74721759CC6001665BF /* BitFiddle.iconset */ = {isa = PBXFileReference; lastKnownFileType = folder.iconset; path = BitFiddle.iconset; sourceTree = "<group>"; };
 		90BAF74821759CC6001665BF /* BitFiddle.icns */ = {isa = PBXFileReference; lastKnownFileType = image.icns; path = BitFiddle.icns; sourceTree = "<group>"; };
 		90BAF74921759CC6001665BF /* Bit Fiddle.entitlements */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.entitlements; path = "Bit Fiddle.entitlements"; sourceTree = "<group>"; };
@@ -310,13 +312,14 @@
 			children = (
 				9029EC3922C937B500F823EC /* ASCIIWindow.c */,
 				9029EC3A22C937B500F823EC /* ASCIIWindow.h */,
-				90D6ED2222C418D100E752C5 /* BitFiddleTranslations.h */,
 				90BAF66621759A85001665BF /* BitArray.c */,
 				90BAF65F21759A85001665BF /* BitArray.h */,
 				90BAF66821759A85001665BF /* BitFiddleApplication.h */,
 				90BAF66321759A85001665BF /* BitFiddleApplication.m */,
+				909D438A22DC58BB0093849F /* BitFiddlePreferences.h */,
 				90BAF66021759A85001665BF /* BitFiddlePreferencesController.h */,
 				90BAF66B21759A85001665BF /* BitFiddlePreferencesController.m */,
+				90D6ED2222C418D100E752C5 /* BitFiddleTranslations.h */,
 				90BAF66421759A85001665BF /* BitFiddleWindow.h */,
 				90BAF66C21759A85001665BF /* BitFiddleWindow.m */,
 				90BAF66A21759A85001665BF /* ComplementWindowController.h */,
@@ -324,6 +327,8 @@
 				90BAF66721759A85001665BF /* main.m */,
 				90BAF66521759A85001665BF /* NumberOutputField.h */,
 				90BAF66E21759A85001665BF /* NumberOutputField.m */,
+				909D438722DBDD660093849F /* PreferencesWindow.c */,
+				909D438822DBDD660093849F /* PreferencesWindow.h */,
 			);
 			name = src;
 			path = ../../src;
@@ -340,7 +345,6 @@
 				90BAF74321759CC6001665BF /* ComplementWindow.xib */,
 				90BAF74421759CC6001665BF /* bitfiddle.psd */,
 				90BAF74521759CC6001665BF /* BitFiddleChangelog.txt */,
-				90BAF74621759CC6001665BF /* Preferences.xib */,
 				90BAF74721759CC6001665BF /* BitFiddle.iconset */,
 				90BAF74821759CC6001665BF /* BitFiddle.icns */,
 				90BAF74921759CC6001665BF /* Bit Fiddle.entitlements */,
@@ -686,7 +690,6 @@
 			buildActionMask = 2147483647;
 			files = (
 				90BAF75821759CC6001665BF /* BitFiddle.icns in Resources */,
-				90BAF75621759CC6001665BF /* Preferences.xib in Resources */,
 				90E3274522218B65005712B0 /* .gitignore in Resources */,
 				90AEE126229C450700DD2DCF /* manderc.png in Resources */,
 				90BAF74C21759CC6001665BF /* InfoPlist.strings in Resources */,
@@ -716,6 +719,7 @@
 				90D6ED1722C413BF00E752C5 /* NATranslator.c in Sources */,
 				90BAF67621759A85001665BF /* NumberOutputField.m in Sources */,
 				90D6ED1522C413BF00E752C5 /* NACocoaHelper.m in Sources */,
+				909D438922DBDD660093849F /* PreferencesWindow.c in Sources */,
 				90D6ED1C22C413BF00E752C5 /* NAURL.c in Sources */,
 				90AEE11C229C44F700DD2DCF /* MandMenuHelper.m in Sources */,
 				90AEE118229C44F700DD2DCF /* MandCocoaHelper.m in Sources */,
