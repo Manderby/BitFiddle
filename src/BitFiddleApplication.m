@@ -33,10 +33,10 @@
   [complementwindowcontroller setMini:NA_FALSE];
   [minicomplementwindowcontroller setMini:NA_TRUE];
   
-  byteswap = mandGetUserDefaultBool("byteswap");
-  conversiontype = (ConversionType)mandGetUserDefaultEnum("complementencoding");
+  byteswap = naGetPreferencesBool(bitPrefByteSwap);
+  conversiontype = (ConversionType)naGetPreferencesEnum(bitPrefComplementEncoding);
   if(((int32)conversiontype < COMPUTE_UNSIGNED) || (int32)conversiontype > COMPUTE_TWOS_COMPLEMENT){conversiontype = 0;}
-  usemini = mandGetUserDefaultBool("usemini");
+  usemini = naGetPreferencesBool(bitPrefUseMini);
   
   NABool resetsettings = naGetPreferencesBool(bitPrefResetConversionOnStartup);
   if(resetsettings){
@@ -50,21 +50,7 @@
   NABool showASCIIOnStartup = naGetPreferencesBool(bitPrefShowASCIIOnStartup);
   if(showASCIIOnStartup){[self showASCII:self];}
 
-  NSString* versionstring = [[NSBundle mainBundle] objectForInfoDictionaryKey:@"CFBundleShortVersionString"];
-  NAString* lastrunversion = mandNewUserDefaultString("lastrunningversion");
-  if(![versionstring isEqualToString:[NSString stringWithUTF8String:naGetStringUTF8Pointer(lastrunversion)]]){
-    NAString* curversionstring = naNewStringWithFormat("%s", [versionstring UTF8String]);
-    mandSetUserDefaultString(curversionstring, "lastrunningversion");
-    naDelete(curversionstring);
-    
-    NSAlert* alert = [[NSAlert alloc] init];
-    alert.alertStyle = NSInformationalAlertStyle;
-    alert.messageText = [NSString stringWithFormat:@"Welcome to Version %@", versionstring];
-    alert.informativeText = @"Enjoy the new dark mode on the latest macOS!\nSwitch to Mini and back using the green button.";
-    [alert runModal];
-    [alert release];
-  }
-  naDelete(lastrunversion);
+  [self alertNewVersion:BitFiddleNewVersionDescription translatorGroup:translatorGroup];
 }
 
 
@@ -148,11 +134,7 @@
 - (IBAction) switchMini:(id)sender{
   usemini = !usemini;
 
-  if(usemini){
-    mandSetUserDefaultInt(1, "usemini");
-  }else{
-    mandSetUserDefaultInt(0, "usemini");
-  }
+  naSetPreferencesBool(bitPrefUseMini, usemini);
   [complementwindowcontroller resetValue];
   [minicomplementwindowcontroller resetValue];
   [self update];
@@ -163,7 +145,7 @@
 - (IBAction)switchByteSwap:(id)sender{
   byteswap = !byteswap;
   
-  mandSetUserDefaultInt((NSInteger)byteswap, "byteswap");
+  naSetPreferencesBool(bitPrefByteSwap, byteswap);
   [self update];
   [complementwindowcontroller update];
   [minicomplementwindowcontroller update];
@@ -171,7 +153,7 @@
 
 
 - (void)updateConversionType{
-  mandSetUserDefaultEnum(conversiontype, "complementencoding");
+  naSetPreferencesEnum(bitPrefComplementEncoding, conversiontype);
   [self update];
   [complementwindowcontroller update];
   [minicomplementwindowcontroller update];

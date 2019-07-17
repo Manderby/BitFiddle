@@ -5,6 +5,7 @@
 NA_LOC_LANG("eng");
 
 NA_LOC(BitFiddleApplicationDescription, "Conversion tool for binary values\nDesign and implementation: Tobias Stamm");
+NA_LOC(BitFiddleNewVersionDescription, "The user interface had been completely rewritten.\n");
 
 /* Expressions in Main Window */
 NA_LOC(BitFiddleConversionUnsigned, "Unsigned");
@@ -13,6 +14,7 @@ NA_LOC(BitFiddleConversionTwosComp, "2's Complement");
 NA_LOC(BitFiddleConversionByteSwap, "Little ↔ Big");
 
 // Expressions in Preferences window
+NA_LOC(BitFiddlePrefsWindowTitle,   "Bit Fiddle Preferences");
 NA_LOC(BitFiddlePrefsAtStartup,     "At application startup");
 NA_LOC(BitFiddlePrefsShowASCII,     "Show ASCII window");
 NA_LOC(BitFiddlePrefsResetSettings, "Reset converter settings");

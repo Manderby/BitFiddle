@@ -19,6 +19,11 @@ const char* bitPrefResetConversionOnStartup = "resetConversionOnStartup";
 const char* bitPrefKeepMaxiOnTop = "keepMaxiOnTop";
 const char* bitPrefKeepMiniOnTop = "keepMiniOnTop";
 
+const char* bitPrefByteSwap = "byteSwap";
+const char* bitPrefComplementEncoding = "complementEncoding";
+const char* bitPrefUseMini = "useMini";
+
+
 
 void updateApp(){
   [(BitFiddleApplication*)NSApp update];

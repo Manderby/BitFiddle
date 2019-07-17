@@ -7,6 +7,7 @@ extern NAInt translatorGroup;
 
 enum{
   BitFiddleApplicationDescription,
+  BitFiddleNewVersionDescription,
 
   // Expressions in Main Window
   BitFiddleConversionUnsigned,
@@ -15,6 +16,7 @@ enum{
   BitFiddleConversionByteSwap,
 
   // Expressions in Preferences window
+  BitFiddlePrefsWindowTitle,    
   BitFiddlePrefsAtStartup,    
   BitFiddlePrefsShowASCII,    
   BitFiddlePrefsResetSettings,
