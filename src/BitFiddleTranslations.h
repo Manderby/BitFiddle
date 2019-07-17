@@ -159,5 +159,4 @@ enum{
   BitFiddleAdditionalInfo7d,
   BitFiddleAdditionalInfo7e,
   BitFiddleAdditionalInfo7f,
-
 };

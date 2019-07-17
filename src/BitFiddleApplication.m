@@ -1,7 +1,6 @@
 
 
 #import "BitFiddleApplication.h"
-#import "MandAboutWindowController.h"
 #import "ComplementWindowController.h"
 
 #include "BitFiddleTranslations.h"
@@ -22,7 +21,7 @@
 
 
 - (void)applicationDidFinishLaunching:(NSNotification *)notification{
-  NA_UNUSED(notification);
+  [super applicationDidFinishLaunching:notification];
 
   [self setApplicationDescription:naTranslate(translatorGroup, BitFiddleApplicationDescription)];
 

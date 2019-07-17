@@ -11,12 +11,11 @@
 		900B78481BD6BF9200796AAB /* WebKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 900B78471BD6BF9200796AAB /* WebKit.framework */; };
 		9029EC3B22C937B500F823EC /* ASCIIWindow.c in Sources */ = {isa = PBXBuildFile; fileRef = 9029EC3922C937B500F823EC /* ASCIIWindow.c */; };
 		909D438922DBDD660093849F /* PreferencesWindow.c in Sources */ = {isa = PBXBuildFile; fileRef = 909D438722DBDD660093849F /* PreferencesWindow.c */; };
+		90A236E122DDA7070067DF4F /* AboutWindow.c in Sources */ = {isa = PBXBuildFile; fileRef = 90A236DF22DDA7070067DF4F /* AboutWindow.c */; };
 		90AEE118229C44F700DD2DCF /* MandCocoaHelper.m in Sources */ = {isa = PBXBuildFile; fileRef = 90AEE111229C44F700DD2DCF /* MandCocoaHelper.m */; };
-		90AEE119229C44F700DD2DCF /* MandAboutWindowController.m in Sources */ = {isa = PBXBuildFile; fileRef = 90AEE112229C44F700DD2DCF /* MandAboutWindowController.m */; };
 		90AEE11B229C44F700DD2DCF /* MandEnvironment.m in Sources */ = {isa = PBXBuildFile; fileRef = 90AEE114229C44F700DD2DCF /* MandEnvironment.m */; };
 		90AEE11C229C44F700DD2DCF /* MandMenuHelper.m in Sources */ = {isa = PBXBuildFile; fileRef = 90AEE115229C44F700DD2DCF /* MandMenuHelper.m */; };
 		90AEE11D229C44F700DD2DCF /* ManderApp.m in Sources */ = {isa = PBXBuildFile; fileRef = 90AEE117229C44F700DD2DCF /* ManderApp.m */; };
-		90AEE125229C450700DD2DCF /* MandAboutWindow.xib in Resources */ = {isa = PBXBuildFile; fileRef = 90AEE122229C450700DD2DCF /* MandAboutWindow.xib */; };
 		90AEE126229C450700DD2DCF /* manderc.png in Resources */ = {isa = PBXBuildFile; fileRef = 90AEE123229C450700DD2DCF /* manderc.png */; };
 		90BAF66F21759A85001665BF /* ComplementWindowController.m in Sources */ = {isa = PBXBuildFile; fileRef = 90BAF66121759A85001665BF /* ComplementWindowController.m */; };
 		90BAF67121759A85001665BF /* BitFiddleApplication.m in Sources */ = {isa = PBXBuildFile; fileRef = 90BAF66321759A85001665BF /* BitFiddleApplication.m */; };
@@ -77,17 +76,16 @@
 		909D438722DBDD660093849F /* PreferencesWindow.c */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.c; path = PreferencesWindow.c; sourceTree = "<group>"; };
 		909D438822DBDD660093849F /* PreferencesWindow.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = PreferencesWindow.h; sourceTree = "<group>"; };
 		909D438A22DC58BB0093849F /* BitFiddlePreferences.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = BitFiddlePreferences.h; sourceTree = "<group>"; };
+		90A236DF22DDA7070067DF4F /* AboutWindow.c */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.c; path = AboutWindow.c; sourceTree = "<group>"; };
+		90A236E022DDA7070067DF4F /* AboutWindow.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = AboutWindow.h; sourceTree = "<group>"; };
 		90AEE10C229C44F700DD2DCF /* ManderApp.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ManderApp.h; sourceTree = "<group>"; };
-		90AEE10D229C44F700DD2DCF /* MandAboutWindowController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MandAboutWindowController.h; sourceTree = "<group>"; };
 		90AEE10E229C44F700DD2DCF /* MandMenuHelper.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MandMenuHelper.h; sourceTree = "<group>"; };
 		90AEE10F229C44F700DD2DCF /* MandEnvironment.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MandEnvironment.h; sourceTree = "<group>"; };
 		90AEE111229C44F700DD2DCF /* MandCocoaHelper.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = MandCocoaHelper.m; sourceTree = "<group>"; };
-		90AEE112229C44F700DD2DCF /* MandAboutWindowController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = MandAboutWindowController.m; sourceTree = "<group>"; };
 		90AEE114229C44F700DD2DCF /* MandEnvironment.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = MandEnvironment.m; sourceTree = "<group>"; };
 		90AEE115229C44F700DD2DCF /* MandMenuHelper.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = MandMenuHelper.m; sourceTree = "<group>"; };
 		90AEE116229C44F700DD2DCF /* MandCocoaHelper.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MandCocoaHelper.h; sourceTree = "<group>"; };
 		90AEE117229C44F700DD2DCF /* ManderApp.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ManderApp.m; sourceTree = "<group>"; };
-		90AEE122229C450700DD2DCF /* MandAboutWindow.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = MandAboutWindow.xib; sourceTree = "<group>"; };
 		90AEE123229C450700DD2DCF /* manderc.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = manderc.png; sourceTree = "<group>"; };
 		90BAF65F21759A85001665BF /* BitArray.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = BitArray.h; sourceTree = "<group>"; };
 		90BAF66121759A85001665BF /* ComplementWindowController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ComplementWindowController.m; sourceTree = "<group>"; };
@@ -195,7 +193,6 @@
 		90D6ECBE22C413BF00E752C5 /* NAUICore.c */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.c; path = NAUICore.c; sourceTree = "<group>"; };
 		90D6ECBF22C413BF00E752C5 /* NAUIWINAPI.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = NAUIWINAPI.h; sourceTree = "<group>"; };
 		90D6ECC022C413BF00E752C5 /* NADeflate.c */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.c; path = NADeflate.c; sourceTree = "<group>"; };
-		90D6ECC122C413BF00E752C5 /* NAUICocoa.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = NAUICocoa.h; sourceTree = "<group>"; };
 		90D6ECC222C413BF00E752C5 /* NAPNG.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = NAPNG.h; sourceTree = "<group>"; };
 		90D6ECC322C413BF00E752C5 /* NAFile.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = NAFile.h; sourceTree = "<group>"; };
 		90D6ECC422C413BF00E752C5 /* NAMoney.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = NAMoney.h; sourceTree = "<group>"; };
@@ -278,8 +275,8 @@
 		90AEE10B229C44F700DD2DCF /* src */ = {
 			isa = PBXGroup;
 			children = (
-				90AEE10D229C44F700DD2DCF /* MandAboutWindowController.h */,
-				90AEE112229C44F700DD2DCF /* MandAboutWindowController.m */,
+				90A236DF22DDA7070067DF4F /* AboutWindow.c */,
+				90A236E022DDA7070067DF4F /* AboutWindow.h */,
 				90AEE116229C44F700DD2DCF /* MandCocoaHelper.h */,
 				90AEE111229C44F700DD2DCF /* MandCocoaHelper.m */,
 				90AEE10F229C44F700DD2DCF /* MandEnvironment.h */,
@@ -296,7 +293,6 @@
 		90AEE11E229C450700DD2DCF /* res */ = {
 			isa = PBXGroup;
 			children = (
-				90AEE122229C450700DD2DCF /* MandAboutWindow.xib */,
 				90D7BAE222C758BD002BA392 /* ManderApp_deu.h */,
 				90D7BAE122C758BD002BA392 /* ManderApp_eng.h */,
 				90AEE123229C450700DD2DCF /* manderc.png */,
@@ -497,7 +493,6 @@
 				900A9C6722DA314F00BBE4FD /* NAPreferencesCocoa.m */,
 				90D6ECBD22C413BF00E752C5 /* NATranslator.c */,
 				90D6ECB922C413BF00E752C5 /* NAUI.c */,
-				90D6ECC122C413BF00E752C5 /* NAUICocoa.h */,
 				90D6ECBC22C413BF00E752C5 /* NAUICocoa.m */,
 				90D6ECBE22C413BF00E752C5 /* NAUICore.c */,
 				90D6ECB722C413BF00E752C5 /* NAUICore.h */,
@@ -688,7 +683,6 @@
 				90E3274522218B65005712B0 /* .gitignore in Resources */,
 				90AEE126229C450700DD2DCF /* manderc.png in Resources */,
 				90BAF74C21759CC6001665BF /* InfoPlist.strings in Resources */,
-				90AEE125229C450700DD2DCF /* MandAboutWindow.xib in Resources */,
 				90BAF75521759CC6001665BF /* BitFiddleChangelog.txt in Resources */,
 				90BAF74D21759CC6001665BF /* MainMenu.xib in Resources */,
 				90BAF75321759CC6001665BF /* ComplementWindow.xib in Resources */,
@@ -728,6 +722,7 @@
 				90D6ED0722C413BF00E752C5 /* NABufferSource.c in Sources */,
 				90D6ED0622C413BF00E752C5 /* NAMemoryBlock.c in Sources */,
 				90D6ED1322C413BF00E752C5 /* NAUI.c in Sources */,
+				90A236E122DDA7070067DF4F /* AboutWindow.c in Sources */,
 				90AEE11B229C44F700DD2DCF /* MandEnvironment.m in Sources */,
 				90D6ED1B22C413BF00E752C5 /* NADateTime.c in Sources */,
 				90D6ED0A22C413BF00E752C5 /* NATreeBin.c in Sources */,
@@ -744,7 +739,6 @@
 				90D6ED0C22C413BF00E752C5 /* NATreeQuad.c in Sources */,
 				90D6ED1A22C413BF00E752C5 /* NAFile.c in Sources */,
 				90D6ED0922C413BF00E752C5 /* NATreeIteration.c in Sources */,
-				90AEE119229C44F700DD2DCF /* MandAboutWindowController.m in Sources */,
 				90BAF67121759A85001665BF /* BitFiddleApplication.m in Sources */,
 				90D6ED0422C413BF00E752C5 /* NABufferParse.c in Sources */,
 				90D6ED0222C413BF00E752C5 /* NABufferIteration.c in Sources */,

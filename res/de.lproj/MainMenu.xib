@@ -8,7 +8,6 @@
         <customObject id="-2" userLabel="File's Owner" customClass="BitFiddleApplication">
             <connections>
                 <outlet property="byteswapmenuitem" destination="867" id="X3X-9c-j0j"/>
-                <outlet property="helpMenuItem" destination="492" id="2198"/>
                 <outlet property="minimenuitem" destination="rmE-46-svw" id="3Zi-uv-3H7"/>
                 <outlet property="onescomplementmenuitem" destination="865" id="kRW-BO-sZA"/>
                 <outlet property="twoscomplementmenuitem" destination="866" id="5hZ-3h-7xV"/>

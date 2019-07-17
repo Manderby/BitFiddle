@@ -4,7 +4,7 @@
 //
 NA_LOC_LANG("deu");
 
-NA_LOC(BitFiddleApplicationDescription, "Umwandlung von binären Werten.\nDesign und Implementation: Tobias Stamm");
+NA_LOC(BitFiddleApplicationDescription, "Umwandlung von binären Werten.\nDesign und Implementation: Tobias Stamm\n");
 
 // Expressions in Main Window
 NA_LOC(BitFiddleConversionUnsigned, "Unsigned");
