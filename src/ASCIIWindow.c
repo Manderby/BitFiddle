@@ -238,7 +238,7 @@ NABool hoverItem(void* controllerdata, NAUIElement* uielement, NAUICommand comma
   naSetLabelText(info1, naGetStringUTF8Pointer(info1string));
   naDelete(info1string);
   
-  naSetLabelText(info2, naTranslate(translatorGroup, BitFiddleAdditionalInfo00 + itemIndex));
+  naSetLabelText(info2, bitTranslate(BitFiddleAdditionalInfo00 + itemIndex));
   return NA_TRUE;
 }
 
@@ -261,16 +261,16 @@ NABool switchASCIIDisplayMode(void* controllerdata, NAUIElement* uielement, NAUI
   NA_UNUSED(arg);
   if(uielement == escapeRadio){
     useEscape = NA_TRUE;
-    naSetPreferencesBool(bitPrefASCIIUseEscape, NA_TRUE);
+    naSetPreferencesBool(BitPrefs[UseASCIIEscape], NA_TRUE);
   }else if(uielement == codeRadio){
     useEscape = NA_FALSE;
-    naSetPreferencesBool(bitPrefASCIIUseEscape, NA_FALSE);
+    naSetPreferencesBool(BitPrefs[UseASCIIEscape], NA_FALSE);
   }else if(uielement == hexRadio){
     useHex = NA_TRUE;
-    naSetPreferencesBool(bitPrefASCIIUseHex, NA_TRUE);
+    naSetPreferencesBool(BitPrefs[UseASCIIHex], NA_TRUE);
   }else if(uielement == decRadio){
     useHex = NA_FALSE;
-    naSetPreferencesBool(bitPrefASCIIUseHex, NA_FALSE);
+    naSetPreferencesBool(BitPrefs[UseASCIIHex], NA_FALSE);
   }else{
     #ifndef NDEBUG
       naError("Unknown uielement sent message");
@@ -342,8 +342,8 @@ NAWindow* createASCIIWindow(){
   info2 = naNewLabel("", naMakeRectS(403, 5, 368, 44));
   naAddSpaceChild(space, info2);
 
-  useEscape = naGetPreferencesBool(bitPrefASCIIUseEscape);
-  useHex = naGetPreferencesBool(bitPrefASCIIUseHex);
+  useEscape = naGetPreferencesBool(BitPrefs[UseASCIIEscape]);
+  useHex = naGetPreferencesBool(BitPrefs[UseASCIIHex]);
 
   redrawASCIIWindow();
   return window;

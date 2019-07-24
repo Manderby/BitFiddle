@@ -2,19 +2,11 @@
 #import <Cocoa/Cocoa.h>
 #import "ManderApp.h"
 #include "NAUI.h"
+#include "BitFiddleCommon.h"
 
 @class MandAboutWindowController;
 @class BitFiddlePreferencesController;
 @class ComplementWindowController;
-
-
-typedef enum{
-  COMPUTE_UNSIGNED = 0,
-  COMPUTE_ONES_COMPLEMENT = 1,
-  COMPUTE_TWOS_COMPLEMENT = 2,
-} ConversionType;
-
-
 
 @interface BitFiddleApplication : ManderApp {
   IBOutlet ComplementWindowController* complementwindowcontroller;
@@ -28,7 +20,7 @@ typedef enum{
   IBOutlet NSMenuItem* minimenuitem;
 
   NABool switchingWindowMode;
-  NABool byteswap;
+  NABool swapEndianness;
   ConversionType conversiontype;
   NABool usemini;
 

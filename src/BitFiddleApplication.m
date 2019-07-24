@@ -23,7 +23,11 @@
 - (void)applicationDidFinishLaunching:(NSNotification *)notification{
   [super applicationDidFinishLaunching:notification];
 
-  [self setApplicationDescription:naTranslate(translatorGroup, BitFiddleApplicationDescription)];
+  initTranslations();
+  naResetApplicationPreferredTranslatorLanguages();
+  [self setApplicationDescription:bitTranslate(BitFiddleApplicationDescription)];
+
+  initPreferences();
 
   asciiWindow = createASCIIWindow();
   preferencesWindow = createPreferencesWindow();
@@ -33,24 +37,26 @@
   [complementwindowcontroller setMini:NA_FALSE];
   [minicomplementwindowcontroller setMini:NA_TRUE];
   
-  byteswap = naGetPreferencesBool(bitPrefByteSwap);
-  conversiontype = (ConversionType)naGetPreferencesEnum(bitPrefComplementEncoding);
-  if(((int32)conversiontype < COMPUTE_UNSIGNED) || (int32)conversiontype > COMPUTE_TWOS_COMPLEMENT){conversiontype = 0;}
-  usemini = naGetPreferencesBool(bitPrefUseMini);
+//  [NSMenu setMenuBarVisible:NO];
   
-  NABool resetsettings = naGetPreferencesBool(bitPrefResetConversionOnStartup);
+  swapEndianness = naGetPreferencesBool(BitPrefs[SwapEndianness]);
+  conversiontype = (ConversionType)naGetPreferencesEnum(BitPrefs[SelectedComplementEncoding]);
+  if(((int32)conversiontype < COMPUTE_UNSIGNED) || (int32)conversiontype > COMPUTE_TWOS_COMPLEMENT){conversiontype = 0;}
+  usemini = naGetPreferencesBool(BitPrefs[UseMini]);
+  
+  NABool resetsettings = naGetPreferencesBool(BitPrefs[ResetConversionOnStartup]);
   if(resetsettings){
-    byteswap = NA_FALSE;
+    swapEndianness = NA_FALSE;
     conversiontype = COMPUTE_UNSIGNED;
   }
   
   [self update];
   [self showComplement:self];
 
-  NABool showASCIIOnStartup = naGetPreferencesBool(bitPrefShowASCIIOnStartup);
+  NABool showASCIIOnStartup = naGetPreferencesBool(BitPrefs[ShowASCIIOnStartup]);
   if(showASCIIOnStartup){[self showASCII:self];}
 
-  [self alertNewVersion:BitFiddleNewVersionDescription translatorGroup:translatorGroup];
+  [self alertNewVersion:bitTranslate(BitFiddleNewVersionDescription)];
 }
 
 
@@ -88,10 +94,10 @@
 
 
 - (void)update{
-  NABool keepMaxiOnTop = naGetPreferencesBool(bitPrefKeepMaxiOnTop);
-  NABool keepMiniOnTop = naGetPreferencesBool(bitPrefKeepMiniOnTop);
+  NABool keepMaxiOnTop = naGetPreferencesBool(BitPrefs[KeepMaxiOnTop]);
+  NABool keepMiniOnTop = naGetPreferencesBool(BitPrefs[KeepMiniOnTop]);
 
-  [byteswapmenuitem setState:byteswap ? NSOnState : NSOffState];
+  [byteswapmenuitem setState:swapEndianness ? NSOnState : NSOffState];
   [unsignedmenuitem setState:(conversiontype == COMPUTE_UNSIGNED)?NSOnState:NSOffState];
   [onescomplementmenuitem setState:(conversiontype == COMPUTE_ONES_COMPLEMENT)?NSOnState:NSOffState];
   [twoscomplementmenuitem setState:(conversiontype == COMPUTE_TWOS_COMPLEMENT)?NSOnState:NSOffState];
@@ -134,7 +140,7 @@
 - (IBAction) switchMini:(id)sender{
   usemini = !usemini;
 
-  naSetPreferencesBool(bitPrefUseMini, usemini);
+  naSetPreferencesBool(BitPrefs[UseMini], usemini);
   [complementwindowcontroller resetValue];
   [minicomplementwindowcontroller resetValue];
   [self update];
@@ -143,9 +149,9 @@
 
 
 - (IBAction)switchByteSwap:(id)sender{
-  byteswap = !byteswap;
+  swapEndianness = !swapEndianness;
   
-  naSetPreferencesBool(bitPrefByteSwap, byteswap);
+  naSetPreferencesBool(BitPrefs[SwapEndianness], swapEndianness);
   [self update];
   [complementwindowcontroller update];
   [minicomplementwindowcontroller update];
@@ -153,7 +159,7 @@
 
 
 - (void)updateConversionType{
-  naSetPreferencesEnum(bitPrefComplementEncoding, conversiontype);
+  naSetPreferencesEnum(BitPrefs[SelectedComplementEncoding], conversiontype);
   [self update];
   [complementwindowcontroller update];
   [minicomplementwindowcontroller update];
@@ -175,14 +181,12 @@
 
 
 - (NABool)byteswap{
-  return byteswap;
+  return swapEndianness;
 }
 
 
 - (ConversionType)conversiontype{
   return conversiontype;
 }
-
-
 
 @end

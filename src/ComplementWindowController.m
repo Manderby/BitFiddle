@@ -15,9 +15,9 @@
 
   [[self window] setDelegate:self];
 
-  NSString* stringu = [NSString stringWithUTF8String:BIT_TRANSLATE(BitFiddleConversionUnsigned)];
-  NSString* string1 = [NSString stringWithUTF8String:BIT_TRANSLATE(BitFiddleConversionOnesComp)];
-  NSString* string2 = [NSString stringWithUTF8String:BIT_TRANSLATE(BitFiddleConversionTwosComp)];
+  NSString* stringu = [NSString stringWithUTF8String:bitTranslate(BitFiddleConversionUnsigned)];
+  NSString* string1 = [NSString stringWithUTF8String:bitTranslate(BitFiddleConversionOnesComp)];
+  NSString* string2 = [NSString stringWithUTF8String:bitTranslate(BitFiddleConversionTwosComp)];
   [segcontrol setLabel:stringu forSegment:0];
   [segcontrol setLabel:string1 forSegment:1];
   [segcontrol setLabel:string2 forSegment:2];
@@ -96,7 +96,7 @@
   [byteswapcheckbox setState:byteswap?NSOnState:NSOffState];
   NSString* stringbyteswap = nil;
   if(byteswap){
-    stringbyteswap = [NSString stringWithUTF8String:BIT_TRANSLATE(BitFiddleConversionByteSwap)];
+    stringbyteswap = [NSString stringWithUTF8String:bitTranslate(BitFiddleConversionByteSwap)];
     naComputeBitArraySwapBytes(bitarray8);
     naComputeBitArraySwapBytes(bitarray16);
     naComputeBitArraySwapBytes(bitarray32);
@@ -110,10 +110,10 @@
   NSString* stringconversion = nil;
   switch(conversiontype){
   case COMPUTE_UNSIGNED:
-    stringconversion = [NSString stringWithUTF8String:BIT_TRANSLATE(BitFiddleConversionUnsigned)];
+    stringconversion = [NSString stringWithUTF8String:bitTranslate(BitFiddleConversionUnsigned)];
     break;
   case COMPUTE_ONES_COMPLEMENT:
-    stringconversion = [NSString stringWithUTF8String:BIT_TRANSLATE(BitFiddleConversionOnesComp)];
+    stringconversion = [NSString stringWithUTF8String:bitTranslate(BitFiddleConversionOnesComp)];
     naComputeBitArrayOnesComplement(bitarray8);
     naComputeBitArrayOnesComplement(bitarray16);
     naComputeBitArrayOnesComplement(bitarray32);
@@ -121,7 +121,7 @@
     naComputeBitArrayOnesComplement(bitarrayn);
     break;
   case COMPUTE_TWOS_COMPLEMENT:
-    stringconversion = [NSString stringWithUTF8String:BIT_TRANSLATE(BitFiddleConversionTwosComp)];
+    stringconversion = [NSString stringWithUTF8String:bitTranslate(BitFiddleConversionTwosComp)];
     naComputeBitArrayTwosComplement(bitarray8);
     naComputeBitArrayTwosComplement(bitarray16);
     naComputeBitArrayTwosComplement(bitarray32);

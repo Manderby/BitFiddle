@@ -1,14 +1,22 @@
 
 #include "NAPreferences.h"
 
-const char* bitPrefASCIIUseEscape;
-const char* bitPrefASCIIUseHex;
+enum {
+  UseASCIIEscape,
+  UseASCIIHex,
 
-const char* bitPrefShowASCIIOnStartup;
-const char* bitPrefResetConversionOnStartup;
-const char* bitPrefKeepMaxiOnTop;
-const char* bitPrefKeepMiniOnTop;
+  ShowASCIIOnStartup,
+  ResetConversionOnStartup,
+  KeepMaxiOnTop,
+  KeepMiniOnTop,
 
-const char* bitPrefByteSwap;
-const char* bitPrefComplementEncoding;
-const char* bitPrefUseMini;
+  SwapEndianness,
+  SelectedComplementEncoding,
+  UseMini,
+  
+  BitPrefCount
+};
+
+extern const char* BitPrefs[BitPrefCount];
+
+void initPreferences(void);

@@ -9,30 +9,8 @@
 
 
 
-NAInt translatorGroup;
-
-const char* bitPrefASCIIUseEscape = "ASCIIUseEscape";
-const char* bitPrefASCIIUseHex = "ASCIIUseHex";
-
-const char* bitPrefShowASCIIOnStartup = "showASCIIOnStartup";
-const char* bitPrefResetConversionOnStartup = "resetConversionOnStartup";
-const char* bitPrefKeepMaxiOnTop = "keepMaxiOnTop";
-const char* bitPrefKeepMiniOnTop = "keepMiniOnTop";
-
-const char* bitPrefByteSwap = "byteSwap";
-const char* bitPrefComplementEncoding = "complementEncoding";
-const char* bitPrefUseMini = "useMini";
-
-
-
 void updateApp(){
   [(BitFiddleApplication*)NSApp update];
-}
-
-void prestartup(void* arg){
-  translatorGroup = naRegisterTranslatorGroup();
-  #include "BitFiddleStrings_eng.h"
-  #include "BitFiddleStrings_deu.h"
 }
 
 void poststartup(void* arg){
@@ -41,10 +19,7 @@ void poststartup(void* arg){
 
 int main(int argc, char *argv[]){
   naStartRuntime();
-
-//  return NSApplicationMain(argc, (const char **)argv);
-
   [BitFiddleApplication sharedApplication];
-  naStartApplication(prestartup, poststartup, NA_NULL);
+  naStartApplication(NA_NULL, poststartup, NA_NULL);
   return 0;
 }

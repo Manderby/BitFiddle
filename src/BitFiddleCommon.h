@@ -1,0 +1,7 @@
+
+typedef enum{
+  COMPUTE_UNSIGNED = 0,
+  COMPUTE_ONES_COMPLEMENT = 1,
+  COMPUTE_TWOS_COMPLEMENT = 2,
+} ConversionType;
+

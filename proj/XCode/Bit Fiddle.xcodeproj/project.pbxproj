@@ -7,6 +7,8 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		90035EC122E58E5D00128540 /* BitFiddlePreferences.c in Sources */ = {isa = PBXBuildFile; fileRef = 90035EC022E58E5D00128540 /* BitFiddlePreferences.c */; };
+		90035EC322E5932500128540 /* BitFiddleTranslations.c in Sources */ = {isa = PBXBuildFile; fileRef = 90035EC222E5932400128540 /* BitFiddleTranslations.c */; };
 		900A9C6822DA314F00BBE4FD /* NAPreferencesCocoa.m in Sources */ = {isa = PBXBuildFile; fileRef = 900A9C6722DA314F00BBE4FD /* NAPreferencesCocoa.m */; };
 		900B78481BD6BF9200796AAB /* WebKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 900B78471BD6BF9200796AAB /* WebKit.framework */; };
 		9029EC3B22C937B500F823EC /* ASCIIWindow.c in Sources */ = {isa = PBXBuildFile; fileRef = 9029EC3922C937B500F823EC /* ASCIIWindow.c */; };
@@ -68,6 +70,8 @@
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
+		90035EC022E58E5D00128540 /* BitFiddlePreferences.c */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.c; path = BitFiddlePreferences.c; sourceTree = "<group>"; };
+		90035EC222E5932400128540 /* BitFiddleTranslations.c */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.c; path = BitFiddleTranslations.c; sourceTree = "<group>"; };
 		900A9C6722DA314F00BBE4FD /* NAPreferencesCocoa.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = NAPreferencesCocoa.m; sourceTree = "<group>"; };
 		900A9C6922DA316500BBE4FD /* NAPreferences.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = NAPreferences.h; sourceTree = "<group>"; };
 		900B78471BD6BF9200796AAB /* WebKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = WebKit.framework; path = System/Library/Frameworks/WebKit.framework; sourceTree = SDKROOT; };
@@ -309,7 +313,9 @@
 				90BAF65F21759A85001665BF /* BitArray.h */,
 				90BAF66821759A85001665BF /* BitFiddleApplication.h */,
 				90BAF66321759A85001665BF /* BitFiddleApplication.m */,
+				90035EC022E58E5D00128540 /* BitFiddlePreferences.c */,
 				909D438A22DC58BB0093849F /* BitFiddlePreferences.h */,
+				90035EC222E5932400128540 /* BitFiddleTranslations.c */,
 				90D6ED2222C418D100E752C5 /* BitFiddleTranslations.h */,
 				90BAF66421759A85001665BF /* BitFiddleWindow.h */,
 				90BAF66C21759A85001665BF /* BitFiddleWindow.m */,
@@ -706,12 +712,14 @@
 				90BAF67221759A85001665BF /* BitArray.c in Sources */,
 				90D6ED0B22C413BF00E752C5 /* NATreeOct.c in Sources */,
 				90D6ED1722C413BF00E752C5 /* NATranslator.c in Sources */,
+				90035EC322E5932500128540 /* BitFiddleTranslations.c in Sources */,
 				90BAF67621759A85001665BF /* NumberOutputField.m in Sources */,
 				90D6ED1522C413BF00E752C5 /* NACocoaHelper.m in Sources */,
 				909D438922DBDD660093849F /* PreferencesWindow.c in Sources */,
 				90D6ED1C22C413BF00E752C5 /* NAURL.c in Sources */,
 				90AEE11C229C44F700DD2DCF /* MandMenuHelper.m in Sources */,
 				90AEE118229C44F700DD2DCF /* MandCocoaHelper.m in Sources */,
+				90035EC122E58E5D00128540 /* BitFiddlePreferences.c in Sources */,
 				90D6ED0E22C413BF00E752C5 /* NATreeAVL.c in Sources */,
 				90D6ED0322C413BF00E752C5 /* NABufferWrite.c in Sources */,
 				90D6ED1122C413BF00E752C5 /* NADebug.c in Sources */,

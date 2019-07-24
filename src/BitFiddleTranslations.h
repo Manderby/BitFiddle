@@ -1,10 +1,6 @@
 
 #include "NATranslator.h"
 
-extern NAInt translatorGroup;
-
-#define BIT_TRANSLATE(id) naTranslate(translatorGroup, id)
-
 enum{
   BitFiddleApplicationDescription,
   BitFiddleNewVersionDescription,
@@ -162,3 +158,8 @@ enum{
   BitFiddleAdditionalInfo7e,
   BitFiddleAdditionalInfo7f,
 };
+
+const NAUTF8Char* bitTranslate(NAInt id);
+void initTranslations();
+
+
