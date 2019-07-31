@@ -4,11 +4,10 @@
 #include "NAUI.h"
 #include "BitFiddleCommon.h"
 
-@class MandAboutWindowController;
 @class BitFiddlePreferencesController;
 @class ComplementWindowController;
 
-@interface BitFiddleApplication : ManderApp {
+@interface BitFiddleApplication : NSApplication <NSApplicationDelegate> {
   IBOutlet ComplementWindowController* complementwindowcontroller;
   IBOutlet ComplementWindowController* minicomplementwindowcontroller;
   

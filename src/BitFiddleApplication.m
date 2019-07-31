@@ -8,6 +8,7 @@
 
 #include "ASCIIWindow.h"
 #include "PreferencesWindow.h"
+#include "ManderAppAbout.h"
 
 @implementation BitFiddleApplication
 
@@ -21,14 +22,6 @@
 
 
 - (void)applicationDidFinishLaunching:(NSNotification *)notification{
-  [super applicationDidFinishLaunching:notification];
-
-  initTranslations();
-  naResetApplicationPreferredTranslatorLanguages();
-  [self setApplicationDescription:bitTranslate(BitFiddleApplicationDescription)];
-
-  initPreferences();
-
   asciiWindow = createASCIIWindow();
   preferencesWindow = createPreferencesWindow();
 
@@ -55,8 +48,6 @@
 
   NABool showASCIIOnStartup = naGetPreferencesBool(BitPrefs[ShowASCIIOnStartup]);
   if(showASCIIOnStartup){[self showASCII:self];}
-
-  [self alertNewVersion:bitTranslate(BitFiddleNewVersionDescription)];
 }
 
 
