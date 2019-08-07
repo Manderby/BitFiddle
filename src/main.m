@@ -3,17 +3,18 @@
 #import <Cocoa/Cocoa.h>
 #include "NAMemory.h"
 #include "NAUI.h"
-#include "BitFiddleApplication.h"
+#include "BitFiddleNSApplication.h"
 #include "BitFiddleTranslations.h"
 #include "BitFiddlePreferences.h"
 #include "ASCIIWindow.h"
 #include "ManderApp.h"
 #include "ManderAppAbout.h"
+#include "BitFiddleApplication.h"
 
 
 
 void updateApp(){
-  [(BitFiddleApplication*)NSApp update];
+  [(BitFiddleNSApplication*)NSApp update];
 }
 
 NABool pressKey(void* controllerdata, NAUIElement* uielement, NAUICommand command, void* arg){
@@ -37,10 +38,12 @@ void prestartup(void* arg){
   
 //  NSMenuItem* appItem = [[NSApp mainMenu] itemAtIndex:0];
 //  [appItem setMenu:appMenu];
-//  [(BitFiddleApplication*)NSApp setMainMenu:appMenu];
+//  [(BitFiddleNSApplication*)NSApp setMainMenu:appMenu];
 //  NSMenu* mainMenu = [NSApp mainMenu];
   initTranslations();
   initPreferences();
+  
+  bitInitApp();
 }
 
 void poststartup(void* arg){
@@ -63,7 +66,7 @@ void poststartup(void* arg){
 
 int main(int argc, char *argv[]){
   naStartRuntime();
-  [BitFiddleApplication sharedApplication];
+  [BitFiddleNSApplication sharedApplication];
   naStartApplication(prestartup, poststartup, NA_NULL);
   return 0;
 }

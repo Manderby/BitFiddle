@@ -1,11 +1,12 @@
 
 
 #import "ComplementWindowController.h"
-#import "BitFiddleApplication.h"
+#import "BitFiddleNSApplication.h"
 #include "NAString.h"
 #include "BitArray.h"
 
 #include "BitFiddleTranslations.h"
+#include "BitFiddleApplication.h"
 
 
 @implementation ComplementWindowController
@@ -92,7 +93,7 @@
   bitarray64 = naCreateBitArrayCopyWithFixedSize(bitarray, 64);
   bitarrayn = naCreateBitArrayCopyWithFixedSize(bitarray, -8);
   
-  NABool byteswap = [(BitFiddleApplication*)NSApp byteswap];
+  NABool byteswap = bitGetEndiannessSwap();
   [byteswapcheckbox setState:byteswap?NSOnState:NSOffState];
   NSString* stringbyteswap = nil;
   if(byteswap){
@@ -104,7 +105,7 @@
     naComputeBitArraySwapBytes(bitarrayn);
   }
 
-  ConversionType conversiontype = [(BitFiddleApplication*)NSApp conversiontype];
+  ConversionType conversiontype = bitGetConversionType();
   [segcontrol setSelectedSegment:conversiontype];
   
   NSString* stringconversion = nil;
@@ -272,9 +273,9 @@
 - (IBAction)segmentControlChange:(NSControl*)sender{
   ConversionType conversiontype = (ConversionType)[segcontrol selectedSegment];
   switch(conversiontype){
-  case COMPUTE_UNSIGNED: [(BitFiddleApplication*)NSApp switchToUnsigned:sender]; break;
-  case COMPUTE_ONES_COMPLEMENT: [(BitFiddleApplication*)NSApp switchToOnesComplement:sender]; break;
-  case COMPUTE_TWOS_COMPLEMENT: [(BitFiddleApplication*)NSApp switchToTwosComplement:sender]; break;
+  case COMPUTE_UNSIGNED: [(BitFiddleNSApplication*)NSApp switchToUnsigned:sender]; break;
+  case COMPUTE_ONES_COMPLEMENT: [(BitFiddleNSApplication*)NSApp switchToOnesComplement:sender]; break;
+  case COMPUTE_TWOS_COMPLEMENT: [(BitFiddleNSApplication*)NSApp switchToTwosComplement:sender]; break;
   }
 }
 

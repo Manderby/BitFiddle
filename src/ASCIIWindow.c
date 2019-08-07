@@ -282,7 +282,7 @@ NABool switchASCIIDisplayMode(void* controllerdata, NAUIElement* uielement, NAUI
 
 
 
-NAWindow* createASCIIWindow(){
+NAWindow* bitCreateASCIIWindow(){
   NARect windowrect = naMakeRectS(20, 20, 776, 430);
   NAWindow* window = naNewWindow("ASCII", windowrect, NA_FALSE);
   

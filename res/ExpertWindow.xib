@@ -12,606 +12,384 @@
         <window title="Window" allowsToolTipsWhenApplicationIsInactive="NO" autorecalculatesKeyViewLoop="NO" releasedWhenClosed="NO" animationBehavior="default" id="QvC-M9-y7g">
             <windowStyleMask key="styleMask" titled="YES" closable="YES" miniaturizable="YES" resizable="YES"/>
             <windowPositionMask key="initialPositionMask" leftStrut="YES" rightStrut="YES" topStrut="YES" bottomStrut="YES"/>
-            <rect key="contentRect" x="196" y="240" width="717" height="505"/>
+            <rect key="contentRect" x="196" y="240" width="754" height="405"/>
             <rect key="screenRect" x="0.0" y="0.0" width="1440" height="900"/>
             <view key="contentView" wantsLayer="YES" id="EiT-Mj-1SZ">
-                <rect key="frame" x="0.0" y="0.0" width="717" height="505"/>
-                <autoresizingMask key="autoresizingMask"/>
+                <rect key="frame" x="0.0" y="0.0" width="754" height="405"/>
+                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMinY="YES"/>
                 <subviews>
-                    <textField horizontalHuggingPriority="251" verticalHuggingPriority="750" id="IGE-ll-2s8">
-                        <rect key="frame" x="59" y="468" width="50" height="17"/>
+                    <scrollView borderType="none" horizontalLineScroll="10" horizontalPageScroll="10" verticalLineScroll="10" verticalPageScroll="10" hasHorizontalScroller="NO" usesPredominantAxisScrolling="NO" id="Q2Y-ay-98Q">
+                        <rect key="frame" x="20" y="232" width="341" height="153"/>
                         <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMinY="YES"/>
-                        <textFieldCell key="cell" scrollable="YES" lineBreakMode="clipping" sendsActionOnEndEditing="YES" title="Input:" id="xZ5-Sm-U9U">
+                        <clipView key="contentView" drawsBackground="NO" copiesOnScroll="NO" id="1nA-vF-c2J">
+                            <rect key="frame" x="0.0" y="0.0" width="326" height="153"/>
+                            <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                            <subviews>
+                                <textView importsGraphics="NO" richText="NO" verticallyResizable="YES" smartInsertDelete="YES" id="P2r-7f-Rl6">
+                                    <rect key="frame" x="0.0" y="0.0" width="326" height="153"/>
+                                    <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                                    <color key="textColor" name="textColor" catalog="System" colorSpace="catalog"/>
+                                    <color key="backgroundColor" name="textBackgroundColor" catalog="System" colorSpace="catalog"/>
+                                    <size key="minSize" width="326" height="153"/>
+                                    <size key="maxSize" width="404" height="10000000"/>
+                                    <color key="insertionPointColor" name="textColor" catalog="System" colorSpace="catalog"/>
+                                </textView>
+                            </subviews>
+                        </clipView>
+                        <scroller key="horizontalScroller" hidden="YES" verticalHuggingPriority="750" horizontal="YES" id="x5g-iR-tst">
+                            <rect key="frame" x="-100" y="-100" width="225" height="15"/>
+                            <autoresizingMask key="autoresizingMask"/>
+                        </scroller>
+                        <scroller key="verticalScroller" verticalHuggingPriority="750" horizontal="NO" id="AXf-XX-GQm">
+                            <rect key="frame" x="326" y="0.0" width="15" height="153"/>
+                            <autoresizingMask key="autoresizingMask"/>
+                        </scroller>
+                    </scrollView>
+                    <button id="cav-iT-Dqz">
+                        <rect key="frame" x="391" y="63" width="100" height="18"/>
+                        <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMinY="YES"/>
+                        <buttonCell key="cell" type="radio" title="Hexadecimal" bezelStyle="regularSquare" imagePosition="left" alignment="left" inset="2" id="YV8-HP-A9a">
+                            <behavior key="behavior" changeContents="YES" doesNotDimImage="YES" lightByContents="YES"/>
+                            <font key="font" metaFont="system"/>
+                        </buttonCell>
+                    </button>
+                    <button id="fNr-s2-2Gc">
+                        <rect key="frame" x="391" y="41" width="61" height="18"/>
+                        <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMinY="YES"/>
+                        <buttonCell key="cell" type="radio" title="Binary" bezelStyle="regularSquare" imagePosition="left" alignment="left" inset="2" id="L7C-UR-hRb">
+                            <behavior key="behavior" changeContents="YES" doesNotDimImage="YES" lightByContents="YES"/>
+                            <font key="font" metaFont="system"/>
+                        </buttonCell>
+                    </button>
+                    <button id="oQe-9K-bQy">
+                        <rect key="frame" x="391" y="19" width="45" height="18"/>
+                        <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMinY="YES"/>
+                        <buttonCell key="cell" type="radio" title="Asc" bezelStyle="regularSquare" imagePosition="left" alignment="left" inset="2" id="QMi-sT-5YJ">
+                            <behavior key="behavior" changeContents="YES" doesNotDimImage="YES" lightByContents="YES"/>
+                            <font key="font" metaFont="system"/>
+                        </buttonCell>
+                    </button>
+                    <button id="pYW-Bu-KPt">
+                        <rect key="frame" x="412" y="85" width="91" height="18"/>
+                        <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMinY="YES"/>
+                        <buttonCell key="cell" type="radio" title="Sign: Two's" bezelStyle="regularSquare" imagePosition="left" alignment="left" inset="2" id="Mig-Tk-dp7">
+                            <behavior key="behavior" changeContents="YES" doesNotDimImage="YES" lightByContents="YES"/>
+                            <font key="font" metaFont="system"/>
+                        </buttonCell>
+                    </button>
+                    <button id="5If-Wf-xTN">
+                        <rect key="frame" x="412" y="107" width="91" height="18"/>
+                        <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMinY="YES"/>
+                        <buttonCell key="cell" type="radio" title="Sign: One's" bezelStyle="regularSquare" imagePosition="left" alignment="left" inset="2" id="Rtb-pU-G3D">
+                            <behavior key="behavior" changeContents="YES" doesNotDimImage="YES" lightByContents="YES"/>
+                            <font key="font" metaFont="system"/>
+                        </buttonCell>
+                    </button>
+                    <button id="ffv-A1-wOA">
+                        <rect key="frame" x="412" y="129" width="89" height="18"/>
+                        <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMinY="YES"/>
+                        <buttonCell key="cell" type="radio" title="Sign: None" bezelStyle="regularSquare" imagePosition="left" alignment="left" inset="2" id="6uw-da-hq8">
+                            <behavior key="behavior" changeContents="YES" doesNotDimImage="YES" lightByContents="YES"/>
+                            <font key="font" metaFont="system"/>
+                        </buttonCell>
+                    </button>
+                    <button id="yar-uG-4Pq">
+                        <rect key="frame" x="528" y="324" width="91" height="18"/>
+                        <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMinY="YES"/>
+                        <buttonCell key="cell" type="radio" title="Sign: Two's" bezelStyle="regularSquare" imagePosition="left" alignment="left" inset="2" id="HnN-sH-qu7">
+                            <behavior key="behavior" changeContents="YES" doesNotDimImage="YES" lightByContents="YES"/>
+                            <font key="font" metaFont="system"/>
+                        </buttonCell>
+                    </button>
+                    <button id="uFa-f8-eWH">
+                        <rect key="frame" x="528" y="346" width="91" height="18"/>
+                        <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMinY="YES"/>
+                        <buttonCell key="cell" type="radio" title="Sign: One's" bezelStyle="regularSquare" imagePosition="left" alignment="left" inset="2" id="47X-wJ-73Q">
+                            <behavior key="behavior" changeContents="YES" doesNotDimImage="YES" lightByContents="YES"/>
+                            <font key="font" metaFont="system"/>
+                        </buttonCell>
+                    </button>
+                    <button id="ieR-4o-3TP">
+                        <rect key="frame" x="528" y="368" width="95" height="18"/>
+                        <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMinY="YES"/>
+                        <buttonCell key="cell" type="radio" title="Sign: Ignore" bezelStyle="regularSquare" imagePosition="left" alignment="left" inset="2" id="jHQ-Qh-IVT">
+                            <behavior key="behavior" changeContents="YES" doesNotDimImage="YES" lightByContents="YES"/>
+                            <font key="font" metaFont="system"/>
+                        </buttonCell>
+                    </button>
+                    <button id="873-VW-jJx">
+                        <rect key="frame" x="391" y="151" width="71" height="18"/>
+                        <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMinY="YES"/>
+                        <buttonCell key="cell" type="radio" title="Decimal" bezelStyle="regularSquare" imagePosition="left" alignment="left" inset="2" id="nbq-tK-vQE">
+                            <behavior key="behavior" changeContents="YES" doesNotDimImage="YES" lightByContents="YES"/>
+                            <font key="font" metaFont="system"/>
+                        </buttonCell>
+                    </button>
+                    <button id="XYm-DS-Ppa">
+                        <rect key="frame" x="391" y="368" width="71" height="18"/>
+                        <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMinY="YES"/>
+                        <buttonCell key="cell" type="radio" title="Decimal" bezelStyle="regularSquare" imagePosition="left" alignment="left" inset="2" id="cgI-Fc-mN7">
+                            <behavior key="behavior" changeContents="YES" doesNotDimImage="YES" lightByContents="YES"/>
+                            <font key="font" metaFont="system"/>
+                        </buttonCell>
+                    </button>
+                    <button id="jO9-lo-xLk">
+                        <rect key="frame" x="598" y="63" width="138" height="18"/>
+                        <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMinY="YES"/>
+                        <buttonCell key="cell" type="radio" title="Two's Complement" bezelStyle="regularSquare" imagePosition="left" alignment="left" inset="2" id="5vY-p5-GzQ">
+                            <behavior key="behavior" changeContents="YES" doesNotDimImage="YES" lightByContents="YES"/>
+                            <font key="font" metaFont="system"/>
+                        </buttonCell>
+                    </button>
+                    <button id="9Iq-q6-mXn">
+                        <rect key="frame" x="598" y="107" width="111" height="18"/>
+                        <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMinY="YES"/>
+                        <buttonCell key="cell" type="radio" title="No Conversion" bezelStyle="regularSquare" imagePosition="left" alignment="left" inset="2" id="wgj-iY-ToO">
+                            <behavior key="behavior" changeContents="YES" doesNotDimImage="YES" lightByContents="YES"/>
+                            <font key="font" metaFont="system"/>
+                        </buttonCell>
+                    </button>
+                    <button id="qUK-v6-2z6">
+                        <rect key="frame" x="598" y="85" width="138" height="18"/>
+                        <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMinY="YES"/>
+                        <buttonCell key="cell" type="radio" title="One's Complement" bezelStyle="regularSquare" imagePosition="left" alignment="left" inset="2" id="U4Q-r6-Ph2">
+                            <behavior key="behavior" changeContents="YES" doesNotDimImage="YES" lightByContents="YES"/>
+                            <font key="font" metaFont="system"/>
+                        </buttonCell>
+                    </button>
+                    <button verticalHuggingPriority="750" id="9l8-0K-sRu">
+                        <rect key="frame" x="597" y="167" width="128" height="26"/>
+                        <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMinY="YES"/>
+                        <buttonCell key="cell" type="check" title="Swap Endianness" bezelStyle="regularSquare" imagePosition="left" state="on" inset="2" id="sdX-LF-osY">
+                            <behavior key="behavior" changeContents="YES" doesNotDimImage="YES" lightByContents="YES"/>
+                            <font key="font" metaFont="system"/>
+                        </buttonCell>
+                    </button>
+                    <textField horizontalHuggingPriority="251" verticalHuggingPriority="750" id="O3n-dX-gBZ">
+                        <rect key="frame" x="367" y="86" width="17" height="17"/>
+                        <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMinY="YES"/>
+                        <textFieldCell key="cell" scrollable="YES" lineBreakMode="clipping" sendsActionOnEndEditing="YES" title="◀︎" id="B3l-fZ-OBK">
+                            <font key="font" size="13" name="HiraginoSans-W3"/>
+                            <color key="textColor" name="labelColor" catalog="System" colorSpace="catalog"/>
+                            <color key="backgroundColor" name="controlColor" catalog="System" colorSpace="catalog"/>
+                        </textFieldCell>
+                    </textField>
+                    <textField horizontalHuggingPriority="251" verticalHuggingPriority="750" id="7Ap-eQ-DYl">
+                        <rect key="frame" x="367" y="313" width="17" height="17"/>
+                        <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMinY="YES"/>
+                        <textFieldCell key="cell" scrollable="YES" lineBreakMode="clipping" sendsActionOnEndEditing="YES" title="▶︎" id="Btp-m6-UEx">
+                            <font key="font" size="13" name="LucidaGrande"/>
+                            <color key="textColor" name="labelColor" catalog="System" colorSpace="catalog"/>
+                            <color key="backgroundColor" name="controlColor" catalog="System" colorSpace="catalog"/>
+                        </textFieldCell>
+                    </textField>
+                    <textField horizontalHuggingPriority="251" verticalHuggingPriority="750" id="cpM-YE-o7b">
+                        <rect key="frame" x="671" y="199" width="17" height="17"/>
+                        <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMinY="YES"/>
+                        <textFieldCell key="cell" scrollable="YES" lineBreakMode="clipping" sendsActionOnEndEditing="YES" title="▼" id="Rge-5f-c73">
+                            <font key="font" size="13" name="HiraginoSans-W3"/>
+                            <color key="textColor" name="labelColor" catalog="System" colorSpace="catalog"/>
+                            <color key="backgroundColor" name="controlColor" catalog="System" colorSpace="catalog"/>
+                        </textFieldCell>
+                    </textField>
+                    <button id="KRL-BU-Tcy">
+                        <rect key="frame" x="668" y="369" width="50" height="18"/>
+                        <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMinY="YES"/>
+                        <buttonCell key="cell" type="radio" title="8 bit" bezelStyle="regularSquare" imagePosition="left" alignment="left" inset="2" id="Giu-dh-aLF">
+                            <behavior key="behavior" changeContents="YES" doesNotDimImage="YES" lightByContents="YES"/>
+                            <font key="font" metaFont="system"/>
+                        </buttonCell>
+                    </button>
+                    <button id="aNo-9c-pQ1">
+                        <rect key="frame" x="668" y="347" width="56" height="18"/>
+                        <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMinY="YES"/>
+                        <buttonCell key="cell" type="radio" title="16 bit" bezelStyle="regularSquare" imagePosition="left" alignment="left" inset="2" id="zbi-Af-gWv">
+                            <behavior key="behavior" changeContents="YES" doesNotDimImage="YES" lightByContents="YES"/>
+                            <font key="font" metaFont="system"/>
+                        </buttonCell>
+                    </button>
+                    <button id="hxb-XT-Fua">
+                        <rect key="frame" x="668" y="325" width="58" height="18"/>
+                        <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMinY="YES"/>
+                        <buttonCell key="cell" type="radio" title="32 bit" bezelStyle="regularSquare" imagePosition="left" alignment="left" inset="2" id="mZj-V9-ksB">
+                            <behavior key="behavior" changeContents="YES" doesNotDimImage="YES" lightByContents="YES"/>
+                            <font key="font" metaFont="system"/>
+                        </buttonCell>
+                    </button>
+                    <button id="9zh-qf-8QW">
+                        <rect key="frame" x="668" y="303" width="58" height="18"/>
+                        <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMinY="YES"/>
+                        <buttonCell key="cell" type="radio" title="64 bit" bezelStyle="regularSquare" imagePosition="left" alignment="left" inset="2" id="pfv-62-zaV">
+                            <behavior key="behavior" changeContents="YES" doesNotDimImage="YES" lightByContents="YES"/>
+                            <font key="font" metaFont="system"/>
+                        </buttonCell>
+                    </button>
+                    <button id="LnB-Zc-Kcn">
+                        <rect key="frame" x="668" y="280" width="64" height="18"/>
+                        <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMinY="YES"/>
+                        <buttonCell key="cell" type="radio" title="128 bit" bezelStyle="regularSquare" imagePosition="left" alignment="left" inset="2" id="nTx-UH-e9K">
+                            <behavior key="behavior" changeContents="YES" doesNotDimImage="YES" lightByContents="YES"/>
+                            <font key="font" metaFont="system"/>
+                        </buttonCell>
+                    </button>
+                    <button id="wEG-NX-X6J">
+                        <rect key="frame" x="668" y="256" width="66" height="18"/>
+                        <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMinY="YES"/>
+                        <buttonCell key="cell" type="radio" title="256 bit" bezelStyle="regularSquare" imagePosition="left" alignment="left" inset="2" id="HrV-lv-Bey">
+                            <behavior key="behavior" changeContents="YES" doesNotDimImage="YES" lightByContents="YES"/>
+                            <font key="font" metaFont="system"/>
+                        </buttonCell>
+                    </button>
+                    <button id="3eV-If-rDe">
+                        <rect key="frame" x="668" y="231" width="68" height="18"/>
+                        <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMinY="YES"/>
+                        <buttonCell key="cell" type="radio" title="n Bytes" bezelStyle="regularSquare" imagePosition="left" alignment="left" inset="2" id="SgU-im-kgR">
+                            <behavior key="behavior" changeContents="YES" doesNotDimImage="YES" lightByContents="YES"/>
+                            <font key="font" metaFont="system"/>
+                        </buttonCell>
+                    </button>
+                    <scrollView borderType="none" horizontalLineScroll="10" horizontalPageScroll="10" verticalLineScroll="10" verticalPageScroll="10" hasHorizontalScroller="NO" usesPredominantAxisScrolling="NO" id="mvT-zn-fSG">
+                        <rect key="frame" x="20" y="20" width="341" height="148"/>
+                        <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMinY="YES"/>
+                        <clipView key="contentView" drawsBackground="NO" copiesOnScroll="NO" id="VwS-3J-wNx">
+                            <rect key="frame" x="0.0" y="0.0" width="326" height="148"/>
+                            <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                            <subviews>
+                                <textView importsGraphics="NO" richText="NO" verticallyResizable="YES" smartInsertDelete="YES" id="Yj3-iU-UUg">
+                                    <rect key="frame" x="0.0" y="0.0" width="326" height="148"/>
+                                    <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                                    <color key="textColor" name="textColor" catalog="System" colorSpace="catalog"/>
+                                    <color key="backgroundColor" name="textBackgroundColor" catalog="System" colorSpace="catalog"/>
+                                    <size key="minSize" width="326" height="148"/>
+                                    <size key="maxSize" width="404" height="10000000"/>
+                                    <color key="insertionPointColor" name="textColor" catalog="System" colorSpace="catalog"/>
+                                </textView>
+                            </subviews>
+                        </clipView>
+                        <scroller key="horizontalScroller" hidden="YES" verticalHuggingPriority="750" horizontal="YES" id="j0V-kz-7IE">
+                            <rect key="frame" x="-100" y="-100" width="225" height="15"/>
+                            <autoresizingMask key="autoresizingMask"/>
+                        </scroller>
+                        <scroller key="verticalScroller" verticalHuggingPriority="750" horizontal="NO" id="7i0-iU-hI9">
+                            <rect key="frame" x="326" y="0.0" width="15" height="148"/>
+                            <autoresizingMask key="autoresizingMask"/>
+                        </scroller>
+                    </scrollView>
+                    <textField horizontalHuggingPriority="251" verticalHuggingPriority="750" id="9IJ-46-2TQ">
+                        <rect key="frame" x="18" y="207" width="35" height="17"/>
+                        <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMinY="YES"/>
+                        <textFieldCell key="cell" lineBreakMode="clipping" title="Input" id="Zgt-Tp-iNX">
+                            <font key="font" metaFont="system"/>
+                            <color key="textColor" name="labelColor" catalog="System" colorSpace="catalog"/>
+                            <color key="backgroundColor" name="textBackgroundColor" catalog="System" colorSpace="catalog"/>
+                        </textFieldCell>
+                    </textField>
+                    <textField horizontalHuggingPriority="251" verticalHuggingPriority="750" id="iyk-ez-mcZ">
+                        <rect key="frame" x="486" y="369" width="17" height="17"/>
+                        <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMinY="YES"/>
+                        <textFieldCell key="cell" scrollable="YES" lineBreakMode="clipping" sendsActionOnEndEditing="YES" title="▶︎" id="RhZ-84-Vhg">
                             <font key="font" metaFont="system"/>
                             <color key="textColor" name="labelColor" catalog="System" colorSpace="catalog"/>
                             <color key="backgroundColor" name="controlColor" catalog="System" colorSpace="catalog"/>
                         </textFieldCell>
                     </textField>
-                    <button id="zFj-4W-NtE">
-                        <rect key="frame" x="146" y="429" width="71" height="18"/>
+                    <textField horizontalHuggingPriority="251" verticalHuggingPriority="750" id="28V-dG-Wc3">
+                        <rect key="frame" x="486" y="232" width="17" height="17"/>
                         <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMinY="YES"/>
-                        <buttonCell key="cell" type="radio" title="Decimal" bezelStyle="regularSquare" imagePosition="left" alignment="left" inset="2" id="X9k-MN-BKa">
-                            <behavior key="behavior" changeContents="YES" doesNotDimImage="YES" lightByContents="YES"/>
-                            <font key="font" metaFont="system"/>
-                        </buttonCell>
-                    </button>
-                    <button id="u6m-q4-iHg">
-                        <rect key="frame" x="60" y="429" width="65" height="18"/>
-                        <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMinY="YES"/>
-                        <buttonCell key="cell" type="radio" title="Integer" bezelStyle="regularSquare" imagePosition="left" alignment="left" inset="2" id="yo4-me-f8t">
-                            <behavior key="behavior" changeContents="YES" doesNotDimImage="YES" lightByContents="YES"/>
-                            <font key="font" metaFont="system"/>
-                        </buttonCell>
-                    </button>
-                    <button id="5er-lE-W8f">
-                        <rect key="frame" x="60" y="407" width="82" height="18"/>
-                        <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMinY="YES"/>
-                        <buttonCell key="cell" type="radio" title="Fractional" bezelStyle="regularSquare" imagePosition="left" alignment="left" inset="2" id="I2I-6u-nmu">
-                            <behavior key="behavior" changeContents="YES" doesNotDimImage="YES" lightByContents="YES"/>
-                            <font key="font" metaFont="system"/>
-                        </buttonCell>
-                    </button>
-                    <button id="gbT-Zz-v6f">
-                        <rect key="frame" x="60" y="385" width="105" height="18"/>
-                        <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMinY="YES"/>
-                        <buttonCell key="cell" type="radio" title="Floating point" bezelStyle="regularSquare" imagePosition="left" alignment="left" inset="2" id="9BI-fk-gEW">
-                            <behavior key="behavior" changeContents="YES" doesNotDimImage="YES" lightByContents="YES"/>
-                            <font key="font" metaFont="system"/>
-                        </buttonCell>
-                    </button>
-                    <button id="Ry4-Eg-R6H">
-                        <rect key="frame" x="146" y="407" width="100" height="18"/>
-                        <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMinY="YES"/>
-                        <buttonCell key="cell" type="radio" title="Hexadecimal" bezelStyle="regularSquare" imagePosition="left" alignment="left" inset="2" id="gKY-45-8rn">
-                            <behavior key="behavior" changeContents="YES" doesNotDimImage="YES" lightByContents="YES"/>
-                            <font key="font" metaFont="system"/>
-                        </buttonCell>
-                    </button>
-                    <button id="4vB-Pw-Ted">
-                        <rect key="frame" x="146" y="385" width="61" height="18"/>
-                        <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMinY="YES"/>
-                        <buttonCell key="cell" type="radio" title="Binary" bezelStyle="regularSquare" imagePosition="left" alignment="left" inset="2" id="Eja-DM-YQu">
-                            <behavior key="behavior" changeContents="YES" doesNotDimImage="YES" lightByContents="YES"/>
-                            <font key="font" metaFont="system"/>
-                        </buttonCell>
-                    </button>
-                    <button id="Xlr-nm-dP6">
-                        <rect key="frame" x="146" y="363" width="55" height="18"/>
-                        <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMinY="YES"/>
-                        <buttonCell key="cell" type="radio" title="Octal" bezelStyle="regularSquare" imagePosition="left" alignment="left" inset="2" id="uj6-vQ-Exu">
-                            <behavior key="behavior" changeContents="YES" doesNotDimImage="YES" lightByContents="YES"/>
-                            <font key="font" metaFont="system"/>
-                        </buttonCell>
-                    </button>
-                    <button id="EUN-JN-SmM">
-                        <rect key="frame" x="449" y="429" width="50" height="18"/>
-                        <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMinY="YES"/>
-                        <buttonCell key="cell" type="radio" title="8 bit" bezelStyle="regularSquare" imagePosition="left" alignment="left" inset="2" id="TTD-N4-S9j">
-                            <behavior key="behavior" changeContents="YES" doesNotDimImage="YES" lightByContents="YES"/>
-                            <font key="font" metaFont="system"/>
-                        </buttonCell>
-                    </button>
-                    <button id="hid-eh-rNI">
-                        <rect key="frame" x="512" y="407" width="86" height="18"/>
-                        <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMinY="YES"/>
-                        <buttonCell key="cell" type="radio" title="Big Endian" bezelStyle="regularSquare" imagePosition="left" alignment="left" inset="2" id="Kzx-kd-GER">
-                            <behavior key="behavior" changeContents="YES" doesNotDimImage="YES" lightByContents="YES"/>
-                            <font key="font" metaFont="system"/>
-                        </buttonCell>
-                    </button>
-                    <button id="qJq-ez-1ND">
-                        <rect key="frame" x="449" y="407" width="56" height="18"/>
-                        <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMinY="YES"/>
-                        <buttonCell key="cell" type="radio" title="16 bit" bezelStyle="regularSquare" imagePosition="left" alignment="left" inset="2" id="UiD-S9-nSO">
-                            <behavior key="behavior" changeContents="YES" doesNotDimImage="YES" lightByContents="YES"/>
-                            <font key="font" metaFont="system"/>
-                        </buttonCell>
-                    </button>
-                    <button id="o8B-8Q-Ucy">
-                        <rect key="frame" x="449" y="385" width="58" height="18"/>
-                        <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMinY="YES"/>
-                        <buttonCell key="cell" type="radio" title="32 bit" bezelStyle="regularSquare" imagePosition="left" alignment="left" inset="2" id="kFZ-cj-Or5">
-                            <behavior key="behavior" changeContents="YES" doesNotDimImage="YES" lightByContents="YES"/>
-                            <font key="font" metaFont="system"/>
-                        </buttonCell>
-                    </button>
-                    <button id="qnI-Nf-2Fo">
-                        <rect key="frame" x="449" y="363" width="58" height="18"/>
-                        <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMinY="YES"/>
-                        <buttonCell key="cell" type="radio" title="64 bit" bezelStyle="regularSquare" imagePosition="left" alignment="left" inset="2" id="kXA-26-gZl">
-                            <behavior key="behavior" changeContents="YES" doesNotDimImage="YES" lightByContents="YES"/>
-                            <font key="font" metaFont="system"/>
-                        </buttonCell>
-                    </button>
-                    <button id="ame-oL-Low">
-                        <rect key="frame" x="251" y="407" width="193" height="18"/>
-                        <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMinY="YES"/>
-                        <buttonCell key="cell" type="radio" title="Signed (Two's Complement)" bezelStyle="regularSquare" imagePosition="left" alignment="left" inset="2" id="8Gx-pr-SRq">
-                            <behavior key="behavior" changeContents="YES" doesNotDimImage="YES" lightByContents="YES"/>
-                            <font key="font" metaFont="system"/>
-                        </buttonCell>
-                    </button>
-                    <button id="dvF-Zm-dcI">
-                        <rect key="frame" x="251" y="429" width="80" height="18"/>
-                        <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMinY="YES"/>
-                        <buttonCell key="cell" type="radio" title="Unsigned" bezelStyle="regularSquare" imagePosition="left" alignment="left" inset="2" id="isM-rS-jpj">
-                            <behavior key="behavior" changeContents="YES" doesNotDimImage="YES" lightByContents="YES"/>
-                            <font key="font" metaFont="system"/>
-                        </buttonCell>
-                    </button>
-                    <button id="6nd-R8-hEP">
-                        <rect key="frame" x="251" y="385" width="193" height="18"/>
-                        <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMinY="YES"/>
-                        <buttonCell key="cell" type="radio" title="Signed (One's Complement)" bezelStyle="regularSquare" imagePosition="left" alignment="left" inset="2" id="87Y-hb-jDm">
-                            <behavior key="behavior" changeContents="YES" doesNotDimImage="YES" lightByContents="YES"/>
-                            <font key="font" metaFont="system"/>
-                        </buttonCell>
-                    </button>
-                    <button id="1oC-tg-L6G">
-                        <rect key="frame" x="251" y="363" width="184" height="18"/>
-                        <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMinY="YES"/>
-                        <buttonCell key="cell" type="radio" title="Signed (Sign &amp; Magnitude)" bezelStyle="regularSquare" imagePosition="left" alignment="left" inset="2" id="IEk-SV-0fh">
-                            <behavior key="behavior" changeContents="YES" doesNotDimImage="YES" lightByContents="YES"/>
-                            <font key="font" metaFont="system"/>
-                        </buttonCell>
-                    </button>
-                    <button id="nPV-mY-yi1">
-                        <rect key="frame" x="512" y="429" width="97" height="18"/>
-                        <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMinY="YES"/>
-                        <buttonCell key="cell" type="radio" title="Little Endian" bezelStyle="regularSquare" imagePosition="left" alignment="left" inset="2" id="jSq-a6-I4b">
-                            <behavior key="behavior" changeContents="YES" doesNotDimImage="YES" lightByContents="YES"/>
-                            <font key="font" metaFont="system"/>
-                        </buttonCell>
-                    </button>
-                    <button id="I7r-Rj-p5Y">
-                        <rect key="frame" x="614" y="429" width="85" height="18"/>
-                        <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMinY="YES"/>
-                        <buttonCell key="cell" type="radio" title="Arithmetic" bezelStyle="regularSquare" imagePosition="left" alignment="left" inset="2" id="dsX-Yg-ZnV">
-                            <behavior key="behavior" changeContents="YES" doesNotDimImage="YES" lightByContents="YES"/>
-                            <font key="font" metaFont="system"/>
-                        </buttonCell>
-                    </button>
-                    <button id="sF6-ua-zEt">
-                        <rect key="frame" x="614" y="407" width="55" height="18"/>
-                        <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMinY="YES"/>
-                        <buttonCell key="cell" type="radio" title="Logic" bezelStyle="regularSquare" imagePosition="left" alignment="left" inset="2" id="8Ik-if-FDk">
-                            <behavior key="behavior" changeContents="YES" doesNotDimImage="YES" lightByContents="YES"/>
-                            <font key="font" metaFont="system"/>
-                        </buttonCell>
-                    </button>
-                    <textField horizontalHuggingPriority="251" verticalHuggingPriority="750" id="1ke-4s-vpq">
-                        <rect key="frame" x="351" y="318" width="53" height="17"/>
-                        <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMinY="YES"/>
-                        <textFieldCell key="cell" scrollable="YES" lineBreakMode="clipping" sendsActionOnEndEditing="YES" title="Convert" id="xUm-Ns-LEy">
+                        <textFieldCell key="cell" scrollable="YES" lineBreakMode="clipping" sendsActionOnEndEditing="YES" title="▶︎" id="xr2-aj-qAk">
                             <font key="font" metaFont="system"/>
                             <color key="textColor" name="labelColor" catalog="System" colorSpace="catalog"/>
                             <color key="backgroundColor" name="controlColor" catalog="System" colorSpace="catalog"/>
                         </textFieldCell>
                     </textField>
-                    <button id="lkk-hQ-OEP">
-                        <rect key="frame" x="146" y="278" width="71" height="18"/>
+                    <textField horizontalHuggingPriority="251" verticalHuggingPriority="750" id="e68-6T-vQI">
+                        <rect key="frame" x="630" y="234" width="17" height="17"/>
                         <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMinY="YES"/>
-                        <buttonCell key="cell" type="radio" title="Decimal" bezelStyle="regularSquare" imagePosition="left" alignment="left" inset="2" id="FQM-fY-U8K">
-                            <behavior key="behavior" changeContents="YES" doesNotDimImage="YES" lightByContents="YES"/>
-                            <font key="font" metaFont="system"/>
-                        </buttonCell>
-                    </button>
-                    <button id="dN1-rI-ccF">
-                        <rect key="frame" x="60" y="278" width="65" height="18"/>
-                        <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMinY="YES"/>
-                        <buttonCell key="cell" type="radio" title="Integer" bezelStyle="regularSquare" imagePosition="left" alignment="left" inset="2" id="fd2-TR-6rd">
-                            <behavior key="behavior" changeContents="YES" doesNotDimImage="YES" lightByContents="YES"/>
-                            <font key="font" metaFont="system"/>
-                        </buttonCell>
-                    </button>
-                    <button id="4mc-ja-G8d">
-                        <rect key="frame" x="60" y="256" width="82" height="18"/>
-                        <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMinY="YES"/>
-                        <buttonCell key="cell" type="radio" title="Fractional" bezelStyle="regularSquare" imagePosition="left" alignment="left" inset="2" id="i9c-eA-qhM">
-                            <behavior key="behavior" changeContents="YES" doesNotDimImage="YES" lightByContents="YES"/>
-                            <font key="font" metaFont="system"/>
-                        </buttonCell>
-                    </button>
-                    <button id="P8A-DY-8yC">
-                        <rect key="frame" x="60" y="234" width="105" height="18"/>
-                        <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMinY="YES"/>
-                        <buttonCell key="cell" type="radio" title="Floating point" bezelStyle="regularSquare" imagePosition="left" alignment="left" inset="2" id="mri-3k-RRO">
-                            <behavior key="behavior" changeContents="YES" doesNotDimImage="YES" lightByContents="YES"/>
-                            <font key="font" metaFont="system"/>
-                        </buttonCell>
-                    </button>
-                    <button id="Dew-Y4-miz">
-                        <rect key="frame" x="146" y="256" width="100" height="18"/>
-                        <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMinY="YES"/>
-                        <buttonCell key="cell" type="radio" title="Hexadecimal" bezelStyle="regularSquare" imagePosition="left" alignment="left" inset="2" id="heI-M1-iaH">
-                            <behavior key="behavior" changeContents="YES" doesNotDimImage="YES" lightByContents="YES"/>
-                            <font key="font" metaFont="system"/>
-                        </buttonCell>
-                    </button>
-                    <button id="25m-Y6-01V">
-                        <rect key="frame" x="146" y="234" width="61" height="18"/>
-                        <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMinY="YES"/>
-                        <buttonCell key="cell" type="radio" title="Binary" bezelStyle="regularSquare" imagePosition="left" alignment="left" inset="2" id="Mx6-qU-Mxh">
-                            <behavior key="behavior" changeContents="YES" doesNotDimImage="YES" lightByContents="YES"/>
-                            <font key="font" metaFont="system"/>
-                        </buttonCell>
-                    </button>
-                    <button id="Hh4-Hm-XXa">
-                        <rect key="frame" x="146" y="212" width="55" height="18"/>
-                        <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMinY="YES"/>
-                        <buttonCell key="cell" type="radio" title="Octal" bezelStyle="regularSquare" imagePosition="left" alignment="left" inset="2" id="Pri-fM-9bQ">
-                            <behavior key="behavior" changeContents="YES" doesNotDimImage="YES" lightByContents="YES"/>
-                            <font key="font" metaFont="system"/>
-                        </buttonCell>
-                    </button>
-                    <button id="wQb-hc-bL3">
-                        <rect key="frame" x="449" y="278" width="50" height="18"/>
-                        <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMinY="YES"/>
-                        <buttonCell key="cell" type="radio" title="8 bit" bezelStyle="regularSquare" imagePosition="left" alignment="left" inset="2" id="8x9-Zt-u0y">
-                            <behavior key="behavior" changeContents="YES" doesNotDimImage="YES" lightByContents="YES"/>
-                            <font key="font" metaFont="system"/>
-                        </buttonCell>
-                    </button>
-                    <button id="vg8-yi-Kbx">
-                        <rect key="frame" x="512" y="256" width="86" height="18"/>
-                        <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMinY="YES"/>
-                        <buttonCell key="cell" type="radio" title="Big Endian" bezelStyle="regularSquare" imagePosition="left" alignment="left" inset="2" id="Gsq-b1-2Dp">
-                            <behavior key="behavior" changeContents="YES" doesNotDimImage="YES" lightByContents="YES"/>
-                            <font key="font" metaFont="system"/>
-                        </buttonCell>
-                    </button>
-                    <button id="uu8-vs-8Sq">
-                        <rect key="frame" x="449" y="256" width="56" height="18"/>
-                        <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMinY="YES"/>
-                        <buttonCell key="cell" type="radio" title="16 bit" bezelStyle="regularSquare" imagePosition="left" alignment="left" inset="2" id="AYG-eq-Xv7">
-                            <behavior key="behavior" changeContents="YES" doesNotDimImage="YES" lightByContents="YES"/>
-                            <font key="font" metaFont="system"/>
-                        </buttonCell>
-                    </button>
-                    <button id="dUf-tJ-7gf">
-                        <rect key="frame" x="449" y="234" width="58" height="18"/>
-                        <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMinY="YES"/>
-                        <buttonCell key="cell" type="radio" title="32 bit" bezelStyle="regularSquare" imagePosition="left" alignment="left" inset="2" id="PQq-27-N7c">
-                            <behavior key="behavior" changeContents="YES" doesNotDimImage="YES" lightByContents="YES"/>
-                            <font key="font" metaFont="system"/>
-                        </buttonCell>
-                    </button>
-                    <button id="w5t-Eh-mhC">
-                        <rect key="frame" x="449" y="212" width="58" height="18"/>
-                        <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMinY="YES"/>
-                        <buttonCell key="cell" type="radio" title="64 bit" bezelStyle="regularSquare" imagePosition="left" alignment="left" inset="2" id="SWL-PT-qHy">
-                            <behavior key="behavior" changeContents="YES" doesNotDimImage="YES" lightByContents="YES"/>
-                            <font key="font" metaFont="system"/>
-                        </buttonCell>
-                    </button>
-                    <button id="XTK-cT-RYG">
-                        <rect key="frame" x="251" y="256" width="193" height="18"/>
-                        <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMinY="YES"/>
-                        <buttonCell key="cell" type="radio" title="Signed (Two's Complement)" bezelStyle="regularSquare" imagePosition="left" alignment="left" inset="2" id="5DL-QZ-fjH">
-                            <behavior key="behavior" changeContents="YES" doesNotDimImage="YES" lightByContents="YES"/>
-                            <font key="font" metaFont="system"/>
-                        </buttonCell>
-                    </button>
-                    <button id="ee5-Fc-LCL">
-                        <rect key="frame" x="251" y="278" width="80" height="18"/>
-                        <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMinY="YES"/>
-                        <buttonCell key="cell" type="radio" title="Unsigned" bezelStyle="regularSquare" imagePosition="left" alignment="left" inset="2" id="81Q-es-OwW">
-                            <behavior key="behavior" changeContents="YES" doesNotDimImage="YES" lightByContents="YES"/>
-                            <font key="font" metaFont="system"/>
-                        </buttonCell>
-                    </button>
-                    <button id="NiT-uY-0Tr">
-                        <rect key="frame" x="251" y="234" width="193" height="18"/>
-                        <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMinY="YES"/>
-                        <buttonCell key="cell" type="radio" title="Signed (One's Complement)" bezelStyle="regularSquare" imagePosition="left" alignment="left" inset="2" id="OZe-B4-6N0">
-                            <behavior key="behavior" changeContents="YES" doesNotDimImage="YES" lightByContents="YES"/>
-                            <font key="font" metaFont="system"/>
-                        </buttonCell>
-                    </button>
-                    <button id="6Gr-Hy-QKa">
-                        <rect key="frame" x="251" y="212" width="184" height="18"/>
-                        <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMinY="YES"/>
-                        <buttonCell key="cell" type="radio" title="Signed (Sign &amp; Magnitude)" bezelStyle="regularSquare" imagePosition="left" alignment="left" inset="2" id="92j-vp-58G">
-                            <behavior key="behavior" changeContents="YES" doesNotDimImage="YES" lightByContents="YES"/>
-                            <font key="font" metaFont="system"/>
-                        </buttonCell>
-                    </button>
-                    <button id="3nF-gw-0WZ">
-                        <rect key="frame" x="512" y="278" width="97" height="18"/>
-                        <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMinY="YES"/>
-                        <buttonCell key="cell" type="radio" title="Little Endian" bezelStyle="regularSquare" imagePosition="left" alignment="left" inset="2" id="ejA-qC-9uY">
-                            <behavior key="behavior" changeContents="YES" doesNotDimImage="YES" lightByContents="YES"/>
-                            <font key="font" metaFont="system"/>
-                        </buttonCell>
-                    </button>
-                    <button id="IKZ-pT-RgP">
-                        <rect key="frame" x="614" y="278" width="85" height="18"/>
-                        <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMinY="YES"/>
-                        <buttonCell key="cell" type="radio" title="Arithmetic" bezelStyle="regularSquare" imagePosition="left" alignment="left" inset="2" id="WjX-ZW-QD7">
-                            <behavior key="behavior" changeContents="YES" doesNotDimImage="YES" lightByContents="YES"/>
-                            <font key="font" metaFont="system"/>
-                        </buttonCell>
-                    </button>
-                    <button id="KWi-2M-eFg">
-                        <rect key="frame" x="614" y="256" width="55" height="18"/>
-                        <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMinY="YES"/>
-                        <buttonCell key="cell" type="radio" title="Logic" bezelStyle="regularSquare" imagePosition="left" alignment="left" inset="2" id="cEp-GO-s8r">
-                            <behavior key="behavior" changeContents="YES" doesNotDimImage="YES" lightByContents="YES"/>
-                            <font key="font" metaFont="system"/>
-                        </buttonCell>
-                    </button>
-                    <textField verticalHuggingPriority="750" id="mLK-AT-9PC">
-                        <rect key="frame" x="74" y="174" width="623" height="22"/>
-                        <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMinY="YES"/>
-                        <textFieldCell key="cell" scrollable="YES" lineBreakMode="clipping" selectable="YES" editable="YES" sendsActionOnEndEditing="YES" state="on" borderStyle="bezel" drawsBackground="YES" id="4jM-Id-IIy">
-                            <font key="font" metaFont="system"/>
-                            <color key="textColor" name="controlTextColor" catalog="System" colorSpace="catalog"/>
-                            <color key="backgroundColor" name="textBackgroundColor" catalog="System" colorSpace="catalog"/>
-                        </textFieldCell>
-                    </textField>
-                    <textField horizontalHuggingPriority="251" verticalHuggingPriority="750" id="aou-Zo-2cd">
-                        <rect key="frame" x="59" y="177" width="50" height="17"/>
-                        <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMinY="YES"/>
-                        <textFieldCell key="cell" scrollable="YES" lineBreakMode="clipping" sendsActionOnEndEditing="YES" title="Output:" id="Tu0-y1-65y">
+                        <textFieldCell key="cell" scrollable="YES" lineBreakMode="clipping" sendsActionOnEndEditing="YES" title="▶︎" id="PCg-Ud-NZ9">
                             <font key="font" metaFont="system"/>
                             <color key="textColor" name="labelColor" catalog="System" colorSpace="catalog"/>
                             <color key="backgroundColor" name="controlColor" catalog="System" colorSpace="catalog"/>
                         </textFieldCell>
                     </textField>
-                    <textField verticalHuggingPriority="750" id="JPu-Mx-Anl">
-                        <rect key="frame" x="74" y="465" width="623" height="22"/>
+                    <textField horizontalHuggingPriority="251" verticalHuggingPriority="750" id="lJV-kV-fcU">
+                        <rect key="frame" x="630" y="369" width="17" height="17"/>
                         <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMinY="YES"/>
-                        <textFieldCell key="cell" scrollable="YES" lineBreakMode="clipping" selectable="YES" editable="YES" sendsActionOnEndEditing="YES" state="on" borderStyle="bezel" drawsBackground="YES" id="n48-tU-Nor">
+                        <textFieldCell key="cell" scrollable="YES" lineBreakMode="clipping" sendsActionOnEndEditing="YES" title="▶︎" id="wRC-Qh-Uca">
                             <font key="font" metaFont="system"/>
-                            <color key="textColor" name="controlTextColor" catalog="System" colorSpace="catalog"/>
-                            <color key="backgroundColor" name="textBackgroundColor" catalog="System" colorSpace="catalog"/>
+                            <color key="textColor" name="labelColor" catalog="System" colorSpace="catalog"/>
+                            <color key="backgroundColor" name="controlColor" catalog="System" colorSpace="catalog"/>
                         </textFieldCell>
                     </textField>
-                    <button verticalHuggingPriority="750" id="Qaj-HS-WLd">
-                        <rect key="frame" x="282" y="72" width="81" height="32"/>
+                    <button id="aQn-kw-Zdj">
+                        <rect key="frame" x="391" y="275" width="100" height="18"/>
                         <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMinY="YES"/>
-                        <buttonCell key="cell" type="push" title="Button" bezelStyle="rounded" alignment="center" borderStyle="border" imageScaling="proportionallyDown" inset="2" id="Wu1-mc-E0e">
-                            <behavior key="behavior" pushIn="YES" lightByBackground="YES" lightByGray="YES"/>
+                        <buttonCell key="cell" type="radio" title="Hexadecimal" bezelStyle="regularSquare" imagePosition="left" alignment="left" inset="2" id="aQN-6Z-dkM">
+                            <behavior key="behavior" changeContents="YES" doesNotDimImage="YES" lightByContents="YES"/>
                             <font key="font" metaFont="system"/>
                         </buttonCell>
                     </button>
-                    <textField verticalHuggingPriority="750" id="Bdc-cs-Lmb">
-                        <rect key="frame" x="374" y="46" width="96" height="22"/>
-                        <autoresizingMask key="autoresizingMask"/>
-                        <textFieldCell key="cell" scrollable="YES" lineBreakMode="clipping" selectable="YES" editable="YES" sendsActionOnEndEditing="YES" borderStyle="bezel" title="textHHmm" drawsBackground="YES" id="pSP-vI-c9s">
-                            <font key="font" metaFont="system"/>
-                            <color key="textColor" name="controlTextColor" catalog="System" colorSpace="catalog"/>
-                            <color key="backgroundColor" name="textBackgroundColor" catalog="System" colorSpace="catalog"/>
-                        </textFieldCell>
-                    </textField>
-                    <textField verticalHuggingPriority="750" id="K9T-Gv-Pb5">
-                        <rect key="frame" x="374" y="78" width="96" height="22"/>
-                        <autoresizingMask key="autoresizingMask"/>
-                        <textFieldCell key="cell" scrollable="YES" lineBreakMode="clipping" selectable="YES" editable="YES" sendsActionOnEndEditing="YES" borderStyle="bezel" drawsBackground="YES" id="QZn-kf-IOn">
-                            <font key="font" metaFont="system"/>
-                            <color key="textColor" name="controlTextColor" catalog="System" colorSpace="catalog"/>
-                            <color key="backgroundColor" name="textBackgroundColor" catalog="System" colorSpace="catalog"/>
-                        </textFieldCell>
-                    </textField>
-                    <box horizontalHuggingPriority="750" boxType="separator" id="Z1a-ys-nXy">
-                        <rect key="frame" x="363" y="41" width="5" height="96"/>
+                    <button id="sPR-3B-kyy">
+                        <rect key="frame" x="391" y="253" width="61" height="18"/>
                         <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMinY="YES"/>
-                    </box>
-                    <box verticalHuggingPriority="750" boxType="separator" id="KJl-5Q-yiM">
-                        <rect key="frame" x="382" y="35" width="96" height="5"/>
-                        <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMinY="YES"/>
-                    </box>
-                    <button verticalHuggingPriority="750" id="NqQ-xa-kpJ">
-                        <rect key="frame" x="14" y="13" width="81" height="32"/>
-                        <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMinY="YES"/>
-                        <buttonCell key="cell" type="push" title="Button" bezelStyle="rounded" alignment="center" borderStyle="border" imageScaling="proportionallyDown" inset="2" id="II9-4W-Rid">
-                            <behavior key="behavior" pushIn="YES" lightByBackground="YES" lightByGray="YES"/>
+                        <buttonCell key="cell" type="radio" title="Binary" bezelStyle="regularSquare" imagePosition="left" alignment="left" inset="2" id="BiN-Ea-rFP">
+                            <behavior key="behavior" changeContents="YES" doesNotDimImage="YES" lightByContents="YES"/>
                             <font key="font" metaFont="system"/>
                         </buttonCell>
                     </button>
-                    <button verticalHuggingPriority="750" id="W4t-jU-LwB">
-                        <rect key="frame" x="78" y="71" width="81" height="32"/>
+                    <button id="O0Q-OO-JVr">
+                        <rect key="frame" x="391" y="231" width="45" height="18"/>
                         <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMinY="YES"/>
-                        <buttonCell key="cell" type="push" title="Button" bezelStyle="rounded" alignment="center" borderStyle="border" imageScaling="proportionallyDown" inset="2" id="eAo-Ei-LbK">
-                            <behavior key="behavior" pushIn="YES" lightByBackground="YES" lightByGray="YES"/>
+                        <buttonCell key="cell" type="radio" title="Asc" bezelStyle="regularSquare" imagePosition="left" alignment="left" inset="2" id="skL-9F-1aA">
+                            <behavior key="behavior" changeContents="YES" doesNotDimImage="YES" lightByContents="YES"/>
                             <font key="font" metaFont="system"/>
                         </buttonCell>
                     </button>
+                    <button id="dRf-JF-eJw">
+                        <rect key="frame" x="528" y="231" width="85" height="18"/>
+                        <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMinY="YES"/>
+                        <buttonCell key="cell" type="radio" title="Arithmetic" bezelStyle="regularSquare" imagePosition="left" alignment="left" inset="2" id="pcd-UN-sAP">
+                            <behavior key="behavior" changeContents="YES" doesNotDimImage="YES" lightByContents="YES"/>
+                            <font key="font" metaFont="system"/>
+                        </buttonCell>
+                    </button>
+                    <button id="B7h-wj-Pl0">
+                        <rect key="frame" x="528" y="253" width="55" height="18"/>
+                        <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMinY="YES"/>
+                        <buttonCell key="cell" type="radio" title="Logic" bezelStyle="regularSquare" imagePosition="left" alignment="left" inset="2" id="Z0e-Hp-bDw">
+                            <behavior key="behavior" changeContents="YES" doesNotDimImage="YES" lightByContents="YES"/>
+                            <font key="font" metaFont="system"/>
+                        </buttonCell>
+                    </button>
+                    <textField horizontalHuggingPriority="251" verticalHuggingPriority="750" id="19d-dC-75v">
+                        <rect key="frame" x="18" y="176" width="47" height="17"/>
+                        <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMinY="YES"/>
+                        <textFieldCell key="cell" lineBreakMode="clipping" title="Output" id="cd9-bd-qD2">
+                            <font key="font" metaFont="system"/>
+                            <color key="textColor" name="labelColor" catalog="System" colorSpace="catalog"/>
+                            <color key="backgroundColor" name="textBackgroundColor" catalog="System" colorSpace="catalog"/>
+                        </textFieldCell>
+                    </textField>
+                    <textField horizontalHuggingPriority="251" verticalHuggingPriority="750" id="IBO-CM-gX8">
+                        <rect key="frame" x="671" y="144" width="17" height="17"/>
+                        <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMinY="YES"/>
+                        <textFieldCell key="cell" scrollable="YES" lineBreakMode="clipping" sendsActionOnEndEditing="YES" title="▼" id="m3T-mv-rlu">
+                            <font key="font" size="13" name="HiraginoSans-W3"/>
+                            <color key="textColor" name="labelColor" catalog="System" colorSpace="catalog"/>
+                            <color key="backgroundColor" name="controlColor" catalog="System" colorSpace="catalog"/>
+                        </textFieldCell>
+                    </textField>
+                    <textField horizontalHuggingPriority="251" verticalHuggingPriority="750" id="wLu-Ks-RmX">
+                        <rect key="frame" x="547" y="85" width="17" height="17"/>
+                        <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMinY="YES"/>
+                        <textFieldCell key="cell" scrollable="YES" lineBreakMode="clipping" sendsActionOnEndEditing="YES" title="◀︎" id="s9S-kr-nd3">
+                            <font key="font" size="13" name="HiraginoSans-W3"/>
+                            <color key="textColor" name="labelColor" catalog="System" colorSpace="catalog"/>
+                            <color key="backgroundColor" name="controlColor" catalog="System" colorSpace="catalog"/>
+                        </textFieldCell>
+                    </textField>
                 </subviews>
             </view>
-            <point key="canvasLocation" x="440.5" y="145.5"/>
-        </window>
-        <window title="Window" allowsToolTipsWhenApplicationIsInactive="NO" autorecalculatesKeyViewLoop="NO" releasedWhenClosed="NO" frameAutosaveName="" animationBehavior="default" id="atu-Em-RsG">
-            <windowStyleMask key="styleMask" titled="YES" closable="YES" miniaturizable="YES" resizable="YES"/>
-            <windowPositionMask key="initialPositionMask" leftStrut="YES" rightStrut="YES" topStrut="YES" bottomStrut="YES"/>
-            <rect key="contentRect" x="131" y="165" width="495" height="463"/>
-            <rect key="screenRect" x="0.0" y="0.0" width="1440" height="900"/>
-            <view key="contentView" id="i8X-hT-N40">
-                <rect key="frame" x="0.0" y="0.0" width="495" height="463"/>
-                <autoresizingMask key="autoresizingMask"/>
-                <subviews>
-                    <segmentedControl verticalHuggingPriority="750" id="0Dj-js-JF7">
-                        <rect key="frame" x="126" y="380" width="243" height="24"/>
-                        <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMinY="YES"/>
-                        <segmentedCell key="cell" borderStyle="border" alignment="left" style="rounded" trackingMode="selectOne" id="U01-Oi-jsI">
-                            <font key="font" metaFont="system"/>
-                            <segments>
-                                <segment label="Dec"/>
-                                <segment label="Hex" selected="YES" tag="1"/>
-                                <segment label="Bin"/>
-                                <segment label="Oct"/>
-                                <segment label="Asc"/>
-                            </segments>
-                        </segmentedCell>
-                    </segmentedControl>
-                    <textField verticalHuggingPriority="750" id="mdB-c6-J4l">
-                        <rect key="frame" x="20" y="411" width="455" height="32"/>
-                        <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMinY="YES"/>
-                        <textFieldCell key="cell" scrollable="YES" lineBreakMode="clipping" selectable="YES" editable="YES" sendsActionOnEndEditing="YES" state="on" borderStyle="bezel" title="0000 0000 0000 0000 0000 0000 0000 0000" drawsBackground="YES" id="bgn-mP-27Q">
-                            <font key="font" size="19" name="Menlo-Regular"/>
-                            <color key="textColor" name="controlTextColor" catalog="System" colorSpace="catalog"/>
-                            <color key="backgroundColor" name="textBackgroundColor" catalog="System" colorSpace="catalog"/>
-                        </textFieldCell>
-                    </textField>
-                    <textField horizontalHuggingPriority="251" verticalHuggingPriority="750" id="NlJ-sf-o3L">
-                        <rect key="frame" x="238" y="357" width="17" height="17"/>
-                        <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMinY="YES"/>
-                        <textFieldCell key="cell" scrollable="YES" lineBreakMode="clipping" sendsActionOnEndEditing="YES" title="⬇︎" id="KYn-LV-MGm">
-                            <font key="font" size="13" name="HiraginoSans-W3"/>
-                            <color key="textColor" name="labelColor" catalog="System" colorSpace="catalog"/>
-                            <color key="backgroundColor" name="controlColor" catalog="System" colorSpace="catalog"/>
-                        </textFieldCell>
-                    </textField>
-                    <segmentedControl verticalHuggingPriority="750" id="8n2-5A-Hfi">
-                        <rect key="frame" x="272" y="275" width="162" height="24"/>
-                        <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMinY="YES"/>
-                        <segmentedCell key="cell" borderStyle="border" alignment="left" style="rounded" trackingMode="selectOne" id="A3F-ve-4Ue">
-                            <font key="font" metaFont="system"/>
-                            <segments>
-                                <segment label="Arithmetic"/>
-                                <segment label="Logical" selected="YES" tag="1"/>
-                            </segments>
-                        </segmentedCell>
-                    </segmentedControl>
-                    <segmentedControl verticalHuggingPriority="750" id="zbv-hy-Yua">
-                        <rect key="frame" x="272" y="163" width="162" height="24"/>
-                        <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMinY="YES"/>
-                        <segmentedCell key="cell" borderStyle="border" alignment="left" style="rounded" trackingMode="selectOne" id="Jto-Wt-RcH">
-                            <font key="font" metaFont="system"/>
-                            <segments>
-                                <segment label="Arithmetic"/>
-                                <segment label="Logical" selected="YES" tag="1"/>
-                            </segments>
-                        </segmentedCell>
-                    </segmentedControl>
-                    <segmentedControl verticalHuggingPriority="750" id="L8C-03-rdD">
-                        <rect key="frame" x="59" y="275" width="209" height="24"/>
-                        <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMinY="YES"/>
-                        <segmentedCell key="cell" borderStyle="border" alignment="left" style="rounded" trackingMode="selectOne" id="hfG-Al-Ysn">
-                            <font key="font" metaFont="system"/>
-                            <segments>
-                                <segment label="8"/>
-                                <segment label="16" selected="YES" tag="1"/>
-                                <segment label="32"/>
-                                <segment label="64"/>
-                                <segment label="128"/>
-                            </segments>
-                        </segmentedCell>
-                    </segmentedControl>
-                    <segmentedControl verticalHuggingPriority="750" id="NvZ-Mf-BZe">
-                        <rect key="frame" x="67" y="304" width="359" height="24"/>
-                        <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMinY="YES"/>
-                        <segmentedCell key="cell" borderStyle="border" alignment="left" style="rounded" trackingMode="selectOne" id="Rsk-MF-U3E">
-                            <font key="font" metaFont="system"/>
-                            <segments>
-                                <segment label="Unsigned"/>
-                                <segment label="Signed 2's" selected="YES" tag="1"/>
-                                <segment label="Signed 1's"/>
-                                <segment label="Sign &amp; Mag"/>
-                            </segments>
-                        </segmentedCell>
-                    </segmentedControl>
-                    <textField horizontalHuggingPriority="251" verticalHuggingPriority="750" id="Ttj-yv-AKy">
-                        <rect key="frame" x="238" y="223" width="17" height="17"/>
-                        <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMinY="YES"/>
-                        <textFieldCell key="cell" scrollable="YES" lineBreakMode="clipping" sendsActionOnEndEditing="YES" title="⬇︎" id="9Dc-e3-8lY">
-                            <font key="font" size="13" name="HiraginoSans-W3"/>
-                            <color key="textColor" name="labelColor" catalog="System" colorSpace="catalog"/>
-                            <color key="backgroundColor" name="controlColor" catalog="System" colorSpace="catalog"/>
-                        </textFieldCell>
-                    </textField>
-                    <segmentedControl verticalHuggingPriority="750" id="4Wj-68-D2v">
-                        <rect key="frame" x="59" y="163" width="209" height="24"/>
-                        <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMinY="YES"/>
-                        <segmentedCell key="cell" borderStyle="border" alignment="left" style="rounded" trackingMode="selectOne" id="xkm-tC-bmj">
-                            <font key="font" metaFont="system"/>
-                            <segments>
-                                <segment label="8"/>
-                                <segment label="16" selected="YES" tag="1"/>
-                                <segment label="32"/>
-                                <segment label="64"/>
-                                <segment label="128"/>
-                            </segments>
-                        </segmentedCell>
-                    </segmentedControl>
-                    <segmentedControl verticalHuggingPriority="750" id="ck7-ct-Hsj">
-                        <rect key="frame" x="193" y="192" width="106" height="24"/>
-                        <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMinY="YES"/>
-                        <segmentedCell key="cell" borderStyle="border" alignment="left" style="rounded" trackingMode="selectOne" id="65l-A9-P1G">
-                            <font key="font" metaFont="system"/>
-                            <segments>
-                                <segment label="Little"/>
-                                <segment label="Big" selected="YES" tag="1"/>
-                            </segments>
-                        </segmentedCell>
-                    </segmentedControl>
-                    <box verticalHuggingPriority="750" boxType="separator" id="bfR-4w-3tw">
-                        <rect key="frame" x="20" y="346" width="455" height="5"/>
-                        <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMinY="YES"/>
-                    </box>
-                    <segmentedControl verticalHuggingPriority="750" id="eXp-iv-iQb">
-                        <rect key="frame" x="193" y="246" width="106" height="24"/>
-                        <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMinY="YES"/>
-                        <segmentedCell key="cell" borderStyle="border" alignment="left" style="rounded" trackingMode="selectOne" id="ET2-fx-AmI">
-                            <font key="font" metaFont="system"/>
-                            <segments>
-                                <segment label="Little"/>
-                                <segment label="Big" selected="YES" tag="1"/>
-                            </segments>
-                        </segmentedCell>
-                    </segmentedControl>
-                    <segmentedControl verticalHuggingPriority="750" id="HmG-tc-iNv">
-                        <rect key="frame" x="126" y="58" width="243" height="24"/>
-                        <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMinY="YES"/>
-                        <segmentedCell key="cell" borderStyle="border" alignment="left" style="rounded" trackingMode="selectOne" id="YUk-0f-0K8">
-                            <font key="font" metaFont="system"/>
-                            <segments>
-                                <segment label="Dec"/>
-                                <segment label="Hex" selected="YES" tag="1"/>
-                                <segment label="Bin"/>
-                                <segment label="Oct"/>
-                                <segment label="Asc"/>
-                            </segments>
-                        </segmentedCell>
-                    </segmentedControl>
-                    <textField verticalHuggingPriority="750" id="sDx-To-qoz">
-                        <rect key="frame" x="20" y="20" width="455" height="32"/>
-                        <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMinY="YES"/>
-                        <textFieldCell key="cell" scrollable="YES" lineBreakMode="clipping" selectable="YES" editable="YES" sendsActionOnEndEditing="YES" state="on" borderStyle="bezel" title="0000 0000 0000 0000 0000 0000 0000 0000" drawsBackground="YES" id="Lyf-ri-hai">
-                            <font key="font" size="19" name="Menlo-Regular"/>
-                            <color key="textColor" name="controlTextColor" catalog="System" colorSpace="catalog"/>
-                            <color key="backgroundColor" name="textBackgroundColor" catalog="System" colorSpace="catalog"/>
-                        </textFieldCell>
-                    </textField>
-                    <textField horizontalHuggingPriority="251" verticalHuggingPriority="750" id="RWr-og-YGe">
-                        <rect key="frame" x="238" y="89" width="17" height="17"/>
-                        <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMinY="YES"/>
-                        <textFieldCell key="cell" scrollable="YES" lineBreakMode="clipping" sendsActionOnEndEditing="YES" title="⬇︎" id="LoE-dY-7OI">
-                            <font key="font" size="13" name="HiraginoSans-W3"/>
-                            <color key="textColor" name="labelColor" catalog="System" colorSpace="catalog"/>
-                            <color key="backgroundColor" name="controlColor" catalog="System" colorSpace="catalog"/>
-                        </textFieldCell>
-                    </textField>
-                    <segmentedControl verticalHuggingPriority="750" id="g33-fJ-1ZA">
-                        <rect key="frame" x="67" y="134" width="359" height="24"/>
-                        <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMinY="YES"/>
-                        <segmentedCell key="cell" borderStyle="border" alignment="left" style="rounded" trackingMode="selectOne" id="FSd-9V-T82">
-                            <font key="font" metaFont="system"/>
-                            <segments>
-                                <segment label="Unsigned"/>
-                                <segment label="Signed 2's" selected="YES" tag="1"/>
-                                <segment label="Signed 1's"/>
-                                <segment label="Sign &amp; Mag"/>
-                            </segments>
-                        </segmentedCell>
-                    </segmentedControl>
-                    <box verticalHuggingPriority="750" boxType="separator" id="Bmm-Or-ghy">
-                        <rect key="frame" x="20" y="112" width="455" height="5"/>
-                        <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMinY="YES"/>
-                    </box>
-                </subviews>
-            </view>
-            <point key="canvasLocation" x="-225.5" y="106.5"/>
+            <point key="canvasLocation" x="682" y="131.5"/>
         </window>
     </objects>
 </document>

@@ -1,7 +1,20 @@
 
+#ifndef BIT_FIDDIE_COMMON_DEFINED
+#define BIT_FIDDIE_COMMON_DEFINED
+
 typedef enum{
   COMPUTE_UNSIGNED = 0,
   COMPUTE_ONES_COMPLEMENT = 1,
   COMPUTE_TWOS_COMPLEMENT = 2,
 } ConversionType;
 
+typedef enum{
+  NUMBER_SYSTEM_DEC = 0,
+  NUMBER_SYSTEM_HEX,
+  NUMBER_SYSTEM_BIN,
+  NUMBER_SYSTEM_ASC
+} NumberSystem;
+
+void updateApp();
+
+#endif // BIT_FIDDIE_COMMON_DEFINED

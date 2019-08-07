@@ -3,8 +3,14 @@
 
 #include "NAString.h"
 #include "BitArray.h"
-#include "BitFiddleCommon.h"
 
+
+typedef enum{
+  NUMBER_SYSTEM_DEC = 0,
+  NUMBER_SYSTEM_HEX,
+  NUMBER_SYSTEM_BIN,
+  NUMBER_SYSTEM_ASC
+} NumberSystem;
 
 
 @interface NumberOutputField : NSTextView {

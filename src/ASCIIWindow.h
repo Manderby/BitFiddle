@@ -1,4 +1,4 @@
 
 #include "NAUI.h"
 
-NAWindow* createASCIIWindow();
+NAWindow* bitCreateASCIIWindow();

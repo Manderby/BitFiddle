@@ -13,6 +13,7 @@ NACheckbox* keepMiniOnTopCheckbox;
 NAButton* doneButton;
 
 
+
 void updateApp();
 
 
@@ -47,7 +48,7 @@ NABool pressDone(void* controllerdata, NAUIElement* uielement, NAUICommand comma
 
 
 
-NAWindow* createPreferencesWindow(){
+NAWindow* bitCreatePreferencesWindow(){
   NARect windowrect = naMakeRectS(20, 20, 250, 214);
   window = naNewWindow(bitTranslate(BitFiddlePrefsWindowTitle), windowrect, NA_FALSE);
   NASpace* space = naGetWindowContentSpace(window);

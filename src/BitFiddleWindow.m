@@ -1,11 +1,11 @@
 
 #import "BitFiddleWindow.h"
-#import "BitFiddleApplication.h"
+#import "BitFiddleNSApplication.h"
 
 @implementation BitFiddleWindow
 
 - (void) zoom:(id)sender{
-  [(BitFiddleApplication*)NSApp switchMini:sender];
+  [(BitFiddleNSApplication*)NSApp switchMini:sender];
 }
 
 @end
@@ -15,7 +15,7 @@
 @implementation BitFiddlePanel
 
 - (void) zoom:(id)sender{
-  [(BitFiddleApplication*)NSApp switchMini:sender];
+  [(BitFiddleNSApplication*)NSApp switchMini:sender];
 }
 
 @end

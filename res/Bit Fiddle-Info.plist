@@ -33,6 +33,6 @@
 	<key>NSMainNibFile</key>
 	<string>MainMenu</string>
 	<key>NSPrincipalClass</key>
-	<string>BitFiddleApplication</string>
+	<string>BitFiddleNSApplication</string>
 </dict>
 </plist>

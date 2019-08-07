@@ -7,23 +7,13 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
-		90035EC122E58E5D00128540 /* BitFiddlePreferences.c in Sources */ = {isa = PBXBuildFile; fileRef = 90035EC022E58E5D00128540 /* BitFiddlePreferences.c */; };
-		90035EC322E5932500128540 /* BitFiddleTranslations.c in Sources */ = {isa = PBXBuildFile; fileRef = 90035EC222E5932400128540 /* BitFiddleTranslations.c */; };
 		90035ED422EA0C0C00128540 /* ManderAppTranslations.c in Sources */ = {isa = PBXBuildFile; fileRef = 90035ED322EA0C0C00128540 /* ManderAppTranslations.c */; };
 		90035EE322EA356500128540 /* ManderAppPreferences.c in Sources */ = {isa = PBXBuildFile; fileRef = 90035EE122EA356500128540 /* ManderAppPreferences.c */; };
 		90035EE922EEC9E700128540 /* ManderApp.c in Sources */ = {isa = PBXBuildFile; fileRef = 90035EE822EEC9E700128540 /* ManderApp.c */; };
 		90035EEE22EECBBB00128540 /* ManderAppAbout.c in Sources */ = {isa = PBXBuildFile; fileRef = 90035EED22EECBBB00128540 /* ManderAppAbout.c */; };
 		900A9C6822DA314F00BBE4FD /* NAPreferencesCocoa.m in Sources */ = {isa = PBXBuildFile; fileRef = 900A9C6722DA314F00BBE4FD /* NAPreferencesCocoa.m */; };
 		900B78481BD6BF9200796AAB /* WebKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 900B78471BD6BF9200796AAB /* WebKit.framework */; };
-		9029EC3B22C937B500F823EC /* ASCIIWindow.c in Sources */ = {isa = PBXBuildFile; fileRef = 9029EC3922C937B500F823EC /* ASCIIWindow.c */; };
-		909D438922DBDD660093849F /* PreferencesWindow.c in Sources */ = {isa = PBXBuildFile; fileRef = 909D438722DBDD660093849F /* PreferencesWindow.c */; };
 		90AEE126229C450700DD2DCF /* manderc.png in Resources */ = {isa = PBXBuildFile; fileRef = 90AEE123229C450700DD2DCF /* manderc.png */; };
-		90BAF66F21759A85001665BF /* ComplementWindowController.m in Sources */ = {isa = PBXBuildFile; fileRef = 90BAF66121759A85001665BF /* ComplementWindowController.m */; };
-		90BAF67121759A85001665BF /* BitFiddleApplication.m in Sources */ = {isa = PBXBuildFile; fileRef = 90BAF66321759A85001665BF /* BitFiddleApplication.m */; };
-		90BAF67221759A85001665BF /* BitArray.c in Sources */ = {isa = PBXBuildFile; fileRef = 90BAF66621759A85001665BF /* BitArray.c */; };
-		90BAF67321759A85001665BF /* main.m in Sources */ = {isa = PBXBuildFile; fileRef = 90BAF66721759A85001665BF /* main.m */; };
-		90BAF67521759A85001665BF /* BitFiddleWindow.m in Sources */ = {isa = PBXBuildFile; fileRef = 90BAF66C21759A85001665BF /* BitFiddleWindow.m */; };
-		90BAF67621759A85001665BF /* NumberOutputField.m in Sources */ = {isa = PBXBuildFile; fileRef = 90BAF66E21759A85001665BF /* NumberOutputField.m */; };
 		90BAF74C21759CC6001665BF /* InfoPlist.strings in Resources */ = {isa = PBXBuildFile; fileRef = 90BAF73521759CC6001665BF /* InfoPlist.strings */; };
 		90BAF74D21759CC6001665BF /* MainMenu.xib in Resources */ = {isa = PBXBuildFile; fileRef = 90BAF73721759CC6001665BF /* MainMenu.xib */; };
 		90BAF75021759CC6001665BF /* ExpertWindow.xib in Resources */ = {isa = PBXBuildFile; fileRef = 90BAF73C21759CC6001665BF /* ExpertWindow.xib */; };
@@ -64,13 +54,23 @@
 		90D6ED1D22C413BF00E752C5 /* NARuntime.c in Sources */ = {isa = PBXBuildFile; fileRef = 90D6ECDB22C413BF00E752C5 /* NARuntime.c */; };
 		90D6ED1E22C413BF00E752C5 /* NABinaryData.c in Sources */ = {isa = PBXBuildFile; fileRef = 90D6ECDE22C413BF00E752C5 /* NABinaryData.c */; };
 		90D6ED1F22C413BF00E752C5 /* NAMoney.c in Sources */ = {isa = PBXBuildFile; fileRef = 90D6ECE522C413BF00E752C5 /* NAMoney.c */; };
+		90D8E2DB22F9D8C40032C934 /* BitFiddlePreferences.c in Sources */ = {isa = PBXBuildFile; fileRef = 90D8E2C622F9D8C40032C934 /* BitFiddlePreferences.c */; };
+		90D8E2DC22F9D8C40032C934 /* ComplementWindowController.m in Sources */ = {isa = PBXBuildFile; fileRef = 90D8E2C722F9D8C40032C934 /* ComplementWindowController.m */; };
+		90D8E2DD22F9D8C40032C934 /* BitFiddleNSApplication.m in Sources */ = {isa = PBXBuildFile; fileRef = 90D8E2C822F9D8C40032C934 /* BitFiddleNSApplication.m */; };
+		90D8E2DE22F9D8C40032C934 /* PreferencesWindow.c in Sources */ = {isa = PBXBuildFile; fileRef = 90D8E2CA22F9D8C40032C934 /* PreferencesWindow.c */; };
+		90D8E2DF22F9D8C40032C934 /* BitArray.c in Sources */ = {isa = PBXBuildFile; fileRef = 90D8E2CF22F9D8C40032C934 /* BitArray.c */; };
+		90D8E2E022F9D8C40032C934 /* ComplementWindow.c in Sources */ = {isa = PBXBuildFile; fileRef = 90D8E2D022F9D8C40032C934 /* ComplementWindow.c */; };
+		90D8E2E122F9D8C40032C934 /* main.m in Sources */ = {isa = PBXBuildFile; fileRef = 90D8E2D122F9D8C40032C934 /* main.m */; };
+		90D8E2E222F9D8C40032C934 /* BitFiddleWindow.m in Sources */ = {isa = PBXBuildFile; fileRef = 90D8E2D622F9D8C40032C934 /* BitFiddleWindow.m */; };
+		90D8E2E322F9D8C40032C934 /* BitFiddleTranslations.c in Sources */ = {isa = PBXBuildFile; fileRef = 90D8E2D722F9D8C40032C934 /* BitFiddleTranslations.c */; };
+		90D8E2E422F9D8C40032C934 /* NumberOutputField.m in Sources */ = {isa = PBXBuildFile; fileRef = 90D8E2D922F9D8C40032C934 /* NumberOutputField.m */; };
+		90D8E2E522F9D8C40032C934 /* ASCIIWindow.c in Sources */ = {isa = PBXBuildFile; fileRef = 90D8E2DA22F9D8C40032C934 /* ASCIIWindow.c */; };
+		90D8E2E822FB16D00032C934 /* BitFiddleApplication.c in Sources */ = {isa = PBXBuildFile; fileRef = 90D8E2E622FB16D00032C934 /* BitFiddleApplication.c */; };
 		90E3274522218B65005712B0 /* .gitignore in Resources */ = {isa = PBXBuildFile; fileRef = 90E3273422218B65005712B0 /* .gitignore */; };
 		B9848B41177B99B400E21D96 /* Cocoa.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = B9848B40177B99B400E21D96 /* Cocoa.framework */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
-		90035EC022E58E5D00128540 /* BitFiddlePreferences.c */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.c; path = BitFiddlePreferences.c; sourceTree = "<group>"; };
-		90035EC222E5932400128540 /* BitFiddleTranslations.c */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.c; path = BitFiddleTranslations.c; sourceTree = "<group>"; };
 		90035ED322EA0C0C00128540 /* ManderAppTranslations.c */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.c; path = ManderAppTranslations.c; sourceTree = "<group>"; };
 		90035EE122EA356500128540 /* ManderAppPreferences.c */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.c; path = ManderAppPreferences.c; sourceTree = "<group>"; };
 		90035EE222EA356500128540 /* ManderAppPreferences.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ManderAppPreferences.h; sourceTree = "<group>"; };
@@ -81,23 +81,7 @@
 		900A9C6722DA314F00BBE4FD /* NAPreferencesCocoa.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = NAPreferencesCocoa.m; sourceTree = "<group>"; };
 		900A9C6922DA316500BBE4FD /* NAPreferences.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = NAPreferences.h; sourceTree = "<group>"; };
 		900B78471BD6BF9200796AAB /* WebKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = WebKit.framework; path = System/Library/Frameworks/WebKit.framework; sourceTree = SDKROOT; };
-		9029EC3922C937B500F823EC /* ASCIIWindow.c */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.c; path = ASCIIWindow.c; sourceTree = "<group>"; };
-		9029EC3A22C937B500F823EC /* ASCIIWindow.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ASCIIWindow.h; sourceTree = "<group>"; };
-		909D438722DBDD660093849F /* PreferencesWindow.c */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.c; path = PreferencesWindow.c; sourceTree = "<group>"; };
-		909D438822DBDD660093849F /* PreferencesWindow.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = PreferencesWindow.h; sourceTree = "<group>"; };
-		909D438A22DC58BB0093849F /* BitFiddlePreferences.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = BitFiddlePreferences.h; sourceTree = "<group>"; };
 		90AEE123229C450700DD2DCF /* manderc.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = manderc.png; sourceTree = "<group>"; };
-		90BAF65F21759A85001665BF /* BitArray.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = BitArray.h; sourceTree = "<group>"; };
-		90BAF66121759A85001665BF /* ComplementWindowController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ComplementWindowController.m; sourceTree = "<group>"; };
-		90BAF66321759A85001665BF /* BitFiddleApplication.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = BitFiddleApplication.m; sourceTree = "<group>"; };
-		90BAF66421759A85001665BF /* BitFiddleWindow.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = BitFiddleWindow.h; sourceTree = "<group>"; };
-		90BAF66521759A85001665BF /* NumberOutputField.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = NumberOutputField.h; sourceTree = "<group>"; };
-		90BAF66621759A85001665BF /* BitArray.c */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.c; path = BitArray.c; sourceTree = "<group>"; };
-		90BAF66721759A85001665BF /* main.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = main.m; sourceTree = "<group>"; };
-		90BAF66821759A85001665BF /* BitFiddleApplication.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = BitFiddleApplication.h; sourceTree = "<group>"; };
-		90BAF66A21759A85001665BF /* ComplementWindowController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ComplementWindowController.h; sourceTree = "<group>"; };
-		90BAF66C21759A85001665BF /* BitFiddleWindow.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = BitFiddleWindow.m; sourceTree = "<group>"; };
-		90BAF66E21759A85001665BF /* NumberOutputField.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = NumberOutputField.m; sourceTree = "<group>"; };
 		90BAF73621759CC6001665BF /* de */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = de; path = de.lproj/InfoPlist.strings; sourceTree = "<group>"; };
 		90BAF73821759CC6001665BF /* de */ = {isa = PBXFileReference; lastKnownFileType = file.xib; name = de; path = de.lproj/MainMenu.xib; sourceTree = "<group>"; };
 		90BAF73C21759CC6001665BF /* ExpertWindow.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = ExpertWindow.xib; sourceTree = "<group>"; };
@@ -250,10 +234,34 @@
 		90D6ECFD22C413BF00E752C5 /* NAPool.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = NAPool.h; sourceTree = "<group>"; };
 		90D6ED2022C4189D00E752C5 /* BitFiddleStrings_deu.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = BitFiddleStrings_deu.h; sourceTree = "<group>"; };
 		90D6ED2122C4189D00E752C5 /* BitFiddleStrings_eng.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = BitFiddleStrings_eng.h; sourceTree = "<group>"; };
-		90D6ED2222C418D100E752C5 /* BitFiddleTranslations.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = BitFiddleTranslations.h; sourceTree = "<group>"; };
 		90D7BAE122C758BD002BA392 /* ManderApp_eng.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = ManderApp_eng.h; sourceTree = "<group>"; };
 		90D7BAE222C758BD002BA392 /* ManderApp_deu.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = ManderApp_deu.h; sourceTree = "<group>"; };
 		90D7BAE322C7597D002BA392 /* ManderAppTranslations.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = ManderAppTranslations.h; sourceTree = "<group>"; };
+		90D8E2C422F9D8C40032C934 /* ComplementWindow.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ComplementWindow.h; sourceTree = "<group>"; };
+		90D8E2C522F9D8C40032C934 /* BitArray.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = BitArray.h; sourceTree = "<group>"; };
+		90D8E2C622F9D8C40032C934 /* BitFiddlePreferences.c */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.c; path = BitFiddlePreferences.c; sourceTree = "<group>"; };
+		90D8E2C722F9D8C40032C934 /* ComplementWindowController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ComplementWindowController.m; sourceTree = "<group>"; };
+		90D8E2C822F9D8C40032C934 /* BitFiddleNSApplication.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = BitFiddleNSApplication.m; sourceTree = "<group>"; };
+		90D8E2C922F9D8C40032C934 /* BitFiddleTranslations.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = BitFiddleTranslations.h; sourceTree = "<group>"; };
+		90D8E2CA22F9D8C40032C934 /* PreferencesWindow.c */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.c; path = PreferencesWindow.c; sourceTree = "<group>"; };
+		90D8E2CB22F9D8C40032C934 /* BitFiddleWindow.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = BitFiddleWindow.h; sourceTree = "<group>"; };
+		90D8E2CC22F9D8C40032C934 /* NumberOutputField.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = NumberOutputField.h; sourceTree = "<group>"; };
+		90D8E2CD22F9D8C40032C934 /* NumberOutputField Kopie.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "NumberOutputField Kopie.h"; sourceTree = "<group>"; };
+		90D8E2CE22F9D8C40032C934 /* ASCIIWindow.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ASCIIWindow.h; sourceTree = "<group>"; };
+		90D8E2CF22F9D8C40032C934 /* BitArray.c */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.c; path = BitArray.c; sourceTree = "<group>"; };
+		90D8E2D022F9D8C40032C934 /* ComplementWindow.c */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.c; path = ComplementWindow.c; sourceTree = "<group>"; };
+		90D8E2D122F9D8C40032C934 /* main.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = main.m; sourceTree = "<group>"; };
+		90D8E2D222F9D8C40032C934 /* BitFiddleNSApplication.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = BitFiddleNSApplication.h; sourceTree = "<group>"; };
+		90D8E2D322F9D8C40032C934 /* BitFiddleCommon.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = BitFiddleCommon.h; sourceTree = "<group>"; };
+		90D8E2D422F9D8C40032C934 /* ComplementWindowController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ComplementWindowController.h; sourceTree = "<group>"; };
+		90D8E2D522F9D8C40032C934 /* BitFiddlePreferences.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = BitFiddlePreferences.h; sourceTree = "<group>"; };
+		90D8E2D622F9D8C40032C934 /* BitFiddleWindow.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = BitFiddleWindow.m; sourceTree = "<group>"; };
+		90D8E2D722F9D8C40032C934 /* BitFiddleTranslations.c */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.c; path = BitFiddleTranslations.c; sourceTree = "<group>"; };
+		90D8E2D822F9D8C40032C934 /* PreferencesWindow.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = PreferencesWindow.h; sourceTree = "<group>"; };
+		90D8E2D922F9D8C40032C934 /* NumberOutputField.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = NumberOutputField.m; sourceTree = "<group>"; };
+		90D8E2DA22F9D8C40032C934 /* ASCIIWindow.c */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.c; path = ASCIIWindow.c; sourceTree = "<group>"; };
+		90D8E2E622FB16D00032C934 /* BitFiddleApplication.c */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.c; path = BitFiddleApplication.c; sourceTree = "<group>"; };
+		90D8E2E722FB16D00032C934 /* BitFiddleApplication.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = BitFiddleApplication.h; sourceTree = "<group>"; };
 		90E3273422218B65005712B0 /* .gitignore */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; path = .gitignore; sourceTree = "<group>"; };
 		B9848B3D177B99B400E21D96 /* Bit Fiddle.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = "Bit Fiddle.app"; sourceTree = BUILT_PRODUCTS_DIR; };
 		B9848B40177B99B400E21D96 /* Cocoa.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Cocoa.framework; path = System/Library/Frameworks/Cocoa.framework; sourceTree = SDKROOT; };
@@ -295,33 +303,6 @@
 				90AEE123229C450700DD2DCF /* manderc.png */,
 			);
 			path = res;
-			sourceTree = "<group>";
-		};
-		90BAF65E21759A85001665BF /* src */ = {
-			isa = PBXGroup;
-			children = (
-				9029EC3922C937B500F823EC /* ASCIIWindow.c */,
-				9029EC3A22C937B500F823EC /* ASCIIWindow.h */,
-				90BAF66621759A85001665BF /* BitArray.c */,
-				90BAF65F21759A85001665BF /* BitArray.h */,
-				90BAF66821759A85001665BF /* BitFiddleApplication.h */,
-				90BAF66321759A85001665BF /* BitFiddleApplication.m */,
-				90035EC022E58E5D00128540 /* BitFiddlePreferences.c */,
-				909D438A22DC58BB0093849F /* BitFiddlePreferences.h */,
-				90035EC222E5932400128540 /* BitFiddleTranslations.c */,
-				90D6ED2222C418D100E752C5 /* BitFiddleTranslations.h */,
-				90BAF66421759A85001665BF /* BitFiddleWindow.h */,
-				90BAF66C21759A85001665BF /* BitFiddleWindow.m */,
-				90BAF66A21759A85001665BF /* ComplementWindowController.h */,
-				90BAF66121759A85001665BF /* ComplementWindowController.m */,
-				90BAF66721759A85001665BF /* main.m */,
-				90BAF66521759A85001665BF /* NumberOutputField.h */,
-				90BAF66E21759A85001665BF /* NumberOutputField.m */,
-				909D438722DBDD660093849F /* PreferencesWindow.c */,
-				909D438822DBDD660093849F /* PreferencesWindow.h */,
-			);
-			name = src;
-			path = ../../src;
 			sourceTree = "<group>";
 		};
 		90BAF73221759CC6001665BF /* res */ = {
@@ -580,6 +561,39 @@
 			path = NAVectorAlgebra;
 			sourceTree = "<group>";
 		};
+		90D8E2C322F9D8C40032C934 /* src */ = {
+			isa = PBXGroup;
+			children = (
+				90D8E2DA22F9D8C40032C934 /* ASCIIWindow.c */,
+				90D8E2CE22F9D8C40032C934 /* ASCIIWindow.h */,
+				90D8E2CF22F9D8C40032C934 /* BitArray.c */,
+				90D8E2C522F9D8C40032C934 /* BitArray.h */,
+				90D8E2E622FB16D00032C934 /* BitFiddleApplication.c */,
+				90D8E2E722FB16D00032C934 /* BitFiddleApplication.h */,
+				90D8E2D222F9D8C40032C934 /* BitFiddleNSApplication.h */,
+				90D8E2C822F9D8C40032C934 /* BitFiddleNSApplication.m */,
+				90D8E2D322F9D8C40032C934 /* BitFiddleCommon.h */,
+				90D8E2C622F9D8C40032C934 /* BitFiddlePreferences.c */,
+				90D8E2D522F9D8C40032C934 /* BitFiddlePreferences.h */,
+				90D8E2D722F9D8C40032C934 /* BitFiddleTranslations.c */,
+				90D8E2C922F9D8C40032C934 /* BitFiddleTranslations.h */,
+				90D8E2CB22F9D8C40032C934 /* BitFiddleWindow.h */,
+				90D8E2D622F9D8C40032C934 /* BitFiddleWindow.m */,
+				90D8E2D022F9D8C40032C934 /* ComplementWindow.c */,
+				90D8E2C422F9D8C40032C934 /* ComplementWindow.h */,
+				90D8E2D422F9D8C40032C934 /* ComplementWindowController.h */,
+				90D8E2C722F9D8C40032C934 /* ComplementWindowController.m */,
+				90D8E2D122F9D8C40032C934 /* main.m */,
+				90D8E2CD22F9D8C40032C934 /* NumberOutputField Kopie.h */,
+				90D8E2CC22F9D8C40032C934 /* NumberOutputField.h */,
+				90D8E2D922F9D8C40032C934 /* NumberOutputField.m */,
+				90D8E2CA22F9D8C40032C934 /* PreferencesWindow.c */,
+				90D8E2D822F9D8C40032C934 /* PreferencesWindow.h */,
+			);
+			name = src;
+			path = ../../src;
+			sourceTree = "<group>";
+		};
 		90E3272D22218B65005712B0 /* ManderApp */ = {
 			isa = PBXGroup;
 			children = (
@@ -597,7 +611,7 @@
 				90E3272D22218B65005712B0 /* ManderApp */,
 				90D6EC6722C413BF00E752C5 /* NALib */,
 				90BAF73221759CC6001665BF /* res */,
-				90BAF65E21759A85001665BF /* src */,
+				90D8E2C322F9D8C40032C934 /* src */,
 				B9848B3F177B99B400E21D96 /* Frameworks */,
 				B9848B3E177B99B400E21D96 /* Products */,
 			);
@@ -696,27 +710,27 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				90BAF67521759A85001665BF /* BitFiddleWindow.m in Sources */,
 				90D6ED0F22C413BF00E752C5 /* NAString.c in Sources */,
+				90D8E2E322F9D8C40032C934 /* BitFiddleTranslations.c in Sources */,
 				90D6ECFF22C413BF00E752C5 /* NABufferManipulation.c in Sources */,
 				90D6ED1E22C413BF00E752C5 /* NABinaryData.c in Sources */,
 				90D6ED0522C413BF00E752C5 /* NABuffer.c in Sources */,
 				90D6ED1022C413BF00E752C5 /* NAList.c in Sources */,
-				90BAF67221759A85001665BF /* BitArray.c in Sources */,
 				90D6ED0B22C413BF00E752C5 /* NATreeOct.c in Sources */,
 				90D6ED1722C413BF00E752C5 /* NATranslator.c in Sources */,
-				90035EC322E5932500128540 /* BitFiddleTranslations.c in Sources */,
-				90BAF67621759A85001665BF /* NumberOutputField.m in Sources */,
+				90D8E2E022F9D8C40032C934 /* ComplementWindow.c in Sources */,
 				90D6ED1522C413BF00E752C5 /* NACocoaHelper.m in Sources */,
-				909D438922DBDD660093849F /* PreferencesWindow.c in Sources */,
+				90D8E2E422F9D8C40032C934 /* NumberOutputField.m in Sources */,
 				90D6ED1C22C413BF00E752C5 /* NAURL.c in Sources */,
-				90035EC122E58E5D00128540 /* BitFiddlePreferences.c in Sources */,
+				90D8E2E122F9D8C40032C934 /* main.m in Sources */,
+				90D8E2DE22F9D8C40032C934 /* PreferencesWindow.c in Sources */,
 				90D6ED0E22C413BF00E752C5 /* NATreeAVL.c in Sources */,
 				90D6ED0322C413BF00E752C5 /* NABufferWrite.c in Sources */,
 				90D6ED1122C413BF00E752C5 /* NADebug.c in Sources */,
 				90D6ED0822C413BF00E752C5 /* NATree.c in Sources */,
-				90BAF67321759A85001665BF /* main.m in Sources */,
+				90D8E2E822FB16D00032C934 /* BitFiddleApplication.c in Sources */,
 				90035EE322EA356500128540 /* ManderAppPreferences.c in Sources */,
+				90D8E2DD22F9D8C40032C934 /* BitFiddleNSApplication.m in Sources */,
 				90D6ED1422C413BF00E752C5 /* NAUIWINAPI.c in Sources */,
 				90D6ED0D22C413BF00E752C5 /* NATreeConfiguration.c in Sources */,
 				90D6ED0722C413BF00E752C5 /* NABufferSource.c in Sources */,
@@ -727,23 +741,25 @@
 				90D6ECFE22C413BF00E752C5 /* NAHeap.c in Sources */,
 				900A9C6822DA314F00BBE4FD /* NAPreferencesCocoa.m in Sources */,
 				90D6ED1822C413BF00E752C5 /* NAUICore.c in Sources */,
-				9029EC3B22C937B500F823EC /* ASCIIWindow.c in Sources */,
 				90035EE922EEC9E700128540 /* ManderApp.c in Sources */,
 				90D6ED0122C413BF00E752C5 /* NABufferRead.c in Sources */,
 				90D6ED1F22C413BF00E752C5 /* NAMoney.c in Sources */,
+				90D8E2DF22F9D8C40032C934 /* BitArray.c in Sources */,
 				90D6ED1922C413BF00E752C5 /* NADeflate.c in Sources */,
 				90D6ED1D22C413BF00E752C5 /* NARuntime.c in Sources */,
 				90035EEE22EECBBB00128540 /* ManderAppAbout.c in Sources */,
 				90D6ED0022C413BF00E752C5 /* NABufferPart.c in Sources */,
 				90D6ED0C22C413BF00E752C5 /* NATreeQuad.c in Sources */,
+				90D8E2DB22F9D8C40032C934 /* BitFiddlePreferences.c in Sources */,
 				90D6ED1A22C413BF00E752C5 /* NAFile.c in Sources */,
+				90D8E2E522F9D8C40032C934 /* ASCIIWindow.c in Sources */,
 				90D6ED0922C413BF00E752C5 /* NATreeIteration.c in Sources */,
-				90BAF67121759A85001665BF /* BitFiddleApplication.m in Sources */,
+				90D8E2DC22F9D8C40032C934 /* ComplementWindowController.m in Sources */,
 				90D6ED0422C413BF00E752C5 /* NABufferParse.c in Sources */,
 				90D6ED0222C413BF00E752C5 /* NABufferIteration.c in Sources */,
 				90D6ED1622C413BF00E752C5 /* NAUICocoa.m in Sources */,
+				90D8E2E222F9D8C40032C934 /* BitFiddleWindow.m in Sources */,
 				90035ED422EA0C0C00128540 /* ManderAppTranslations.c in Sources */,
-				90BAF66F21759A85001665BF /* ComplementWindowController.m in Sources */,
 				90D6ED1222C413BF00E752C5 /* NAPNG.c in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
