@@ -2,19 +2,17 @@
 #include "PreferencesWindow.h"
 #include "BitFiddleTranslations.h"
 #include "BitFiddlePreferences.h"
+#include "BitFiddleApplication.h"
 
 NAWindow* window;
 NALabel* startupLabel;
 NACheckbox* showASCIIOnStartupCheckbox;
 NACheckbox* resetConversionOnStartupCheckbox;
 NALabel* onTopLabel;
-NACheckbox* keepMaxiOnTopCheckbox;
-NACheckbox* keepMiniOnTopCheckbox;
+NACheckbox* keepConverterOnTopCheckbox;
 NAButton* doneButton;
 
 
-
-void updateApp();
 
 
 
@@ -26,16 +24,14 @@ NABool switchPreferencesSetting(void* controllerdata, NAUIElement* uielement, NA
     naSetPreferencesBool(BitPrefs[ShowASCIIOnStartup], naGetCheckboxState(showASCIIOnStartupCheckbox));
   }else if(uielement == resetConversionOnStartupCheckbox){
     naSetPreferencesBool(BitPrefs[ResetConversionOnStartup], naGetCheckboxState(resetConversionOnStartupCheckbox));
-  }else if(uielement == keepMaxiOnTopCheckbox){
-    naSetPreferencesBool(BitPrefs[KeepMaxiOnTop], naGetCheckboxState(keepMaxiOnTopCheckbox));
-  }else if(uielement == keepMiniOnTopCheckbox){
-    naSetPreferencesBool(BitPrefs[KeepMiniOnTop], naGetCheckboxState(keepMiniOnTopCheckbox));
+  }else if(uielement == keepConverterOnTopCheckbox){
+    naSetPreferencesBool(BitPrefs[KeepConverterOnTop], naGetCheckboxState(keepConverterOnTopCheckbox));
   }else{
     #ifndef NDEBUG
       naError("Unknown uielement sent message");
     #endif
   }
-  updateApp();
+  bitUpdateApp();
   return NA_TRUE;
 }
 
@@ -66,18 +62,13 @@ NAWindow* bitCreatePreferencesWindow(){
   naSetCheckboxState(resetConversionOnStartupCheckbox, naGetPreferencesBool(BitPrefs[ResetConversionOnStartup]));
   naAddSpaceChild(space, resetConversionOnStartupCheckbox);
 
-  onTopLabel = naNewLabel(bitTranslate( BitFiddlePrefsKeepOnTop), naMakeRectS(20, 96, 230, 22));
+  onTopLabel = naNewLabel(bitTranslate(BitFiddlePrefsKeepOnTop), naMakeRectS(20, 96, 230, 22));
   naAddSpaceChild(space, onTopLabel);
 
-  keepMaxiOnTopCheckbox = naNewCheckbox(bitTranslate(BitFiddlePrefsMaxiVersion), naMakeRectS(30, 74, 220, 22));
-  naAddUIReaction(NA_NULL, keepMaxiOnTopCheckbox, NA_UI_COMMAND_PRESSED, switchPreferencesSetting);
-  naSetCheckboxState(keepMaxiOnTopCheckbox, naGetPreferencesBool(BitPrefs[KeepMaxiOnTop]));
-  naAddSpaceChild(space, keepMaxiOnTopCheckbox);
-
-  keepMiniOnTopCheckbox = naNewCheckbox(bitTranslate(BitFiddlePrefsMiniVersion), naMakeRectS(30, 52, 220, 22));
-  naAddUIReaction(NA_NULL, keepMiniOnTopCheckbox, NA_UI_COMMAND_PRESSED, switchPreferencesSetting);
-  naSetCheckboxState(keepMiniOnTopCheckbox, naGetPreferencesBool(BitPrefs[KeepMiniOnTop]));
-  naAddSpaceChild(space, keepMiniOnTopCheckbox);
+  keepConverterOnTopCheckbox = naNewCheckbox(bitTranslate(BitFiddlePrefsKeepOnTop), naMakeRectS(30, 52, 220, 22));
+  naAddUIReaction(NA_NULL, keepConverterOnTopCheckbox, NA_UI_COMMAND_PRESSED, switchPreferencesSetting);
+  naSetCheckboxState(keepConverterOnTopCheckbox, naGetPreferencesBool(BitPrefs[KeepConverterOnTop]));
+  naAddSpaceChild(space, keepConverterOnTopCheckbox);
 
   doneButton = naNewButton(bitTranslate(BitFiddlePrefsDone), naMakeRectS(150, 20, 80, 24));
   naAddUIReaction(NA_NULL, doneButton, NA_UI_COMMAND_PRESSED, pressDone);

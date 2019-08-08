@@ -15,6 +15,4 @@ typedef enum{
   NUMBER_SYSTEM_ASC
 } NumberSystem;
 
-void updateApp();
-
 #endif // BIT_FIDDIE_COMMON_DEFINED

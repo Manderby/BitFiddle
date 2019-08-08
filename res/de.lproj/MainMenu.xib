@@ -1,13 +1,13 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <document type="com.apple.InterfaceBuilder3.Cocoa.XIB" version="3.0" toolsVersion="14490.70" targetRuntime="MacOSX.Cocoa" propertyAccessControl="none">
     <dependencies>
+        <deployment identifier="macosx"/>
         <plugIn identifier="com.apple.InterfaceBuilder.CocoaPlugin" version="14490.70"/>
     </dependencies>
     <objects>
         <customObject id="-2" userLabel="File's Owner" customClass="BitFiddleNSApplication">
             <connections>
                 <outlet property="byteswapmenuitem" destination="867" id="X3X-9c-j0j"/>
-                <outlet property="minimenuitem" destination="rmE-46-svw" id="3Zi-uv-3H7"/>
                 <outlet property="onescomplementmenuitem" destination="865" id="kRW-BO-sZA"/>
                 <outlet property="twoscomplementmenuitem" destination="866" id="5hZ-3h-7xV"/>
                 <outlet property="unsignedmenuitem" destination="864" id="MG3-o6-3mZ"/>
@@ -214,12 +214,6 @@
                                 <modifierMask key="keyEquivalentModifierMask" option="YES" command="YES"/>
                                 <connections>
                                     <action selector="showComplement:" target="-2" id="2136"/>
-                                </connections>
-                            </menuItem>
-                            <menuItem title="Mini" keyEquivalent="m" id="rmE-46-svw">
-                                <modifierMask key="keyEquivalentModifierMask" option="YES" command="YES"/>
-                                <connections>
-                                    <action selector="switchMini:" target="-2" id="27Q-Qw-4k0"/>
                                 </connections>
                             </menuItem>
                             <menuItem title="ASCII-Fenster anzeigen" keyEquivalent="a" id="2133">

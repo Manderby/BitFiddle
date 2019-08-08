@@ -17,8 +17,6 @@ enum{
   BitFiddlePrefsShowASCII,    
   BitFiddlePrefsResetSettings,
   BitFiddlePrefsKeepOnTop,    
-  BitFiddlePrefsMaxiVersion,  
-  BitFiddlePrefsMiniVersion,  
   BitFiddlePrefsDone,
 
   // Additional information for ascii characters

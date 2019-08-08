@@ -13,10 +13,6 @@
 
 
 
-void updateApp(){
-  [(BitFiddleNSApplication*)NSApp update];
-}
-
 NABool pressKey(void* controllerdata, NAUIElement* uielement, NAUICommand command, void* arg){
   NA_UNUSED(controllerdata);
   NA_UNUSED(uielement);

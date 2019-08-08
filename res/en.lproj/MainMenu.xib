@@ -1,13 +1,13 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <document type="com.apple.InterfaceBuilder3.Cocoa.XIB" version="3.0" toolsVersion="14490.70" targetRuntime="MacOSX.Cocoa" propertyAccessControl="none">
     <dependencies>
+        <deployment identifier="macosx"/>
         <plugIn identifier="com.apple.InterfaceBuilder.CocoaPlugin" version="14490.70"/>
     </dependencies>
     <objects>
         <customObject id="-2" userLabel="File's Owner" customClass="BitFiddleNSApplication">
             <connections>
                 <outlet property="byteswapmenuitem" destination="867" id="Cfv-EE-TFs"/>
-                <outlet property="minimenuitem" destination="m3I-51-RNG" id="Qtt-jt-Use"/>
                 <outlet property="onescomplementmenuitem" destination="865" id="uXz-fe-GEY"/>
                 <outlet property="twoscomplementmenuitem" destination="866" id="dmy-7f-L9Z"/>
                 <outlet property="unsignedmenuitem" destination="864" id="rga-ty-yH6"/>
@@ -381,12 +381,6 @@
                                 <modifierMask key="keyEquivalentModifierMask" option="YES" command="YES"/>
                                 <connections>
                                     <action selector="showComplement:" target="-2" id="2136"/>
-                                </connections>
-                            </menuItem>
-                            <menuItem title="Mini" keyEquivalent="m" id="m3I-51-RNG">
-                                <modifierMask key="keyEquivalentModifierMask" option="YES" command="YES"/>
-                                <connections>
-                                    <action selector="switchMini:" target="-2" id="699-AS-JAx"/>
                                 </connections>
                             </menuItem>
                             <menuItem title="Show ASCII Window" keyEquivalent="a" id="2133">

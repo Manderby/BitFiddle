@@ -1,13 +1,12 @@
 
 
 #import "BitFiddleNSApplication.h"
-#import "ComplementWindowController.h"
 
 #include "BitFiddleTranslations.h"
 #include "BitFiddlePreferences.h"
 
 #include "ASCIIWindow.h"
-#include "ComplementWindow.h"
+#include "ConverterWindow.h"
 #include "PreferencesWindow.h"
 #include "ManderAppAbout.h"
 #include "BitFiddleApplication.h"
@@ -24,14 +23,6 @@
 
 - (void)applicationDidFinishLaunching:(NSNotification *)notification{
 
-  [NSBundle loadNibNamed:@"ComplementWindow" owner:self];
-  
-  [complementwindowcontroller setMini:NA_FALSE];
-  [minicomplementwindowcontroller setMini:NA_TRUE];
-    
-  usemini = naGetPreferencesBool(BitPrefs[UseMini]);
-    
-  [self update];
   [self showComplement:self];
 
   NABool showASCIIOnStartup = naGetPreferencesBool(BitPrefs[ShowASCIIOnStartup]);
@@ -40,10 +31,6 @@
 
 
 - (void)applicationWillTerminate:(NSNotification *)notification{
-  
-  [complementwindowcontroller release];
-  [minicomplementwindowcontroller release];
-
   naStopApplication();
   naStopRuntime();
 }
@@ -71,56 +58,14 @@
 }
 
 
-- (void)update{
-  NABool keepMaxiOnTop = naGetPreferencesBool(BitPrefs[KeepMaxiOnTop]);
-  NABool keepMiniOnTop = naGetPreferencesBool(BitPrefs[KeepMiniOnTop]);
-
-//  [byteswapmenuitem setState:swapEndianness ? NSOnState : NSOffState];
-//  [unsignedmenuitem setState:(conversiontype == COMPUTE_UNSIGNED)?NSOnState:NSOffState];
-//  [onescomplementmenuitem setState:(conversiontype == COMPUTE_ONES_COMPLEMENT)?NSOnState:NSOffState];
-//  [twoscomplementmenuitem setState:(conversiontype == COMPUTE_TWOS_COMPLEMENT)?NSOnState:NSOffState];
-  [minimenuitem setState:usemini ? NSOnState : NSOffState];
-  if(keepMaxiOnTop){
-    [[complementwindowcontroller window] setLevel:NSFloatingWindowLevel];
-  }else{
-    [[complementwindowcontroller window] setLevel:NSNormalWindowLevel];
-  }
-  if(keepMiniOnTop){
-    [[minicomplementwindowcontroller window] setLevel:NSFloatingWindowLevel];
-  }else{
-    [[minicomplementwindowcontroller window] setLevel:NSNormalWindowLevel];
-  }
-}
-
 - (IBAction)showComplement:(id)sender{
-  if(usemini == 1){
-    NSRect curframe = [[complementwindowcontroller window] frame];
-    [[minicomplementwindowcontroller window] setFrameTopLeftPoint:NSMakePoint(curframe.origin.x, curframe.origin.y + curframe.size.height)];
-    [minicomplementwindowcontroller showDialog];
-    [complementwindowcontroller hideDialog];
-  }else{
-    NSRect curframe = [[minicomplementwindowcontroller window] frame];
-    [[complementwindowcontroller window] setFrameTopLeftPoint:NSMakePoint(curframe.origin.x, curframe.origin.y + curframe.size.height)];
-    [complementwindowcontroller showDialog];
-    [minicomplementwindowcontroller hideDialog];
-  }
+  bitShowConverterWindow();
 }
 
 
 
 - (IBAction)showASCII:(id)sender{
   bitShowASCIIWindow();
-}
-
-
-- (IBAction) switchMini:(id)sender{
-  usemini = !usemini;
-
-  naSetPreferencesBool(BitPrefs[UseMini], usemini);
-  [complementwindowcontroller resetValue];
-  [minicomplementwindowcontroller resetValue];
-  [self update];
-  [self showComplement:self];
 }
 
 

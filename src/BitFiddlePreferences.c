@@ -8,12 +8,10 @@ const char* BitPrefs[BitPrefCount] = {
 
   "showASCIIOnStartup",
   "resetConversionOnStartup",
-  "keepMaxiOnTop",
-  "keepMiniOnTop",
+  "keepConverterOnTop",
 
   "swapEndianness",
   "selectedSelectedComplementEncoding",
-  "useMini"
 };
 
 void initPreferences(void){
@@ -22,10 +20,8 @@ void initPreferences(void){
 
   naInitPreferencesBool(BitPrefs[ShowASCIIOnStartup], NA_FALSE);
   naInitPreferencesBool(BitPrefs[ResetConversionOnStartup], NA_TRUE);
-  naInitPreferencesBool(BitPrefs[KeepMaxiOnTop], NA_FALSE);
-  naInitPreferencesBool(BitPrefs[KeepMiniOnTop], NA_FALSE);
+  naInitPreferencesBool(BitPrefs[KeepConverterOnTop], NA_FALSE);
 
   naInitPreferencesBool(BitPrefs[SwapEndianness], NA_FALSE);
   naInitPreferencesEnum(BitPrefs[SelectedComplementEncoding], COMPUTE_UNSIGNED);
-  naInitPreferencesBool(BitPrefs[UseMini], NA_FALSE);
 }

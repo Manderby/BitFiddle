@@ -1,7 +1,7 @@
 
 #include "BitFiddleApplication.h"
 #include "BitFiddlePreferences.h"
-#include "ComplementWindow.h"
+#include "ConverterWindow.h"
 #include "ASCIIWindow.h"
 #include "PreferencesWindow.h"
 
@@ -10,7 +10,7 @@ struct BitApp{
   NABool swapEndianness;
   ConversionType conversionType;
   
-  NAWindow* complementWindow;
+  NAWindow* converterWindow;
   NAWindow* asciiWindow;
   NAWindow* preferencesWindow;
 };
@@ -31,17 +31,17 @@ void bitInitApp(void){
     bitApp->conversionType = COMPUTE_UNSIGNED;
   }
 
-  bitApp->complementWindow = bitCreateComplementWindow(NA_FALSE);
+  bitApp->converterWindow = bitCreateConverterWindow(NA_FALSE);
   bitApp->asciiWindow = bitCreateASCIIWindow();
   bitApp->preferencesWindow = bitCreatePreferencesWindow();
   
-  bitShowComplementWindow();
+  bitShowConverterWindow();
 }
 
 
 
-void bitShowComplementWindow(void){
-  naShowWindow(bitApp->complementWindow);
+void bitShowConverterWindow(void){
+  naShowWindow(bitApp->converterWindow);
 }
 void bitShowASCIIWindow(void){
   naShowWindow(bitApp->asciiWindow);
@@ -53,7 +53,8 @@ void bitShowPreferencesWindow(void){
 
 
 void bitUpdateApp(void){
-
+  NABool keepConverterOnTop = naGetPreferencesBool(BitPrefs[KeepConverterOnTop]);
+  naKeepWindowOnTop(bitApp->converterWindow, keepConverterOnTop);
 }
 
 
@@ -67,7 +68,7 @@ void bitSetConversionType(ConversionType conversionType){
   bitApp->conversionType = conversionType;
   naSetPreferencesEnum(BitPrefs[SelectedComplementEncoding], conversionType);
   bitUpdateApp();
-  bitUpdateComplementWindow();
+  bitUpdateConverterWindow();
 }
 
 
@@ -82,5 +83,5 @@ void bitSetEndiannessSwap(NABool swapEndianness){
   bitApp->swapEndianness = swapEndianness;  
   naSetPreferencesBool(BitPrefs[SwapEndianness], swapEndianness);
   bitUpdateApp();
-  bitUpdateComplementWindow();
+  bitUpdateConverterWindow();
 }

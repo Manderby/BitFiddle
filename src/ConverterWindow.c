@@ -1,5 +1,5 @@
 
-#include "ComplementWindow.h"
+#include "ConverterWindow.h"
 #include "ASCIIWindow.h"
 #include "BitArray.h"
 #include "BitFiddleTranslations.h"
@@ -25,7 +25,7 @@ NALabel* bit8dec;
 NALabel* bit16dec;
 NALabel* bit32dec;
 NALabel* bit64dec;
-NALabel* bitndec;
+NATextBox* bitndec;
 
 NALabel* bit8hex;
 NALabel* bit16hex;
@@ -57,7 +57,7 @@ NABool valueChangeDec(void* controllerdata, NAUIElement* uielement, NAUICommand 
   bitarray = naCreateBitArrayWithDecString(instring);
   naDelete(instring);
 
-  bitUpdateComplementWindow();
+  bitUpdateConverterWindow();
   return NA_TRUE;
 }
 
@@ -73,7 +73,7 @@ NABool valueChangeHex(void* controllerdata, NAUIElement* uielement, NAUICommand 
   bitarray = naCreateBitArrayWithHexString(instring);
   naDelete(instring);
 
-  bitUpdateComplementWindow();
+  bitUpdateConverterWindow();
   return NA_TRUE;
 }
 
@@ -89,7 +89,7 @@ NABool valueChangeBin(void* controllerdata, NAUIElement* uielement, NAUICommand 
   bitarray = naCreateBitArrayWithBinString(instring);
   naDelete(instring);
 
-  bitUpdateComplementWindow();
+  bitUpdateConverterWindow();
   return NA_TRUE;
 }
 
@@ -105,7 +105,7 @@ NABool valueChangeAsc(void* controllerdata, NAUIElement* uielement, NAUICommand 
   bitarray = naCreateBitArrayWithAscString(instring);
   naDelete(instring);
 
-  bitUpdateComplementWindow();
+  bitUpdateConverterWindow();
   return NA_TRUE;
 }
 
@@ -119,7 +119,7 @@ void resetComplementValues(){
   naRelease(bitarray);
   bitarray = naNewBuffer(NA_FALSE);
 
-  bitUpdateComplementWindow();
+  bitUpdateConverterWindow();
 }
 
 
@@ -134,7 +134,7 @@ NABool switchComplement(void* controllerdata, NAUIElement* uielement, NAUIComman
   }else{
     naError("Unknown conversion type");
   }
-  bitUpdateComplementWindow();
+  bitUpdateConverterWindow();
   return NA_TRUE;
 }
 
@@ -142,7 +142,7 @@ NABool switchComplement(void* controllerdata, NAUIElement* uielement, NAUIComman
 
 NABool switchEndianness(void* controllerdata, NAUIElement* uielement, NAUICommand command, void* arg){
   bitSetEndiannessSwap(naGetCheckboxState(uielement));
-  bitUpdateComplementWindow();
+  bitUpdateConverterWindow();
   return NA_TRUE;
 }
 
@@ -173,7 +173,25 @@ void fillOutputFieldWithString(NALabel* outputfield, NAString* string, NABool wi
 
 
 
-void fillOutputFieldWithBitArray(NALabel* outputfield, NumberSystem numbersystem, NABuffer* bitarray, NABool withdecsign){
+void fillOutputTextBoxWithString(NALabel* outputtextbox, NAString* string, NABool withdecsign){
+  if(!string){
+    naSetTextBoxText(outputtextbox, " ");
+  }else if(naIsStringEmpty(string)){
+    naSetTextBoxText(outputtextbox, "0");
+  }else{
+    if(withdecsign){
+      NAString* signstring = naNewStringWithFormat("-%s", naGetStringUTF8Pointer(string)); 
+      naSetTextBoxText(outputtextbox, naGetStringUTF8Pointer(signstring));
+      naDelete(signstring);
+    }else{
+      naSetTextBoxText(outputtextbox, naGetStringUTF8Pointer(string));
+    }
+  }
+}
+
+
+
+void fillOutputFieldWithBitArray(NAUIElement* outputfield, NumberSystem numbersystem, NABuffer* bitarray, NABool withdecsign){
   NAString* outstring;
   
   switch(numbersystem){
@@ -198,13 +216,17 @@ void fillOutputFieldWithBitArray(NALabel* outputfield, NumberSystem numbersystem
     outstring = naNewStringAscWithBitArray(bitarray);
     break;
   }
-  fillOutputFieldWithString(outputfield, outstring, withdecsign);
+  if(naGetUIElementType(outputfield) == NA_UI_LABEL){
+    fillOutputFieldWithString(outputfield, outstring, withdecsign);
+  }else{
+    fillOutputTextBoxWithString(outputfield, outstring, withdecsign);
+  }
   naDelete(outstring);
 }
 
 
 
-void bitUpdateComplementWindow(){
+void bitUpdateConverterWindow(){
   NABuffer* bitarray8;
   NABuffer* bitarray16;
   NABuffer* bitarray32;
@@ -272,7 +294,7 @@ void bitUpdateComplementWindow(){
     fillOutputFieldWithString(bit16dec, NA_NULL, NA_FALSE);
     fillOutputFieldWithString(bit32dec, NA_NULL, NA_FALSE);
     fillOutputFieldWithString(bit64dec, NA_NULL, NA_FALSE);
-    fillOutputFieldWithString(bitndec,  NA_NULL, NA_FALSE);
+    fillOutputTextBoxWithString(bitndec,  NA_NULL, NA_FALSE);
   }else if(conversiontype == COMPUTE_TWOS_COMPLEMENT){
     fillOutputFieldWithBitArray(bit8dec,  NUMBER_SYSTEM_DEC, bitarray8,  NA_TRUE);
     fillOutputFieldWithBitArray(bit16dec, NUMBER_SYSTEM_DEC, bitarray16, NA_TRUE);
@@ -316,6 +338,8 @@ void bitUpdateComplementWindow(){
 
 NATextField* createBitInputField(const NAUTF8Char* title, NARect rect, NAReactionHandler handler){
   NATextField* textfield = naNewTextField(title, rect);
+  naSetTextFieldFontKind(textfield, NA_FONT_KIND_MONOSPACE);
+  naSetTextFieldTextAlignment(textfield, NA_TEXT_ALIGNMENT_RIGHT);
   naAddUIReaction(NA_NULL, textfield, NA_UI_COMMAND_EDITED, handler);
   return textfield;
 }
@@ -337,7 +361,7 @@ NALabel* createBitOutputField(const NAUTF8Char* title, NARect rect){
 
 
 
-NAWindow* bitCreateComplementWindow(){
+NAWindow* bitCreateConverterWindow(){
   bitarray = naNewBuffer(NA_FALSE);
 
   NARect windowrect = naMakeRectS(60, 120, 777, 227);
@@ -404,7 +428,10 @@ NAWindow* bitCreateComplementWindow(){
   naAddSpaceChild(decspace, bit32dec);
   bit64dec = createBitOutputField("-000 000 000 000\n000 000 000 000", naMakeRectS(10, 83, 130, 34));
   naAddSpaceChild(decspace, bit64dec);
-  bitndec = createBitOutputField("-000 000 000 000\n000 000 000 000\n000 000 000 000\n000 000 000 000", naMakeRectS(10, 10, 130, 68));
+
+  bitndec = naNewTextBox("-000 000 000 000\n000 000 000 000\n000 000 000 000\n000 000 000 000", naMakeRectS(10, 10, 130, 68));
+  naSetTextBoxFontKind(bitndec, NA_FONT_KIND_MONOSPACE);
+  naSetTextBoxTextAlignment(bitndec, NA_TEXT_ALIGNMENT_RIGHT);
   naAddSpaceChild(decspace, bitndec);
 
   naAddSpaceChild(space, decspace);
@@ -474,7 +501,7 @@ NAWindow* bitCreateComplementWindow(){
 
   // ////////////////
 
-  bitUpdateComplementWindow();
+  bitUpdateConverterWindow();
   return window;
 }
 

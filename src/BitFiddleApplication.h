@@ -3,9 +3,10 @@
 #include "BitFiddleCommon.h"
 
 void bitInitApp(void);
-void bitShowComplementWindow(void);
+void bitShowConverterWindow(void);
 void bitShowASCIIWindow(void);
 void bitShowPreferencesWindow(void);
+void bitUpdateApp(void);
 
 ConversionType bitGetConversionType(void);
 void bitSetConversionType(ConversionType conversionType);

@@ -19,8 +19,6 @@ NA_LOC(BitFiddlePrefsAtStartup,     "At application startup");
 NA_LOC(BitFiddlePrefsShowASCII,     "Show ASCII window");
 NA_LOC(BitFiddlePrefsResetSettings, "Reset converter settings");
 NA_LOC(BitFiddlePrefsKeepOnTop,     "Keep window in foreground");
-NA_LOC(BitFiddlePrefsMaxiVersion,   "Extended window");
-NA_LOC(BitFiddlePrefsMiniVersion,   "Mini window");
 NA_LOC(BitFiddlePrefsDone,          "Done");
 
 // Additional information for ascii characters

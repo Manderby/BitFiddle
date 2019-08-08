@@ -7,12 +7,10 @@ enum {
 
   ShowASCIIOnStartup,
   ResetConversionOnStartup,
-  KeepMaxiOnTop,
-  KeepMiniOnTop,
+  KeepConverterOnTop,
 
   SwapEndianness,
   SelectedComplementEncoding,
-  UseMini,
   
   BitPrefCount
 };
