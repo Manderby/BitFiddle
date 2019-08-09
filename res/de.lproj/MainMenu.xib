@@ -30,11 +30,7 @@
                             <menuItem isSeparatorItem="YES" id="236">
                                 <modifierMask key="keyEquivalentModifierMask" command="YES"/>
                             </menuItem>
-                            <menuItem title="Einstellungen…" keyEquivalent="," id="129">
-                                <connections>
-                                    <action selector="showPreferences:" target="-2" id="2188"/>
-                                </connections>
-                            </menuItem>
+                            <menuItem title="Einstellungen…" keyEquivalent="," id="129"/>
                             <menuItem isSeparatorItem="YES" id="143">
                                 <modifierMask key="keyEquivalentModifierMask" command="YES"/>
                             </menuItem>
@@ -210,19 +206,6 @@
                                 </connections>
                             </menuItem>
                             <menuItem isSeparatorItem="YES" id="2132"/>
-                            <menuItem title="Komplement-Fenster anzeigen" keyEquivalent="c" id="2130">
-                                <modifierMask key="keyEquivalentModifierMask" option="YES" command="YES"/>
-                                <connections>
-                                    <action selector="showComplement:" target="-2" id="2136"/>
-                                </connections>
-                            </menuItem>
-                            <menuItem title="ASCII-Fenster anzeigen" keyEquivalent="a" id="2133">
-                                <modifierMask key="keyEquivalentModifierMask" option="YES" command="YES"/>
-                                <connections>
-                                    <action selector="showASCII:" target="-2" id="2135"/>
-                                </connections>
-                            </menuItem>
-                            <menuItem isSeparatorItem="YES" id="2125"/>
                             <menuItem title="Alle nach vorne bringen" id="2126">
                                 <modifierMask key="keyEquivalentModifierMask"/>
                                 <connections>

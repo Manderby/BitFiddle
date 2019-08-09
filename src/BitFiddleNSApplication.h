@@ -5,7 +5,7 @@
 #include "BitFiddleCommon.h"
 
 @class BitFiddlePreferencesController;
-@class ConverterWindowController;
+@class ConverterControllerController;
 
 @interface BitFiddleNSApplication : NSApplication <NSApplicationDelegate> {
   IBOutlet NSMenuItem* byteswapmenuitem;
@@ -14,14 +14,7 @@
   IBOutlet NSMenuItem* twoscomplementmenuitem;
 }
 
-- (id)init;
-
-- (void)applicationDidFinishLaunching:(NSNotification *)notification;
-
 - (IBAction)openHelp:(NSMenuItem*)sender;
-- (IBAction)showPreferences:(id)sender;
-- (IBAction)showComplement:(id)sender;
-- (IBAction)showASCII:(id)sender;
 
 - (IBAction)switchByteSwap:(id)sender;
 - (IBAction)switchToUnsigned:(id)sender;

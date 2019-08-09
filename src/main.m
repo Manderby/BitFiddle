@@ -6,7 +6,7 @@
 #include "BitFiddleNSApplication.h"
 #include "BitFiddleTranslations.h"
 #include "BitFiddlePreferences.h"
-#include "ASCIIWindow.h"
+#include "ASCIIController.h"
 #include "ManderApp.h"
 #include "ManderAppAbout.h"
 #include "BitFiddleApplication.h"
@@ -57,6 +57,9 @@ void poststartup(void* arg){
   naAddUIReaction(NA_NULL, naGetApplication(), NA_UI_COMMAND_KEYUP, pressKey);
 
   mandSetAboutWindowDescription(bitTranslate(BitFiddleApplicationDescription));
+  bitShowConverterController();
+  NABool showASCIIOnStartup = naGetPreferencesBool(BitPrefs[ShowASCIIOnStartup]);
+  if(showASCIIOnStartup){bitShowASCIIController();}
   mandAlertNewVersion(bitTranslate(BitFiddleNewVersionDescription));
 }
 

@@ -55,13 +55,14 @@
 		90D6ED1F22C413BF00E752C5 /* NAMoney.c in Sources */ = {isa = PBXBuildFile; fileRef = 90D6ECE522C413BF00E752C5 /* NAMoney.c */; };
 		90D8E2DB22F9D8C40032C934 /* BitFiddlePreferences.c in Sources */ = {isa = PBXBuildFile; fileRef = 90D8E2C622F9D8C40032C934 /* BitFiddlePreferences.c */; };
 		90D8E2DD22F9D8C40032C934 /* BitFiddleNSApplication.m in Sources */ = {isa = PBXBuildFile; fileRef = 90D8E2C822F9D8C40032C934 /* BitFiddleNSApplication.m */; };
-		90D8E2DE22F9D8C40032C934 /* PreferencesWindow.c in Sources */ = {isa = PBXBuildFile; fileRef = 90D8E2CA22F9D8C40032C934 /* PreferencesWindow.c */; };
+		90D8E2DE22F9D8C40032C934 /* PreferencesController.c in Sources */ = {isa = PBXBuildFile; fileRef = 90D8E2CA22F9D8C40032C934 /* PreferencesController.c */; };
 		90D8E2DF22F9D8C40032C934 /* BitArray.c in Sources */ = {isa = PBXBuildFile; fileRef = 90D8E2CF22F9D8C40032C934 /* BitArray.c */; };
-		90D8E2E022F9D8C40032C934 /* ConverterWindow.c in Sources */ = {isa = PBXBuildFile; fileRef = 90D8E2D022F9D8C40032C934 /* ConverterWindow.c */; };
+		90D8E2E022F9D8C40032C934 /* ConverterController.c in Sources */ = {isa = PBXBuildFile; fileRef = 90D8E2D022F9D8C40032C934 /* ConverterController.c */; };
 		90D8E2E122F9D8C40032C934 /* main.m in Sources */ = {isa = PBXBuildFile; fileRef = 90D8E2D122F9D8C40032C934 /* main.m */; };
 		90D8E2E322F9D8C40032C934 /* BitFiddleTranslations.c in Sources */ = {isa = PBXBuildFile; fileRef = 90D8E2D722F9D8C40032C934 /* BitFiddleTranslations.c */; };
-		90D8E2E522F9D8C40032C934 /* ASCIIWindow.c in Sources */ = {isa = PBXBuildFile; fileRef = 90D8E2DA22F9D8C40032C934 /* ASCIIWindow.c */; };
+		90D8E2E522F9D8C40032C934 /* ASCIIController.c in Sources */ = {isa = PBXBuildFile; fileRef = 90D8E2DA22F9D8C40032C934 /* ASCIIController.c */; };
 		90D8E2E822FB16D00032C934 /* BitFiddleApplication.c in Sources */ = {isa = PBXBuildFile; fileRef = 90D8E2E622FB16D00032C934 /* BitFiddleApplication.c */; };
+		90D8E3A522FCCCAE0032C934 /* Carbon.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 90D8E3A422FCCCAE0032C934 /* Carbon.framework */; };
 		90E3274522218B65005712B0 /* .gitignore in Resources */ = {isa = PBXBuildFile; fileRef = 90E3273422218B65005712B0 /* .gitignore */; };
 		B9848B41177B99B400E21D96 /* Cocoa.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = B9848B40177B99B400E21D96 /* Cocoa.framework */; };
 /* End PBXBuildFile section */
@@ -232,24 +233,25 @@
 		90D7BAE122C758BD002BA392 /* ManderApp_eng.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = ManderApp_eng.h; sourceTree = "<group>"; };
 		90D7BAE222C758BD002BA392 /* ManderApp_deu.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = ManderApp_deu.h; sourceTree = "<group>"; };
 		90D7BAE322C7597D002BA392 /* ManderAppTranslations.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = ManderAppTranslations.h; sourceTree = "<group>"; };
-		90D8E2C422F9D8C40032C934 /* ConverterWindow.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ConverterWindow.h; sourceTree = "<group>"; };
+		90D8E2C422F9D8C40032C934 /* ConverterController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ConverterController.h; sourceTree = "<group>"; };
 		90D8E2C522F9D8C40032C934 /* BitArray.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = BitArray.h; sourceTree = "<group>"; };
 		90D8E2C622F9D8C40032C934 /* BitFiddlePreferences.c */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.c; path = BitFiddlePreferences.c; sourceTree = "<group>"; };
 		90D8E2C822F9D8C40032C934 /* BitFiddleNSApplication.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = BitFiddleNSApplication.m; sourceTree = "<group>"; };
 		90D8E2C922F9D8C40032C934 /* BitFiddleTranslations.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = BitFiddleTranslations.h; sourceTree = "<group>"; };
-		90D8E2CA22F9D8C40032C934 /* PreferencesWindow.c */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.c; path = PreferencesWindow.c; sourceTree = "<group>"; };
-		90D8E2CE22F9D8C40032C934 /* ASCIIWindow.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ASCIIWindow.h; sourceTree = "<group>"; };
+		90D8E2CA22F9D8C40032C934 /* PreferencesController.c */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.c; path = PreferencesController.c; sourceTree = "<group>"; };
+		90D8E2CE22F9D8C40032C934 /* ASCIIController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ASCIIController.h; sourceTree = "<group>"; };
 		90D8E2CF22F9D8C40032C934 /* BitArray.c */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.c; path = BitArray.c; sourceTree = "<group>"; };
-		90D8E2D022F9D8C40032C934 /* ConverterWindow.c */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.c; path = ConverterWindow.c; sourceTree = "<group>"; };
+		90D8E2D022F9D8C40032C934 /* ConverterController.c */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.c; path = ConverterController.c; sourceTree = "<group>"; };
 		90D8E2D122F9D8C40032C934 /* main.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = main.m; sourceTree = "<group>"; };
 		90D8E2D222F9D8C40032C934 /* BitFiddleNSApplication.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = BitFiddleNSApplication.h; sourceTree = "<group>"; };
 		90D8E2D322F9D8C40032C934 /* BitFiddleCommon.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = BitFiddleCommon.h; sourceTree = "<group>"; };
 		90D8E2D522F9D8C40032C934 /* BitFiddlePreferences.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = BitFiddlePreferences.h; sourceTree = "<group>"; };
 		90D8E2D722F9D8C40032C934 /* BitFiddleTranslations.c */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.c; path = BitFiddleTranslations.c; sourceTree = "<group>"; };
-		90D8E2D822F9D8C40032C934 /* PreferencesWindow.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = PreferencesWindow.h; sourceTree = "<group>"; };
-		90D8E2DA22F9D8C40032C934 /* ASCIIWindow.c */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.c; path = ASCIIWindow.c; sourceTree = "<group>"; };
+		90D8E2D822F9D8C40032C934 /* PreferencesController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = PreferencesController.h; sourceTree = "<group>"; };
+		90D8E2DA22F9D8C40032C934 /* ASCIIController.c */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.c; path = ASCIIController.c; sourceTree = "<group>"; };
 		90D8E2E622FB16D00032C934 /* BitFiddleApplication.c */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.c; path = BitFiddleApplication.c; sourceTree = "<group>"; };
 		90D8E2E722FB16D00032C934 /* BitFiddleApplication.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = BitFiddleApplication.h; sourceTree = "<group>"; };
+		90D8E3A422FCCCAE0032C934 /* Carbon.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Carbon.framework; path = System/Library/Frameworks/Carbon.framework; sourceTree = SDKROOT; };
 		90E3273422218B65005712B0 /* .gitignore */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; path = .gitignore; sourceTree = "<group>"; };
 		B9848B3D177B99B400E21D96 /* Bit Fiddle.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = "Bit Fiddle.app"; sourceTree = BUILT_PRODUCTS_DIR; };
 		B9848B40177B99B400E21D96 /* Cocoa.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Cocoa.framework; path = System/Library/Frameworks/Cocoa.framework; sourceTree = SDKROOT; };
@@ -260,6 +262,7 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				90D8E3A522FCCCAE0032C934 /* Carbon.framework in Frameworks */,
 				900B78481BD6BF9200796AAB /* WebKit.framework in Frameworks */,
 				B9848B41177B99B400E21D96 /* Cocoa.framework in Frameworks */,
 			);
@@ -551,8 +554,8 @@
 		90D8E2C322F9D8C40032C934 /* src */ = {
 			isa = PBXGroup;
 			children = (
-				90D8E2DA22F9D8C40032C934 /* ASCIIWindow.c */,
-				90D8E2CE22F9D8C40032C934 /* ASCIIWindow.h */,
+				90D8E2DA22F9D8C40032C934 /* ASCIIController.c */,
+				90D8E2CE22F9D8C40032C934 /* ASCIIController.h */,
 				90D8E2CF22F9D8C40032C934 /* BitArray.c */,
 				90D8E2C522F9D8C40032C934 /* BitArray.h */,
 				90D8E2E622FB16D00032C934 /* BitFiddleApplication.c */,
@@ -564,11 +567,11 @@
 				90D8E2D522F9D8C40032C934 /* BitFiddlePreferences.h */,
 				90D8E2D722F9D8C40032C934 /* BitFiddleTranslations.c */,
 				90D8E2C922F9D8C40032C934 /* BitFiddleTranslations.h */,
-				90D8E2D022F9D8C40032C934 /* ConverterWindow.c */,
-				90D8E2C422F9D8C40032C934 /* ConverterWindow.h */,
+				90D8E2D022F9D8C40032C934 /* ConverterController.c */,
+				90D8E2C422F9D8C40032C934 /* ConverterController.h */,
 				90D8E2D122F9D8C40032C934 /* main.m */,
-				90D8E2CA22F9D8C40032C934 /* PreferencesWindow.c */,
-				90D8E2D822F9D8C40032C934 /* PreferencesWindow.h */,
+				90D8E2CA22F9D8C40032C934 /* PreferencesController.c */,
+				90D8E2D822F9D8C40032C934 /* PreferencesController.h */,
 			);
 			name = src;
 			path = ../../src;
@@ -608,6 +611,7 @@
 		B9848B3F177B99B400E21D96 /* Frameworks */ = {
 			isa = PBXGroup;
 			children = (
+				90D8E3A422FCCCAE0032C934 /* Carbon.framework */,
 				900B78471BD6BF9200796AAB /* WebKit.framework */,
 				B9848B40177B99B400E21D96 /* Cocoa.framework */,
 			);
@@ -697,11 +701,11 @@
 				90D6ED1022C413BF00E752C5 /* NAList.c in Sources */,
 				90D6ED0B22C413BF00E752C5 /* NATreeOct.c in Sources */,
 				90D6ED1722C413BF00E752C5 /* NATranslator.c in Sources */,
-				90D8E2E022F9D8C40032C934 /* ConverterWindow.c in Sources */,
+				90D8E2E022F9D8C40032C934 /* ConverterController.c in Sources */,
 				90D6ED1522C413BF00E752C5 /* NACocoaHelper.m in Sources */,
 				90D6ED1C22C413BF00E752C5 /* NAURL.c in Sources */,
 				90D8E2E122F9D8C40032C934 /* main.m in Sources */,
-				90D8E2DE22F9D8C40032C934 /* PreferencesWindow.c in Sources */,
+				90D8E2DE22F9D8C40032C934 /* PreferencesController.c in Sources */,
 				90D6ED0E22C413BF00E752C5 /* NATreeAVL.c in Sources */,
 				90D6ED0322C413BF00E752C5 /* NABufferWrite.c in Sources */,
 				90D6ED1122C413BF00E752C5 /* NADebug.c in Sources */,
@@ -730,7 +734,7 @@
 				90D6ED0C22C413BF00E752C5 /* NATreeQuad.c in Sources */,
 				90D8E2DB22F9D8C40032C934 /* BitFiddlePreferences.c in Sources */,
 				90D6ED1A22C413BF00E752C5 /* NAFile.c in Sources */,
-				90D8E2E522F9D8C40032C934 /* ASCIIWindow.c in Sources */,
+				90D8E2E522F9D8C40032C934 /* ASCIIController.c in Sources */,
 				90D6ED0922C413BF00E752C5 /* NATreeIteration.c in Sources */,
 				90D6ED0422C413BF00E752C5 /* NABufferParse.c in Sources */,
 				90D6ED0222C413BF00E752C5 /* NABufferIteration.c in Sources */,

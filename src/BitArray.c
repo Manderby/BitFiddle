@@ -254,7 +254,6 @@ NABuffer* naCreateBitArrayWithDecString(NAString* string){
     naWriteBufferu8(&iterdigit, (curchar & 0x08) == 0x08);
     naClearBufferIterator(&iterdigit);
     
-
     NABuffer* tentimes = naCreateBitArrayMulTen(bitarray);
     naRelease(bitarray);
     bitarray = naCreateBitArrayAddBitArray(tentimes, digit);

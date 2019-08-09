@@ -1,18 +1,18 @@
 
 #include "BitFiddleApplication.h"
 #include "BitFiddlePreferences.h"
-#include "ConverterWindow.h"
-#include "ASCIIWindow.h"
-#include "PreferencesWindow.h"
+#include "ConverterController.h"
+#include "ASCIIController.h"
+#include "PreferencesController.h"
 
 typedef struct BitApp BitApp;
 struct BitApp{
   NABool swapEndianness;
   ConversionType conversionType;
   
-  NAWindow* converterWindow;
-  NAWindow* asciiWindow;
-  NAWindow* preferencesWindow;
+  BitConverterController* converterController;
+  BitASCIIController* asciiController;
+  BitPreferencesController* preferencesController;
 };
 
 BitApp* bitApp = NA_NULL;
@@ -31,30 +31,38 @@ void bitInitApp(void){
     bitApp->conversionType = COMPUTE_UNSIGNED;
   }
 
-  bitApp->converterWindow = bitCreateConverterWindow(NA_FALSE);
-  bitApp->asciiWindow = bitCreateASCIIWindow();
-  bitApp->preferencesWindow = bitCreatePreferencesWindow();
+  bitApp->converterController = bitCreateConverterController(NA_FALSE);
+  bitApp->asciiController = bitCreateASCIIController();
+  bitApp->preferencesController = bitCreatePreferencesController();
+}
+
+
+
+void bitClearApp(void){
+  bitClearConverterController(bitApp->converterController);
+  bitClearASCIIController(bitApp->asciiController);
+  bitClearPreferencesController(bitApp->preferencesController);
   
-  bitShowConverterWindow();
+  naFree(bitApp);
 }
 
 
 
-void bitShowConverterWindow(void){
-  naShowWindow(bitApp->converterWindow);
+void bitShowConverterController(void){
+  naShowConverterController(bitApp->converterController);
 }
-void bitShowASCIIWindow(void){
-  naShowWindow(bitApp->asciiWindow);
+void bitShowASCIIController(void){
+  naShowASCIIController(bitApp->asciiController);
 }
-void bitShowPreferencesWindow(void){
-  naShowWindow(bitApp->preferencesWindow);
+void bitShowPreferencesController(void){
+  naShowPreferencesController(bitApp->preferencesController);
 }
 
 
 
 void bitUpdateApp(void){
   NABool keepConverterOnTop = naGetPreferencesBool(BitPrefs[KeepConverterOnTop]);
-  naKeepWindowOnTop(bitApp->converterWindow, keepConverterOnTop);
+  bitKeepConverterOnTop(bitApp->converterController, keepConverterOnTop);
 }
 
 
@@ -64,11 +72,11 @@ ConversionType bitGetConversionType(void){
 }
 
 
+
 void bitSetConversionType(ConversionType conversionType){
   bitApp->conversionType = conversionType;
   naSetPreferencesEnum(BitPrefs[SelectedComplementEncoding], conversionType);
-  bitUpdateApp();
-  bitUpdateConverterWindow();
+  bitUpdateConverterController();
 }
 
 
@@ -82,6 +90,5 @@ NABool bitGetEndiannessSwap(void){
 void bitSetEndiannessSwap(NABool swapEndianness){
   bitApp->swapEndianness = swapEndianness;  
   naSetPreferencesBool(BitPrefs[SwapEndianness], swapEndianness);
-  bitUpdateApp();
-  bitUpdateConverterWindow();
+  bitUpdateConverterController();
 }
