@@ -106,10 +106,10 @@ void naPadBitArray(NABuffer* bitarray, NAInt padsize);
 //          shift  2 size   8 ->   11010100
 //          shift -2 size   8 ->   00101101
 //          shift -2 size  -8 ->   11101101
-NABuffer* naInitBitArrayShiftExtension(NABuffer* dstarray,
-                                                   NABuffer* srcarray,
-                                                         NAInt shift,
-                                                         NAInt size);
+//NABuffer* naInitBitArrayShiftExtension(NABuffer* dstarray,
+//                                                   NABuffer* srcarray,
+//                                                         NAInt shift,
+//                                                         NAInt size);
 
 // Creates a bit array from the given string. The string can contain binary
 // values, decimal values, hexadecimal values. The ASCII-function will create

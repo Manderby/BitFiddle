@@ -16,10 +16,10 @@ struct BitPreferencesController{
 
 
 
-NABool switchPreferencesSetting(void* controllerdata, NAUIElement* uielement, NAUICommand command, void* arg){
+NABool switchPreferencesSetting(void* controller, NAUIElement* uielement, NAUICommand command, void* arg){
   NA_UNUSED(command);
   NA_UNUSED(arg);
-  BitPreferencesController* prefs = controllerdata;
+  BitPreferencesController* prefs = controller;
   NABool state = naGetCheckboxState(uielement);
   if(uielement == prefs->showASCIIOnStartupCheckbox){
     naSetPreferencesBool(BitPrefs[ShowASCIIOnStartup], state);
@@ -38,10 +38,11 @@ NABool switchPreferencesSetting(void* controllerdata, NAUIElement* uielement, NA
 
 
 
-NABool pressDone(void* controllerdata, NAUIElement* uielement, NAUICommand command, void* arg){
+NABool pressDone(void* controller, NAUIElement* uielement, NAUICommand command, void* arg){
+  NA_UNUSED(uielement);
   NA_UNUSED(command);
   NA_UNUSED(arg);
-  BitPreferencesController* prefs = controllerdata;
+  BitPreferencesController* prefs = controller;
   naCloseWindow(prefs->window);
   return NA_TRUE;
 }

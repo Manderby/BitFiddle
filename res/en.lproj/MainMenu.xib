@@ -5,14 +5,7 @@
         <plugIn identifier="com.apple.InterfaceBuilder.CocoaPlugin" version="14490.70"/>
     </dependencies>
     <objects>
-        <customObject id="-2" userLabel="File's Owner" customClass="BitFiddleNSApplication">
-            <connections>
-                <outlet property="byteswapmenuitem" destination="867" id="Cfv-EE-TFs"/>
-                <outlet property="onescomplementmenuitem" destination="865" id="uXz-fe-GEY"/>
-                <outlet property="twoscomplementmenuitem" destination="866" id="dmy-7f-L9Z"/>
-                <outlet property="unsignedmenuitem" destination="864" id="rga-ty-yH6"/>
-            </connections>
-        </customObject>
+        <customObject id="-2" userLabel="File's Owner" customClass="BitFiddleNSApplication"/>
         <customObject id="-1" userLabel="First Responder" customClass="FirstResponder"/>
         <customObject id="-3" userLabel="Application" customClass="BitFiddleNSApplication">
             <connections>
@@ -26,11 +19,18 @@
                         <items>
                             <menuItem title="About Bit Fiddle" id="58">
                                 <modifierMask key="keyEquivalentModifierMask"/>
+                                <connections>
+                                    <action selector="openAbout:" target="-3" id="Pjy-Po-BK0"/>
+                                </connections>
                             </menuItem>
                             <menuItem isSeparatorItem="YES" id="236">
                                 <modifierMask key="keyEquivalentModifierMask" command="YES"/>
                             </menuItem>
-                            <menuItem title="Preferences…" keyEquivalent="," id="129"/>
+                            <menuItem title="Preferences…" keyEquivalent="," id="129">
+                                <connections>
+                                    <action selector="openPreferences:" target="-3" id="Z08-V3-fXQ"/>
+                                </connections>
+                            </menuItem>
                             <menuItem isSeparatorItem="YES" id="143">
                                 <modifierMask key="keyEquivalentModifierMask" command="YES"/>
                             </menuItem>
@@ -120,33 +120,6 @@
                                 </connections>
                             </menuItem>
                             <menuItem title="Print…" keyEquivalent="p" id="78"/>
-                        </items>
-                    </menu>
-                </menuItem>
-                <menuItem title="Complement" id="788">
-                    <menu key="submenu" title="Complement" id="789">
-                        <items>
-                            <menuItem title="Unsigned" keyEquivalent="0" id="864">
-                                <connections>
-                                    <action selector="switchToUnsigned:" target="-2" id="j6j-R5-3vc"/>
-                                </connections>
-                            </menuItem>
-                            <menuItem title="1's complement" keyEquivalent="1" id="865">
-                                <connections>
-                                    <action selector="switchToOnesComplement:" target="-2" id="xXv-vc-bkj"/>
-                                </connections>
-                            </menuItem>
-                            <menuItem title="2's complement" keyEquivalent="2" id="866">
-                                <connections>
-                                    <action selector="switchToTwosComplement:" target="-2" id="OZC-Wa-9yx"/>
-                                </connections>
-                            </menuItem>
-                            <menuItem isSeparatorItem="YES" id="876"/>
-                            <menuItem title="Little ↔ Big" keyEquivalent="e" id="867">
-                                <connections>
-                                    <action selector="switchByteSwap:" target="-2" id="oCv-9p-Vbp"/>
-                                </connections>
-                            </menuItem>
                         </items>
                     </menu>
                 </menuItem>

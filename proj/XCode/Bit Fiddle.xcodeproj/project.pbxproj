@@ -16,7 +16,6 @@
 		90AEE126229C450700DD2DCF /* manderc.png in Resources */ = {isa = PBXBuildFile; fileRef = 90AEE123229C450700DD2DCF /* manderc.png */; };
 		90BAF74C21759CC6001665BF /* InfoPlist.strings in Resources */ = {isa = PBXBuildFile; fileRef = 90BAF73521759CC6001665BF /* InfoPlist.strings */; };
 		90BAF74D21759CC6001665BF /* MainMenu.xib in Resources */ = {isa = PBXBuildFile; fileRef = 90BAF73721759CC6001665BF /* MainMenu.xib */; };
-		90BAF75021759CC6001665BF /* ExpertWindow.xib in Resources */ = {isa = PBXBuildFile; fileRef = 90BAF73C21759CC6001665BF /* ExpertWindow.xib */; };
 		90BAF75521759CC6001665BF /* BitFiddleChangelog.txt in Resources */ = {isa = PBXBuildFile; fileRef = 90BAF74521759CC6001665BF /* BitFiddleChangelog.txt */; };
 		90BAF75821759CC6001665BF /* BitFiddle.icns in Resources */ = {isa = PBXBuildFile; fileRef = 90BAF74821759CC6001665BF /* BitFiddle.icns */; };
 		90D6ECFE22C413BF00E752C5 /* NAHeap.c in Sources */ = {isa = PBXBuildFile; fileRef = 90D6EC7922C413BF00E752C5 /* NAHeap.c */; };
@@ -244,7 +243,6 @@
 		90D8E2D022F9D8C40032C934 /* ConverterController.c */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.c; path = ConverterController.c; sourceTree = "<group>"; };
 		90D8E2D122F9D8C40032C934 /* main.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = main.m; sourceTree = "<group>"; };
 		90D8E2D222F9D8C40032C934 /* BitFiddleNSApplication.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = BitFiddleNSApplication.h; sourceTree = "<group>"; };
-		90D8E2D322F9D8C40032C934 /* BitFiddleCommon.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = BitFiddleCommon.h; sourceTree = "<group>"; };
 		90D8E2D522F9D8C40032C934 /* BitFiddlePreferences.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = BitFiddlePreferences.h; sourceTree = "<group>"; };
 		90D8E2D722F9D8C40032C934 /* BitFiddleTranslations.c */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.c; path = BitFiddleTranslations.c; sourceTree = "<group>"; };
 		90D8E2D822F9D8C40032C934 /* PreferencesController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = PreferencesController.h; sourceTree = "<group>"; };
@@ -562,7 +560,6 @@
 				90D8E2E722FB16D00032C934 /* BitFiddleApplication.h */,
 				90D8E2D222F9D8C40032C934 /* BitFiddleNSApplication.h */,
 				90D8E2C822F9D8C40032C934 /* BitFiddleNSApplication.m */,
-				90D8E2D322F9D8C40032C934 /* BitFiddleCommon.h */,
 				90D8E2C622F9D8C40032C934 /* BitFiddlePreferences.c */,
 				90D8E2D522F9D8C40032C934 /* BitFiddlePreferences.h */,
 				90D8E2D722F9D8C40032C934 /* BitFiddleTranslations.c */,
@@ -682,7 +679,6 @@
 				90BAF74C21759CC6001665BF /* InfoPlist.strings in Resources */,
 				90BAF75521759CC6001665BF /* BitFiddleChangelog.txt in Resources */,
 				90BAF74D21759CC6001665BF /* MainMenu.xib in Resources */,
-				90BAF75021759CC6001665BF /* ExpertWindow.xib in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -771,6 +767,20 @@
 		B9432DC717E61D440075F638 /* Optimize */ = {
 			isa = XCBuildConfiguration;
 			buildSettings = {
+				CLANG_WARN_ASSIGN_ENUM = YES;
+				CLANG_WARN_BLOCK_CAPTURE_AUTORELEASING = YES;
+				CLANG_WARN_BOOL_CONVERSION = YES;
+				CLANG_WARN_COMMA = YES;
+				CLANG_WARN_DOCUMENTATION_COMMENTS = YES;
+				CLANG_WARN_FLOAT_CONVERSION = YES;
+				CLANG_WARN_IMPLICIT_SIGN_CONVERSION = YES;
+				CLANG_WARN_INFINITE_RECURSION = YES;
+				CLANG_WARN_NON_LITERAL_NULL_CONVERSION = YES;
+				CLANG_WARN_QUOTED_INCLUDE_IN_FRAMEWORK_HEADER = YES;
+				CLANG_WARN_SEMICOLON_BEFORE_METHOD_BODY = YES;
+				CLANG_WARN_STRICT_PROTOTYPES = YES;
+				CLANG_WARN_SUSPICIOUS_IMPLICIT_CONVERSION = YES;
+				CLANG_WARN_UNREACHABLE_CODE = YES;
 				COPY_PHASE_STRIP = NO;
 				DEPLOYMENT_POSTPROCESSING = YES;
 				GCC_DEBUGGING_SYMBOLS = full;
@@ -781,6 +791,17 @@
 					"NA_CONFIG_COMPILE_GUI=1",
 				);
 				GCC_VERSION = "";
+				GCC_WARN_ABOUT_MISSING_FIELD_INITIALIZERS = YES;
+				GCC_WARN_ABOUT_MISSING_NEWLINE = YES;
+				GCC_WARN_ABOUT_MISSING_PROTOTYPES = NO;
+				GCC_WARN_FOUR_CHARACTER_CONSTANTS = YES;
+				GCC_WARN_INITIALIZER_NOT_FULLY_BRACKETED = YES;
+				GCC_WARN_SHADOW = YES;
+				GCC_WARN_SIGN_COMPARE = YES;
+				GCC_WARN_UNKNOWN_PRAGMAS = YES;
+				GCC_WARN_UNUSED_FUNCTION = YES;
+				GCC_WARN_UNUSED_LABEL = YES;
+				GCC_WARN_UNUSED_PARAMETER = YES;
 				STRIP_INSTALLED_PRODUCT = NO;
 				VALID_ARCHS = x86_64;
 			};
@@ -820,10 +841,35 @@
 		B9848B37177B996600E21D96 /* Debug */ = {
 			isa = XCBuildConfiguration;
 			buildSettings = {
+				CLANG_WARN_ASSIGN_ENUM = YES;
+				CLANG_WARN_BLOCK_CAPTURE_AUTORELEASING = YES;
+				CLANG_WARN_BOOL_CONVERSION = YES;
+				CLANG_WARN_COMMA = YES;
+				CLANG_WARN_DOCUMENTATION_COMMENTS = YES;
+				CLANG_WARN_FLOAT_CONVERSION = YES;
+				CLANG_WARN_IMPLICIT_SIGN_CONVERSION = YES;
+				CLANG_WARN_INFINITE_RECURSION = YES;
+				CLANG_WARN_NON_LITERAL_NULL_CONVERSION = YES;
+				CLANG_WARN_QUOTED_INCLUDE_IN_FRAMEWORK_HEADER = YES;
+				CLANG_WARN_SEMICOLON_BEFORE_METHOD_BODY = YES;
+				CLANG_WARN_STRICT_PROTOTYPES = YES;
+				CLANG_WARN_SUSPICIOUS_IMPLICIT_CONVERSION = YES;
+				CLANG_WARN_UNREACHABLE_CODE = YES;
 				COPY_PHASE_STRIP = NO;
 				GCC_OPTIMIZATION_LEVEL = 0;
 				GCC_PREPROCESSOR_DEFINITIONS = "NA_CONFIG_COMPILE_GUI=1";
 				GCC_VERSION = "";
+				GCC_WARN_ABOUT_MISSING_FIELD_INITIALIZERS = YES;
+				GCC_WARN_ABOUT_MISSING_NEWLINE = YES;
+				GCC_WARN_ABOUT_MISSING_PROTOTYPES = NO;
+				GCC_WARN_FOUR_CHARACTER_CONSTANTS = YES;
+				GCC_WARN_INITIALIZER_NOT_FULLY_BRACKETED = YES;
+				GCC_WARN_SHADOW = YES;
+				GCC_WARN_SIGN_COMPARE = YES;
+				GCC_WARN_UNKNOWN_PRAGMAS = YES;
+				GCC_WARN_UNUSED_FUNCTION = YES;
+				GCC_WARN_UNUSED_LABEL = YES;
+				GCC_WARN_UNUSED_PARAMETER = YES;
 				ONLY_ACTIVE_ARCH = YES;
 				VALID_ARCHS = x86_64;
 			};
@@ -832,6 +878,20 @@
 		B9848B38177B996600E21D96 /* Release */ = {
 			isa = XCBuildConfiguration;
 			buildSettings = {
+				CLANG_WARN_ASSIGN_ENUM = YES;
+				CLANG_WARN_BLOCK_CAPTURE_AUTORELEASING = YES;
+				CLANG_WARN_BOOL_CONVERSION = YES;
+				CLANG_WARN_COMMA = YES;
+				CLANG_WARN_DOCUMENTATION_COMMENTS = YES;
+				CLANG_WARN_FLOAT_CONVERSION = YES;
+				CLANG_WARN_IMPLICIT_SIGN_CONVERSION = YES;
+				CLANG_WARN_INFINITE_RECURSION = YES;
+				CLANG_WARN_NON_LITERAL_NULL_CONVERSION = YES;
+				CLANG_WARN_QUOTED_INCLUDE_IN_FRAMEWORK_HEADER = YES;
+				CLANG_WARN_SEMICOLON_BEFORE_METHOD_BODY = YES;
+				CLANG_WARN_STRICT_PROTOTYPES = YES;
+				CLANG_WARN_SUSPICIOUS_IMPLICIT_CONVERSION = YES;
+				CLANG_WARN_UNREACHABLE_CODE = YES;
 				COPY_PHASE_STRIP = NO;
 				DEPLOYMENT_POSTPROCESSING = YES;
 				GCC_GENERATE_DEBUGGING_SYMBOLS = NO;
@@ -840,6 +900,17 @@
 					"NA_CONFIG_COMPILE_GUI=1",
 				);
 				GCC_VERSION = "";
+				GCC_WARN_ABOUT_MISSING_FIELD_INITIALIZERS = YES;
+				GCC_WARN_ABOUT_MISSING_NEWLINE = YES;
+				GCC_WARN_ABOUT_MISSING_PROTOTYPES = NO;
+				GCC_WARN_FOUR_CHARACTER_CONSTANTS = YES;
+				GCC_WARN_INITIALIZER_NOT_FULLY_BRACKETED = YES;
+				GCC_WARN_SHADOW = YES;
+				GCC_WARN_SIGN_COMPARE = YES;
+				GCC_WARN_UNKNOWN_PRAGMAS = YES;
+				GCC_WARN_UNUSED_FUNCTION = YES;
+				GCC_WARN_UNUSED_LABEL = YES;
+				GCC_WARN_UNUSED_PARAMETER = YES;
 				VALID_ARCHS = x86_64;
 			};
 			name = Release;

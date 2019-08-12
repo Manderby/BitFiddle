@@ -12,58 +12,50 @@
 #include "ManderAppAbout.h"
 #include "BitFiddleApplication.h"
 
-OSStatus MyHotKeyHandler(EventHandlerCallRef nextHandler, EventRef theEvent, void *userData){
-  NSLog(@"The hot key was pressed.");
-//  CalcApplication* app = (CalcApplication*)userData;
-//  [app show];
-  return noErr;
-}
-
-CGEventRef onKeyDown(CGEventTapProxy proxy, CGEventType type, CGEventRef event, void *refcon) {
-  NSLog(@"DOWN (%lli)", CGEventGetIntegerValueField(event, kCGKeyboardEventKeycode));
-  // When it matches, I return CGEventCreate(NULL) to stop the event
-  return event;
-}
 
 @implementation BitFiddleNSApplication
 
 
+
+// This method makes sure the notification methods will be called.
 - (id)init{
   self = [super init];
   [self setDelegate:self];
   return self;
 }
 
-- (void)applicationDidFinishLaunching:(NSNotification *)notification{
-  
-  // We provide a hotkey: ctrl-option-command-I because I is the numerical key
-  // for the number 5.
-  EventHotKeyRef gMyHotKeyRef;
-  EventHotKeyID gMyHotKeyID;
-  EventTypeSpec eventType;
-  eventType.eventClass=kEventClassKeyboard;
-  eventType.eventKind=kEventHotKeyPressed;
-  InstallApplicationEventHandler(&MyHotKeyHandler, 1, &eventType, self, NULL);
-  gMyHotKeyID.signature='bitf';
-  gMyHotKeyID.id=1;
-//  RegisterEventHotKey(kVK_ANSI_B, cmdKey+optionKey+controlKey, gMyHotKeyID, GetApplicationEventTarget(), 0, &gMyHotKeyRef); //global
-  RegisterEventHotKey(kVK_ANSI_B, cmdKey+optionKey+controlKey, gMyHotKeyID, GetEventDispatcherTarget(), 0, &gMyHotKeyRef);  //app
 
-//  CFMachPortRef downEventTap = CGEventTapCreate(kCGSessionEventTap,kCGHeadInsertEventTap,kCGEventTapOptionDefault,CGEventMaskBit(kCGEventKeyDown),&onKeyDown,(__bridge void *)(self));
-//  CFRunLoopSourceRef downSourceRef = CFMachPortCreateRunLoopSource(kCFAllocatorDefault, downEventTap, 0); //<-- Crash exc_bad_access: downEventTap = 0x0,downSourceRef= 0x0
-//  CFRelease(downEventTap);
-//  CFRunLoopAddSource(CFRunLoopGetCurrent(), downSourceRef, kCFRunLoopDefaultMode);
-//  CFRelease(downSourceRef);
+
+// This method will still be called. Use it if necessary.
+- (void)applicationDidFinishLaunching:(NSNotification *)notification{
+  NA_UNUSED(notification);
 }
 
 
 
+// This method is used to properly shut down the app and NALib runtime.
 - (void)applicationWillTerminate:(NSNotification *)notification{
-  bitClearApp();
+  NA_UNUSED(notification);
+  bitStopApp();
   naStopApplication();
   naStopRuntime();
 }
 
+
+
+// There are certain macOS specific menu items which should always be the same.
+// Use a standard XIP file, connect the appropriate IBOutlets to these actions
+// and all works fine. 
+
+- (IBAction)openPreferences:(NSMenuItem*)sender{
+  NA_UNUSED(sender);
+  bitShowPreferencesController();
+}
+
+- (IBAction)openAbout:(NSMenuItem*)sender{
+  NA_UNUSED(sender);
+  mandShowAboutController();
+}
 
 - (IBAction)openHelp:(NSMenuItem*)sender{
   NA_UNUSED(sender);
@@ -74,21 +66,5 @@ CGEventRef onKeyDown(CGEventTapProxy proxy, CGEventType type, CGEventRef event, 
     [[NSWorkspace sharedWorkspace] openURL:[NSURL URLWithString:@"http://manderc.com/apps/bitfiddle/help/index_en.php"]];
   }
 }
-
-
-
-- (IBAction)switchByteSwap:(id)sender{
-  bitSetEndiannessSwap(!bitGetEndiannessSwap());
-}
-- (IBAction)switchToUnsigned:(id)sender{
-  bitSetConversionType(COMPUTE_UNSIGNED);
-}
-- (IBAction)switchToOnesComplement:(id)sender{
-  bitSetConversionType(COMPUTE_ONES_COMPLEMENT);
-}
-- (IBAction)switchToTwosComplement:(id)sender{
-  bitSetConversionType(COMPUTE_TWOS_COMPLEMENT);
-}
-
 
 @end

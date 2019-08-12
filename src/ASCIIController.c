@@ -222,10 +222,10 @@ NAInt getUISpaceIndex(BitASCIIController* con, NAUIElement* uielement){
 
 
 
-NABool hoverItem(void* controllerdata, NAUIElement* uielement, NAUICommand command, void* arg){
+NABool hoverItem(void* controller, NAUIElement* uielement, NAUICommand command, void* arg){
   NA_UNUSED(command);
   NA_UNUSED(arg);
-  BitASCIIController* con = controllerdata;
+  BitASCIIController* con = controller;
   NAInt itemIndex = getUISpaceIndex(con, uielement);
   
   naSetSpaceAlternateBackground(con->spaces[itemIndex], NA_TRUE);
@@ -247,10 +247,10 @@ NABool hoverItem(void* controllerdata, NAUIElement* uielement, NAUICommand comma
 
 
 
-NABool unhoverItem(void* controllerdata, NAUIElement* uielement, NAUICommand command, void* arg){
+NABool unhoverItem(void* controller, NAUIElement* uielement, NAUICommand command, void* arg){
   NA_UNUSED(command);
   NA_UNUSED(arg);
-  BitASCIIController* con = controllerdata;
+  BitASCIIController* con = controller;
   NAInt itemIndex = getUISpaceIndex(con, uielement);  
   naSetSpaceAlternateBackground(con->spaces[itemIndex], NA_FALSE);
   return NA_TRUE;
@@ -258,10 +258,10 @@ NABool unhoverItem(void* controllerdata, NAUIElement* uielement, NAUICommand com
 
 
 
-NABool switchASCIIDisplayMode(void* controllerdata, NAUIElement* uielement, NAUICommand command, void* arg){
+NABool switchASCIIDisplayMode(void* controller, NAUIElement* uielement, NAUICommand command, void* arg){
   NA_UNUSED(command);
   NA_UNUSED(arg);
-  BitASCIIController* con = controllerdata;
+  BitASCIIController* con = controller;
   if(uielement == con->escapeRadio){
     con->useEscape = NA_TRUE;
     naSetPreferencesBool(BitPrefs[UseASCIIEscape], NA_TRUE);
@@ -285,7 +285,7 @@ NABool switchASCIIDisplayMode(void* controllerdata, NAUIElement* uielement, NAUI
 
 
 
-BitASCIIController* bitCreateASCIIController(){
+BitASCIIController* bitCreateASCIIController(void){
   BitASCIIController* con = naAlloc(BitASCIIController);
 
   con->useHex = NA_FALSE;
@@ -302,7 +302,6 @@ BitASCIIController* bitCreateASCIIController(){
     naSetSpaceAlternateBackground(columnspace, (x % 2 == 0));
 
     for(NAInt y = 0; y < 16; y++){
-      NARect rect;
       rect = naMakeRectS(5, (15 - y) * 22 + 5, 87, 22);
       con->spaces[curindex] = naNewSpace(rect);
       naAddUIReaction(con, con->spaces[curindex], NA_UI_COMMAND_MOUSE_ENTERED, hoverItem);

@@ -7,63 +7,31 @@
 #include "BitFiddleTranslations.h"
 #include "BitFiddlePreferences.h"
 #include "ASCIIController.h"
-#include "ManderApp.h"
-#include "ManderAppAbout.h"
 #include "BitFiddleApplication.h"
+#include "ManderApp.h"
 
 
-
-NABool pressKey(void* controllerdata, NAUIElement* uielement, NAUICommand command, void* arg){
-  NA_UNUSED(controllerdata);
-  NA_UNUSED(uielement);
-  NA_UNUSED(command);
-  NA_UNUSED(arg);
-//  NAInt itemIndex = getUISpaceIndex(uielement);  
-//  naSetSpaceAlternateBackground(spaces[itemIndex], NA_FALSE);
-  return NA_TRUE;
-}
 
 void prestartup(void* arg){
-  mandPrestartupManderApp();
-//  [NSBundle loadNibNamed:@"MainMenu" owner:NSApp];
-//  NSMenu* appMenu = [[NSMenu alloc] initWithTitle:@"Schnucki"];
-//  NSMenuItem* aboutItem = [[NSMenuItem alloc] initWithTitle:@"about" action:@selector(void) keyEquivalent:@"A"];
-//  [appMenu addItem:aboutItem];
-//  NSMenuItem* quitItem = [[NSMenuItem alloc] initWithTitle:@"quit" action:@selector(void) keyEquivalent:@"Q"];
-//  [appMenu addItem:quitItem];
-  
-//  NSMenuItem* appItem = [[NSApp mainMenu] itemAtIndex:0];
-//  [appItem setMenu:appMenu];
-//  [(BitFiddleNSApplication*)NSApp setMainMenu:appMenu];
-//  NSMenu* mainMenu = [NSApp mainMenu];
-  initTranslations();
-  initPreferences();
-  
-  bitInitApp();
+  NA_UNUSED(arg);
+  mandInitManderApp();
+  bitStartApp();
 }
+
+
 
 void poststartup(void* arg){
-  mandPoststartupManderApp();
-////  [NSBundle loadNibNamed:@"MainMenu" owner:NSApp];
-//  NSMenu* appMenu = [[NSMenu alloc] initWithTitle:@"Schnucki"];
-//  NSMenuItem* quitItem = [[NSMenuItem alloc] initWithTitle:@"quit" action:@selector(void) keyEquivalent:@"W"];
-//  [appMenu addItem:quitItem];
-//  
-//  NSMenuItem* appItem = [[NSApp mainMenu] itemAtIndex:0];
-//  [appItem setMenu:appMenu];
-//  [NSApp setMainMenu:appMenu];
-//  NSMenu* mainMenu = [NSApp mainMenu];
+  NA_UNUSED(arg);
+  mandCreateUI();
   [NSBundle loadNibNamed:@"MainMenu" owner:NSApp];
-  naAddUIReaction(NA_NULL, naGetApplication(), NA_UI_COMMAND_KEYUP, pressKey);
-
-  mandSetAboutWindowDescription(bitTranslate(BitFiddleApplicationDescription));
-  bitShowConverterController();
-  NABool showASCIIOnStartup = naGetPreferencesBool(BitPrefs[ShowASCIIOnStartup]);
-  if(showASCIIOnStartup){bitShowASCIIController();}
-  mandAlertNewVersion(bitTranslate(BitFiddleNewVersionDescription));
+  bitCreateUI();
 }
 
+
+
 int main(int argc, char *argv[]){
+  NA_UNUSED(argc);
+  NA_UNUSED(argv);
   naStartRuntime();
   [BitFiddleNSApplication sharedApplication];
   naStartApplication(prestartup, poststartup, NA_NULL);

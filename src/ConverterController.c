@@ -3,7 +3,6 @@
 #include "ASCIIController.h"
 #include "BitArray.h"
 #include "BitFiddleTranslations.h"
-#include "BitFiddleCommon.h"
 #include "BitFiddleApplication.h"
 
 struct BitConverterController{
@@ -51,10 +50,10 @@ struct BitConverterController{
 
 
 
-NABool valueChangeDec(void* controllerdata, NAUIElement* uielement, NAUICommand command, void* arg){
+NABool valueChangeDec(void* controller, NAUIElement* uielement, NAUICommand command, void* arg){
   NA_UNUSED(command);
   NA_UNUSED(arg);
-  BitConverterController* con = controllerdata;
+  BitConverterController* con = controller;
 
   naSetTextFieldText(con->inputhex, "");
   naSetTextFieldText(con->inputbin, "");
@@ -71,10 +70,10 @@ NABool valueChangeDec(void* controllerdata, NAUIElement* uielement, NAUICommand 
 
 
 
-NABool valueChangeHex(void* controllerdata, NAUIElement* uielement, NAUICommand command, void* arg){
+NABool valueChangeHex(void* controller, NAUIElement* uielement, NAUICommand command, void* arg){
   NA_UNUSED(command);
   NA_UNUSED(arg);
-  BitConverterController* con = controllerdata;
+  BitConverterController* con = controller;
 
   naSetTextFieldText(con->inputdec, "");
   naSetTextFieldText(con->inputbin, "");
@@ -91,10 +90,10 @@ NABool valueChangeHex(void* controllerdata, NAUIElement* uielement, NAUICommand 
 
 
 
-NABool valueChangeBin(void* controllerdata, NAUIElement* uielement, NAUICommand command, void* arg){
+NABool valueChangeBin(void* controller, NAUIElement* uielement, NAUICommand command, void* arg){
   NA_UNUSED(command);
   NA_UNUSED(arg);
-  BitConverterController* con = controllerdata;
+  BitConverterController* con = controller;
 
   naSetTextFieldText(con->inputdec, "");
   naSetTextFieldText(con->inputhex, "");
@@ -111,10 +110,10 @@ NABool valueChangeBin(void* controllerdata, NAUIElement* uielement, NAUICommand 
 
 
 
-NABool valueChangeAsc(void* controllerdata, NAUIElement* uielement, NAUICommand command, void* arg){
+NABool valueChangeAsc(void* controller, NAUIElement* uielement, NAUICommand command, void* arg){
   NA_UNUSED(command);
   NA_UNUSED(arg);
-  BitConverterController* con = controllerdata;
+  BitConverterController* con = controller;
 
   naSetTextFieldText(con->inputdec, "");
   naSetTextFieldText(con->inputhex, "");
@@ -144,10 +143,10 @@ void resetComplementValues(BitConverterController* con){
 
 
 
-NABool switchComplement(void* controllerdata, NAUIElement* uielement, NAUICommand command, void* arg){
+NABool switchComplement(void* controller, NAUIElement* uielement, NAUICommand command, void* arg){
   NA_UNUSED(command);
   NA_UNUSED(arg);
-  BitConverterController* con = controllerdata;
+  BitConverterController* con = controller;
 
   if(uielement == con->unsignedRadio){
     bitSetConversionType(COMPUTE_UNSIGNED);
@@ -164,25 +163,12 @@ NABool switchComplement(void* controllerdata, NAUIElement* uielement, NAUIComman
 
 
 
-NABool switchEndianness(void* controllerdata, NAUIElement* uielement, NAUICommand command, void* arg){
-  NA_UNUSED(controllerdata);
+NABool windowButtonPressed(void* controller, NAUIElement* uielement, NAUICommand command, void* arg){
   NA_UNUSED(command);
   NA_UNUSED(arg);
-
-  bitSetEndiannessSwap(naGetCheckboxState(uielement));
-  bitUpdateConverterController();
-  return NA_TRUE;
-}
-
-
-
-NABool windowButtonPressed(void* controllerdata, NAUIElement* uielement, NAUICommand command, void* arg){
-  NA_UNUSED(command);
-  NA_UNUSED(arg);
-  BitConverterController* con = controllerdata;
+  BitConverterController* con = controller;
 
   if(uielement == con->helpButton){
-//    bitShowHelpWindow();
   }else if(uielement == con->preferencesButton){
     bitShowPreferencesController();
   }else if(uielement == con->asciiButton){
@@ -190,16 +176,6 @@ NABool windowButtonPressed(void* controllerdata, NAUIElement* uielement, NAUICom
   }else{
     naError("Unknown window button");
   }
-  return NA_TRUE;
-}
-
-
-
-NABool keyDown(void* controllerdata, NAUIElement* uielement, NAUICommand command, void* arg){
-  NA_UNUSED(controllerdata);
-  NA_UNUSED(command);
-  NA_UNUSED(arg);
-
   return NA_TRUE;
 }
 
@@ -238,6 +214,15 @@ void fillOutputTextBoxWithString(NALabel* outputtextbox, NAString* string, NABoo
     }
   }
 }
+
+
+
+typedef enum{
+  NUMBER_SYSTEM_DEC = 0,
+  NUMBER_SYSTEM_HEX,
+  NUMBER_SYSTEM_BIN,
+  NUMBER_SYSTEM_ASC
+} NumberSystem;
 
 
 
@@ -411,7 +396,7 @@ NALabel* createBitOutputField(const NAUTF8Char* title, NARect rect){
 
 
 
-BitConverterController* bitCreateConverterController(){
+BitConverterController* bitCreateConverterController(void){
   BitConverterController* con = naAlloc(BitConverterController);
   
   con->bitarray = naNewBuffer(NA_FALSE);
@@ -420,7 +405,7 @@ BitConverterController* bitCreateConverterController(){
   con->window = naNewWindow("Complement", windowrect, NA_FALSE);
 
   NASpace* space = naGetWindowContentSpace(con->window);
-  naAddUIReaction(con, space, NA_UI_COMMAND_KEYDOWN, keyDown);
+//  naAddUIReaction(con, space, NA_UI_COMMAND_KEYDOWN, keyDown);
   
   NASpace* settingspace = naNewSpace(naMakeRectS(0, 0, 120, 227));
   naSetSpaceAlternateBackground(settingspace, NA_FALSE);
@@ -438,7 +423,7 @@ BitConverterController* bitCreateConverterController(){
   naAddSpaceChild(settingspace, con->twosRadio);
 
   con->endiannessCheckbox = naNewCheckbox("Endianness", naMakeRectS(10, 127, 100, 22));
-  naAddUIReaction(con, con->endiannessCheckbox, NA_UI_COMMAND_PRESSED, switchEndianness);
+  naAddUIReaction(con, con->endiannessCheckbox, NA_UI_COMMAND_PRESSED, bitSwitchAppEndianness);
   naAddSpaceChild(settingspace, con->endiannessCheckbox);
 
   con->helpButton = naNewButton("Help", naMakeRectS(10, 58, 100, 24));

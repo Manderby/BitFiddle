@@ -1,6 +1,6 @@
 
 #include "BitFiddlePreferences.h"
-#include "BitFiddleCommon.h"
+#include "BitFiddleApplication.h"
 
 const char* BitPrefs[BitPrefCount] = {
   "useASCIIEscape",

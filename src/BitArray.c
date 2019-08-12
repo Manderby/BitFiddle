@@ -114,8 +114,8 @@ void naPadBitArray(NABuffer* bitarray, NAInt padsize){
 
 
 
-NABuffer* naInitBitArrayShiftExtension( NABuffer* dstarray, NABuffer* srcarray, NAInt shift, NAInt size){
-
+//NABuffer* naInitBitArrayShiftExtension( NABuffer* dstarray, NABuffer* srcarray, NAInt shift, NAInt size){
+//
 //  NAInt i = 0;
 //  NABit* srcptr;
 //  NABit* dstptr;
@@ -166,8 +166,8 @@ NABuffer* naInitBitArrayShiftExtension( NABuffer* dstarray, NABuffer* srcarray, 
 //  }
 //
 //  return dstarray;
-  return NA_NULL;
-}
+//  return NA_NULL;
+//}
 
 
 
@@ -176,7 +176,7 @@ NABuffer* naInitBitArrayShiftExtension( NABuffer* dstarray, NABuffer* srcarray, 
 // Looks at the given sizehint and expands or extracts the given bitarray and
 // fills the padding bits with zero if necessary. Warning: expects fullstorage
 // to have enough bits allocated.
-void naEnsureBitArraySizeHint(NABuffer* bitarray, NAInt sizehint){
+//void naEnsureBitArraySizeHint(NABuffer* bitarray, NAInt sizehint){
 //  NAUInt bitcount = naGetByteArrayBytesize(&(bitarray->bits));
 //  NAInt arraycount = getBitArraySizeHintCount(sizehint, bitcount);
 //
@@ -196,7 +196,7 @@ void naEnsureBitArraySizeHint(NABuffer* bitarray, NAInt sizehint){
 //  }else{
 //    // The Bit array already has the precise size needed. Do nothing.
 //  }
-}
+//}
 
 
 
@@ -340,12 +340,12 @@ NAString* naNewStringDecWithBitArray(const NABuffer* bitarray){
   NAInt outputlen;
   NAInt finalstringcount;
   NABuffer* work;
-  NAUInt i;
-  NAUInt j;
+  NAInt i;
+  NAInt j;
   NAString* string;
   NAString* retstring;
 
-  NAUInt bitcount = naGetBufferRange(bitarray).length;
+  NAInt bitcount = naGetBufferRange(bitarray).length;
   if(!bitcount){return naNewString();}
   
   NAUTF8Char* stringbuf = naBitFiddleMalloc(-bitcount);
@@ -375,7 +375,7 @@ NAString* naNewStringDecWithBitArray(const NABuffer* bitarray){
       bit1 = naGetBufferu8(&workiter); naIterateBuffer(&workiter, 1);
       bit2 = naGetBufferu8(&workiter); naIterateBuffer(&workiter, 1);
       bit3 = naGetBufferu8(&workiter);
-      value = (bit3<<3) | (bit2<<2) | (bit1<<1) | (bit0<<0);
+      value = (uint8)((bit3<<3) | (bit2<<2) | (bit1<<1) | (bit0<<0));
       if(value >= 10){
         // For nibbles greaterequal than the value 10, adjust the bits accordingly.
         naSetBufferu8(&workiter, BIT1); naIterateBuffer(&workiter, -1);
@@ -417,9 +417,9 @@ NAString* naNewStringDecWithBitArray(const NABuffer* bitarray){
       bit2 = naGetBufferu8(&workiter);
     }
     bit3 = lead;
-    value = (bit3<<3) | (bit2<<2) | (bit1<<1) | (bit0<<0);
+    value = (uint8)((bit3<<3) | (bit2<<2) | (bit1<<1) | (bit0<<0));
     if((outputlen > 0) && !(outputlen%3)){*charptr-- = ' '; finalstringcount++;}
-    *charptr-- = value + '0';
+    *charptr-- = (NAUTF8Char)(value + '0');
     outputlen++;
     finalstringcount++;
     bitcount = i;
@@ -531,7 +531,7 @@ NAString* naNewStringAscWithBitArray(NABuffer* bitarray){
     NABufferIterator iter = naMakeBufferAccessor(bitarray);
     while(naIterateBuffer(&iter, -1)){
       NAByte curbit = naGetBufferu8(&iter);
-      newchar = newchar << 1 | curbit;
+      newchar = (NAUTF8Char)(newchar << 1 | curbit);
       
       bitcount++;
       if((bitcount % 8) == 0){
@@ -578,8 +578,8 @@ NABuffer* naCreateBitArrayAddBitArray(NABuffer* srcarray1, NABuffer* srcarray2){
   srciter1 = naMakeBufferAccessor(srcarray1);
   srciter2 = naMakeBufferAccessor(srcarray2);
   
-  NAUInt srccount1 = naGetBufferRange(srcarray1).length;
-  NAUInt srccount2 = naGetBufferRange(srcarray2).length;
+  NAInt srccount1 = naGetBufferRange(srcarray1).length;
+  NAInt srccount2 = naGetBufferRange(srcarray2).length;
 
   carry = 0;
   

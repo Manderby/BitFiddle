@@ -4,6 +4,11 @@
 #include "ConverterController.h"
 #include "ASCIIController.h"
 #include "PreferencesController.h"
+#include "BitFiddleTranslations.h"
+#include "ManderAppAbout.h"
+#include "ManderApp.h"
+
+
 
 typedef struct BitApp BitApp;
 struct BitApp{
@@ -15,12 +20,17 @@ struct BitApp{
   BitPreferencesController* preferencesController;
 };
 
+
+
 BitApp* bitApp = NA_NULL;
 
 
 
-void bitInitApp(void){
+void bitStartApp(void){
   bitApp = naAlloc(BitApp);
+
+  initTranslations();
+  initPreferences();
 
   bitApp->swapEndianness = naGetPreferencesBool(BitPrefs[SwapEndianness]);
   bitApp->conversionType = (ConversionType)naGetPreferencesEnum(BitPrefs[SelectedComplementEncoding]);
@@ -30,15 +40,31 @@ void bitInitApp(void){
     bitApp->swapEndianness = NA_FALSE;
     bitApp->conversionType = COMPUTE_UNSIGNED;
   }
-
-  bitApp->converterController = bitCreateConverterController(NA_FALSE);
-  bitApp->asciiController = bitCreateASCIIController();
-  bitApp->preferencesController = bitCreatePreferencesController();
 }
 
 
 
-void bitClearApp(void){
+void bitCreateUI(){
+  bitApp->converterController   = bitCreateConverterController();
+  bitApp->asciiController       = bitCreateASCIIController();
+  bitApp->preferencesController = bitCreatePreferencesController();
+  
+  naAddUIKeyboardShortcut(bitApp, naGetApplication(), NA_MODIFIER_FLAG_COMMAND, NA_KEYCODE_E, bitSwitchAppEndianness);
+  naAddUIKeyboardShortcut(bitApp, naGetApplication(), NA_MODIFIER_FLAG_COMMAND, NA_KEYCODE_0, bitSwitchConversionType);
+  naAddUIKeyboardShortcut(bitApp, naGetApplication(), NA_MODIFIER_FLAG_COMMAND, NA_KEYCODE_1, bitSwitchConversionType);
+  naAddUIKeyboardShortcut(bitApp, naGetApplication(), NA_MODIFIER_FLAG_COMMAND, NA_KEYCODE_2, bitSwitchConversionType);
+
+  bitShowConverterController();
+  NABool showASCIIOnStartup = naGetPreferencesBool(BitPrefs[ShowASCIIOnStartup]);
+  if(showASCIIOnStartup){bitShowASCIIController();}
+
+  mandSetAboutDescription(bitTranslate(BitFiddleApplicationDescription));
+  mandAlertNewVersion(bitTranslate(BitFiddleNewVersionDescription));
+}
+
+
+
+void bitStopApp(){
   bitClearConverterController(bitApp->converterController);
   bitClearASCIIController(bitApp->asciiController);
   bitClearPreferencesController(bitApp->preferencesController);
@@ -48,26 +74,26 @@ void bitClearApp(void){
 
 
 
-void bitShowConverterController(void){
+void bitShowConverterController(){
   naShowConverterController(bitApp->converterController);
 }
-void bitShowASCIIController(void){
+void bitShowASCIIController(){
   naShowASCIIController(bitApp->asciiController);
 }
-void bitShowPreferencesController(void){
+void bitShowPreferencesController(){
   naShowPreferencesController(bitApp->preferencesController);
 }
 
 
 
-void bitUpdateApp(void){
+void bitUpdateApp(){
   NABool keepConverterOnTop = naGetPreferencesBool(BitPrefs[KeepConverterOnTop]);
   bitKeepConverterOnTop(bitApp->converterController, keepConverterOnTop);
 }
 
 
 
-ConversionType bitGetConversionType(void){
+ConversionType bitGetConversionType(){
   return bitApp->conversionType;
 }
 
@@ -76,19 +102,42 @@ ConversionType bitGetConversionType(void){
 void bitSetConversionType(ConversionType conversionType){
   bitApp->conversionType = conversionType;
   naSetPreferencesEnum(BitPrefs[SelectedComplementEncoding], conversionType);
-  bitUpdateConverterController();
+  bitUpdateConverterController(bitApp->converterController);
 }
 
 
 
-NABool bitGetEndiannessSwap(void){
+NABool bitGetEndiannessSwap(){
   return bitApp->swapEndianness;
 }
 
 
 
-void bitSetEndiannessSwap(NABool swapEndianness){
-  bitApp->swapEndianness = swapEndianness;  
-  naSetPreferencesBool(BitPrefs[SwapEndianness], swapEndianness);
-  bitUpdateConverterController();
+NABool bitSwitchAppEndianness(void* controller, NAUIElement* uielement, NAUICommand command, void* arg){
+  NA_UNUSED(uielement);
+  NA_UNUSED(command);
+  NA_UNUSED(arg);
+  BitApp* con = controller;
+  
+  con->swapEndianness = !con->swapEndianness;  
+  naSetPreferencesBool(BitPrefs[SwapEndianness], con->swapEndianness);
+  bitUpdateConverterController(con->converterController);
+  return NA_TRUE;
+}
+
+NABool bitSwitchConversionType(void* controller, NAUIElement* uielement, NAUICommand command, void* arg){
+  NA_UNUSED(controller);
+  NA_UNUSED(uielement);
+  NA_UNUSED(command);
+  NA_UNUSED(arg);
+  NAUIKeyCode* keyCode = arg;
+
+  switch(*keyCode){
+  case NA_KEYCODE_0: bitSetConversionType(COMPUTE_UNSIGNED); break;
+  case NA_KEYCODE_1: bitSetConversionType(COMPUTE_ONES_COMPLEMENT); break;
+  case NA_KEYCODE_2: bitSetConversionType(COMPUTE_TWOS_COMPLEMENT); break;
+  default:
+    naError("Undefined keyCode");
+  }
+  return NA_TRUE;
 }
