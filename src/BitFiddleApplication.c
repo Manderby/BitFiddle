@@ -10,10 +10,11 @@
 
 
 
-typedef struct BitApp BitApp;
-struct BitApp{
+struct BitApplication{
   NABool swapEndianness;
   ConversionType conversionType;
+  
+  NABool showAsc;
   
   BitConverterController* converterController;
   BitASCIIController* asciiController;
@@ -22,12 +23,12 @@ struct BitApp{
 
 
 
-BitApp* bitApp = NA_NULL;
+BitApplication* bitApp = NA_NULL;
 
 
 
-void bitStartApp(void){
-  bitApp = naAlloc(BitApp);
+void bitStartApplication(void){
+  bitApp = naAlloc(BitApplication);
 
   initTranslations();
   initPreferences();
@@ -49,27 +50,35 @@ void bitCreateUI(){
   bitApp->asciiController       = bitCreateASCIIController();
   bitApp->preferencesController = bitCreatePreferencesController();
   
-  naAddUIKeyboardShortcut(bitApp, naGetApplication(), NA_MODIFIER_FLAG_COMMAND, NA_KEYCODE_E, bitSwitchAppEndianness);
-  naAddUIKeyboardShortcut(bitApp, naGetApplication(), NA_MODIFIER_FLAG_COMMAND, NA_KEYCODE_0, bitSwitchConversionType);
-  naAddUIKeyboardShortcut(bitApp, naGetApplication(), NA_MODIFIER_FLAG_COMMAND, NA_KEYCODE_1, bitSwitchConversionType);
-  naAddUIKeyboardShortcut(bitApp, naGetApplication(), NA_MODIFIER_FLAG_COMMAND, NA_KEYCODE_2, bitSwitchConversionType);
+  naAddUIKeyboardShortcut(bitApp, naGetApplication(), naMakeKeybardShortcut(NA_MODIFIER_FLAG_COMMAND, NA_KEYCODE_E), bitSwitchAppEndianness);
+  naAddUIKeyboardShortcut(bitApp, naGetApplication(), naMakeKeybardShortcut(NA_MODIFIER_FLAG_COMMAND, NA_KEYCODE_0), bitSwitchConversionType);
+  naAddUIKeyboardShortcut(bitApp, naGetApplication(), naMakeKeybardShortcut(NA_MODIFIER_FLAG_COMMAND, NA_KEYCODE_1), bitSwitchConversionType);
+  naAddUIKeyboardShortcut(bitApp, naGetApplication(), naMakeKeybardShortcut(NA_MODIFIER_FLAG_COMMAND, NA_KEYCODE_2), bitSwitchConversionType);
 
   bitShowConverterController();
   NABool showASCIIOnStartup = naGetPreferencesBool(BitPrefs[ShowASCIIOnStartup]);
   if(showASCIIOnStartup){bitShowASCIIController();}
 
-  mandSetAboutDescription(bitTranslate(BitFiddleApplicationDescription));
+  mandSetAboutDescriptionAndHelpURL(bitTranslate(BitFiddleApplicationDescription), bitTranslate(BitFiddleApplicationHelpURL));
   mandAlertNewVersion(bitTranslate(BitFiddleNewVersionDescription));
 }
 
 
 
-void bitStopApp(){
+void bitStopApplication(){
   bitClearConverterController(bitApp->converterController);
   bitClearASCIIController(bitApp->asciiController);
   bitClearPreferencesController(bitApp->preferencesController);
   
   naFree(bitApp);
+  naStopApplication();
+  naStopRuntime();
+}
+
+
+
+BitApplication* bitGetApplication(void){
+  return bitApp;
 }
 
 
@@ -82,6 +91,14 @@ void bitShowASCIIController(){
 }
 void bitShowPreferencesController(){
   naShowPreferencesController(bitApp->preferencesController);
+}
+
+
+
+void bitRecreateConverterController(){
+  bitClearConverterController(bitApp->converterController);
+  bitApp->converterController = bitCreateConverterController();
+  bitShowConverterController();
 }
 
 
@@ -117,7 +134,7 @@ NABool bitSwitchAppEndianness(void* controller, NAUIElement* uielement, NAUIComm
   NA_UNUSED(uielement);
   NA_UNUSED(command);
   NA_UNUSED(arg);
-  BitApp* con = controller;
+  BitApplication* con = controller;
   
   con->swapEndianness = !con->swapEndianness;  
   naSetPreferencesBool(BitPrefs[SwapEndianness], con->swapEndianness);

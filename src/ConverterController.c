@@ -4,14 +4,15 @@
 #include "BitArray.h"
 #include "BitFiddleTranslations.h"
 #include "BitFiddleApplication.h"
+#include "ManderAppAbout.h"
 
 struct BitConverterController{
   NAWindow* window;
 
-  NARadio* unsignedRadio;
-  NARadio* onesRadio;
-  NARadio* twosRadio;
-  NACheckbox* endiannessCheckbox;
+  NAButton* unsignedOption;
+  NAButton* onesOption;
+  NAButton* twosOption;
+  NACheckBox* endiannessCheckBox;
   NAButton* helpButton;
   NAButton* preferencesButton;
   NAButton* asciiButton;
@@ -19,33 +20,36 @@ struct BitConverterController{
   NABuffer* bitarray;
 
   NATextField* inputdec;
-  NATextField* inputhex;
-  NATextField* inputbin;
-  NATextField* inputasc;
-
+  NALabel* labeldec;
   NALabel* bit8dec;
   NALabel* bit16dec;
   NALabel* bit32dec;
   NALabel* bit64dec;
   NATextBox* bitndec;
 
+  NATextField* inputhex;
+  NALabel* labelhex;
   NALabel* bit8hex;
   NALabel* bit16hex;
   NALabel* bit32hex;
   NALabel* bit64hex;
-  NALabel* bitnhex;
+  NATextBox* bitnhex;
 
+  NATextField* inputbin;
+  NALabel* labelbin;
   NALabel* bit8bin;
   NALabel* bit16bin;
   NALabel* bit32bin;
   NALabel* bit64bin;
-  NALabel* bitnbin;
+  NATextBox* bitnbin;
 
+  NATextField* inputasc;
+  NALabel* labelasc;
   NALabel* bit8asc;
   NALabel* bit16asc;
   NALabel* bit32asc;
   NALabel* bit64asc;
-  NALabel* bitnasc;
+  NATextBox* bitnasc;
 };
 
 
@@ -143,16 +147,29 @@ void resetComplementValues(BitConverterController* con){
 
 
 
+NABool closeConverterWindow(void* controller, NAUIElement* uielement, NAUICommand command, void* arg){
+  NA_UNUSED(controller);
+  NA_UNUSED(uielement);
+  NA_UNUSED(command);
+  NA_UNUSED(arg);
+  naStopApplication();
+//  NABool* shouldClose = arg;
+//  *shouldClose = NA_TRUE; 
+  return NA_TRUE;
+}
+
+
+
 NABool switchComplement(void* controller, NAUIElement* uielement, NAUICommand command, void* arg){
   NA_UNUSED(command);
   NA_UNUSED(arg);
   BitConverterController* con = controller;
 
-  if(uielement == con->unsignedRadio){
+  if(uielement == con->unsignedOption){
     bitSetConversionType(COMPUTE_UNSIGNED);
-  }else if(uielement == con->onesRadio){
+  }else if(uielement == con->onesOption){
     bitSetConversionType(COMPUTE_ONES_COMPLEMENT);
-  }else if(uielement == con->twosRadio){
+  }else if(uielement == con->twosOption){
     bitSetConversionType(COMPUTE_TWOS_COMPLEMENT);
   }else{
     naError("Unknown conversion type");
@@ -163,12 +180,13 @@ NABool switchComplement(void* controller, NAUIElement* uielement, NAUICommand co
 
 
 
-NABool windowButtonPressed(void* controller, NAUIElement* uielement, NAUICommand command, void* arg){
+NABool buttonPressed(void* controller, NAUIElement* uielement, NAUICommand command, void* arg){
   NA_UNUSED(command);
   NA_UNUSED(arg);
   BitConverterController* con = controller;
 
   if(uielement == con->helpButton){
+    mandShowAboutController();
   }else if(uielement == con->preferencesButton){
     bitShowPreferencesController();
   }else if(uielement == con->asciiButton){
@@ -275,7 +293,7 @@ void bitUpdateConverterController(BitConverterController* con){
   bitarrayn  = naCreateBitArrayCopyWithFixedSize(con->bitarray, -8);
   
   NABool byteswap = bitGetEndiannessSwap();
-  naSetCheckboxState(con->endiannessCheckbox, byteswap);
+  naSetCheckBoxState(con->endiannessCheckBox, byteswap);
   const NAUTF8Char* stringbyteswap = NA_NULL;
   if(byteswap){
     stringbyteswap = bitTranslate(BitFiddleConversionByteSwap);
@@ -287,9 +305,9 @@ void bitUpdateConverterController(BitConverterController* con){
   }
 
   ConversionType conversiontype = bitGetConversionType();
-  naSetRadioState(con->unsignedRadio, conversiontype == COMPUTE_UNSIGNED);
-  naSetRadioState(con->onesRadio, conversiontype == COMPUTE_ONES_COMPLEMENT);
-  naSetRadioState(con->twosRadio, conversiontype == COMPUTE_TWOS_COMPLEMENT);
+  naSetButtonState(con->unsignedOption, conversiontype == COMPUTE_UNSIGNED);
+  naSetButtonState(con->onesOption, conversiontype == COMPUTE_ONES_COMPLEMENT);
+  naSetButtonState(con->twosOption, conversiontype == COMPUTE_TWOS_COMPLEMENT);
   
   const NAUTF8Char* stringconversion = NA_NULL;
   switch(conversiontype){
@@ -317,7 +335,7 @@ void bitUpdateConverterController(BitConverterController* con){
   NAString* windowtitle;
   if(stringbyteswap){
     windowtitle = naNewStringWithFormat("BitFiddle     %s     %s", stringconversion, stringbyteswap);
-    naSetWindowTitle(windowtitle, naGetStringUTF8Pointer(windowtitle));
+    naSetWindowTitle(con->window, naGetStringUTF8Pointer(windowtitle));
   }else{
     windowtitle = naNewStringWithFormat("BitFiddle     %s", stringconversion);
     naSetWindowTitle(con->window, naGetStringUTF8Pointer(windowtitle));
@@ -371,8 +389,8 @@ void bitUpdateConverterController(BitConverterController* con){
 
 
 
-NATextField* createBitInputField(BitConverterController* con, const NAUTF8Char* title, NARect rect, NAReactionHandler handler){
-  NATextField* textfield = naNewTextField(title, rect);
+NATextField* createBitInputField(BitConverterController* con, NARect rect, NAReactionHandler handler){
+  NATextField* textfield = naNewTextField(rect);
   naSetTextFieldFontKind(textfield, NA_FONT_KIND_MONOSPACE);
   naSetTextFieldTextAlignment(textfield, NA_TEXT_ALIGNMENT_RIGHT);
   naAddUIReaction(con, textfield, NA_UI_COMMAND_EDITED, handler);
@@ -387,11 +405,26 @@ NALabel* createBitLabelField(const NAUTF8Char* title, NARect rect){
   return labelfield;
 }
 
-NALabel* createBitOutputField(const NAUTF8Char* title, NARect rect){
-  NALabel* outputfield = naNewLabel(title, rect);
+NALabel* createSystemLabelField(const NAUTF8Char* title, NARect rect){
+  NALabel* labelfield = naNewLabel(title, rect);
+  naSetLabelFontKind(labelfield, NA_FONT_KIND_MONOSPACE);
+  naSetLabelTextAlignment(labelfield, NA_TEXT_ALIGNMENT_LEFT);
+  naSetLabelEnabled(labelfield, NA_FALSE);
+  return labelfield;
+}
+
+NALabel* createBitOutputField(NARect rect){
+  NALabel* outputfield = naNewLabel("", rect);
   naSetLabelFontKind(outputfield, NA_FONT_KIND_MONOSPACE);
   naSetLabelTextAlignment(outputfield, NA_TEXT_ALIGNMENT_RIGHT);
   return outputfield;
+}
+
+NATextBox* createBitOutputBox(NARect rect){
+  NATextBox* outputbox = naNewTextBox(rect);
+  naSetLabelFontKind(outputbox, NA_FONT_KIND_MONOSPACE);
+  naSetLabelTextAlignment(outputbox, NA_TEXT_ALIGNMENT_RIGHT);
+  return outputbox;
 }
 
 
@@ -403,46 +436,54 @@ BitConverterController* bitCreateConverterController(void){
 
   NARect windowrect = naMakeRectS(60, 120, 777, 227);
   con->window = naNewWindow("Complement", windowrect, NA_FALSE);
+  naAddUIReaction(con, con->window, NA_UI_COMMAND_CLOSES, closeConverterWindow);
 
   NASpace* space = naGetWindowContentSpace(con->window);
-//  naAddUIReaction(con, space, NA_UI_COMMAND_KEYDOWN, keyDown);
+  double offsetx = 0;
   
-  NASpace* settingspace = naNewSpace(naMakeRectS(0, 0, 120, 227));
+  NASpace* settingspace = naNewSpace(naMakeRectS(offsetx, 0, 105, 227));
   naSetSpaceAlternateBackground(settingspace, NA_FALSE);
 
-  con->unsignedRadio = naNewRadio("Unsigned", naMakeRectS(10, 193, 100, 22));
-  naAddUIReaction(con, con->unsignedRadio, NA_UI_COMMAND_PRESSED, switchComplement);
-  naAddSpaceChild(settingspace, con->unsignedRadio);
+  con->unsignedOption = naNewTextOptionButton("U", naMakeRectS(10, 193, 24, 24));
+  naAddUIReaction(con, con->unsignedOption, NA_UI_COMMAND_PRESSED, switchComplement);
+  naAddSpaceChild(settingspace, con->unsignedOption);
 
-  con->onesRadio = naNewRadio("Ones", naMakeRectS(10, 171, 100, 22));
-  naAddUIReaction(con, con->onesRadio, NA_UI_COMMAND_PRESSED, switchComplement);
-  naAddSpaceChild(settingspace, con->onesRadio);
+  con->onesOption = naNewTextOptionButton("1", naMakeRectS(40, 193, 24, 24));
+  naAddUIReaction(con, con->onesOption, NA_UI_COMMAND_PRESSED, switchComplement);
+  naAddSpaceChild(settingspace, con->onesOption);
 
-  con->twosRadio = naNewRadio("Twos", naMakeRectS(10, 149, 100, 22));
-  naAddUIReaction(con, con->twosRadio, NA_UI_COMMAND_PRESSED, switchComplement);
-  naAddSpaceChild(settingspace, con->twosRadio);
+  con->twosOption = naNewTextOptionButton("2", naMakeRectS(70, 193, 24, 24));
+  naAddUIReaction(con, con->twosOption, NA_UI_COMMAND_PRESSED, switchComplement);
+  naAddSpaceChild(settingspace, con->twosOption);
 
-  con->endiannessCheckbox = naNewCheckbox("Endianness", naMakeRectS(10, 127, 100, 22));
-  naAddUIReaction(con, con->endiannessCheckbox, NA_UI_COMMAND_PRESSED, bitSwitchAppEndianness);
-  naAddSpaceChild(settingspace, con->endiannessCheckbox);
+  con->endiannessCheckBox = naNewCheckBox(bitTranslate(BitFiddleConversionByteSwap), naMakeRectS(10, 163, 85, 22));
+  naAddUIReaction(bitGetApplication(), con->endiannessCheckBox, NA_UI_COMMAND_PRESSED, bitSwitchAppEndianness);
+  naAddSpaceChild(settingspace, con->endiannessCheckBox);
 
-  con->helpButton = naNewButton("Help", naMakeRectS(10, 58, 100, 24));
-  naAddUIReaction(con, con->helpButton, NA_UI_COMMAND_PRESSED, windowButtonPressed);
+  NAString* helpImagePath = naNewBundleResourcePath("help", "png");
+  con->helpButton = naNewImageButton(naGetStringUTF8Pointer(helpImagePath), naMakeRectS(10, 10, 20, 20));
+  naAddUIReaction(con, con->helpButton, NA_UI_COMMAND_PRESSED, buttonPressed);
   naAddSpaceChild(settingspace, con->helpButton);
+  naDelete(helpImagePath);
 
-  con->preferencesButton = naNewButton("Preferences", naMakeRectS(10, 34, 100, 24));
-  naAddUIReaction(con, con->preferencesButton, NA_UI_COMMAND_PRESSED, windowButtonPressed);
+  NAString* prefImagePath = naNewBundleResourcePath("preferences", "png");
+  con->preferencesButton = naNewImageButton(naGetStringUTF8Pointer(prefImagePath), naMakeRectS(40, 10, 20, 20));
+  naAddUIReaction(con, con->preferencesButton, NA_UI_COMMAND_PRESSED, buttonPressed);
   naAddSpaceChild(settingspace, con->preferencesButton);
+  naDelete(prefImagePath);
 
-  con->asciiButton = naNewButton("ASCII", naMakeRectS(10, 10, 100, 24));
-  naAddUIReaction(con, con->asciiButton, NA_UI_COMMAND_PRESSED, windowButtonPressed);
+  NAString* ascImagePath = naNewBundleResourcePath("ascii", "png");
+  con->asciiButton = naNewImageButton(naGetStringUTF8Pointer(ascImagePath), naMakeRectS(70, 10, 20, 20));
+  naAddUIReaction(con, con->asciiButton, NA_UI_COMMAND_PRESSED, buttonPressed);
   naAddSpaceChild(settingspace, con->asciiButton);
+  naDelete(ascImagePath);
+
+  naAddSpaceChild(space, settingspace);
+  offsetx += 105;
 
   // ////////////////
 
-  naAddSpaceChild(space, settingspace);
-
-  NASpace* bitcountspace = naNewSpace(naMakeRectS(120, 0, 25, 227));
+  NASpace* bitcountspace = naNewSpace(naMakeRectS(offsetx, 0, 25, 227));
   naSetSpaceAlternateBackground(bitcountspace, NA_TRUE);
 
   NALabel* bit8label = createBitLabelField("8", naMakeRectS(0, 166, 25, 17));
@@ -457,94 +498,111 @@ BitConverterController* bitCreateConverterController(void){
   naAddSpaceChild(bitcountspace, bitnlabel);
 
   naAddSpaceChild(space, bitcountspace);
+  offsetx += 25;
 
   // ////////////////
 
-  NASpace* decspace = naNewSpace(naMakeRectS(142, 0, 150, 227));
+  NASpace* decspace = naNewSpace(naMakeRectS(offsetx, 0, 140, 227));
   naSetSpaceAlternateBackground(decspace, NA_FALSE);
 
-  con->inputdec = createBitInputField(con, "", naMakeRectS(10, 193, 130, 24), valueChangeDec);
+  con->inputdec = createBitInputField(con, naMakeRectS(10, 193, 120, 24), valueChangeDec);
   naAddSpaceChild(decspace, con->inputdec);
-
-  con->bit8dec = createBitOutputField("-000", naMakeRectS(102, 166, 38, 17));
+  con->labeldec = createSystemLabelField("Dec", naMakeRectS(10, 166, 30, 17));
+  naAddSpaceChild(decspace, con->labeldec);
+  con->bit8dec = createBitOutputField(naMakeRectS(92, 166, 38, 17));
   naAddSpaceChild(decspace, con->bit8dec);
-  con->bit16dec = createBitOutputField("-00 000", naMakeRectS(65, 144, 75, 17));
+  con->bit16dec = createBitOutputField(naMakeRectS(55, 144, 75, 17));
   naAddSpaceChild(decspace, con->bit16dec);
-  con->bit32dec = createBitOutputField("-0 000 000 000", naMakeRectS(10, 122, 130, 17));
+  con->bit32dec = createBitOutputField(naMakeRectS(10, 122, 120, 17));
   naAddSpaceChild(decspace, con->bit32dec);
-  con->bit64dec = createBitOutputField("-000 000 000 000\n000 000 000 000", naMakeRectS(10, 83, 130, 34));
+  con->bit64dec = createBitOutputField(naMakeRectS(10, 83, 120, 34));
   naAddSpaceChild(decspace, con->bit64dec);
-
-  con->bitndec = naNewTextBox("-000 000 000 000\n000 000 000 000\n000 000 000 000\n000 000 000 000", naMakeRectS(10, 10, 130, 68));
-  naSetTextBoxFontKind(con->bitndec, NA_FONT_KIND_MONOSPACE);
-  naSetTextBoxTextAlignment(con->bitndec, NA_TEXT_ALIGNMENT_RIGHT);
+  con->bitndec = createBitOutputBox(naMakeRectS(10, 10, 120, 68));
   naAddSpaceChild(decspace, con->bitndec);
 
   naAddSpaceChild(space, decspace);
+  offsetx += 140;
 
   // ////////////////
 
-  NASpace* hexspace = naNewSpace(naMakeRectS(292, 0, 120, 227));
+  NASpace* hexspace = naNewSpace(naMakeRectS(offsetx, 0, 120, 227));
   naSetSpaceAlternateBackground(hexspace, NA_TRUE);
 
-  con->inputhex = createBitInputField(con, "", naMakeRectS(10, 193, 100, 24), valueChangeHex);
+  con->inputhex = createBitInputField(con, naMakeRectS(10, 193, 100, 24), valueChangeHex);
   naAddSpaceChild(hexspace, con->inputhex);
-
-  con->bit8hex = createBitOutputField("00", naMakeRectS(85, 166, 25, 17));
+  con->labelhex = createSystemLabelField("Hex", naMakeRectS(10, 166, 30, 17));
+  naAddSpaceChild(hexspace, con->labelhex);
+  con->bit8hex = createBitOutputField(naMakeRectS(85, 166, 25, 17));
   naAddSpaceChild(hexspace, con->bit8hex);
-  con->bit16hex = createBitOutputField("00 00", naMakeRectS(60, 144, 50, 17));
+  con->bit16hex = createBitOutputField(naMakeRectS(60, 144, 50, 17));
   naAddSpaceChild(hexspace, con->bit16hex);
-  con->bit32hex = createBitOutputField("00 00 00 00", naMakeRectS(10, 122, 100, 17));
+  con->bit32hex = createBitOutputField(naMakeRectS(10, 122, 100, 17));
   naAddSpaceChild(hexspace, con->bit32hex);
-  con->bit64hex = createBitOutputField("00 00 00 00\n00 00 00 00", naMakeRectS(10, 83, 100, 34));
+  con->bit64hex = createBitOutputField(naMakeRectS(10, 83, 100, 34));
   naAddSpaceChild(hexspace, con->bit64hex);
-  con->bitnhex = createBitOutputField("00 00 00 00\n00 00 00 00\n00 00 00 00\n00 00 00 00", naMakeRectS(10, 10, 100, 68));
+  con->bitnhex = createBitOutputBox(naMakeRectS(10, 10, 100, 68));
   naAddSpaceChild(hexspace, con->bitnhex);
 
   naAddSpaceChild(space, hexspace);
+  offsetx += 120;
 
   // ////////////////
 
-  NASpace* binspace = naNewSpace(naMakeRectS(412, 0, 290, 227));
+  NASpace* binspace = naNewSpace(naMakeRectS(offsetx, 0, 305, 227));
   naSetSpaceAlternateBackground(binspace, NA_FALSE);
 
-  con->inputbin = createBitInputField(con, "", naMakeRectS(10, 193, 270, 24), valueChangeBin);
+  con->inputbin = createBitInputField(con, naMakeRectS(10, 193, 285, 24), valueChangeBin);
   naAddSpaceChild(binspace, con->inputbin);
-
-  con->bit8bin = createBitOutputField("00000000", naMakeRectS(212, 166, 68, 17));
+  con->labelbin = createSystemLabelField("Bin", naMakeRectS(10, 166, 30, 17));
+  naAddSpaceChild(binspace, con->labelbin);
+  con->bit8bin = createBitOutputField(naMakeRectS(220, 166, 75, 17));
   naAddSpaceChild(binspace, con->bit8bin);
-  con->bit16bin = createBitOutputField("00000000 00000000", naMakeRectS(145, 144, 135, 17));
+  con->bit16bin = createBitOutputField(naMakeRectS(150, 144, 145, 17));
   naAddSpaceChild(binspace, con->bit16bin);
-  con->bit32bin = createBitOutputField("00000000 00000000 00000000 00000000", naMakeRectS(10, 122, 270, 17));
+  con->bit32bin = createBitOutputField(naMakeRectS(10, 122, 285, 17));
   naAddSpaceChild(binspace, con->bit32bin);
-  con->bit64bin = createBitOutputField("00000000 00000000 00000000 00000000\n00000000 00000000 00000000 00000000", naMakeRectS(10, 83, 270, 34));
+  con->bit64bin = createBitOutputField(naMakeRectS(10, 83, 285, 34));
   naAddSpaceChild(binspace, con->bit64bin);
-  con->bitnbin = createBitOutputField("00000000 00000000 00000000 00000000\n00000000 00000000 00000000 00000000\n00000000 00000000 00000000 00000000\n00000000 00000000 00000000 00000000", naMakeRectS(10, 10, 270, 68));
+  con->bitnbin = createBitOutputBox(naMakeRectS(10, 10, 285, 68));
   naAddSpaceChild(binspace, con->bitnbin);
 
   naAddSpaceChild(space, binspace);
+  offsetx += 305;
 
   // ////////////////
 
-  NASpace* ascspace = naNewSpace(naMakeRectS(702, 0, 75, 227));
+  NASpace* ascspace = naNewSpace(naMakeRectS(offsetx, 0, 65, 227));
   naSetSpaceAlternateBackground(ascspace, NA_TRUE);
 
-  con->inputasc = createBitInputField(con, "", naMakeRectS(10, 193, 55, 24), valueChangeAsc);
+  con->inputasc = createBitInputField(con, naMakeRectS(10, 193, 45, 24), valueChangeAsc);
   naAddSpaceChild(ascspace, con->inputasc);
-
-  con->bit8asc = createBitOutputField("8", naMakeRectS(50, 166, 13, 17));
+  con->labelasc = createSystemLabelField("Asc", naMakeRectS(10, 166, 30, 17));
+  naAddSpaceChild(ascspace, con->labelasc);
+  con->bit8asc = createBitOutputField(naMakeRectS(35, 166, 20, 17));
   naAddSpaceChild(ascspace, con->bit8asc);
-  con->bit16asc = createBitOutputField("16", naMakeRectS(37, 144, 27, 17));
+  con->bit16asc = createBitOutputField(naMakeRectS(25, 144, 30, 17));
   naAddSpaceChild(ascspace, con->bit16asc);
-  con->bit32asc = createBitOutputField("32", naMakeRectS(10, 122, 55, 17));
+  con->bit32asc = createBitOutputField(naMakeRectS(10, 122, 45, 17));
   naAddSpaceChild(ascspace, con->bit32asc);
-  con->bit64asc = createBitOutputField("64\n64", naMakeRectS(10, 83, 55, 34));
+  con->bit64asc = createBitOutputField(naMakeRectS(10, 83, 45, 34));
   naAddSpaceChild(ascspace, con->bit64asc);
-  con->bitnasc = createBitOutputField("n\nn\nn\nn", naMakeRectS(10, 10, 55, 68));
+  con->bitnasc = createBitOutputBox(naMakeRectS(10, 10, 45, 68));
   naAddSpaceChild(ascspace, con->bitnasc);
 
   naAddSpaceChild(space, ascspace);
+  offsetx += 65;
 
+  // ////////////////
+
+  windowrect.size.width = offsetx;
+  naSetWindowRect(con->window, windowrect);
+
+  naSetWindowFirstTabElement(con->window, con->inputdec);
+  naSetUIElementNextTabElement(con->inputdec, con->inputhex);
+  naSetUIElementNextTabElement(con->inputhex, con->inputbin);
+  naSetUIElementNextTabElement(con->inputbin, con->inputasc);
+  naSetUIElementNextTabElement(con->inputasc, con->inputdec);
+  
   // ////////////////
 
   bitUpdateConverterController(con);
@@ -555,6 +613,7 @@ BitConverterController* bitCreateConverterController(void){
 
 void bitClearConverterController(BitConverterController* con){
   naRelease(con->bitarray);
+  naReleaseUIElement(con->window);
   naFree(con);
 }
 

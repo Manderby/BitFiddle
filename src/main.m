@@ -15,7 +15,7 @@
 void prestartup(void* arg){
   NA_UNUSED(arg);
   mandInitManderApp();
-  bitStartApp();
+  bitStartApplication();
 }
 
 

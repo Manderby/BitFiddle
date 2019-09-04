@@ -3,6 +3,7 @@
 
 enum{
   BitFiddleApplicationDescription,
+  BitFiddleApplicationHelpURL,
   BitFiddleNewVersionDescription,
 
   // Expressions in Main Window

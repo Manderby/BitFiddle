@@ -36,9 +36,7 @@
 // This method is used to properly shut down the app and NALib runtime.
 - (void)applicationWillTerminate:(NSNotification *)notification{
   NA_UNUSED(notification);
-  bitStopApp();
-  naStopApplication();
-  naStopRuntime();
+  bitStopApplication();
 }
 
 
@@ -59,12 +57,7 @@
 
 - (IBAction)openHelp:(NSMenuItem*)sender{
   NA_UNUSED(sender);
-  NSString* language = [[NSLocale currentLocale] languageCode];
-  if([language isEqualToString:@"de"]){
-    [[NSWorkspace sharedWorkspace] openURL:[NSURL URLWithString:@"http://manderc.com/apps/bitfiddle/help/index.php"]];
-  }else{
-    [[NSWorkspace sharedWorkspace] openURL:[NSURL URLWithString:@"http://manderc.com/apps/bitfiddle/help/index_en.php"]];
-  }
+  naOpenURLInBrowser(bitTranslate(BitFiddleApplicationHelpURL));
 }
 
 @end

@@ -514,34 +514,36 @@ NAString* naNewStringBinWithBitArray(NABuffer* bitarray){
 
 
 NAString* naNewStringAscWithBitArray(NABuffer* bitarray){
-  NAString* string;
-  if(naIsBufferEmpty(bitarray)){
-    string = naNewString();
-  }else{
-    #ifndef NDEBUG
-      if(naGetBufferRange(bitarray).length % 8)
-        naError("buffer length not divisible by 8");
-    #endif
-    NAInt arraysize = naGetBufferRange(bitarray).length / 8;
-    NAUTF8Char* stringbuffer = naBitFiddleMalloc(arraysize); 
-    NAUTF8Char* curchar = stringbuffer;
-    NAInt bitcount = 0;
-    NAUTF8Char newchar = 0;
-    
-    NABufferIterator iter = naMakeBufferAccessor(bitarray);
-    while(naIterateBuffer(&iter, -1)){
-      NAByte curbit = naGetBufferu8(&iter);
-      newchar = (NAUTF8Char)(newchar << 1 | curbit);
-      
-      bitcount++;
-      if((bitcount % 8) == 0){
-        if((newchar < 32) || (newchar > 126)){newchar = '?';}
-        *curchar++ = newchar;
-      }
+  NABufferIterator iterin;
+  NABufferIterator iterout;
+  NAInt bitcount;
+  
+  NAString* string = naNewString();
+  NABuffer* buffer = naGetStringBufferMutable(string);
+  
+  iterin = naMakeBufferAccessor(bitarray);
+  iterout = naMakeBufferModifier(buffer);
+  
+  NAUTF8Char newchar = 0;
+  bitcount = 0;
+  while(naIterateBuffer(&iterin, -1)){
+    NAByte byte = naGetBufferu8(&iterin);
+    newchar = (NAUTF8Char)(newchar << 1 | byte);
+
+    bitcount++;
+    if(bitcount && !((bitcount - 8) % 32)){
+      naWriteBufferu8(&iterout, ' ');
     }
-    naClearBufferIterator(&iter);
-    string = naNewStringWithMutableUTF8Buffer(stringbuffer, arraysize, (NAMutator)naFree);
+    if(!(bitcount % 8)){
+      if((newchar < 32) || (newchar > 126)){newchar = '?';}
+      naWriteBufferu8(&iterout, (uint8)newchar);
+      newchar = 0;
+    }
   }
+  
+  naClearBufferIterator(&iterin);
+  naClearBufferIterator(&iterout);
+  
   return string;
 }
 

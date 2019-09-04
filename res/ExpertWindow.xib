@@ -378,6 +378,28 @@
                             <color key="backgroundColor" name="controlColor" catalog="System" colorSpace="catalog"/>
                         </textFieldCell>
                     </textField>
+                    <button verticalHuggingPriority="750" id="cGg-44-Jak">
+                        <rect key="frame" x="199" y="192" width="25" height="23"/>
+                        <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMinY="YES"/>
+                        <buttonCell key="cell" type="smallSquare" bezelStyle="smallSquare" alignment="center" state="on" borderStyle="border" imageScaling="proportionallyDown" inset="2" id="Fma-oB-hDj">
+                            <behavior key="behavior" pushIn="YES" lightByBackground="YES" lightByGray="YES"/>
+                            <font key="font" metaFont="system"/>
+                        </buttonCell>
+                    </button>
+                    <segmentedControl verticalHuggingPriority="750" id="Tve-Xs-LyA">
+                        <rect key="frame" x="61" y="179" width="104" height="24"/>
+                        <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMinY="YES"/>
+                        <segmentedCell key="cell" borderStyle="border" alignment="left" style="rounded" trackingMode="selectOne" id="clU-ib-Zx1">
+                            <font key="font" metaFont="system"/>
+                            <segments>
+                                <segment width="32"/>
+                                <segment width="32" selected="YES" tag="1"/>
+                                <segment width="32">
+                                    <nil key="label"/>
+                                </segment>
+                            </segments>
+                        </segmentedCell>
+                    </segmentedControl>
                     <textField horizontalHuggingPriority="251" verticalHuggingPriority="750" id="wLu-Ks-RmX">
                         <rect key="frame" x="547" y="85" width="17" height="17"/>
                         <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMinY="YES"/>
