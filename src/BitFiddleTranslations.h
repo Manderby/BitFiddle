@@ -17,7 +17,12 @@ enum{
   BitFiddlePrefsAtStartup,    
   BitFiddlePrefsShowASCII,    
   BitFiddlePrefsResetSettings,
-  BitFiddlePrefsKeepOnTop,    
+  BitFiddlePrefsConverterWindow,    
+  BitFiddlePrefsKeepOnTop,
+  BitFiddlePrefsShow16Bits,
+  BitFiddlePrefsShowNBits,
+  BitFiddlePrefsShowBin,
+  BitFiddlePrefsShowAsc,
   BitFiddlePrefsDone,
 
   // Additional information for ascii characters

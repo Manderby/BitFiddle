@@ -8,6 +8,10 @@ enum {
   ShowASCIIOnStartup,
   ResetConversionOnStartup,
   KeepConverterOnTop,
+  Show16Bits,
+  ShowNBits,
+  ShowBin,
+  ShowAsc,
 
   SwapEndianness,
   SelectedComplementEncoding,

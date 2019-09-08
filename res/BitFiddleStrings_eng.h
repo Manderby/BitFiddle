@@ -19,7 +19,12 @@ NA_LOC(BitFiddlePrefsWindowTitle,   "Bit Fiddle Preferences");
 NA_LOC(BitFiddlePrefsAtStartup,     "At application startup");
 NA_LOC(BitFiddlePrefsShowASCII,     "Show ASCII window");
 NA_LOC(BitFiddlePrefsResetSettings, "Reset converter settings");
+NA_LOC(BitFiddlePrefsConverterWindow, "Converter Window");
 NA_LOC(BitFiddlePrefsKeepOnTop,     "Keep window in foreground");
+NA_LOC(BitFiddlePrefsShow16Bits,    "16 Bits");
+NA_LOC(BitFiddlePrefsShowNBits,     "n Bits");
+NA_LOC(BitFiddlePrefsShowBin,       "Bin");
+NA_LOC(BitFiddlePrefsShowAsc,       "Asc");
 NA_LOC(BitFiddlePrefsDone,          "Done");
 
 // Additional information for ascii characters
