@@ -8,6 +8,7 @@
 #include "BitFiddlePreferences.h"
 
 struct BitConverterController{
+  NABuffer* bitarray;
   NAWindow* window;
 
   NAButton* unsignedOption;
@@ -17,8 +18,6 @@ struct BitConverterController{
   NAButton* helpButton;
   NAButton* preferencesButton;
   NAButton* asciiButton;
-
-  NABuffer* bitarray;
 
   NATextField* inputdec;
   NALabel* labeldec;
@@ -55,17 +54,15 @@ struct BitConverterController{
 
 
 
-NABool valueChangeDec(void* controller, NAUIElement* uielement, NAUICommand command, void* arg){
-  NA_UNUSED(command);
-  NA_UNUSED(arg);
-  BitConverterController* con = controller;
+NABool valueChangeDec(NAReaction reaction){
+  BitConverterController* con = reaction.controller;
 
   naSetTextFieldText(con->inputhex, "");
   if(con->inputbin){naSetTextFieldText(con->inputbin, "");}
   if(con->inputasc){naSetTextFieldText(con->inputasc, "");}
 
   naRelease(con->bitarray);
-  NAString* instring = naNewStringWithTextFieldText(uielement);
+  NAString* instring = naNewStringWithTextFieldText(reaction.uielement);
   con->bitarray = naCreateBitArrayWithDecString(instring);
   naDelete(instring);
 
@@ -75,17 +72,15 @@ NABool valueChangeDec(void* controller, NAUIElement* uielement, NAUICommand comm
 
 
 
-NABool valueChangeHex(void* controller, NAUIElement* uielement, NAUICommand command, void* arg){
-  NA_UNUSED(command);
-  NA_UNUSED(arg);
-  BitConverterController* con = controller;
+NABool valueChangeHex(NAReaction reaction){
+  BitConverterController* con = reaction.controller;
 
   naSetTextFieldText(con->inputdec, "");
   if(con->inputbin){naSetTextFieldText(con->inputbin, "");}
   if(con->inputasc){naSetTextFieldText(con->inputasc, "");}
 
   naRelease(con->bitarray);
-  NAString* instring = naNewStringWithTextFieldText(uielement);
+  NAString* instring = naNewStringWithTextFieldText(reaction.uielement);
   con->bitarray = naCreateBitArrayWithHexString(instring);
   naDelete(instring);
 
@@ -95,17 +90,15 @@ NABool valueChangeHex(void* controller, NAUIElement* uielement, NAUICommand comm
 
 
 
-NABool valueChangeBin(void* controller, NAUIElement* uielement, NAUICommand command, void* arg){
-  NA_UNUSED(command);
-  NA_UNUSED(arg);
-  BitConverterController* con = controller;
+NABool valueChangeBin(NAReaction reaction){
+  BitConverterController* con = reaction.controller;
 
   naSetTextFieldText(con->inputdec, "");
   naSetTextFieldText(con->inputhex, "");
   if(con->inputasc){naSetTextFieldText(con->inputasc, "");}
 
   naRelease(con->bitarray);
-  NAString* instring = naNewStringWithTextFieldText(uielement);
+  NAString* instring = naNewStringWithTextFieldText(reaction.uielement);
   con->bitarray = naCreateBitArrayWithBinString(instring);
   naDelete(instring);
 
@@ -115,17 +108,15 @@ NABool valueChangeBin(void* controller, NAUIElement* uielement, NAUICommand comm
 
 
 
-NABool valueChangeAsc(void* controller, NAUIElement* uielement, NAUICommand command, void* arg){
-  NA_UNUSED(command);
-  NA_UNUSED(arg);
-  BitConverterController* con = controller;
+NABool valueChangeAsc(NAReaction reaction){
+  BitConverterController* con = reaction.controller;
 
   naSetTextFieldText(con->inputdec, "");
   naSetTextFieldText(con->inputhex, "");
   if(con->inputbin){naSetTextFieldText(con->inputbin, "");}
 
   naRelease(con->bitarray);
-  NAString* instring = naNewStringWithTextFieldText(uielement);
+  NAString* instring = naNewStringWithTextFieldText(reaction.uielement);
   con->bitarray = naCreateBitArrayWithAscString(instring);
   naDelete(instring);
 
@@ -148,32 +139,27 @@ void resetComplementValues(BitConverterController* con){
 
 
 
-NABool closeConverterWindow(void* controller, NAUIElement* uielement, NAUICommand command, void* arg){
-  NA_UNUSED(controller);
-  NA_UNUSED(uielement);
-  NA_UNUSED(command);
-  NA_UNUSED(arg);
+NABool closeConverterWindow(NAReaction reaction){
+  NA_UNUSED(reaction);
   naStopApplication();
-//  NABool* shouldClose = arg;
-//  *shouldClose = NA_TRUE; 
   return NA_TRUE;
 }
 
 
 
-NABool switchComplement(void* controller, NAUIElement* uielement, NAUICommand command, void* arg){
-  NA_UNUSED(command);
-  NA_UNUSED(arg);
-  BitConverterController* con = controller;
+NABool switchComplement(NAReaction reaction){
+  BitConverterController* con = reaction.controller;
 
-  if(uielement == con->unsignedOption){
+  if(reaction.uielement == con->unsignedOption){
     bitSetConversionType(COMPUTE_UNSIGNED);
-  }else if(uielement == con->onesOption){
+  }else if(reaction.uielement == con->onesOption){
     bitSetConversionType(COMPUTE_ONES_COMPLEMENT);
-  }else if(uielement == con->twosOption){
+  }else if(reaction.uielement == con->twosOption){
     bitSetConversionType(COMPUTE_TWOS_COMPLEMENT);
   }else{
-    naError("Unknown conversion type");
+    #ifndef NDEBUG
+      naError("Unknown conversion type");
+    #endif
   }
   bitUpdateConverterController(con);
   return NA_TRUE;
@@ -181,19 +167,19 @@ NABool switchComplement(void* controller, NAUIElement* uielement, NAUICommand co
 
 
 
-NABool buttonPressed(void* controller, NAUIElement* uielement, NAUICommand command, void* arg){
-  NA_UNUSED(command);
-  NA_UNUSED(arg);
-  BitConverterController* con = controller;
+NABool buttonPressed(NAReaction reaction){
+  BitConverterController* con = reaction.controller;
 
-  if(uielement == con->helpButton){
+  if(reaction.uielement == con->helpButton){
     mandShowAboutController();
-  }else if(uielement == con->preferencesButton){
+  }else if(reaction.uielement == con->preferencesButton){
     bitShowPreferencesController();
-  }else if(uielement == con->asciiButton){
+  }else if(reaction.uielement == con->asciiButton){
     bitShowASCIIController();
   }else{
-    naError("Unknown window button");
+    #ifndef NDEBUG
+      naError("Unknown window button");
+    #endif
   }
   return NA_TRUE;
 }
@@ -397,7 +383,7 @@ NATextField* createBitInputField(BitConverterController* con, NARect rect, NARea
   NATextField* textfield = naNewTextField(rect);
   naSetTextFieldFontKind(textfield, NA_FONT_KIND_MONOSPACE);
   naSetTextFieldTextAlignment(textfield, NA_TEXT_ALIGNMENT_RIGHT);
-  naAddUIReaction(con, textfield, NA_UI_COMMAND_EDITED, handler);
+  naAddUIReaction(textfield, NA_UI_COMMAND_EDITED, handler, con);
   return textfield;
 }
 
@@ -437,6 +423,8 @@ BitConverterController* bitCreateConverterController(void){
   BitConverterController* con = naAlloc(BitConverterController);
   naZeron(con, naSizeof(BitConverterController));
   
+  con->bitarray = naNewBuffer(NA_FALSE);
+
   NABool show16Bits = naGetPreferencesBool(BitPrefs[Show16Bits]);
   NABool showNBits = naGetPreferencesBool(BitPrefs[ShowNBits]);
   NABool showBin = naGetPreferencesBool(BitPrefs[ShowBin]);
@@ -450,11 +438,9 @@ BitConverterController* bitCreateConverterController(void){
   NAInt yposinput = ypos8 + 27;
   NAInt yspaceheight = yposinput + 22 + 10;
 
-  con->bitarray = naNewBuffer(NA_FALSE);
-
   NARect windowrect = naMakeRectS(60, 120, 777, yspaceheight);
-  con->window = naNewWindow("Complement", windowrect, NA_FALSE);
-  naAddUIReaction(con, con->window, NA_UI_COMMAND_CLOSES, closeConverterWindow);
+  con->window = naNewWindow("Complement", windowrect, NA_FALSE, BIT_WINDOW_TAG_CONVERTER);
+  naAddUIReaction(con->window, NA_UI_COMMAND_CLOSES, closeConverterWindow, con);
 
   NASpace* space = naGetWindowContentSpace(con->window);
   double offsetx = 0;
@@ -465,44 +451,35 @@ BitConverterController* bitCreateConverterController(void){
   alternateblock++;
 
   con->unsignedOption = naNewTextOptionButton("U", naMakeRectS(10, yposinput, 24, 24));
-  naAddUIReaction(con, con->unsignedOption, NA_UI_COMMAND_PRESSED, switchComplement);
+  naAddUIReaction(con->unsignedOption, NA_UI_COMMAND_PRESSED, switchComplement, con);
   naAddSpaceChild(settingspace, con->unsignedOption);
 
   con->onesOption = naNewTextOptionButton("1", naMakeRectS(40, yposinput, 24, 24));
-  naAddUIReaction(con, con->onesOption, NA_UI_COMMAND_PRESSED, switchComplement);
+  naAddUIReaction(con->onesOption, NA_UI_COMMAND_PRESSED, switchComplement, con);
   naAddSpaceChild(settingspace, con->onesOption);
 
   con->twosOption = naNewTextOptionButton("2", naMakeRectS(70, yposinput, 24, 24));
-  naAddUIReaction(con, con->twosOption, NA_UI_COMMAND_PRESSED, switchComplement);
+  naAddUIReaction(con->twosOption, NA_UI_COMMAND_PRESSED, switchComplement, con);
   naAddSpaceChild(settingspace, con->twosOption);
 
   con->endiannessCheckBox = naNewCheckBox(bitTranslate(BitFiddleConversionByteSwap), naMakeRectS(10, ypos8, 85, 22));
-  naAddUIReaction(bitGetApplication(), con->endiannessCheckBox, NA_UI_COMMAND_PRESSED, bitSwitchAppEndianness);
+  naAddUIReaction(con->endiannessCheckBox, NA_UI_COMMAND_PRESSED, bitSwitchAppEndianness, bitGetApplication());
   naAddSpaceChild(settingspace, con->endiannessCheckBox);
 
-  NAString* helpImagePath = naNewBundleResourcePath(NA_NULL, "help", "png");
-  NABabyImage* helpbabyimage = naAllocBabyImageFromFilePath(naGetStringUTF8Pointer(helpImagePath));
-  NAUIImage* helpuiimage = naAllocUIImage(helpbabyimage, NA_NULL, NA_UIIMAGE_RESOLUTION_2x, NA_BLEND_BLACK_GREEN);
+  NAUIImage* helpuiimage = bitGetImageAsset(BIT_IMAGE_ASSET_HELP_BUTTON);
   con->helpButton = naNewImageButton(helpuiimage, naMakeRectS(10, 10, 20, 20));
-  naAddUIReaction(con, con->helpButton, NA_UI_COMMAND_PRESSED, buttonPressed);
+  naAddUIReaction(con->helpButton, NA_UI_COMMAND_PRESSED, buttonPressed, con);
   naAddSpaceChild(settingspace, con->helpButton);
-  naDelete(helpImagePath);
 
-  NAString* prefImagePath = naNewBundleResourcePath(NA_NULL, "preferences", "png");
-  NABabyImage* prefbabyimage = naAllocBabyImageFromFilePath(naGetStringUTF8Pointer(prefImagePath));
-  NAUIImage* prefuiimage = naAllocUIImage(prefbabyimage, NA_NULL, NA_UIIMAGE_RESOLUTION_2x, NA_BLEND_BLACK_GREEN);
+  NAUIImage* prefuiimage = bitGetImageAsset(BIT_IMAGE_ASSET_PREFS_BUTTON);
   con->preferencesButton = naNewImageButton(prefuiimage, naMakeRectS(40, 10, 20, 20));
-  naAddUIReaction(con, con->preferencesButton, NA_UI_COMMAND_PRESSED, buttonPressed);
+  naAddUIReaction(con->preferencesButton, NA_UI_COMMAND_PRESSED, buttonPressed, con);
   naAddSpaceChild(settingspace, con->preferencesButton);
-  naDelete(prefImagePath);
 
-  NAString* ascImagePath = naNewBundleResourcePath(NA_NULL, "ascii", "png");
-  NABabyImage* ascbabyimage = naAllocBabyImageFromFilePath(naGetStringUTF8Pointer(ascImagePath));
-  NAUIImage* ascuiimage = naAllocUIImage(ascbabyimage, NA_NULL, NA_UIIMAGE_RESOLUTION_2x, NA_BLEND_BLACK_GREEN);
+  NAUIImage* ascuiimage = bitGetImageAsset(BIT_IMAGE_ASSET_ASCII_BUTTON);
   con->asciiButton = naNewImageButton(ascuiimage, naMakeRectS(70, 10, 20, 20));
-  naAddUIReaction(con, con->asciiButton, NA_UI_COMMAND_PRESSED, buttonPressed);
+  naAddUIReaction(con->asciiButton, NA_UI_COMMAND_PRESSED, buttonPressed, con);
   naAddSpaceChild(settingspace, con->asciiButton);
-  naDelete(ascImagePath);
 
   naAddSpaceChild(space, settingspace);
   offsetx += 105;
@@ -649,6 +626,7 @@ BitConverterController* bitCreateConverterController(void){
 
   // ////////////////
 
+  windowrect = naGetUIElementRect(con->window, NA_NULL, NA_FALSE);
   windowrect.size.width = offsetx;
   naSetWindowRect(con->window, windowrect);
 

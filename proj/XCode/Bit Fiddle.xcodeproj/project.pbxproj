@@ -62,7 +62,7 @@
 		90D8E3A522FCCCAE0032C934 /* Carbon.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 90D8E3A422FCCCAE0032C934 /* Carbon.framework */; };
 		90D8E42A2309A28B0032C934 /* help.png in Resources */ = {isa = PBXBuildFile; fileRef = 90D8E4292309A28B0032C934 /* help.png */; };
 		90D8E42F2309B7F10032C934 /* ascii.png in Resources */ = {isa = PBXBuildFile; fileRef = 90D8E42D2309B7F00032C934 /* ascii.png */; };
-		90D8E4302309B7F10032C934 /* preferences.png in Resources */ = {isa = PBXBuildFile; fileRef = 90D8E42E2309B7F10032C934 /* preferences.png */; };
+		90D8E4302309B7F10032C934 /* prefs.png in Resources */ = {isa = PBXBuildFile; fileRef = 90D8E42E2309B7F10032C934 /* prefs.png */; };
 		90E3274522218B65005712B0 /* .gitignore in Resources */ = {isa = PBXBuildFile; fileRef = 90E3273422218B65005712B0 /* .gitignore */; };
 		B9848B41177B99B400E21D96 /* Cocoa.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = B9848B40177B99B400E21D96 /* Cocoa.framework */; };
 /* End PBXBuildFile section */
@@ -270,7 +270,7 @@
 		90D8E3A422FCCCAE0032C934 /* Carbon.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Carbon.framework; path = System/Library/Frameworks/Carbon.framework; sourceTree = SDKROOT; };
 		90D8E4292309A28B0032C934 /* help.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = help.png; sourceTree = "<group>"; };
 		90D8E42D2309B7F00032C934 /* ascii.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = ascii.png; sourceTree = "<group>"; };
-		90D8E42E2309B7F10032C934 /* preferences.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = preferences.png; sourceTree = "<group>"; };
+		90D8E42E2309B7F10032C934 /* prefs.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = prefs.png; sourceTree = "<group>"; };
 		90E3273422218B65005712B0 /* .gitignore */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; path = .gitignore; sourceTree = "<group>"; };
 		B9848B3D177B99B400E21D96 /* Bit Fiddle.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = "Bit Fiddle.app"; sourceTree = BUILT_PRODUCTS_DIR; };
 		B9848B40177B99B400E21D96 /* Cocoa.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Cocoa.framework; path = System/Library/Frameworks/Cocoa.framework; sourceTree = SDKROOT; };
@@ -489,12 +489,12 @@
 		9073FF7423230FAB00801813 /* NAEnvironment */ = {
 			isa = PBXGroup;
 			children = (
-				9073FF7523230FAB00801813 /* NAUICore.h */,
 				9073FF7623230FAB00801813 /* macOS */,
 				9073FF8A23230FAB00801813 /* NATranslator.c */,
-				9073FF8B23230FAB00801813 /* NAUIImageII.h */,
-				9073FF8C23230FAB00801813 /* NAUIImage.h */,
 				9073FF8D23230FAB00801813 /* NAUICore.c */,
+				9073FF7523230FAB00801813 /* NAUICore.h */,
+				9073FF8C23230FAB00801813 /* NAUIImage.h */,
+				9073FF8B23230FAB00801813 /* NAUIImageII.h */,
 				9073FF8E23230FAB00801813 /* Windows */,
 			);
 			path = NAEnvironment;
@@ -531,18 +531,18 @@
 		9073FF7B23230FAB00801813 /* UI */ = {
 			isa = PBXGroup;
 			children = (
-				9073FF7C23230FAB00801813 /* NATextBoxII.h */,
 				9073FF7D23230FAB00801813 /* NAApplicationII.h */,
-				9073FF7E23230FAB00801813 /* NAWindowII.h */,
 				9073FF7F23230FAB00801813 /* NAButtonII.h */,
 				9073FF8023230FAB00801813 /* NACheckBoxII.h */,
-				9073FF8123230FAB00801813 /* NARadioII.h */,
-				9073FF8223230FAB00801813 /* NAOpenGLSpaceII.h */,
-				9073FF8323230FAB00801813 /* NAUICocoaII.h */,
-				9073FF8423230FAB00801813 /* NASpaceII.h */,
 				9073FF8523230FAB00801813 /* NAImageSpaceII.h */,
 				9073FF8623230FAB00801813 /* NALabelII.h */,
+				9073FF8223230FAB00801813 /* NAOpenGLSpaceII.h */,
+				9073FF8123230FAB00801813 /* NARadioII.h */,
+				9073FF8423230FAB00801813 /* NASpaceII.h */,
+				9073FF7C23230FAB00801813 /* NATextBoxII.h */,
 				9073FF8723230FAB00801813 /* NATextFieldII.h */,
+				9073FF8323230FAB00801813 /* NAUICocoaII.h */,
+				9073FF7E23230FAB00801813 /* NAWindowII.h */,
 			);
 			path = UI;
 			sourceTree = "<group>";
@@ -631,7 +631,7 @@
 				90D6ED2122C4189D00E752C5 /* BitFiddleStrings_eng.h */,
 				90D8E4292309A28B0032C934 /* help.png */,
 				90D8E42D2309B7F00032C934 /* ascii.png */,
-				90D8E42E2309B7F10032C934 /* preferences.png */,
+				90D8E42E2309B7F10032C934 /* prefs.png */,
 				90BAF73521759CC6001665BF /* InfoPlist.strings */,
 				90BAF73721759CC6001665BF /* MainMenu.xib */,
 				90BAF73C21759CC6001665BF /* ExpertWindow.xib */,
@@ -777,7 +777,7 @@
 				90D8E42F2309B7F10032C934 /* ascii.png in Resources */,
 				90BAF75521759CC6001665BF /* BitFiddleChangelog.txt in Resources */,
 				90BAF74D21759CC6001665BF /* MainMenu.xib in Resources */,
-				90D8E4302309B7F10032C934 /* preferences.png in Resources */,
+				90D8E4302309B7F10032C934 /* prefs.png in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

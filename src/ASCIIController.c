@@ -3,6 +3,7 @@
 #include "NAString.h"
 #include "BitFiddleTranslations.h"
 #include "BitFiddlePreferences.h"
+#include "BitFiddleApplication.h"
 
 struct BitASCIIController{
   NAWindow* window;
@@ -222,11 +223,9 @@ NAInt getUISpaceIndex(BitASCIIController* con, NAUIElement* uielement){
 
 
 
-NABool hoverItem(void* controller, NAUIElement* uielement, NAUICommand command, void* arg){
-  NA_UNUSED(command);
-  NA_UNUSED(arg);
-  BitASCIIController* con = controller;
-  NAInt itemIndex = getUISpaceIndex(con, uielement);
+NABool hoverItem(NAReaction reaction){
+  BitASCIIController* con = reaction.controller;
+  NAInt itemIndex = getUISpaceIndex(con, reaction.uielement);
   
   naSetSpaceAlternateBackground(con->spaces[itemIndex], NA_TRUE);
   
@@ -247,31 +246,27 @@ NABool hoverItem(void* controller, NAUIElement* uielement, NAUICommand command, 
 
 
 
-NABool unhoverItem(void* controller, NAUIElement* uielement, NAUICommand command, void* arg){
-  NA_UNUSED(command);
-  NA_UNUSED(arg);
-  BitASCIIController* con = controller;
-  NAInt itemIndex = getUISpaceIndex(con, uielement);  
+NABool unhoverItem(NAReaction reaction){
+  BitASCIIController* con = reaction.controller;
+  NAInt itemIndex = getUISpaceIndex(con, reaction.uielement);  
   naSetSpaceAlternateBackground(con->spaces[itemIndex], NA_FALSE);
   return NA_TRUE;
 }
 
 
 
-NABool switchASCIIDisplayMode(void* controller, NAUIElement* uielement, NAUICommand command, void* arg){
-  NA_UNUSED(command);
-  NA_UNUSED(arg);
-  BitASCIIController* con = controller;
-  if(uielement == con->escapeRadio){
+NABool switchASCIIDisplayMode(NAReaction reaction){
+  BitASCIIController* con = reaction.controller;
+  if(reaction.uielement == con->escapeRadio){
     con->useEscape = NA_TRUE;
     naSetPreferencesBool(BitPrefs[UseASCIIEscape], NA_TRUE);
-  }else if(uielement == con->codeRadio){
+  }else if(reaction.uielement == con->codeRadio){
     con->useEscape = NA_FALSE;
     naSetPreferencesBool(BitPrefs[UseASCIIEscape], NA_FALSE);
-  }else if(uielement == con->hexRadio){
+  }else if(reaction.uielement == con->hexRadio){
     con->useHex = NA_TRUE;
     naSetPreferencesBool(BitPrefs[UseASCIIHex], NA_TRUE);
-  }else if(uielement == con->decRadio){
+  }else if(reaction.uielement == con->decRadio){
     con->useHex = NA_FALSE;
     naSetPreferencesBool(BitPrefs[UseASCIIHex], NA_FALSE);
   }else{
@@ -292,7 +287,7 @@ BitASCIIController* bitCreateASCIIController(void){
   con->useEscape = NA_FALSE;
 
   NARect windowrect = naMakeRectS(20, 20, 776, 430);
-  con->window = naNewWindow("ASCII", windowrect, NA_FALSE);
+  con->window = naNewWindow("ASCII", windowrect, NA_FALSE, BIT_WINDOW_TAG_ASCII);
   
   NASpace* space = naGetWindowContentSpace(con->window);
   NAInt curindex = 0;
@@ -304,8 +299,8 @@ BitASCIIController* bitCreateASCIIController(void){
     for(NAInt y = 0; y < 16; y++){
       rect = naMakeRectS(5, (15 - y) * 22 + 5, 87, 22);
       con->spaces[curindex] = naNewSpace(rect);
-      naAddUIReaction(con, con->spaces[curindex], NA_UI_COMMAND_MOUSE_ENTERED, hoverItem);
-      naAddUIReaction(con, con->spaces[curindex], NA_UI_COMMAND_MOUSE_EXITED, unhoverItem);
+      naAddUIReaction(con->spaces[curindex], NA_UI_COMMAND_MOUSE_ENTERED, hoverItem, con);
+      naAddUIReaction(con->spaces[curindex], NA_UI_COMMAND_MOUSE_EXITED, unhoverItem, con);
 
       rect = naMakeRectS(0, 0, 32, 22);
       con->labels[curindex] = naNewLabel("", rect);
@@ -328,19 +323,19 @@ BitASCIIController* bitCreateASCIIController(void){
   }
   
   con->codeRadio = naNewRadio("Code", naMakeRectS(15, 10, 64, 22));
-  naAddUIReaction(con, con->codeRadio, NA_UI_COMMAND_PRESSED, switchASCIIDisplayMode);
+  naAddUIReaction(con->codeRadio, NA_UI_COMMAND_PRESSED, switchASCIIDisplayMode, con);
   naAddSpaceChild(space, con->codeRadio);
 
   con->escapeRadio = naNewRadio("Escape", naMakeRectS(15, 32, 64, 22));
-  naAddUIReaction(con, con->escapeRadio, NA_UI_COMMAND_PRESSED, switchASCIIDisplayMode);
+  naAddUIReaction(con->escapeRadio, NA_UI_COMMAND_PRESSED, switchASCIIDisplayMode, con);
   naAddSpaceChild(space, con->escapeRadio);
 
   con->hexRadio = naNewRadio("Hex", naMakeRectS(112, 10, 64, 22));
-  naAddUIReaction(con, con->hexRadio, NA_UI_COMMAND_PRESSED, switchASCIIDisplayMode);
+  naAddUIReaction(con->hexRadio, NA_UI_COMMAND_PRESSED, switchASCIIDisplayMode, con);
   naAddSpaceChild(space, con->hexRadio);
 
   con->decRadio = naNewRadio("Dec", naMakeRectS(112, 32, 64, 22));
-  naAddUIReaction(con, con->decRadio, NA_UI_COMMAND_PRESSED, switchASCIIDisplayMode);
+  naAddUIReaction(con->decRadio, NA_UI_COMMAND_PRESSED, switchASCIIDisplayMode, con);
   naAddSpaceChild(space, con->decRadio);
   
   con->info1 = naNewLabel("", naMakeRectS(209, 5, 184, 44));

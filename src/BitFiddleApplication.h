@@ -4,6 +4,7 @@
 
 #include "NABase.h"
 #include "NAUI.h"
+#include "NAUIImage.h"
 
 typedef struct BitApplication BitApplication;
 
@@ -13,10 +14,23 @@ typedef enum{
   COMPUTE_TWOS_COMPLEMENT = 2,
 } ConversionType;
 
+typedef enum{
+  BIT_IMAGE_ASSET_HELP_BUTTON,
+  BIT_IMAGE_ASSET_PREFS_BUTTON,
+  BIT_IMAGE_ASSET_ASCII_BUTTON,
+  BIT_IMAGE_ASSET_COUNT
+} BitImageAsset;
+
+#define BIT_WINDOW_TAG_CONVERTER 1
+#define BIT_WINDOW_TAG_PREFERENCES 2
+#define BIT_WINDOW_TAG_ASCII 3
+
 void bitStartApplication(void);
 void bitCreateUI(void);
 void bitStopApplication(void);
 BitApplication* bitGetApplication(void);
+
+NAUIImage* bitGetImageAsset(BitImageAsset asset);
 
 void bitShowConverterController(void);
 void bitShowASCIIController(void);
@@ -27,8 +41,8 @@ ConversionType bitGetConversionType(void);
 void bitSetConversionType(ConversionType conversionType);
 
 NABool bitGetEndiannessSwap(void);
-NABool bitSwitchAppEndianness(void* controller, NAUIElement* uielement, NAUICommand command, void* arg);
-NABool bitSwitchConversionType(void* controller, NAUIElement* uielement, NAUICommand command, void* arg);
+NABool bitSwitchAppEndianness(NAReaction reaction);
+NABool bitSwitchConversionType(NAReaction reaction);
 
 void bitRecreateConverterController(void);
 
