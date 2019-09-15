@@ -116,8 +116,8 @@ BitPreferencesController* bitCreatePreferencesController(){
   naAddUIReaction(con->doneButton, NA_UI_COMMAND_PRESSED, pressDone, con);
   naAddSpaceChild(space, con->doneButton);
 
-  naSetButtonSubmit(con->doneButton, con, pressDone);
-  naSetButtonAbort(con->doneButton, con, pressDone);
+  naSetButtonSubmit(con->doneButton, pressDone, con);
+  naSetButtonAbort(con->doneButton, pressDone, con);
 
   return con;
 }

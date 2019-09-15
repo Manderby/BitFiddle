@@ -1,5 +1,6 @@
 
-#include "NAUI.h"
+#include "BitFiddle.h"
+#include BIT_NALIB_PATH(NAUI.h)
 
 typedef struct BitPreferencesController BitPreferencesController;
 

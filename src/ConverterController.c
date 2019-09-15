@@ -4,7 +4,7 @@
 #include "BitArray.h"
 #include "BitFiddleTranslations.h"
 #include "BitFiddleApplication.h"
-#include "ManderAppAbout.h"
+#include BIT_MANDERAPP_PATH(ManderAppAbout.h)
 #include "BitFiddlePreferences.h"
 
 struct BitConverterController{
@@ -257,6 +257,12 @@ void fillOutputFieldWithBitArray(NAUIElement* outputfield, NumberSystem numbersy
     break;
   case NUMBER_SYSTEM_ASC:
     outstring = naNewStringAscWithBitArray(bitarray);
+    break;
+  default:
+    #ifndef NDEBUG
+      naError("Invalid number system");
+    #endif
+    outstring = naNewStringHexWithBitArray(bitarray);
     break;
   }
   if(naGetUIElementType(outputfield) == NA_UI_LABEL){

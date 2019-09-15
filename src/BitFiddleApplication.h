@@ -2,9 +2,10 @@
 #ifndef BIT_APPLICATION_DEFINED
 #define BIT_APPLICATION_DEFINED
 
-#include "NABase.h"
-#include "NAUI.h"
-#include "NAUIImage.h"
+#include "BitFiddle.h"
+#include BIT_NALIB_PATH(NABase.h)
+#include BIT_NALIB_PATH(NAUI.h)
+#include BIT_NALIB_PATH(NAEnvironment/NAUIImage.h)
 
 typedef struct BitApplication BitApplication;
 

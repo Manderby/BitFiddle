@@ -1,7 +1,12 @@
 .DS_Store
 .gitignore
+.vs
 build/
 publishedbundles/
 *xcodeproj/manderim.*
 *xcshareddata*
 *xcuserdata*
+*vcxproj.filters
+*vcxproj.user
+proj/VS2017/Debug
+proj/VS2017/BitFiddle/Debug
