@@ -9,6 +9,6 @@ const NAUTF8Char* bitTranslate(NAInt id){
 
 void initTranslations(){
   translatorGroup = naRegisterTranslatorGroup();
-  #include "BitFiddleStrings_eng.h"
-  #include "BitFiddleStrings_deu.h"
+  #include "../res/BitFiddleStrings_eng.h"
+  #include "../res/BitFiddleStrings_deu.h"
 }

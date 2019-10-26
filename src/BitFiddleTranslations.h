@@ -1,5 +1,6 @@
 
-#include "NATranslator.h"
+#include "BitFiddle.h"
+#include BIT_NALIB_PATH(NATranslator.h)
 
 enum{
   BitFiddleApplicationDescription,

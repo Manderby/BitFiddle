@@ -1,9 +1,9 @@
 
-
-#include "NABinaryData.h"
+#include "BitFiddle.h"
+#include BIT_NALIB_PATH(NABinaryData.h)
+#include BIT_NALIB_PATH(NAString.h)
+#include BIT_NALIB_PATH(NABuffer.h)
 #include "BitArray.h"
-#include "NAString.h"
-#include "NABuffer.h"
 
 
 
