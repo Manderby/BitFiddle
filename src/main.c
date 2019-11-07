@@ -37,7 +37,13 @@ void poststartup(void* arg){
 int main(int argc, char *argv[]){
   NA_UNUSED(argc);
   NA_UNUSED(argv);
+
   naStartRuntime();
+
+  NAString* cwd = naNewStringWithCurWorkingDirectory();
+  printf("%s\n", naGetStringUTF8Pointer(cwd));
+  naDelete(cwd);
+
   naStartApplication(prestartup, poststartup, NA_NULL);
   return 0;
 }
