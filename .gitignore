@@ -9,4 +9,6 @@ publishedbundles/
 *vcxproj.filters
 *vcxproj.user
 proj/VS2017/Debug
+proj/VS2017/Release
 proj/VS2017/BitFiddle/Debug
+proj/VS2017/BitFiddle/Release
