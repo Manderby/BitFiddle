@@ -33,12 +33,20 @@ void poststartup(void* arg){
 }
 
 
+//#include BIT_NALIB_PATH(NAPNG.h)
+//#include BIT_NALIB_PATH(NABabyImage.h)
 
 int main(int argc, char *argv[]){
   NA_UNUSED(argc);
   NA_UNUSED(argv);
 
   naStartRuntime();
+
+  //NAPNG* png = naNewPNGWithFile("C:\\Users\\Tobias Stamm\\Desktop\\programme\\BitFiddle\\res\\prefs.png");
+  //naWritePNGToFile(png, "blah.png");
+  //NABabyImage* babyimage = naCreateBabyImageFromPNG(png);
+  //NAPNG* png2 = naNewPNGWithBabyImage(babyimage);
+  //naWritePNGToFile(png2, "blah2.png");
 
   NAString* cwd = naNewStringWithCurWorkingDirectory();
   printf("%s\n", naGetStringUTF8Pointer(cwd));

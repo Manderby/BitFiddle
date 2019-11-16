@@ -320,11 +320,11 @@ BitASCIIController* bitCreateASCIIController(void){
       naSetLabelTextAlignment(con->chars[curindex], NA_TEXT_ALIGNMENT_CENTER);
       naAddSpaceChild(con->spaces[curindex], con->chars[curindex], naMakePos(37, 0));
       
-      naAddSpaceChild(columnspace, con->spaces[curindex], naMakePos(5, (15 - y) * 22 + 5));
+      naAddSpaceChild(columnspace, con->spaces[curindex], naMakePos(5., (15. - y) * 22. + 5.));
       curindex++;
     }
 
-    naAddSpaceChild(space, columnspace, naMakePos(x * 97, 64));
+    naAddSpaceChild(space, columnspace, naMakePos(x * 97., 64.));
   }
   
   con->codeRadio = naNewRadio("Code", naMakeSize(64, 22));

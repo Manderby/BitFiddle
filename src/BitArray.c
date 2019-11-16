@@ -127,7 +127,7 @@ void naPadBitArray(NABuffer* bitarray, NAInt padsize){
 //      naError("naInitBitArrayShiftExtension", "srcarray is Null-Pointer");
 //  #endif
 //  if(!size){return naNewBuffer();}
-//  if(size<0){/*arithmetic = NA_TRUE; */size = -size;}
+//  if(size < 0){/*arithmetic = NA_TRUE; */size = -size;}
 //  dstarray = naCreateBitArrayWithCount(size);
 //  dstptr = naGetBufferByteAtIndex(dstarray, 0);
 //
@@ -375,7 +375,7 @@ NAString* naNewStringDecWithBitArray(const NABuffer* bitarray){
       bit1 = naGetBufferu8(&workiter); naIterateBuffer(&workiter, 1);
       bit2 = naGetBufferu8(&workiter); naIterateBuffer(&workiter, 1);
       bit3 = naGetBufferu8(&workiter);
-      value = (uint8)((bit3<<3) | (bit2<<2) | (bit1<<1) | (bit0<<0));
+      value = (uint8)((bit3 << 3) | (bit2 << 2) | (bit1 << 1) | (bit0 << 0));
       if(value >= 10){
         // For nibbles greaterequal than the value 10, adjust the bits accordingly.
         naSetBufferu8(&workiter, BIT1); naIterateBuffer(&workiter, -1);
@@ -400,12 +400,12 @@ NAString* naNewStringDecWithBitArray(const NABuffer* bitarray){
     }
     
     // extract the decimal value of the remaining bits
-    if(bitcount==1){
+    if(bitcount == 1){
       naLocateBufferFromStart(&workiter, naGetBufferRange(bitarray).length - 1);
       bit0 = naGetBufferu8(&workiter);
       bit1 = BIT0;
       bit2 = BIT0;
-    }else if(bitcount==2){
+    }else if(bitcount == 2){
       naLocateBufferFromStart(&workiter, naGetBufferRange(bitarray).length - 2);
       bit0 = naGetBufferu8(&workiter); naIterateBuffer(&workiter, 1);
       bit1 = naGetBufferu8(&workiter);
@@ -417,7 +417,7 @@ NAString* naNewStringDecWithBitArray(const NABuffer* bitarray){
       bit2 = naGetBufferu8(&workiter);
     }
     bit3 = lead;
-    value = (uint8)((bit3<<3) | (bit2<<2) | (bit1<<1) | (bit0<<0));
+    value = (uint8)((bit3 << 3) | (bit2 << 2) | (bit1 << 1) | (bit0 << 0));
     if((outputlen > 0) && !(outputlen%3)){*charptr-- = ' '; finalstringcount++;}
     *charptr-- = (NAUTF8Char)(value + '0');
     outputlen++;
@@ -686,7 +686,7 @@ void naComputeBitArraySwapBytes(NABuffer* bitarray){
   naIterateBuffer(&iter2, -8);
   
   while(naGetBufferLocation(&iter1) < naGetBufferLocation(&iter2)){
-    for(int i=0; i<8; i++){
+    for(int i = 0; i < 8; i++){
       NAByte byte = naGetBufferu8(&iter1);
       naSetBufferu8(&iter1, naGetBufferu8(&iter2));
       naSetBufferu8(&iter2, byte);

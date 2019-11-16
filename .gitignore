@@ -8,7 +8,10 @@ publishedbundles/
 *xcuserdata*
 *vcxproj.filters
 *vcxproj.user
+Debug/
+x64/
 proj/VS2017/Debug
 proj/VS2017/Release
+proj/VS2017/x64
 proj/VS2017/BitFiddle/Debug
 proj/VS2017/BitFiddle/Release

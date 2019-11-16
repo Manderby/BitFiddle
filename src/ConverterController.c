@@ -445,7 +445,7 @@ BitConverterController* bitCreateConverterController(void){
   NAInt yposinput = ypos8 + 27;
   NAInt yspaceheight = yposinput + 22 + 10;
 
-  NARect windowrect = naMakeRectS(60, 120, 777, yspaceheight);
+  NARect windowrect = naMakeRectS(60., 120., 777., (double)yspaceheight);
   con->window = naNewWindow("Complement", windowrect, NA_FALSE, BIT_WINDOW_TAG_CONVERTER);
   naAddUIReaction(con->window, NA_UI_COMMAND_CLOSES, closeConverterWindow, con);
 
@@ -453,181 +453,181 @@ BitConverterController* bitCreateConverterController(void){
   double offsetx = 0;
   int alternateblock = 0;
   
-  NASpace* settingspace = naNewSpace(naMakeSize(105, yspaceheight));
+  NASpace* settingspace = naNewSpace(naMakeSize(105., (double)yspaceheight));
   naSetSpaceAlternateBackground(settingspace, alternateblock % 2);
   alternateblock++;
 
-  con->unsignedOption = naNewTextOptionButton("U", naMakeSize(24, 24));
+  con->unsignedOption = naNewTextOptionButton("U", naMakeSize(24., 24.));
   naAddUIReaction(con->unsignedOption, NA_UI_COMMAND_PRESSED, switchComplement, con);
-  naAddSpaceChild(settingspace, con->unsignedOption, naMakePos(10, yposinput));
+  naAddSpaceChild(settingspace, con->unsignedOption, naMakePos(10., (double)yposinput));
 
-  con->onesOption = naNewTextOptionButton("1", naMakeSize(24, 24));
+  con->onesOption = naNewTextOptionButton("1", naMakeSize(24., 24.));
   naAddUIReaction(con->onesOption, NA_UI_COMMAND_PRESSED, switchComplement, con);
-  naAddSpaceChild(settingspace, con->onesOption, naMakePos(40, yposinput));
+  naAddSpaceChild(settingspace, con->onesOption, naMakePos(40., (double)yposinput));
 
-  con->twosOption = naNewTextOptionButton("2", naMakeSize(24, 24));
+  con->twosOption = naNewTextOptionButton("2", naMakeSize(24., 24.));
   naAddUIReaction(con->twosOption, NA_UI_COMMAND_PRESSED, switchComplement, con);
-  naAddSpaceChild(settingspace, con->twosOption, naMakePos(70, yposinput));
+  naAddSpaceChild(settingspace, con->twosOption, naMakePos(70., (double)yposinput));
 
   con->endiannessCheckBox = naNewCheckBox(bitTranslate(BitFiddleConversionByteSwap), naMakeSize(85, 22));
   naAddUIReaction(con->endiannessCheckBox, NA_UI_COMMAND_PRESSED, bitSwitchAppEndianness, bitGetApplication());
-  naAddSpaceChild(settingspace, con->endiannessCheckBox, naMakePos(10, ypos8));
+  naAddSpaceChild(settingspace, con->endiannessCheckBox, naMakePos(10., (double)ypos8));
 
   NAUIImage* helpuiimage = bitGetImageAsset(BIT_IMAGE_ASSET_HELP_BUTTON);
-  con->helpButton = naNewImageButton(helpuiimage, naMakeSize(20, 20));
+  con->helpButton = naNewImageButton(helpuiimage, naMakeSize(20., 20.));
   naAddUIReaction(con->helpButton, NA_UI_COMMAND_PRESSED, buttonPressed, con);
-  naAddSpaceChild(settingspace, con->helpButton, naMakePos(10, 10));
+  naAddSpaceChild(settingspace, con->helpButton, naMakePos(10., 10.));
 
   NAUIImage* prefuiimage = bitGetImageAsset(BIT_IMAGE_ASSET_PREFS_BUTTON);
-  con->preferencesButton = naNewImageButton(prefuiimage, naMakeSize(20, 20));
+  con->preferencesButton = naNewImageButton(prefuiimage, naMakeSize(20., 20.));
   naAddUIReaction(con->preferencesButton, NA_UI_COMMAND_PRESSED, buttonPressed, con);
-  naAddSpaceChild(settingspace, con->preferencesButton, naMakePos(40, 10));
+  naAddSpaceChild(settingspace, con->preferencesButton, naMakePos(40., 10.));
 
   NAUIImage* ascuiimage = bitGetImageAsset(BIT_IMAGE_ASSET_ASCII_BUTTON);
-  con->asciiButton = naNewImageButton(ascuiimage, naMakeSize(20, 20));
+  con->asciiButton = naNewImageButton(ascuiimage, naMakeSize(20., 20.));
   naAddUIReaction(con->asciiButton, NA_UI_COMMAND_PRESSED, buttonPressed, con);
-  naAddSpaceChild(settingspace, con->asciiButton, naMakePos(70, 10));
+  naAddSpaceChild(settingspace, con->asciiButton, naMakePos(70., 10.));
 
-  naAddSpaceChild(space, settingspace, naMakePos(offsetx, 0));
+  naAddSpaceChild(space, settingspace, naMakePos(offsetx, 0.));
   offsetx += 105;
 
   // ////////////////
 
-  NASpace* bitcountspace = naNewSpace(naMakeSize(25, yspaceheight));
+  NASpace* bitcountspace = naNewSpace(naMakeSize(25, (double)yspaceheight));
   naSetSpaceAlternateBackground(bitcountspace, alternateblock % 2);
   alternateblock++;
 
-  NALabel* bit8label = createBitLabelField("8", naMakeSize(25, 17));
-  naAddSpaceChild(bitcountspace, bit8label, naMakePos(0, ypos8));
+  NALabel* bit8label = createBitLabelField("8", naMakeSize(25., 17.));
+  naAddSpaceChild(bitcountspace, bit8label, naMakePos(0., (double)ypos8));
   if(show16Bits){
-    NALabel* bit16label = createBitLabelField("16", naMakeSize(25, 17));
-    naAddSpaceChild(bitcountspace, bit16label, naMakePos(0, ypos16));
+    NALabel* bit16label = createBitLabelField("16", naMakeSize(25., 17.));
+    naAddSpaceChild(bitcountspace, bit16label, naMakePos(0., (double)ypos16));
   }
-  NALabel* bit32label = createBitLabelField("32", naMakeSize(25, 17));
-  naAddSpaceChild(bitcountspace, bit32label, naMakePos(0, ypos32));
-  NALabel* bit64label = createBitLabelField("64", naMakeSize(25, 34));
-  naAddSpaceChild(bitcountspace, bit64label, naMakePos(0, ypos64));
+  NALabel* bit32label = createBitLabelField("32", naMakeSize(25., 17.));
+  naAddSpaceChild(bitcountspace, bit32label, naMakePos(0., (double)ypos32));
+  NALabel* bit64label = createBitLabelField("64", naMakeSize(25., 34.));
+  naAddSpaceChild(bitcountspace, bit64label, naMakePos(0., (double)ypos64));
   if(showNBits){
-    NALabel* bitnlabel = createBitLabelField("n", naMakeSize(25, 68));
-    naAddSpaceChild(bitcountspace, bitnlabel, naMakePos(0, yposn));
+    NALabel* bitnlabel = createBitLabelField("n", naMakeSize(25., 68.));
+    naAddSpaceChild(bitcountspace, bitnlabel, naMakePos(0., (double)yposn));
   }
 
-  naAddSpaceChild(space, bitcountspace, naMakePos(offsetx, 0));
+  naAddSpaceChild(space, bitcountspace, naMakePos((double)offsetx, 0.));
   offsetx += 25;
 
   // ////////////////
 
-  NASpace* decspace = naNewSpace(naMakeSize(140, yspaceheight));
+  NASpace* decspace = naNewSpace(naMakeSize(140., (double)yspaceheight));
   naSetSpaceAlternateBackground(decspace, alternateblock % 2);
   alternateblock++;
 
-  con->inputdec = createBitInputField(con, naMakeSize(120, 24), valueChangeDec);
-  naAddSpaceChild(decspace, con->inputdec, naMakePos(10, yposinput));
-  con->labeldec = createSystemLabelField("Dec", naMakeSize(30, 17));
-  naAddSpaceChild(decspace, con->labeldec, naMakePos(10, ypos8));
-  con->bit8dec = createBitOutputField(naMakeSize(38, 17));
-  naAddSpaceChild(decspace, con->bit8dec, naMakePos(92, ypos8));
+  con->inputdec = createBitInputField(con, naMakeSize(120., 24.), valueChangeDec);
+  naAddSpaceChild(decspace, con->inputdec, naMakePos(10., (double)yposinput));
+  con->labeldec = createSystemLabelField("Dec", naMakeSize(30., 17.));
+  naAddSpaceChild(decspace, con->labeldec, naMakePos(10., (double)ypos8));
+  con->bit8dec = createBitOutputField(naMakeSize(38., 17.));
+  naAddSpaceChild(decspace, con->bit8dec, naMakePos(92., (double)ypos8));
   if(show16Bits){
-    con->bit16dec = createBitOutputField(naMakeSize(75, 17));
-    naAddSpaceChild(decspace, con->bit16dec, naMakePos(55, ypos16));
+    con->bit16dec = createBitOutputField(naMakeSize(75., 17.));
+    naAddSpaceChild(decspace, con->bit16dec, naMakePos(55., (double)ypos16));
   }
-  con->bit32dec = createBitOutputField(naMakeSize(120, 17));
-  naAddSpaceChild(decspace, con->bit32dec, naMakePos(10, ypos32));
-  con->bit64dec = createBitOutputField(naMakeSize(120, 34));
-  naAddSpaceChild(decspace, con->bit64dec, naMakePos(10, ypos64));
+  con->bit32dec = createBitOutputField(naMakeSize(120., 17.));
+  naAddSpaceChild(decspace, con->bit32dec, naMakePos(10., (double)ypos32));
+  con->bit64dec = createBitOutputField(naMakeSize(120., 34.));
+  naAddSpaceChild(decspace, con->bit64dec, naMakePos(10., (double)ypos64));
   if(showNBits){
-    con->bitndec = createBitOutputBox(naMakeSize(120, 68));
-    naAddSpaceChild(decspace, con->bitndec, naMakePos(10, yposn));
+    con->bitndec = createBitOutputBox(naMakeSize(120., 68.));
+    naAddSpaceChild(decspace, con->bitndec, naMakePos(10., (double)yposn));
   }
 
-  naAddSpaceChild(space, decspace, naMakePos(offsetx, 0));
+  naAddSpaceChild(space, decspace, naMakePos((double)offsetx, 0.));
   offsetx += 140;
 
   // ////////////////
 
-  NASpace* hexspace = naNewSpace(naMakeSize(120, yspaceheight));
+  NASpace* hexspace = naNewSpace(naMakeSize(120., (double)yspaceheight));
   naSetSpaceAlternateBackground(hexspace, alternateblock % 2);
   alternateblock++;
 
-  con->inputhex = createBitInputField(con, naMakeSize(100, 24), valueChangeHex);
-  naAddSpaceChild(hexspace, con->inputhex, naMakePos(10, yposinput));
-  con->labelhex = createSystemLabelField("Hex", naMakeSize(30, 17));
-  naAddSpaceChild(hexspace, con->labelhex, naMakePos(10, ypos8));
-  con->bit8hex = createBitOutputField(naMakeSize(25, 17));
-  naAddSpaceChild(hexspace, con->bit8hex, naMakePos(85, ypos8));
+  con->inputhex = createBitInputField(con, naMakeSize(100., 24.), valueChangeHex);
+  naAddSpaceChild(hexspace, con->inputhex, naMakePos(10., (double)yposinput));
+  con->labelhex = createSystemLabelField("Hex", naMakeSize(30., 17.));
+  naAddSpaceChild(hexspace, con->labelhex, naMakePos(10., (double)ypos8));
+  con->bit8hex = createBitOutputField(naMakeSize(25., 17.));
+  naAddSpaceChild(hexspace, con->bit8hex, naMakePos(85., (double)ypos8));
   if(show16Bits){
-    con->bit16hex = createBitOutputField(naMakeSize(50, 17));
-    naAddSpaceChild(hexspace, con->bit16hex, naMakePos(60, ypos16));
+    con->bit16hex = createBitOutputField(naMakeSize(50., 17.));
+    naAddSpaceChild(hexspace, con->bit16hex, naMakePos(60., (double)ypos16));
   }
-  con->bit32hex = createBitOutputField(naMakeSize(100, 17));
-  naAddSpaceChild(hexspace, con->bit32hex, naMakePos(10, ypos32));
-  con->bit64hex = createBitOutputField(naMakeSize(100, 34));
-  naAddSpaceChild(hexspace, con->bit64hex, naMakePos(10, ypos64));
+  con->bit32hex = createBitOutputField(naMakeSize(100., 17.));
+  naAddSpaceChild(hexspace, con->bit32hex, naMakePos(10., (double)ypos32));
+  con->bit64hex = createBitOutputField(naMakeSize(100., 34.));
+  naAddSpaceChild(hexspace, con->bit64hex, naMakePos(10., (double)ypos64));
   if(showNBits){
-    con->bitnhex = createBitOutputBox(naMakeSize(100, 68));
-    naAddSpaceChild(hexspace, con->bitnhex, naMakePos(10, yposn));
+    con->bitnhex = createBitOutputBox(naMakeSize(100., 68.));
+    naAddSpaceChild(hexspace, con->bitnhex, naMakePos(10., (double)yposn));
   }
 
-  naAddSpaceChild(space, hexspace, naMakePos(offsetx, 0));
+  naAddSpaceChild(space, hexspace, naMakePos((double)offsetx, 0.));
   offsetx += 120;
 
   // ////////////////
 
   if(showBin){
-    NASpace* binspace = naNewSpace(naMakeSize(305, yspaceheight));
+    NASpace* binspace = naNewSpace(naMakeSize(305., (double)yspaceheight));
     naSetSpaceAlternateBackground(binspace, alternateblock % 2);
   alternateblock++;
 
-    con->inputbin = createBitInputField(con, naMakeSize(285, 24), valueChangeBin);
-    naAddSpaceChild(binspace, con->inputbin, naMakePos(10, yposinput));
-    con->labelbin = createSystemLabelField("Bin", naMakeSize(30, 17));
-    naAddSpaceChild(binspace, con->labelbin, naMakePos(10, ypos8));
-    con->bit8bin = createBitOutputField(naMakeSize(75, 17));
-    naAddSpaceChild(binspace, con->bit8bin, naMakePos(220, ypos8));
+    con->inputbin = createBitInputField(con, naMakeSize(285., 24.), valueChangeBin);
+    naAddSpaceChild(binspace, con->inputbin, naMakePos(10., (double)yposinput));
+    con->labelbin = createSystemLabelField("Bin", naMakeSize(30., 17.));
+    naAddSpaceChild(binspace, con->labelbin, naMakePos(10., (double)ypos8));
+    con->bit8bin = createBitOutputField(naMakeSize(75., 17.));
+    naAddSpaceChild(binspace, con->bit8bin, naMakePos(220., (double)ypos8));
     if(show16Bits){
-      con->bit16bin = createBitOutputField(naMakeSize(145, 17));
-      naAddSpaceChild(binspace, con->bit16bin, naMakePos(150, ypos16));
+      con->bit16bin = createBitOutputField(naMakeSize(145., 17.));
+      naAddSpaceChild(binspace, con->bit16bin, naMakePos(150., (double)ypos16));
     }
-    con->bit32bin = createBitOutputField(naMakeSize(285, 17));
-    naAddSpaceChild(binspace, con->bit32bin, naMakePos(10, ypos32));
-    con->bit64bin = createBitOutputField(naMakeSize(285, 34));
-    naAddSpaceChild(binspace, con->bit64bin, naMakePos(10, ypos64));
+    con->bit32bin = createBitOutputField(naMakeSize(285., 17.));
+    naAddSpaceChild(binspace, con->bit32bin, naMakePos(10., (double)ypos32));
+    con->bit64bin = createBitOutputField(naMakeSize(285., 34.));
+    naAddSpaceChild(binspace, con->bit64bin, naMakePos(10., (double)ypos64));
     if(showNBits){
-      con->bitnbin = createBitOutputBox(naMakeSize(285, 68));
-      naAddSpaceChild(binspace, con->bitnbin, naMakePos(10, yposn));
+      con->bitnbin = createBitOutputBox(naMakeSize(285., 68.));
+      naAddSpaceChild(binspace, con->bitnbin, naMakePos(10., (double)yposn));
     }
 
-    naAddSpaceChild(space, binspace, naMakePos(offsetx, 0));
+    naAddSpaceChild(space, binspace, naMakePos((double)offsetx, 0.));
     offsetx += 305;
   }
 
   // ////////////////
 
   if(showAsc){
-    NASpace* ascspace = naNewSpace(naMakeSize(65, yspaceheight));
+    NASpace* ascspace = naNewSpace(naMakeSize(65., (double)yspaceheight));
     naSetSpaceAlternateBackground(ascspace, alternateblock % 2);
   alternateblock++;
 
-    con->inputasc = createBitInputField(con, naMakeSize(45, 24), valueChangeAsc);
-    naAddSpaceChild(ascspace, con->inputasc, naMakePos(10, yposinput));
-    con->labelasc = createSystemLabelField("Asc", naMakeSize(30, 17));
-    naAddSpaceChild(ascspace, con->labelasc, naMakePos(10, ypos8));
-    con->bit8asc = createBitOutputField(naMakeSize(20, 17));
-    naAddSpaceChild(ascspace, con->bit8asc, naMakePos(35, ypos8));
+    con->inputasc = createBitInputField(con, naMakeSize(45., 24.), valueChangeAsc);
+    naAddSpaceChild(ascspace, con->inputasc, naMakePos(10., (double)yposinput));
+    con->labelasc = createSystemLabelField("Asc", naMakeSize(30., 17.));
+    naAddSpaceChild(ascspace, con->labelasc, naMakePos(10., (double)ypos8));
+    con->bit8asc = createBitOutputField(naMakeSize(20., 17.));
+    naAddSpaceChild(ascspace, con->bit8asc, naMakePos(35., (double)ypos8));
     if(show16Bits){
-      con->bit16asc = createBitOutputField(naMakeSize(30, 17));
-      naAddSpaceChild(ascspace, con->bit16asc, naMakePos(25, ypos16));
+      con->bit16asc = createBitOutputField(naMakeSize(30., 17.));
+      naAddSpaceChild(ascspace, con->bit16asc, naMakePos(25., (double)ypos16));
     }
-    con->bit32asc = createBitOutputField(naMakeSize(45, 17));
-    naAddSpaceChild(ascspace, con->bit32asc, naMakePos(10, ypos32));
-    con->bit64asc = createBitOutputField(naMakeSize(45, 34));
-    naAddSpaceChild(ascspace, con->bit64asc, naMakePos(10, ypos64));
+    con->bit32asc = createBitOutputField(naMakeSize(45., 17.));
+    naAddSpaceChild(ascspace, con->bit32asc, naMakePos(10., (double)ypos32));
+    con->bit64asc = createBitOutputField(naMakeSize(45., 34.));
+    naAddSpaceChild(ascspace, con->bit64asc, naMakePos(10., (double)ypos64));
     if(showNBits){
-      con->bitnasc = createBitOutputBox(naMakeSize(45, 68));
-      naAddSpaceChild(ascspace, con->bitnasc, naMakePos(10, yposn));
+      con->bitnasc = createBitOutputBox(naMakeSize(45., 68.));
+      naAddSpaceChild(ascspace, con->bitnasc, naMakePos(10., (double)yposn));
     }
 
-    naAddSpaceChild(space, ascspace, naMakePos(offsetx, 0));
+    naAddSpaceChild(space, ascspace, naMakePos((double)offsetx, 0.));
     offsetx += 65;
   }
 
