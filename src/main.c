@@ -20,6 +20,13 @@
 
 void prestartup(void* arg){
   NA_UNUSED(arg);
+
+  naSetApplicationName("Bit Fiddle");
+  //naSetApplicationCompanyName("ASuppaCombbany");
+  naSetApplicationVersionString("1.5");
+  naSetApplicationBuildString("Windows Beta 1");
+  naSetApplicationIconPath("icon.png");
+
   mandInitManderApp();
   bitStartApplication();
 }
@@ -33,24 +40,25 @@ void poststartup(void* arg){
 }
 
 
-//#include BIT_NALIB_PATH(NAPNG.h)
-//#include BIT_NALIB_PATH(NABabyImage.h)
 
-int main(int argc, char *argv[]){
+#if NA_OS == NA_OS_WINDOWS
+  int WINAPI WinMain(HINSTANCE hInstance, HINSTANCE hPrevInstance, LPSTR lpCmdLine, int nShowCmd){
+    NA_UNUSED(hInstance);
+    NA_UNUSED(hPrevInstance);
+    NA_UNUSED(lpCmdLine);
+    NA_UNUSED(nShowCmd);
+    //naOpenConsoleWindow();
+#else
+  int main(int argc, char *argv[]){
   NA_UNUSED(argc);
   NA_UNUSED(argv);
+#endif
 
   naStartRuntime();
 
-  //NAPNG* png = naNewPNGWithFile("C:\\Users\\Tobias Stamm\\Desktop\\programme\\BitFiddle\\res\\prefs.png");
-  //naWritePNGToFile(png, "blah.png");
-  //NABabyImage* babyimage = naCreateBabyImageFromPNG(png);
-  //NAPNG* png2 = naNewPNGWithBabyImage(babyimage);
-  //naWritePNGToFile(png2, "blah2.png");
-
-  NAString* cwd = naNewStringWithCurWorkingDirectory();
-  printf("%s\n", naGetStringUTF8Pointer(cwd));
-  naDelete(cwd);
+  //NAString* cwd = naNewStringWithCurWorkingDirectory();
+  //printf("%s\n", naGetStringUTF8Pointer(cwd));
+  //naDelete(cwd);
 
   naStartApplication(prestartup, poststartup, NA_NULL);
   return 0;
