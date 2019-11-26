@@ -16,7 +16,7 @@ const char* BitPrefs[BitPrefCount] = {
   "showAsc",
 
   "swapEndianness",
-  "selectedSelectedComplementEncoding",
+  "selectedComplementEncoding",
 };
 
 void initPreferences(void){
