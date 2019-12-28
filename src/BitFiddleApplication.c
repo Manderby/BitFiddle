@@ -72,10 +72,17 @@ void bitCreateUI(){
   bitApp->asciiController       = bitCreateASCIIController();
   bitApp->preferencesController = bitCreatePreferencesController();
   
-  naAddUIKeyboardShortcut(naGetApplication(), naMakeKeybardStatus(NA_MODIFIER_FLAG_COMMAND, NA_KEYCODE_E), bitSwitchAppEndianness, bitApp);
-  naAddUIKeyboardShortcut(naGetApplication(), naMakeKeybardStatus(NA_MODIFIER_FLAG_COMMAND, NA_KEYCODE_0), bitSwitchConversionType, bitApp);
-  naAddUIKeyboardShortcut(naGetApplication(), naMakeKeybardStatus(NA_MODIFIER_FLAG_COMMAND, NA_KEYCODE_1), bitSwitchConversionType, bitApp);
-  naAddUIKeyboardShortcut(naGetApplication(), naMakeKeybardStatus(NA_MODIFIER_FLAG_COMMAND, NA_KEYCODE_2), bitSwitchConversionType, bitApp);
+  #if NA_OS == NA_OS_MAC_OS_X
+    naAddUIKeyboardShortcut(naGetApplication(), naMakeKeybardStatus(NA_MODIFIER_FLAG_COMMAND, NA_KEYCODE_E), bitSwitchAppEndianness, bitApp);
+    naAddUIKeyboardShortcut(naGetApplication(), naMakeKeybardStatus(NA_MODIFIER_FLAG_COMMAND, NA_KEYCODE_0), bitSwitchConversionType, bitApp);
+    naAddUIKeyboardShortcut(naGetApplication(), naMakeKeybardStatus(NA_MODIFIER_FLAG_COMMAND, NA_KEYCODE_1), bitSwitchConversionType, bitApp);
+    naAddUIKeyboardShortcut(naGetApplication(), naMakeKeybardStatus(NA_MODIFIER_FLAG_COMMAND, NA_KEYCODE_2), bitSwitchConversionType, bitApp);
+  #elif NA_OS == NA_OS_WINDOWS
+    naAddUIKeyboardShortcut(naGetApplication(), naMakeKeybardStatus(NA_MODIFIER_FLAG_CONTROL, NA_KEYCODE_E), bitSwitchAppEndianness, bitApp);
+    naAddUIKeyboardShortcut(naGetApplication(), naMakeKeybardStatus(NA_MODIFIER_FLAG_CONTROL, NA_KEYCODE_0), bitSwitchConversionType, bitApp);
+    naAddUIKeyboardShortcut(naGetApplication(), naMakeKeybardStatus(NA_MODIFIER_FLAG_CONTROL, NA_KEYCODE_1), bitSwitchConversionType, bitApp);
+    naAddUIKeyboardShortcut(naGetApplication(), naMakeKeybardStatus(NA_MODIFIER_FLAG_CONTROL, NA_KEYCODE_2), bitSwitchConversionType, bitApp);
+  #endif
 
   bitShowConverterController();
   NABool showASCIIOnStartup = naGetPreferencesBool(BitPrefs[ShowASCIIOnStartup]);

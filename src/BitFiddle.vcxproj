@@ -119,13 +119,15 @@
   <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Debug|x64'">
     <IntDir>$(SolutionDir)..\..\build\$(ProjectName)_$(Configuration)_$(Platform)\</IntDir>
     <OutDir>$(SolutionDir)..\..\bin\$(ProjectName)_$(Configuration)_$(Platform)\</OutDir>
-    <LinkIncremental>false</LinkIncremental>
+    <LinkIncremental>
+    </LinkIncremental>
     <CodeAnalysisRuleSet>AllRules.ruleset</CodeAnalysisRuleSet>
   </PropertyGroup>
   <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Debug|Win32'">
     <IntDir>$(SolutionDir)..\..\build\$(ProjectName)_$(Configuration)_$(Platform)\</IntDir>
     <OutDir>$(SolutionDir)..\..\bin\$(ProjectName)_$(Configuration)_$(Platform)\</OutDir>
-    <LinkIncremental>false</LinkIncremental>
+    <LinkIncremental>
+    </LinkIncremental>
     <CodeAnalysisRuleSet>AllRules.ruleset</CodeAnalysisRuleSet>
   </PropertyGroup>
   <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Release|Win32'">
@@ -160,7 +162,8 @@ echo "Copying resources done."</Command>
     <Link>
       <AdditionalDependencies>ComCtl32.lib.;%(AdditionalDependencies)</AdditionalDependencies>
       <SubSystem>Windows</SubSystem>
-      <LinkTimeCodeGeneration>UseLinkTimeCodeGeneration</LinkTimeCodeGeneration>
+      <LinkTimeCodeGeneration>
+      </LinkTimeCodeGeneration>
     </Link>
     <CustomBuildStep>
       <Command>
@@ -187,7 +190,8 @@ echo "Copying resources done."</Command>
     <Link>
       <AdditionalDependencies>ComCtl32.lib.;%(AdditionalDependencies)</AdditionalDependencies>
       <SubSystem>Windows</SubSystem>
-      <LinkTimeCodeGeneration>UseLinkTimeCodeGeneration</LinkTimeCodeGeneration>
+      <LinkTimeCodeGeneration>
+      </LinkTimeCodeGeneration>
     </Link>
     <CustomBuildStep>
       <Command>
@@ -211,7 +215,8 @@ echo "Copying resources done."</Command>
       <AdditionalDependencies>ComCtl32.lib.;%(AdditionalDependencies)</AdditionalDependencies>
       <SubSystem>Windows</SubSystem>
       <GenerateDebugInformation>false</GenerateDebugInformation>
-      <LinkTimeCodeGeneration>UseLinkTimeCodeGeneration</LinkTimeCodeGeneration>
+      <LinkTimeCodeGeneration>
+      </LinkTimeCodeGeneration>
     </Link>
     <PostBuildEvent>
       <Command>echo "Copying resources..."
@@ -243,7 +248,8 @@ echo "Copying resources done."</Command>
       <AdditionalDependencies>ComCtl32.lib.;%(AdditionalDependencies)</AdditionalDependencies>
       <SubSystem>Windows</SubSystem>
       <GenerateDebugInformation>false</GenerateDebugInformation>
-      <LinkTimeCodeGeneration>UseLinkTimeCodeGeneration</LinkTimeCodeGeneration>
+      <LinkTimeCodeGeneration>
+      </LinkTimeCodeGeneration>
     </Link>
     <PostBuildEvent>
       <Command>echo "Copying resources..."
