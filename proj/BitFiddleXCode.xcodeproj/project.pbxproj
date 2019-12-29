@@ -1,0 +1,681 @@
+// !$*UTF8*$!
+{
+	archiveVersion = 1;
+	classes = {
+	};
+	objectVersion = 46;
+	objects = {
+
+/* Begin PBXBuildFile section */
+		909ECD6723B90F7C002CA78D /* BitFiddle.vcxproj in Resources */ = {isa = PBXBuildFile; fileRef = 909ECD3F23B90F7C002CA78D /* BitFiddle.vcxproj */; };
+		909ECD6823B90F7C002CA78D /* icon.png in Resources */ = {isa = PBXBuildFile; fileRef = 909ECD4223B90F7C002CA78D /* icon.png */; };
+		909ECD6923B90F7C002CA78D /* BitFiddleChangelog.txt in Resources */ = {isa = PBXBuildFile; fileRef = 909ECD4323B90F7C002CA78D /* BitFiddleChangelog.txt */; };
+		909ECD6A23B90F7C002CA78D /* InfoPlist.strings in Resources */ = {isa = PBXBuildFile; fileRef = 909ECD4623B90F7C002CA78D /* InfoPlist.strings */; };
+		909ECD6B23B90F7C002CA78D /* MainMenu.xib in Resources */ = {isa = PBXBuildFile; fileRef = 909ECD4823B90F7C002CA78D /* MainMenu.xib */; };
+		909ECD6C23B90F7C002CA78D /* ExpertWindow.xib in Resources */ = {isa = PBXBuildFile; fileRef = 909ECD4A23B90F7C002CA78D /* ExpertWindow.xib */; };
+		909ECD6D23B90F7C002CA78D /* BitFiddle.icns in Resources */ = {isa = PBXBuildFile; fileRef = 909ECD4D23B90F7C002CA78D /* BitFiddle.icns */; };
+		909ECD6F23B90F7C002CA78D /* help.png in Resources */ = {isa = PBXBuildFile; fileRef = 909ECD5023B90F7C002CA78D /* help.png */; };
+		909ECD7023B90F7C002CA78D /* ascii.png in Resources */ = {isa = PBXBuildFile; fileRef = 909ECD5123B90F7C002CA78D /* ascii.png */; };
+		909ECD7123B90F7C002CA78D /* prefs.png in Resources */ = {isa = PBXBuildFile; fileRef = 909ECD5323B90F7C002CA78D /* prefs.png */; };
+		909ECD7223B90F7C002CA78D /* BitFiddlePreferences.c in Sources */ = {isa = PBXBuildFile; fileRef = 909ECD5823B90F7C002CA78D /* BitFiddlePreferences.c */; };
+		909ECD7323B90F7C002CA78D /* BitFiddleApplication.c in Sources */ = {isa = PBXBuildFile; fileRef = 909ECD5923B90F7C002CA78D /* BitFiddleApplication.c */; };
+		909ECD7423B90F7C002CA78D /* PreferencesController.c in Sources */ = {isa = PBXBuildFile; fileRef = 909ECD5C23B90F7C002CA78D /* PreferencesController.c */; };
+		909ECD7523B90F7C002CA78D /* ConverterController.c in Sources */ = {isa = PBXBuildFile; fileRef = 909ECD5D23B90F7C002CA78D /* ConverterController.c */; };
+		909ECD7623B90F7C002CA78D /* ASCIIController.c in Sources */ = {isa = PBXBuildFile; fileRef = 909ECD5E23B90F7C002CA78D /* ASCIIController.c */; };
+		909ECD7723B90F7C002CA78D /* BitArray.c in Sources */ = {isa = PBXBuildFile; fileRef = 909ECD5F23B90F7C002CA78D /* BitArray.c */; };
+		909ECD7823B90F7C002CA78D /* main.c in Sources */ = {isa = PBXBuildFile; fileRef = 909ECD6023B90F7C002CA78D /* main.c */; };
+		909ECD7923B90F7C002CA78D /* BitFiddleNSApplication.m in Sources */ = {isa = PBXBuildFile; fileRef = 909ECD6323B90F7C002CA78D /* BitFiddleNSApplication.m */; };
+		909ECD7A23B90F7C002CA78D /* BitFiddleTranslations.c in Sources */ = {isa = PBXBuildFile; fileRef = 909ECD6423B90F7C002CA78D /* BitFiddleTranslations.c */; };
+		909ECD7C23B90FC0002CA78D /* Cocoa.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 909ECD7B23B90FC0002CA78D /* Cocoa.framework */; };
+		909ECD7F23B90FD2002CA78D /* libNALibGUI.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 909ECD3223B90F55002CA78D /* libNALibGUI.a */; };
+		909ECD8223B90FE5002CA78D /* libManderApp.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 909ECD3D23B90F69002CA78D /* libManderApp.a */; };
+/* End PBXBuildFile section */
+
+/* Begin PBXContainerItemProxy section */
+		909ECD2F23B90F55002CA78D /* PBXContainerItemProxy */ = {
+			isa = PBXContainerItemProxy;
+			containerPortal = 909ECD2823B90F55002CA78D /* NALibXCode.xcodeproj */;
+			proxyType = 2;
+			remoteGlobalIDString = 9036280323B8BBD5002F3698;
+			remoteInfo = NALib;
+		};
+		909ECD3123B90F55002CA78D /* PBXContainerItemProxy */ = {
+			isa = PBXContainerItemProxy;
+			containerPortal = 909ECD2823B90F55002CA78D /* NALibXCode.xcodeproj */;
+			proxyType = 2;
+			remoteGlobalIDString = 909ECCDA23B90B33002CA78D;
+			remoteInfo = NALibGUI;
+		};
+		909ECD3323B90F55002CA78D /* PBXContainerItemProxy */ = {
+			isa = PBXContainerItemProxy;
+			containerPortal = 909ECD2823B90F55002CA78D /* NALibXCode.xcodeproj */;
+			proxyType = 2;
+			remoteGlobalIDString = B9B2EA121716922700943D91;
+			remoteInfo = NALibTryout;
+		};
+		909ECD3523B90F55002CA78D /* PBXContainerItemProxy */ = {
+			isa = PBXContainerItemProxy;
+			containerPortal = 909ECD2823B90F55002CA78D /* NALibXCode.xcodeproj */;
+			proxyType = 2;
+			remoteGlobalIDString = 909EC6E523B8C06C002CA78D;
+			remoteInfo = NALibGUITryout;
+		};
+		909ECD3C23B90F69002CA78D /* PBXContainerItemProxy */ = {
+			isa = PBXContainerItemProxy;
+			containerPortal = 909ECD3723B90F69002CA78D /* ManderAppXCode.xcodeproj */;
+			proxyType = 2;
+			remoteGlobalIDString = 909ECCE723B90D49002CA78D;
+			remoteInfo = ManderApp;
+		};
+		909ECD7D23B90FCC002CA78D /* PBXContainerItemProxy */ = {
+			isa = PBXContainerItemProxy;
+			containerPortal = 909ECD2823B90F55002CA78D /* NALibXCode.xcodeproj */;
+			proxyType = 1;
+			remoteGlobalIDString = 909ECC2723B90B33002CA78D;
+			remoteInfo = NALibGUI;
+		};
+		909ECD8023B90FDF002CA78D /* PBXContainerItemProxy */ = {
+			isa = PBXContainerItemProxy;
+			containerPortal = 909ECD3723B90F69002CA78D /* ManderAppXCode.xcodeproj */;
+			proxyType = 1;
+			remoteGlobalIDString = 909ECCE623B90D49002CA78D;
+			remoteInfo = ManderApp;
+		};
+/* End PBXContainerItemProxy section */
+
+/* Begin PBXFileReference section */
+		909ECD2823B90F55002CA78D /* NALibXCode.xcodeproj */ = {isa = PBXFileReference; lastKnownFileType = "wrapper.pb-project"; name = NALibXCode.xcodeproj; path = ../../NALib/proj/NALibXCode.xcodeproj; sourceTree = "<group>"; };
+		909ECD3723B90F69002CA78D /* ManderAppXCode.xcodeproj */ = {isa = PBXFileReference; lastKnownFileType = "wrapper.pb-project"; name = ManderAppXCode.xcodeproj; path = ../../ManderApp/proj/ManderAppXCode.xcodeproj; sourceTree = "<group>"; };
+		909ECD3F23B90F7C002CA78D /* BitFiddle.vcxproj */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.xml; path = BitFiddle.vcxproj; sourceTree = "<group>"; };
+		909ECD4223B90F7C002CA78D /* icon.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = icon.png; sourceTree = "<group>"; };
+		909ECD4323B90F7C002CA78D /* BitFiddleChangelog.txt */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; path = BitFiddleChangelog.txt; sourceTree = "<group>"; };
+		909ECD4423B90F7C002CA78D /* BitFiddleStrings_eng.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = BitFiddleStrings_eng.h; sourceTree = "<group>"; };
+		909ECD4723B90F7C002CA78D /* de */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = de; path = de.lproj/InfoPlist.strings; sourceTree = "<group>"; };
+		909ECD4923B90F7C002CA78D /* de */ = {isa = PBXFileReference; lastKnownFileType = file.xib; name = de; path = de.lproj/MainMenu.xib; sourceTree = "<group>"; };
+		909ECD4A23B90F7C002CA78D /* ExpertWindow.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = ExpertWindow.xib; sourceTree = "<group>"; };
+		909ECD4B23B90F7C002CA78D /* en */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = en; path = en.lproj/InfoPlist.strings; sourceTree = "<group>"; };
+		909ECD4C23B90F7C002CA78D /* en */ = {isa = PBXFileReference; lastKnownFileType = file.xib; name = en; path = en.lproj/MainMenu.xib; sourceTree = "<group>"; };
+		909ECD4D23B90F7C002CA78D /* BitFiddle.icns */ = {isa = PBXFileReference; lastKnownFileType = image.icns; path = BitFiddle.icns; sourceTree = "<group>"; };
+		909ECD4E23B90F7C002CA78D /* Bit Fiddle.entitlements */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.entitlements; path = "Bit Fiddle.entitlements"; sourceTree = "<group>"; };
+		909ECD4F23B90F7C002CA78D /* Bit Fiddle-Info.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = "Bit Fiddle-Info.plist"; sourceTree = "<group>"; };
+		909ECD5023B90F7C002CA78D /* help.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = help.png; sourceTree = "<group>"; };
+		909ECD5123B90F7C002CA78D /* ascii.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = ascii.png; sourceTree = "<group>"; };
+		909ECD5223B90F7C002CA78D /* BitFiddleStrings_deu.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = BitFiddleStrings_deu.h; sourceTree = "<group>"; };
+		909ECD5323B90F7C002CA78D /* prefs.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = prefs.png; sourceTree = "<group>"; };
+		909ECD5523B90F7C002CA78D /* ASCIIController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ASCIIController.h; sourceTree = "<group>"; };
+		909ECD5623B90F7C002CA78D /* BitArray.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = BitArray.h; sourceTree = "<group>"; };
+		909ECD5723B90F7C002CA78D /* ConverterController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ConverterController.h; sourceTree = "<group>"; };
+		909ECD5823B90F7C002CA78D /* BitFiddlePreferences.c */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.c; path = BitFiddlePreferences.c; sourceTree = "<group>"; };
+		909ECD5923B90F7C002CA78D /* BitFiddleApplication.c */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.c; path = BitFiddleApplication.c; sourceTree = "<group>"; };
+		909ECD5A23B90F7C002CA78D /* BitFiddleTranslations.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = BitFiddleTranslations.h; sourceTree = "<group>"; };
+		909ECD5B23B90F7C002CA78D /* BitFiddleNSApplication.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = BitFiddleNSApplication.h; sourceTree = "<group>"; };
+		909ECD5C23B90F7C002CA78D /* PreferencesController.c */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.c; path = PreferencesController.c; sourceTree = "<group>"; };
+		909ECD5D23B90F7C002CA78D /* ConverterController.c */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.c; path = ConverterController.c; sourceTree = "<group>"; };
+		909ECD5E23B90F7C002CA78D /* ASCIIController.c */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.c; path = ASCIIController.c; sourceTree = "<group>"; };
+		909ECD5F23B90F7C002CA78D /* BitArray.c */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.c; path = BitArray.c; sourceTree = "<group>"; };
+		909ECD6023B90F7C002CA78D /* main.c */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.c; path = main.c; sourceTree = "<group>"; };
+		909ECD6123B90F7C002CA78D /* BitFiddleApplication.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = BitFiddleApplication.h; sourceTree = "<group>"; };
+		909ECD6223B90F7C002CA78D /* BitFiddlePreferences.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = BitFiddlePreferences.h; sourceTree = "<group>"; };
+		909ECD6323B90F7C002CA78D /* BitFiddleNSApplication.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = BitFiddleNSApplication.m; sourceTree = "<group>"; };
+		909ECD6423B90F7C002CA78D /* BitFiddleTranslations.c */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.c; path = BitFiddleTranslations.c; sourceTree = "<group>"; };
+		909ECD6523B90F7C002CA78D /* BitFiddle.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = BitFiddle.h; sourceTree = "<group>"; };
+		909ECD6623B90F7C002CA78D /* PreferencesController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = PreferencesController.h; sourceTree = "<group>"; };
+		909ECD7B23B90FC0002CA78D /* Cocoa.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Cocoa.framework; path = System/Library/Frameworks/Cocoa.framework; sourceTree = SDKROOT; };
+		B9848B3D177B99B400E21D96 /* Bit Fiddle.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = "Bit Fiddle.app"; sourceTree = BUILT_PRODUCTS_DIR; };
+/* End PBXFileReference section */
+
+/* Begin PBXFrameworksBuildPhase section */
+		B9848B3A177B99B400E21D96 /* Frameworks */ = {
+			isa = PBXFrameworksBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				909ECD8223B90FE5002CA78D /* libManderApp.a in Frameworks */,
+				909ECD7F23B90FD2002CA78D /* libNALibGUI.a in Frameworks */,
+				909ECD7C23B90FC0002CA78D /* Cocoa.framework in Frameworks */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXFrameworksBuildPhase section */
+
+/* Begin PBXGroup section */
+		909ECD2923B90F55002CA78D /* Products */ = {
+			isa = PBXGroup;
+			children = (
+				909ECD3023B90F55002CA78D /* libNALib.a */,
+				909ECD3223B90F55002CA78D /* libNALibGUI.a */,
+				909ECD3423B90F55002CA78D /* NALibTryout */,
+				909ECD3623B90F55002CA78D /* NALibGUITryout */,
+			);
+			name = Products;
+			sourceTree = "<group>";
+		};
+		909ECD3823B90F69002CA78D /* Products */ = {
+			isa = PBXGroup;
+			children = (
+				909ECD3D23B90F69002CA78D /* libManderApp.a */,
+			);
+			name = Products;
+			sourceTree = "<group>";
+		};
+		909ECD3E23B90F7C002CA78D /* BitFiddle */ = {
+			isa = PBXGroup;
+			children = (
+				909ECD3F23B90F7C002CA78D /* BitFiddle.vcxproj */,
+				909ECD4023B90F7C002CA78D /* res */,
+				909ECD5423B90F7C002CA78D /* src */,
+			);
+			name = BitFiddle;
+			path = ../code/BitFiddle;
+			sourceTree = "<group>";
+		};
+		909ECD4023B90F7C002CA78D /* res */ = {
+			isa = PBXGroup;
+			children = (
+				909ECD4123B90F7C002CA78D /* win */,
+				909ECD4323B90F7C002CA78D /* BitFiddleChangelog.txt */,
+				909ECD4423B90F7C002CA78D /* BitFiddleStrings_eng.h */,
+				909ECD4523B90F7C002CA78D /* mac */,
+				909ECD5023B90F7C002CA78D /* help.png */,
+				909ECD5123B90F7C002CA78D /* ascii.png */,
+				909ECD5223B90F7C002CA78D /* BitFiddleStrings_deu.h */,
+				909ECD5323B90F7C002CA78D /* prefs.png */,
+			);
+			path = res;
+			sourceTree = "<group>";
+		};
+		909ECD4123B90F7C002CA78D /* win */ = {
+			isa = PBXGroup;
+			children = (
+				909ECD4223B90F7C002CA78D /* icon.png */,
+			);
+			path = win;
+			sourceTree = "<group>";
+		};
+		909ECD4523B90F7C002CA78D /* mac */ = {
+			isa = PBXGroup;
+			children = (
+				909ECD4623B90F7C002CA78D /* InfoPlist.strings */,
+				909ECD4823B90F7C002CA78D /* MainMenu.xib */,
+				909ECD4A23B90F7C002CA78D /* ExpertWindow.xib */,
+				909ECD4D23B90F7C002CA78D /* BitFiddle.icns */,
+				909ECD4E23B90F7C002CA78D /* Bit Fiddle.entitlements */,
+				909ECD4F23B90F7C002CA78D /* Bit Fiddle-Info.plist */,
+			);
+			path = mac;
+			sourceTree = "<group>";
+		};
+		909ECD5423B90F7C002CA78D /* src */ = {
+			isa = PBXGroup;
+			children = (
+				909ECD5523B90F7C002CA78D /* ASCIIController.h */,
+				909ECD5623B90F7C002CA78D /* BitArray.h */,
+				909ECD5723B90F7C002CA78D /* ConverterController.h */,
+				909ECD5823B90F7C002CA78D /* BitFiddlePreferences.c */,
+				909ECD5923B90F7C002CA78D /* BitFiddleApplication.c */,
+				909ECD5A23B90F7C002CA78D /* BitFiddleTranslations.h */,
+				909ECD5B23B90F7C002CA78D /* BitFiddleNSApplication.h */,
+				909ECD5C23B90F7C002CA78D /* PreferencesController.c */,
+				909ECD5D23B90F7C002CA78D /* ConverterController.c */,
+				909ECD5E23B90F7C002CA78D /* ASCIIController.c */,
+				909ECD5F23B90F7C002CA78D /* BitArray.c */,
+				909ECD6023B90F7C002CA78D /* main.c */,
+				909ECD6123B90F7C002CA78D /* BitFiddleApplication.h */,
+				909ECD6223B90F7C002CA78D /* BitFiddlePreferences.h */,
+				909ECD6323B90F7C002CA78D /* BitFiddleNSApplication.m */,
+				909ECD6423B90F7C002CA78D /* BitFiddleTranslations.c */,
+				909ECD6523B90F7C002CA78D /* BitFiddle.h */,
+				909ECD6623B90F7C002CA78D /* PreferencesController.h */,
+			);
+			path = src;
+			sourceTree = "<group>";
+		};
+		B9848B32177B996600E21D96 = {
+			isa = PBXGroup;
+			children = (
+				909ECD3E23B90F7C002CA78D /* BitFiddle */,
+				B9848B3F177B99B400E21D96 /* Frameworks */,
+				B9848B3E177B99B400E21D96 /* Products */,
+			);
+			sourceTree = "<group>";
+		};
+		B9848B3E177B99B400E21D96 /* Products */ = {
+			isa = PBXGroup;
+			children = (
+				B9848B3D177B99B400E21D96 /* Bit Fiddle.app */,
+			);
+			name = Products;
+			sourceTree = "<group>";
+		};
+		B9848B3F177B99B400E21D96 /* Frameworks */ = {
+			isa = PBXGroup;
+			children = (
+				909ECD7B23B90FC0002CA78D /* Cocoa.framework */,
+				909ECD3723B90F69002CA78D /* ManderAppXCode.xcodeproj */,
+				909ECD2823B90F55002CA78D /* NALibXCode.xcodeproj */,
+			);
+			name = Frameworks;
+			sourceTree = "<group>";
+		};
+/* End PBXGroup section */
+
+/* Begin PBXNativeTarget section */
+		B9848B3C177B99B400E21D96 /* Bit Fiddle */ = {
+			isa = PBXNativeTarget;
+			buildConfigurationList = B9848B58177B99B400E21D96 /* Build configuration list for PBXNativeTarget "Bit Fiddle" */;
+			buildPhases = (
+				B9848B39177B99B400E21D96 /* Sources */,
+				B9848B3A177B99B400E21D96 /* Frameworks */,
+				B9848B3B177B99B400E21D96 /* Resources */,
+			);
+			buildRules = (
+			);
+			dependencies = (
+				909ECD8123B90FDF002CA78D /* PBXTargetDependency */,
+				909ECD7E23B90FCC002CA78D /* PBXTargetDependency */,
+			);
+			name = "Bit Fiddle";
+			productName = "Bit Fiddle";
+			productReference = B9848B3D177B99B400E21D96 /* Bit Fiddle.app */;
+			productType = "com.apple.product-type.application";
+		};
+/* End PBXNativeTarget section */
+
+/* Begin PBXProject section */
+		B9848B33177B996600E21D96 /* Project object */ = {
+			isa = PBXProject;
+			attributes = {
+				LastUpgradeCheck = 0500;
+				TargetAttributes = {
+					B9848B3C177B99B400E21D96 = {
+						DevelopmentTeam = YH3QFD54JB;
+						ProvisioningStyle = Automatic;
+					};
+				};
+			};
+			buildConfigurationList = B9848B36177B996600E21D96 /* Build configuration list for PBXProject "BitFiddleXCode" */;
+			compatibilityVersion = "Xcode 3.2";
+			developmentRegion = English;
+			hasScannedForEncodings = 0;
+			knownRegions = (
+				English,
+				en,
+				de,
+			);
+			mainGroup = B9848B32177B996600E21D96;
+			productRefGroup = B9848B3E177B99B400E21D96 /* Products */;
+			projectDirPath = "";
+			projectReferences = (
+				{
+					ProductGroup = 909ECD3823B90F69002CA78D /* Products */;
+					ProjectRef = 909ECD3723B90F69002CA78D /* ManderAppXCode.xcodeproj */;
+				},
+				{
+					ProductGroup = 909ECD2923B90F55002CA78D /* Products */;
+					ProjectRef = 909ECD2823B90F55002CA78D /* NALibXCode.xcodeproj */;
+				},
+			);
+			projectRoot = "";
+			targets = (
+				B9848B3C177B99B400E21D96 /* Bit Fiddle */,
+			);
+		};
+/* End PBXProject section */
+
+/* Begin PBXReferenceProxy section */
+		909ECD3023B90F55002CA78D /* libNALib.a */ = {
+			isa = PBXReferenceProxy;
+			fileType = archive.ar;
+			path = libNALib.a;
+			remoteRef = 909ECD2F23B90F55002CA78D /* PBXContainerItemProxy */;
+			sourceTree = BUILT_PRODUCTS_DIR;
+		};
+		909ECD3223B90F55002CA78D /* libNALibGUI.a */ = {
+			isa = PBXReferenceProxy;
+			fileType = archive.ar;
+			path = libNALibGUI.a;
+			remoteRef = 909ECD3123B90F55002CA78D /* PBXContainerItemProxy */;
+			sourceTree = BUILT_PRODUCTS_DIR;
+		};
+		909ECD3423B90F55002CA78D /* NALibTryout */ = {
+			isa = PBXReferenceProxy;
+			fileType = "compiled.mach-o.executable";
+			path = NALibTryout;
+			remoteRef = 909ECD3323B90F55002CA78D /* PBXContainerItemProxy */;
+			sourceTree = BUILT_PRODUCTS_DIR;
+		};
+		909ECD3623B90F55002CA78D /* NALibGUITryout */ = {
+			isa = PBXReferenceProxy;
+			fileType = "compiled.mach-o.executable";
+			path = NALibGUITryout;
+			remoteRef = 909ECD3523B90F55002CA78D /* PBXContainerItemProxy */;
+			sourceTree = BUILT_PRODUCTS_DIR;
+		};
+		909ECD3D23B90F69002CA78D /* libManderApp.a */ = {
+			isa = PBXReferenceProxy;
+			fileType = archive.ar;
+			path = libManderApp.a;
+			remoteRef = 909ECD3C23B90F69002CA78D /* PBXContainerItemProxy */;
+			sourceTree = BUILT_PRODUCTS_DIR;
+		};
+/* End PBXReferenceProxy section */
+
+/* Begin PBXResourcesBuildPhase section */
+		B9848B3B177B99B400E21D96 /* Resources */ = {
+			isa = PBXResourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				909ECD6823B90F7C002CA78D /* icon.png in Resources */,
+				909ECD7023B90F7C002CA78D /* ascii.png in Resources */,
+				909ECD6C23B90F7C002CA78D /* ExpertWindow.xib in Resources */,
+				909ECD6F23B90F7C002CA78D /* help.png in Resources */,
+				909ECD6B23B90F7C002CA78D /* MainMenu.xib in Resources */,
+				909ECD6A23B90F7C002CA78D /* InfoPlist.strings in Resources */,
+				909ECD6723B90F7C002CA78D /* BitFiddle.vcxproj in Resources */,
+				909ECD6923B90F7C002CA78D /* BitFiddleChangelog.txt in Resources */,
+				909ECD7123B90F7C002CA78D /* prefs.png in Resources */,
+				909ECD6D23B90F7C002CA78D /* BitFiddle.icns in Resources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXResourcesBuildPhase section */
+
+/* Begin PBXSourcesBuildPhase section */
+		B9848B39177B99B400E21D96 /* Sources */ = {
+			isa = PBXSourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				909ECD7423B90F7C002CA78D /* PreferencesController.c in Sources */,
+				909ECD7323B90F7C002CA78D /* BitFiddleApplication.c in Sources */,
+				909ECD7523B90F7C002CA78D /* ConverterController.c in Sources */,
+				909ECD7223B90F7C002CA78D /* BitFiddlePreferences.c in Sources */,
+				909ECD7623B90F7C002CA78D /* ASCIIController.c in Sources */,
+				909ECD7723B90F7C002CA78D /* BitArray.c in Sources */,
+				909ECD7823B90F7C002CA78D /* main.c in Sources */,
+				909ECD7A23B90F7C002CA78D /* BitFiddleTranslations.c in Sources */,
+				909ECD7923B90F7C002CA78D /* BitFiddleNSApplication.m in Sources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXSourcesBuildPhase section */
+
+/* Begin PBXTargetDependency section */
+		909ECD7E23B90FCC002CA78D /* PBXTargetDependency */ = {
+			isa = PBXTargetDependency;
+			name = NALibGUI;
+			targetProxy = 909ECD7D23B90FCC002CA78D /* PBXContainerItemProxy */;
+		};
+		909ECD8123B90FDF002CA78D /* PBXTargetDependency */ = {
+			isa = PBXTargetDependency;
+			name = ManderApp;
+			targetProxy = 909ECD8023B90FDF002CA78D /* PBXContainerItemProxy */;
+		};
+/* End PBXTargetDependency section */
+
+/* Begin PBXVariantGroup section */
+		909ECD4623B90F7C002CA78D /* InfoPlist.strings */ = {
+			isa = PBXVariantGroup;
+			children = (
+				909ECD4723B90F7C002CA78D /* de */,
+				909ECD4B23B90F7C002CA78D /* en */,
+			);
+			name = InfoPlist.strings;
+			sourceTree = "<group>";
+		};
+		909ECD4823B90F7C002CA78D /* MainMenu.xib */ = {
+			isa = PBXVariantGroup;
+			children = (
+				909ECD4923B90F7C002CA78D /* de */,
+				909ECD4C23B90F7C002CA78D /* en */,
+			);
+			name = MainMenu.xib;
+			sourceTree = "<group>";
+		};
+/* End PBXVariantGroup section */
+
+/* Begin XCBuildConfiguration section */
+		B9432DC717E61D440075F638 /* Optimize */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				CLANG_WARN_ASSIGN_ENUM = YES;
+				CLANG_WARN_BLOCK_CAPTURE_AUTORELEASING = YES;
+				CLANG_WARN_BOOL_CONVERSION = YES;
+				CLANG_WARN_COMMA = YES;
+				CLANG_WARN_DOCUMENTATION_COMMENTS = YES;
+				CLANG_WARN_FLOAT_CONVERSION = YES;
+				CLANG_WARN_IMPLICIT_SIGN_CONVERSION = YES;
+				CLANG_WARN_INFINITE_RECURSION = YES;
+				CLANG_WARN_NON_LITERAL_NULL_CONVERSION = YES;
+				CLANG_WARN_QUOTED_INCLUDE_IN_FRAMEWORK_HEADER = YES;
+				CLANG_WARN_SEMICOLON_BEFORE_METHOD_BODY = YES;
+				CLANG_WARN_STRICT_PROTOTYPES = YES;
+				CLANG_WARN_SUSPICIOUS_IMPLICIT_CONVERSION = YES;
+				CLANG_WARN_UNREACHABLE_CODE = YES;
+				COPY_PHASE_STRIP = NO;
+				DEPLOYMENT_POSTPROCESSING = YES;
+				GCC_DEBUGGING_SYMBOLS = full;
+				GCC_GENERATE_DEBUGGING_SYMBOLS = YES;
+				GCC_OPTIMIZATION_LEVEL = fast;
+				GCC_PREPROCESSOR_DEFINITIONS = (
+					NDEBUG,
+					"NA_CONFIG_COMPILE_GUI=1",
+				);
+				GCC_VERSION = "";
+				GCC_WARN_ABOUT_MISSING_FIELD_INITIALIZERS = YES;
+				GCC_WARN_ABOUT_MISSING_NEWLINE = YES;
+				GCC_WARN_ABOUT_MISSING_PROTOTYPES = NO;
+				GCC_WARN_FOUR_CHARACTER_CONSTANTS = YES;
+				GCC_WARN_INITIALIZER_NOT_FULLY_BRACKETED = YES;
+				GCC_WARN_SHADOW = YES;
+				GCC_WARN_SIGN_COMPARE = YES;
+				GCC_WARN_UNKNOWN_PRAGMAS = YES;
+				GCC_WARN_UNUSED_FUNCTION = YES;
+				GCC_WARN_UNUSED_LABEL = YES;
+				GCC_WARN_UNUSED_PARAMETER = YES;
+				STRIP_INSTALLED_PRODUCT = NO;
+				VALID_ARCHS = x86_64;
+			};
+			name = Optimize;
+		};
+		B9432DC817E61D440075F638 /* Optimize */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ALWAYS_SEARCH_USER_PATHS = NO;
+				ARCHS = "$(ARCHS_STANDARD_32_64_BIT)";
+				CLANG_WARN_CONSTANT_CONVERSION = YES;
+				CLANG_WARN_EMPTY_BODY = YES;
+				CLANG_WARN_ENUM_CONVERSION = YES;
+				CLANG_WARN_INT_CONVERSION = YES;
+				CLANG_WARN__DUPLICATE_METHOD_MATCH = YES;
+				CODE_SIGN_ENTITLEMENTS = "../code/BitFiddle/res/mac/Bit Fiddle.entitlements";
+				CODE_SIGN_IDENTITY = "Mac Developer";
+				"CODE_SIGN_IDENTITY[sdk=macosx*]" = "Mac Developer";
+				CODE_SIGN_STYLE = Automatic;
+				COMBINE_HIDPI_IMAGES = YES;
+				COPY_PHASE_STRIP = YES;
+				DEBUG_INFORMATION_FORMAT = "dwarf-with-dsym";
+				DEVELOPMENT_TEAM = YH3QFD54JB;
+				GCC_WARN_64_TO_32_BIT_CONVERSION = YES;
+				GCC_WARN_ABOUT_RETURN_TYPE = YES;
+				GCC_WARN_UNINITIALIZED_AUTOS = NO;
+				GCC_WARN_UNUSED_VARIABLE = YES;
+				INFOPLIST_FILE = "../code/BitFiddle/res/mac/Bit Fiddle-Info.plist";
+				MACOSX_DEPLOYMENT_TARGET = 10.6;
+				PRODUCT_BUNDLE_IDENTIFIER = "ch.manderim.Bit-Fiddle";
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				PROVISIONING_PROFILE = "";
+				PROVISIONING_PROFILE_SPECIFIER = "";
+				WRAPPER_EXTENSION = app;
+			};
+			name = Optimize;
+		};
+		B9848B37177B996600E21D96 /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				CLANG_WARN_ASSIGN_ENUM = YES;
+				CLANG_WARN_BLOCK_CAPTURE_AUTORELEASING = YES;
+				CLANG_WARN_BOOL_CONVERSION = YES;
+				CLANG_WARN_COMMA = YES;
+				CLANG_WARN_DOCUMENTATION_COMMENTS = YES;
+				CLANG_WARN_FLOAT_CONVERSION = YES;
+				CLANG_WARN_IMPLICIT_SIGN_CONVERSION = YES;
+				CLANG_WARN_INFINITE_RECURSION = YES;
+				CLANG_WARN_NON_LITERAL_NULL_CONVERSION = YES;
+				CLANG_WARN_QUOTED_INCLUDE_IN_FRAMEWORK_HEADER = YES;
+				CLANG_WARN_SEMICOLON_BEFORE_METHOD_BODY = YES;
+				CLANG_WARN_STRICT_PROTOTYPES = YES;
+				CLANG_WARN_SUSPICIOUS_IMPLICIT_CONVERSION = YES;
+				CLANG_WARN_UNREACHABLE_CODE = YES;
+				COPY_PHASE_STRIP = NO;
+				GCC_OPTIMIZATION_LEVEL = 0;
+				GCC_PREPROCESSOR_DEFINITIONS = "NA_CONFIG_COMPILE_GUI=1";
+				GCC_VERSION = "";
+				GCC_WARN_ABOUT_MISSING_FIELD_INITIALIZERS = YES;
+				GCC_WARN_ABOUT_MISSING_NEWLINE = YES;
+				GCC_WARN_ABOUT_MISSING_PROTOTYPES = NO;
+				GCC_WARN_FOUR_CHARACTER_CONSTANTS = YES;
+				GCC_WARN_INITIALIZER_NOT_FULLY_BRACKETED = YES;
+				GCC_WARN_SHADOW = YES;
+				GCC_WARN_SIGN_COMPARE = YES;
+				GCC_WARN_UNKNOWN_PRAGMAS = YES;
+				GCC_WARN_UNUSED_FUNCTION = YES;
+				GCC_WARN_UNUSED_LABEL = YES;
+				GCC_WARN_UNUSED_PARAMETER = YES;
+				ONLY_ACTIVE_ARCH = YES;
+				VALID_ARCHS = x86_64;
+			};
+			name = Debug;
+		};
+		B9848B38177B996600E21D96 /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				CLANG_WARN_ASSIGN_ENUM = YES;
+				CLANG_WARN_BLOCK_CAPTURE_AUTORELEASING = YES;
+				CLANG_WARN_BOOL_CONVERSION = YES;
+				CLANG_WARN_COMMA = YES;
+				CLANG_WARN_DOCUMENTATION_COMMENTS = YES;
+				CLANG_WARN_FLOAT_CONVERSION = YES;
+				CLANG_WARN_IMPLICIT_SIGN_CONVERSION = YES;
+				CLANG_WARN_INFINITE_RECURSION = YES;
+				CLANG_WARN_NON_LITERAL_NULL_CONVERSION = YES;
+				CLANG_WARN_QUOTED_INCLUDE_IN_FRAMEWORK_HEADER = YES;
+				CLANG_WARN_SEMICOLON_BEFORE_METHOD_BODY = YES;
+				CLANG_WARN_STRICT_PROTOTYPES = YES;
+				CLANG_WARN_SUSPICIOUS_IMPLICIT_CONVERSION = YES;
+				CLANG_WARN_UNREACHABLE_CODE = YES;
+				COPY_PHASE_STRIP = NO;
+				DEPLOYMENT_POSTPROCESSING = YES;
+				GCC_GENERATE_DEBUGGING_SYMBOLS = NO;
+				GCC_PREPROCESSOR_DEFINITIONS = (
+					NDEBUG,
+					"NA_CONFIG_COMPILE_GUI=1",
+				);
+				GCC_VERSION = "";
+				GCC_WARN_ABOUT_MISSING_FIELD_INITIALIZERS = YES;
+				GCC_WARN_ABOUT_MISSING_NEWLINE = YES;
+				GCC_WARN_ABOUT_MISSING_PROTOTYPES = NO;
+				GCC_WARN_FOUR_CHARACTER_CONSTANTS = YES;
+				GCC_WARN_INITIALIZER_NOT_FULLY_BRACKETED = YES;
+				GCC_WARN_SHADOW = YES;
+				GCC_WARN_SIGN_COMPARE = YES;
+				GCC_WARN_UNKNOWN_PRAGMAS = YES;
+				GCC_WARN_UNUSED_FUNCTION = YES;
+				GCC_WARN_UNUSED_LABEL = YES;
+				GCC_WARN_UNUSED_PARAMETER = YES;
+				VALID_ARCHS = x86_64;
+			};
+			name = Release;
+		};
+		B9848B59177B99B400E21D96 /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ALWAYS_SEARCH_USER_PATHS = NO;
+				ARCHS = "$(ARCHS_STANDARD_32_64_BIT)";
+				CLANG_WARN_CONSTANT_CONVERSION = YES;
+				CLANG_WARN_EMPTY_BODY = YES;
+				CLANG_WARN_ENUM_CONVERSION = YES;
+				CLANG_WARN_INT_CONVERSION = YES;
+				CLANG_WARN__DUPLICATE_METHOD_MATCH = YES;
+				CODE_SIGN_ENTITLEMENTS = "../code/BitFiddle/res/mac/Bit Fiddle.entitlements";
+				CODE_SIGN_IDENTITY = "Mac Developer";
+				"CODE_SIGN_IDENTITY[sdk=macosx*]" = "Mac Developer";
+				CODE_SIGN_STYLE = Automatic;
+				COMBINE_HIDPI_IMAGES = YES;
+				COPY_PHASE_STRIP = NO;
+				DEVELOPMENT_TEAM = YH3QFD54JB;
+				GCC_DYNAMIC_NO_PIC = NO;
+				GCC_OPTIMIZATION_LEVEL = 0;
+				GCC_SYMBOLS_PRIVATE_EXTERN = NO;
+				GCC_WARN_64_TO_32_BIT_CONVERSION = YES;
+				GCC_WARN_ABOUT_RETURN_TYPE = YES;
+				GCC_WARN_UNINITIALIZED_AUTOS = NO;
+				GCC_WARN_UNUSED_VARIABLE = YES;
+				INFOPLIST_FILE = "../code/BitFiddle/res/mac/Bit Fiddle-Info.plist";
+				MACOSX_DEPLOYMENT_TARGET = 10.6;
+				ONLY_ACTIVE_ARCH = YES;
+				PRODUCT_BUNDLE_IDENTIFIER = "ch.manderim.Bit-Fiddle";
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				PROVISIONING_PROFILE = "";
+				PROVISIONING_PROFILE_SPECIFIER = "";
+				WRAPPER_EXTENSION = app;
+			};
+			name = Debug;
+		};
+		B9848B5A177B99B400E21D96 /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ALWAYS_SEARCH_USER_PATHS = NO;
+				ARCHS = "$(ARCHS_STANDARD_32_64_BIT)";
+				CLANG_WARN_CONSTANT_CONVERSION = YES;
+				CLANG_WARN_EMPTY_BODY = YES;
+				CLANG_WARN_ENUM_CONVERSION = YES;
+				CLANG_WARN_INT_CONVERSION = YES;
+				CLANG_WARN__DUPLICATE_METHOD_MATCH = YES;
+				CODE_SIGN_ENTITLEMENTS = "../code/BitFiddle/res/mac/Bit Fiddle.entitlements";
+				CODE_SIGN_IDENTITY = "Mac Developer";
+				"CODE_SIGN_IDENTITY[sdk=macosx*]" = "Mac Developer";
+				CODE_SIGN_STYLE = Automatic;
+				COMBINE_HIDPI_IMAGES = YES;
+				COPY_PHASE_STRIP = YES;
+				DEBUG_INFORMATION_FORMAT = "dwarf-with-dsym";
+				DEVELOPMENT_TEAM = YH3QFD54JB;
+				GCC_WARN_64_TO_32_BIT_CONVERSION = YES;
+				GCC_WARN_ABOUT_RETURN_TYPE = YES;
+				GCC_WARN_UNINITIALIZED_AUTOS = NO;
+				GCC_WARN_UNUSED_VARIABLE = YES;
+				INFOPLIST_FILE = "../code/BitFiddle/res/mac/Bit Fiddle-Info.plist";
+				MACOSX_DEPLOYMENT_TARGET = 10.6;
+				PRODUCT_BUNDLE_IDENTIFIER = "ch.manderim.Bit-Fiddle";
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				PROVISIONING_PROFILE = "";
+				PROVISIONING_PROFILE_SPECIFIER = "";
+				WRAPPER_EXTENSION = app;
+			};
+			name = Release;
+		};
+/* End XCBuildConfiguration section */
+
+/* Begin XCConfigurationList section */
+		B9848B36177B996600E21D96 /* Build configuration list for PBXProject "BitFiddleXCode" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				B9848B37177B996600E21D96 /* Debug */,
+				B9432DC717E61D440075F638 /* Optimize */,
+				B9848B38177B996600E21D96 /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+		B9848B58177B99B400E21D96 /* Build configuration list for PBXNativeTarget "Bit Fiddle" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				B9848B59177B99B400E21D96 /* Debug */,
+				B9432DC817E61D440075F638 /* Optimize */,
+				B9848B5A177B99B400E21D96 /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+/* End XCConfigurationList section */
+	};
+	rootObject = B9848B33177B996600E21D96 /* Project object */;
+}
