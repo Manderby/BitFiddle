@@ -75,7 +75,10 @@ void prestartup(void* arg){
 
 void poststartup(void* arg){
   NA_UNUSED(arg);
+
   mandCreateUI();
+  mandSetAboutWindowStorageTag(BIT_WINDOW_TAG_ABOUT);
+
   [NSBundle loadNibNamed:@"MainMenu" owner:NSApp];
   bitCreateUI();
 }
