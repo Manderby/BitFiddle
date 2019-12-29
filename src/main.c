@@ -15,6 +15,7 @@
 #include "ASCIIController.h"
 #include "BitFiddleApplication.h"
 #include BIT_MANDERAPP_PATH(ManderApp.h)
+#include BIT_MANDERAPP_PATH(ManderAppAbout.h)
 
 
 
@@ -35,7 +36,10 @@ void prestartup(void* arg){
 
 void poststartup(void* arg){
   NA_UNUSED(arg);
+
   mandCreateUI();
+  mandSetAboutWindowStorageTag(BIT_WINDOW_TAG_ABOUT);
+
   bitCreateUI();
 }
 

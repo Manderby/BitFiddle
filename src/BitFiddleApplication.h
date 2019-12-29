@@ -25,6 +25,7 @@ typedef enum{
 #define BIT_WINDOW_TAG_CONVERTER 1
 #define BIT_WINDOW_TAG_PREFERENCES 2
 #define BIT_WINDOW_TAG_ASCII 3
+#define BIT_WINDOW_TAG_ABOUT 4
 
 void bitStartApplication(void);
 void bitCreateUI(void);
