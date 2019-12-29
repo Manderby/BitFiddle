@@ -19,30 +19,35 @@
     </ProjectConfiguration>
   </ItemGroup>
   <ItemGroup>
-    <ClCompile Include="ASCIIController.c" />
-    <ClCompile Include="BitArray.c" />
-    <ClCompile Include="BitFiddleApplication.c" />
-    <ClCompile Include="BitFiddlePreferences.c" />
-    <ClCompile Include="BitFiddleTranslations.c" />
-    <ClCompile Include="ConverterController.c" />
-    <ClCompile Include="main.c" />
-    <ClCompile Include="PreferencesController.c" />
+    <ProjectReference Include="..\..\..\ManderApp\code\ManderApp\ManderApp.vcxproj">
+      <Project>{6e76da2b-3c47-409b-80ac-0df4799fb3e1}</Project>
+    </ProjectReference>
+    <ProjectReference Include="..\..\..\NALib\code\NALib\NALib.vcxproj">
+      <Project>{d03034cf-5ce8-4e68-8fd9-d5820e2745ba}</Project>
+    </ProjectReference>
   </ItemGroup>
   <ItemGroup>
-    <ClInclude Include="ASCIIController.h" />
-    <ClInclude Include="BitArray.h" />
-    <ClInclude Include="BitFiddle.h" />
-    <ClInclude Include="BitFiddleApplication.h" />
-    <ClInclude Include="BitFiddleNSApplication.h" />
-    <ClInclude Include="BitFiddlePreferences.h" />
-    <ClInclude Include="BitFiddleTranslations.h" />
-    <ClInclude Include="ConverterController.h" />
-    <ClInclude Include="PreferencesController.h" />
     <ClInclude Include="res\BitFiddleStrings_deu.h" />
     <ClInclude Include="res\BitFiddleStrings_eng.h" />
+    <ClInclude Include="src\ASCIIController.h" />
+    <ClInclude Include="src\BitArray.h" />
+    <ClInclude Include="src\BitFiddle.h" />
+    <ClInclude Include="src\BitFiddleApplication.h" />
+    <ClInclude Include="src\BitFiddleNSApplication.h" />
+    <ClInclude Include="src\BitFiddlePreferences.h" />
+    <ClInclude Include="src\BitFiddleTranslations.h" />
+    <ClInclude Include="src\ConverterController.h" />
+    <ClInclude Include="src\PreferencesController.h" />
   </ItemGroup>
   <ItemGroup>
-    <None Include="BitFiddleNSApplication.m" />
+    <ClCompile Include="src\ASCIIController.c" />
+    <ClCompile Include="src\BitArray.c" />
+    <ClCompile Include="src\BitFiddleApplication.c" />
+    <ClCompile Include="src\BitFiddlePreferences.c" />
+    <ClCompile Include="src\BitFiddleTranslations.c" />
+    <ClCompile Include="src\ConverterController.c" />
+    <ClCompile Include="src\main.c" />
+    <ClCompile Include="src\PreferencesController.c" />
   </ItemGroup>
   <ItemGroup>
     <Image Include="res\ascii.png" />
@@ -51,18 +56,6 @@
   </ItemGroup>
   <ItemGroup>
     <Text Include="res\BitFiddleChangelog.txt" />
-  </ItemGroup>
-  <ItemGroup>
-    <ProjectReference Include="..\..\ManderApp\src\ManderApp.vcxproj">
-      <Project>{6e76da2b-3c47-409b-80ac-0df4799fb3e1}</Project>
-      <Private>false</Private>
-      <LinkLibraryDependencies>true</LinkLibraryDependencies>
-    </ProjectReference>
-    <ProjectReference Include="..\..\NALib\src\NALib.vcxproj">
-      <Project>{d03034cf-5ce8-4e68-8fd9-d5820e2745ba}</Project>
-      <Private>false</Private>
-      <LinkLibraryDependencies>true</LinkLibraryDependencies>
-    </ProjectReference>
   </ItemGroup>
   <PropertyGroup Label="Globals">
     <VCProjectVersion>15.0</VCProjectVersion>
@@ -117,28 +110,28 @@
   </ImportGroup>
   <PropertyGroup Label="UserMacros" />
   <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Debug|x64'">
-    <IntDir>$(SolutionDir)..\..\build\$(ProjectName)_$(Configuration)_$(Platform)\</IntDir>
-    <OutDir>$(SolutionDir)..\..\bin\$(ProjectName)_$(Configuration)_$(Platform)\</OutDir>
+    <IntDir>$(ProjectDir)build\$(ProjectName)_$(Configuration)_$(Platform)\</IntDir>
+    <OutDir>$(ProjectDir)bin\$(ProjectName)_$(Configuration)_$(Platform)\</OutDir>
     <LinkIncremental>
     </LinkIncremental>
     <CodeAnalysisRuleSet>AllRules.ruleset</CodeAnalysisRuleSet>
   </PropertyGroup>
   <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Debug|Win32'">
-    <IntDir>$(SolutionDir)..\..\build\$(ProjectName)_$(Configuration)_$(Platform)\</IntDir>
-    <OutDir>$(SolutionDir)..\..\bin\$(ProjectName)_$(Configuration)_$(Platform)\</OutDir>
+    <IntDir>$(ProjectDir)build\$(ProjectName)_$(Configuration)_$(Platform)\</IntDir>
+    <OutDir>$(ProjectDir)bin\$(ProjectName)_$(Configuration)_$(Platform)\</OutDir>
     <LinkIncremental>
     </LinkIncremental>
     <CodeAnalysisRuleSet>AllRules.ruleset</CodeAnalysisRuleSet>
   </PropertyGroup>
   <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Release|Win32'">
-    <IntDir>$(SolutionDir)..\..\build\$(ProjectName)_$(Configuration)_$(Platform)\</IntDir>
-    <OutDir>$(SolutionDir)..\..\bin\$(ProjectName)_$(Configuration)_$(Platform)\</OutDir>
+    <IntDir>$(ProjectDir)build\$(ProjectName)_$(Configuration)_$(Platform)\</IntDir>
+    <OutDir>$(ProjectDir)bin\$(ProjectName)_$(Configuration)_$(Platform)\</OutDir>
     <LinkIncremental>false</LinkIncremental>
     <CodeAnalysisRuleSet>AllRules.ruleset</CodeAnalysisRuleSet>
   </PropertyGroup>
   <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Release|x64'">
-    <IntDir>$(SolutionDir)..\..\build\$(ProjectName)_$(Configuration)_$(Platform)\</IntDir>
-    <OutDir>$(SolutionDir)..\..\bin\$(ProjectName)_$(Configuration)_$(Platform)\</OutDir>
+    <IntDir>$(ProjectDir)build\$(ProjectName)_$(Configuration)_$(Platform)\</IntDir>
+    <OutDir>$(ProjectDir)bin\$(ProjectName)_$(Configuration)_$(Platform)\</OutDir>
     <LinkIncremental>false</LinkIncremental>
     <CodeAnalysisRuleSet>AllRules.ruleset</CodeAnalysisRuleSet>
   </PropertyGroup>
@@ -156,6 +149,7 @@
 xcopy /y "$(ProjectDir)res\help.png"  "$(OutDir)" &gt;NUL
 xcopy /y "$(ProjectDir)res\prefs.png"  "$(OutDir)" &gt;NUL
 xcopy /y "$(ProjectDir)res\ascii.png"  "$(OutDir)" &gt;NUL
+xcopy /y "$(ProjectDir)res\BitFiddleChangelog.txt"  "$(OutDir)" &gt;NUL
 xcopy /y "$(ProjectDir)res\win\icon.png"  "$(OutDir)" &gt;NUL
 echo "Copying resources done."</Command>
     </PostBuildEvent>
@@ -184,6 +178,7 @@ echo "Copying resources done."</Command>
 xcopy /y "$(ProjectDir)res\help.png"  "$(OutDir)" &gt;NUL
 xcopy /y "$(ProjectDir)res\prefs.png"  "$(OutDir)" &gt;NUL
 xcopy /y "$(ProjectDir)res\ascii.png"  "$(OutDir)" &gt;NUL
+xcopy /y "$(ProjectDir)res\BitFiddleChangelog.txt"  "$(OutDir)" &gt;NUL
 xcopy /y "$(ProjectDir)res\win\icon.png"  "$(OutDir)" &gt;NUL
 echo "Copying resources done."</Command>
     </PostBuildEvent>
@@ -223,6 +218,7 @@ echo "Copying resources done."</Command>
 xcopy /y "$(ProjectDir)res\help.png"  "$(OutDir)" &gt;NUL
 xcopy /y "$(ProjectDir)res\prefs.png"  "$(OutDir)" &gt;NUL
 xcopy /y "$(ProjectDir)res\ascii.png"  "$(OutDir)" &gt;NUL
+xcopy /y "$(ProjectDir)res\BitFiddleChangelog.txt"  "$(OutDir)" &gt;NUL
 xcopy /y "$(ProjectDir)res\win\icon.png"  "$(OutDir)" &gt;NUL
 echo "Copying resources done."</Command>
     </PostBuildEvent>
@@ -256,6 +252,7 @@ echo "Copying resources done."</Command>
 xcopy /y "$(ProjectDir)res\help.png"  "$(OutDir)" &gt;NUL
 xcopy /y "$(ProjectDir)res\prefs.png"  "$(OutDir)" &gt;NUL
 xcopy /y "$(ProjectDir)res\ascii.png"  "$(OutDir)" &gt;NUL
+xcopy /y "$(ProjectDir)res\BitFiddleChangelog.txt"  "$(OutDir)" &gt;NUL
 xcopy /y "$(ProjectDir)res\win\icon.png"  "$(OutDir)" &gt;NUL
 echo "Copying resources done."</Command>
     </PostBuildEvent>
