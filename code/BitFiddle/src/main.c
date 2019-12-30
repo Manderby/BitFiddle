@@ -65,6 +65,8 @@ void poststartup(void* arg){
   //naDelete(cwd);
 
   naStartApplication(prestartup, poststartup, NA_NULL);
+  naStopRuntime();
+
   return 0;
 }
 
