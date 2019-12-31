@@ -90,6 +90,8 @@ void bitCreateUI(){
 
   mandSetAboutDescriptionAndHelpURL(bitTranslate(BitFiddleApplicationDescription), bitTranslate(BitFiddleApplicationHelpURL));
   mandAlertNewVersion(bitTranslate(BitFiddleNewVersionDescription));
+
+  bitUpdateApp();
 }
 
 
