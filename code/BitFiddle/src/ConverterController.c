@@ -637,8 +637,6 @@ BitConverterController* bitCreateConverterController(void){
   windowrect = naGetUIElementRect(con->window, NA_NULL, NA_FALSE);
   windowrect.size.width = offsetx;
 
-  //windowrect.size.height += 100;
-
   naSetWindowRect(con->window, windowrect);
 
   NATextField* nexttab;
