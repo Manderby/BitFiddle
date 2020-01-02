@@ -89,7 +89,8 @@ int main(int argc, char *argv[]){
   NA_UNUSED(argc);
   NA_UNUSED(argv);
   naStartRuntime();
-  [BitFiddleNSApplication sharedApplication];
-  naStartApplication(prestartup, poststartup, NA_NULL);
+    [BitFiddleNSApplication sharedApplication];
+    naStartApplication(prestartup, poststartup, NA_NULL);
+  naStopRuntime();
   return 0;
 }

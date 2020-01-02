@@ -105,7 +105,6 @@ void bitStopApplication(){
   
   naFree(bitApp);
   naStopApplication();
-  naStopRuntime();
 }
 
 
