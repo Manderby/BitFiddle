@@ -144,6 +144,7 @@ NABool closeConverterWindow(NAReaction reaction){
   naRelease(con->bitarray);
   naStopApplication();
   return NA_TRUE;
+  // todo: when set to na_true, sometimes, it crashes.
 }
 
 
@@ -458,6 +459,8 @@ BitConverterController* bitCreateConverterController(void){
   naSetSpaceAlternateBackground(settingspace, alternateblock % 2);
   alternateblock++;
 
+    NAUIImage* testuiimage = bitGetImageAsset(BIT_IMAGE_ASSET_HELP_BUTTON);
+
   con->unsignedOption = naNewTextOptionButton("U", naMakeSize(24., 24.));
   naAddUIReaction(con->unsignedOption, NA_UI_COMMAND_PRESSED, switchComplement, con);
   naAddSpaceChild(settingspace, con->unsignedOption, naMakePos(10., (double)yposinput));
@@ -636,8 +639,6 @@ BitConverterController* bitCreateConverterController(void){
 
   windowrect = naGetUIElementRect(con->window, NA_NULL, NA_FALSE);
   windowrect.size.width = offsetx;
-
-  //windowrect.size.height += 100;
 
   naSetWindowRect(con->window, windowrect);
 

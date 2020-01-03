@@ -51,7 +51,7 @@ void poststartup(void* arg){
     NA_UNUSED(hPrevInstance);
     NA_UNUSED(lpCmdLine);
     NA_UNUSED(nShowCmd);
-    naOpenConsoleWindow();
+    //naOpenConsoleWindow();
 #else
   int main(int argc, char *argv[]){
   NA_UNUSED(argc);
