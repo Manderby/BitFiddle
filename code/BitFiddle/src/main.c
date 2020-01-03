@@ -59,12 +59,14 @@ void poststartup(void* arg){
 #endif
 
   naStartRuntime();
-    //NAString* cwd = naNewStringWithCurWorkingDirectory();
-    //printf("%s\n", naGetStringUTF8Pointer(cwd));
-    //naDelete(cwd);
 
-    naStartApplication(prestartup, poststartup, NA_NULL);
+  //NAString* cwd = naNewStringWithCurWorkingDirectory();
+  //printf("%s\n", naGetStringUTF8Pointer(cwd));
+  //naDelete(cwd);
+
+  naStartApplication(prestartup, poststartup, NA_NULL);
   naStopRuntime();
+
   return 0;
 }
 

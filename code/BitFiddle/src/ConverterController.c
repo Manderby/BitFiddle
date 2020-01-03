@@ -140,7 +140,8 @@ void resetComplementValues(BitConverterController* con){
 
 
 NABool closeConverterWindow(NAReaction reaction){
-  NA_UNUSED(reaction);
+  BitConverterController* con = reaction.controller;
+  naRelease(con->bitarray);
   naStopApplication();
   return NA_TRUE;
 }

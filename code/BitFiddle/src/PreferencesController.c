@@ -32,7 +32,6 @@ NABool switchPreferencesSetting(NAReaction reaction){
     naSetPreferencesBool(BitPrefs[ResetConversionOnStartup], state);
   }else if(reaction.uielement == prefs->keepConverterOnTopCheckBox){
     naSetPreferencesBool(BitPrefs[KeepConverterOnTop], state);
-    bitUpdateApp();
   }else if(reaction.uielement == prefs->show16BitsCheckBox){
     naSetPreferencesBool(BitPrefs[Show16Bits], state);
     bitRecreateConverterController();
