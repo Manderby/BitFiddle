@@ -356,6 +356,10 @@ NAString* naNewStringDecWithBitArray(const NABuffer* bitarray){
   finalstringcount = 0;
   work = naNewBufferCopy(bitarray, naGetBufferRange(bitarray), NA_TRUE);
 
+  *charptr = ' ';
+  charptr--;
+  finalstringcount++;
+
   while(bitcount){
     // as long as a remaining value exists
     NABit lead = BIT0;
@@ -418,7 +422,7 @@ NAString* naNewStringDecWithBitArray(const NABuffer* bitarray){
     }
     bit3 = lead;
     value = (uint8)((bit3 << 3) | (bit2 << 2) | (bit1 << 1) | (bit0 << 0));
-    if((outputlen > 0) && !(outputlen%3)){*charptr-- = ' '; finalstringcount++;}
+    if((outputlen > 0) && !(outputlen % 3)){*charptr-- = ' '; finalstringcount++;}
     *charptr-- = (NAUTF8Char)(value + '0');
     outputlen++;
     finalstringcount++;
@@ -432,10 +436,10 @@ NAString* naNewStringDecWithBitArray(const NABuffer* bitarray){
     finalstringcount--;
   }
   
-  if(finalstringcount){
+  if(finalstringcount > 1){
     retstring = naNewStringExtraction(string, -finalstringcount, -1);
   }else{
-    retstring = naNewStringWithUTF8CStringLiteral("0");
+    retstring = naNewStringWithUTF8CStringLiteral("0 ");
   }
   naDelete(string);
   naRelease(work);
@@ -456,13 +460,13 @@ NAString* naNewStringHexWithBitArray(NABuffer* bitarray){
   iterin = naMakeBufferAccessor(bitarray);
   iterout = naMakeBufferModifier(buffer);
   
-  bitcount = naGetBufferRange(bitarray).length;
+  bitcount = 0;
   nibble = 0;
   while(naIterateBuffer(&iterin, -1)){
     NAByte byte = naGetBufferu8(&iterin);
     nibble <<= 1;
     nibble |= byte;
-    bitcount--;
+    bitcount++;
     if(!(bitcount % 4)){
       if(nibble < 10){
         naWriteBufferu8(&iterout, '0' + nibble);
@@ -541,6 +545,8 @@ NAString* naNewStringAscWithBitArray(NABuffer* bitarray){
     }
   }
   
+  naWriteBufferu8(&iterout, ' ');
+
   naClearBufferIterator(&iterin);
   naClearBufferIterator(&iterout);
   
