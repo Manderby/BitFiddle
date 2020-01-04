@@ -686,7 +686,8 @@ void naComputeBitArraySwapBytes(NABuffer* bitarray){
   naIterateBuffer(&iter2, -8);
   
   while(naGetBufferLocation(&iter1) < naGetBufferLocation(&iter2)){
-    for(int i = 0; i < 8; i++){
+    int i;
+    for(i = 0; i < 8; i++){
       NAByte byte = naGetBufferu8(&iter1);
       naSetBufferu8(&iter1, naGetBufferu8(&iter2));
       naSetBufferu8(&iter2, byte);

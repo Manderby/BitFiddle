@@ -130,7 +130,7 @@ NA_LOC(BitFiddleAdditionalInfo5d, "");
 NA_LOC(BitFiddleAdditionalInfo5e, "LaTeX-escape: \\^\nCasually \"Caret\" or \"Power\"");
 NA_LOC(BitFiddleAdditionalInfo5f, "LaTeX-escape: \\_\nCasually \"Underscore\"");
 
-NA_LOC(BitFiddleAdditionalInfo60, "");
+NA_LOC(BitFiddleAdditionalInfo60, "In programming \"Backtick\"");
 NA_LOC(BitFiddleAdditionalInfo61, "");
 NA_LOC(BitFiddleAdditionalInfo62, "");
 NA_LOC(BitFiddleAdditionalInfo63, "");

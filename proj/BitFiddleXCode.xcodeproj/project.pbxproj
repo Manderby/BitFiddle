@@ -46,9 +46,9 @@
 		902960B923B93302008E841B /* ManderAppAbout.c in Sources */ = {isa = PBXBuildFile; fileRef = 902960B123B93302008E841B /* ManderAppAbout.c */; };
 		902960BA23B93302008E841B /* ManderAppTranslations.c in Sources */ = {isa = PBXBuildFile; fileRef = 902960B223B93302008E841B /* ManderAppTranslations.c */; };
 		902960BB23B93302008E841B /* ManderApp.c in Sources */ = {isa = PBXBuildFile; fileRef = 902960B323B93302008E841B /* ManderApp.c */; };
+		909E4ACF23C104D700F9F837 /* MainMenu.xib in Resources */ = {isa = PBXBuildFile; fileRef = 909ECD4823B90F7C002CA78D /* MainMenu.xib */; };
 		909ECD6923B90F7C002CA78D /* BitFiddleChangelog.txt in Resources */ = {isa = PBXBuildFile; fileRef = 909ECD4323B90F7C002CA78D /* BitFiddleChangelog.txt */; };
 		909ECD6A23B90F7C002CA78D /* InfoPlist.strings in Resources */ = {isa = PBXBuildFile; fileRef = 909ECD4623B90F7C002CA78D /* InfoPlist.strings */; };
-		909ECD6B23B90F7C002CA78D /* MainMenu.xib in Resources */ = {isa = PBXBuildFile; fileRef = 909ECD4823B90F7C002CA78D /* MainMenu.xib */; };
 		909ECD6D23B90F7C002CA78D /* BitFiddle.icns in Resources */ = {isa = PBXBuildFile; fileRef = 909ECD4D23B90F7C002CA78D /* BitFiddle.icns */; };
 		909ECD6F23B90F7C002CA78D /* help.png in Resources */ = {isa = PBXBuildFile; fileRef = 909ECD5023B90F7C002CA78D /* help.png */; };
 		909ECD7023B90F7C002CA78D /* ascii.png in Resources */ = {isa = PBXBuildFile; fileRef = 909ECD5123B90F7C002CA78D /* ascii.png */; };
@@ -258,7 +258,7 @@
 		909ECD4B23B90F7C002CA78D /* en */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = en; path = en.lproj/InfoPlist.strings; sourceTree = "<group>"; };
 		909ECD4C23B90F7C002CA78D /* en */ = {isa = PBXFileReference; lastKnownFileType = file.xib; name = en; path = en.lproj/MainMenu.xib; sourceTree = "<group>"; };
 		909ECD4D23B90F7C002CA78D /* BitFiddle.icns */ = {isa = PBXFileReference; lastKnownFileType = image.icns; path = BitFiddle.icns; sourceTree = "<group>"; };
-		909ECD4E23B90F7C002CA78D /* Bit Fiddle.entitlements */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.entitlements; path = "Bit Fiddle.entitlements"; sourceTree = "<group>"; };
+		909ECD4E23B90F7C002CA78D /* Bit Fiddle.entitlements */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.xml; path = "Bit Fiddle.entitlements"; sourceTree = "<group>"; };
 		909ECD4F23B90F7C002CA78D /* Bit Fiddle-Info.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = "Bit Fiddle-Info.plist"; sourceTree = "<group>"; };
 		909ECD5023B90F7C002CA78D /* help.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = help.png; sourceTree = "<group>"; };
 		909ECD5123B90F7C002CA78D /* ascii.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = ascii.png; sourceTree = "<group>"; };
@@ -839,10 +839,10 @@
 			files = (
 				909ECD7023B90F7C002CA78D /* ascii.png in Resources */,
 				909ECD6F23B90F7C002CA78D /* help.png in Resources */,
-				909ECD6B23B90F7C002CA78D /* MainMenu.xib in Resources */,
 				909ECD6A23B90F7C002CA78D /* InfoPlist.strings in Resources */,
 				909ECD6923B90F7C002CA78D /* BitFiddleChangelog.txt in Resources */,
 				909ECD7123B90F7C002CA78D /* prefs.png in Resources */,
+				909E4ACF23C104D700F9F837 /* MainMenu.xib in Resources */,
 				909ECD6D23B90F7C002CA78D /* BitFiddle.icns in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -983,8 +983,7 @@
 				CLANG_WARN_INT_CONVERSION = YES;
 				CLANG_WARN__DUPLICATE_METHOD_MATCH = YES;
 				CODE_SIGN_ENTITLEMENTS = "../code/BitFiddle/res/mac/Bit Fiddle.entitlements";
-				CODE_SIGN_IDENTITY = "Mac Developer";
-				"CODE_SIGN_IDENTITY[sdk=macosx*]" = "Mac Developer";
+				CODE_SIGN_IDENTITY = "Apple Development";
 				CODE_SIGN_STYLE = Automatic;
 				COMBINE_HIDPI_IMAGES = YES;
 				COPY_PHASE_STRIP = YES;
@@ -993,12 +992,12 @@
 				GCC_WARN_64_TO_32_BIT_CONVERSION = YES;
 				GCC_WARN_ABOUT_RETURN_TYPE = YES;
 				GCC_WARN_UNINITIALIZED_AUTOS = NO;
+				GCC_WARN_UNUSED_FUNCTION = NO;
 				GCC_WARN_UNUSED_VARIABLE = YES;
 				INFOPLIST_FILE = "../code/BitFiddle/res/mac/Bit Fiddle-Info.plist";
 				MACOSX_DEPLOYMENT_TARGET = 10.6;
 				PRODUCT_BUNDLE_IDENTIFIER = "ch.manderim.Bit-Fiddle";
 				PRODUCT_NAME = "$(TARGET_NAME)";
-				PROVISIONING_PROFILE = "";
 				PROVISIONING_PROFILE_SPECIFIER = "";
 				WRAPPER_EXTENSION = app;
 			};
@@ -1092,8 +1091,7 @@
 				CLANG_WARN_INT_CONVERSION = YES;
 				CLANG_WARN__DUPLICATE_METHOD_MATCH = YES;
 				CODE_SIGN_ENTITLEMENTS = "../code/BitFiddle/res/mac/Bit Fiddle.entitlements";
-				CODE_SIGN_IDENTITY = "Mac Developer";
-				"CODE_SIGN_IDENTITY[sdk=macosx*]" = "Mac Developer";
+				CODE_SIGN_IDENTITY = "Apple Development";
 				CODE_SIGN_STYLE = Automatic;
 				COMBINE_HIDPI_IMAGES = YES;
 				COPY_PHASE_STRIP = NO;
@@ -1104,13 +1102,13 @@
 				GCC_WARN_64_TO_32_BIT_CONVERSION = YES;
 				GCC_WARN_ABOUT_RETURN_TYPE = YES;
 				GCC_WARN_UNINITIALIZED_AUTOS = NO;
+				GCC_WARN_UNUSED_FUNCTION = NO;
 				GCC_WARN_UNUSED_VARIABLE = YES;
 				INFOPLIST_FILE = "../code/BitFiddle/res/mac/Bit Fiddle-Info.plist";
 				MACOSX_DEPLOYMENT_TARGET = 10.6;
 				ONLY_ACTIVE_ARCH = YES;
 				PRODUCT_BUNDLE_IDENTIFIER = "ch.manderim.Bit-Fiddle";
 				PRODUCT_NAME = "$(TARGET_NAME)";
-				PROVISIONING_PROFILE = "";
 				PROVISIONING_PROFILE_SPECIFIER = "";
 				WRAPPER_EXTENSION = app;
 			};
@@ -1127,8 +1125,7 @@
 				CLANG_WARN_INT_CONVERSION = YES;
 				CLANG_WARN__DUPLICATE_METHOD_MATCH = YES;
 				CODE_SIGN_ENTITLEMENTS = "../code/BitFiddle/res/mac/Bit Fiddle.entitlements";
-				CODE_SIGN_IDENTITY = "Mac Developer";
-				"CODE_SIGN_IDENTITY[sdk=macosx*]" = "Mac Developer";
+				CODE_SIGN_IDENTITY = "Apple Development";
 				CODE_SIGN_STYLE = Automatic;
 				COMBINE_HIDPI_IMAGES = YES;
 				COPY_PHASE_STRIP = YES;
@@ -1137,12 +1134,12 @@
 				GCC_WARN_64_TO_32_BIT_CONVERSION = YES;
 				GCC_WARN_ABOUT_RETURN_TYPE = YES;
 				GCC_WARN_UNINITIALIZED_AUTOS = NO;
+				GCC_WARN_UNUSED_FUNCTION = NO;
 				GCC_WARN_UNUSED_VARIABLE = YES;
 				INFOPLIST_FILE = "../code/BitFiddle/res/mac/Bit Fiddle-Info.plist";
 				MACOSX_DEPLOYMENT_TARGET = 10.6;
 				PRODUCT_BUNDLE_IDENTIFIER = "ch.manderim.Bit-Fiddle";
 				PRODUCT_NAME = "$(TARGET_NAME)";
-				PROVISIONING_PROFILE = "";
 				PROVISIONING_PROFILE_SPECIFIER = "";
 				WRAPPER_EXTENSION = app;
 			};

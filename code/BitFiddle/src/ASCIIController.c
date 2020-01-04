@@ -179,12 +179,13 @@ const char* unicodenames[128] = {
 
 
 void redrawASCIIController(BitASCIIController* con){
+  NAInt i;
   naSetRadioState(con->escapeRadio, con->useEscape);
   naSetRadioState(con->codeRadio, !con->useEscape);
   naSetRadioState(con->hexRadio, con->useHex);
   naSetRadioState(con->decRadio, !con->useHex);
   
-  for(NAInt i = 0; i < 128; i++){
+  for(i = 0; i < 128; i++){
     NAString* labelstr;
     if(con->useHex){
       labelstr = naNewStringWithFormat("%02x", (int)i);
@@ -281,6 +282,8 @@ NABool switchASCIIDisplayMode(NAReaction reaction){
 
 
 BitASCIIController* bitCreateASCIIController(void){
+  NAInt x;
+  NAInt y;
   BitASCIIController* con = naAlloc(BitASCIIController);
 
   con->useHex = NA_FALSE;
@@ -291,11 +294,11 @@ BitASCIIController* bitCreateASCIIController(void){
   
   NASpace* space = naGetWindowContentSpace(con->window);
   NAInt curindex = 0;
-  for(NAInt x = 0; x < 8; x++){
+  for(x = 0; x < 8; x++){
     NASpace* columnspace = naNewSpace(naMakeSize(97, 366));
     naSetSpaceAlternateBackground(columnspace, (x % 2 == 0));
 
-    for(NAInt y = 0; y < 16; y++){
+    for(y = 0; y < 16; y++){
       con->spaces[curindex] = naNewSpace(naMakeSize(87, 22));
       //if(x != 4 && y != 6){
       //  con->labels[curindex] = NA_NULL;

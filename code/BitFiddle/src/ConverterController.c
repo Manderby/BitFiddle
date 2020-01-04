@@ -459,8 +459,6 @@ BitConverterController* bitCreateConverterController(void){
   naSetSpaceAlternateBackground(settingspace, alternateblock % 2);
   alternateblock++;
 
-    NAUIImage* testuiimage = bitGetImageAsset(BIT_IMAGE_ASSET_HELP_BUTTON);
-
   con->unsignedOption = naNewTextOptionButton("U", naMakeSize(24., 24.));
   naAddUIReaction(con->unsignedOption, NA_UI_COMMAND_PRESSED, switchComplement, con);
   naAddSpaceChild(settingspace, con->unsignedOption, naMakePos(10., (double)yposinput));

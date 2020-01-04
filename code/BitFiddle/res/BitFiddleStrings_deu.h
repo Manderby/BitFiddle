@@ -130,7 +130,7 @@ NA_LOC(BitFiddleAdditionalInfo5d, "");
 NA_LOC(BitFiddleAdditionalInfo5e, "LaTeX-escape: \\^\nUmgangssprachlich \"Karet\" oder \"Hoch\"");
 NA_LOC(BitFiddleAdditionalInfo5f, "LaTeX-escape: \\_\nUmgangssprachlich \"Unterstrich\" oder \"Underscore\"");
 
-NA_LOC(BitFiddleAdditionalInfo60, "");
+NA_LOC(BitFiddleAdditionalInfo60, "Beim Programmieren auch \"Backtick\" genannt");
 NA_LOC(BitFiddleAdditionalInfo61, "");
 NA_LOC(BitFiddleAdditionalInfo62, "");
 NA_LOC(BitFiddleAdditionalInfo63, "");
