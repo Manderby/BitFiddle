@@ -79,7 +79,7 @@ void poststartup(void* arg){
   mandCreateUI();
   mandSetAboutWindowStorageTag(BIT_WINDOW_TAG_ABOUT);
 
-  [NSBundle loadNibNamed:@"MainMenu" owner:NSApp];
+  naLoadNib("MainMenu");
   bitCreateUI();
 }
 

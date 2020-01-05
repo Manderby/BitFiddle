@@ -249,6 +249,7 @@
 		902960B423B93302008E841B /* ManderAppPreferences.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ManderAppPreferences.h; sourceTree = "<group>"; };
 		902960B523B93302008E841B /* ManderAppAbout.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ManderAppAbout.h; sourceTree = "<group>"; };
 		902960B623B93302008E841B /* ManderAppTranslations.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ManderAppTranslations.h; sourceTree = "<group>"; };
+		909E4AD623C2186500F9F837 /* NAUICocoaLegacyII.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = NAUICocoaLegacyII.h; sourceTree = "<group>"; };
 		909ECD3F23B90F7C002CA78D /* BitFiddle.vcxproj */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.xml; path = BitFiddle.vcxproj; sourceTree = "<group>"; };
 		909ECD4223B90F7C002CA78D /* icon.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = icon.png; sourceTree = "<group>"; };
 		909ECD4323B90F7C002CA78D /* BitFiddleChangelog.txt */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; path = BitFiddleChangelog.txt; sourceTree = "<group>"; };
@@ -559,6 +560,7 @@
 				9029604D23B932EE008E841B /* NASpaceII.h */,
 				9029604E23B932EE008E841B /* NAImageSpaceII.h */,
 				9029604F23B932EE008E841B /* NALabelII.h */,
+				909E4AD623C2186500F9F837 /* NAUICocoaLegacyII.h */,
 				9029605023B932EE008E841B /* NATextFieldII.h */,
 			);
 			path = UI;
