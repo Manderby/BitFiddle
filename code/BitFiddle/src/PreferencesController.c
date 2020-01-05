@@ -66,7 +66,7 @@ NABool pressDone(NAReaction reaction){
 BitPreferencesController* bitCreatePreferencesController(){
   BitPreferencesController* con = naAlloc(BitPreferencesController);
 
-  NARect windowrect = naMakeRectS(20, 20, 260, 236);
+  NARect windowrect = naMakeRectS(820, 15, 260, 236);
   con->window = naNewWindow(bitTranslate(BitFiddlePrefsWindowTitle), windowrect, NA_FALSE, BIT_WINDOW_TAG_PREFERENCES);
   NASpace* space = naGetWindowContentSpace(con->window);
 

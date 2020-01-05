@@ -447,7 +447,7 @@ BitConverterController* bitCreateConverterController(void){
   NAInt yposinput = ypos8 + 27;
   NAInt yspaceheight = yposinput + 22 + 10;
 
-  NARect windowrect = naMakeRectS(60., 120., 777., (double)yspaceheight);
+  NARect windowrect = naMakeRectS(20., 20., 777., (double)yspaceheight);
   con->window = naNewWindow("Complement", windowrect, NA_FALSE, BIT_WINDOW_TAG_CONVERTER);
   naAddUIReaction(con->window, NA_UI_COMMAND_CLOSES, closeConverterWindow, con);
 

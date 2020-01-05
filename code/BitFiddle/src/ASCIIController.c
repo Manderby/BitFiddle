@@ -289,7 +289,7 @@ BitASCIIController* bitCreateASCIIController(void){
   con->useHex = NA_FALSE;
   con->useEscape = NA_FALSE;
 
-  NARect windowrect = naMakeRectS(20, 20, 776, 430);
+  NARect windowrect = naMakeRectS(400, 300, 776, 430);
   con->window = naNewWindow("ASCII", windowrect, NA_FALSE, BIT_WINDOW_TAG_ASCII);
   
   NASpace* space = naGetWindowContentSpace(con->window);
