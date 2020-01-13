@@ -208,6 +208,8 @@ NABuffer* naCreateBitArrayWithBinString(NAString* string){
 
   bitarray = naNewBuffer(NA_FALSE);
   iterin = naMakeBufferAccessor(naGetStringBufferMutable(string));
+  naPrepareBuffer(&iterin, naGetBufferRange(naGetStringBufferMutable(string)).length);
+  naLocateBufferFromEnd(&iterin, 0);
   iterout = naMakeBufferModifier(bitarray);
   
   while(naIterateBuffer(&iterin, -1)){
@@ -274,6 +276,8 @@ NABuffer* naCreateBitArrayWithHexString(NAString* string){
 
   bitarray = naNewBuffer(NA_FALSE);
   iterin = naMakeBufferAccessor(naGetStringBufferMutable(string));
+  naPrepareBuffer(&iterin, naGetBufferRange(naGetStringBufferMutable(string)).length);
+  naLocateBufferFromEnd(&iterin, 0);
   iterout = naMakeBufferModifier(bitarray);
   
   while(naIterateBuffer(&iterin, -1)){
@@ -307,6 +311,8 @@ NABuffer* naCreateBitArrayWithAscString(NAString* string){
 
   bitarray = naNewBuffer(NA_FALSE);
   iterin = naMakeBufferAccessor(naGetStringBufferMutable(string));
+  naPrepareBuffer(&iterin, naGetBufferRange(naGetStringBufferMutable(string)).length);
+  naLocateBufferFromEnd(&iterin, 0);
   iterout = naMakeBufferModifier(bitarray);
   
   while(naIterateBuffer(&iterin, -1)){

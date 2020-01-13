@@ -9,6 +9,10 @@ Project("{8BC9CEB8-8B4A-11D0-8D11-00A0C91BC942}") = "ManderApp", "..\..\ManderAp
 EndProject
 Project("{8BC9CEB8-8B4A-11D0-8D11-00A0C91BC942}") = "Bit Fiddle", "..\code\BitFiddle\BitFiddle.vcxproj", "{2E0E2BDB-FACC-4AE2-92CD-CC37ACC175FA}"
 EndProject
+Project("{54435603-DBB4-11D2-8724-00A0C9A8B90C}") = "BitFiddleInstaller32", "..\code\BitFiddle\res\win\BitFiddleInstaller32.vdproj", "{70679CD1-645D-431B-B63D-ABC401E304CD}"
+EndProject
+Project("{54435603-DBB4-11D2-8724-00A0C9A8B90C}") = "BitFiddleInstaller64", "..\code\BitFiddle\res\win\BitFiddleInstaller64.vdproj", "{FD54D350-D6E5-48E8-8663-64A82DB386E3}"
+EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		Debug|x64 = Debug|x64
@@ -55,6 +59,30 @@ Global
 		{2E0E2BDB-FACC-4AE2-92CD-CC37ACC175FA}.Release|x64.Build.0 = Release|x64
 		{2E0E2BDB-FACC-4AE2-92CD-CC37ACC175FA}.Release|x86.ActiveCfg = Release|Win32
 		{2E0E2BDB-FACC-4AE2-92CD-CC37ACC175FA}.Release|x86.Build.0 = Release|Win32
+		{70679CD1-645D-431B-B63D-ABC401E304CD}.Debug|x64.ActiveCfg = Debug
+		{70679CD1-645D-431B-B63D-ABC401E304CD}.Debug|x64.Build.0 = Debug
+		{70679CD1-645D-431B-B63D-ABC401E304CD}.Debug|x86.ActiveCfg = Debug
+		{70679CD1-645D-431B-B63D-ABC401E304CD}.Debug|x86.Build.0 = Debug
+		{70679CD1-645D-431B-B63D-ABC401E304CD}.Optimize|x64.ActiveCfg = Release
+		{70679CD1-645D-431B-B63D-ABC401E304CD}.Optimize|x64.Build.0 = Release
+		{70679CD1-645D-431B-B63D-ABC401E304CD}.Optimize|x86.ActiveCfg = Release
+		{70679CD1-645D-431B-B63D-ABC401E304CD}.Optimize|x86.Build.0 = Release
+		{70679CD1-645D-431B-B63D-ABC401E304CD}.Release|x64.ActiveCfg = Release
+		{70679CD1-645D-431B-B63D-ABC401E304CD}.Release|x64.Build.0 = Release
+		{70679CD1-645D-431B-B63D-ABC401E304CD}.Release|x86.ActiveCfg = Release
+		{70679CD1-645D-431B-B63D-ABC401E304CD}.Release|x86.Build.0 = Release
+		{FD54D350-D6E5-48E8-8663-64A82DB386E3}.Debug|x64.ActiveCfg = Debug
+		{FD54D350-D6E5-48E8-8663-64A82DB386E3}.Debug|x64.Build.0 = Debug
+		{FD54D350-D6E5-48E8-8663-64A82DB386E3}.Debug|x86.ActiveCfg = Debug
+		{FD54D350-D6E5-48E8-8663-64A82DB386E3}.Debug|x86.Build.0 = Debug
+		{FD54D350-D6E5-48E8-8663-64A82DB386E3}.Optimize|x64.ActiveCfg = Release
+		{FD54D350-D6E5-48E8-8663-64A82DB386E3}.Optimize|x64.Build.0 = Release
+		{FD54D350-D6E5-48E8-8663-64A82DB386E3}.Optimize|x86.ActiveCfg = Release
+		{FD54D350-D6E5-48E8-8663-64A82DB386E3}.Optimize|x86.Build.0 = Release
+		{FD54D350-D6E5-48E8-8663-64A82DB386E3}.Release|x64.ActiveCfg = Release
+		{FD54D350-D6E5-48E8-8663-64A82DB386E3}.Release|x64.Build.0 = Release
+		{FD54D350-D6E5-48E8-8663-64A82DB386E3}.Release|x86.ActiveCfg = Release
+		{FD54D350-D6E5-48E8-8663-64A82DB386E3}.Release|x86.Build.0 = Release
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE

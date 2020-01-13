@@ -24,8 +24,8 @@ void prestartup(void* arg){
 
   naSetApplicationName("Bit Fiddle");
   //naSetApplicationCompanyName("ASuppaCombbany");
-  naSetApplicationVersionString("1.5");
-  naSetApplicationBuildString("Windows Beta 1");
+  naSetApplicationVersionString("1.4");
+  naSetApplicationBuildString("1.4");
   naSetApplicationIconPath("icon.png");
 
   mandInitManderApp();
