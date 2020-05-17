@@ -19,14 +19,6 @@
     </ProjectConfiguration>
   </ItemGroup>
   <ItemGroup>
-    <ProjectReference Include="..\..\..\ManderApp\code\ManderApp\ManderApp.vcxproj">
-      <Project>{6e76da2b-3c47-409b-80ac-0df4799fb3e1}</Project>
-    </ProjectReference>
-    <ProjectReference Include="..\..\..\NALib\code\NALib\NALib.vcxproj">
-      <Project>{d03034cf-5ce8-4e68-8fd9-d5820e2745ba}</Project>
-    </ProjectReference>
-  </ItemGroup>
-  <ItemGroup>
     <ClInclude Include="res\BitFiddleStrings_deu.h" />
     <ClInclude Include="res\BitFiddleStrings_eng.h" />
     <ClInclude Include="res\win\resource.h" />
@@ -61,6 +53,14 @@
   </ItemGroup>
   <ItemGroup>
     <ResourceCompile Include="res\win\Bit Fiddle.rc" />
+  </ItemGroup>
+  <ItemGroup>
+    <ProjectReference Include="..\..\lib\ManderApp\code\ManderApp\ManderApp.vcxproj">
+      <Project>{6e76da2b-3c47-409b-80ac-0df4799fb3e1}</Project>
+    </ProjectReference>
+    <ProjectReference Include="..\..\lib\NALib\code\NALib\NALib.vcxproj">
+      <Project>{d03034cf-5ce8-4e68-8fd9-d5820e2745ba}</Project>
+    </ProjectReference>
   </ItemGroup>
   <PropertyGroup Label="Globals">
     <VCProjectVersion>15.0</VCProjectVersion>
@@ -147,7 +147,7 @@
       <Optimization>Disabled</Optimization>
       <SDLCheck>true</SDLCheck>
       <ConformanceMode>true</ConformanceMode>
-      <PreprocessorDefinitions>NA_CONFIG_COMPILE_GUI=1;%(PreprocessorDefinitions)</PreprocessorDefinitions>
+      <PreprocessorDefinitions>%(PreprocessorDefinitions)</PreprocessorDefinitions>
       <MultiProcessorCompilation>true</MultiProcessorCompilation>
     </ClCompile>
     <PostBuildEvent>
@@ -155,7 +155,7 @@
 xcopy /y "$(ProjectDir)res\help.png"  "$(OutDir)" &gt;NUL
 xcopy /y "$(ProjectDir)res\prefs.png"  "$(OutDir)" &gt;NUL
 xcopy /y "$(ProjectDir)res\ascii.png"  "$(OutDir)" &gt;NUL
-xcopy /y "$(ProjectDir)res\BitFiddleChangelog.txt"  "$(OutDir)" &gt;NUL
+xcopy /y "$(ProjectDir)..\..\doc\BitFiddleChangelog.txt"  "$(OutDir)" &gt;NUL
 xcopy /y "$(ProjectDir)res\win\icon.png"  "$(OutDir)" &gt;NUL
 echo "Copying resources done."</Command>
     </PostBuildEvent>
@@ -176,7 +176,7 @@ echo "Copying resources done."</Command>
       <Optimization>Disabled</Optimization>
       <SDLCheck>true</SDLCheck>
       <ConformanceMode>true</ConformanceMode>
-      <PreprocessorDefinitions>NA_CONFIG_COMPILE_GUI=1;%(PreprocessorDefinitions)</PreprocessorDefinitions>
+      <PreprocessorDefinitions>%(PreprocessorDefinitions)</PreprocessorDefinitions>
       <MultiProcessorCompilation>true</MultiProcessorCompilation>
     </ClCompile>
     <PostBuildEvent>
@@ -184,7 +184,7 @@ echo "Copying resources done."</Command>
 xcopy /y "$(ProjectDir)res\help.png"  "$(OutDir)" &gt;NUL
 xcopy /y "$(ProjectDir)res\prefs.png"  "$(OutDir)" &gt;NUL
 xcopy /y "$(ProjectDir)res\ascii.png"  "$(OutDir)" &gt;NUL
-xcopy /y "$(ProjectDir)res\BitFiddleChangelog.txt"  "$(OutDir)" &gt;NUL
+xcopy /y "$(ProjectDir)..\..\doc\BitFiddleChangelog.txt"  "$(OutDir)" &gt;NUL
 xcopy /y "$(ProjectDir)res\win\icon.png"  "$(OutDir)" &gt;NUL
 echo "Copying resources done."</Command>
     </PostBuildEvent>
@@ -207,7 +207,7 @@ echo "Copying resources done."</Command>
       <IntrinsicFunctions>true</IntrinsicFunctions>
       <SDLCheck>true</SDLCheck>
       <ConformanceMode>true</ConformanceMode>
-      <PreprocessorDefinitions>NDEBUG;NA_CONFIG_COMPILE_GUI=1;%(PreprocessorDefinitions)</PreprocessorDefinitions>
+      <PreprocessorDefinitions>NDEBUG;%(PreprocessorDefinitions)</PreprocessorDefinitions>
       <MultiProcessorCompilation>true</MultiProcessorCompilation>
     </ClCompile>
     <Link>
@@ -224,7 +224,7 @@ echo "Copying resources done."</Command>
 xcopy /y "$(ProjectDir)res\help.png"  "$(OutDir)" &gt;NUL
 xcopy /y "$(ProjectDir)res\prefs.png"  "$(OutDir)" &gt;NUL
 xcopy /y "$(ProjectDir)res\ascii.png"  "$(OutDir)" &gt;NUL
-xcopy /y "$(ProjectDir)res\BitFiddleChangelog.txt"  "$(OutDir)" &gt;NUL
+xcopy /y "$(ProjectDir)..\..\doc\BitFiddleChangelog.txt"  "$(OutDir)" &gt;NUL
 xcopy /y "$(ProjectDir)res\win\icon.png"  "$(OutDir)" &gt;NUL
 echo "Copying resources done."</Command>
     </PostBuildEvent>
@@ -241,7 +241,7 @@ echo "Copying resources done."</Command>
       <IntrinsicFunctions>true</IntrinsicFunctions>
       <SDLCheck>true</SDLCheck>
       <ConformanceMode>true</ConformanceMode>
-      <PreprocessorDefinitions>NDEBUG;NA_CONFIG_COMPILE_GUI=1;%(PreprocessorDefinitions)</PreprocessorDefinitions>
+      <PreprocessorDefinitions>NDEBUG;%(PreprocessorDefinitions)</PreprocessorDefinitions>
       <MultiProcessorCompilation>true</MultiProcessorCompilation>
     </ClCompile>
     <Link>
@@ -258,7 +258,7 @@ echo "Copying resources done."</Command>
 xcopy /y "$(ProjectDir)res\help.png"  "$(OutDir)" &gt;NUL
 xcopy /y "$(ProjectDir)res\prefs.png"  "$(OutDir)" &gt;NUL
 xcopy /y "$(ProjectDir)res\ascii.png"  "$(OutDir)" &gt;NUL
-xcopy /y "$(ProjectDir)res\BitFiddleChangelog.txt"  "$(OutDir)" &gt;NUL
+xcopy /y "$(ProjectDir)..\..\doc\BitFiddleChangelog.txt"  "$(OutDir)" &gt;NUL
 xcopy /y "$(ProjectDir)res\win\icon.png"  "$(OutDir)" &gt;NUL
 echo "Copying resources done."</Command>
     </PostBuildEvent>

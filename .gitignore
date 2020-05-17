@@ -1,9 +1,12 @@
 .DS_Store
+._*
 .vs
+*.vcxproj.user
 *xcshareddata*
 *xcuserdata*
-*vcxproj.filters
-*vcxproj.user
+*xcworkspace*
+*.pbxuser
+*.mode2v3
 CONERR*
 build/
 bin/

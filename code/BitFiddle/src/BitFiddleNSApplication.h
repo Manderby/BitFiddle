@@ -4,7 +4,7 @@
 
 #if NA_OS == NA_OS_MAC_OS_X
 #if defined __OBJC__
-#if (NA_CONFIG_COMPILE_GUI == 1)
+#if (NA_COMPILE_GUI == 1)
 
 #import <Cocoa/Cocoa.h>
 
@@ -14,6 +14,6 @@
 @end
 
 
-#endif // (NA_CONFIG_COMPILE_GUI == 1)
+#endif // (NA_COMPILE_GUI == 1)
 #endif // defined __OBJC__
 #endif // NA_OS == NA_OS_MAC_OS_X
