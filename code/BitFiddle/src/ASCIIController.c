@@ -1,6 +1,6 @@
 
 #include "ASCIIController.h"
-#include BIT_NALIB_PATH(NAString.h)
+#include "NAString.h"
 #include "BitFiddleTranslations.h"
 #include "BitFiddlePreferences.h"
 #include "BitFiddleApplication.h"

@@ -24,7 +24,6 @@
     <ClInclude Include="res\win\resource.h" />
     <ClInclude Include="src\ASCIIController.h" />
     <ClInclude Include="src\BitArray.h" />
-    <ClInclude Include="src\BitFiddle.h" />
     <ClInclude Include="src\BitFiddleApplication.h" />
     <ClInclude Include="src\BitFiddleNSApplication.h" />
     <ClInclude Include="src\BitFiddlePreferences.h" />
@@ -149,6 +148,7 @@
       <ConformanceMode>true</ConformanceMode>
       <PreprocessorDefinitions>%(PreprocessorDefinitions)</PreprocessorDefinitions>
       <MultiProcessorCompilation>true</MultiProcessorCompilation>
+      <AdditionalIncludeDirectories>$(ProjectDir)..\..\lib\NALib\code\NALib\src;$(ProjectDir)..\..\lib\ManderApp\code\ManderApp\src;%(AdditionalIncludeDirectories)</AdditionalIncludeDirectories>
     </ClCompile>
     <PostBuildEvent>
       <Command>echo "Copying resources..."
@@ -178,6 +178,7 @@ echo "Copying resources done."</Command>
       <ConformanceMode>true</ConformanceMode>
       <PreprocessorDefinitions>%(PreprocessorDefinitions)</PreprocessorDefinitions>
       <MultiProcessorCompilation>true</MultiProcessorCompilation>
+      <AdditionalIncludeDirectories>$(ProjectDir)..\..\lib\NALib\code\NALib\src;$(ProjectDir)..\..\lib\ManderApp\code\ManderApp\src;%(AdditionalIncludeDirectories)</AdditionalIncludeDirectories>
     </ClCompile>
     <PostBuildEvent>
       <Command>echo "Copying resources..."
@@ -209,6 +210,7 @@ echo "Copying resources done."</Command>
       <ConformanceMode>true</ConformanceMode>
       <PreprocessorDefinitions>NDEBUG;%(PreprocessorDefinitions)</PreprocessorDefinitions>
       <MultiProcessorCompilation>true</MultiProcessorCompilation>
+      <AdditionalIncludeDirectories>$(ProjectDir)..\..\lib\NALib\code\NALib\src;$(ProjectDir)..\..\lib\ManderApp\code\ManderApp\src;%(AdditionalIncludeDirectories)</AdditionalIncludeDirectories>
     </ClCompile>
     <Link>
       <EnableCOMDATFolding>true</EnableCOMDATFolding>
@@ -243,6 +245,7 @@ echo "Copying resources done."</Command>
       <ConformanceMode>true</ConformanceMode>
       <PreprocessorDefinitions>NDEBUG;%(PreprocessorDefinitions)</PreprocessorDefinitions>
       <MultiProcessorCompilation>true</MultiProcessorCompilation>
+      <AdditionalIncludeDirectories>$(ProjectDir)..\..\lib\NALib\code\NALib\src;$(ProjectDir)..\..\lib\ManderApp\code\ManderApp\src;%(AdditionalIncludeDirectories)</AdditionalIncludeDirectories>
     </ClCompile>
     <Link>
       <EnableCOMDATFolding>true</EnableCOMDATFolding>

@@ -3,9 +3,8 @@
 #ifndef BIT_ARRAY_INCLUDED
 #define BIT_ARRAY_INCLUDED
 
-#include "BitFiddle.h"
-#include BIT_NALIB_PATH(NAString.h)
-#include BIT_NALIB_PATH(NABuffer.h)
+#include "NAString.h"
+#include "NABuffer.h"
 
 
 // A Bit is stored as an NAByte. Sounds strange but that's how NALib does it.

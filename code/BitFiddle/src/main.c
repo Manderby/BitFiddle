@@ -1,21 +1,20 @@
 
-#include "BitFiddle.h"
-#include BIT_NALIB_PATH(NABase.h)
+#include "NABase.h"
 
 #if NA_OS == NA_OS_WINDOWS
 #if (NA_COMPILE_GUI == 1)
 
 
 
-#include BIT_NALIB_PATH(NAMemory.h)
-#include BIT_NALIB_PATH(NAUI.h)
+#include "NAMemory.h"
+#include "NAUI.h"
 #include "BitFiddleNSApplication.h"
 #include "BitFiddleTranslations.h"
 #include "BitFiddlePreferences.h"
 #include "ASCIIController.h"
 #include "BitFiddleApplication.h"
-#include BIT_MANDERAPP_PATH(ManderApp.h)
-#include BIT_MANDERAPP_PATH(ManderAppAbout.h)
+#include "ManderApp.h"
+#include "ManderAppAbout.h"
 
 
 

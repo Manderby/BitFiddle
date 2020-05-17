@@ -1,6 +1,5 @@
 
-#include "BitFiddle.h"
-#include BIT_NALIB_PATH(NAPreferences.h)
+#include "NAPreferences.h"
 
 enum {
   UseASCIIEscape,

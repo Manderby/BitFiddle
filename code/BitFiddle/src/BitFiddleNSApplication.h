@@ -1,6 +1,5 @@
 
-#include "BitFiddle.h"
-#include BIT_NALIB_PATH(NABase.h)
+#include "NABase.h"
 
 #if NA_OS == NA_OS_MAC_OS_X
 #if defined __OBJC__
