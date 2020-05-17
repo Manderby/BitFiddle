@@ -53,7 +53,7 @@ NA_HIDEF NAInt naGetNullTerminationBytesize(NAInt bytesize){
     if((bytesize >= NA_ZERO))
       naError("size is not negative");
   #endif
-  returnbytesize = (-bytesize - NA_ONE) + (NA_SYSTEM_ADDRESS_BYTES << 1) - ((-bytesize - NA_ONE) % NA_SYSTEM_ADDRESS_BYTES);
+  returnbytesize = (-bytesize - NA_ONE) + (NA_ADDRESS_BYTES << 1) - ((-bytesize - NA_ONE) % NA_ADDRESS_BYTES);
   #ifndef NDEBUG
     if(returnbytesize < NA_ZERO)
       naError("given negative size is too close to the minimal integer value");
