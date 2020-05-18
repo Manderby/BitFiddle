@@ -10,8 +10,8 @@
 #include "ConverterController.h"
 #include "PreferencesController.h"
 #include "BitFiddleApplication.h"
-#include BIT_MANDERAPP_PATH(ManderAppAbout.h)
-#include BIT_MANDERAPP_PATH(ManderApp.h)
+#include "ManderAppAbout.h"
+#include "ManderApp.h"
 
 
 @implementation BitFiddleNSApplication
