@@ -210,10 +210,10 @@ void redrawASCIIController(BitASCIIController* con){
 
 
 
-NAInt getUISpaceIndex(BitASCIIController* con, NAUIElement* uielement){
+NAInt getUISpaceIndex(BitASCIIController* con, void* uiElement){
   NAInt itemIndex;
   for(itemIndex = 0; itemIndex < 128; itemIndex++){
-    if(con->spaces[itemIndex] == uielement){break;}
+    if(con->spaces[itemIndex] == uiElement){break;}
   }
   #ifndef NDEBUG
     if(itemIndex == 128)
@@ -226,7 +226,7 @@ NAInt getUISpaceIndex(BitASCIIController* con, NAUIElement* uielement){
 
 NABool hoverItem(NAReaction reaction){
   BitASCIIController* con = reaction.controller;
-  NAInt itemIndex = getUISpaceIndex(con, reaction.uielement);
+  NAInt itemIndex = getUISpaceIndex(con, reaction.uiElement);
   
   naSetSpaceAlternateBackground(con->spaces[itemIndex], NA_TRUE);
   
@@ -249,7 +249,7 @@ NABool hoverItem(NAReaction reaction){
 
 NABool unhoverItem(NAReaction reaction){
   BitASCIIController* con = reaction.controller;
-  NAInt itemIndex = getUISpaceIndex(con, reaction.uielement);  
+  NAInt itemIndex = getUISpaceIndex(con, reaction.uiElement);  
   naSetSpaceAlternateBackground(con->spaces[itemIndex], NA_FALSE);
   return NA_TRUE;
 }
@@ -258,21 +258,21 @@ NABool unhoverItem(NAReaction reaction){
 
 NABool switchASCIIDisplayMode(NAReaction reaction){
   BitASCIIController* con = reaction.controller;
-  if(reaction.uielement == con->escapeRadio){
+  if(reaction.uiElement == con->escapeRadio){
     con->useEscape = NA_TRUE;
     naSetPreferencesBool(BitPrefs[UseASCIIEscape], NA_TRUE);
-  }else if(reaction.uielement == con->codeRadio){
+  }else if(reaction.uiElement == con->codeRadio){
     con->useEscape = NA_FALSE;
     naSetPreferencesBool(BitPrefs[UseASCIIEscape], NA_FALSE);
-  }else if(reaction.uielement == con->hexRadio){
+  }else if(reaction.uiElement == con->hexRadio){
     con->useHex = NA_TRUE;
     naSetPreferencesBool(BitPrefs[UseASCIIHex], NA_TRUE);
-  }else if(reaction.uielement == con->decRadio){
+  }else if(reaction.uiElement == con->decRadio){
     con->useHex = NA_FALSE;
     naSetPreferencesBool(BitPrefs[UseASCIIHex], NA_FALSE);
   }else{
     #ifndef NDEBUG
-      naError("Unknown uielement sent message");
+      naError("Unknown uiElement sent message");
     #endif
   }
   redrawASCIIController(con);

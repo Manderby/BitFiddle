@@ -62,7 +62,7 @@ NABool valueChangeDec(NAReaction reaction){
   if(con->inputasc){naSetTextFieldText(con->inputasc, "");}
 
   naRelease(con->bitarray);
-  NAString* instring = naNewStringWithTextFieldText(reaction.uielement);
+  NAString* instring = naNewStringWithTextFieldText(reaction.uiElement);
   con->bitarray = naCreateBitArrayWithDecString(instring);
   naDelete(instring);
 
@@ -80,7 +80,7 @@ NABool valueChangeHex(NAReaction reaction){
   if(con->inputasc){naSetTextFieldText(con->inputasc, "");}
 
   naRelease(con->bitarray);
-  NAString* instring = naNewStringWithTextFieldText(reaction.uielement);
+  NAString* instring = naNewStringWithTextFieldText(reaction.uiElement);
   con->bitarray = naCreateBitArrayWithHexString(instring);
   naDelete(instring);
 
@@ -98,7 +98,7 @@ NABool valueChangeBin(NAReaction reaction){
   if(con->inputasc){naSetTextFieldText(con->inputasc, "");}
 
   naRelease(con->bitarray);
-  NAString* instring = naNewStringWithTextFieldText(reaction.uielement);
+  NAString* instring = naNewStringWithTextFieldText(reaction.uiElement);
   con->bitarray = naCreateBitArrayWithBinString(instring);
   naDelete(instring);
 
@@ -116,7 +116,7 @@ NABool valueChangeAsc(NAReaction reaction){
   if(con->inputbin){naSetTextFieldText(con->inputbin, "");}
 
   naRelease(con->bitarray);
-  NAString* instring = naNewStringWithTextFieldText(reaction.uielement);
+  NAString* instring = naNewStringWithTextFieldText(reaction.uiElement);
   con->bitarray = naCreateBitArrayWithAscString(instring);
   naDelete(instring);
 
@@ -152,11 +152,11 @@ NABool closeConverterWindow(NAReaction reaction){
 NABool switchComplement(NAReaction reaction){
   BitConverterController* con = reaction.controller;
 
-  if(reaction.uielement == con->unsignedOption){
+  if(reaction.uiElement == con->unsignedOption){
     bitSetConversionType(COMPUTE_UNSIGNED);
-  }else if(reaction.uielement == con->onesOption){
+  }else if(reaction.uiElement == con->onesOption){
     bitSetConversionType(COMPUTE_ONES_COMPLEMENT);
-  }else if(reaction.uielement == con->twosOption){
+  }else if(reaction.uiElement == con->twosOption){
     bitSetConversionType(COMPUTE_TWOS_COMPLEMENT);
   }else{
     #ifndef NDEBUG
@@ -172,11 +172,11 @@ NABool switchComplement(NAReaction reaction){
 NABool buttonPressed(NAReaction reaction){
   BitConverterController* con = reaction.controller;
 
-  if(reaction.uielement == con->helpButton){
+  if(reaction.uiElement == con->helpButton){
     mandShowAboutController();
-  }else if(reaction.uielement == con->preferencesButton){
+  }else if(reaction.uiElement == con->preferencesButton){
     bitShowPreferencesController();
-  }else if(reaction.uielement == con->asciiButton){
+  }else if(reaction.uiElement == con->asciiButton){
     bitShowASCIIController();
   }else{
     #ifndef NDEBUG
@@ -207,7 +207,7 @@ void fillOutputFieldWithString(NALabel* outputfield, NAString* string, NABool wi
 
 
 
-void fillOutputTextBoxWithString(NALabel* outputtextbox, NAString* string, NABool withdecsign){
+void fillOutputTextBoxWithString(NATextBox* outputtextbox, NAString* string, NABool withdecsign){
   if(!outputtextbox){return;}
   if(!string){
     naSetTextBoxText(outputtextbox, " ");
@@ -235,7 +235,7 @@ typedef enum{
 
 
 
-void fillOutputFieldWithBitArray(NAUIElement* outputfield, NumberSystem numbersystem, NABuffer* bitarray, NABool withdecsign){
+void fillOutputFieldWithBitArray(void* outputfield, NumberSystem numbersystem, NABuffer* bitarray, NABool withdecsign){
   NAString* outstring;
   if(!outputfield){return;}
   

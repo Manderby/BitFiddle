@@ -25,28 +25,28 @@ struct BitPreferencesController{
 
 NABool switchPreferencesSetting(NAReaction reaction){
   BitPreferencesController* prefs = reaction.controller;
-  NABool state = naGetCheckBoxState(reaction.uielement);
-  if(reaction.uielement == prefs->showASCIIOnStartupCheckBox){
+  NABool state = naGetCheckBoxState(reaction.uiElement);
+  if(reaction.uiElement == prefs->showASCIIOnStartupCheckBox){
     naSetPreferencesBool(BitPrefs[ShowASCIIOnStartup], state);
-  }else if(reaction.uielement == prefs->resetConversionOnStartupCheckBox){
+  }else if(reaction.uiElement == prefs->resetConversionOnStartupCheckBox){
     naSetPreferencesBool(BitPrefs[ResetConversionOnStartup], state);
-  }else if(reaction.uielement == prefs->keepConverterOnTopCheckBox){
+  }else if(reaction.uiElement == prefs->keepConverterOnTopCheckBox){
     naSetPreferencesBool(BitPrefs[KeepConverterOnTop], state);
-  }else if(reaction.uielement == prefs->show16BitsCheckBox){
+  }else if(reaction.uiElement == prefs->show16BitsCheckBox){
     naSetPreferencesBool(BitPrefs[Show16Bits], state);
     bitRecreateConverterController();
-  }else if(reaction.uielement == prefs->showNBitsCheckBox){
+  }else if(reaction.uiElement == prefs->showNBitsCheckBox){
     naSetPreferencesBool(BitPrefs[ShowNBits], state);
     bitRecreateConverterController();
-  }else if(reaction.uielement == prefs->showBinCheckBox){
+  }else if(reaction.uiElement == prefs->showBinCheckBox){
     naSetPreferencesBool(BitPrefs[ShowBin], state);
     bitRecreateConverterController();
-  }else if(reaction.uielement == prefs->showAscCheckBox){
+  }else if(reaction.uiElement == prefs->showAscCheckBox){
     naSetPreferencesBool(BitPrefs[ShowAsc], state);
     bitRecreateConverterController();
   }else{
     #ifndef NDEBUG
-      naError("Unknown uielement sent message");
+      naError("Unknown uiElement sent message");
     #endif
   }
   bitUpdateApp();
