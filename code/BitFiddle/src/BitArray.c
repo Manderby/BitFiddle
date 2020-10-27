@@ -104,7 +104,7 @@ NABuffer* naCreateBitArrayCopyWithFixedSize(NABuffer* srcarray, NAInt size){
 
 void naPadBitArray(NABuffer* bitarray, NAInt padsize){
   NABufferIterator iter = naMakeBufferModifier(bitarray);
-  naLocateBufferEnd(&iter);
+  naLocateBufferFromEnd(&iter, 1);
   while((naGetBufferRange(bitarray).length == 0) || (naGetBufferRange(bitarray).length % padsize)){
     naWriteBufferu8(&iter, 0);
   }
@@ -206,8 +206,9 @@ NABuffer* naCreateBitArrayWithBinString(NAString* string){
   NABit curbit;
 
   bitarray = naNewBuffer(NA_FALSE);
-  iterin = naMakeBufferAccessor(naGetStringBufferMutable(string));
-  naPrepareBuffer(&iterin, naGetBufferRange(naGetStringBufferMutable(string)).length);
+  NABuffer* stringBuffer = naGetStringBufferMutable(string);
+  iterin = naMakeBufferAccessor(stringBuffer);
+  naCacheBufferRange(stringBuffer, naGetBufferRange(stringBuffer));
   naLocateBufferFromEnd(&iterin, 0);
   iterout = naMakeBufferModifier(bitarray);
   
@@ -274,8 +275,9 @@ NABuffer* naCreateBitArrayWithHexString(NAString* string){
   NABufferIterator iterout;
 
   bitarray = naNewBuffer(NA_FALSE);
-  iterin = naMakeBufferAccessor(naGetStringBufferMutable(string));
-  naPrepareBuffer(&iterin, naGetBufferRange(naGetStringBufferMutable(string)).length);
+  NABuffer* stringBuffer = naGetStringBufferMutable(string);
+  iterin = naMakeBufferAccessor(stringBuffer);
+  naCacheBufferRange(stringBuffer, naGetBufferRange(stringBuffer));
   naLocateBufferFromEnd(&iterin, 0);
   iterout = naMakeBufferModifier(bitarray);
   
@@ -309,8 +311,9 @@ NABuffer* naCreateBitArrayWithAscString(NAString* string){
   NABufferIterator iterout;
 
   bitarray = naNewBuffer(NA_FALSE);
-  iterin = naMakeBufferAccessor(naGetStringBufferMutable(string));
-  naPrepareBuffer(&iterin, naGetBufferRange(naGetStringBufferMutable(string)).length);
+  NABuffer* stringBuffer = naGetStringBufferMutable(string);
+  iterin = naMakeBufferAccessor(stringBuffer);
+  naCacheBufferRange(stringBuffer, naGetBufferRange(stringBuffer));
   naLocateBufferFromEnd(&iterin, 0);
   iterout = naMakeBufferModifier(bitarray);
   
@@ -444,7 +447,7 @@ NAString* naNewStringDecWithBitArray(const NABuffer* bitarray){
   if(finalstringcount > 1){
     retstring = naNewStringExtraction(string, -finalstringcount, -1);
   }else{
-    retstring = naNewStringWithUTF8CStringLiteral("0 ");
+    retstring = naNewStringWithFormat("0 ");
   }
   naDelete(string);
   naRelease(work);
