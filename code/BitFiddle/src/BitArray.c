@@ -104,7 +104,11 @@ NABuffer* naCreateBitArrayCopyWithFixedSize(NABuffer* srcarray, NAInt size){
 
 void naPadBitArray(NABuffer* bitarray, NAInt padsize){
   NABufferIterator iter = naMakeBufferModifier(bitarray);
+<<<<<<< HEAD
   naLocateBufferFromEnd(&iter, 1);
+=======
+  na_LocateBufferEnd(&iter);
+>>>>>>> e05857ff87be0bbf40370dbfad3a8e2c2ff4c342
   while((naGetBufferRange(bitarray).length == 0) || (naGetBufferRange(bitarray).length % padsize)){
     naWriteBufferu8(&iter, 0);
   }
@@ -206,9 +210,15 @@ NABuffer* naCreateBitArrayWithBinString(NAString* string){
   NABit curbit;
 
   bitarray = naNewBuffer(NA_FALSE);
+<<<<<<< HEAD
   NABuffer* stringBuffer = naGetStringBufferMutable(string);
   iterin = naMakeBufferAccessor(stringBuffer);
   naCacheBufferRange(stringBuffer, naGetBufferRange(stringBuffer));
+=======
+  naCacheBufferRange(naGetStringBufferMutable(string), naGetBufferRange(naGetStringBufferMutable(string)));
+  iterin = naMakeBufferAccessor(naGetStringBufferMutable(string));
+  na_PrepareBuffer(&iterin, naGetBufferRange(naGetStringBufferMutable(string)).length);
+>>>>>>> e05857ff87be0bbf40370dbfad3a8e2c2ff4c342
   naLocateBufferFromEnd(&iterin, 0);
   iterout = naMakeBufferModifier(bitarray);
   
@@ -275,9 +285,15 @@ NABuffer* naCreateBitArrayWithHexString(NAString* string){
   NABufferIterator iterout;
 
   bitarray = naNewBuffer(NA_FALSE);
+<<<<<<< HEAD
   NABuffer* stringBuffer = naGetStringBufferMutable(string);
   iterin = naMakeBufferAccessor(stringBuffer);
   naCacheBufferRange(stringBuffer, naGetBufferRange(stringBuffer));
+=======
+  naCacheBufferRange(naGetStringBufferMutable(string), naGetBufferRange(naGetStringBufferMutable(string)));
+  iterin = naMakeBufferAccessor(naGetStringBufferMutable(string));
+  na_PrepareBuffer(&iterin, naGetBufferRange(naGetStringBufferMutable(string)).length);
+>>>>>>> e05857ff87be0bbf40370dbfad3a8e2c2ff4c342
   naLocateBufferFromEnd(&iterin, 0);
   iterout = naMakeBufferModifier(bitarray);
   
@@ -311,9 +327,15 @@ NABuffer* naCreateBitArrayWithAscString(NAString* string){
   NABufferIterator iterout;
 
   bitarray = naNewBuffer(NA_FALSE);
+<<<<<<< HEAD
   NABuffer* stringBuffer = naGetStringBufferMutable(string);
   iterin = naMakeBufferAccessor(stringBuffer);
   naCacheBufferRange(stringBuffer, naGetBufferRange(stringBuffer));
+=======
+  naCacheBufferRange(naGetStringBufferMutable(string), naGetBufferRange(naGetStringBufferMutable(string)));
+  iterin = naMakeBufferAccessor(naGetStringBufferMutable(string));
+  na_PrepareBuffer(&iterin, naGetBufferRange(naGetStringBufferMutable(string)).length);
+>>>>>>> e05857ff87be0bbf40370dbfad3a8e2c2ff4c342
   naLocateBufferFromEnd(&iterin, 0);
   iterout = naMakeBufferModifier(bitarray);
   

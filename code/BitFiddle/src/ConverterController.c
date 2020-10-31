@@ -188,38 +188,38 @@ NABool buttonPressed(NAReaction reaction){
 
 
 
-void fillOutputFieldWithString(NALabel* outputfield, NAString* string, NABool withdecsign){
-  if(!outputfield){return;}
+void fillOutputFieldWithString(NALabel* outputField, NAString* string, NABool withDecSign){
+  if(!outputField){return;}
   if(!string){
-    naSetLabelText(outputfield, " ");
+    naSetLabelText(outputField, " ");
   }else if(naIsStringEmpty(string)){
-    naSetLabelText(outputfield, "0");
+    naSetLabelText(outputField, "0");
   }else{
-    if(withdecsign){
+    if(withDecSign){
       NAString* signstring = naNewStringWithFormat("-%s", naGetStringUTF8Pointer(string)); 
-      naSetLabelText(outputfield, naGetStringUTF8Pointer(signstring));
+      naSetLabelText(outputField, naGetStringUTF8Pointer(signstring));
       naDelete(signstring);
     }else{
-      naSetLabelText(outputfield, naGetStringUTF8Pointer(string));
+      naSetLabelText(outputField, naGetStringUTF8Pointer(string));
     }
   }
 }
 
 
 
-void fillOutputTextBoxWithString(NALabel* outputtextbox, NAString* string, NABool withdecsign){
-  if(!outputtextbox){return;}
+void fillOutputTextBoxWithString(NATextBox* outputTextBox, NAString* string, NABool withDecSign){
+  if(!outputTextBox){return;}
   if(!string){
-    naSetTextBoxText(outputtextbox, " ");
+    naSetTextBoxText(outputTextBox, " ");
   }else if(naIsStringEmpty(string)){
-    naSetTextBoxText(outputtextbox, "0");
+    naSetTextBoxText(outputTextBox, "0");
   }else{
-    if(withdecsign){
+    if(withDecSign){
       NAString* signstring = naNewStringWithFormat("-%s", naGetStringUTF8Pointer(string)); 
-      naSetTextBoxText(outputtextbox, naGetStringUTF8Pointer(signstring));
+      naSetTextBoxText(outputTextBox, naGetStringUTF8Pointer(signstring));
       naDelete(signstring);
     }else{
-      naSetTextBoxText(outputtextbox, naGetStringUTF8Pointer(string));
+      naSetTextBoxText(outputTextBox, naGetStringUTF8Pointer(string));
     }
   }
 }
@@ -235,19 +235,23 @@ typedef enum{
 
 
 
+<<<<<<< HEAD
 void fillOutputFieldWithBitArray(void* outputfield, NumberSystem numbersystem, NABuffer* bitarray, NABool withdecsign){
+=======
+void fillOutputFieldWithBitArray(void* outputField, NumberSystem numbersystem, NABuffer* bitarray, NABool withDecSign){
+>>>>>>> e05857ff87be0bbf40370dbfad3a8e2c2ff4c342
   NAString* outstring;
-  if(!outputfield){return;}
+  if(!outputField){return;}
   
   switch(numbersystem){
   case NUMBER_SYSTEM_DEC:
-    if(bitarray && naGetBufferRange(bitarray).length && withdecsign && naGetBufferByteAtIndex(bitarray, naGetRangeiMax(naGetBufferRange(bitarray)))){
+    if(bitarray && naGetBufferRange(bitarray).length && withDecSign && naGetBufferByteAtIndex(bitarray, naGetRangeiMax(naGetBufferRange(bitarray)))){
       NABuffer* twocomp = naNewBufferCopy(bitarray, naGetBufferRange(bitarray), NA_FALSE);
       naComputeBitArrayTwosComplement(twocomp);
       outstring = naNewStringDecWithBitArray(twocomp);
       naRelease(twocomp);
     }else{
-      withdecsign = NA_FALSE;
+      withDecSign = NA_FALSE;
       outstring = naNewStringDecWithBitArray(bitarray);
     }
     break;
@@ -267,10 +271,10 @@ void fillOutputFieldWithBitArray(void* outputfield, NumberSystem numbersystem, N
     outstring = naNewStringHexWithBitArray(bitarray);
     break;
   }
-  if(naGetUIElementType(outputfield) == NA_UI_LABEL){
-    fillOutputFieldWithString(outputfield, outstring, withdecsign);
+  if(naGetUIElementType(outputField) == NA_UI_LABEL){
+    fillOutputFieldWithString(outputField, outstring, withDecSign);
   }else{
-    fillOutputTextBoxWithString(outputfield, outstring, withdecsign);
+    fillOutputTextBoxWithString(outputField, outstring, withDecSign);
   }
   naDelete(outstring);
 }
@@ -412,10 +416,10 @@ NALabel* createSystemLabelField(const NAUTF8Char* title, NASize size){
 }
 
 NALabel* createBitOutputField(NASize size){
-  NALabel* outputfield = naNewLabel("", size);
-  naSetLabelFontKind(outputfield, NA_FONT_KIND_MONOSPACE);
-  naSetLabelTextAlignment(outputfield, NA_TEXT_ALIGNMENT_RIGHT);
-  return outputfield;
+  NALabel* outputField = naNewLabel("", size);
+  naSetLabelFontKind(outputField, NA_FONT_KIND_MONOSPACE);
+  naSetLabelTextAlignment(outputField, NA_TEXT_ALIGNMENT_RIGHT);
+  return outputField;
 }
 
 NATextBox* createBitOutputBox(NASize size){

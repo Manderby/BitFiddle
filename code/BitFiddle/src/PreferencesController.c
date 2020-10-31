@@ -46,7 +46,7 @@ NABool switchPreferencesSetting(NAReaction reaction){
     bitRecreateConverterController();
   }else{
     #ifndef NDEBUG
-      naError("Unknown uielement sent message");
+      naError("Unknown uiElement sent message");
     #endif
   }
   bitUpdateApp();
