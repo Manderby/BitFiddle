@@ -210,11 +210,7 @@ void redrawASCIIController(BitASCIIController* con){
 
 
 
-<<<<<<< HEAD
-NAInt getUISpaceIndex(BitASCIIController* con, void* uielement){
-=======
 NAInt getUISpaceIndex(BitASCIIController* con, NASpace* space){
->>>>>>> e05857ff87be0bbf40370dbfad3a8e2c2ff4c342
   NAInt itemIndex;
   for(itemIndex = 0; itemIndex < 128; itemIndex++){
     if(con->spaces[itemIndex] == space){break;}

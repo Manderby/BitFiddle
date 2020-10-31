@@ -235,11 +235,7 @@ typedef enum{
 
 
 
-<<<<<<< HEAD
-void fillOutputFieldWithBitArray(void* outputfield, NumberSystem numbersystem, NABuffer* bitarray, NABool withdecsign){
-=======
 void fillOutputFieldWithBitArray(void* outputField, NumberSystem numbersystem, NABuffer* bitarray, NABool withDecSign){
->>>>>>> e05857ff87be0bbf40370dbfad3a8e2c2ff4c342
   NAString* outstring;
   if(!outputField){return;}
   
