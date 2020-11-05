@@ -101,9 +101,9 @@ void bitStopApplication(){
   bitClearASCIIController(bitApp->asciiController);
   bitClearPreferencesController(bitApp->preferencesController);
   
-  naDelete(bitApp->imageAssets[BIT_IMAGE_ASSET_HELP_BUTTON]);
-  naDelete(bitApp->imageAssets[BIT_IMAGE_ASSET_PREFS_BUTTON]);
-  naDelete(bitApp->imageAssets[BIT_IMAGE_ASSET_ASCII_BUTTON]);
+  naRelease(bitApp->imageAssets[BIT_IMAGE_ASSET_HELP_BUTTON]);
+  naRelease(bitApp->imageAssets[BIT_IMAGE_ASSET_PREFS_BUTTON]);
+  naRelease(bitApp->imageAssets[BIT_IMAGE_ASSET_ASCII_BUTTON]);
   
   naFree(bitApp);
   naStopApplication();
