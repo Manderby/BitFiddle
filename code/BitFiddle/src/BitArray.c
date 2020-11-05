@@ -104,7 +104,7 @@ NABuffer* naCreateBitArrayCopyWithFixedSize(NABuffer* srcarray, NAInt size){
 
 void naPadBitArray(NABuffer* bitarray, NAInt padsize){
   NABufferIterator iter = naMakeBufferModifier(bitarray);
-  na_LocateBufferEnd(&iter);
+  naLocateBufferFromEnd(&iter, 1);
   while((naGetBufferRange(bitarray).length == 0) || (naGetBufferRange(bitarray).length % padsize)){
     naWriteBufferu8(&iter, 0);
   }
