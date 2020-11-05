@@ -31,7 +31,7 @@ BitApplication* bitApp = NA_NULL;
 NAUIImage* loadImageAsset(const NAUTF8Char* dir, const NAUTF8Char* basename, const NAUTF8Char* suffix){
   NAString* imagePath = naNewApplicationResourcePath(dir, basename, suffix);
   NABabyImage* babyImage = naCreateBabyImageFromFilePath(naGetStringUTF8Pointer(imagePath));
-  NAUIImage* uiimage = naAllocUIImage(babyImage, NA_NULL, NA_UIIMAGE_RESOLUTION_2x, NA_BLEND_BLACK_GREEN);
+  NAUIImage* uiimage = naNewUIImage(babyImage, NA_NULL, NA_UIIMAGE_RESOLUTION_2x, NA_BLEND_BLACK_GREEN);
   naReleaseBabyImage(babyImage);
   naDelete(imagePath);
   return uiimage;
@@ -101,9 +101,9 @@ void bitStopApplication(){
   bitClearASCIIController(bitApp->asciiController);
   bitClearPreferencesController(bitApp->preferencesController);
   
-  naDeallocUIImage(bitApp->imageAssets[BIT_IMAGE_ASSET_HELP_BUTTON]);
-  naDeallocUIImage(bitApp->imageAssets[BIT_IMAGE_ASSET_PREFS_BUTTON]);
-  naDeallocUIImage(bitApp->imageAssets[BIT_IMAGE_ASSET_ASCII_BUTTON]);
+  naRelease(bitApp->imageAssets[BIT_IMAGE_ASSET_HELP_BUTTON]);
+  naRelease(bitApp->imageAssets[BIT_IMAGE_ASSET_PREFS_BUTTON]);
+  naRelease(bitApp->imageAssets[BIT_IMAGE_ASSET_ASCII_BUTTON]);
   
   naFree(bitApp);
   naStopApplication();

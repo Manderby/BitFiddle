@@ -447,7 +447,7 @@ NAString* naNewStringDecWithBitArray(const NABuffer* bitarray){
   if(finalstringcount > 1){
     retstring = naNewStringExtraction(string, -finalstringcount, -1);
   }else{
-    retstring = naNewStringWithUTF8CStringLiteral("0 ");
+    retstring = naNewStringWithFormat("0 ");
   }
   naDelete(string);
   naRelease(work);

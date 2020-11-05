@@ -672,7 +672,7 @@ BitConverterController* bitCreateConverterController(void){
 
 void bitClearConverterController(BitConverterController* con){
   naRelease(con->bitarray);
-  naReleaseUIElement(con->window);
+  naDelete(con->window);
   naFree(con);
 }
 
