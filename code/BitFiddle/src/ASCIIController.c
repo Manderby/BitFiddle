@@ -360,7 +360,6 @@ BitASCIIController* bitCreateASCIIController(void){
 
 
 void bitClearASCIIController(BitASCIIController* con){
-  naReleaseUIElement(con->window);
   naFree(con);
 }
 
