@@ -503,13 +503,13 @@
 		90A3031024732C4C000C7B59 /* res */ = {
 			isa = PBXGroup;
 			children = (
-				90A3031124732C4C000C7B59 /* win */,
-				90A3031724732C4C000C7B59 /* BitFiddleStrings_eng.h */,
-				90A3031824732C4C000C7B59 /* mac */,
-				90A3032224732C4C000C7B59 /* help.png */,
 				90A3032324732C4C000C7B59 /* ascii.png */,
 				90A3032424732C4C000C7B59 /* BitFiddleStrings_deu.h */,
+				90A3031724732C4C000C7B59 /* BitFiddleStrings_eng.h */,
+				90A3032224732C4C000C7B59 /* help.png */,
+				90A3031824732C4C000C7B59 /* mac */,
 				90A3032524732C4C000C7B59 /* prefs.png */,
+				90A3031124732C4C000C7B59 /* win */,
 			);
 			path = res;
 			sourceTree = "<group>";

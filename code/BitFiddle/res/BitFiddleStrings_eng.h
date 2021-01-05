@@ -6,7 +6,7 @@ NA_LOC_LANG("eng");
 
 NA_LOC(BitFiddleApplicationDescription, "Conversion tool for binary values\nDesign and implementation: Tobias Stamm");
 NA_LOC(BitFiddleApplicationHelpURL, "http://manderc.com/apps/bitfiddle/help/index_en.php");
-NA_LOC(BitFiddleNewVersionDescription, "The user interface has been completely rewritten.");
+NA_LOC(BitFiddleNewVersionDescription, "Now works as a Universal Binary on the new Apple Silicon M1 chip.");
 
 /* Expressions in Main Window */
 NA_LOC(BitFiddleConversionUnsigned, "Unsigned");
