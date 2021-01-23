@@ -104,7 +104,7 @@ NABuffer* naCreateBitArrayCopyWithFixedSize(NABuffer* srcarray, NAInt size){
 
 void naPadBitArray(NABuffer* bitarray, NAInt padsize){
   NABufferIterator iter = naMakeBufferModifier(bitarray);
-  naLocateBufferFromEnd(&iter, 1);
+  naLocateBufferFromEnd(&iter, 0);
   while((naGetBufferRange(bitarray).length == 0) || (naGetBufferRange(bitarray).length % padsize)){
     naWriteBufferu8(&iter, 0);
   }
@@ -451,6 +451,11 @@ NAString* naNewStringDecWithBitArray(const NABuffer* bitarray){
   }
   naDelete(string);
   naRelease(work);
+
+//  #if NA_STRING_ALWAYS_CACHE == 1
+//    naGetStringUTF8Pointer(string);
+//  #endif
+
   return retstring;
 }
 
@@ -491,6 +496,10 @@ NAString* naNewStringHexWithBitArray(NABuffer* bitarray){
   naClearBufferIterator(&iterin);
   naClearBufferIterator(&iterout);
   
+//#if NA_STRING_ALWAYS_CACHE == 1
+//    naGetStringUTF8Pointer(string);
+//  #endif
+
   return string;
 }
 
@@ -519,6 +528,10 @@ NAString* naNewStringBinWithBitArray(NABuffer* bitarray){
   
   naClearBufferIterator(&iterin);
   naClearBufferIterator(&iterout);
+  
+//  #if NA_STRING_ALWAYS_CACHE == 1
+//    naGetStringUTF8Pointer(string);
+//  #endif
   
   return string;
 }
@@ -558,6 +571,10 @@ NAString* naNewStringAscWithBitArray(NABuffer* bitarray){
   naClearBufferIterator(&iterin);
   naClearBufferIterator(&iterout);
   
+//  #if NA_STRING_ALWAYS_CACHE == 1
+//    naGetStringUTF8Pointer(string);
+//  #endif
+
   return string;
 }
 
