@@ -430,7 +430,7 @@ NATextBox* createBitOutputBox(NASize size){
 
 BitConverterController* bitCreateConverterController(void){
   BitConverterController* con = naAlloc(BitConverterController);
-  naZeron(con, naSizeof(BitConverterController));
+  naZeron(con, sizeof(BitConverterController));
   
   con->bitarray = naNewBuffer(NA_FALSE);
 
