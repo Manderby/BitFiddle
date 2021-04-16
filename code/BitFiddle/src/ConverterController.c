@@ -241,7 +241,7 @@ void fillOutputFieldWithBitArray(void* outputField, NumberSystem numbersystem, N
   
   switch(numbersystem){
   case NUMBER_SYSTEM_DEC:
-    if(bitarray && naGetBufferRange(bitarray).length && withDecSign && naGetBufferByteAtIndex(bitarray, naGetRangeiMax(naGetBufferRange(bitarray)))){
+    if(bitarray && naGetBufferRange(bitarray).length && withDecSign && naGetBufferByteAtIndex(bitarray, (size_t)naGetRangeiMax(naGetBufferRange(bitarray)))){
       NABuffer* twocomp = naNewBufferCopy(bitarray, naGetBufferRange(bitarray), NA_FALSE);
       naComputeBitArrayTwosComplement(twocomp);
       outstring = naNewStringDecWithBitArray(twocomp);
@@ -430,7 +430,7 @@ NATextBox* createBitOutputBox(NASize size){
 
 BitConverterController* bitCreateConverterController(void){
   BitConverterController* con = naAlloc(BitConverterController);
-  naZeron(con, naSizeof(BitConverterController));
+  naZeron(con, sizeof(BitConverterController));
   
   con->bitarray = naNewBuffer(NA_FALSE);
 

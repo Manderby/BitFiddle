@@ -65,10 +65,10 @@ void* naBitFiddleMalloc(NAInt bytesize){
   void* retptr;
   if(bytesize < 0){
     NAInt positivebytesize = naGetNullTerminationBytesize(bytesize);
-    retptr = naMalloc(positivebytesize);
+    retptr = naMalloc((size_t)positivebytesize);
     naZeron(&(((NAByte*)retptr)[positivebytesize - 8]), 8);
   }else{
-    retptr = naMalloc(bytesize);
+    retptr = naMalloc((size_t)bytesize);
   }
   return retptr;
 }
@@ -208,7 +208,7 @@ NABuffer* naCreateBitArrayWithBinString(NAString* string){
   bitarray = naNewBuffer(NA_FALSE);
   naCacheBufferRange(naGetStringBufferMutable(string), naGetBufferRange(naGetStringBufferMutable(string)));
   iterin = naMakeBufferAccessor(naGetStringBufferMutable(string));
-  na_PrepareBuffer(&iterin, naGetBufferRange(naGetStringBufferMutable(string)).length);
+  na_PrepareBuffer(&iterin, (size_t)naGetBufferRange(naGetStringBufferMutable(string)).length);
   naLocateBufferFromEnd(&iterin, 0);
   iterout = naMakeBufferModifier(bitarray);
   
@@ -277,7 +277,7 @@ NABuffer* naCreateBitArrayWithHexString(NAString* string){
   bitarray = naNewBuffer(NA_FALSE);
   naCacheBufferRange(naGetStringBufferMutable(string), naGetBufferRange(naGetStringBufferMutable(string)));
   iterin = naMakeBufferAccessor(naGetStringBufferMutable(string));
-  na_PrepareBuffer(&iterin, naGetBufferRange(naGetStringBufferMutable(string)).length);
+  na_PrepareBuffer(&iterin, (size_t)naGetBufferRange(naGetStringBufferMutable(string)).length);
   naLocateBufferFromEnd(&iterin, 0);
   iterout = naMakeBufferModifier(bitarray);
   
@@ -313,7 +313,7 @@ NABuffer* naCreateBitArrayWithAscString(NAString* string){
   bitarray = naNewBuffer(NA_FALSE);
   naCacheBufferRange(naGetStringBufferMutable(string), naGetBufferRange(naGetStringBufferMutable(string)));
   iterin = naMakeBufferAccessor(naGetStringBufferMutable(string));
-  na_PrepareBuffer(&iterin, naGetBufferRange(naGetStringBufferMutable(string)).length);
+  na_PrepareBuffer(&iterin, (size_t)naGetBufferRange(naGetStringBufferMutable(string)).length);
   naLocateBufferFromEnd(&iterin, 0);
   iterout = naMakeBufferModifier(bitarray);
   
@@ -358,7 +358,7 @@ NAString* naNewStringDecWithBitArray(const NABuffer* bitarray){
   
   NAUTF8Char* stringbuf = naBitFiddleMalloc(-bitcount);
   charptr = &(stringbuf[bitcount-1]);
-  string = naNewStringWithMutableUTF8Buffer(stringbuf, bitcount, (NAMutator)naFree);
+  string = naNewStringWithMutableUTF8Buffer(stringbuf, (size_t)bitcount, (NAMutator)naFree);
 
   outputlen = 0;
   finalstringcount = 0;
