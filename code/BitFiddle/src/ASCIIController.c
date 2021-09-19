@@ -310,14 +310,14 @@ BitASCIIController* bitCreateASCIIController(void){
       naAddUIReaction(con->spaces[curindex], NA_UI_COMMAND_MOUSE_ENTERED, hoverItem, con);
       naAddUIReaction(con->spaces[curindex], NA_UI_COMMAND_MOUSE_EXITED, unhoverItem, con);
 
-      con->labels[curindex] = naNewLabel("", naMakeSize(32, 22));
-      naSetLabelFontKind(con->labels[curindex], NA_FONT_KIND_MONOSPACE);
+      con->labels[curindex] = naNewLabel("", 32);
+      naSetLabelFontKind(con->labels[curindex], NA_FONT_KIND_MONOSPACE, NA_FONT_SIZE_DEFAULT);
       naSetLabelTextAlignment(con->labels[curindex], NA_TEXT_ALIGNMENT_RIGHT);
       naSetLabelEnabled(con->labels[curindex], NA_FALSE);
       naAddSpaceChild(con->spaces[curindex], con->labels[curindex], naMakePos(0, 0));
 
-      con->chars[curindex] = naNewLabel("", naMakeSize(50, 22));
-      naSetLabelFontKind(con->chars[curindex], NA_FONT_KIND_MONOSPACE);
+      con->chars[curindex] = naNewLabel("", 50);
+      naSetLabelFontKind(con->chars[curindex], NA_FONT_KIND_MONOSPACE, NA_FONT_SIZE_DEFAULT);
       naSetLabelTextAlignment(con->chars[curindex], NA_TEXT_ALIGNMENT_CENTER);
       naAddSpaceChild(con->spaces[curindex], con->chars[curindex], naMakePos(37, 0));
       
@@ -328,26 +328,26 @@ BitASCIIController* bitCreateASCIIController(void){
     naAddSpaceChild(space, columnspace, naMakePos(x * 97., 64.));
   }
   
-  con->codeRadio = naNewRadio("Code", naMakeSize(64, 22));
+  con->codeRadio = naNewRadio("Code", 64);
   naAddUIReaction(con->codeRadio, NA_UI_COMMAND_PRESSED, switchASCIIDisplayMode, con);
   naAddSpaceChild(space, con->codeRadio, naMakePos(15, 10));
 
-  con->escapeRadio = naNewRadio("Escape", naMakeSize(64, 22));
+  con->escapeRadio = naNewRadio("Escape", 64);
   naAddUIReaction(con->escapeRadio, NA_UI_COMMAND_PRESSED, switchASCIIDisplayMode, con);
   naAddSpaceChild(space, con->escapeRadio, naMakePos(15, 32));
 
-  con->hexRadio = naNewRadio("Hex", naMakeSize(64, 22));
+  con->hexRadio = naNewRadio("Hex", 64);
   naAddUIReaction(con->hexRadio, NA_UI_COMMAND_PRESSED, switchASCIIDisplayMode, con);
   naAddSpaceChild(space, con->hexRadio, naMakePos(112, 10));
 
-  con->decRadio = naNewRadio("Dec", naMakeSize(64, 22));
+  con->decRadio = naNewRadio("Dec", 64);
   naAddUIReaction(con->decRadio, NA_UI_COMMAND_PRESSED, switchASCIIDisplayMode, con);
   naAddSpaceChild(space, con->decRadio, naMakePos(112, 32));
   
-  con->info1 = naNewLabel("", naMakeSize(184, 44));
+  con->info1 = naNewLabel("", 184);
   naAddSpaceChild(space, con->info1, naMakePos(209, 5));
 
-  con->info2 = naNewLabel("", naMakeSize(368, 44));
+  con->info2 = naNewLabel("", 368);
   naAddSpaceChild(space, con->info2, naMakePos(403, 5));
 
   con->useEscape = naGetPreferencesBool(BitPrefs[UseASCIIEscape]);

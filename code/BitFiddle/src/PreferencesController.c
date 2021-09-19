@@ -70,48 +70,48 @@ BitPreferencesController* bitCreatePreferencesController(){
   con->window = naNewWindow(bitTranslate(BitFiddlePrefsWindowTitle), windowrect, NA_FALSE, BIT_WINDOW_TAG_PREFERENCES);
   NASpace* space = naGetWindowContentSpace(con->window);
 
-  con->startupLabel = naNewLabel(bitTranslate(BitFiddlePrefsAtStartup), naMakeSize(330, 22));
+  con->startupLabel = naNewLabel(bitTranslate(BitFiddlePrefsAtStartup), 330);
   naAddSpaceChild(space, con->startupLabel, naMakePos(20., 194.));
 
-  con->showASCIIOnStartupCheckBox = naNewCheckBox(bitTranslate(BitFiddlePrefsShowASCII), naMakeSize(220, 22));
+  con->showASCIIOnStartupCheckBox = naNewCheckBox(bitTranslate(BitFiddlePrefsShowASCII), 220);
   naAddUIReaction(con->showASCIIOnStartupCheckBox, NA_UI_COMMAND_PRESSED, switchPreferencesSetting, con);
   naSetCheckBoxState(con->showASCIIOnStartupCheckBox, naGetPreferencesBool(BitPrefs[ShowASCIIOnStartup]));
   naAddSpaceChild(space, con->showASCIIOnStartupCheckBox, naMakePos(30., 172.));
 
-  con->resetConversionOnStartupCheckBox = naNewCheckBox(bitTranslate(BitFiddlePrefsResetSettings), naMakeSize(220, 22));
+  con->resetConversionOnStartupCheckBox = naNewCheckBox(bitTranslate(BitFiddlePrefsResetSettings), 220);
   naAddUIReaction(con->resetConversionOnStartupCheckBox, NA_UI_COMMAND_PRESSED, switchPreferencesSetting, con);
   naSetCheckBoxState(con->resetConversionOnStartupCheckBox, naGetPreferencesBool(BitPrefs[ResetConversionOnStartup]));
   naAddSpaceChild(space, con->resetConversionOnStartupCheckBox, naMakePos(30., 150.));
 
-  con->onTopLabel = naNewLabel(bitTranslate(BitFiddlePrefsConverterWindow), naMakeSize(230, 22));
+  con->onTopLabel = naNewLabel(bitTranslate(BitFiddlePrefsConverterWindow), 230);
   naAddSpaceChild(space, con->onTopLabel, naMakePos(20., 118.));
 
-  con->keepConverterOnTopCheckBox = naNewCheckBox(bitTranslate(BitFiddlePrefsKeepOnTop), naMakeSize(220, 22));
+  con->keepConverterOnTopCheckBox = naNewCheckBox(bitTranslate(BitFiddlePrefsKeepOnTop), 220);
   naAddUIReaction(con->keepConverterOnTopCheckBox, NA_UI_COMMAND_PRESSED, switchPreferencesSetting, con);
   naSetCheckBoxState(con->keepConverterOnTopCheckBox, naGetPreferencesBool(BitPrefs[KeepConverterOnTop]));
   naAddSpaceChild(space, con->keepConverterOnTopCheckBox, naMakePos(30., 96.));
 
-  con->show16BitsCheckBox = naNewCheckBox(bitTranslate(BitFiddlePrefsShow16Bits), naMakeSize(80, 22));
+  con->show16BitsCheckBox = naNewCheckBox(bitTranslate(BitFiddlePrefsShow16Bits), 80);
   naAddUIReaction(con->show16BitsCheckBox, NA_UI_COMMAND_PRESSED, switchPreferencesSetting, con);
   naSetCheckBoxState(con->show16BitsCheckBox, naGetPreferencesBool(BitPrefs[Show16Bits]));
   naAddSpaceChild(space, con->show16BitsCheckBox, naMakePos(30., 74.));
 
-  con->showNBitsCheckBox = naNewCheckBox(bitTranslate(BitFiddlePrefsShowNBits), naMakeSize(80, 22));
+  con->showNBitsCheckBox = naNewCheckBox(bitTranslate(BitFiddlePrefsShowNBits), 80);
   naAddUIReaction(con->showNBitsCheckBox, NA_UI_COMMAND_PRESSED, switchPreferencesSetting, con);
   naSetCheckBoxState(con->showNBitsCheckBox, naGetPreferencesBool(BitPrefs[ShowNBits]));
   naAddSpaceChild(space, con->showNBitsCheckBox, naMakePos(130., 74.));
 
-  con->showBinCheckBox = naNewCheckBox(bitTranslate(BitFiddlePrefsShowBin), naMakeSize(80, 22));
+  con->showBinCheckBox = naNewCheckBox(bitTranslate(BitFiddlePrefsShowBin), 80);
   naAddUIReaction(con->showBinCheckBox, NA_UI_COMMAND_PRESSED, switchPreferencesSetting, con);
   naSetCheckBoxState(con->showBinCheckBox, naGetPreferencesBool(BitPrefs[ShowBin]));
   naAddSpaceChild(space, con->showBinCheckBox, naMakePos(30., 52.));
 
-  con->showAscCheckBox = naNewCheckBox(bitTranslate(BitFiddlePrefsShowAsc), naMakeSize(80, 22));
+  con->showAscCheckBox = naNewCheckBox(bitTranslate(BitFiddlePrefsShowAsc), 80);
   naAddUIReaction(con->showAscCheckBox, NA_UI_COMMAND_PRESSED, switchPreferencesSetting, con);
   naSetCheckBoxState(con->showAscCheckBox, naGetPreferencesBool(BitPrefs[ShowAsc]));
   naAddSpaceChild(space, con->showAscCheckBox, naMakePos(130., 52.));
 
-  con->doneButton = naNewTextButton(bitTranslate(BitFiddlePrefsDone), naMakeSize(80, 24), 0);
+  con->doneButton = naNewTextButton(bitTranslate(BitFiddlePrefsDone), 80, 0);
   naAddUIReaction(con->doneButton, NA_UI_COMMAND_PRESSED, pressDone, con);
   naAddSpaceChild(space, con->doneButton, naMakePos(160., 20.));
 
