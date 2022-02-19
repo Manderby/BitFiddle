@@ -7,7 +7,7 @@
 
 
 #include "NAMemory.h"
-#include "NAUI.h"
+#include "NAApp.h"
 #include "BitFiddleNSApplication.h"
 #include "BitFiddleTranslations.h"
 #include "BitFiddlePreferences.h"

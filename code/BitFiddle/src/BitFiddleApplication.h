@@ -3,8 +3,7 @@
 #define BIT_APPLICATION_DEFINED
 
 #include <NABase.h>
-#include "NAUI.h"
-#include <NAEnvironment/NAUIImage.h>
+#include "NAApp.h"
 
 typedef struct BitApplication BitApplication;
 

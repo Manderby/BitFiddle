@@ -73,15 +73,15 @@ void bitCreateUI(){
   bitApp->preferencesController = bitCreatePreferencesController();
   
   #if NA_OS == NA_OS_MAC_OS_X
-    naAddUIKeyboardShortcut(naGetApplication(), naMakeKeybardStatus(NA_MODIFIER_FLAG_COMMAND, NA_KEYCODE_E), bitSwitchAppEndianness, bitApp);
-    naAddUIKeyboardShortcut(naGetApplication(), naMakeKeybardStatus(NA_MODIFIER_FLAG_COMMAND, NA_KEYCODE_0), bitSwitchConversionType, bitApp);
-    naAddUIKeyboardShortcut(naGetApplication(), naMakeKeybardStatus(NA_MODIFIER_FLAG_COMMAND, NA_KEYCODE_1), bitSwitchConversionType, bitApp);
-    naAddUIKeyboardShortcut(naGetApplication(), naMakeKeybardStatus(NA_MODIFIER_FLAG_COMMAND, NA_KEYCODE_2), bitSwitchConversionType, bitApp);
+    naAddUIKeyboardShortcut(naGetApplication(), naMakeKeyStroke(NA_MODIFIER_FLAG_COMMAND, NA_KEYCODE_E), bitSwitchAppEndianness, bitApp);
+    naAddUIKeyboardShortcut(naGetApplication(), naMakeKeyStroke(NA_MODIFIER_FLAG_COMMAND, NA_KEYCODE_0), bitSwitchConversionType, bitApp);
+    naAddUIKeyboardShortcut(naGetApplication(), naMakeKeyStroke(NA_MODIFIER_FLAG_COMMAND, NA_KEYCODE_1), bitSwitchConversionType, bitApp);
+    naAddUIKeyboardShortcut(naGetApplication(), naMakeKeyStroke(NA_MODIFIER_FLAG_COMMAND, NA_KEYCODE_2), bitSwitchConversionType, bitApp);
   #elif NA_OS == NA_OS_WINDOWS
-    naAddUIKeyboardShortcut(naGetApplication(), naMakeKeybardStatus(NA_MODIFIER_FLAG_CONTROL, NA_KEYCODE_E), bitSwitchAppEndianness, bitApp);
-    naAddUIKeyboardShortcut(naGetApplication(), naMakeKeybardStatus(NA_MODIFIER_FLAG_CONTROL, NA_KEYCODE_0), bitSwitchConversionType, bitApp);
-    naAddUIKeyboardShortcut(naGetApplication(), naMakeKeybardStatus(NA_MODIFIER_FLAG_CONTROL, NA_KEYCODE_1), bitSwitchConversionType, bitApp);
-    naAddUIKeyboardShortcut(naGetApplication(), naMakeKeybardStatus(NA_MODIFIER_FLAG_CONTROL, NA_KEYCODE_2), bitSwitchConversionType, bitApp);
+    naAddUIKeyboardShortcut(naGetApplication(), naMakeKeyStroke(NA_MODIFIER_FLAG_CONTROL, NA_KEYCODE_E), bitSwitchAppEndianness, bitApp);
+    naAddUIKeyboardShortcut(naGetApplication(), naMakeKeyStroke(NA_MODIFIER_FLAG_CONTROL, NA_KEYCODE_0), bitSwitchConversionType, bitApp);
+    naAddUIKeyboardShortcut(naGetApplication(), naMakeKeyStroke(NA_MODIFIER_FLAG_CONTROL, NA_KEYCODE_1), bitSwitchConversionType, bitApp);
+    naAddUIKeyboardShortcut(naGetApplication(), naMakeKeyStroke(NA_MODIFIER_FLAG_CONTROL, NA_KEYCODE_2), bitSwitchConversionType, bitApp);
   #endif
 
   bitShowConverterController();
@@ -175,8 +175,8 @@ NABool bitSwitchAppEndianness(NAReaction reaction){
 
 NABool bitSwitchConversionType(NAReaction reaction){
   NA_UNUSED(reaction);
-  NAKeyboardStatus keyboardStatus = naGetKeyboardStatus();
-  switch(keyboardStatus.keyCode){
+  NAKeyStroke keyStroke = naGetCurrentKeyStroke();
+  switch(keyStroke.keyCode){
   case NA_KEYCODE_0: bitSetConversionType(COMPUTE_UNSIGNED); break;
   case NA_KEYCODE_1: bitSetConversionType(COMPUTE_ONES_COMPLEMENT); break;
   case NA_KEYCODE_2: bitSetConversionType(COMPUTE_TWOS_COMPLEMENT); break;
