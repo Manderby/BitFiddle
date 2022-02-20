@@ -482,7 +482,8 @@ BitConverterController* bitCreateConverterController(void){
   #endif
 
   NAUIImage* helpuiimage = bitGetImageAsset(BIT_IMAGE_ASSET_HELP_BUTTON);
-  con->helpButton = naNewImageButton(helpuiimage, naMakeSize(20., 20.), NA_BUTTON_PUSH | NA_BUTTON_BORDERLESS);
+  con->helpButton = naNewTextButton("H", 20., NA_BUTTON_PUSH | NA_BUTTON_BORDERLESS);
+//  con->helpButton = naNewImageButton(helpuiimage, naMakeSize(20., 20.), NA_BUTTON_PUSH | NA_BUTTON_BORDERLESS);
   naAddUIReaction(con->helpButton, NA_UI_COMMAND_PRESSED, buttonPressed, con);
   naAddSpaceChild(settingspace, con->helpButton, naMakePos(13., 10.));
 
