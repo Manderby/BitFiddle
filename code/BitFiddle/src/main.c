@@ -45,7 +45,7 @@ void poststartup(void* arg){
 
 
 #if NA_OS == NA_OS_WINDOWS
-  int WINAPI WinMain(HINSTANCE hInstance, HINSTANCE hPrevInstance, LPSTR lpCmdLine, int nShowCmd){
+  int WINAPI WinMain(_In_ HINSTANCE hInstance, _In_opt_ HINSTANCE hPrevInstance, _In_ LPSTR lpCmdLine, _In_ int nShowCmd){
     NA_UNUSED(hInstance);
     NA_UNUSED(hPrevInstance);
     NA_UNUSED(lpCmdLine);
