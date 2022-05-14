@@ -132,7 +132,7 @@ void resetComplementValues(BitConverterController* con){
   if(con->inputasc){naSetTextFieldText(con->inputasc, "");}
 
   naRelease(con->bitarray);
-  con->bitarray = naNewBuffer(NA_FALSE);
+  con->bitarray = naCreateBuffer(NA_FALSE);
 
   bitUpdateConverterController(con);
 }
@@ -242,7 +242,7 @@ void fillOutputFieldWithBitArray(void* outputField, NumberSystem numbersystem, N
   switch(numbersystem){
   case NUMBER_SYSTEM_DEC:
     if(bitarray && naGetBufferRange(bitarray).length && withDecSign && naGetBufferByteAtIndex(bitarray, (size_t)naGetRangeiMax(naGetBufferRange(bitarray)))){
-      NABuffer* twocomp = naNewBufferCopy(bitarray, naGetBufferRange(bitarray), NA_FALSE);
+      NABuffer* twocomp = naCreateBufferCopy(bitarray, naGetBufferRange(bitarray), NA_FALSE);
       naComputeBitArrayTwosComplement(twocomp);
       outstring = naNewStringDecWithBitArray(twocomp);
       naRelease(twocomp);
@@ -389,40 +389,50 @@ void bitUpdateConverterController(BitConverterController* con){
 
 NATextField* createBitInputField(BitConverterController* con, double width, NAReactionHandler handler){
   NATextField* textfield = naNewTextField(width);
-  naSetTextFieldFontKind(textfield, NA_FONT_KIND_MONOSPACE, NA_FONT_SIZE_DEFAULT);
+  NAFont* monoFont = naCreateFontWithPreset(NA_FONT_KIND_MONOSPACE, NA_FONT_SIZE_DEFAULT);
+  naSetTextFieldFont(textfield, monoFont);
   naSetTextFieldTextAlignment(textfield, NA_TEXT_ALIGNMENT_RIGHT);
   naAddUIReaction(textfield, NA_UI_COMMAND_EDITED, handler, con);
+  naRelease(monoFont);
   return textfield;
 }
 
 NALabel* createBitLabelField(const NAUTF8Char* title, double width){
   NALabel* labelfield = naNewLabel(title, width);
-  naSetLabelFontKind(labelfield, NA_FONT_KIND_MONOSPACE, NA_FONT_SIZE_DEFAULT);
+  NAFont* monoFont = naCreateFontWithPreset(NA_FONT_KIND_MONOSPACE, NA_FONT_SIZE_DEFAULT);
+  naSetLabelFont(labelfield, monoFont);
   naSetLabelTextAlignment(labelfield, NA_TEXT_ALIGNMENT_CENTER);
   naSetLabelEnabled(labelfield, NA_FALSE);
+  naRelease(monoFont);
   return labelfield;
 }
 
 NALabel* createSystemLabelField(const NAUTF8Char* title, double width){
   NALabel* labelfield = naNewLabel(title, width);
-  naSetLabelFontKind(labelfield, NA_FONT_KIND_MONOSPACE, NA_FONT_SIZE_DEFAULT);
+  NAFont* monoFont = naCreateFontWithPreset(NA_FONT_KIND_MONOSPACE, NA_FONT_SIZE_DEFAULT);
+  naSetLabelFont(labelfield, monoFont);
   naSetLabelTextAlignment(labelfield, NA_TEXT_ALIGNMENT_LEFT);
   naSetLabelEnabled(labelfield, NA_FALSE);
+  naRelease(monoFont);
   return labelfield;
 }
 
 NALabel* createBitOutputField(double width){
   NALabel* outputField = naNewLabel("", width);
-  naSetLabelFontKind(outputField, NA_FONT_KIND_MONOSPACE, NA_FONT_SIZE_DEFAULT);
+  NAFont* monoFont = naCreateFontWithPreset(NA_FONT_KIND_MONOSPACE, NA_FONT_SIZE_DEFAULT);
+  naSetLabelFont(outputField, monoFont);
   naSetLabelTextAlignment(outputField, NA_TEXT_ALIGNMENT_RIGHT);
+  naRelease(monoFont);
   return outputField;
 }
 
 NATextBox* createBitOutputBox(NASize size){
   NATextBox* outputbox = naNewTextBox(size);
-  naSetTextBoxFontKind(outputbox, NA_FONT_KIND_MONOSPACE, NA_FONT_SIZE_DEFAULT);
+  NAFont* monoFont = naCreateFontWithPreset(NA_FONT_KIND_MONOSPACE, NA_FONT_SIZE_DEFAULT);
+  naSetTextBoxFont(outputbox, monoFont);
   naSetTextBoxTextAlignment(outputbox, NA_TEXT_ALIGNMENT_RIGHT);
   naSetTextBoxEditable(outputbox, NA_FALSE);
+  naRelease(monoFont);
   return outputbox;
 }
 
@@ -432,7 +442,7 @@ BitConverterController* bitCreateConverterController(void){
   BitConverterController* con = naAlloc(BitConverterController);
   naZeron(con, sizeof(BitConverterController));
   
-  con->bitarray = naNewBuffer(NA_FALSE);
+  con->bitarray = naCreateBuffer(NA_FALSE);
 
   NABool show16Bits = naGetPreferencesBool(BitPrefs[Show16Bits]);
   NABool showNBits = naGetPreferencesBool(BitPrefs[ShowNBits]);
