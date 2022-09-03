@@ -1,7 +1,7 @@
 
-#include "NABinaryData.h"
-#include "NAString.h"
-#include "NABuffer.h"
+#include "NAUtility/NABinaryData.h"
+#include "NAUtility/NAString.h"
+#include "NAStruct/NABuffer.h"
 #include "BitArray.h"
 
 
@@ -48,12 +48,12 @@
 
 NA_HIDEF NAInt naGetNullTerminationBytesize(NAInt bytesize){
   NAInt returnbytesize;
-  #ifndef NDEBUG
+  #if NA_DEBUG
     if((bytesize >= NA_ZERO))
       naError("size is not negative");
   #endif
   returnbytesize = (-bytesize - NA_ONE) + (NA_ADDRESS_BYTES << 1) - ((-bytesize - NA_ONE) % NA_ADDRESS_BYTES);
-  #ifndef NDEBUG
+  #if NA_DEBUG
     if(returnbytesize < NA_ZERO)
       naError("given negative size is too close to the minimal integer value");
   #endif
@@ -121,7 +121,7 @@ void naPadBitArray(NABuffer* bitarray, NAInt padsize){
 //  NABit trailbit;
 //  NAInt srccount;
 //
-//  #ifndef NDEBUG
+//  #if NA_DEBUG
 //    if(!srcarray)
 //      naError("naInitBitArrayShiftExtension", "srcarray is Null-Pointer");
 //  #endif
@@ -705,7 +705,7 @@ void naComputeBitArrayTwosComplement(NABuffer* bitarray){
 void naComputeBitArraySwapBytes(NABuffer* bitarray){
   NABufferIterator iter1;
   NABufferIterator iter2;
-  #ifndef NDEBUG
+  #if NA_DEBUG
     if(naGetBufferRange(bitarray).length % 8)
       naError("size of bitarray can not be divided by 8.");
   #endif

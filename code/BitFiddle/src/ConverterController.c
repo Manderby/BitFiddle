@@ -159,7 +159,7 @@ NABool switchComplement(NAReaction reaction){
   }else if(reaction.uiElement == con->twosOption){
     bitSetConversionType(COMPUTE_TWOS_COMPLEMENT);
   }else{
-    #ifndef NDEBUG
+    #if NA_DEBUG
       naError("Unknown conversion type");
     #endif
   }
@@ -179,7 +179,7 @@ NABool buttonPressed(NAReaction reaction){
   }else if(reaction.uiElement == con->asciiButton){
     bitShowASCIIController();
   }else{
-    #ifndef NDEBUG
+    #if NA_DEBUG
       naError("Unknown window button");
     #endif
   }
@@ -261,7 +261,7 @@ void fillOutputFieldWithBitArray(void* outputField, NumberSystem numbersystem, N
     outstring = naNewStringAscWithBitArray(bitarray);
     break;
   default:
-    #ifndef NDEBUG
+    #if NA_DEBUG
       naError("Invalid number system");
     #endif
     outstring = naNewStringHexWithBitArray(bitarray);

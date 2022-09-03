@@ -1,5 +1,5 @@
 
-#include "NAPreferences.h"
+#include "NAApp/NAPreferences.h"
 
 enum {
   UseASCIIEscape,

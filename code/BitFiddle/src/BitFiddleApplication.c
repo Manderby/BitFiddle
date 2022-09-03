@@ -181,7 +181,7 @@ NABool bitSwitchConversionType(NAReaction reaction){
   case NA_KEYCODE_1: bitSetConversionType(COMPUTE_ONES_COMPLEMENT); break;
   case NA_KEYCODE_2: bitSetConversionType(COMPUTE_TWOS_COMPLEMENT); break;
   default:
-    #ifndef NDEBUG
+    #if NA_DEBUG
       naError("Undefined keyCode");
     #endif
     break;

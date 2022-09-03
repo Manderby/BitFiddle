@@ -1,5 +1,5 @@
 
-#include "NATranslator.h"
+#include "NAUtility/NATranslator.h"
 
 enum{
   BitFiddleApplicationDescription,

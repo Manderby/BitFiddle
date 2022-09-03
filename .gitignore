@@ -6,6 +6,8 @@
 *xcworkspace*
 *.pbxuser
 *.mode2v3
+*Debug/
+*Release/
 CONERR*
 build/
 bin/

@@ -1,6 +1,6 @@
 
 #include "ASCIIController.h"
-#include "NAString.h"
+#include "NAUtility/NAString.h"
 #include "BitFiddleTranslations.h"
 #include "BitFiddlePreferences.h"
 #include "BitFiddleApplication.h"
@@ -215,7 +215,7 @@ NAInt getUISpaceIndex(BitASCIIController* con, const NASpace* space){
   for(itemIndex = 0; itemIndex < 128; itemIndex++){
     if(con->spaces[itemIndex] == space){break;}
   }
-  #ifndef NDEBUG
+  #if NA_DEBUG
     if(itemIndex == 128)
       naError("Hovered element not recognized");
   #endif
@@ -271,7 +271,7 @@ NABool switchASCIIDisplayMode(NAReaction reaction){
     con->useHex = NA_FALSE;
     naSetPreferencesBool(BitPrefs[UseASCIIHex], NA_FALSE);
   }else{
-    #ifndef NDEBUG
+    #if NA_DEBUG
       naError("Unknown uiElement sent message");
     #endif
   }

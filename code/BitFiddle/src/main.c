@@ -6,7 +6,7 @@
 
 
 
-#include "NAMemory.h"
+#include "NAUtility/NAMemory.h"
 #include "NAApp.h"
 #include "BitFiddleNSApplication.h"
 #include "BitFiddleTranslations.h"
@@ -21,11 +21,39 @@
 void prestartup(void* arg){
   NA_UNUSED(arg);
 
+
+
+  //naOpenConsoleWindow();
+
+  //wchar_t buffer2[5120];
+  //GetModuleFileName(NULL, buffer2, 5120);
+  //printf("%ls\n", buffer2);
+
+  //NAString* appName = naNewApplicationName();
+  //printf("%s\n", naGetStringUTF8Pointer(appName));
+  //naDelete(appName);
+
+  //NAString* cwd = naNewStringWithCurWorkingDirectory();
+  //printf("%s\n", naGetStringUTF8Pointer(cwd));
+  //naDelete(cwd);
+
+
+
+  NAString* appPath = naNewApplicationPath();
+
+  //printf("%s\n", naGetStringUTF8Pointer(appPath));
+  //while(1){}
+  
   naSetApplicationName("Bit Fiddle");
   //naSetApplicationCompanyName("ASuppaCombbany");
   naSetApplicationVersionString("1.4");
   naSetApplicationBuildString("1.4");
-  naSetApplicationIconPath("icon.png");
+  naSetApplicationResourcePath(naGetStringUTF8Pointer(appPath));
+  NAString* iconPath = naNewStringWithFormat("%s%cicon.png", naGetStringUTF8Pointer(appPath), NA_PATH_DELIMITER_WIN);
+  naSetApplicationIconPath(naGetStringUTF8Pointer(iconPath));
+
+  naDelete(iconPath);
+  naDelete(appPath);
 
   mandInitManderApp();
   bitStartApplication();
@@ -58,11 +86,6 @@ void poststartup(void* arg){
 #endif
 
   naStartRuntime();
-
-  //NAString* cwd = naNewStringWithCurWorkingDirectory();
-  //printf("%s\n", naGetStringUTF8Pointer(cwd));
-  //naDelete(cwd);
-
   naStartApplication(prestartup, poststartup, NA_NULL);
   naStopRuntime();
 
