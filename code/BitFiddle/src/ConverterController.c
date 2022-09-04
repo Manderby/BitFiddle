@@ -467,47 +467,46 @@ BitConverterController* bitCreateConverterController(void){
   
   // /////////////////////
 
-  NASpace* settingspace = naNewSpace(naMakeSize(110., (double)yspaceheight));
-  naSetSpaceAlternateBackground(settingspace, alternateblock % 2);
+  NASpace* settingSpace = naNewSpace(naMakeSize(110., (double)yspaceheight));
+  naSetSpaceAlternateBackground(settingSpace, alternateblock % 2);
   alternateblock++;
 
   con->unsignedOption = naNewTextButton("U", 24., NA_BUTTON_STATEFUL | NA_BUTTON_BORDERED);
   naAddUIReaction(con->unsignedOption, NA_UI_COMMAND_PRESSED, switchComplement, con);
-  naAddSpaceChild(settingspace, con->unsignedOption, naMakePos(13., (double)yposinput));
+  naAddSpaceChild(settingSpace, con->unsignedOption, naMakePos(13., (double)yposinput));
 
   con->onesOption = naNewTextButton("1", 24., NA_BUTTON_STATEFUL | NA_BUTTON_BORDERED);
   naAddUIReaction(con->onesOption, NA_UI_COMMAND_PRESSED, switchComplement, con);
-  naAddSpaceChild(settingspace, con->onesOption, naMakePos(43., (double)yposinput));
+  naAddSpaceChild(settingSpace, con->onesOption, naMakePos(43., (double)yposinput));
 
   con->twosOption = naNewTextButton("2", 24., NA_BUTTON_STATEFUL | NA_BUTTON_BORDERED);
   naAddUIReaction(con->twosOption, NA_UI_COMMAND_PRESSED, switchComplement, con);
-  naAddSpaceChild(settingspace, con->twosOption, naMakePos(73., (double)yposinput));
+  naAddSpaceChild(settingSpace, con->twosOption, naMakePos(73., (double)yposinput));
 
   con->endiannessCheckBox = naNewCheckBox(bitTranslate(BitFiddleConversionByteSwap), 90);
   naAddUIReaction(con->endiannessCheckBox, NA_UI_COMMAND_PRESSED, bitSwitchAppEndianness, bitGetApplication());
   #if NA_OS == NA_OS_WINDOWS
-    naAddSpaceChild(settingspace, con->endiannessCheckBox, naMakePos(15., (double)ypos8));
+    naAddSpaceChild(settingSpace, con->endiannessCheckBox, naMakePos(15., (double)ypos8));
   #else
-    naAddSpaceChild(settingspace, con->endiannessCheckBox, naMakePos(10., (double)ypos8));
+    naAddSpaceChild(settingSpace, con->endiannessCheckBox, naMakePos(10., (double)ypos8));
   #endif
 
   NAUIImage* helpuiimage = bitGetImageAsset(BIT_IMAGE_ASSET_HELP_BUTTON);
-  con->helpButton = naNewTextButton("H", 20., NA_BUTTON_PUSH | NA_BUTTON_BORDERLESS);
-//  con->helpButton = naNewImageButton(helpuiimage, naMakeSize(20., 20.), NA_BUTTON_PUSH | NA_BUTTON_BORDERLESS);
+  con->helpButton = naNewImageButton(helpuiimage, naMakeSize(20., 20.), NA_BUTTON_PUSH | NA_BUTTON_BORDERLESS);
   naAddUIReaction(con->helpButton, NA_UI_COMMAND_PRESSED, buttonPressed, con);
-  naAddSpaceChild(settingspace, con->helpButton, naMakePos(13., 10.));
+  naAddSpaceChild(settingSpace, con->helpButton, naMakePos(13., 10.));
 
   NAUIImage* prefuiimage = bitGetImageAsset(BIT_IMAGE_ASSET_PREFS_BUTTON);
   con->preferencesButton = naNewImageButton(prefuiimage, naMakeSize(20., 20.), NA_BUTTON_PUSH | NA_BUTTON_BORDERLESS);
   naAddUIReaction(con->preferencesButton, NA_UI_COMMAND_PRESSED, buttonPressed, con);
-  naAddSpaceChild(settingspace, con->preferencesButton, naMakePos(43., 10.));
+  naAddSpaceChild(settingSpace, con->preferencesButton, naMakePos(43., 10.));
 
   NAUIImage* ascuiimage = bitGetImageAsset(BIT_IMAGE_ASSET_ASCII_BUTTON);
   con->asciiButton = naNewImageButton(ascuiimage, naMakeSize(20., 20.), NA_BUTTON_PUSH | NA_BUTTON_BORDERLESS);
   naAddUIReaction(con->asciiButton, NA_UI_COMMAND_PRESSED, buttonPressed, con);
-  naAddSpaceChild(settingspace, con->asciiButton, naMakePos(73., 10.));
+  naAddSpaceChild(settingSpace, con->asciiButton, naMakePos(73., 10.));
 
-  naAddSpaceChild(space, settingspace, naMakePos(offsetx, 0.));
+  naAddSpaceChild(space, settingSpace, naMakePos(offsetx, 0.));
   offsetx += 110;
 
   // ////////////////
@@ -682,6 +681,7 @@ BitConverterController* bitCreateConverterController(void){
 
 
 void bitClearConverterController(BitConverterController* con){
+  naDelete(con->window);
   naRelease(con->bitarray);
   naFree(con);
 }

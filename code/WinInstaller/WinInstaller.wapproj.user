@@ -4,7 +4,7 @@
     <UapAppxPackageBuildMode>SideloadOnly</UapAppxPackageBuildMode>
     <AppxShowAllApps>False</AppxShowAllApps>
     <AppxBuildConfigurationSelection>x86|x64</AppxBuildConfigurationSelection>
-    <PackageOptionalProjectsInIdeBuilds>True</PackageOptionalProjectsInIdeBuilds>
+    <PackageOptionalProjectsInIdeBuilds>False</PackageOptionalProjectsInIdeBuilds>
     <ShowAllFiles>false</ShowAllFiles>
     <Source>C:\Users\Tobias Stamm\Desktop\programme\BitFiddle\code\BitFiddle\res\win\icon.png</Source>
     <SmallTileSource>C:\Users\Tobias Stamm\Desktop\programme\BitFiddle\code\BitFiddle\res\win\icon.png</SmallTileSource>
