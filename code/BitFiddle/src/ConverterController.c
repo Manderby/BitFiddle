@@ -492,14 +492,9 @@ BitConverterController* bitCreateConverterController(void){
     naAddSpaceChild(settingSpace, con->endiannessCheckBox, naMakePos(10., (double)ypos8));
   #endif
 
-<<<<<<< HEAD
   NAUIImage* helpUIImage = bitGetImageAsset(BIT_IMAGE_ASSET_HELP_BUTTON);
   con->helpButton = naNewTextButton("H", 20., NA_BUTTON_PUSH | NA_BUTTON_BORDERLESS);
   con->helpButton = naNewImageButton(helpUIImage, naMakeSize(20., 20.), NA_BUTTON_PUSH | NA_BUTTON_BORDERLESS);
-=======
-  NAUIImage* helpuiimage = bitGetImageAsset(BIT_IMAGE_ASSET_HELP_BUTTON);
-  con->helpButton = naNewImageButton(helpuiimage, naMakeSize(20., 20.), NA_BUTTON_PUSH | NA_BUTTON_BORDERLESS);
->>>>>>> d417ae11ddf22771c1bc139921afcfceb95cb62b
   naAddUIReaction(con->helpButton, NA_UI_COMMAND_PRESSED, buttonPressed, con);
   naAddSpaceChild(settingSpace, con->helpButton, naMakePos(13., 10.));
 

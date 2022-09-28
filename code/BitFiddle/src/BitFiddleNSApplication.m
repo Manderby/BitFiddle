@@ -79,7 +79,7 @@ void poststartup(void* arg){
   mandCreateUI();
   mandSetAboutWindowStorageTag(BIT_WINDOW_TAG_ABOUT);
 
-  naLoadNib("MainMenu");
+  naLoadNib("MainMenu", NA_NULL);
   bitCreateUI();
 }
 
