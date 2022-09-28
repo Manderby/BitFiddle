@@ -1,6 +1,6 @@
 
 #include "ASCIIController.h"
-#include "NAString.h"
+#include "NAUtility/NAString.h"
 #include "BitFiddleTranslations.h"
 #include "BitFiddlePreferences.h"
 #include "BitFiddleApplication.h"
@@ -210,12 +210,12 @@ void redrawASCIIController(BitASCIIController* con){
 
 
 
-NAInt getUISpaceIndex(BitASCIIController* con, NASpace* space){
+NAInt getUISpaceIndex(BitASCIIController* con, const NASpace* space){
   NAInt itemIndex;
   for(itemIndex = 0; itemIndex < 128; itemIndex++){
     if(con->spaces[itemIndex] == space){break;}
   }
-  #ifndef NDEBUG
+  #if NA_DEBUG
     if(itemIndex == 128)
       naError("Hovered element not recognized");
   #endif
@@ -271,7 +271,7 @@ NABool switchASCIIDisplayMode(NAReaction reaction){
     con->useHex = NA_FALSE;
     naSetPreferencesBool(BitPrefs[UseASCIIHex], NA_FALSE);
   }else{
-    #ifndef NDEBUG
+    #if NA_DEBUG
       naError("Unknown uiElement sent message");
     #endif
   }
@@ -310,17 +310,21 @@ BitASCIIController* bitCreateASCIIController(void){
       naAddUIReaction(con->spaces[curindex], NA_UI_COMMAND_MOUSE_ENTERED, hoverItem, con);
       naAddUIReaction(con->spaces[curindex], NA_UI_COMMAND_MOUSE_EXITED, unhoverItem, con);
 
+      NAFont* monoFont = naCreateFontWithPreset(NA_FONT_KIND_MONOSPACE, NA_FONT_SIZE_DEFAULT);
+
       con->labels[curindex] = naNewLabel("", 32);
-      naSetLabelFontKind(con->labels[curindex], NA_FONT_KIND_MONOSPACE, NA_FONT_SIZE_DEFAULT);
+      naSetLabelFont(con->labels[curindex], monoFont);
       naSetLabelTextAlignment(con->labels[curindex], NA_TEXT_ALIGNMENT_RIGHT);
       naSetLabelEnabled(con->labels[curindex], NA_FALSE);
       naAddSpaceChild(con->spaces[curindex], con->labels[curindex], naMakePos(0, 0));
 
       con->chars[curindex] = naNewLabel("", 50);
-      naSetLabelFontKind(con->chars[curindex], NA_FONT_KIND_MONOSPACE, NA_FONT_SIZE_DEFAULT);
+      naSetLabelFont(con->chars[curindex], monoFont);
       naSetLabelTextAlignment(con->chars[curindex], NA_TEXT_ALIGNMENT_CENTER);
       naAddSpaceChild(con->spaces[curindex], con->chars[curindex], naMakePos(37, 0));
       
+      naRelease(monoFont);
+
       naAddSpaceChild(columnspace, con->spaces[curindex], naMakePos(5., (15. - y) * 22. + 5.));
       curindex++;
     }

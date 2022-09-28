@@ -1,7 +1,7 @@
 
-#include "NABinaryData.h"
-#include "NAString.h"
-#include "NABuffer.h"
+#include "NAUtility/NABinaryData.h"
+#include "NAUtility/NAString.h"
+#include "NAStruct/NABuffer.h"
 #include "BitArray.h"
 
 
@@ -48,12 +48,12 @@
 
 NA_HIDEF NAInt naGetNullTerminationBytesize(NAInt bytesize){
   NAInt returnbytesize;
-  #ifndef NDEBUG
+  #if NA_DEBUG
     if((bytesize >= NA_ZERO))
       naError("size is not negative");
   #endif
   returnbytesize = (-bytesize - NA_ONE) + (NA_ADDRESS_BYTES << 1) - ((-bytesize - NA_ONE) % NA_ADDRESS_BYTES);
-  #ifndef NDEBUG
+  #if NA_DEBUG
     if(returnbytesize < NA_ZERO)
       naError("given negative size is too close to the minimal integer value");
   #endif
@@ -76,7 +76,7 @@ void* naBitFiddleMalloc(NAInt bytesize){
 
 
 NABuffer* naCreateBitArrayWithCount(NAInt count){
-  NABuffer* bitarray = naNewBuffer(NA_FALSE);
+  NABuffer* bitarray = naCreateBuffer(NA_FALSE);
   naCacheBufferRange(bitarray, naMakeRangei(0, count));
   return bitarray;
 }
@@ -87,14 +87,14 @@ NABuffer* naCreateBitArrayCopyWithFixedSize(NABuffer* srcarray, NAInt size){
   NABuffer* bitarray;
   NARangei range = naGetBufferRange(srcarray);
   if(size < 0){
-    bitarray = naNewBufferCopy(srcarray, range, NA_FALSE);
+    bitarray = naCreateBufferCopy(srcarray, range, NA_FALSE);
     naPadBitArray(bitarray, -size);
   }else{
     if(range.length < size){
-      bitarray = naNewBufferCopy(srcarray, range, NA_FALSE);
+      bitarray = naCreateBufferCopy(srcarray, range, NA_FALSE);
       naPadBitArray(bitarray, size);
     }else{
-      bitarray = naNewBufferCopy(srcarray, naMakeRangei(0, size), NA_FALSE);
+      bitarray = naCreateBufferCopy(srcarray, naMakeRangei(0, size), NA_FALSE);
     }
   }
   return bitarray;
@@ -121,11 +121,11 @@ void naPadBitArray(NABuffer* bitarray, NAInt padsize){
 //  NABit trailbit;
 //  NAInt srccount;
 //
-//  #ifndef NDEBUG
+//  #if NA_DEBUG
 //    if(!srcarray)
 //      naError("naInitBitArrayShiftExtension", "srcarray is Null-Pointer");
 //  #endif
-//  if(!size){return naNewBuffer();}
+//  if(!size){return naCreateBuffer();}
 //  if(size < 0){/*arithmetic = NA_TRUE; */size = -size;}
 //  dstarray = naCreateBitArrayWithCount(size);
 //  dstptr = naGetBufferByteAtIndex(dstarray, 0);
@@ -205,7 +205,7 @@ NABuffer* naCreateBitArrayWithBinString(NAString* string){
   NABufferIterator iterout;
   NABit curbit;
 
-  bitarray = naNewBuffer(NA_FALSE);
+  bitarray = naCreateBuffer(NA_FALSE);
   naCacheBufferRange(naGetStringBufferMutable(string), naGetBufferRange(naGetStringBufferMutable(string)));
   iterin = naMakeBufferAccessor(naGetStringBufferMutable(string));
   na_PrepareBuffer(&iterin, (size_t)naGetBufferRange(naGetStringBufferMutable(string)).length);
@@ -240,7 +240,7 @@ NABuffer* naCreateBitArrayWithDecString(NAString* string){
   NABufferIterator iterin;
   NABufferIterator iterdigit;
 
-  bitarray = naNewBuffer(NA_FALSE);
+  bitarray = naCreateBuffer(NA_FALSE);
   
   iterin = naMakeBufferAccessor(naGetStringBufferMutable(string));
   while(naIterateBuffer(&iterin, 1)){
@@ -248,7 +248,7 @@ NABuffer* naCreateBitArrayWithDecString(NAString* string){
     if((curchar < '0') || (curchar > '9')){continue;}
     curchar -= '0';
 
-    digit = naNewBuffer(NA_FALSE);
+    digit = naCreateBuffer(NA_FALSE);
     iterdigit = naMakeBufferModifier(digit);
     naWriteBufferu8(&iterdigit, (curchar & 0x01) == 0x01);
     naWriteBufferu8(&iterdigit, (curchar & 0x02) == 0x02);
@@ -274,7 +274,7 @@ NABuffer* naCreateBitArrayWithHexString(NAString* string){
   NABufferIterator iterin;
   NABufferIterator iterout;
 
-  bitarray = naNewBuffer(NA_FALSE);
+  bitarray = naCreateBuffer(NA_FALSE);
   naCacheBufferRange(naGetStringBufferMutable(string), naGetBufferRange(naGetStringBufferMutable(string)));
   iterin = naMakeBufferAccessor(naGetStringBufferMutable(string));
   na_PrepareBuffer(&iterin, (size_t)naGetBufferRange(naGetStringBufferMutable(string)).length);
@@ -310,7 +310,7 @@ NABuffer* naCreateBitArrayWithAscString(NAString* string){
   NABufferIterator iterin;
   NABufferIterator iterout;
 
-  bitarray = naNewBuffer(NA_FALSE);
+  bitarray = naCreateBuffer(NA_FALSE);
   naCacheBufferRange(naGetStringBufferMutable(string), naGetBufferRange(naGetStringBufferMutable(string)));
   iterin = naMakeBufferAccessor(naGetStringBufferMutable(string));
   na_PrepareBuffer(&iterin, (size_t)naGetBufferRange(naGetStringBufferMutable(string)).length);
@@ -362,7 +362,7 @@ NAString* naNewStringDecWithBitArray(const NABuffer* bitarray){
 
   outputlen = 0;
   finalstringcount = 0;
-  work = naNewBufferCopy(bitarray, naGetBufferRange(bitarray), NA_TRUE);
+  work = naCreateBufferCopy(bitarray, naGetBufferRange(bitarray), NA_TRUE);
 
   *charptr = ' ';
   charptr--;
@@ -606,7 +606,7 @@ NABuffer* naCreateBitArrayAddBitArray(NABuffer* srcarray1, NABuffer* srcarray2){
   NABit carry;  // Note that carry can be 0, 1, 2 or 3 during the computation
                 // but will be 0 or 1 in the end.
   
-  NABuffer* bitarray = naNewBuffer(NA_FALSE);
+  NABuffer* bitarray = naCreateBuffer(NA_FALSE);
   dstiter = naMakeBufferModifier(bitarray);
   srciter1 = naMakeBufferAccessor(srcarray1);
   srciter2 = naMakeBufferAccessor(srcarray2);
@@ -660,10 +660,10 @@ NABuffer* naCreateBitArrayAddBitArray(NABuffer* srcarray1, NABuffer* srcarray2){
 
 
 NABuffer* naCreateBitArrayMulTen(NABuffer* srcarray){
-  if(naIsBufferEmpty(srcarray)){return naNewBuffer(NA_FALSE);}
+  if(naIsBufferEmpty(srcarray)){return naCreateBuffer(NA_FALSE);}
   
-  NABuffer* bitarray = naNewBuffer(NA_FALSE);
-  NABuffer* bitarray2 = naNewBufferExtraction(srcarray, 2, naGetBufferRange(srcarray).length - 2);
+  NABuffer* bitarray = naCreateBuffer(NA_FALSE);
+  NABuffer* bitarray2 = naCreateBufferExtraction(srcarray, 2, naGetBufferRange(srcarray).length - 2);
   NABuffer* addbuffer = naCreateBitArrayAddBitArray(srcarray, bitarray2);
   
   NABufferIterator iter = naMakeBufferModifier(bitarray);
@@ -705,7 +705,7 @@ void naComputeBitArrayTwosComplement(NABuffer* bitarray){
 void naComputeBitArraySwapBytes(NABuffer* bitarray){
   NABufferIterator iter1;
   NABufferIterator iter2;
-  #ifndef NDEBUG
+  #if NA_DEBUG
     if(naGetBufferRange(bitarray).length % 8)
       naError("size of bitarray can not be divided by 8.");
   #endif

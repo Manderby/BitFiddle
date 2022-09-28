@@ -6,6 +6,10 @@
 *xcworkspace*
 *.pbxuser
 *.mode2v3
+*Debug/
+*Release/
+*obj/
 CONERR*
 build/
 bin/
+AppPackages/

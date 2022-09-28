@@ -45,7 +45,7 @@ NABool switchPreferencesSetting(NAReaction reaction){
     naSetPreferencesBool(BitPrefs[ShowAsc], state);
     bitRecreateConverterController();
   }else{
-    #ifndef NDEBUG
+    #if NA_DEBUG
       naError("Unknown uiElement sent message");
     #endif
   }

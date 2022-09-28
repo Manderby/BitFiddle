@@ -31,7 +31,7 @@ BitApplication* bitApp = NA_NULL;
 NAUIImage* loadImageAsset(const NAUTF8Char* dir, const NAUTF8Char* basename, const NAUTF8Char* suffix){
   NAString* imagePath = naNewApplicationResourcePath(dir, basename, suffix);
   NABabyImage* babyImage = naCreateBabyImageFromFilePath(naGetStringUTF8Pointer(imagePath));
-  NAUIImage* uiimage = naNewUIImage(babyImage, NA_NULL, NA_UIIMAGE_RESOLUTION_2x, NA_BLEND_BLACK_GREEN);
+  NAUIImage* uiimage = naCreateUIImage(babyImage, NA_NULL, NA_UIIMAGE_RESOLUTION_2x, NA_BLEND_BLACK_GREEN);
   naReleaseBabyImage(babyImage);
   naDelete(imagePath);
   return uiimage;
@@ -181,7 +181,7 @@ NABool bitSwitchConversionType(NAReaction reaction){
   case NA_KEYCODE_1: bitSetConversionType(COMPUTE_ONES_COMPLEMENT); break;
   case NA_KEYCODE_2: bitSetConversionType(COMPUTE_TWOS_COMPLEMENT); break;
   default:
-    #ifndef NDEBUG
+    #if NA_DEBUG
       naError("Undefined keyCode");
     #endif
     break;
