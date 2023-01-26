@@ -64,6 +64,7 @@
     <HoursBetweenUpdateChecks>720</HoursBetweenUpdateChecks>
     <AppInstallerUri>https://manderc.com/apps/bitfiddle/000000000_downloads/Bit_Fiddle_1_5.msix</AppInstallerUri>
     <EntryPointProjectUniqueName>..\BitFiddle\BitFiddle.vcxproj</EntryPointProjectUniqueName>
+    <GenerateTemporaryStoreCertificate>True</GenerateTemporaryStoreCertificate>
   </PropertyGroup>
   <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Release|ARM64'">
     <AppxBundle>Always</AppxBundle>
@@ -156,6 +157,7 @@
     <Content Include="BitFiddle\icon.png" />
     <Content Include="BitFiddle\prefs.png" />
     <Content Include="Images\Wide310x150Logo.scale-400.png" />
+    <None Include="Package.StoreAssociation.xml" />
     <None Include="WinInstaller_TemporaryKey.pfx" />
   </ItemGroup>
   <Import Project="$(WapProjPath)\Microsoft.DesktopBridge.targets" />

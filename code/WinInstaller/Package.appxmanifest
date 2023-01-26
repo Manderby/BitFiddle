@@ -7,8 +7,8 @@
   IgnorableNamespaces="uap rescap">
 
   <Identity
-    Name="dfea8faf-6982-4f22-9abd-4ddbea3a3cdf"
-    Publisher="CN=Tobias Stamm"
+    Name="57837TobiasStamm.BitFiddle"
+    Publisher="CN=2CD9127F-1744-474C-A2F6-BF5825CC72FC"
     Version="1.5.0.0" />
 
   <Properties>
