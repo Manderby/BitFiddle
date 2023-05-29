@@ -332,19 +332,19 @@ BitASCIIController* bitCreateASCIIController(void){
     naAddSpaceChild(space, columnspace, naMakePos(x * 97., 64.));
   }
   
-  con->codeRadio = naNewRadio("Code", 64);
+  con->codeRadio = naNewRadio("Code", 70);
   naAddUIReaction(con->codeRadio, NA_UI_COMMAND_PRESSED, switchASCIIDisplayMode, con);
   naAddSpaceChild(space, con->codeRadio, naMakePos(15, 10));
 
-  con->escapeRadio = naNewRadio("Escape", 64);
+  con->escapeRadio = naNewRadio("Escape", 70);
   naAddUIReaction(con->escapeRadio, NA_UI_COMMAND_PRESSED, switchASCIIDisplayMode, con);
   naAddSpaceChild(space, con->escapeRadio, naMakePos(15, 32));
 
-  con->hexRadio = naNewRadio("Hex", 64);
+  con->hexRadio = naNewRadio("Hex", 70);
   naAddUIReaction(con->hexRadio, NA_UI_COMMAND_PRESSED, switchASCIIDisplayMode, con);
   naAddSpaceChild(space, con->hexRadio, naMakePos(112, 10));
 
-  con->decRadio = naNewRadio("Dec", 64);
+  con->decRadio = naNewRadio("Dec", 70);
   naAddUIReaction(con->decRadio, NA_UI_COMMAND_PRESSED, switchASCIIDisplayMode, con);
   naAddSpaceChild(space, con->decRadio, naMakePos(112, 32));
   
