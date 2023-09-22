@@ -111,7 +111,7 @@ BitPreferencesController* bitCreatePreferencesController(){
   naSetCheckBoxState(con->showAscCheckBox, naGetPreferencesBool(BitPrefs[ShowAsc]));
   naAddSpaceChild(space, con->showAscCheckBox, naMakePos(130., 52.));
 
-  con->doneButton = naNewTextButton(bitTranslate(BitFiddlePrefsDone), 80, 0);
+  con->doneButton = naNewTextPushButton(bitTranslate(BitFiddlePrefsDone), 80);
   naAddUIReaction(con->doneButton, NA_UI_COMMAND_PRESSED, pressDone, con);
   naAddSpaceChild(space, con->doneButton, naMakePos(160., 20.));
 
