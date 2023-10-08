@@ -96,7 +96,9 @@ void bitCreateUI(){
 
 
 
-void bitStopApplication(){
+void bitStopApplication(void* data){
+  NA_UNUSED(data);
+  
   bitClearConverterController(bitApp->converterController);
   bitClearASCIIController(bitApp->asciiController);
   bitClearPreferencesController(bitApp->preferencesController);
@@ -106,7 +108,6 @@ void bitStopApplication(){
   naRelease(bitApp->imageAssets[BIT_IMAGE_ASSET_ASCII_BUTTON]);
   
   naFree(bitApp);
-  naStopApplication();
 }
 
 

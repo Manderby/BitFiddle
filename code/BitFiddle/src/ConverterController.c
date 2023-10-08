@@ -8,7 +8,7 @@
 #include "BitFiddlePreferences.h"
 
 struct BitConverterController{
-  NABuffer* bitarray;
+  NABuffer* bitArray;
   NAWindow* window;
 
   NAButton* unsignedOption;
@@ -61,9 +61,9 @@ NABool valueChangeDec(NAReaction reaction){
   if(con->inputbin){naSetTextFieldText(con->inputbin, "");}
   if(con->inputasc){naSetTextFieldText(con->inputasc, "");}
 
-  naRelease(con->bitarray);
+  naRelease(con->bitArray);
   NAString* instring = naNewStringWithTextFieldText(reaction.uiElement);
-  con->bitarray = naCreateBitArrayWithDecString(instring);
+  con->bitArray = naCreateBitArrayWithDecString(instring);
   naDelete(instring);
 
   bitUpdateConverterController(con);
@@ -79,9 +79,9 @@ NABool valueChangeHex(NAReaction reaction){
   if(con->inputbin){naSetTextFieldText(con->inputbin, "");}
   if(con->inputasc){naSetTextFieldText(con->inputasc, "");}
 
-  naRelease(con->bitarray);
+  naRelease(con->bitArray);
   NAString* instring = naNewStringWithTextFieldText(reaction.uiElement);
-  con->bitarray = naCreateBitArrayWithHexString(instring);
+  con->bitArray = naCreateBitArrayWithHexString(instring);
   naDelete(instring);
 
   bitUpdateConverterController(con);
@@ -97,9 +97,9 @@ NABool valueChangeBin(NAReaction reaction){
   naSetTextFieldText(con->inputhex, "");
   if(con->inputasc){naSetTextFieldText(con->inputasc, "");}
 
-  naRelease(con->bitarray);
+  naRelease(con->bitArray);
   NAString* instring = naNewStringWithTextFieldText(reaction.uiElement);
-  con->bitarray = naCreateBitArrayWithBinString(instring);
+  con->bitArray = naCreateBitArrayWithBinString(instring);
   naDelete(instring);
 
   bitUpdateConverterController(con);
@@ -115,9 +115,9 @@ NABool valueChangeAsc(NAReaction reaction){
   naSetTextFieldText(con->inputhex, "");
   if(con->inputbin){naSetTextFieldText(con->inputbin, "");}
 
-  naRelease(con->bitarray);
+  naRelease(con->bitArray);
   NAString* instring = naNewStringWithTextFieldText(reaction.uiElement);
-  con->bitarray = naCreateBitArrayWithAscString(instring);
+  con->bitArray = naCreateBitArrayWithAscString(instring);
   naDelete(instring);
 
   bitUpdateConverterController(con);
@@ -131,8 +131,8 @@ void resetComplementValues(BitConverterController* con){
   if(con->inputbin){naSetTextFieldText(con->inputbin, "");}
   if(con->inputasc){naSetTextFieldText(con->inputasc, "");}
 
-  naRelease(con->bitarray);
-  con->bitarray = naCreateBuffer(NA_FALSE);
+  naRelease(con->bitArray);
+  con->bitArray = naCreateBuffer(NA_FALSE);
 
   bitUpdateConverterController(con);
 }
@@ -141,10 +141,9 @@ void resetComplementValues(BitConverterController* con){
 
 NABool closeConverterWindow(NAReaction reaction){
   BitConverterController* con = reaction.controller;
-  naRelease(con->bitarray);
+  naRelease(con->bitArray);
   naStopApplication();
   return NA_TRUE;
-  // todo: when set to na_true, sometimes, it crashes.
 }
 
 
@@ -235,36 +234,36 @@ typedef enum{
 
 
 
-void fillOutputFieldWithBitArray(void* outputField, NumberSystem numbersystem, NABuffer* bitarray, NABool withDecSign){
+void fillOutputFieldWithBitArray(void* outputField, NumberSystem numbersystem, NABuffer* bitArray, NABool withDecSign){
   NAString* outstring;
   if(!outputField){return;}
   
   switch(numbersystem){
   case NUMBER_SYSTEM_DEC:
-    if(bitarray && naGetBufferRange(bitarray).length && withDecSign && naGetBufferByteAtIndex(bitarray, (size_t)naGetRangeiMax(naGetBufferRange(bitarray)))){
-      NABuffer* twocomp = naCreateBufferCopy(bitarray, naGetBufferRange(bitarray), NA_FALSE);
+    if(bitArray && naGetBufferRange(bitArray).length && withDecSign && naGetBufferByteAtIndex(bitArray, (size_t)naGetRangeiMax(naGetBufferRange(bitArray)))){
+      NABuffer* twocomp = naCreateBufferCopy(bitArray, naGetBufferRange(bitArray), NA_FALSE);
       naComputeBitArrayTwosComplement(twocomp);
       outstring = naNewStringDecWithBitArray(twocomp);
       naRelease(twocomp);
     }else{
       withDecSign = NA_FALSE;
-      outstring = naNewStringDecWithBitArray(bitarray);
+      outstring = naNewStringDecWithBitArray(bitArray);
     }
     break;
   case NUMBER_SYSTEM_HEX:
-    outstring = naNewStringHexWithBitArray(bitarray);
+    outstring = naNewStringHexWithBitArray(bitArray);
     break;
   case NUMBER_SYSTEM_BIN:
-    outstring = naNewStringBinWithBitArray(bitarray);
+    outstring = naNewStringBinWithBitArray(bitArray);
     break;
   case NUMBER_SYSTEM_ASC:
-    outstring = naNewStringAscWithBitArray(bitarray);
+    outstring = naNewStringAscWithBitArray(bitArray);
     break;
   default:
     #if NA_DEBUG
       naError("Invalid number system");
     #endif
-    outstring = naNewStringHexWithBitArray(bitarray);
+    outstring = naNewStringHexWithBitArray(bitArray);
     break;
   }
   if(naGetUIElementType(outputField) == NA_UI_LABEL){
@@ -278,111 +277,117 @@ void fillOutputFieldWithBitArray(void* outputField, NumberSystem numbersystem, N
 
 
 void bitUpdateConverterController(BitConverterController* con){
-  NABuffer* bitarray8;
-  NABuffer* bitarray16;
-  NABuffer* bitarray32;
-  NABuffer* bitarray64;
-  NABuffer* bitarrayn;
+  NABuffer* bitArray8;
+  NABuffer* bitArray16;
+  NABuffer* bitArray32;
+  NABuffer* bitArray64;
+  NABuffer* bitArrayn;
 
-  bitarray8  = naCreateBitArrayCopyWithFixedSize(con->bitarray, 8);
-  bitarray16 = naCreateBitArrayCopyWithFixedSize(con->bitarray, 16);
-  bitarray32 = naCreateBitArrayCopyWithFixedSize(con->bitarray, 32);
-  bitarray64 = naCreateBitArrayCopyWithFixedSize(con->bitarray, 64);
-  bitarrayn  = naCreateBitArrayCopyWithFixedSize(con->bitarray, -8);
-  
-  NABool byteswap = bitGetEndiannessSwap();
-  naSetCheckBoxState(con->endiannessCheckBox, byteswap);
-  const NAUTF8Char* stringbyteswap = NA_NULL;
-  if(byteswap){
-    stringbyteswap = bitTranslate(BitFiddleConversionByteSwap);
-    naComputeBitArraySwapBytes(bitarray8);
-    naComputeBitArraySwapBytes(bitarray16);
-    naComputeBitArraySwapBytes(bitarray32);
-    naComputeBitArraySwapBytes(bitarray64);
-    naComputeBitArraySwapBytes(bitarrayn);
+  if(naIsBufferEmpty(con->bitArray))
+  {
+    naRelease(con->bitArray);
+    con->bitArray = naCreateBufferWithConstData("\0", 1);
   }
 
-  ConversionType conversiontype = bitGetConversionType();
-  naSetButtonState(con->unsignedOption, conversiontype == COMPUTE_UNSIGNED);
-  naSetButtonState(con->onesOption, conversiontype == COMPUTE_ONES_COMPLEMENT);
-  naSetButtonState(con->twosOption, conversiontype == COMPUTE_TWOS_COMPLEMENT);
+  bitArray8  = naCreateBitArrayCopyWithFixedSize(con->bitArray, 8);
+  bitArray16 = naCreateBitArrayCopyWithFixedSize(con->bitArray, 16);
+  bitArray32 = naCreateBitArrayCopyWithFixedSize(con->bitArray, 32);
+  bitArray64 = naCreateBitArrayCopyWithFixedSize(con->bitArray, 64);
+  bitArrayn  = naCreateBitArrayCopyWithFixedSize(con->bitArray, -8);
   
-  const NAUTF8Char* stringconversion = NA_NULL;
-  switch(conversiontype){
+  NABool byteSwap = bitGetEndiannessSwap();
+  naSetCheckBoxState(con->endiannessCheckBox, byteSwap);
+  const NAUTF8Char* stringByteSwap = NA_NULL;
+  if(byteSwap){
+    stringByteSwap = bitTranslate(BitFiddleConversionByteSwap);
+    naComputeBitArraySwapBytes(bitArray8);
+    naComputeBitArraySwapBytes(bitArray16);
+    naComputeBitArraySwapBytes(bitArray32);
+    naComputeBitArraySwapBytes(bitArray64);
+    naComputeBitArraySwapBytes(bitArrayn);
+  }
+
+  ConversionType conversionType = bitGetConversionType();
+  naSetButtonState(con->unsignedOption, conversionType == COMPUTE_UNSIGNED);
+  naSetButtonState(con->onesOption, conversionType == COMPUTE_ONES_COMPLEMENT);
+  naSetButtonState(con->twosOption, conversionType == COMPUTE_TWOS_COMPLEMENT);
+  
+  const NAUTF8Char* stringConversion = NA_NULL;
+  switch(conversionType){
   case COMPUTE_UNSIGNED:
-    stringconversion = bitTranslate(BitFiddleConversionUnsigned);
+    stringConversion = bitTranslate(BitFiddleConversionUnsigned);
     break;
   case COMPUTE_ONES_COMPLEMENT:
-    stringconversion = bitTranslate(BitFiddleConversionOnesComp);
-    naComputeBitArrayOnesComplement(bitarray8);
-    naComputeBitArrayOnesComplement(bitarray16);
-    naComputeBitArrayOnesComplement(bitarray32);
-    naComputeBitArrayOnesComplement(bitarray64);
-    naComputeBitArrayOnesComplement(bitarrayn);
+    stringConversion = bitTranslate(BitFiddleConversionOnesComp);
+    naComputeBitArrayOnesComplement(bitArray8);
+    naComputeBitArrayOnesComplement(bitArray16);
+    naComputeBitArrayOnesComplement(bitArray32);
+    naComputeBitArrayOnesComplement(bitArray64);
+    naComputeBitArrayOnesComplement(bitArrayn);
     break;
   case COMPUTE_TWOS_COMPLEMENT:
-    stringconversion = bitTranslate(BitFiddleConversionTwosComp);
-    naComputeBitArrayTwosComplement(bitarray8);
-    naComputeBitArrayTwosComplement(bitarray16);
-    naComputeBitArrayTwosComplement(bitarray32);
-    naComputeBitArrayTwosComplement(bitarray64);
-    naComputeBitArrayTwosComplement(bitarrayn);
+    stringConversion = bitTranslate(BitFiddleConversionTwosComp);
+    naComputeBitArrayTwosComplement(bitArray8);
+    naComputeBitArrayTwosComplement(bitArray16);
+    naComputeBitArrayTwosComplement(bitArray32);
+    naComputeBitArrayTwosComplement(bitArray64);
+    naComputeBitArrayTwosComplement(bitArrayn);
     break;
   }
   
-  NAString* windowtitle;
-  if(stringbyteswap){
-    windowtitle = naNewStringWithFormat("BitFiddle     %s     %s", stringconversion, stringbyteswap);
-    naSetWindowTitle(con->window, naGetStringUTF8Pointer(windowtitle));
+  NAString* windowTitle;
+  if(stringByteSwap){
+    windowTitle = naNewStringWithFormat("BitFiddle     %s     %s", stringConversion, stringByteSwap);
+    naSetWindowTitle(con->window, naGetStringUTF8Pointer(windowTitle));
   }else{
-    windowtitle = naNewStringWithFormat("BitFiddle     %s", stringconversion);
-    naSetWindowTitle(con->window, naGetStringUTF8Pointer(windowtitle));
+    windowTitle = naNewStringWithFormat("BitFiddle     %s", stringConversion);
+    naSetWindowTitle(con->window, naGetStringUTF8Pointer(windowTitle));
   }
-  naDelete(windowtitle);
+  naDelete(windowTitle);
   
-  if(conversiontype == COMPUTE_ONES_COMPLEMENT){
+  if(conversionType == COMPUTE_ONES_COMPLEMENT){
     fillOutputFieldWithString(con->bit8dec,  NA_NULL, NA_FALSE);
     fillOutputFieldWithString(con->bit16dec, NA_NULL, NA_FALSE);
     fillOutputFieldWithString(con->bit32dec, NA_NULL, NA_FALSE);
     fillOutputTextBoxWithString(con->bit64dec, NA_NULL, NA_FALSE);
     fillOutputTextBoxWithString(con->bitndec,  NA_NULL, NA_FALSE);
-  }else if(conversiontype == COMPUTE_TWOS_COMPLEMENT){
-    fillOutputFieldWithBitArray(con->bit8dec,  NUMBER_SYSTEM_DEC, bitarray8,  NA_TRUE);
-    fillOutputFieldWithBitArray(con->bit16dec, NUMBER_SYSTEM_DEC, bitarray16, NA_TRUE);
-    fillOutputFieldWithBitArray(con->bit32dec, NUMBER_SYSTEM_DEC, bitarray32, NA_TRUE);
-    fillOutputFieldWithBitArray(con->bit64dec, NUMBER_SYSTEM_DEC, bitarray64, NA_TRUE);
-    fillOutputFieldWithBitArray(con->bitndec,  NUMBER_SYSTEM_DEC, bitarrayn,  NA_TRUE);
+  }else if(conversionType == COMPUTE_TWOS_COMPLEMENT){
+    fillOutputFieldWithBitArray(con->bit8dec,  NUMBER_SYSTEM_DEC, bitArray8,  NA_TRUE);
+    fillOutputFieldWithBitArray(con->bit16dec, NUMBER_SYSTEM_DEC, bitArray16, NA_TRUE);
+    fillOutputFieldWithBitArray(con->bit32dec, NUMBER_SYSTEM_DEC, bitArray32, NA_TRUE);
+    fillOutputFieldWithBitArray(con->bit64dec, NUMBER_SYSTEM_DEC, bitArray64, NA_TRUE);
+    fillOutputFieldWithBitArray(con->bitndec,  NUMBER_SYSTEM_DEC, bitArrayn,  NA_TRUE);
   }else{
-    fillOutputFieldWithBitArray(con->bit8dec,  NUMBER_SYSTEM_DEC, bitarray8,  NA_FALSE);
-    fillOutputFieldWithBitArray(con->bit16dec, NUMBER_SYSTEM_DEC, bitarray16, NA_FALSE);
-    fillOutputFieldWithBitArray(con->bit32dec, NUMBER_SYSTEM_DEC, bitarray32, NA_FALSE);
-    fillOutputFieldWithBitArray(con->bit64dec, NUMBER_SYSTEM_DEC, bitarray64, NA_FALSE);
-    fillOutputFieldWithBitArray(con->bitndec,  NUMBER_SYSTEM_DEC, bitarrayn,  NA_FALSE);
+    fillOutputFieldWithBitArray(con->bit8dec,  NUMBER_SYSTEM_DEC, bitArray8,  NA_FALSE);
+    fillOutputFieldWithBitArray(con->bit16dec, NUMBER_SYSTEM_DEC, bitArray16, NA_FALSE);
+    fillOutputFieldWithBitArray(con->bit32dec, NUMBER_SYSTEM_DEC, bitArray32, NA_FALSE);
+    fillOutputFieldWithBitArray(con->bit64dec, NUMBER_SYSTEM_DEC, bitArray64, NA_FALSE);
+    fillOutputFieldWithBitArray(con->bitndec,  NUMBER_SYSTEM_DEC, bitArrayn,  NA_FALSE);
   }
 
-  fillOutputFieldWithBitArray(con->bit8hex,  NUMBER_SYSTEM_HEX, bitarray8,  NA_FALSE);
-  fillOutputFieldWithBitArray(con->bit16hex, NUMBER_SYSTEM_HEX, bitarray16, NA_FALSE);
-  fillOutputFieldWithBitArray(con->bit32hex, NUMBER_SYSTEM_HEX, bitarray32, NA_FALSE);
-  fillOutputFieldWithBitArray(con->bit64hex, NUMBER_SYSTEM_HEX, bitarray64, NA_FALSE);
-  fillOutputFieldWithBitArray(con->bitnhex,  NUMBER_SYSTEM_HEX, bitarrayn,  NA_FALSE);
+  fillOutputFieldWithBitArray(con->bit8hex,  NUMBER_SYSTEM_HEX, bitArray8,  NA_FALSE);
+  fillOutputFieldWithBitArray(con->bit16hex, NUMBER_SYSTEM_HEX, bitArray16, NA_FALSE);
+  fillOutputFieldWithBitArray(con->bit32hex, NUMBER_SYSTEM_HEX, bitArray32, NA_FALSE);
+  fillOutputFieldWithBitArray(con->bit64hex, NUMBER_SYSTEM_HEX, bitArray64, NA_FALSE);
+  fillOutputFieldWithBitArray(con->bitnhex,  NUMBER_SYSTEM_HEX, bitArrayn,  NA_FALSE);
 
-  fillOutputFieldWithBitArray(con->bit8bin,  NUMBER_SYSTEM_BIN, bitarray8,  NA_FALSE);
-  fillOutputFieldWithBitArray(con->bit16bin, NUMBER_SYSTEM_BIN, bitarray16, NA_FALSE);
-  fillOutputFieldWithBitArray(con->bit32bin, NUMBER_SYSTEM_BIN, bitarray32, NA_FALSE);
-  fillOutputFieldWithBitArray(con->bit64bin, NUMBER_SYSTEM_BIN, bitarray64, NA_FALSE);
-  fillOutputFieldWithBitArray(con->bitnbin,  NUMBER_SYSTEM_BIN, bitarrayn,  NA_FALSE);
+  fillOutputFieldWithBitArray(con->bit8bin,  NUMBER_SYSTEM_BIN, bitArray8,  NA_FALSE);
+  fillOutputFieldWithBitArray(con->bit16bin, NUMBER_SYSTEM_BIN, bitArray16, NA_FALSE);
+  fillOutputFieldWithBitArray(con->bit32bin, NUMBER_SYSTEM_BIN, bitArray32, NA_FALSE);
+  fillOutputFieldWithBitArray(con->bit64bin, NUMBER_SYSTEM_BIN, bitArray64, NA_FALSE);
+  fillOutputFieldWithBitArray(con->bitnbin,  NUMBER_SYSTEM_BIN, bitArrayn,  NA_FALSE);
 
-  fillOutputFieldWithBitArray(con->bit8asc,  NUMBER_SYSTEM_ASC, bitarray8,  NA_FALSE);
-  fillOutputFieldWithBitArray(con->bit16asc, NUMBER_SYSTEM_ASC, bitarray16, NA_FALSE);
-  fillOutputFieldWithBitArray(con->bit32asc, NUMBER_SYSTEM_ASC, bitarray32, NA_FALSE);
-  fillOutputFieldWithBitArray(con->bit64asc, NUMBER_SYSTEM_ASC, bitarray64, NA_FALSE);
-  fillOutputFieldWithBitArray(con->bitnasc,  NUMBER_SYSTEM_ASC, bitarrayn,  NA_FALSE);
+  fillOutputFieldWithBitArray(con->bit8asc,  NUMBER_SYSTEM_ASC, bitArray8,  NA_FALSE);
+  fillOutputFieldWithBitArray(con->bit16asc, NUMBER_SYSTEM_ASC, bitArray16, NA_FALSE);
+  fillOutputFieldWithBitArray(con->bit32asc, NUMBER_SYSTEM_ASC, bitArray32, NA_FALSE);
+  fillOutputFieldWithBitArray(con->bit64asc, NUMBER_SYSTEM_ASC, bitArray64, NA_FALSE);
+  fillOutputFieldWithBitArray(con->bitnasc,  NUMBER_SYSTEM_ASC, bitArrayn,  NA_FALSE);
 
-  naClearBitArray(bitarray8);
-  naClearBitArray(bitarray16);
-  naClearBitArray(bitarray32);
-  naClearBitArray(bitarray64);
-  naClearBitArray(bitarrayn);
+  naClearBitArray(bitArray8);
+  naClearBitArray(bitArray16);
+  naClearBitArray(bitArray32);
+  naClearBitArray(bitArray64);
+  naClearBitArray(bitArrayn);
 }
 
 
@@ -443,7 +448,7 @@ BitConverterController* bitCreateConverterController(void){
   BitConverterController* con = naAlloc(BitConverterController);
   naZeron(con, sizeof(BitConverterController));
   
-  con->bitarray = naCreateBuffer(NA_FALSE);
+  con->bitArray = naCreateBuffer(NA_FALSE);
 
   NABool show16Bits = naGetPreferencesBool(BitPrefs[Show16Bits]);
   NABool showNBits = naGetPreferencesBool(BitPrefs[ShowNBits]);
@@ -683,7 +688,7 @@ BitConverterController* bitCreateConverterController(void){
 
 void bitClearConverterController(BitConverterController* con){
   naDelete(con->window);
-  naRelease(con->bitarray);
+  naRelease(con->bitArray);
   naFree(con);
 }
 

@@ -58,7 +58,7 @@ typedef uint32 NANibble;  // A nibble consists of 4 Bits. Here in NALib, they
 // - If count is positive, the bit storage has precisely the desired size.
 // - If count is negative, enough space will be allocated to hold the absolute
 //   number of count as bits. But the returned array will be empty to begin
-//   with. If you later perform manipulations on this bitarray which need more
+//   with. If you later perform manipulations on this bitArray which need more
 //   space, the previously allocated space will be used.
 //   Choose the negative count appropriate to the expected needs. If for
 //   example, you expect an add-operation upon the bit array, provide 1 Bit
@@ -79,7 +79,7 @@ NABuffer* naCreateBitArrayCopyWithFixedSize(NABuffer* srcarray, NAInt size);
 
 // Adds binary zero at the higher endian bits so that the total size of the
 // bit array is divisible by padsize.
-void naPadBitArray(NABuffer* bitarray, NAInt padsize);
+void naPadBitArray(NABuffer* bitArray, NAInt padsize);
 
 
 // Creates a new bit array out of a shift and/or extension of another bit array
@@ -133,16 +133,16 @@ NABuffer* naCreateBitArrayWithAscString(NAString* string);
 void naClearBitArray(NABuffer* array);
 
 
-// Creates string representations of the given bitarray as an integer number.
+// Creates string representations of the given bitArray as an integer number.
 //
 // Creates a byte array out of the given bit array. Every 8 bits are combined
 // into one single byte. The byte array is guaranteed to be null-terminated.
 // Careful: Only works properly when bitcount can be divided by 8! Use
 // naInitBitArrayShiftExtension first, if this is not the case.
-NAString* naNewStringDecWithBitArray(const NABuffer* bitarray);
-NAString* naNewStringHexWithBitArray(NABuffer* bitarray);
-NAString* naNewStringBinWithBitArray(NABuffer* bitarray);
-NAString* naNewStringAscWithBitArray(NABuffer* bitarray);
+NAString* naNewStringDecWithBitArray(const NABuffer* bitArray);
+NAString* naNewStringHexWithBitArray(NABuffer* bitArray);
+NAString* naNewStringBinWithBitArray(NABuffer* bitArray);
+NAString* naNewStringAscWithBitArray(NABuffer* bitArray);
 
 
 // //////////////////////////////////

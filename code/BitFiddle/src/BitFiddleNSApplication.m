@@ -34,14 +34,6 @@
 
 
 
-// This method is used to properly shut down the app and NALib runtime.
-- (void)applicationWillTerminate:(NSNotification *)notification{
-  NA_UNUSED(notification);
-  bitStopApplication();
-}
-
-
-
 // There are certain macOS specific menu items which should always be the same.
 // Use a standard XIP file, connect the appropriate IBOutlets to these actions
 // and all works fine. 
@@ -90,7 +82,11 @@ int main(int argc, char *argv[]){
   NA_UNUSED(argv);
   naStartRuntime();
     [BitFiddleNSApplication sharedApplication];
-    naStartApplication(prestartup, poststartup, NA_NULL);
+    naStartApplication(
+      prestartup,
+      poststartup,
+      bitStopApplication,
+      NA_NULL);
   naStopRuntime();
   return 0;
 }

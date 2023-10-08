@@ -72,18 +72,12 @@ void poststartup(void* arg){
 
 
 
-#if NA_OS == NA_OS_WINDOWS
-  int WINAPI WinMain(_In_ HINSTANCE hInstance, _In_opt_ HINSTANCE hPrevInstance, _In_ LPSTR lpCmdLine, _In_ int nShowCmd){
-    NA_UNUSED(hInstance);
-    NA_UNUSED(hPrevInstance);
-    NA_UNUSED(lpCmdLine);
-    NA_UNUSED(nShowCmd);
-    //naOpenConsoleWindow();
-#else
-  int main(int argc, char *argv[]){
-  NA_UNUSED(argc);
-  NA_UNUSED(argv);
-#endif
+int WINAPI WinMain(_In_ HINSTANCE hInstance, _In_opt_ HINSTANCE hPrevInstance, _In_ LPSTR lpCmdLine, _In_ int nShowCmd){
+  NA_UNUSED(hInstance);
+  NA_UNUSED(hPrevInstance);
+  NA_UNUSED(lpCmdLine);
+  NA_UNUSED(nShowCmd);
+  //naOpenConsoleWindow();
 
   naStartRuntime();
   naStartApplication(prestartup, poststartup, NA_NULL);

@@ -27,7 +27,7 @@ typedef enum{
 
 void bitStartApplication(void);
 void bitCreateUI(void);
-void bitStopApplication(void);
+void bitStopApplication(void* data);
 BitApplication* bitGetApplication(void);
 
 NAUIImage* bitGetImageAsset(BitImageAsset asset);
