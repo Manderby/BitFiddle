@@ -517,26 +517,26 @@ BitConverterController* bitCreateConverterController(void){
 
   // ////////////////
 
-  NASpace* bitcountspace = naNewSpace(naMakeSize(25, (double)yspaceheight));
-  naSetSpaceAlternateBackground(bitcountspace, alternateblock % 2);
+  NASpace* bitCountspace = naNewSpace(naMakeSize(25, (double)yspaceheight));
+  naSetSpaceAlternateBackground(bitCountspace, alternateblock % 2);
   alternateblock++;
 
   NALabel* bit8label = createBitLabelField("8", 25.);
-  naAddSpaceChild(bitcountspace, bit8label, naMakePos(0., (double)ypos8));
+  naAddSpaceChild(bitCountspace, bit8label, naMakePos(0., (double)ypos8));
   if(show16Bits){
     NALabel* bit16label = createBitLabelField("16", 25.);
-    naAddSpaceChild(bitcountspace, bit16label, naMakePos(0., (double)ypos16));
+    naAddSpaceChild(bitCountspace, bit16label, naMakePos(0., (double)ypos16));
   }
   NALabel* bit32label = createBitLabelField("32", 25.);
-  naAddSpaceChild(bitcountspace, bit32label, naMakePos(0., (double)ypos32));
+  naAddSpaceChild(bitCountspace, bit32label, naMakePos(0., (double)ypos32));
   NALabel* bit64label = createBitLabelField("64", 25.);
-  naAddSpaceChild(bitcountspace, bit64label, naMakePos(0., (double)ypos64));
+  naAddSpaceChild(bitCountspace, bit64label, naMakePos(0., (double)ypos64));
   if(showNBits){
     NALabel* bitnlabel = createBitLabelField("n", 25.);
-    naAddSpaceChild(bitcountspace, bitnlabel, naMakePos(0., (double)yposn));
+    naAddSpaceChild(bitCountspace, bitnlabel, naMakePos(0., (double)yposn));
   }
 
-  naAddSpaceChild(space, bitcountspace, naMakePos((double)offsetx, 0.));
+  naAddSpaceChild(space, bitCountspace, naMakePos((double)offsetx, 0.));
   offsetx += 25;
 
   // ////////////////

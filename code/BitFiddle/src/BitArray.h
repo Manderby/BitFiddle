@@ -137,7 +137,7 @@ void naClearBitArray(NABuffer* array);
 //
 // Creates a byte array out of the given bit array. Every 8 bits are combined
 // into one single byte. The byte array is guaranteed to be null-terminated.
-// Careful: Only works properly when bitcount can be divided by 8! Use
+// Careful: Only works properly when bitCount can be divided by 8! Use
 // naInitBitArrayShiftExtension first, if this is not the case.
 NAString* naNewStringDecWithBitArray(const NABuffer* bitArray);
 NAString* naNewStringHexWithBitArray(NABuffer* bitArray);
@@ -187,7 +187,7 @@ NABit naComputeBitArrayAddOne(NABuffer* array);
 void naComputeBitArrayOnesComplement(NABuffer* array);
 void naComputeBitArrayTwosComplement(NABuffer* array);
 
-// Swaps the byte order. Careful: Only works properly when bitcount can be
+// Swaps the byte order. Careful: Only works properly when bitCount can be
 // divided by 8! Use naInitBitArrayShiftExtension first, if this is not the case.
 void naComputeBitArraySwapBytes(NABuffer* array);
 
