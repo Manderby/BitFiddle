@@ -141,7 +141,6 @@ NABool bit_ValueChangeAsc(NAReaction reaction){
 
 NABool bit_CloseConverterWindow(NAReaction reaction){
   BitConverterController* con = reaction.controller;
-  naRelease(con->bitArray);
   naStopApplication();
   return NA_TRUE;
 }
