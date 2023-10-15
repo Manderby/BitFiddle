@@ -40,7 +40,7 @@
 
 - (IBAction)openPreferences:(NSMenuItem*)sender{
   NA_UNUSED(sender);
-  bitShowPreferencesController();
+  bitShowApplicationPreferencesController();
 }
 
 - (IBAction)openAbout:(NSMenuItem*)sender{
@@ -57,7 +57,7 @@
 
 
 
-void prestartup(void* arg){
+void preStartup(void* arg){
   NA_UNUSED(arg);
   mandInitManderApp();
   bitStartApplication();
@@ -65,7 +65,7 @@ void prestartup(void* arg){
 
 
 
-void poststartup(void* arg){
+void postStartup(void* arg){
   NA_UNUSED(arg);
 
   mandCreateUI();
@@ -83,8 +83,8 @@ int main(int argc, char *argv[]){
   naStartRuntime();
     [BitFiddleNSApplication sharedApplication];
     naStartApplication(
-      prestartup,
-      poststartup,
+      preStartup,
+      postStartup,
       bitStopApplication,
       NA_NULL);
   naStopRuntime();

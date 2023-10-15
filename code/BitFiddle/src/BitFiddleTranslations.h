@@ -164,7 +164,7 @@ enum{
 };
 
 const NAUTF8Char* bitTranslate(NAInt id);
-void initTranslations(void);
+void bitInitTranslations(void);
 
 
 

@@ -19,7 +19,7 @@ const char* BitPrefs[BitPrefCount] = {
   "selectedComplementEncoding",
 };
 
-void initPreferences(void){
+void bitInitPreferences(void){
   naInitPreferencesBool(BitPrefs[UseASCIIEscape], NA_FALSE);
   naInitPreferencesBool(BitPrefs[UseASCIIHex], NA_FALSE);
 

@@ -11,7 +11,7 @@ typedef enum{
   COMPUTE_UNSIGNED = 0,
   COMPUTE_ONES_COMPLEMENT = 1,
   COMPUTE_TWOS_COMPLEMENT = 2,
-} ConversionType;
+} BitConversionType;
 
 typedef enum{
   BIT_IMAGE_ASSET_HELP_BUTTON,
@@ -32,17 +32,17 @@ BitApplication* bitGetApplication(void);
 
 NAUIImage* bitGetImageAsset(BitImageAsset asset);
 
-void bitShowConverterController(void);
-void bitShowASCIIController(void);
-void bitShowPreferencesController(void);
+void bitShowApplicationConverterController(void);
+void bitShowApplicationASCIIController(void);
+void bitShowApplicationPreferencesController(void);
 void bitUpdateApp(void);
 
-ConversionType bitGetConversionType(void);
-void bitSetConversionType(ConversionType conversionType);
+BitConversionType bitGetBitConversionType(void);
+void bitSetBitConversionType(BitConversionType conversionType);
 
 NABool bitGetEndiannessSwap(void);
 NABool bitSwitchAppEndianness(NAReaction reaction);
-NABool bitSwitchConversionType(NAReaction reaction);
+NABool bitSwitchBitConversionType(NAReaction reaction);
 
 void bitRecreateConverterController(void);
 

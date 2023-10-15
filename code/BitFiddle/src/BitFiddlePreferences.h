@@ -21,7 +21,7 @@ enum {
 
 extern const char* BitPrefs[BitPrefCount];
 
-void initPreferences(void);
+void bitInitPreferences(void);
 
 
 

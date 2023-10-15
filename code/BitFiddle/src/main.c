@@ -18,7 +18,7 @@
 
 
 
-void prestartup(void* arg){
+void preStartup(void* arg){
   NA_UNUSED(arg);
 
 
@@ -61,7 +61,7 @@ void prestartup(void* arg){
 
 
 
-void poststartup(void* arg){
+void postStartup(void* arg){
   NA_UNUSED(arg);
 
   mandCreateUI();
@@ -80,7 +80,7 @@ int WINAPI WinMain(_In_ HINSTANCE hInstance, _In_opt_ HINSTANCE hPrevInstance, _
   //naOpenConsoleWindow();
 
   naStartRuntime();
-  naStartApplication(prestartup, poststartup, NA_NULL);
+  naStartApplication(preStartup, postStartup, NA_NULL);
   naStopRuntime();
 
   return 0;

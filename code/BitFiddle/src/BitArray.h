@@ -54,32 +54,17 @@ typedef uint32 NANibble;  // A nibble consists of 4 Bits. Here in NALib, they
 
 
 
-// Creates a bit array with the specified count.
-// - If count is positive, the bit storage has precisely the desired size.
-// - If count is negative, enough space will be allocated to hold the absolute
-//   number of count as bits. But the returned array will be empty to begin
-//   with. If you later perform manipulations on this bitArray which need more
-//   space, the previously allocated space will be used.
-//   Choose the negative count appropriate to the expected needs. If for
-//   example, you expect an add-operation upon the bit array, provide 1 Bit
-//   more than needed.
-// - If count is zero, an empty bit array is returned.
-//
-// The returned bit array is always unititialized.
-NABuffer* naCreateBitArrayWithCount(NAInt count);
-
-
-// Creates a new BitArray which contains copied contents of srcarray with
+// Creates a new BitArray which contains copied contents of srcArray with
 // the given size. If size is positive, the higher end bits will be filled with
-// binary zero if available. If size is negative, the full size of srcarray
+// binary zero if available. If size is negative, the full size of srcArray
 // will be used but it will be padded to the next higher bitalignment defined
 // by -size.
-NABuffer* naCreateBitArrayCopyWithFixedSize(NABuffer* srcarray, NAInt size);
+NABuffer* bitCreateBitArrayCopyWithFixedSize(NABuffer* srcArray, NAInt size);
 
 
 // Adds binary zero at the higher endian bits so that the total size of the
-// bit array is divisible by padsize.
-void naPadBitArray(NABuffer* bitArray, NAInt padsize);
+// bit array is divisible by padSize.
+void bitPadBitArray(NABuffer* bitArray, NAInt padSize);
 
 
 // Creates a new bit array out of a shift and/or extension of another bit array
@@ -92,10 +77,10 @@ void naPadBitArray(NABuffer* bitArray, NAInt padsize);
 // will discard the least significant bits.
 //
 // The size denotes the final size of dstarray. If size is smaller than the
-// size of srcarray, the most significant bits are discarded. If it is bigger
+// size of srcArray, the most significant bits are discarded. If it is bigger
 // than src array, the most significant bits are filled with zeros. If size
 // is negative, the most significant bits are filled arithmetically (1 if the
-// most significant bit of srcarray was 1, zero otherwise).
+// most significant bit of srcArray was 1, zero otherwise).
 //
 // Examples:
 // 10110101 shift  0 size   8 ->   10110101
@@ -105,8 +90,8 @@ void naPadBitArray(NABuffer* bitArray, NAInt padsize);
 //          shift  2 size   8 ->   11010100
 //          shift -2 size   8 ->   00101101
 //          shift -2 size  -8 ->   11101101
-//NABuffer* naInitBitArrayShiftExtension(NABuffer* dstarray,
-//                                                   NABuffer* srcarray,
+//NABuffer* bitInitBitArrayShiftExtension(NABuffer* dstarray,
+//                                                   NABuffer* srcArray,
 //                                                         NAInt shift,
 //                                                         NAInt size);
 
@@ -125,12 +110,12 @@ void naPadBitArray(NABuffer* bitArray, NAInt padsize);
 //   24, 32, ... bits, but never something in between.
 // Note that strings are always expected to be in natural reading order,
 // meaning, the ending of the string contains the least significant values.
-NABuffer* naCreateBitArrayWithBinString(NAString* string);
-NABuffer* naCreateBitArrayWithDecString(NAString* string);
-NABuffer* naCreateBitArrayWithHexString(NAString* string);
-NABuffer* naCreateBitArrayWithAscString(NAString* string);
+NABuffer* bitCreateBitArrayWithBinString(NAString* string);
+NABuffer* bitCreateBitArrayWithDecString(NAString* string);
+NABuffer* bitCreateBitArrayWithHexString(NAString* string);
+NABuffer* bitCreateBitArrayWithAscString(NAString* string);
 
-void naClearBitArray(NABuffer* array);
+void bitClearBitArray(NABuffer* array);
 
 
 // Creates string representations of the given bitArray as an integer number.
@@ -138,11 +123,11 @@ void naClearBitArray(NABuffer* array);
 // Creates a byte array out of the given bit array. Every 8 bits are combined
 // into one single byte. The byte array is guaranteed to be null-terminated.
 // Careful: Only works properly when bitCount can be divided by 8! Use
-// naInitBitArrayShiftExtension first, if this is not the case.
-NAString* naNewStringDecWithBitArray(const NABuffer* bitArray);
-NAString* naNewStringHexWithBitArray(NABuffer* bitArray);
-NAString* naNewStringBinWithBitArray(NABuffer* bitArray);
-NAString* naNewStringAscWithBitArray(NABuffer* bitArray);
+// bitInitBitArrayShiftExtension first, if this is not the case.
+NAString* bitNewStringDecWithBitArray(const NABuffer* bitArray);
+NAString* bitNewStringHexWithBitArray(NABuffer* bitArray);
+NAString* bitNewStringBinWithBitArray(NABuffer* bitArray);
+NAString* bitNewStringAscWithBitArray(NABuffer* bitArray);
 
 
 // //////////////////////////////////
@@ -160,17 +145,18 @@ NAString* naNewStringAscWithBitArray(NABuffer* bitArray);
 //   less bits, but never more.
 // - All operations will be performed as UNSIGNED integers. Be careful: This can
 //   lead to false computations when trying to add signed integers of different
-//   bit sizes! Extend the smaller arrays using naInitBitArrayShiftExtension first.
+//   bit sizes! Extend the smaller arrays using bitInitBitArrayShiftExtension first.
 
 
 // Adds two bit arrays and puts it into the storage of dstarray. All pointers
 // can be equal.
-NABuffer* naCreateBitArrayAddBitArray(NABuffer* srcarray1,
-                                           NABuffer* srcarray2);
+NABuffer* bitCreateBitArrayAddBitArray(
+  NABuffer* srcArray1,
+  NABuffer* srcArray2);
 
-// Multiplies the integer value of srcarray by 10 (Ten). The src pointer MUST
+// Multiplies the integer value of srcArray by 10 (Ten). The src pointer MUST
 // be different than the dst pointer!
-NABuffer* naCreateBitArrayMulTen(NABuffer* srcarray);
+NABuffer* bitCreateBitArrayMulTen(NABuffer* srcArray);
 
 
 
@@ -181,15 +167,15 @@ NABuffer* naCreateBitArrayMulTen(NABuffer* srcarray);
 
 // Adds the integer value 1 to the bit array. A Wrap-around may occur.
 // Returns the carry.
-NABit naComputeBitArrayAddOne(NABuffer* array);
+NABit bitComputeBitArrayAddOne(NABuffer* array);
 
 // Computes the one's and two's complement of the given array.
-void naComputeBitArrayOnesComplement(NABuffer* array);
-void naComputeBitArrayTwosComplement(NABuffer* array);
+void bitComputeBitArrayOnesComplement(NABuffer* array);
+void bitComputeBitArrayTwosComplement(NABuffer* array);
 
 // Swaps the byte order. Careful: Only works properly when bitCount can be
-// divided by 8! Use naInitBitArrayShiftExtension first, if this is not the case.
-void naComputeBitArraySwapBytes(NABuffer* array);
+// divided by 8! Use bitInitBitArrayShiftExtension first, if this is not the case.
+void bitComputeBitArraySwapBytes(NABuffer* array);
 
 
 

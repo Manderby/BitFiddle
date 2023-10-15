@@ -12,7 +12,7 @@
 
 struct BitApplication{
   NABool swapEndianness;
-  ConversionType conversionType;
+  BitConversionType conversionType;
   NAUIImage* imageAssets[BIT_IMAGE_ASSET_COUNT];
   
   NABool showAsc;
@@ -28,7 +28,7 @@ BitApplication* bitApp = NA_NULL;
 
 
 
-NAUIImage* loadImageAsset(const NAUTF8Char* dir, const NAUTF8Char* basename, const NAUTF8Char* suffix){
+NAUIImage* bit_LoadImageAsset(const NAUTF8Char* dir, const NAUTF8Char* basename, const NAUTF8Char* suffix){
   NAString* imagePath = naNewApplicationResourcePath(dir, basename, suffix);
   NABabyImage* babyImage = naCreateBabyImageFromFilePath(naGetStringUTF8Pointer(imagePath));
   NAUIImage* uiimage = naCreateUIImage(babyImage, NA_UIIMAGE_RESOLUTION_SCREEN_2x, NA_BLEND_ERODE_LIGHT);
@@ -42,11 +42,11 @@ NAUIImage* loadImageAsset(const NAUTF8Char* dir, const NAUTF8Char* basename, con
 void bitStartApplication(void){
   bitApp = naAlloc(BitApplication);
 
-  initTranslations();
-  initPreferences();
+  bitInitTranslations();
+  bitInitPreferences();
 
   bitApp->swapEndianness = naGetPreferencesBool(BitPrefs[SwapEndianness]);
-  bitApp->conversionType = (ConversionType)naGetPreferencesEnum(BitPrefs[SelectedComplementEncoding]);
+  bitApp->conversionType = (BitConversionType)naGetPreferencesEnum(BitPrefs[SelectedComplementEncoding]);
 
   NABool resetsettings = naGetPreferencesBool(BitPrefs[ResetConversionOnStartup]);
   if(resetsettings){
@@ -54,9 +54,9 @@ void bitStartApplication(void){
     bitApp->conversionType = COMPUTE_UNSIGNED;
   }
 
-  bitApp->imageAssets[BIT_IMAGE_ASSET_HELP_BUTTON] =  loadImageAsset(NA_NULL, "help", "png");
-  bitApp->imageAssets[BIT_IMAGE_ASSET_PREFS_BUTTON] = loadImageAsset(NA_NULL, "prefs", "png");
-  bitApp->imageAssets[BIT_IMAGE_ASSET_ASCII_BUTTON] = loadImageAsset(NA_NULL, "ascii", "png");
+  bitApp->imageAssets[BIT_IMAGE_ASSET_HELP_BUTTON] =  bit_LoadImageAsset(NA_NULL, "help", "png");
+  bitApp->imageAssets[BIT_IMAGE_ASSET_PREFS_BUTTON] = bit_LoadImageAsset(NA_NULL, "prefs", "png");
+  bitApp->imageAssets[BIT_IMAGE_ASSET_ASCII_BUTTON] = bit_LoadImageAsset(NA_NULL, "ascii", "png");
 }
 
 
@@ -74,19 +74,19 @@ void bitCreateUI(){
   
   #if NA_OS == NA_OS_MAC_OS_X
     naAddUIKeyboardShortcut(naGetApplication(), naMakeKeyStroke(NA_MODIFIER_FLAG_COMMAND, NA_KEYCODE_E), bitSwitchAppEndianness, bitApp);
-    naAddUIKeyboardShortcut(naGetApplication(), naMakeKeyStroke(NA_MODIFIER_FLAG_COMMAND, NA_KEYCODE_0), bitSwitchConversionType, bitApp);
-    naAddUIKeyboardShortcut(naGetApplication(), naMakeKeyStroke(NA_MODIFIER_FLAG_COMMAND, NA_KEYCODE_1), bitSwitchConversionType, bitApp);
-    naAddUIKeyboardShortcut(naGetApplication(), naMakeKeyStroke(NA_MODIFIER_FLAG_COMMAND, NA_KEYCODE_2), bitSwitchConversionType, bitApp);
+    naAddUIKeyboardShortcut(naGetApplication(), naMakeKeyStroke(NA_MODIFIER_FLAG_COMMAND, NA_KEYCODE_0), bitSwitchBitConversionType, bitApp);
+    naAddUIKeyboardShortcut(naGetApplication(), naMakeKeyStroke(NA_MODIFIER_FLAG_COMMAND, NA_KEYCODE_1), bitSwitchBitConversionType, bitApp);
+    naAddUIKeyboardShortcut(naGetApplication(), naMakeKeyStroke(NA_MODIFIER_FLAG_COMMAND, NA_KEYCODE_2), bitSwitchBitConversionType, bitApp);
   #elif NA_OS == NA_OS_WINDOWS
     naAddUIKeyboardShortcut(naGetApplication(), naMakeKeyStroke(NA_MODIFIER_FLAG_CONTROL, NA_KEYCODE_E), bitSwitchAppEndianness, bitApp);
-    naAddUIKeyboardShortcut(naGetApplication(), naMakeKeyStroke(NA_MODIFIER_FLAG_CONTROL, NA_KEYCODE_0), bitSwitchConversionType, bitApp);
-    naAddUIKeyboardShortcut(naGetApplication(), naMakeKeyStroke(NA_MODIFIER_FLAG_CONTROL, NA_KEYCODE_1), bitSwitchConversionType, bitApp);
-    naAddUIKeyboardShortcut(naGetApplication(), naMakeKeyStroke(NA_MODIFIER_FLAG_CONTROL, NA_KEYCODE_2), bitSwitchConversionType, bitApp);
+    naAddUIKeyboardShortcut(naGetApplication(), naMakeKeyStroke(NA_MODIFIER_FLAG_CONTROL, NA_KEYCODE_0), bitSwitchBitConversionType, bitApp);
+    naAddUIKeyboardShortcut(naGetApplication(), naMakeKeyStroke(NA_MODIFIER_FLAG_CONTROL, NA_KEYCODE_1), bitSwitchBitConversionType, bitApp);
+    naAddUIKeyboardShortcut(naGetApplication(), naMakeKeyStroke(NA_MODIFIER_FLAG_CONTROL, NA_KEYCODE_2), bitSwitchBitConversionType, bitApp);
   #endif
 
-  bitShowConverterController();
+  bitShowApplicationConverterController();
   NABool showASCIIOnStartup = naGetPreferencesBool(BitPrefs[ShowASCIIOnStartup]);
-  if(showASCIIOnStartup){bitShowASCIIController();}
+  if(showASCIIOnStartup){bitShowApplicationASCIIController();}
 
   mandSetAboutDescriptionAndHelpURL(bitTranslate(BitFiddleApplicationDescription), bitTranslate(BitFiddleApplicationHelpURL));
   mandAlertNewVersion(bitTranslate(BitFiddleNewVersionDescription));
@@ -118,14 +118,14 @@ BitApplication* bitGetApplication(void){
 
 
 
-void bitShowConverterController(){
-  naShowConverterController(bitApp->converterController);
+void bitShowApplicationConverterController(){
+  bitShowConverterController(bitApp->converterController);
 }
-void bitShowASCIIController(){
-  naShowASCIIController(bitApp->asciiController);
+void bitShowApplicationASCIIController(){
+  bitShowASCIIController(bitApp->asciiController);
 }
-void bitShowPreferencesController(){
-  naShowPreferencesController(bitApp->preferencesController);
+void bitShowApplicationPreferencesController(){
+  bitShowPreferencesController(bitApp->preferencesController);
 }
 
 
@@ -133,7 +133,7 @@ void bitShowPreferencesController(){
 void bitRecreateConverterController(){
   bitClearConverterController(bitApp->converterController);
   bitApp->converterController = bitCreateConverterController();
-  bitShowConverterController();
+  bitShowApplicationConverterController();
 }
 
 
@@ -145,13 +145,13 @@ void bitUpdateApp(){
 
 
 
-ConversionType bitGetConversionType(){
+BitConversionType bitGetBitConversionType(){
   return bitApp->conversionType;
 }
 
 
 
-void bitSetConversionType(ConversionType conversionType){
+void bitSetBitConversionType(BitConversionType conversionType){
   bitApp->conversionType = conversionType;
   naSetPreferencesEnum(BitPrefs[SelectedComplementEncoding], conversionType);
   bitUpdateConverterController(bitApp->converterController);
@@ -174,13 +174,13 @@ NABool bitSwitchAppEndianness(NAReaction reaction){
   return NA_TRUE;
 }
 
-NABool bitSwitchConversionType(NAReaction reaction){
+NABool bitSwitchBitConversionType(NAReaction reaction){
   NA_UNUSED(reaction);
   NAKeyStroke keyStroke = naGetCurrentKeyStroke();
   switch(keyStroke.keyCode){
-  case NA_KEYCODE_0: bitSetConversionType(COMPUTE_UNSIGNED); break;
-  case NA_KEYCODE_1: bitSetConversionType(COMPUTE_ONES_COMPLEMENT); break;
-  case NA_KEYCODE_2: bitSetConversionType(COMPUTE_TWOS_COMPLEMENT); break;
+  case NA_KEYCODE_0: bitSetBitConversionType(COMPUTE_UNSIGNED); break;
+  case NA_KEYCODE_1: bitSetBitConversionType(COMPUTE_ONES_COMPLEMENT); break;
+  case NA_KEYCODE_2: bitSetBitConversionType(COMPUTE_TWOS_COMPLEMENT); break;
   default:
     #if NA_DEBUG
       naError("Undefined keyCode");

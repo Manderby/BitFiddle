@@ -6,7 +6,7 @@ typedef struct BitASCIIController BitASCIIController;
 BitASCIIController* bitCreateASCIIController(void);
 void bitClearASCIIController(BitASCIIController* con);
 
-void naShowASCIIController(BitASCIIController* con);
+void bitShowASCIIController(BitASCIIController* con);
 
 
 
