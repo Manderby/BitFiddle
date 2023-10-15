@@ -140,7 +140,7 @@ NABool bit_ValueChangeAsc(NAReaction reaction){
 
 
 NABool bit_CloseConverterWindow(NAReaction reaction){
-  BitConverterController* con = reaction.controller;
+  NA_UNUSED(reaction);
   naStopApplication();
   return NA_TRUE;
 }
