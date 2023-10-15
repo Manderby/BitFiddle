@@ -451,12 +451,13 @@ NAString* naNewStringDecWithBitArray(const NABuffer* bitArray){
   }else{
     retString = naNewStringWithFormat("0 ");
   }
-  naDelete(string);
-  naRelease(work);
 
   #if NA_STRING_ALWAYS_CACHE == 1
     naGetStringUTF8Pointer(string);
   #endif
+
+  naDelete(string);
+  naRelease(work);
 
   return retString;
 }
