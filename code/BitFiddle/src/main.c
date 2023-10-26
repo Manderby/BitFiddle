@@ -1,5 +1,5 @@
 
-#include "NABase.h"
+#include "NABase/NABase.h"
 
 #if NA_OS == NA_OS_WINDOWS
 #if (NA_COMPILE_GUI == 1)

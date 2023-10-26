@@ -1,5 +1,5 @@
 
-#include "NAApp.h"
+#include "NAApp/NAApp.h"
 
 typedef struct BitASCIIController BitASCIIController;
 

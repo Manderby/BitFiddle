@@ -1,5 +1,5 @@
 
-#include "NABase.h"
+#include "NABase/NABase.h"
 
 #if NA_OS == NA_OS_MAC_OS_X
 #if defined __OBJC__

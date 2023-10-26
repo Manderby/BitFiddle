@@ -2,8 +2,8 @@
 #ifndef BIT_APPLICATION_DEFINED
 #define BIT_APPLICATION_DEFINED
 
-#include <NABase.h>
-#include "NAApp.h"
+#include "NABase/NABase.h"
+#include "NAApp/NAApp.h"
 
 typedef struct BitApplication BitApplication;
 
