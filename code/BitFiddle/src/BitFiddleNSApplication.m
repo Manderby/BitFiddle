@@ -11,8 +11,6 @@
 #include "PreferencesController.h"
 #include "BitFiddleAboutController.h"
 #include "BitFiddleApplication.h"
-#include "ManderAppAbout.h"
-#include "ManderApp.h"
 
 
 @implementation BitFiddleNSApplication

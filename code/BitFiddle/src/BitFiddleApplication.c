@@ -6,8 +6,6 @@
 #include "ASCIIController.h"
 #include "PreferencesController.h"
 #include "BitFiddleTranslations.h"
-#include "ManderAppAbout.h"
-#include "ManderApp.h"
 
 
 
