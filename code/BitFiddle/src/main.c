@@ -55,7 +55,6 @@ void preStartup(void* arg){
   naDelete(iconPath);
   naDelete(appPath);
 
-  mandInitManderApp();
   bitStartApplication();
 }
 
@@ -63,9 +62,6 @@ void preStartup(void* arg){
 
 void postStartup(void* arg){
   NA_UNUSED(arg);
-
-  mandCreateUI();
-  mandSetAboutWindowStorageTag(BIT_WINDOW_TAG_ABOUT);
 
   bitCreateUI();
 }

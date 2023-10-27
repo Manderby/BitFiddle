@@ -171,7 +171,7 @@ NABool bit_ButtonPressed(NAReaction reaction){
   BitConverterController* con = reaction.controller;
 
   if(reaction.uiElement == con->helpButton){
-    mandShowAboutController();
+    bitShowApplicationAboutController();
   }else if(reaction.uiElement == con->preferencesButton){
     bitShowApplicationPreferencesController();
   }else if(reaction.uiElement == con->asciiButton){

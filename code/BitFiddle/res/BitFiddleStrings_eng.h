@@ -4,6 +4,12 @@
 //
 NA_LOC_LANG("eng");
 
+// Strings for About Window
+// The %s denotes the application name
+NA_LOC(BitFiddleAbout,          "About %s");
+NA_LOC(BitFiddleDone,           "Done");
+NA_LOC(BitFiddleVersionBuild,   "Version %s (Build %s)");
+NA_LOC(BitFiddleOnlineHelp,     "Online Help");
 NA_LOC(BitFiddleApplicationDescription, "Conversion tool for binary values\nDesign and implementation: Tobias Stamm");
 NA_LOC(BitFiddleApplicationHelpURL, "http://manderc.com/apps/bitfiddle/help/index_en.php");
 NA_LOC(BitFiddleNewVersionDescription, "Now works as a Universal Binary on the new Apple Silicon M1 chip.");

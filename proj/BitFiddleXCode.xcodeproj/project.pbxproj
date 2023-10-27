@@ -252,17 +252,7 @@
 		902D38042AEAC0F100CD8EAF /* NAMathOperators.h in Headers */ = {isa = PBXBuildFile; fileRef = 902D37102AEAC0F100CD8EAF /* NAMathOperators.h */; };
 		902D38052AEAC0F100CD8EAF /* NACoord.h in Headers */ = {isa = PBXBuildFile; fileRef = 902D37112AEAC0F100CD8EAF /* NACoord.h */; };
 		905CDD4528E4F13C00E90223 /* libNALib.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 90A3035C24732C66000C7B59 /* libNALib.a */; };
-		905CDD4828E4F14200E90223 /* libManderApp.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 90A3035324732C60000C7B59 /* libManderApp.a */; };
-		9099566D2AEAF810002AFF11 /* ManderApp_deu.h in Headers */ = {isa = PBXBuildFile; fileRef = 9099565D2AEAF810002AFF11 /* ManderApp_deu.h */; };
-		9099566E2AEAF810002AFF11 /* ManderApp_eng.h in Headers */ = {isa = PBXBuildFile; fileRef = 9099565E2AEAF810002AFF11 /* ManderApp_eng.h */; };
-		9099566F2AEAF810002AFF11 /* ManderApp.h in Headers */ = {isa = PBXBuildFile; fileRef = 909956612AEAF810002AFF11 /* ManderApp.h */; };
-		909956702AEAF810002AFF11 /* ManderAppPreferences.c in Sources */ = {isa = PBXBuildFile; fileRef = 909956622AEAF810002AFF11 /* ManderAppPreferences.c */; };
-		909956712AEAF810002AFF11 /* ManderAppAbout.c in Sources */ = {isa = PBXBuildFile; fileRef = 909956632AEAF810002AFF11 /* ManderAppAbout.c */; };
-		909956722AEAF810002AFF11 /* ManderAppTranslations.c in Sources */ = {isa = PBXBuildFile; fileRef = 909956642AEAF810002AFF11 /* ManderAppTranslations.c */; };
-		909956732AEAF810002AFF11 /* ManderApp.c in Sources */ = {isa = PBXBuildFile; fileRef = 909956652AEAF810002AFF11 /* ManderApp.c */; };
-		909956742AEAF810002AFF11 /* ManderAppPreferences.h in Headers */ = {isa = PBXBuildFile; fileRef = 909956662AEAF810002AFF11 /* ManderAppPreferences.h */; };
-		909956752AEAF810002AFF11 /* ManderAppAbout.h in Headers */ = {isa = PBXBuildFile; fileRef = 909956672AEAF810002AFF11 /* ManderAppAbout.h */; };
-		909956762AEAF810002AFF11 /* ManderAppTranslations.h in Headers */ = {isa = PBXBuildFile; fileRef = 909956682AEAF810002AFF11 /* ManderAppTranslations.h */; };
+		90868B682AEBE3CA00EAC04B /* BitFiddleAboutController.c in Sources */ = {isa = PBXBuildFile; fileRef = 90868B672AEBE3CA00EAC04B /* BitFiddleAboutController.c */; };
 		9099568D2AEAF833002AFF11 /* icon.png in Resources */ = {isa = PBXBuildFile; fileRef = 909956792AEAF833002AFF11 /* icon.png */; };
 		9099568E2AEAF833002AFF11 /* icon_small.png in Resources */ = {isa = PBXBuildFile; fileRef = 9099567A2AEAF833002AFF11 /* icon_small.png */; };
 		9099568F2AEAF833002AFF11 /* Bit Fiddle.rc in Resources */ = {isa = PBXBuildFile; fileRef = 9099567B2AEAF833002AFF11 /* Bit Fiddle.rc */; };
@@ -294,13 +284,6 @@
 			proxyType = 1;
 			remoteGlobalIDString = 90A3035B24732C66000C7B59;
 			remoteInfo = NALib;
-		};
-		905CDD4928E4F14200E90223 /* PBXContainerItemProxy */ = {
-			isa = PBXContainerItemProxy;
-			containerPortal = B9848B33177B996600E21D96 /* Project object */;
-			proxyType = 1;
-			remoteGlobalIDString = 90A3035224732C60000C7B59;
-			remoteInfo = ManderApp;
 		};
 /* End PBXContainerItemProxy section */
 
@@ -556,21 +539,8 @@
 		902D370F2AEAC0F100CD8EAF /* NAVectorAlgebra.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = NAVectorAlgebra.h; sourceTree = "<group>"; };
 		902D37102AEAC0F100CD8EAF /* NAMathOperators.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = NAMathOperators.h; sourceTree = "<group>"; };
 		902D37112AEAC0F100CD8EAF /* NACoord.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = NACoord.h; sourceTree = "<group>"; };
-		9099565D2AEAF810002AFF11 /* ManderApp_deu.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ManderApp_deu.h; sourceTree = "<group>"; };
-		9099565E2AEAF810002AFF11 /* ManderApp_eng.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ManderApp_eng.h; sourceTree = "<group>"; };
-		9099565F2AEAF810002AFF11 /* CMakeLists.txt */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; path = CMakeLists.txt; sourceTree = "<group>"; };
-		909956612AEAF810002AFF11 /* ManderApp.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ManderApp.h; sourceTree = "<group>"; };
-		909956622AEAF810002AFF11 /* ManderAppPreferences.c */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.c; path = ManderAppPreferences.c; sourceTree = "<group>"; };
-		909956632AEAF810002AFF11 /* ManderAppAbout.c */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.c; path = ManderAppAbout.c; sourceTree = "<group>"; };
-		909956642AEAF810002AFF11 /* ManderAppTranslations.c */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.c; path = ManderAppTranslations.c; sourceTree = "<group>"; };
-		909956652AEAF810002AFF11 /* ManderApp.c */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.c; path = ManderApp.c; sourceTree = "<group>"; };
-		909956662AEAF810002AFF11 /* ManderAppPreferences.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ManderAppPreferences.h; sourceTree = "<group>"; };
-		909956672AEAF810002AFF11 /* ManderAppAbout.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ManderAppAbout.h; sourceTree = "<group>"; };
-		909956682AEAF810002AFF11 /* ManderAppTranslations.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ManderAppTranslations.h; sourceTree = "<group>"; };
-		909956692AEAF810002AFF11 /* .gitignore */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; path = .gitignore; sourceTree = "<group>"; };
-		9099566A2AEAF810002AFF11 /* .gitattributes */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; path = .gitattributes; sourceTree = "<group>"; };
-		9099566B2AEAF810002AFF11 /* readme.txt */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; path = readme.txt; sourceTree = "<group>"; };
-		9099566C2AEAF810002AFF11 /* license.txt */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; path = license.txt; sourceTree = "<group>"; };
+		90868B662AEBE3CA00EAC04B /* BitFiddleAboutController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = BitFiddleAboutController.h; sourceTree = "<group>"; };
+		90868B672AEBE3CA00EAC04B /* BitFiddleAboutController.c */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.c; path = BitFiddleAboutController.c; sourceTree = "<group>"; };
 		909956792AEAF833002AFF11 /* icon.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = icon.png; sourceTree = "<group>"; };
 		9099567A2AEAF833002AFF11 /* icon_small.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = icon_small.png; sourceTree = "<group>"; };
 		9099567B2AEAF833002AFF11 /* Bit Fiddle.rc */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; path = "Bit Fiddle.rc"; sourceTree = "<group>"; };
@@ -589,7 +559,6 @@
 		9099568B2AEAF833002AFF11 /* BitFiddleStrings_deu.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = BitFiddleStrings_deu.h; sourceTree = "<group>"; };
 		9099568C2AEAF833002AFF11 /* prefs.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = prefs.png; sourceTree = "<group>"; };
 		909ECD7B23B90FC0002CA78D /* Cocoa.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Cocoa.framework; path = System/Library/Frameworks/Cocoa.framework; sourceTree = SDKROOT; };
-		90A3035324732C60000C7B59 /* libManderApp.a */ = {isa = PBXFileReference; explicitFileType = archive.ar; includeInIndex = 0; path = libManderApp.a; sourceTree = BUILT_PRODUCTS_DIR; };
 		90A3035C24732C66000C7B59 /* libNALib.a */ = {isa = PBXFileReference; explicitFileType = archive.ar; includeInIndex = 0; path = libNALib.a; sourceTree = BUILT_PRODUCTS_DIR; };
 		90F00C2526F7A09800E4CC3C /* BitFiddle.vcxproj */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.xml; path = BitFiddle.vcxproj; sourceTree = "<group>"; };
 		90F00C3C26F7A09800E4CC3C /* BitFiddle.vcxproj.user */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.xml; path = BitFiddle.vcxproj.user; sourceTree = "<group>"; };
@@ -614,13 +583,6 @@
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
-		90A3035124732C60000C7B59 /* Frameworks */ = {
-			isa = PBXFrameworksBuildPhase;
-			buildActionMask = 2147483647;
-			files = (
-			);
-			runOnlyForDeploymentPostprocessing = 0;
-		};
 		90A3035A24732C66000C7B59 /* Frameworks */ = {
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
@@ -632,7 +594,6 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				905CDD4828E4F14200E90223 /* libManderApp.a in Frameworks */,
 				905CDD4528E4F13C00E90223 /* libNALib.a in Frameworks */,
 				909ECD7C23B90FC0002CA78D /* Cocoa.framework in Frameworks */,
 			);
@@ -1108,61 +1069,6 @@
 			path = NAVectorAlgebra;
 			sourceTree = "<group>";
 		};
-		909956592AEAF810002AFF11 /* ManderApp */ = {
-			isa = PBXGroup;
-			children = (
-				9099565A2AEAF810002AFF11 /* code */,
-				909956692AEAF810002AFF11 /* .gitignore */,
-				9099566A2AEAF810002AFF11 /* .gitattributes */,
-				9099566B2AEAF810002AFF11 /* readme.txt */,
-				9099566C2AEAF810002AFF11 /* license.txt */,
-			);
-			name = ManderApp;
-			path = ../lib/ManderApp;
-			sourceTree = "<group>";
-		};
-		9099565A2AEAF810002AFF11 /* code */ = {
-			isa = PBXGroup;
-			children = (
-				9099565B2AEAF810002AFF11 /* ManderApp */,
-			);
-			path = code;
-			sourceTree = "<group>";
-		};
-		9099565B2AEAF810002AFF11 /* ManderApp */ = {
-			isa = PBXGroup;
-			children = (
-				9099565C2AEAF810002AFF11 /* res */,
-				9099565F2AEAF810002AFF11 /* CMakeLists.txt */,
-				909956602AEAF810002AFF11 /* src */,
-			);
-			path = ManderApp;
-			sourceTree = "<group>";
-		};
-		9099565C2AEAF810002AFF11 /* res */ = {
-			isa = PBXGroup;
-			children = (
-				9099565D2AEAF810002AFF11 /* ManderApp_deu.h */,
-				9099565E2AEAF810002AFF11 /* ManderApp_eng.h */,
-			);
-			path = res;
-			sourceTree = "<group>";
-		};
-		909956602AEAF810002AFF11 /* src */ = {
-			isa = PBXGroup;
-			children = (
-				909956612AEAF810002AFF11 /* ManderApp.h */,
-				909956622AEAF810002AFF11 /* ManderAppPreferences.c */,
-				909956632AEAF810002AFF11 /* ManderAppAbout.c */,
-				909956642AEAF810002AFF11 /* ManderAppTranslations.c */,
-				909956652AEAF810002AFF11 /* ManderApp.c */,
-				909956662AEAF810002AFF11 /* ManderAppPreferences.h */,
-				909956672AEAF810002AFF11 /* ManderAppAbout.h */,
-				909956682AEAF810002AFF11 /* ManderAppTranslations.h */,
-			);
-			path = src;
-			sourceTree = "<group>";
-		};
 		909956772AEAF833002AFF11 /* res */ = {
 			isa = PBXGroup;
 			children = (
@@ -1220,6 +1126,8 @@
 				90F00C3E26F7A09800E4CC3C /* ASCIIController.h */,
 				90F00C4826F7A09800E4CC3C /* BitArray.c */,
 				90F00C3F26F7A09800E4CC3C /* BitArray.h */,
+				90868B672AEBE3CA00EAC04B /* BitFiddleAboutController.c */,
+				90868B662AEBE3CA00EAC04B /* BitFiddleAboutController.h */,
 				90F00C4226F7A09800E4CC3C /* BitFiddleApplication.c */,
 				90F00C4A26F7A09800E4CC3C /* BitFiddleApplication.h */,
 				90F00C4426F7A09800E4CC3C /* BitFiddleNSApplication.h */,
@@ -1241,7 +1149,6 @@
 			isa = PBXGroup;
 			children = (
 				902D35FC2AEAC0F100CD8EAF /* NALib */,
-				909956592AEAF810002AFF11 /* ManderApp */,
 				90F00C2426F7A09800E4CC3C /* BitFiddle */,
 				B9848B3F177B99B400E21D96 /* Frameworks */,
 				B9848B3E177B99B400E21D96 /* Products */,
@@ -1252,7 +1159,6 @@
 			isa = PBXGroup;
 			children = (
 				B9848B3D177B99B400E21D96 /* Bit Fiddle.app */,
-				90A3035324732C60000C7B59 /* libManderApp.a */,
 				90A3035C24732C66000C7B59 /* libNALib.a */,
 			);
 			name = Products;
@@ -1269,19 +1175,6 @@
 /* End PBXGroup section */
 
 /* Begin PBXHeadersBuildPhase section */
-		90A3034F24732C60000C7B59 /* Headers */ = {
-			isa = PBXHeadersBuildPhase;
-			buildActionMask = 2147483647;
-			files = (
-				9099566E2AEAF810002AFF11 /* ManderApp_eng.h in Headers */,
-				9099566F2AEAF810002AFF11 /* ManderApp.h in Headers */,
-				909956742AEAF810002AFF11 /* ManderAppPreferences.h in Headers */,
-				909956762AEAF810002AFF11 /* ManderAppTranslations.h in Headers */,
-				909956752AEAF810002AFF11 /* ManderAppAbout.h in Headers */,
-				9099566D2AEAF810002AFF11 /* ManderApp_deu.h in Headers */,
-			);
-			runOnlyForDeploymentPostprocessing = 0;
-		};
 		90A3035824732C66000C7B59 /* Headers */ = {
 			isa = PBXHeadersBuildPhase;
 			buildActionMask = 2147483647;
@@ -1478,23 +1371,6 @@
 /* End PBXHeadersBuildPhase section */
 
 /* Begin PBXNativeTarget section */
-		90A3035224732C60000C7B59 /* ManderApp */ = {
-			isa = PBXNativeTarget;
-			buildConfigurationList = 90A3035424732C60000C7B59 /* Build configuration list for PBXNativeTarget "ManderApp" */;
-			buildPhases = (
-				90A3034F24732C60000C7B59 /* Headers */,
-				90A3035024732C60000C7B59 /* Sources */,
-				90A3035124732C60000C7B59 /* Frameworks */,
-			);
-			buildRules = (
-			);
-			dependencies = (
-			);
-			name = ManderApp;
-			productName = ManderApp;
-			productReference = 90A3035324732C60000C7B59 /* libManderApp.a */;
-			productType = "com.apple.product-type.library.static";
-		};
 		90A3035B24732C66000C7B59 /* NALib */ = {
 			isa = PBXNativeTarget;
 			buildConfigurationList = 90A3035D24732C66000C7B59 /* Build configuration list for PBXNativeTarget "NALib" */;
@@ -1524,7 +1400,6 @@
 			);
 			dependencies = (
 				905CDD4728E4F13C00E90223 /* PBXTargetDependency */,
-				905CDD4A28E4F14200E90223 /* PBXTargetDependency */,
 			);
 			name = "Bit Fiddle";
 			productName = "Bit Fiddle";
@@ -1539,10 +1414,6 @@
 			attributes = {
 				LastUpgradeCheck = 1410;
 				TargetAttributes = {
-					90A3035224732C60000C7B59 = {
-						CreatedOnToolsVersion = 11.4;
-						ProvisioningStyle = Automatic;
-					};
 					90A3035B24732C66000C7B59 = {
 						CreatedOnToolsVersion = 11.4;
 						ProvisioningStyle = Automatic;
@@ -1568,7 +1439,6 @@
 			projectRoot = "";
 			targets = (
 				B9848B3C177B99B400E21D96 /* Bit Fiddle */,
-				90A3035224732C60000C7B59 /* ManderApp */,
 				90A3035B24732C66000C7B59 /* NALib */,
 			);
 		};
@@ -1597,17 +1467,6 @@
 /* End PBXResourcesBuildPhase section */
 
 /* Begin PBXSourcesBuildPhase section */
-		90A3035024732C60000C7B59 /* Sources */ = {
-			isa = PBXSourcesBuildPhase;
-			buildActionMask = 2147483647;
-			files = (
-				909956732AEAF810002AFF11 /* ManderApp.c in Sources */,
-				909956722AEAF810002AFF11 /* ManderAppTranslations.c in Sources */,
-				909956712AEAF810002AFF11 /* ManderAppAbout.c in Sources */,
-				909956702AEAF810002AFF11 /* ManderAppPreferences.c in Sources */,
-			);
-			runOnlyForDeploymentPostprocessing = 0;
-		};
 		90A3035924732C66000C7B59 /* Sources */ = {
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
@@ -1681,6 +1540,7 @@
 				90F00C5D26F7A09800E4CC3C /* BitFiddleApplication.c in Sources */,
 				90F00C5F26F7A09800E4CC3C /* ConverterController.c in Sources */,
 				90F00C5C26F7A09800E4CC3C /* BitFiddlePreferences.c in Sources */,
+				90868B682AEBE3CA00EAC04B /* BitFiddleAboutController.c in Sources */,
 				90F00C6026F7A09800E4CC3C /* ASCIIController.c in Sources */,
 				90F00C6126F7A09800E4CC3C /* BitArray.c in Sources */,
 				90F00C6226F7A09800E4CC3C /* main.c in Sources */,
@@ -1696,11 +1556,6 @@
 			isa = PBXTargetDependency;
 			target = 90A3035B24732C66000C7B59 /* NALib */;
 			targetProxy = 905CDD4628E4F13C00E90223 /* PBXContainerItemProxy */;
-		};
-		905CDD4A28E4F14200E90223 /* PBXTargetDependency */ = {
-			isa = PBXTargetDependency;
-			target = 90A3035224732C60000C7B59 /* ManderApp */;
-			targetProxy = 905CDD4928E4F14200E90223 /* PBXContainerItemProxy */;
 		};
 /* End PBXTargetDependency section */
 
@@ -1726,146 +1581,6 @@
 /* End PBXVariantGroup section */
 
 /* Begin XCBuildConfiguration section */
-		90A3035524732C60000C7B59 /* Debug */ = {
-			isa = XCBuildConfiguration;
-			buildSettings = {
-				ALWAYS_SEARCH_USER_PATHS = NO;
-				CLANG_ANALYZER_NONNULL = YES;
-				CLANG_ANALYZER_NUMBER_OBJECT_CONVERSION = YES_AGGRESSIVE;
-				CLANG_CXX_LANGUAGE_STANDARD = "gnu++14";
-				CLANG_CXX_LIBRARY = "libc++";
-				CLANG_ENABLE_MODULES = YES;
-				CLANG_ENABLE_OBJC_ARC = YES;
-				CLANG_ENABLE_OBJC_WEAK = YES;
-				CLANG_WARN_CONSTANT_CONVERSION = YES;
-				CLANG_WARN_DEPRECATED_OBJC_IMPLEMENTATIONS = YES;
-				CLANG_WARN_DIRECT_OBJC_ISA_USAGE = YES_ERROR;
-				CLANG_WARN_EMPTY_BODY = YES;
-				CLANG_WARN_ENUM_CONVERSION = YES;
-				CLANG_WARN_INT_CONVERSION = YES;
-				CLANG_WARN_OBJC_IMPLICIT_RETAIN_SELF = YES;
-				CLANG_WARN_OBJC_LITERAL_CONVERSION = YES;
-				CLANG_WARN_OBJC_ROOT_CLASS = YES_ERROR;
-				CLANG_WARN_RANGE_LOOP_ANALYSIS = YES;
-				CLANG_WARN_SUSPICIOUS_MOVE = YES;
-				CLANG_WARN_UNGUARDED_AVAILABILITY = YES_AGGRESSIVE;
-				CLANG_WARN__DUPLICATE_METHOD_MATCH = YES;
-				CODE_SIGN_STYLE = Automatic;
-				DEAD_CODE_STRIPPING = YES;
-				DEBUG_INFORMATION_FORMAT = dwarf;
-				ENABLE_STRICT_OBJC_MSGSEND = YES;
-				ENABLE_TESTABILITY = YES;
-				EXECUTABLE_PREFIX = lib;
-				GCC_C_LANGUAGE_STANDARD = gnu11;
-				GCC_DYNAMIC_NO_PIC = NO;
-				GCC_NO_COMMON_BLOCKS = YES;
-				GCC_PREPROCESSOR_DEFINITIONS = (
-					"DEBUG=1",
-					"$(inherited)",
-				);
-				GCC_WARN_64_TO_32_BIT_CONVERSION = YES;
-				GCC_WARN_ABOUT_RETURN_TYPE = YES_ERROR;
-				GCC_WARN_UNDECLARED_SELECTOR = YES;
-				GCC_WARN_UNINITIALIZED_AUTOS = YES_AGGRESSIVE;
-				GCC_WARN_UNUSED_VARIABLE = YES;
-				MACOSX_DEPLOYMENT_TARGET = "$(RECOMMENDED_MACOSX_DEPLOYMENT_TARGET)";
-				MTL_ENABLE_DEBUG_INFO = INCLUDE_SOURCE;
-				MTL_FAST_MATH = YES;
-				PRODUCT_NAME = "$(TARGET_NAME)";
-				SKIP_INSTALL = YES;
-			};
-			name = Debug;
-		};
-		90A3035624732C60000C7B59 /* Optimize */ = {
-			isa = XCBuildConfiguration;
-			buildSettings = {
-				ALWAYS_SEARCH_USER_PATHS = NO;
-				CLANG_ANALYZER_NONNULL = YES;
-				CLANG_ANALYZER_NUMBER_OBJECT_CONVERSION = YES_AGGRESSIVE;
-				CLANG_CXX_LANGUAGE_STANDARD = "gnu++14";
-				CLANG_CXX_LIBRARY = "libc++";
-				CLANG_ENABLE_MODULES = YES;
-				CLANG_ENABLE_OBJC_ARC = YES;
-				CLANG_ENABLE_OBJC_WEAK = YES;
-				CLANG_WARN_CONSTANT_CONVERSION = YES;
-				CLANG_WARN_DEPRECATED_OBJC_IMPLEMENTATIONS = YES;
-				CLANG_WARN_DIRECT_OBJC_ISA_USAGE = YES_ERROR;
-				CLANG_WARN_EMPTY_BODY = YES;
-				CLANG_WARN_ENUM_CONVERSION = YES;
-				CLANG_WARN_INT_CONVERSION = YES;
-				CLANG_WARN_OBJC_IMPLICIT_RETAIN_SELF = YES;
-				CLANG_WARN_OBJC_LITERAL_CONVERSION = YES;
-				CLANG_WARN_OBJC_ROOT_CLASS = YES_ERROR;
-				CLANG_WARN_RANGE_LOOP_ANALYSIS = YES;
-				CLANG_WARN_SUSPICIOUS_MOVE = YES;
-				CLANG_WARN_UNGUARDED_AVAILABILITY = YES_AGGRESSIVE;
-				CLANG_WARN__DUPLICATE_METHOD_MATCH = YES;
-				CODE_SIGN_STYLE = Automatic;
-				DEAD_CODE_STRIPPING = YES;
-				DEBUG_INFORMATION_FORMAT = "dwarf-with-dsym";
-				ENABLE_NS_ASSERTIONS = NO;
-				ENABLE_STRICT_OBJC_MSGSEND = YES;
-				EXECUTABLE_PREFIX = lib;
-				GCC_C_LANGUAGE_STANDARD = gnu11;
-				GCC_NO_COMMON_BLOCKS = YES;
-				GCC_WARN_64_TO_32_BIT_CONVERSION = YES;
-				GCC_WARN_ABOUT_RETURN_TYPE = YES_ERROR;
-				GCC_WARN_UNDECLARED_SELECTOR = YES;
-				GCC_WARN_UNINITIALIZED_AUTOS = YES_AGGRESSIVE;
-				GCC_WARN_UNUSED_VARIABLE = YES;
-				MACOSX_DEPLOYMENT_TARGET = "$(RECOMMENDED_MACOSX_DEPLOYMENT_TARGET)";
-				MTL_ENABLE_DEBUG_INFO = NO;
-				MTL_FAST_MATH = YES;
-				PRODUCT_NAME = "$(TARGET_NAME)";
-				SKIP_INSTALL = YES;
-			};
-			name = Optimize;
-		};
-		90A3035724732C60000C7B59 /* Release */ = {
-			isa = XCBuildConfiguration;
-			buildSettings = {
-				ALWAYS_SEARCH_USER_PATHS = NO;
-				CLANG_ANALYZER_NONNULL = YES;
-				CLANG_ANALYZER_NUMBER_OBJECT_CONVERSION = YES_AGGRESSIVE;
-				CLANG_CXX_LANGUAGE_STANDARD = "gnu++14";
-				CLANG_CXX_LIBRARY = "libc++";
-				CLANG_ENABLE_MODULES = YES;
-				CLANG_ENABLE_OBJC_ARC = YES;
-				CLANG_ENABLE_OBJC_WEAK = YES;
-				CLANG_WARN_CONSTANT_CONVERSION = YES;
-				CLANG_WARN_DEPRECATED_OBJC_IMPLEMENTATIONS = YES;
-				CLANG_WARN_DIRECT_OBJC_ISA_USAGE = YES_ERROR;
-				CLANG_WARN_EMPTY_BODY = YES;
-				CLANG_WARN_ENUM_CONVERSION = YES;
-				CLANG_WARN_INT_CONVERSION = YES;
-				CLANG_WARN_OBJC_IMPLICIT_RETAIN_SELF = YES;
-				CLANG_WARN_OBJC_LITERAL_CONVERSION = YES;
-				CLANG_WARN_OBJC_ROOT_CLASS = YES_ERROR;
-				CLANG_WARN_RANGE_LOOP_ANALYSIS = YES;
-				CLANG_WARN_SUSPICIOUS_MOVE = YES;
-				CLANG_WARN_UNGUARDED_AVAILABILITY = YES_AGGRESSIVE;
-				CLANG_WARN__DUPLICATE_METHOD_MATCH = YES;
-				CODE_SIGN_STYLE = Automatic;
-				DEAD_CODE_STRIPPING = YES;
-				DEBUG_INFORMATION_FORMAT = "dwarf-with-dsym";
-				ENABLE_NS_ASSERTIONS = NO;
-				ENABLE_STRICT_OBJC_MSGSEND = YES;
-				EXECUTABLE_PREFIX = lib;
-				GCC_C_LANGUAGE_STANDARD = gnu11;
-				GCC_NO_COMMON_BLOCKS = YES;
-				GCC_WARN_64_TO_32_BIT_CONVERSION = YES;
-				GCC_WARN_ABOUT_RETURN_TYPE = YES_ERROR;
-				GCC_WARN_UNDECLARED_SELECTOR = YES;
-				GCC_WARN_UNINITIALIZED_AUTOS = YES_AGGRESSIVE;
-				GCC_WARN_UNUSED_VARIABLE = YES;
-				MACOSX_DEPLOYMENT_TARGET = "$(RECOMMENDED_MACOSX_DEPLOYMENT_TARGET)";
-				MTL_ENABLE_DEBUG_INFO = NO;
-				MTL_FAST_MATH = YES;
-				PRODUCT_NAME = "$(TARGET_NAME)";
-				SKIP_INSTALL = YES;
-			};
-			name = Release;
-		};
 		90A3035E24732C66000C7B59 /* Debug */ = {
 			isa = XCBuildConfiguration;
 			buildSettings = {
@@ -2290,16 +2005,6 @@
 /* End XCBuildConfiguration section */
 
 /* Begin XCConfigurationList section */
-		90A3035424732C60000C7B59 /* Build configuration list for PBXNativeTarget "ManderApp" */ = {
-			isa = XCConfigurationList;
-			buildConfigurations = (
-				90A3035524732C60000C7B59 /* Debug */,
-				90A3035624732C60000C7B59 /* Optimize */,
-				90A3035724732C60000C7B59 /* Release */,
-			);
-			defaultConfigurationIsVisible = 0;
-			defaultConfigurationName = Release;
-		};
 		90A3035D24732C66000C7B59 /* Build configuration list for PBXNativeTarget "NALib" */ = {
 			isa = XCConfigurationList;
 			buildConfigurations = (

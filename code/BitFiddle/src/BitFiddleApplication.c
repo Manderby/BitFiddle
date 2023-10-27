@@ -1,5 +1,6 @@
 
 #include "BitFiddleApplication.h"
+#include "BitFiddleAboutController.h"
 #include "BitFiddlePreferences.h"
 #include "ConverterController.h"
 #include "ASCIIController.h"
@@ -20,6 +21,7 @@ struct BitApplication{
   BitConverterController* converterController;
   BitASCIIController* asciiController;
   BitPreferencesController* preferencesController;
+  BitFiddleAboutController* aboutController;
 };
 
 
@@ -71,6 +73,7 @@ void bitCreateUI(){
   bitApp->converterController   = bitCreateConverterController();
   bitApp->asciiController       = bitCreateASCIIController();
   bitApp->preferencesController = bitCreatePreferencesController();
+  bitApp->aboutController       = bitCreateAboutController();
   
   #if NA_OS == NA_OS_MAC_OS_X
     naAddUIKeyboardShortcut(naGetApplication(), naMakeKeyStroke(NA_MODIFIER_FLAG_COMMAND, NA_KEYCODE_E), bitSwitchAppEndianness, bitApp);
@@ -88,9 +91,6 @@ void bitCreateUI(){
   NABool showASCIIOnStartup = naGetPreferencesBool(BitPrefs[ShowASCIIOnStartup]);
   if(showASCIIOnStartup){bitShowApplicationASCIIController();}
 
-  mandSetAboutDescriptionAndHelpURL(bitTranslate(BitFiddleApplicationDescription), bitTranslate(BitFiddleApplicationHelpURL));
-  mandAlertNewVersion(bitTranslate(BitFiddleNewVersionDescription));
-
   bitUpdateApp();
 }
 
@@ -102,6 +102,7 @@ void bitStopApplication(void* data){
   bitClearConverterController(bitApp->converterController);
   bitClearASCIIController(bitApp->asciiController);
   bitClearPreferencesController(bitApp->preferencesController);
+  bitClearAboutController(bitApp->aboutController);
   
   naRelease(bitApp->imageAssets[BIT_IMAGE_ASSET_HELP_BUTTON]);
   naRelease(bitApp->imageAssets[BIT_IMAGE_ASSET_PREFS_BUTTON]);
@@ -126,6 +127,9 @@ void bitShowApplicationASCIIController(){
 }
 void bitShowApplicationPreferencesController(){
   bitShowPreferencesController(bitApp->preferencesController);
+}
+void bitShowApplicationAboutController(){
+  bitShowAboutController(bitApp->aboutController);
 }
 
 

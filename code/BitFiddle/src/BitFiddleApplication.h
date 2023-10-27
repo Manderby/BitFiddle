@@ -35,6 +35,7 @@ NAUIImage* bitGetImageAsset(BitImageAsset asset);
 void bitShowApplicationConverterController(void);
 void bitShowApplicationASCIIController(void);
 void bitShowApplicationPreferencesController(void);
+void bitShowApplicationAboutController(void);
 void bitUpdateApp(void);
 
 BitConversionType bitGetBitConversionType(void);

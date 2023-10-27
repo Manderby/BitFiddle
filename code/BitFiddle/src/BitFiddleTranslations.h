@@ -2,6 +2,10 @@
 #include "NAUtility/NATranslator.h"
 
 enum{
+  BitFiddleAbout,
+  BitFiddleDone,
+  BitFiddleVersionBuild,
+  BitFiddleOnlineHelp,
   BitFiddleApplicationDescription,
   BitFiddleApplicationHelpURL,
   BitFiddleNewVersionDescription,
