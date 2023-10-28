@@ -281,7 +281,7 @@ NABool bit_SwitchASCIIDisplayMode(NAReaction reaction){
 
 
 
-BitASCIIController* bitCreateASCIIController(void){
+BitASCIIController* bitAllocASCIIController(void){
   NAInt x;
   NAInt y;
   BitASCIIController* con = naAlloc(BitASCIIController);
@@ -363,7 +363,7 @@ BitASCIIController* bitCreateASCIIController(void){
 
 
 
-void bitClearASCIIController(BitASCIIController* con){
+void bitDeallocASCIIController(BitASCIIController* con){
   naFree(con);
 }
 

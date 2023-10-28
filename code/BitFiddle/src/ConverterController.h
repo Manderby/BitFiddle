@@ -3,8 +3,8 @@
 
 typedef struct BitConverterController BitConverterController;
 
-BitConverterController* bitCreateConverterController(void);
-void bitClearConverterController(BitConverterController* con);
+BitConverterController* bitAllocConverterController(void);
+void bitDeallocConverterController(BitConverterController* con);
 
 void bitShowConverterController(BitConverterController* con);
 void bitUpdateConverterController(BitConverterController* con);

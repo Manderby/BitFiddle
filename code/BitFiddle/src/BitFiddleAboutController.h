@@ -3,8 +3,8 @@
 
 typedef struct BitFiddleAboutController BitFiddleAboutController;
 
-BitFiddleAboutController* bitCreateAboutController(void);
-void bitClearAboutController(BitFiddleAboutController* con);
+BitFiddleAboutController* bitAllocAboutController(void);
+void bitDeallocAboutController(BitFiddleAboutController* con);
 
 void bitShowAboutController(BitFiddleAboutController* con);
 

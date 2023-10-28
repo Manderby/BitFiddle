@@ -24,7 +24,7 @@ NABool bit_pressAboutDone(NAReaction reaction){
 
 
 
-BitFiddleAboutController* bitCreateAboutController(void){
+BitFiddleAboutController* bitAllocAboutController(void){
   BitFiddleAboutController* con = naAlloc(BitFiddleAboutController);
 
   NAString* bundleApplicationName = naNewApplicationName();
@@ -90,7 +90,7 @@ BitFiddleAboutController* bitCreateAboutController(void){
 
 
 
-void bitClearAboutController(BitFiddleAboutController* con){
+void bitDeallocAboutController(BitFiddleAboutController* con){
   naFree(con);
 }
 

@@ -3,8 +3,8 @@
 
 typedef struct BitPreferencesController BitPreferencesController;
 
-BitPreferencesController* bitCreatePreferencesController(void);
-void bitClearPreferencesController(BitPreferencesController* con);
+BitPreferencesController* bitAllocPreferencesController(void);
+void bitDeallocPreferencesController(BitPreferencesController* con);
 
 void bitShowPreferencesController(BitPreferencesController* con);
 

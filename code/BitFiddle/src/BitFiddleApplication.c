@@ -68,10 +68,10 @@ NAUIImage* bitGetImageAsset(BitImageAsset asset){
 
 
 void bitCreateUI(){
-  bitApp->converterController   = bitCreateConverterController();
-  bitApp->asciiController       = bitCreateASCIIController();
-  bitApp->preferencesController = bitCreatePreferencesController();
-  bitApp->aboutController       = bitCreateAboutController();
+  bitApp->converterController   = bitAllocConverterController();
+  bitApp->asciiController       = bitAllocASCIIController();
+  bitApp->preferencesController = bitAllocPreferencesController();
+  bitApp->aboutController       = bitAllocAboutController();
   
   #if NA_OS == NA_OS_MAC_OS_X
     naAddUIKeyboardShortcut(naGetApplication(), naMakeKeyStroke(NA_MODIFIER_FLAG_COMMAND, NA_KEYCODE_E), bitSwitchAppEndianness, bitApp);
@@ -97,10 +97,10 @@ void bitCreateUI(){
 void bitStopApplication(void* data){
   NA_UNUSED(data);
   
-  bitClearConverterController(bitApp->converterController);
-  bitClearASCIIController(bitApp->asciiController);
-  bitClearPreferencesController(bitApp->preferencesController);
-  bitClearAboutController(bitApp->aboutController);
+  bitDeallocConverterController(bitApp->converterController);
+  bitDeallocASCIIController(bitApp->asciiController);
+  bitDeallocPreferencesController(bitApp->preferencesController);
+  bitDeallocAboutController(bitApp->aboutController);
   
   naRelease(bitApp->imageAssets[BIT_IMAGE_ASSET_HELP_BUTTON]);
   naRelease(bitApp->imageAssets[BIT_IMAGE_ASSET_PREFS_BUTTON]);
@@ -133,8 +133,8 @@ void bitShowApplicationAboutController(){
 
 
 void bitRecreateConverterController(){
-  bitClearConverterController(bitApp->converterController);
-  bitApp->converterController = bitCreateConverterController();
+  bitDeallocConverterController(bitApp->converterController);
+  bitApp->converterController = bitAllocConverterController();
   bitShowApplicationConverterController();
 }
 

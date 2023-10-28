@@ -63,7 +63,7 @@ NABool bit_PressDone(NAReaction reaction){
 
 
 
-BitPreferencesController* bitCreatePreferencesController(){
+BitPreferencesController* bitAllocPreferencesController(){
   BitPreferencesController* con = naAlloc(BitPreferencesController);
 
   NARect windowrect = naMakeRectS(820, 15, 260, 236);
@@ -123,7 +123,7 @@ BitPreferencesController* bitCreatePreferencesController(){
 
 
 
-void bitClearPreferencesController(BitPreferencesController* prefs){
+void bitDeallocPreferencesController(BitPreferencesController* prefs){
   naFree(prefs);
 }
 

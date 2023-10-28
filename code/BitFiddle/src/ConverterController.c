@@ -442,7 +442,7 @@ NATextBox* bit_CreateBitOutputBox(NASize size, NABool withScrolling){
 
 
 
-BitConverterController* bitCreateConverterController(void){
+BitConverterController* bitAllocConverterController(void){
   BitConverterController* con = naAlloc(BitConverterController);
   naZeron(con, sizeof(BitConverterController));
   
@@ -684,7 +684,7 @@ BitConverterController* bitCreateConverterController(void){
 
 
 
-void bitClearConverterController(BitConverterController* con){
+void bitDeallocConverterController(BitConverterController* con){
   naDelete(con->window);
   naRelease(con->bitArray);
   naFree(con);

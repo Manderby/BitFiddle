@@ -3,8 +3,8 @@
 
 typedef struct BitASCIIController BitASCIIController;
 
-BitASCIIController* bitCreateASCIIController(void);
-void bitClearASCIIController(BitASCIIController* con);
+BitASCIIController* bitAllocASCIIController(void);
+void bitDeallocASCIIController(BitASCIIController* con);
 
 void bitShowASCIIController(BitASCIIController* con);
 
