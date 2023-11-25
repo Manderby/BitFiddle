@@ -1,4 +1,8 @@
 
+#include "NABase/NABase.h"
+
+#if NA_OS == NA_OS_MAC_OS_X
+
 #import <Carbon/Carbon.h>
 
 #import "BitFiddleNSApplication.h"
@@ -90,6 +94,10 @@ int main(int argc, char *argv[]){
   naStopRuntime();
   return 0;
 }
+
+
+
+#endif // NA_OS == NA_OS_MAC_OS_X
 
 
 

@@ -1,5 +1,5 @@
 
-#include "NABase.h"
+#include "NABase/NABase.h"
 
 #if NA_OS == NA_OS_WINDOWS
 #if (NA_COMPILE_GUI == 1)
@@ -7,14 +7,12 @@
 
 
 #include "NAUtility/NAMemory.h"
-#include "NAApp.h"
+#include "NAApp/NAApp.h"
 #include "BitFiddleNSApplication.h"
 #include "BitFiddleTranslations.h"
 #include "BitFiddlePreferences.h"
 #include "ASCIIController.h"
 #include "BitFiddleApplication.h"
-#include "ManderApp.h"
-#include "ManderAppAbout.h"
 
 
 
@@ -80,7 +78,7 @@ int WINAPI WinMain(_In_ HINSTANCE hInstance, _In_opt_ HINSTANCE hPrevInstance, _
   //naOpenConsoleWindow();
 
   naStartRuntime();
-  naStartApplication(preStartup, postStartup, NA_NULL);
+  naStartApplication(preStartup, postStartup, NA_NULL, NA_NULL);
   naStopRuntime();
 
   return 0;

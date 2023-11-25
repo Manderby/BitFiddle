@@ -4,7 +4,6 @@
 #include "BitArray.h"
 #include "BitFiddleTranslations.h"
 #include "BitFiddleApplication.h"
-#include "ManderAppAbout.h"
 #include "BitFiddlePreferences.h"
 
 struct BitConverterController{
