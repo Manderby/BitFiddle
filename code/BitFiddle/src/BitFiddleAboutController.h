@@ -1,40 +1,12 @@
 
-#include "BitFiddlePreferences.h"
-#include "BitFiddleApplication.h"
+#include "NAApp/NAApp.h"
 
-const char* BitPrefs[BitPrefCount] = {
-  "useASCIIEscape",
-  "useASCIIHex",
+typedef struct BitFiddleAboutController BitFiddleAboutController;
 
-  "showASCIIOnStartup",
-  "resetConversionOnStartup",
-  "keepConverterOnTop",
+BitFiddleAboutController* bitAllocAboutController(void);
+void bitDeallocAboutController(BitFiddleAboutController* con);
 
-  "show16Bits",
-  "showNBits",
-  "showBin",
-  "showAsc",
-
-  "swapEndianness",
-  "selectedComplementEncoding",
-};
-
-void bitInitPreferences(void){
-  naInitPreferencesBool(BitPrefs[UseASCIIEscape], NA_FALSE);
-  naInitPreferencesBool(BitPrefs[UseASCIIHex], NA_FALSE);
-
-  naInitPreferencesBool(BitPrefs[ShowASCIIOnStartup], NA_FALSE);
-  naInitPreferencesBool(BitPrefs[ResetConversionOnStartup], NA_TRUE);
-  naInitPreferencesBool(BitPrefs[KeepConverterOnTop], NA_FALSE);
-
-  naInitPreferencesBool(BitPrefs[Show16Bits], NA_TRUE);
-  naInitPreferencesBool(BitPrefs[ShowNBits], NA_TRUE);
-  naInitPreferencesBool(BitPrefs[ShowBin], NA_TRUE);
-  naInitPreferencesBool(BitPrefs[ShowAsc], NA_TRUE);
-
-  naInitPreferencesBool(BitPrefs[SwapEndianness], NA_FALSE);
-  naInitPreferencesEnum(BitPrefs[SelectedComplementEncoding], COMPUTE_UNSIGNED);
-}
+void bitShowAboutController(BitFiddleAboutController* con);
 
 
 
