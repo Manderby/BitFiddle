@@ -37,7 +37,7 @@ void preStartup(void* arg){
 
 
 
-  NAString* appPath = naNewApplicationPath();
+  //NAString* appPath = naNewApplicationPath();
 
   //printf("%s\n", naGetStringUTF8Pointer(appPath));
   //while(1){}
@@ -46,12 +46,13 @@ void preStartup(void* arg){
   //naSetApplicationCompanyName("ASuppaCombbany");
   naSetApplicationVersionString("1.4");
   naSetApplicationBuildString("1.4");
-  naSetApplicationResourcePath(naGetStringUTF8Pointer(appPath));
-  NAString* iconPath = naNewStringWithFormat("%s%cicon.png", naGetStringUTF8Pointer(appPath), NA_PATH_DELIMITER_WIN);
-  naSetApplicationIconPath(naGetStringUTF8Pointer(iconPath));
+  //naSetApplicationResourcePath(naGetStringUTF8Pointer(appPath));
+  //NAString* iconPath = naNewStringWithFormat("%s%cicon.png", naGetStringUTF8Pointer(appPath), NA_PATH_DELIMITER_WIN);
+  //naSetApplicationIconPath(naGetStringUTF8Pointer(iconPath));
+  naSetApplicationIconPath("icon.png");
 
-  naDelete(iconPath);
-  naDelete(appPath);
+  //naDelete(iconPath);
+  //naDelete(appPath);
 
   bitStartApplication();
 }

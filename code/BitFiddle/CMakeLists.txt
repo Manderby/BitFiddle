@@ -49,6 +49,9 @@ add_custom_command(TARGET ${TARGET_NAME} POST_BUILD
   COMMAND ${CMAKE_COMMAND} -E copy
       ${CMAKE_CURRENT_SOURCE_DIR}/res/prefs.png
       \"${OUTPUT_DIRECTORY}prefs.png\"
+  COMMAND ${CMAKE_COMMAND} -E copy
+      ${CMAKE_CURRENT_SOURCE_DIR}/res/win/icon.png
+      \"${OUTPUT_DIRECTORY}icon.png\"
 )
 
 
@@ -69,6 +72,8 @@ set(sourceFiles
   src/ASCIIController.h
   src/BitArray.c
   src/BitArray.h
+  src/BitFiddleAboutController.c
+  src/BitFiddleAboutController.h
   src/BitFiddleApplication.c
   src/BitFiddleApplication.h
   src/BitFiddleNSApplication.h
