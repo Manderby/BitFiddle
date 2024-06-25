@@ -88,7 +88,7 @@ void* bit_Malloc(NAInt byteSize){
 // The returned bit array is always unititialized.
 NABuffer* bit_CreateBitArrayWithCount(NAInt count){
   NABuffer* bitArray = naCreateBuffer(NA_FALSE);
-  naCacheBufferRange(bitArray, naMakeRangei(0, count));
+  naCacheBufferRange(bitArray, naMakeRangei64(0, count));
   return bitArray;
 }
 
@@ -96,7 +96,7 @@ NABuffer* bit_CreateBitArrayWithCount(NAInt count){
 
 NABuffer* bitCreateBitArrayCopyWithFixedSize(NABuffer* srcArray, NAInt size){
   NABuffer* bitArray;
-  NARangei range = naGetBufferRange(srcArray);
+  NARangei64 range = naGetBufferRange(srcArray);
   if(size < 0){
     bitArray = naCreateBufferCopy(srcArray, range, NA_FALSE);
     bitPadBitArray(bitArray, -size);
@@ -105,7 +105,7 @@ NABuffer* bitCreateBitArrayCopyWithFixedSize(NABuffer* srcArray, NAInt size){
       bitArray = naCreateBufferCopy(srcArray, range, NA_FALSE);
       bitPadBitArray(bitArray, size);
     }else{
-      bitArray = naCreateBufferCopy(srcArray, naMakeRangei(0, size), NA_FALSE);
+      bitArray = naCreateBufferCopy(srcArray, naMakeRangei64(0, size), NA_FALSE);
     }
   }
   return bitArray;

@@ -23,7 +23,7 @@ struct BitPreferencesController{
 
 
 
-NABool bit_SwitchPreferencesSetting(NAReaction reaction){
+void bit_SwitchPreferencesSetting(NAReaction reaction){
   BitPreferencesController* prefs = reaction.controller;
   NABool state = naGetCheckBoxState(reaction.uiElement);
   if(reaction.uiElement == prefs->showASCIIOnStartupCheckBox){
@@ -50,15 +50,13 @@ NABool bit_SwitchPreferencesSetting(NAReaction reaction){
     #endif
   }
   bitUpdateApp();
-  return NA_TRUE;
 }
 
 
 
-NABool bit_PressDone(NAReaction reaction){
+void bit_PressDone(NAReaction reaction){
   BitPreferencesController* prefs = reaction.controller;
   naCloseWindow(prefs->window);
-  return NA_TRUE;
 }
 
 

@@ -14,8 +14,7 @@
 #include "ConverterController.h"
 #include "PreferencesController.h"
 #include "BitFiddleApplication.h"
-#include "ManderAppAbout.h"
-#include "ManderApp.h"
+#include "BitFiddleAboutController.h"
 
 
 @implementation BitFiddleNSApplication
@@ -49,7 +48,7 @@
 
 - (IBAction)openAbout:(NSMenuItem*)sender{
   NA_UNUSED(sender);
-  mandShowAboutController();
+  bitShowApplicationAboutController();
 }
 
 - (IBAction)openHelp:(NSMenuItem*)sender{
@@ -63,7 +62,6 @@
 
 void preStartup(void* arg){
   NA_UNUSED(arg);
-  mandInitManderApp();
   bitStartApplication();
 }
 
@@ -71,9 +69,6 @@ void preStartup(void* arg){
 
 void postStartup(void* arg){
   NA_UNUSED(arg);
-
-  mandCreateUI();
-  mandSetAboutWindowStorageTag(BIT_WINDOW_TAG_ABOUT);
 
   naLoadNib("MainMenu", NA_NULL);
   bitCreateUI();

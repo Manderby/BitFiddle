@@ -53,7 +53,7 @@ struct BitConverterController{
 
 
 
-NABool bit_ValueChangeDec(NAReaction reaction){
+void bit_ValueChangeDec(NAReaction reaction){
   BitConverterController* con = reaction.controller;
 
   naSetTextFieldText(con->inputhex, "");
@@ -66,12 +66,11 @@ NABool bit_ValueChangeDec(NAReaction reaction){
   naDelete(instring);
 
   bitUpdateConverterController(con);
-  return NA_TRUE;
 }
 
 
 
-NABool bit_ValueChangeHex(NAReaction reaction){
+void bit_ValueChangeHex(NAReaction reaction){
   BitConverterController* con = reaction.controller;
 
   naSetTextFieldText(con->inputdec, "");
@@ -84,12 +83,11 @@ NABool bit_ValueChangeHex(NAReaction reaction){
   naDelete(instring);
 
   bitUpdateConverterController(con);
-  return NA_TRUE;
 }
 
 
 
-NABool bit_ValueChangeBin(NAReaction reaction){
+void bit_ValueChangeBin(NAReaction reaction){
   BitConverterController* con = reaction.controller;
 
   naSetTextFieldText(con->inputdec, "");
@@ -102,12 +100,11 @@ NABool bit_ValueChangeBin(NAReaction reaction){
   naDelete(instring);
 
   bitUpdateConverterController(con);
-  return NA_TRUE;
 }
 
 
 
-NABool bit_ValueChangeAsc(NAReaction reaction){
+void bit_ValueChangeAsc(NAReaction reaction){
   BitConverterController* con = reaction.controller;
 
   naSetTextFieldText(con->inputdec, "");
@@ -120,7 +117,6 @@ NABool bit_ValueChangeAsc(NAReaction reaction){
   naDelete(instring);
 
   bitUpdateConverterController(con);
-  return NA_TRUE;
 }
 
 
@@ -138,15 +134,14 @@ NABool bit_ValueChangeAsc(NAReaction reaction){
 
 
 
-NABool bit_CloseConverterWindow(NAReaction reaction){
+void bit_CloseConverterWindow(NAReaction reaction){
   NA_UNUSED(reaction);
   naStopApplication();
-  return NA_TRUE;
 }
 
 
 
-NABool bit_SwitchComplement(NAReaction reaction){
+void bit_SwitchComplement(NAReaction reaction){
   BitConverterController* con = reaction.controller;
 
   if(reaction.uiElement == con->unsignedOption){
@@ -161,12 +156,11 @@ NABool bit_SwitchComplement(NAReaction reaction){
     #endif
   }
   bitUpdateConverterController(con);
-  return NA_TRUE;
 }
 
 
 
-NABool bit_ButtonPressed(NAReaction reaction){
+void bit_ButtonPressed(NAReaction reaction){
   BitConverterController* con = reaction.controller;
 
   if(reaction.uiElement == con->helpButton){
@@ -180,7 +174,6 @@ NABool bit_ButtonPressed(NAReaction reaction){
       naError("Unknown window button");
     #endif
   }
-  return NA_TRUE;
 }
 
 
@@ -238,7 +231,7 @@ void bit_FillOutputFieldWithBitArray(void* outputField, BitNumberSystem numberSy
   
   switch(numberSystem){
   case NUMBER_SYSTEM_DEC:
-    if(bitArray && naGetBufferRange(bitArray).length && withDecSign && naGetBufferByteAtIndex(bitArray, (size_t)naGetRangeiMax(naGetBufferRange(bitArray)))){
+    if(bitArray && naGetBufferRange(bitArray).length && withDecSign && naGetBufferByteAtIndex(bitArray, (size_t)naGetRangei64Max(naGetBufferRange(bitArray)))){
       NABuffer* twocomp = naCreateBufferCopy(bitArray, naGetBufferRange(bitArray), NA_FALSE);
       bitComputeBitArrayTwosComplement(twocomp);
       outstring = bitNewStringDecWithBitArray(twocomp);
@@ -331,6 +324,8 @@ void bitUpdateConverterController(BitConverterController* con){
     bitComputeBitArrayTwosComplement(bitArray64);
     bitComputeBitArrayTwosComplement(bitArrayn);
     break;
+  default:
+    break;
   }
   
   NAString* windowTitle;
@@ -390,12 +385,12 @@ void bitUpdateConverterController(BitConverterController* con){
 
 
 
-NATextField* bit_CreateBitInputField(BitConverterController* con, double width, NAReactionHandler handler){
+NATextField* bit_CreateBitInputField(BitConverterController* con, double width, NAReactionCallback callback){
   NATextField* textfield = naNewTextField(width);
   NAFont* monoFont = naCreateFontWithPreset(NA_FONT_KIND_MONOSPACE, NA_FONT_SIZE_DEFAULT);
   naSetTextFieldFont(textfield, monoFont);
   naSetTextFieldTextAlignment(textfield, NA_TEXT_ALIGNMENT_RIGHT);
-  naAddUIReaction(textfield, NA_UI_COMMAND_EDITED, handler, con);
+  naAddUIReaction(textfield, NA_UI_COMMAND_EDITED, callback, con);
   naRelease(monoFont);
   return textfield;
 }

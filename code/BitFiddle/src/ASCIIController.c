@@ -224,7 +224,7 @@ NAInt bit_GetASCIIUISpaceIndex(BitASCIIController* con, const NASpace* space){
 
 
 
-NABool bit_HoverASCIIItem(NAReaction reaction){
+void bit_HoverASCIIItem(NAReaction reaction){
   BitASCIIController* con = reaction.controller;
   NAInt itemIndex = bit_GetASCIIUISpaceIndex(con, reaction.uiElement);
   
@@ -242,21 +242,19 @@ NABool bit_HoverASCIIItem(NAReaction reaction){
   naDelete(info1string);
   
   naSetLabelText(con->info2, bitTranslate(BitFiddleAdditionalInfo00 + itemIndex));
-  return NA_TRUE;
 }
 
 
 
-NABool bit_UnhoverASCIIItem(NAReaction reaction){
+void bit_UnhoverASCIIItem(NAReaction reaction){
   BitASCIIController* con = reaction.controller;
   NAInt itemIndex = bit_GetASCIIUISpaceIndex(con, reaction.uiElement);  
   naSetSpaceAlternateBackground(con->spaces[itemIndex], NA_FALSE);
-  return NA_TRUE;
 }
 
 
 
-NABool bit_SwitchASCIIDisplayMode(NAReaction reaction){
+void bit_SwitchASCIIDisplayMode(NAReaction reaction){
   BitASCIIController* con = reaction.controller;
   if(reaction.uiElement == con->escapeRadio){
     con->useEscape = NA_TRUE;
@@ -276,7 +274,6 @@ NABool bit_SwitchASCIIDisplayMode(NAReaction reaction){
     #endif
   }
   bit_RedrawASCIIController(con);
-  return NA_TRUE;
 }
 
 

@@ -16,10 +16,9 @@ struct BitFiddleAboutController{
 
 
 
-NABool bit_pressAboutDone(NAReaction reaction){
+void bit_pressAboutDone(NAReaction reaction){
   BitFiddleAboutController* con = (BitFiddleAboutController*)reaction.controller;
   naCloseWindow(con->window);
-  return NA_TRUE;
 }
 
 
@@ -39,9 +38,9 @@ BitFiddleAboutController* bitAllocAboutController(void){
   NASpace* space = naGetWindowContentSpace(con->window);
 
   NAString* iconPath = naNewApplicationIconPath();
-  NABabyImage* iconImage = naCreateBabyImageFromFilePath(naGetStringUTF8Pointer(iconPath));
+  NAImage* iconImage = naCreateImageFromFilePath(naGetStringUTF8Pointer(iconPath));
   NAUIImage* iconCUIImage = naCreateUIImage(iconImage, NA_UIIMAGE_RESOLUTION_SCREEN_2x, NA_BLEND_ZERO);
-  naReleaseBabyImage(iconImage);
+  naReleaseImage(iconImage);
   naDelete(iconPath);
   con->iconSpace = naNewImageSpace(iconCUIImage, naMakeSize(128, 128));
   naAddSpaceChild(space, con->iconSpace, naMakePos(106., 200.));

@@ -11,6 +11,7 @@ typedef enum{
   COMPUTE_UNSIGNED = 0,
   COMPUTE_ONES_COMPLEMENT = 1,
   COMPUTE_TWOS_COMPLEMENT = 2,
+  COMPUTE_BIT_CONVERSION_COUNT
 } BitConversionType;
 
 typedef enum{
@@ -42,8 +43,8 @@ BitConversionType bitGetBitConversionType(void);
 void bitSetBitConversionType(BitConversionType conversionType);
 
 NABool bitGetEndiannessSwap(void);
-NABool bitSwitchAppEndianness(NAReaction reaction);
-NABool bitSwitchBitConversionType(NAReaction reaction);
+void bitSwitchAppEndianness(NAReaction reaction);
+void bitSwitchBitConversionType(NAReaction reaction);
 
 void bitRecreateConverterController(void);
 

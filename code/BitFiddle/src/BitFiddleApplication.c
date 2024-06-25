@@ -30,9 +30,9 @@ BitApplication* bitApp = NA_NULL;
 
 NAUIImage* bit_LoadImageAsset(const NAUTF8Char* dir, const NAUTF8Char* basename, const NAUTF8Char* suffix){
   NAString* imagePath = naNewApplicationResourcePath(dir, basename, suffix);
-  NABabyImage* babyImage = naCreateBabyImageFromFilePath(naGetStringUTF8Pointer(imagePath));
-  NAUIImage* uiimage = naCreateUIImage(babyImage, NA_UIIMAGE_RESOLUTION_SCREEN_2x, NA_BLEND_ERODE_LIGHT);
-  naReleaseBabyImage(babyImage);
+  NAImage* image = naCreateImageFromFilePath(naGetStringUTF8Pointer(imagePath));
+  NAUIImage* uiimage = naCreateUIImage(image, NA_UIIMAGE_RESOLUTION_SCREEN_2x, NA_BLEND_ERODE_LIGHT);
+  naReleaseImage(image);
   naDelete(imagePath);
   return uiimage;
 }
@@ -167,16 +167,15 @@ NABool bitGetEndiannessSwap(){
 
 
 
-NABool bitSwitchAppEndianness(NAReaction reaction){
+void bitSwitchAppEndianness(NAReaction reaction){
   BitApplication* con = reaction.controller;
   
   con->swapEndianness = !con->swapEndianness;  
   naSetPreferencesBool(BitPrefs[SwapEndianness], con->swapEndianness);
   bitUpdateConverterController(con->converterController);
-  return NA_TRUE;
 }
 
-NABool bitSwitchBitConversionType(NAReaction reaction){
+void bitSwitchBitConversionType(NAReaction reaction){
   NA_UNUSED(reaction);
   NAKeyStroke keyStroke = naGetCurrentKeyStroke();
   switch(keyStroke.keyCode){
@@ -189,7 +188,6 @@ NABool bitSwitchBitConversionType(NAReaction reaction){
     #endif
     break;
   }
-  return NA_TRUE;
 }
 
 

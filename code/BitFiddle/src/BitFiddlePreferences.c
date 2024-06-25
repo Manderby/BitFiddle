@@ -33,7 +33,7 @@ void bitInitPreferences(void){
   naInitPreferencesBool(BitPrefs[ShowAsc], NA_TRUE);
 
   naInitPreferencesBool(BitPrefs[SwapEndianness], NA_FALSE);
-  naInitPreferencesEnum(BitPrefs[SelectedComplementEncoding], COMPUTE_UNSIGNED);
+  naInitPreferencesEnum(BitPrefs[SelectedComplementEncoding], COMPUTE_UNSIGNED, COMPUTE_BIT_CONVERSION_COUNT);
 }
 
 

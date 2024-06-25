@@ -1,7 +1,8 @@
 .DS_Store
 ._*
 .vs
-*xcodeproj/manderim.*
+.vscode
+*.vcxproj.user
 *xcshareddata*
 *xcuserdata*
 *xcworkspace*
@@ -9,8 +10,6 @@
 *.mode2v3
 *Debug/
 *Release/
-*obj/
 CONERR*
 build/
 bin/
-AppPackages/
