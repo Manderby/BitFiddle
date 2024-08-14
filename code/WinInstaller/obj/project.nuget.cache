@@ -1,0 +1,10 @@
+{
+  "version": 2,
+  "dgSpecHash": "meWjhleReKB0eZ2d1kwAJc+WyolBrVktNuNitrE3hj6hYwHCoMfLwVsyREhpaZdMzQWMrJ0bK0cSZFPJzS1yzg==",
+  "success": true,
+  "projectFilePath": "C:\\Users\\Tobias Stamm\\Desktop\\programme\\BitFiddle\\code\\WinInstaller\\WinInstaller.wapproj",
+  "expectedPackageFiles": [
+    "C:\\Users\\Tobias Stamm\\.nuget\\packages\\microsoft.windows.sdk.buildtools\\10.0.22000.194\\microsoft.windows.sdk.buildtools.10.0.22000.194.nupkg.sha512"
+  ],
+  "logs": []
+}
