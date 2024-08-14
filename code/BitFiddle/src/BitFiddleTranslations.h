@@ -167,7 +167,7 @@ enum{
   BitFiddleAdditionalInfo7f,
 };
 
-const NAUTF8Char* bitTranslate(NAInt id);
+const NAUTF8Char* bitTranslate(uint32 id);
 void bitInitTranslations(void);
 
 

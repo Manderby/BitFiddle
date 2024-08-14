@@ -30,9 +30,9 @@ BitApplication* bitApp = NA_NULL;
 
 NAUIImage* bit_LoadImageAsset(const NAUTF8Char* dir, const NAUTF8Char* basename, const NAUTF8Char* suffix){
   NAString* imagePath = naNewApplicationResourcePath(dir, basename, suffix);
-  NAImage* image = naCreateImageFromFilePath(naGetStringUTF8Pointer(imagePath));
-  NAUIImage* uiimage = naCreateUIImage(image, NA_UIIMAGE_RESOLUTION_SCREEN_2x, NA_BLEND_ERODE_LIGHT);
-  naReleaseImage(image);
+  NAImage* image = naCreateImageWithFilePath(naGetStringUTF8Pointer(imagePath));
+  NAUIImage* uiimage = naCreateUIImage(image, NA_UI_RESOLUTION_2x, NA_BLEND_ERODE_LIGHT);
+  naRelease(image);
   naDelete(imagePath);
   return uiimage;
 }

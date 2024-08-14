@@ -116,7 +116,7 @@ NABuffer* bitCreateBitArrayCopyWithFixedSize(NABuffer* srcArray, NAInt size){
 void bitPadBitArray(NABuffer* bitArray, NAInt padSize){
   if(!naIsBufferEmpty(bitArray)){
     NABufferIterator iter = naMakeBufferModifier(bitArray);
-    naLocateBufferFromEnd(&iter, 0);
+    naLocateBufferAtEnd(&iter, 0);
     while((naGetBufferRange(bitArray).length == 0) || (naGetBufferRange(bitArray).length % padSize)){
       naWriteBufferu8(&iter, 0);
     }
@@ -222,7 +222,7 @@ NABuffer* bitCreateBitArrayWithBinString(NAString* string){
   naCacheBufferRange(naGetStringBufferMutable(string), naGetBufferRange(naGetStringBufferMutable(string)));
   iterIn = naMakeBufferAccessor(naGetStringBufferMutable(string));
   na_PrepareBuffer(&iterIn, (size_t)naGetBufferRange(naGetStringBufferMutable(string)).length);
-  naLocateBufferFromEnd(&iterIn, 0);
+  naLocateBufferAtEnd(&iterIn, 0);
   iterOut = naMakeBufferModifier(bitArray);
   
   while(naIterateBuffer(&iterIn, -1)){
@@ -291,7 +291,7 @@ NABuffer* bitCreateBitArrayWithHexString(NAString* string){
   naCacheBufferRange(naGetStringBufferMutable(string), naGetBufferRange(naGetStringBufferMutable(string)));
   iterIn = naMakeBufferAccessor(naGetStringBufferMutable(string));
   na_PrepareBuffer(&iterIn, (size_t)naGetBufferRange(naGetStringBufferMutable(string)).length);
-  naLocateBufferFromEnd(&iterIn, 0);
+  naLocateBufferAtEnd(&iterIn, 0);
   iterOut = naMakeBufferModifier(bitArray);
   
   while(naIterateBuffer(&iterIn, -1)){
@@ -327,7 +327,7 @@ NABuffer* bitCreateBitArrayWithAscString(NAString* string){
   naCacheBufferRange(naGetStringBufferMutable(string), naGetBufferRange(naGetStringBufferMutable(string)));
   iterIn = naMakeBufferAccessor(naGetStringBufferMutable(string));
   na_PrepareBuffer(&iterIn, (size_t)naGetBufferRange(naGetStringBufferMutable(string)).length);
-  naLocateBufferFromEnd(&iterIn, 0);
+  naLocateBufferAtEnd(&iterIn, 0);
   iterOut = naMakeBufferModifier(bitArray);
   
   while(naIterateBuffer(&iterIn, -1)){
@@ -393,7 +393,7 @@ NAString* bitNewStringDecWithBitArray(const NABuffer* bitArray){
     j = naGetBufferRange(bitArray).length - 1;
     
     NABufferIterator workIter = naMakeBufferMutator(work);
-    naLocateBufferFromStart(&workIter, j-3);
+    naLocateBufferAtStart(&workIter, j-3);
     while(j >= (naGetBufferRange(bitArray).length - bitCount) + 3){
       // walk through the remaining value
       bit0 = naGetBufferu8(&workIter); naIterateBuffer(&workIter, 1);
@@ -426,17 +426,17 @@ NAString* bitNewStringDecWithBitArray(const NABuffer* bitArray){
     
     // extract the decimal value of the remaining bits
     if(bitCount == 1){
-      naLocateBufferFromStart(&workIter, naGetBufferRange(bitArray).length - 1);
+      naLocateBufferAtStart(&workIter, naGetBufferRange(bitArray).length - 1);
       bit0 = naGetBufferu8(&workIter);
       bit1 = BIT0;
       bit2 = BIT0;
     }else if(bitCount == 2){
-      naLocateBufferFromStart(&workIter, naGetBufferRange(bitArray).length - 2);
+      naLocateBufferAtStart(&workIter, naGetBufferRange(bitArray).length - 2);
       bit0 = naGetBufferu8(&workIter); naIterateBuffer(&workIter, 1);
       bit1 = naGetBufferu8(&workIter);
       bit2 = BIT0;
     }else{
-      naLocateBufferFromStart(&workIter, j - 2);
+      naLocateBufferAtStart(&workIter, j - 2);
       bit0 = naGetBufferu8(&workIter); naIterateBuffer(&workIter, 1);
       bit1 = naGetBufferu8(&workIter); naIterateBuffer(&workIter, 1);
       bit2 = naGetBufferu8(&workIter);

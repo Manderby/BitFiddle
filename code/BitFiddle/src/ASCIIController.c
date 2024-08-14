@@ -210,8 +210,8 @@ void bit_RedrawASCIIController(BitASCIIController* con){
 
 
 
-NAInt bit_GetASCIIUISpaceIndex(BitASCIIController* con, const NASpace* space){
-  NAInt itemIndex;
+size_t bit_GetASCIIUISpaceIndex(BitASCIIController* con, const NASpace* space){
+  size_t itemIndex;
   for(itemIndex = 0; itemIndex < 128; itemIndex++){
     if(con->spaces[itemIndex] == space){break;}
   }
@@ -226,29 +226,29 @@ NAInt bit_GetASCIIUISpaceIndex(BitASCIIController* con, const NASpace* space){
 
 void bit_HoverASCIIItem(NAReaction reaction){
   BitASCIIController* con = reaction.controller;
-  NAInt itemIndex = bit_GetASCIIUISpaceIndex(con, reaction.uiElement);
+  size_t itemIndex = bit_GetASCIIUISpaceIndex(con, reaction.uiElement);
   
   naSetSpaceAlternateBackground(con->spaces[itemIndex], NA_TRUE);
   
   NAString* info1string;
   if(itemIndex < 32){
-    info1string = naNewStringWithFormat("%i   0x%02x   %s\n%s", itemIndex, itemIndex, bit_asciiCodes[itemIndex], bit_unicodeNames[itemIndex]);
+    info1string = naNewStringWithFormat("%i   0x%02x   %s\n%s", (int)itemIndex, (int)itemIndex, bit_asciiCodes[itemIndex], bit_unicodeNames[itemIndex]);
   }else if(itemIndex < 127){
-    info1string = naNewStringWithFormat("%i   0x%02x   \'%c\'\n%s", itemIndex, itemIndex, itemIndex, bit_unicodeNames[itemIndex]);
+    info1string = naNewStringWithFormat("%i   0x%02x   \'%c\'\n%s", (int)itemIndex, (int)itemIndex, (int)itemIndex, bit_unicodeNames[itemIndex]);
   }else{
-    info1string = naNewStringWithFormat("%i   0x%02x   %s\n%s", itemIndex, itemIndex, bit_asciiCodes[33], bit_unicodeNames[127]);
+    info1string = naNewStringWithFormat("%i   0x%02x   %s\n%s", (int)itemIndex, (int)itemIndex, bit_asciiCodes[33], bit_unicodeNames[127]);
   }
   naSetLabelText(con->info1, naGetStringUTF8Pointer(info1string));
   naDelete(info1string);
   
-  naSetLabelText(con->info2, bitTranslate(BitFiddleAdditionalInfo00 + itemIndex));
+  naSetLabelText(con->info2, bitTranslate(BitFiddleAdditionalInfo00 + (uint32)itemIndex));
 }
 
 
 
 void bit_UnhoverASCIIItem(NAReaction reaction){
   BitASCIIController* con = reaction.controller;
-  NAInt itemIndex = bit_GetASCIIUISpaceIndex(con, reaction.uiElement);  
+  size_t itemIndex = bit_GetASCIIUISpaceIndex(con, reaction.uiElement);  
   naSetSpaceAlternateBackground(con->spaces[itemIndex], NA_FALSE);
 }
 

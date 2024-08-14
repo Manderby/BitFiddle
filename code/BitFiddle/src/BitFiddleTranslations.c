@@ -1,9 +1,9 @@
 
 #include "BitFiddleTranslations.h"
 
-NAInt translatorGroup;
+uint32 translatorGroup;
 
-const NAUTF8Char* bitTranslate(NAInt id){
+const NAUTF8Char* bitTranslate(uint32 id){
   return naTranslate(translatorGroup, id);
 }
 
