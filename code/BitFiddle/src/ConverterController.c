@@ -490,18 +490,18 @@ BitConverterController* bitAllocConverterController(void){
     naAddSpaceChild(settingSpace, con->endiannessCheckBox, naMakePos(10., (double)ypos8));
   #endif
 
-  NAUIImage* helpUIImage = bitGetImageAsset(BIT_IMAGE_ASSET_HELP_BUTTON);
-  con->helpButton = naNewImagePushButton(helpUIImage, naMakeSize(20., 20.));
+  NAImageSet* helpImageSet = bitGetImageAsset(BIT_IMAGE_ASSET_HELP_BUTTON);
+  con->helpButton = naNewImagePushButton(helpImageSet, naMakeSize(20., 20.));
   naAddUIReaction(con->helpButton, NA_UI_COMMAND_PRESSED, bit_ButtonPressed, con);
   naAddSpaceChild(settingSpace, con->helpButton, naMakePos(13., 10.));
 
-  NAUIImage* prefUIImage = bitGetImageAsset(BIT_IMAGE_ASSET_PREFS_BUTTON);
-  con->preferencesButton = naNewImagePushButton(prefUIImage, naMakeSize(20., 20.));
+  NAImageSet* prefImageSet = bitGetImageAsset(BIT_IMAGE_ASSET_PREFS_BUTTON);
+  con->preferencesButton = naNewImagePushButton(prefImageSet, naMakeSize(20., 20.));
   naAddUIReaction(con->preferencesButton, NA_UI_COMMAND_PRESSED, bit_ButtonPressed, con);
   naAddSpaceChild(settingSpace, con->preferencesButton, naMakePos(43., 10.));
 
-  NAUIImage* ascUIImage = bitGetImageAsset(BIT_IMAGE_ASSET_ASCII_BUTTON);
-  con->asciiButton = naNewImagePushButton(ascUIImage, naMakeSize(20., 20.));
+  NAImageSet* ascImageSet = bitGetImageAsset(BIT_IMAGE_ASSET_ASCII_BUTTON);
+  con->asciiButton = naNewImagePushButton(ascImageSet, naMakeSize(20., 20.));
   naAddUIReaction(con->asciiButton, NA_UI_COMMAND_PRESSED, bit_ButtonPressed, con);
   naAddSpaceChild(settingSpace, con->asciiButton, naMakePos(73., 10.));
 

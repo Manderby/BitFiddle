@@ -3,6 +3,8 @@
 
 #if NA_OS == NA_OS_MAC_OS_X
 
+#include "NAUtility/NAMemory.h"
+
 #import <Carbon/Carbon.h>
 
 #import "BitFiddleNSApplication.h"

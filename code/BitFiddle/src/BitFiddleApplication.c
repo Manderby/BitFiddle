@@ -7,12 +7,16 @@
 #include "PreferencesController.h"
 #include "BitFiddleTranslations.h"
 
+#include "NAApp/NAImageSet.h"
+#include "NAUtility/NAString.h"
+#include "NAVisual/NAImage.h"
+
 
 
 struct BitApplication{
   NABool swapEndianness;
   BitConversionType conversionType;
-  NAUIImage* imageAssets[BIT_IMAGE_ASSET_COUNT];
+  NAImageSet* imageAssets[BIT_IMAGE_ASSET_COUNT];
   
   NABool showAsc;
   
@@ -28,13 +32,13 @@ BitApplication* bitApp = NA_NULL;
 
 
 
-NAUIImage* bit_LoadImageAsset(const NAUTF8Char* dir, const NAUTF8Char* basename, const NAUTF8Char* suffix){
+NAImageSet* bit_LoadImageAsset(const NAUTF8Char* dir, const NAUTF8Char* basename, const NAUTF8Char* suffix){
   NAString* imagePath = naNewApplicationResourcePath(dir, basename, suffix);
   NAImage* image = naCreateImageWithFilePath(naGetStringUTF8Pointer(imagePath));
-  NAUIImage* uiimage = naCreateUIImage(image, NA_UI_RESOLUTION_2x, NA_BLEND_ERODE_LIGHT);
+  NAImageSet* imageSet = naCreateImageSet(image, NA_UI_RESOLUTION_2x, NA_BLEND_ERODE_LIGHT);
   naRelease(image);
   naDelete(imagePath);
-  return uiimage;
+  return imageSet;
 }
 
 
@@ -61,7 +65,7 @@ void bitStartApplication(void){
 
 
 
-NAUIImage* bitGetImageAsset(BitImageAsset asset){
+NAImageSet* bitGetImageAsset(BitImageAsset asset){
   return bitApp->imageAssets[asset];
 }
 
@@ -73,17 +77,16 @@ void bitCreateUI(){
   bitApp->preferencesController = bitAllocPreferencesController();
   bitApp->aboutController       = bitAllocAboutController();
   
+  uint32 modifier = 0;
   #if NA_OS == NA_OS_MAC_OS_X
-    naAddUIKeyboardShortcut(naGetApplication(), naMakeKeyStroke(NA_MODIFIER_FLAG_COMMAND, NA_KEYCODE_E), bitSwitchAppEndianness, bitApp);
-    naAddUIKeyboardShortcut(naGetApplication(), naMakeKeyStroke(NA_MODIFIER_FLAG_COMMAND, NA_KEYCODE_0), bitSwitchBitConversionType, bitApp);
-    naAddUIKeyboardShortcut(naGetApplication(), naMakeKeyStroke(NA_MODIFIER_FLAG_COMMAND, NA_KEYCODE_1), bitSwitchBitConversionType, bitApp);
-    naAddUIKeyboardShortcut(naGetApplication(), naMakeKeyStroke(NA_MODIFIER_FLAG_COMMAND, NA_KEYCODE_2), bitSwitchBitConversionType, bitApp);
+    modifier = NA_KEY_MODIFIER_COMMAND;
   #elif NA_OS == NA_OS_WINDOWS
-    naAddUIKeyboardShortcut(naGetApplication(), naMakeKeyStroke(NA_MODIFIER_FLAG_CONTROL, NA_KEYCODE_E), bitSwitchAppEndianness, bitApp);
-    naAddUIKeyboardShortcut(naGetApplication(), naMakeKeyStroke(NA_MODIFIER_FLAG_CONTROL, NA_KEYCODE_0), bitSwitchBitConversionType, bitApp);
-    naAddUIKeyboardShortcut(naGetApplication(), naMakeKeyStroke(NA_MODIFIER_FLAG_CONTROL, NA_KEYCODE_1), bitSwitchBitConversionType, bitApp);
-    naAddUIKeyboardShortcut(naGetApplication(), naMakeKeyStroke(NA_MODIFIER_FLAG_CONTROL, NA_KEYCODE_2), bitSwitchBitConversionType, bitApp);
+    modifier = NA_KEY_MODIFIER_CONTROL;
   #endif
+  naAddUIKeyboardShortcut(naGetApplication(), naNewKeyStroke(NA_KEYCODE_E, modifier), bitSwitchAppEndianness, bitApp);
+  naAddUIKeyboardShortcut(naGetApplication(), naNewKeyStroke(NA_KEYCODE_0, modifier), bitSwitchBitConversionType, bitApp);
+  naAddUIKeyboardShortcut(naGetApplication(), naNewKeyStroke(NA_KEYCODE_1, modifier), bitSwitchBitConversionType, bitApp);
+  naAddUIKeyboardShortcut(naGetApplication(), naNewKeyStroke(NA_KEYCODE_2, modifier), bitSwitchBitConversionType, bitApp);
 
   bitShowApplicationConverterController();
   NABool showASCIIOnStartup = naGetPreferencesBool(BitPrefs[ShowASCIIOnStartup]);
@@ -177,8 +180,8 @@ void bitSwitchAppEndianness(NAReaction reaction){
 
 void bitSwitchBitConversionType(NAReaction reaction){
   NA_UNUSED(reaction);
-  NAKeyStroke keyStroke = naGetCurrentKeyStroke();
-  switch(keyStroke.keyCode){
+  const NAKeyStroke* keyStroke = naGetCurrentKeyStroke();
+  switch(naGetKeyStrokeKeyCode(keyStroke)){
   case NA_KEYCODE_0: bitSetBitConversionType(COMPUTE_UNSIGNED); break;
   case NA_KEYCODE_1: bitSetBitConversionType(COMPUTE_ONES_COMPLEMENT); break;
   case NA_KEYCODE_2: bitSetBitConversionType(COMPUTE_TWOS_COMPLEMENT); break;

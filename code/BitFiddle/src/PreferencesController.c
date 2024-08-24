@@ -4,6 +4,8 @@
 #include "BitFiddlePreferences.h"
 #include "BitFiddleApplication.h"
 
+#include "NAUtility/NAMemory.h"
+
 struct BitPreferencesController{
   NAWindow* window;
   

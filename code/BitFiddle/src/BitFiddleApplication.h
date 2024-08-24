@@ -31,7 +31,7 @@ void bitCreateUI(void);
 void bitStopApplication(void* data);
 BitApplication* bitGetApplication(void);
 
-NAUIImage* bitGetImageAsset(BitImageAsset asset);
+NAImageSet* bitGetImageAsset(BitImageAsset asset);
 
 void bitShowApplicationConverterController(void);
 void bitShowApplicationASCIIController(void);
