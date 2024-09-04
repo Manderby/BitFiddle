@@ -13,3 +13,6 @@
 CONERR*
 build/
 bin/
+obj/
+AppPackages/
+BundleArtifacts/

@@ -54,7 +54,7 @@
     <TargetPlatformVersion>10.0.19041.0</TargetPlatformVersion>
     <TargetPlatformMinVersion>10.0.17134.0</TargetPlatformMinVersion>
     <DefaultLanguage>en-US</DefaultLanguage>
-    <AppxPackageSigningEnabled>True</AppxPackageSigningEnabled>
+    <AppxPackageSigningEnabled>False</AppxPackageSigningEnabled>
     <GenerateAppInstallerFile>False</GenerateAppInstallerFile>
     <PackageCertificateThumbprint>B2C8AE6F2900803461376229E41FA0A7E90A8356</PackageCertificateThumbprint>
     <AppxPackageSigningTimestampDigestAlgorithm>SHA256</AppxPackageSigningTimestampDigestAlgorithm>
@@ -63,8 +63,8 @@
     <AppxBundlePlatforms>x86|x64</AppxBundlePlatforms>
     <HoursBetweenUpdateChecks>720</HoursBetweenUpdateChecks>
     <AppInstallerUri>https://manderc.com/apps/bitfiddle/000000000_downloads/Bit_Fiddle_1_5.msix</AppInstallerUri>
-    <EntryPointProjectUniqueName>..\BitFiddle\BitFiddle.vcxproj</EntryPointProjectUniqueName>
     <GenerateTemporaryStoreCertificate>True</GenerateTemporaryStoreCertificate>
+    <EntryPointProjectUniqueName>..\..\build\BitFiddle.vcxproj</EntryPointProjectUniqueName>
   </PropertyGroup>
   <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Release|ARM64'">
     <AppxBundle>Always</AppxBundle>
@@ -102,61 +102,55 @@
     </AppxManifest>
   </ItemGroup>
   <ItemGroup>
-    <Content Include="Images\LargeTile.scale-100.png" />
-    <Content Include="Images\LargeTile.scale-125.png" />
-    <Content Include="Images\LargeTile.scale-150.png" />
-    <Content Include="Images\LargeTile.scale-200.png" />
-    <Content Include="Images\LargeTile.scale-400.png" />
-    <Content Include="Images\SmallTile.scale-100.png" />
-    <Content Include="Images\SmallTile.scale-125.png" />
-    <Content Include="Images\SmallTile.scale-150.png" />
-    <Content Include="Images\SmallTile.scale-200.png" />
-    <Content Include="Images\SmallTile.scale-400.png" />
-    <Content Include="Images\SplashScreen.scale-100.png" />
-    <Content Include="Images\SplashScreen.scale-125.png" />
-    <Content Include="Images\SplashScreen.scale-150.png" />
-    <Content Include="Images\SplashScreen.scale-200.png" />
-    <Content Include="Images\LockScreenLogo.scale-200.png" />
-    <Content Include="Images\SplashScreen.scale-400.png" />
-    <Content Include="Images\Square150x150Logo.scale-100.png" />
-    <Content Include="Images\Square150x150Logo.scale-125.png" />
-    <Content Include="Images\Square150x150Logo.scale-150.png" />
-    <Content Include="Images\Square150x150Logo.scale-200.png" />
-    <Content Include="Images\Square150x150Logo.scale-400.png" />
-    <Content Include="Images\Square44x44Logo.altform-lightunplated_targetsize-16.png" />
-    <Content Include="Images\Square44x44Logo.altform-lightunplated_targetsize-24.png" />
-    <Content Include="Images\Square44x44Logo.altform-lightunplated_targetsize-256.png" />
-    <Content Include="Images\Square44x44Logo.altform-lightunplated_targetsize-32.png" />
-    <Content Include="Images\Square44x44Logo.altform-lightunplated_targetsize-48.png" />
-    <Content Include="Images\Square44x44Logo.altform-unplated_targetsize-16.png" />
-    <Content Include="Images\Square44x44Logo.altform-unplated_targetsize-256.png" />
-    <Content Include="Images\Square44x44Logo.altform-unplated_targetsize-32.png" />
-    <Content Include="Images\Square44x44Logo.altform-unplated_targetsize-48.png" />
-    <Content Include="Images\Square44x44Logo.scale-100.png" />
-    <Content Include="Images\Square44x44Logo.scale-125.png" />
-    <Content Include="Images\Square44x44Logo.scale-150.png" />
-    <Content Include="Images\Square44x44Logo.scale-200.png" />
-    <Content Include="Images\Square44x44Logo.scale-400.png" />
-    <Content Include="Images\Square44x44Logo.targetsize-16.png" />
-    <Content Include="Images\Square44x44Logo.targetsize-24.png" />
-    <Content Include="Images\Square44x44Logo.targetsize-24_altform-unplated.png" />
-    <Content Include="Images\Square44x44Logo.targetsize-256.png" />
-    <Content Include="Images\Square44x44Logo.targetsize-32.png" />
-    <Content Include="Images\Square44x44Logo.targetsize-48.png" />
-    <Content Include="Images\StoreLogo.scale-100.png" />
-    <Content Include="Images\StoreLogo.scale-125.png" />
-    <Content Include="Images\StoreLogo.scale-150.png" />
-    <Content Include="Images\StoreLogo.scale-200.png" />
-    <Content Include="Images\StoreLogo.scale-400.png" />
-    <Content Include="Images\Wide310x150Logo.scale-100.png" />
-    <Content Include="Images\Wide310x150Logo.scale-125.png" />
-    <Content Include="Images\Wide310x150Logo.scale-150.png" />
-    <Content Include="Images\Wide310x150Logo.scale-200.png" />
     <Content Include="BitFiddle\ascii.png" />
     <Content Include="BitFiddle\help.png" />
+    <Content Include="BitFiddle\icon.altform-lightunplated_targetsize-16.png" />
+    <Content Include="BitFiddle\icon.altform-lightunplated_targetsize-24.png" />
+    <Content Include="BitFiddle\icon.altform-lightunplated_targetsize-256.png" />
+    <Content Include="BitFiddle\icon.altform-lightunplated_targetsize-32.png" />
+    <Content Include="BitFiddle\icon.altform-lightunplated_targetsize-48.png" />
+    <Content Include="BitFiddle\icon.altform-unplated_targetsize-16.png" />
+    <Content Include="BitFiddle\icon.altform-unplated_targetsize-24.png" />
+    <Content Include="BitFiddle\icon.altform-unplated_targetsize-256.png" />
+    <Content Include="BitFiddle\icon.altform-unplated_targetsize-32.png" />
+    <Content Include="BitFiddle\icon.altform-unplated_targetsize-48.png" />
     <Content Include="BitFiddle\icon.png" />
+    <Content Include="BitFiddle\icon.scale-100.png" />
+    <Content Include="BitFiddle\icon.scale-125.png" />
+    <Content Include="BitFiddle\icon.scale-150.png" />
+    <Content Include="BitFiddle\icon.scale-200.png" />
+    <Content Include="BitFiddle\icon.scale-400.png" />
+    <Content Include="BitFiddle\icon.targetsize-16.png" />
+    <Content Include="BitFiddle\icon.targetsize-24.png" />
+    <Content Include="BitFiddle\icon.targetsize-256.png" />
+    <Content Include="BitFiddle\icon.targetsize-32.png" />
+    <Content Include="BitFiddle\icon.targetsize-48.png" />
+    <Content Include="BitFiddle\LargeTile.scale-100.png" />
+    <Content Include="BitFiddle\LargeTile.scale-125.png" />
+    <Content Include="BitFiddle\LargeTile.scale-150.png" />
+    <Content Include="BitFiddle\LargeTile.scale-200.png" />
+    <Content Include="BitFiddle\LargeTile.scale-400.png" />
     <Content Include="BitFiddle\prefs.png" />
-    <Content Include="Images\Wide310x150Logo.scale-400.png" />
+    <Content Include="BitFiddle\SmallTile.scale-100.png" />
+    <Content Include="BitFiddle\SmallTile.scale-125.png" />
+    <Content Include="BitFiddle\SmallTile.scale-150.png" />
+    <Content Include="BitFiddle\SmallTile.scale-200.png" />
+    <Content Include="BitFiddle\SmallTile.scale-400.png" />
+    <Content Include="BitFiddle\SplashScreen.scale-100.png" />
+    <Content Include="BitFiddle\SplashScreen.scale-125.png" />
+    <Content Include="BitFiddle\SplashScreen.scale-150.png" />
+    <Content Include="BitFiddle\SplashScreen.scale-200.png" />
+    <Content Include="BitFiddle\SplashScreen.scale-400.png" />
+    <Content Include="BitFiddle\StoreLogo.scale-100.png" />
+    <Content Include="BitFiddle\StoreLogo.scale-125.png" />
+    <Content Include="BitFiddle\StoreLogo.scale-150.png" />
+    <Content Include="BitFiddle\StoreLogo.scale-200.png" />
+    <Content Include="BitFiddle\StoreLogo.scale-400.png" />
+    <Content Include="BitFiddle\WideTile.scale-100.png" />
+    <Content Include="BitFiddle\WideTile.scale-125.png" />
+    <Content Include="BitFiddle\WideTile.scale-150.png" />
+    <Content Include="BitFiddle\WideTile.scale-200.png" />
+    <Content Include="BitFiddle\WideTile.scale-400.png" />
     <None Include="Package.StoreAssociation.xml" />
     <None Include="WinInstaller_TemporaryKey.pfx" />
   </ItemGroup>
@@ -165,6 +159,6 @@
     <PackageReference Include="Microsoft.Windows.SDK.BuildTools" Version="10.0.22000.194" PrivateAssets="all" />
   </ItemGroup>
   <ItemGroup>
-    <ProjectReference Include="..\BitFiddle\BitFiddle.vcxproj" />
+    <ProjectReference Include="..\..\build\BitFiddle.vcxproj" />
   </ItemGroup>
 </Project>

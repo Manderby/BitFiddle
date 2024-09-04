@@ -1,1 +1,0 @@
-MainPackage=C:\Users\Tobias Stamm\Desktop\programme\BitFiddle\code\WinInstaller\bin\x86\Release\WinInstaller_1.5.0.0_x86.appx
