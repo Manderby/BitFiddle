@@ -33,7 +33,7 @@
       <uap:VisualElements
         DisplayName="Bit Fiddle"
         Description="Installer for Bit Fiddle"
-        BackgroundColor="transparent"  Square44x44Logo="BitFiddle\icon.png" Square150x150Logo="BitFiddle\icon.png">
+        BackgroundColor="transparent"  Square44x44Logo="BitFiddle\Logo44.png" Square150x150Logo="BitFiddle\Logo150.png">
         <uap:DefaultTile Square71x71Logo="BitFiddle\SmallTile.png" Wide310x150Logo="BitFiddle\WideTile.png" Square310x310Logo="BitFiddle\LargeTile.png">
           <uap:ShowNameOnTiles>
             <uap:ShowOn Tile="square150x150Logo"/>
