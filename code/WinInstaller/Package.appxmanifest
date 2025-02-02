@@ -8,13 +8,13 @@
 
   <Identity
     Name="57837TobiasStamm.BitFiddle"
-    Publisher="CN=2CD9127F-1744-474C-A2F6-BF5825CC72FC"
+    Publisher="CN=Tobias Stamm"
     Version="1.5.0.0" />
 
   <Properties>
     <DisplayName>Bit Fiddle</DisplayName>
     <PublisherDisplayName>Tobias Stamm</PublisherDisplayName>
-    <Logo>BitFiddle\StoreLogo.png</Logo>
+    <Logo>Images\StoreLogo.png</Logo>
   </Properties>
 
   <Dependencies>
@@ -33,13 +33,14 @@
       <uap:VisualElements
         DisplayName="Bit Fiddle"
         Description="Installer for Bit Fiddle"
-        BackgroundColor="transparent"  Square44x44Logo="BitFiddle\Logo44.png" Square150x150Logo="BitFiddle\Logo150.png">
-        <uap:DefaultTile Square71x71Logo="BitFiddle\SmallTile.png" Wide310x150Logo="BitFiddle\WideTile.png" Square310x310Logo="BitFiddle\LargeTile.png">
+        BackgroundColor="transparent"  Square44x44Logo="Images\Logo44.png" Square150x150Logo="Images\Logo150.png">
+        <uap:DefaultTile Square71x71Logo="Images\SmallTile.png" Wide310x150Logo="Images\WideTile.png" Square310x310Logo="Images\LargeTile.png">
           <uap:ShowNameOnTiles>
             <uap:ShowOn Tile="square150x150Logo"/>
           </uap:ShowNameOnTiles>
         </uap:DefaultTile>
-        <uap:SplashScreen Image="BitFiddle\SplashScreen.png"/>
+        <uap:SplashScreen Image="Images\SplashScreen.png"/>
+        <uap:LockScreen BadgeLogo="Images\BadgeLogo.png" Notification="badge"/>
       </uap:VisualElements>
     </Application>
   </Applications>

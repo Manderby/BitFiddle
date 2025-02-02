@@ -44,8 +44,8 @@ void preStartup(void* arg){
   
   naSetApplicationName("Bit Fiddle");
   //naSetApplicationCompanyName("ASuppaCombbany");
-  naSetApplicationVersionString("1.4");
-  naSetApplicationBuildString("1.4");
+  naSetApplicationVersionString("1.5");
+  naSetApplicationBuildString("1.5");
   //naSetApplicationResourcePath(naGetStringUTF8Pointer(appPath));
   //NAString* iconPath = naNewStringWithFormat("%s%cicon.png", naGetStringUTF8Pointer(appPath), NA_PATH_DELIMITER_WIN);
   //naSetApplicationIconPath(naGetStringUTF8Pointer(iconPath));

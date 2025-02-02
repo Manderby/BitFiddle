@@ -9,3 +9,17 @@ How to:
     <Content Include="BitFiddle\ascii.png" />
     ...
 - Then, use visual studio, right click on the WinInstaller project and press Publish.
+
+
+
+Certificate:
+
+Right click on APPX file
+Click Properties
+Click Digital Signatures
+Select Signature from the list
+Click Details
+Click View Certificate
+Click Install Certificate
+Choose Local Computer
+Choose Trusted Base Certificate

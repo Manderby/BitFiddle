@@ -54,9 +54,9 @@
     <TargetPlatformVersion>10.0.19041.0</TargetPlatformVersion>
     <TargetPlatformMinVersion>10.0.17134.0</TargetPlatformMinVersion>
     <DefaultLanguage>en-US</DefaultLanguage>
-    <AppxPackageSigningEnabled>False</AppxPackageSigningEnabled>
+    <AppxPackageSigningEnabled>True</AppxPackageSigningEnabled>
     <GenerateAppInstallerFile>False</GenerateAppInstallerFile>
-    <PackageCertificateThumbprint>B2C8AE6F2900803461376229E41FA0A7E90A8356</PackageCertificateThumbprint>
+    <PackageCertificateThumbprint>9E62E8AFD975F93C9772A1B255BE6C59E38030E7</PackageCertificateThumbprint>
     <AppxPackageSigningTimestampDigestAlgorithm>SHA256</AppxPackageSigningTimestampDigestAlgorithm>
     <AppxAutoIncrementPackageRevision>False</AppxAutoIncrementPackageRevision>
     <GenerateTestArtifacts>True</GenerateTestArtifacts>
@@ -102,29 +102,66 @@
     </AppxManifest>
   </ItemGroup>
   <ItemGroup>
-    <Content Include="BitFiddle\ascii.png" />
-    <Content Include="BitFiddle\help.png" />
-    <Content Include="BitFiddle\icon.png" />
-    <Content Include="BitFiddle\LargeTile.scale-100.png" />
-    <Content Include="BitFiddle\LargeTile.scale-200.png" />
-    <Content Include="BitFiddle\LargeTile.scale-400.png" />
-    <Content Include="BitFiddle\Logo44.png" />
-    <Content Include="BitFiddle\Logo150.png" />
-    <Content Include="BitFiddle\prefs.png" />
-    <Content Include="BitFiddle\SmallTile.scale-100.png" />
-    <Content Include="BitFiddle\SmallTile.scale-200.png" />
-    <Content Include="BitFiddle\SmallTile.scale-400.png" />
-    <Content Include="BitFiddle\SplashScreen.scale-100.png" />
-    <Content Include="BitFiddle\SplashScreen.scale-200.png" />
-    <Content Include="BitFiddle\SplashScreen.scale-400.png" />
-    <Content Include="BitFiddle\StoreLogo.scale-100.png" />
-    <Content Include="BitFiddle\StoreLogo.scale-200.png" />
-    <Content Include="BitFiddle\StoreLogo.scale-400.png" />
-    <Content Include="BitFiddle\WideTile.scale-100.png" />
-    <Content Include="BitFiddle\WideTile.scale-200.png" />
-    <Content Include="BitFiddle\WideTile.scale-400.png" />
+    <Content Include="res\ascii.png" />
+    <Content Include="res\help.png" />
+    <Content Include="res\icon.png" />
+    <Content Include="res\prefs.png" />
+    <Content Include="Images\BadgeLogo.scale-100.png" />
+    <Content Include="Images\BadgeLogo.scale-125.png" />
+    <Content Include="Images\BadgeLogo.scale-150.png" />
+    <Content Include="Images\BadgeLogo.scale-200.png" />
+    <Content Include="Images\BadgeLogo.scale-400.png" />
+    <Content Include="Images\LargeTile.scale-100.png" />
+    <Content Include="Images\LargeTile.scale-125.png" />
+    <Content Include="Images\LargeTile.scale-150.png" />
+    <Content Include="Images\LargeTile.scale-200.png" />
+    <Content Include="Images\LargeTile.scale-400.png" />
+    <Content Include="Images\Logo150.scale-100.png" />
+    <Content Include="Images\Logo150.scale-125.png" />
+    <Content Include="Images\Logo150.scale-150.png" />
+    <Content Include="Images\Logo150.scale-200.png" />
+    <Content Include="Images\Logo150.scale-400.png" />
+    <Content Include="Images\Logo44.altform-lightunplated_targetsize-16.png" />
+    <Content Include="Images\Logo44.altform-lightunplated_targetsize-24.png" />
+    <Content Include="Images\Logo44.altform-lightunplated_targetsize-256.png" />
+    <Content Include="Images\Logo44.altform-lightunplated_targetsize-32.png" />
+    <Content Include="Images\Logo44.altform-lightunplated_targetsize-48.png" />
+    <Content Include="Images\Logo44.altform-unplated_targetsize-16.png" />
+    <Content Include="Images\Logo44.altform-unplated_targetsize-24.png" />
+    <Content Include="Images\Logo44.altform-unplated_targetsize-256.png" />
+    <Content Include="Images\Logo44.altform-unplated_targetsize-32.png" />
+    <Content Include="Images\Logo44.altform-unplated_targetsize-48.png" />
+    <Content Include="Images\Logo44.scale-100.png" />
+    <Content Include="Images\Logo44.scale-125.png" />
+    <Content Include="Images\Logo44.scale-150.png" />
+    <Content Include="Images\Logo44.scale-200.png" />
+    <Content Include="Images\Logo44.scale-400.png" />
+    <Content Include="Images\Logo44.targetsize-16.png" />
+    <Content Include="Images\Logo44.targetsize-24.png" />
+    <Content Include="Images\Logo44.targetsize-256.png" />
+    <Content Include="Images\Logo44.targetsize-32.png" />
+    <Content Include="Images\Logo44.targetsize-48.png" />
+    <Content Include="Images\SmallTile.scale-100.png" />
+    <Content Include="Images\SmallTile.scale-125.png" />
+    <Content Include="Images\SmallTile.scale-150.png" />
+    <Content Include="Images\SmallTile.scale-200.png" />
+    <Content Include="Images\SmallTile.scale-400.png" />
+    <Content Include="Images\SplashScreen.scale-100.png" />
+    <Content Include="Images\SplashScreen.scale-125.png" />
+    <Content Include="Images\SplashScreen.scale-150.png" />
+    <Content Include="Images\SplashScreen.scale-200.png" />
+    <Content Include="Images\SplashScreen.scale-400.png" />
+    <Content Include="Images\StoreLogo.scale-100.png" />
+    <Content Include="Images\StoreLogo.scale-125.png" />
+    <Content Include="Images\StoreLogo.scale-150.png" />
+    <Content Include="Images\StoreLogo.scale-200.png" />
+    <Content Include="Images\StoreLogo.scale-400.png" />
+    <Content Include="Images\WideTile.scale-100.png" />
+    <Content Include="Images\WideTile.scale-125.png" />
+    <Content Include="Images\WideTile.scale-150.png" />
+    <Content Include="Images\WideTile.scale-200.png" />
+    <Content Include="Images\WideTile.scale-400.png" />
     <None Include="Package.StoreAssociation.xml" />
-    <None Include="WinInstaller_TemporaryKey.pfx" />
   </ItemGroup>
   <Import Project="$(WapProjPath)\Microsoft.DesktopBridge.targets" />
   <ItemGroup>
