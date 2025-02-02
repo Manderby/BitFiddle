@@ -102,10 +102,10 @@
     </AppxManifest>
   </ItemGroup>
   <ItemGroup>
-    <Content Include="res\ascii.png" />
-    <Content Include="res\help.png" />
-    <Content Include="res\icon.png" />
-    <Content Include="res\prefs.png" />
+    <Content Include="BitFiddle\ascii.png" />
+    <Content Include="BitFiddle\help.png" />
+    <Content Include="BitFiddle\icon.png" />
+    <Content Include="BitFiddle\prefs.png" />
     <Content Include="Images\BadgeLogo.scale-100.png" />
     <Content Include="Images\BadgeLogo.scale-125.png" />
     <Content Include="Images\BadgeLogo.scale-150.png" />

@@ -8,6 +8,7 @@
 
 #include "NAUtility/NAMemory.h"
 #include "NAApp/NAApp.h"
+#include "NAUtility/NAString.h"
 #include "BitFiddleNSApplication.h"
 #include "BitFiddleTranslations.h"
 #include "BitFiddlePreferences.h"
@@ -35,20 +36,19 @@ void preStartup(void* arg){
   //printf("%s\n", naGetStringUTF8Pointer(cwd));
   //naDelete(cwd);
 
-
-
-  //NAString* appPath = naNewApplicationPath();
-
-  //printf("%s\n", naGetStringUTF8Pointer(appPath));
-  //while(1){}
   
   naSetApplicationName("Bit Fiddle");
   //naSetApplicationCompanyName("ASuppaCombbany");
   naSetApplicationVersionString("1.5");
   naSetApplicationBuildString("1.5");
-  //naSetApplicationResourcePath(naGetStringUTF8Pointer(appPath));
+
+  NAString* appPath = naNewExecutablePath();
+  naSetApplicationResourceBasePath(naGetStringUTF8Pointer(appPath));
+  naDelete(appPath);
+
   //NAString* iconPath = naNewStringWithFormat("%s%cicon.png", naGetStringUTF8Pointer(appPath), NA_PATH_DELIMITER_WIN);
   //naSetApplicationIconPath(naGetStringUTF8Pointer(iconPath));
+  
   naSetApplicationIconPath("icon.png");
 
   //naDelete(iconPath);
@@ -61,6 +61,10 @@ void preStartup(void* arg){
 
 void postStartup(void* arg){
   NA_UNUSED(arg);
+
+  //NAString* appPath = naNewExecutablePath();
+  //naPresentAlertBox(NA_ALERT_BOX_INFO, "Working directory", naGetStringUTF8Pointer(appPath));
+  //naDelete(appPath);
 
   bitCreateUI();
 }

@@ -32,8 +32,8 @@ BitApplication* bitApp = NA_NULL;
 
 
 
-NAImageSet* bit_LoadImageAsset(const NAUTF8Char* dir, const NAUTF8Char* basename, const NAUTF8Char* suffix){
-  NAString* imagePath = naNewApplicationResourcePath(dir, basename, suffix);
+NAImageSet* bit_LoadImageAsset(const NAUTF8Char* dir, const NAUTF8Char* baseBame, const NAUTF8Char* suffix){
+  NAString* imagePath = naNewApplicationResourcePath(dir, baseBame, suffix);
   NAImage* image = naCreateImageWithFilePath(naGetStringUTF8Pointer(imagePath));
   NAImageSet* imageSet = naCreateImageSet(image, NA_UI_RESOLUTION_2x, NA_BLEND_ERODE_LIGHT);
   naRelease(image);
