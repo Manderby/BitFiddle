@@ -368,8 +368,50 @@
   </ProductReservedInfo>
   <AccountPackageIdentityNames>
     <MainPackageIdentityName>57837TobiasStamm.4765241330639</MainPackageIdentityName>
+    <MainPackageIdentityName>57837TobiasStamm.ColorPresto</MainPackageIdentityName>
+    <MainPackageIdentityName>57837TobiasStamm.ColorPrompt</MainPackageIdentityName>
+    <MainPackageIdentityName>57837TobiasStamm.ColorPronto</MainPackageIdentityName>
+    <MainPackageIdentityName>57837TobiasStamm.ColorMachine</MainPackageIdentityName>
+    <MainPackageIdentityName>57837TobiasStamm.540748B2263E6</MainPackageIdentityName>
+    <MainPackageIdentityName>57837TobiasStamm.16244DD8A6FD4</MainPackageIdentityName>
+    <MainPackageIdentityName>57837TobiasStamm.43731B67CB3A7</MainPackageIdentityName>
     <MainPackageIdentityName>57837TobiasStamm.KaroGraph</MainPackageIdentityName>
     <MainPackageIdentityName>57837TobiasStamm.677EDCDD453</MainPackageIdentityName>
+    <MainPackageIdentityName>57837TobiasStamm.MatrixBuddy</MainPackageIdentityName>
+    <MainPackageIdentityName>57837TobiasStamm.13848C33895B</MainPackageIdentityName>
   </AccountPackageIdentityNames>
-  <PackageInfoList LandingUrl="https://developer.microsoft.com/dashboard/Application?appId=9PMD396CXPXK" />
+  <PackageInfoList LandingUrl="https://devcenterapi.dce.mp.microsoft.com/dashboard/Application?appId=9PMD396CXPXK">
+    <BundleInfo>
+      <PackageInfo>
+        <OsMinVersion>0.0.0.0</OsMinVersion>
+        <PackageArchitecture>X86</PackageArchitecture>
+        <PackageMaxArchitectureVersion>1.5.0.0</PackageMaxArchitectureVersion>
+      </PackageInfo>
+      <PackageInfo>
+        <OsMinVersion>0.0.0.0</OsMinVersion>
+        <PackageArchitecture>X64</PackageArchitecture>
+        <PackageMaxArchitectureVersion>1.5.0.0</PackageMaxArchitectureVersion>
+      </PackageInfo>
+      <PackageInfo>
+        <OsMinVersion>0.0.0.0</OsMinVersion>
+        <PackageArchitecture>Neutral</PackageArchitecture>
+        <PackageMaxArchitectureVersion>1.5.0.0</PackageMaxArchitectureVersion>
+      </PackageInfo>
+      <PackageInfo>
+        <OsMinVersion>0.0.0.0</OsMinVersion>
+        <PackageArchitecture>Neutral</PackageArchitecture>
+        <PackageMaxArchitectureVersion>1.5.0.0</PackageMaxArchitectureVersion>
+      </PackageInfo>
+      <PackageInfo>
+        <OsMinVersion>0.0.0.0</OsMinVersion>
+        <PackageArchitecture>Neutral</PackageArchitecture>
+        <PackageMaxArchitectureVersion>1.5.0.0</PackageMaxArchitectureVersion>
+      </PackageInfo>
+      <PackageInfo>
+        <OsMinVersion>0.0.0.0</OsMinVersion>
+        <PackageArchitecture>Neutral</PackageArchitecture>
+        <PackageMaxArchitectureVersion>1.5.0.0</PackageMaxArchitectureVersion>
+      </PackageInfo>
+    </BundleInfo>
+  </PackageInfoList>
 </StoreAssociation>

@@ -8,8 +8,8 @@
 
   <Identity
     Name="57837TobiasStamm.BitFiddle"
-    Publisher="CN=Tobias Stamm"
-    Version="1.5.0.0" />
+    Publisher="CN=2CD9127F-1744-474C-A2F6-BF5825CC72FC"
+    Version="1.5.1.0" />
 
   <Properties>
     <DisplayName>Bit Fiddle</DisplayName>
