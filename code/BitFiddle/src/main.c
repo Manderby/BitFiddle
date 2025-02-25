@@ -39,8 +39,8 @@ void preStartup(void* arg){
   
   naSetApplicationName("Bit Fiddle");
   //naSetApplicationCompanyName("ASuppaCombbany");
-  naSetApplicationVersionString("1.5.1");
-  naSetApplicationBuildString("1.5.1");
+  naSetApplicationVersionString("1.5.2");
+  naSetApplicationBuildString("1.5.2");
 
   NAString* appPath = naNewExecutablePath();
   naSetApplicationResourceBasePath(naGetStringUTF8Pointer(appPath));
