@@ -10,7 +10,7 @@ struct BitPreferencesController{
   NAWindow* window;
   
   NALabel* startupLabel;
-  NACheckBox* showASCIIOnStartupCheckBox;
+  NACheckBox* showAsciiOnStartupCheckBox;
   NACheckBox* resetConversionOnStartupCheckBox;
   
   NALabel* onTopLabel;
@@ -25,25 +25,25 @@ struct BitPreferencesController{
 
 
 
-void bit_SwitchPreferencesSetting(NAReaction reaction){
+void bit_SwitchPreferencesSetting(NAReaction reaction) {
   BitPreferencesController* prefs = reaction.controller;
   NABool state = naGetCheckBoxState(reaction.uiElement);
-  if(reaction.uiElement == prefs->showASCIIOnStartupCheckBox){
-    naSetPreferencesBool(BitPrefs[ShowASCIIOnStartup], state);
-  }else if(reaction.uiElement == prefs->resetConversionOnStartupCheckBox){
+  if(reaction.uiElement == prefs->showAsciiOnStartupCheckBox) {
+    naSetPreferencesBool(BitPrefs[ShowAsciiOnStartup], state);
+  }else if(reaction.uiElement == prefs->resetConversionOnStartupCheckBox) {
     naSetPreferencesBool(BitPrefs[ResetConversionOnStartup], state);
-  }else if(reaction.uiElement == prefs->keepConverterOnTopCheckBox){
+  }else if(reaction.uiElement == prefs->keepConverterOnTopCheckBox) {
     naSetPreferencesBool(BitPrefs[KeepConverterOnTop], state);
-  }else if(reaction.uiElement == prefs->show16BitsCheckBox){
+  }else if(reaction.uiElement == prefs->show16BitsCheckBox) {
     naSetPreferencesBool(BitPrefs[Show16Bits], state);
     bitRecreateConverterController();
-  }else if(reaction.uiElement == prefs->showNBitsCheckBox){
+  }else if(reaction.uiElement == prefs->showNBitsCheckBox) {
     naSetPreferencesBool(BitPrefs[ShowNBits], state);
     bitRecreateConverterController();
-  }else if(reaction.uiElement == prefs->showBinCheckBox){
+  }else if(reaction.uiElement == prefs->showBinCheckBox) {
     naSetPreferencesBool(BitPrefs[ShowBin], state);
     bitRecreateConverterController();
-  }else if(reaction.uiElement == prefs->showAscCheckBox){
+  }else if(reaction.uiElement == prefs->showAscCheckBox) {
     naSetPreferencesBool(BitPrefs[ShowAsc], state);
     bitRecreateConverterController();
   }else{
@@ -56,14 +56,14 @@ void bit_SwitchPreferencesSetting(NAReaction reaction){
 
 
 
-void bit_PressDone(NAReaction reaction){
+void bit_PressDone(NAReaction reaction) {
   BitPreferencesController* prefs = reaction.controller;
   naCloseWindow(prefs->window);
 }
 
 
 
-BitPreferencesController* bitAllocPreferencesController(){
+BitPreferencesController* bitAllocPreferencesController() {
   BitPreferencesController* con = naAlloc(BitPreferencesController);
 
   NARect windowrect = naMakeRectS(820, 15, 260, 236);
@@ -73,10 +73,10 @@ BitPreferencesController* bitAllocPreferencesController(){
   con->startupLabel = naNewLabel(bitTranslate(BitFiddlePrefsAtStartup), 330);
   naAddSpaceChild(space, con->startupLabel, naMakePos(20., 194.));
 
-  con->showASCIIOnStartupCheckBox = naNewCheckBox(bitTranslate(BitFiddlePrefsShowASCII), 220);
-  naAddUIReaction(con->showASCIIOnStartupCheckBox, NA_UI_COMMAND_PRESSED, bit_SwitchPreferencesSetting, con);
-  naSetCheckBoxState(con->showASCIIOnStartupCheckBox, naGetPreferencesBool(BitPrefs[ShowASCIIOnStartup]));
-  naAddSpaceChild(space, con->showASCIIOnStartupCheckBox, naMakePos(30., 172.));
+  con->showAsciiOnStartupCheckBox = naNewCheckBox(bitTranslate(BitFiddlePrefsShowAscii), 220);
+  naAddUIReaction(con->showAsciiOnStartupCheckBox, NA_UI_COMMAND_PRESSED, bit_SwitchPreferencesSetting, con);
+  naSetCheckBoxState(con->showAsciiOnStartupCheckBox, naGetPreferencesBool(BitPrefs[ShowAsciiOnStartup]));
+  naAddSpaceChild(space, con->showAsciiOnStartupCheckBox, naMakePos(30., 172.));
 
   con->resetConversionOnStartupCheckBox = naNewCheckBox(bitTranslate(BitFiddlePrefsResetSettings), 220);
   naAddUIReaction(con->resetConversionOnStartupCheckBox, NA_UI_COMMAND_PRESSED, bit_SwitchPreferencesSetting, con);
@@ -123,13 +123,13 @@ BitPreferencesController* bitAllocPreferencesController(){
 
 
 
-void bitDeallocPreferencesController(BitPreferencesController* prefs){
+void bitDeallocPreferencesController(BitPreferencesController* prefs) {
   naFree(prefs);
 }
 
 
 
-void bitShowPreferencesController(BitPreferencesController* prefs){
+void bitShowPreferencesController(BitPreferencesController* prefs) {
   naShowWindow(prefs->window);
 }
 

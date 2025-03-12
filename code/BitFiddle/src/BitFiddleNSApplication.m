@@ -12,7 +12,7 @@
 #include "BitFiddleTranslations.h"
 #include "BitFiddlePreferences.h"
 
-#include "ASCIIController.h"
+#include "AsciiController.h"
 #include "ConverterController.h"
 #include "PreferencesController.h"
 #include "BitFiddleApplication.h"
@@ -24,18 +24,11 @@
 
 
 // This method makes sure the notification methods will be called.
-- (id)init{
-  self = [super init];
-  [self setDelegate:self];
-  return self;
-}
-
-
-
-// This method will still be called. Use it if necessary.
-- (void)applicationDidFinishLaunching:(NSNotification *)notification{
-  NA_UNUSED(notification);
-}
+//- (id)init{
+//  self = [super init];
+//  [self setDelegate:self];
+//  return self;
+//}
 
 
 
@@ -62,14 +55,14 @@
 
 
 
-void preStartup(void* arg){
+void preStartup(void* arg) {
   NA_UNUSED(arg);
   bitStartApplication();
 }
 
 
 
-void postStartup(void* arg){
+void postStartup(void* arg) {
   NA_UNUSED(arg);
 
   naLoadNib("MainMenu", NA_NULL);
@@ -78,7 +71,7 @@ void postStartup(void* arg){
 
 
 
-int main(int argc, char *argv[]){
+int main(int argc, char *argv[]) {
   NA_UNUSED(argc);
   NA_UNUSED(argv);
   naStartRuntime();

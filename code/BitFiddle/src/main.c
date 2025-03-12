@@ -12,12 +12,12 @@
 #include "BitFiddleNSApplication.h"
 #include "BitFiddleTranslations.h"
 #include "BitFiddlePreferences.h"
-#include "ASCIIController.h"
+#include "AsciiController.h"
 #include "BitFiddleApplication.h"
 
 
 
-void preStartup(void* arg){
+void preStartup(void* arg) {
   NA_UNUSED(arg);
 
 
@@ -60,7 +60,7 @@ void preStartup(void* arg){
 
 
 
-void postStartup(void* arg){
+void postStartup(void* arg) {
   NA_UNUSED(arg);
 
   //NAString* appPath = naNewExecutablePath();
@@ -72,7 +72,7 @@ void postStartup(void* arg){
 
 
 
-int WINAPI WinMain(_In_ HINSTANCE hInstance, _In_opt_ HINSTANCE hPrevInstance, _In_ LPSTR lpCmdLine, _In_ int nShowCmd){
+int WINAPI WinMain(_In_ HINSTANCE hInstance, _In_opt_ HINSTANCE hPrevInstance, _In_ LPSTR lpCmdLine, _In_ int nShowCmd) {
   NA_UNUSED(hInstance);
   NA_UNUSED(hPrevInstance);
   NA_UNUSED(lpCmdLine);

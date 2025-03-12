@@ -3,10 +3,10 @@
 #include "BitFiddleApplication.h"
 
 const char* BitPrefs[BitPrefCount] = {
-  "useASCIIEscape",
-  "useASCIIHex",
+  "useAsciiEscape",
+  "useAsciiHex",
 
-  "showASCIIOnStartup",
+  "showAsciiOnStartup",
   "resetConversionOnStartup",
   "keepConverterOnTop",
 
@@ -19,11 +19,11 @@ const char* BitPrefs[BitPrefCount] = {
   "selectedComplementEncoding",
 };
 
-void bitInitPreferences(void){
-  naInitPreferencesBool(BitPrefs[UseASCIIEscape], NA_FALSE);
-  naInitPreferencesBool(BitPrefs[UseASCIIHex], NA_FALSE);
+void bitInitPreferences(void) {
+  naInitPreferencesBool(BitPrefs[UseAsciiEscape], NA_FALSE);
+  naInitPreferencesBool(BitPrefs[UseAsciiHex], NA_FALSE);
 
-  naInitPreferencesBool(BitPrefs[ShowASCIIOnStartup], NA_FALSE);
+  naInitPreferencesBool(BitPrefs[ShowAsciiOnStartup], NA_FALSE);
   naInitPreferencesBool(BitPrefs[ResetConversionOnStartup], NA_TRUE);
   naInitPreferencesBool(BitPrefs[KeepConverterOnTop], NA_FALSE);
 

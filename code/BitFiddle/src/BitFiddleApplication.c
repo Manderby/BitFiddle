@@ -3,7 +3,7 @@
 #include "BitFiddleAboutController.h"
 #include "BitFiddlePreferences.h"
 #include "ConverterController.h"
-#include "ASCIIController.h"
+#include "AsciiController.h"
 #include "PreferencesController.h"
 #include "BitFiddleTranslations.h"
 
@@ -21,7 +21,7 @@ struct BitApplication{
   NABool showAsc;
   
   BitConverterController* converterController;
-  BitASCIIController* asciiController;
+  BitAsciiController* asciiController;
   BitPreferencesController* preferencesController;
   BitFiddleAboutController* aboutController;
 };
@@ -32,7 +32,7 @@ BitApplication* bitApp = NA_NULL;
 
 
 
-NAImageSet* bit_LoadImageAsset(const NAUTF8Char* dir, const NAUTF8Char* baseBame, const NAUTF8Char* suffix){
+NAImageSet* bit_LoadImageAsset(const NAUTF8Char* dir, const NAUTF8Char* baseBame, const NAUTF8Char* suffix) {
   NAString* imagePath = naNewApplicationResourcePath(dir, baseBame, suffix);
   NAImage* image = naCreateImageWithFilePath(naGetStringUTF8Pointer(imagePath));
   NAImageSet* imageSet = naCreateImageSet(image, NA_UI_RESOLUTION_2x, NA_BLEND_ERODE_LIGHT);
@@ -43,7 +43,7 @@ NAImageSet* bit_LoadImageAsset(const NAUTF8Char* dir, const NAUTF8Char* baseBame
 
 
 
-void bitStartApplication(void){
+void bitStartApplication(void) {
   bitApp = naAlloc(BitApplication);
 
   bitInitTranslations();
@@ -53,7 +53,7 @@ void bitStartApplication(void){
   bitApp->conversionType = (BitConversionType)naGetPreferencesEnum(BitPrefs[SelectedComplementEncoding]);
 
   NABool resetsettings = naGetPreferencesBool(BitPrefs[ResetConversionOnStartup]);
-  if(resetsettings){
+  if(resetsettings) {
     bitApp->swapEndianness = NA_FALSE;
     bitApp->conversionType = COMPUTE_UNSIGNED;
   }
@@ -65,15 +65,15 @@ void bitStartApplication(void){
 
 
 
-NAImageSet* bitGetImageAsset(BitImageAsset asset){
+NAImageSet* bitGetImageAsset(BitImageAsset asset) {
   return bitApp->imageAssets[asset];
 }
 
 
 
-void bitCreateUI(){
+void bitCreateUI() {
   bitApp->converterController   = bitAllocConverterController();
-  bitApp->asciiController       = bitAllocASCIIController();
+  bitApp->asciiController       = bitAllocAsciiController();
   bitApp->preferencesController = bitAllocPreferencesController();
   bitApp->aboutController       = bitAllocAboutController();
   
@@ -89,19 +89,19 @@ void bitCreateUI(){
   naAddUIKeyboardShortcut(naGetApplication(), naNewKeyStroke(NA_KEYCODE_2, modifier), bitSwitchBitConversionType, bitApp);
 
   bitShowApplicationConverterController();
-  NABool showASCIIOnStartup = naGetPreferencesBool(BitPrefs[ShowASCIIOnStartup]);
-  if(showASCIIOnStartup){bitShowApplicationASCIIController();}
+  NABool showAsciiOnStartup = naGetPreferencesBool(BitPrefs[ShowAsciiOnStartup]);
+  if(showAsciiOnStartup) {bitShowApplicationAsciiController();}
 
   bitUpdateApp();
 }
 
 
 
-void bitStopApplication(void* data){
+void bitStopApplication(void* data) {
   NA_UNUSED(data);
   
   bitDeallocConverterController(bitApp->converterController);
-  bitDeallocASCIIController(bitApp->asciiController);
+  bitDeallocAsciiController(bitApp->asciiController);
   bitDeallocPreferencesController(bitApp->preferencesController);
   bitDeallocAboutController(bitApp->aboutController);
   
@@ -114,28 +114,28 @@ void bitStopApplication(void* data){
 
 
 
-BitApplication* bitGetApplication(void){
+BitApplication* bitGetApplication(void) {
   return bitApp;
 }
 
 
 
-void bitShowApplicationConverterController(){
+void bitShowApplicationConverterController() {
   bitShowConverterController(bitApp->converterController);
 }
-void bitShowApplicationASCIIController(){
-  bitShowASCIIController(bitApp->asciiController);
+void bitShowApplicationAsciiController() {
+  bitShowAsciiController(bitApp->asciiController);
 }
-void bitShowApplicationPreferencesController(){
+void bitShowApplicationPreferencesController() {
   bitShowPreferencesController(bitApp->preferencesController);
 }
-void bitShowApplicationAboutController(){
+void bitShowApplicationAboutController() {
   bitShowAboutController(bitApp->aboutController);
 }
 
 
 
-void bitRecreateConverterController(){
+void bitRecreateConverterController() {
   bitDeallocConverterController(bitApp->converterController);
   bitApp->converterController = bitAllocConverterController();
   bitShowApplicationConverterController();
@@ -143,20 +143,20 @@ void bitRecreateConverterController(){
 
 
 
-void bitUpdateApp(){
+void bitUpdateApp() {
   NABool keepConverterOnTop = naGetPreferencesBool(BitPrefs[KeepConverterOnTop]);
   bitKeepConverterOnTop(bitApp->converterController, keepConverterOnTop);
 }
 
 
 
-BitConversionType bitGetBitConversionType(){
+BitConversionType bitGetBitConversionType() {
   return bitApp->conversionType;
 }
 
 
 
-void bitSetBitConversionType(BitConversionType conversionType){
+void bitSetBitConversionType(BitConversionType conversionType) {
   bitApp->conversionType = conversionType;
   naSetPreferencesEnum(BitPrefs[SelectedComplementEncoding], conversionType);
   bitUpdateConverterController(bitApp->converterController);
@@ -164,13 +164,13 @@ void bitSetBitConversionType(BitConversionType conversionType){
 
 
 
-NABool bitGetEndiannessSwap(){
+NABool bitGetEndiannessSwap() {
   return bitApp->swapEndianness;
 }
 
 
 
-void bitSwitchAppEndianness(NAReaction reaction){
+void bitSwitchAppEndianness(NAReaction reaction) {
   BitApplication* con = reaction.controller;
   
   con->swapEndianness = !con->swapEndianness;  
@@ -178,10 +178,10 @@ void bitSwitchAppEndianness(NAReaction reaction){
   bitUpdateConverterController(con->converterController);
 }
 
-void bitSwitchBitConversionType(NAReaction reaction){
+void bitSwitchBitConversionType(NAReaction reaction) {
   NA_UNUSED(reaction);
   const NAKeyStroke* keyStroke = naGetCurrentKeyStroke();
-  switch(naGetKeyStrokeKeyCode(keyStroke)){
+  switch(naGetKeyStrokeKeyCode(keyStroke)) {
   case NA_KEYCODE_0: bitSetBitConversionType(COMPUTE_UNSIGNED); break;
   case NA_KEYCODE_1: bitSetBitConversionType(COMPUTE_ONES_COMPLEMENT); break;
   case NA_KEYCODE_2: bitSetBitConversionType(COMPUTE_TWOS_COMPLEMENT); break;

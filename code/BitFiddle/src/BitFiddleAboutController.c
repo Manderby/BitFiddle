@@ -22,14 +22,14 @@ struct BitFiddleAboutController{
 
 
 
-void bit_pressAboutDone(NAReaction reaction){
+void bit_pressAboutDone(NAReaction reaction) {
   BitFiddleAboutController* con = (BitFiddleAboutController*)reaction.controller;
   naCloseWindow(con->window);
 }
 
 
 
-BitFiddleAboutController* bitAllocAboutController(void){
+BitFiddleAboutController* bitAllocAboutController(void) {
   BitFiddleAboutController* con = naAlloc(BitFiddleAboutController);
 
   NAString* bundleApplicationName = naNewApplicationName();
@@ -95,13 +95,13 @@ BitFiddleAboutController* bitAllocAboutController(void){
 
 
 
-void bitDeallocAboutController(BitFiddleAboutController* con){
+void bitDeallocAboutController(BitFiddleAboutController* con) {
   naFree(con);
 }
 
 
 
-void bitShowAboutController(BitFiddleAboutController* con){
+void bitShowAboutController(BitFiddleAboutController* con) {
   naShowWindow(con->window);
 }
 

@@ -96,8 +96,8 @@ void bitPadBitArray(NABuffer* bitArray, NAInt padSize);
 //                                                         NAInt size);
 
 // Creates a bit array from the given string. The string can contain binary
-// values, decimal values, hexadecimal values. The ASCII-function will create
-// a bit representation of the ASCII characters.
+// values, decimal values, hexadecimal values. The Ascii-function will create
+// a bit representation of the Ascii characters.
 // - If sizehint is positive, it denotes the precise number of bits the
 //   resulting bit array shall contain.
 // - If sizehint is zero, the size of the bit array is automatically set to

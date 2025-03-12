@@ -1,12 +1,12 @@
 
 #include "NAApp/NAApp.h"
 
-typedef struct BitASCIIController BitASCIIController;
+typedef struct BitAsciiController BitAsciiController;
 
-BitASCIIController* bitAllocASCIIController(void);
-void bitDeallocASCIIController(BitASCIIController* con);
+BitAsciiController* bitAllocAsciiController(void);
+void bitDeallocAsciiController(BitAsciiController* con);
 
-void bitShowASCIIController(BitASCIIController* con);
+void bitShowAsciiController(BitAsciiController* con);
 
 
 

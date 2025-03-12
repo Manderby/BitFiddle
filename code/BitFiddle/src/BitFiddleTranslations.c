@@ -3,11 +3,11 @@
 
 uint32 translatorGroup;
 
-const NAUTF8Char* bitTranslate(uint32 id){
+const NAUTF8Char* bitTranslate(uint32 id) {
   return naTranslate(translatorGroup, id);
 }
 
-void bitInitTranslations(){
+void bitInitTranslations() {
   translatorGroup = naRegisterTranslatorGroup();
   #include "../res/BitFiddleStrings_eng.h"
   #include "../res/BitFiddleStrings_deu.h"

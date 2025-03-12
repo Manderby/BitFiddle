@@ -2,10 +2,10 @@
 #include "NAApp/NAPreferences.h"
 
 enum {
-  UseASCIIEscape,
-  UseASCIIHex,
+  UseAsciiEscape,
+  UseAsciiHex,
 
-  ShowASCIIOnStartup,
+  ShowAsciiOnStartup,
   ResetConversionOnStartup,
   KeepConverterOnTop,
   Show16Bits,

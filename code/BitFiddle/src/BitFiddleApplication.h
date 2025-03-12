@@ -34,7 +34,7 @@ BitApplication* bitGetApplication(void);
 NAImageSet* bitGetImageAsset(BitImageAsset asset);
 
 void bitShowApplicationConverterController(void);
-void bitShowApplicationASCIIController(void);
+void bitShowApplicationAsciiController(void);
 void bitShowApplicationPreferencesController(void);
 void bitShowApplicationAboutController(void);
 void bitUpdateApp(void);
