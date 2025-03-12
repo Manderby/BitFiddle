@@ -179,37 +179,6 @@ const char* bit_unicodeNames[128] = {
 
 
 
-void bit_RedrawAsciiController(BitAsciiController* con) {
-  naSetRadioState(con->escapeRadio, con->useEscape);
-  naSetRadioState(con->codeRadio, !con->useEscape);
-  naSetRadioState(con->hexRadio, con->useHex);
-  naSetRadioState(con->decRadio, !con->useHex);
-  
-  for(int i = 0; i < 128; i++) {
-    NAUTF8Char* labelStr;
-    labelStr = (con->useHex)
-      ? naAllocSprintf(NA_TRUE, "%02x", (int)i)
-      : naAllocSprintf(NA_TRUE, "%d", (int)i);
-    naSetLabelText(con->labels[i], labelStr);
-        
-    NAUTF8Char* charStr;
-    if(i <= 32) {
-      charStr = naAllocSprintf(NA_TRUE, con->useEscape
-        ? bit_asciiEscapes[i]
-        : bit_asciiCodes[i]);
-    }else if(i < 127) {
-      charStr = naAllocSprintf(NA_TRUE, "%c", (char)i);
-    }else{ // 127
-      charStr = naAllocSprintf(NA_TRUE, con->useEscape
-        ? bit_asciiEscapes[33]
-        : bit_asciiCodes[33]);
-    }
-    naSetLabelText(con->chars[i], charStr);
-  }
-}
-
-
-
 size_t bit_GetAsciiUISpaceIndex(
   BitAsciiController* con,
   const NASpace* space)
@@ -292,7 +261,7 @@ void bit_SwitchAsciiDisplayMode(NAReaction reaction) {
       naError("Unknown uiElement sent message");
     #endif
   }
-  bit_RedrawAsciiController(con);
+  bitUpdateAsciiController(con);
 }
 
 
@@ -330,7 +299,7 @@ BitAsciiController* bitAllocAsciiController() {
         bit_UnhoverAsciiItem,
         con);
 
-      NAFont* monoFont = naCreateFontWithPreset(NA_FONT_KIND_MONOSPACE, NA_FONT_SIZE_DEFAULT);
+      NAFont* monoFont = bitGetMonospaceFont();
 
       // Character number
       con->labels[curIndex] = naNewLabel("", 32);
@@ -351,8 +320,6 @@ BitAsciiController* bitAllocAsciiController() {
         con->chars[curIndex],
         naMakePos(37, 0));
       
-      naRelease(monoFont);
-
       naAddSpaceChild(
         columnSpace,
         con->spaces[curIndex],
@@ -436,11 +403,42 @@ void bitDeallocAsciiController(BitAsciiController* con) {
 
 
 
-void bitShowAsciiController(BitAsciiController* con) {
+void bitUpdateAsciiController(BitAsciiController* con) {
   con->useEscape = naGetPreferencesBool(BitPrefs[UseAsciiEscape]);
   con->useHex = naGetPreferencesBool(BitPrefs[UseAsciiHex]);
 
-  bit_RedrawAsciiController(con);
+  naSetRadioState(con->escapeRadio, con->useEscape);
+  naSetRadioState(con->codeRadio, !con->useEscape);
+  naSetRadioState(con->hexRadio, con->useHex);
+  naSetRadioState(con->decRadio, !con->useHex);
+  
+  for(int i = 0; i < 128; i++) {
+    NAUTF8Char* labelStr;
+    labelStr = (con->useHex)
+      ? naAllocSprintf(NA_TRUE, "%02x", (int)i)
+      : naAllocSprintf(NA_TRUE, "%d", (int)i);
+    naSetLabelText(con->labels[i], labelStr);
+        
+    NAUTF8Char* charStr;
+    if(i <= 32) {
+      charStr = naAllocSprintf(NA_TRUE, con->useEscape
+        ? bit_asciiEscapes[i]
+        : bit_asciiCodes[i]);
+    }else if(i < 127) {
+      charStr = naAllocSprintf(NA_TRUE, "%c", (char)i);
+    }else{ // 127
+      charStr = naAllocSprintf(NA_TRUE, con->useEscape
+        ? bit_asciiEscapes[33]
+        : bit_asciiCodes[33]);
+    }
+    naSetLabelText(con->chars[i], charStr);
+  }
+}
+
+
+
+void bitShowAsciiController(BitAsciiController* con) {
+  bitUpdateAsciiController(con);
 
   naShowWindow(con->window);
 }

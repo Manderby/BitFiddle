@@ -387,51 +387,46 @@ void bitUpdateConverterController(BitConverterController* con) {
 
 NATextField* bit_CreateBitInputField(BitConverterController* con, double width, NAReactionCallback callback) {
   NATextField* textfield = naNewTextField(width);
-  NAFont* monoFont = naCreateFontWithPreset(NA_FONT_KIND_MONOSPACE, NA_FONT_SIZE_DEFAULT);
+  NAFont* monoFont = bitGetMonospaceFont();
   naSetTextFieldFont(textfield, monoFont);
   naSetTextFieldTextAlignment(textfield, NA_TEXT_ALIGNMENT_RIGHT);
   naAddUIReaction(textfield, NA_UI_COMMAND_EDITED, callback, con);
-  naRelease(monoFont);
   return textfield;
 }
 
 NALabel* bit_CreateBitLabelField(const NAUTF8Char* title, double width) {
   NALabel* labelfield = naNewLabel(title, width);
-  NAFont* monoFont = naCreateFontWithPreset(NA_FONT_KIND_MONOSPACE, NA_FONT_SIZE_DEFAULT);
+  NAFont* monoFont = bitGetMonospaceFont();
   naSetLabelFont(labelfield, monoFont);
   naSetLabelTextAlignment(labelfield, NA_TEXT_ALIGNMENT_CENTER);
   naSetLabelEnabled(labelfield, NA_FALSE);
-  naRelease(monoFont);
   return labelfield;
 }
 
 NALabel* bit_CreateSystemLabelField(const NAUTF8Char* title, double width) {
   NALabel* labelfield = naNewLabel(title, width);
-  NAFont* monoFont = naCreateFontWithPreset(NA_FONT_KIND_MONOSPACE, NA_FONT_SIZE_DEFAULT);
+  NAFont* monoFont = bitGetMonospaceFont();
   naSetLabelFont(labelfield, monoFont);
   naSetLabelTextAlignment(labelfield, NA_TEXT_ALIGNMENT_LEFT);
   naSetLabelEnabled(labelfield, NA_FALSE);
-  naRelease(monoFont);
   return labelfield;
 }
 
 NALabel* bit_CreateBitOutputField(double width) {
   NALabel* outputField = naNewLabel("", width);
-  NAFont* monoFont = naCreateFontWithPreset(NA_FONT_KIND_MONOSPACE, NA_FONT_SIZE_DEFAULT);
+  NAFont* monoFont = bitGetMonospaceFont();
   naSetLabelFont(outputField, monoFont);
   naSetLabelTextAlignment(outputField, NA_TEXT_ALIGNMENT_RIGHT);
-  naRelease(monoFont);
   return outputField;
 }
 
 NATextBox* bit_CreateBitOutputBox(NASize size, NABool withScrolling) {
   NATextBox* outputbox = naNewTextBox(size);
-  NAFont* monoFont = naCreateFontWithPreset(NA_FONT_KIND_MONOSPACE, NA_FONT_SIZE_DEFAULT);
+  NAFont* monoFont = bitGetMonospaceFont();
   naSetTextBoxFont(outputbox, monoFont);
   naSetTextBoxTextAlignment(outputbox, NA_TEXT_ALIGNMENT_RIGHT);
   naSetTextBoxEditable(outputbox, NA_FALSE);
   naSetTextBoxUseVerticalScrolling(outputbox, withScrolling);
-  naRelease(monoFont);
   return outputbox;
 }
 
@@ -457,7 +452,11 @@ BitConverterController* bitAllocConverterController(void) {
   NAInt yspaceheight = yposinput + 22 + 10;
 
   NARect windowrect = naMakeRectS(20., 20., 777., (double)yspaceheight);
-  con->window = naNewWindow("Complement", windowrect, NA_FALSE, BIT_WINDOW_TAG_CONVERTER);
+  con->window = naNewWindow(
+    "Complement",
+    windowrect,
+    0,
+    BIT_WINDOW_TAG_CONVERTER);
   naAddUIReaction(con->window, NA_UI_COMMAND_CLOSES, bit_CloseConverterWindow, con);
 
   NASpace* space = naGetWindowContentSpace(con->window);

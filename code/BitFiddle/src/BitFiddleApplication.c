@@ -16,6 +16,8 @@
 struct BitApplication{
   NABool swapEndianness;
   BitConversionType conversionType;
+  NAFont* monoFont;
+
   NAImageSet* imageAssets[BIT_IMAGE_ASSET_COUNT];
   
   NABool showAsc;
@@ -52,6 +54,10 @@ void bitStartApplication(void) {
   bitApp->swapEndianness = naGetPreferencesBool(BitPrefs[SwapEndianness]);
   bitApp->conversionType = (BitConversionType)naGetPreferencesEnum(BitPrefs[SelectedComplementEncoding]);
 
+  bitApp->monoFont = naCreateFontWithPreset(
+    NA_FONT_KIND_MONOSPACE,
+    NA_FONT_SIZE_DEFAULT);
+
   NABool resetsettings = naGetPreferencesBool(BitPrefs[ResetConversionOnStartup]);
   if(resetsettings) {
     bitApp->swapEndianness = NA_FALSE;
@@ -73,7 +79,7 @@ NAImageSet* bitGetImageAsset(BitImageAsset asset) {
 
 void bitCreateUI() {
   bitApp->converterController   = bitAllocConverterController();
-  bitApp->asciiController       = bitAllocAsciiController();
+  bitApp->asciiController       = NA_NULL;
   bitApp->preferencesController = bitAllocPreferencesController();
   bitApp->aboutController       = bitAllocAboutController();
   
@@ -101,13 +107,17 @@ void bitStopApplication(void* data) {
   NA_UNUSED(data);
   
   bitDeallocConverterController(bitApp->converterController);
-  bitDeallocAsciiController(bitApp->asciiController);
+  if(bitApp->asciiController) {
+    bitDeallocAsciiController(bitApp->asciiController);
+  }
   bitDeallocPreferencesController(bitApp->preferencesController);
   bitDeallocAboutController(bitApp->aboutController);
   
   naRelease(bitApp->imageAssets[BIT_IMAGE_ASSET_HELP_BUTTON]);
   naRelease(bitApp->imageAssets[BIT_IMAGE_ASSET_PREFS_BUTTON]);
   naRelease(bitApp->imageAssets[BIT_IMAGE_ASSET_ASCII_BUTTON]);
+  
+  naRelease(bitApp->monoFont);
   
   naFree(bitApp);
 }
@@ -124,6 +134,9 @@ void bitShowApplicationConverterController() {
   bitShowConverterController(bitApp->converterController);
 }
 void bitShowApplicationAsciiController() {
+  if(!bitApp->asciiController) {
+    bitApp->asciiController = bitAllocAsciiController();
+  }
   bitShowAsciiController(bitApp->asciiController);
 }
 void bitShowApplicationPreferencesController() {
@@ -139,6 +152,12 @@ void bitRecreateConverterController() {
   bitDeallocConverterController(bitApp->converterController);
   bitApp->converterController = bitAllocConverterController();
   bitShowApplicationConverterController();
+}
+
+
+
+NAFont* bitGetMonospaceFont() {
+  return bitApp->monoFont;
 }
 
 

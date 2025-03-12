@@ -7,6 +7,7 @@ BitAsciiController* bitAllocAsciiController(void);
 void bitDeallocAsciiController(BitAsciiController* con);
 
 void bitShowAsciiController(BitAsciiController* con);
+void bitUpdateAsciiController(BitAsciiController* con);
 
 
 

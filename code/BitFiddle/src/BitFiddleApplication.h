@@ -48,6 +48,8 @@ void bitSwitchBitConversionType(NAReaction reaction);
 
 void bitRecreateConverterController(void);
 
+NAFont* bitGetMonospaceFont(void);
+
 #endif // BIT_APPLICATION_DEFINED
 
 
