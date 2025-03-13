@@ -23,15 +23,6 @@
 
 
 
-// This method makes sure the notification methods will be called.
-//- (id)init{
-//  self = [super init];
-//  [self setDelegate:self];
-//  return self;
-//}
-
-
-
 // There are certain macOS specific menu items which should always be the same.
 // Use a standard XIP file, connect the appropriate IBOutlets to these actions
 // and all works fine. 

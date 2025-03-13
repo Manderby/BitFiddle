@@ -29,9 +29,9 @@ typedef enum{
 void bitStartApplication(void);
 void bitCreateUI(void);
 void bitStopApplication(void* data);
-BitApplication* bitGetApplication(void);
 
 NAImageSet* bitGetImageAsset(BitImageAsset asset);
+NAFont* bitGetMonospaceFont(void);
 
 void bitShowApplicationConverterController(void);
 void bitShowApplicationAsciiController(void);
@@ -41,7 +41,6 @@ void bitUpdateApp(void);
 
 void bitRecreateConverterController(void);
 
-NAFont* bitGetMonospaceFont(void);
 
 #endif // BIT_APPLICATION_DEFINED
 

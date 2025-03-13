@@ -28,7 +28,7 @@ struct BitApplication{
 
 
 
-BitApplication* bitApp = NA_NULL;
+BitApplication* bit_App = NA_NULL;
 
 
 
@@ -44,7 +44,7 @@ NAImageSet* bit_LoadImageAsset(const NAUTF8Char* dir, const NAUTF8Char* baseBame
 
 
 void bitStartApplication(void) {
-  bitApp = naAlloc(BitApplication);
+  bit_App = naAlloc(BitApplication);
 
   bitInitTranslations();
   bitInitPreferences();
@@ -54,28 +54,32 @@ void bitStartApplication(void) {
     bitSetPrefsComplementEncoding(COMPUTE_UNSIGNED);
   }
 
-  bitApp->monoFont = naCreateFontWithPreset(
+  bit_App->monoFont = naCreateFontWithPreset(
     NA_FONT_KIND_MONOSPACE,
     NA_FONT_SIZE_DEFAULT);
 
-  bitApp->imageAssets[BIT_IMAGE_ASSET_HELP_BUTTON] =  bit_LoadImageAsset(NA_NULL, "help", "png");
-  bitApp->imageAssets[BIT_IMAGE_ASSET_PREFS_BUTTON] = bit_LoadImageAsset(NA_NULL, "prefs", "png");
-  bitApp->imageAssets[BIT_IMAGE_ASSET_ASCII_BUTTON] = bit_LoadImageAsset(NA_NULL, "ascii", "png");
+  bit_App->imageAssets[BIT_IMAGE_ASSET_HELP_BUTTON] =  bit_LoadImageAsset(NA_NULL, "help", "png");
+  bit_App->imageAssets[BIT_IMAGE_ASSET_PREFS_BUTTON] = bit_LoadImageAsset(NA_NULL, "prefs", "png");
+  bit_App->imageAssets[BIT_IMAGE_ASSET_ASCII_BUTTON] = bit_LoadImageAsset(NA_NULL, "ascii", "png");
 }
 
 
 
 NAImageSet* bitGetImageAsset(BitImageAsset asset) {
-  return bitApp->imageAssets[asset];
+  return bit_App->imageAssets[asset];
+}
+
+NAFont* bitGetMonospaceFont() {
+  return bit_App->monoFont;
 }
 
 
 
 void bitCreateUI() {
-  bitApp->converterController   = bitAllocConverterController();
-  bitApp->asciiController       = NA_NULL;
-  bitApp->preferencesController = NA_NULL;
-  bitApp->aboutController       = NA_NULL;
+  bit_App->converterController   = bitAllocConverterController();
+  bit_App->asciiController       = NA_NULL;
+  bit_App->preferencesController = NA_NULL;
+  bit_App->aboutController       = NA_NULL;
   
   bitShowApplicationConverterController();
   
@@ -91,71 +95,59 @@ void bitCreateUI() {
 void bitStopApplication(void* data) {
   NA_UNUSED(data);
   
-  bitDeallocConverterController(bitApp->converterController);
-  if(bitApp->asciiController) {
-    bitDeallocAsciiController(bitApp->asciiController);
+  bitDeallocConverterController(bit_App->converterController);
+  if(bit_App->asciiController) {
+    bitDeallocAsciiController(bit_App->asciiController);
   }
-  bitDeallocPreferencesController(bitApp->preferencesController);
-  bitDeallocAboutController(bitApp->aboutController);
+  bitDeallocPreferencesController(bit_App->preferencesController);
+  bitDeallocAboutController(bit_App->aboutController);
   
-  naRelease(bitApp->imageAssets[BIT_IMAGE_ASSET_HELP_BUTTON]);
-  naRelease(bitApp->imageAssets[BIT_IMAGE_ASSET_PREFS_BUTTON]);
-  naRelease(bitApp->imageAssets[BIT_IMAGE_ASSET_ASCII_BUTTON]);
+  naRelease(bit_App->imageAssets[BIT_IMAGE_ASSET_HELP_BUTTON]);
+  naRelease(bit_App->imageAssets[BIT_IMAGE_ASSET_PREFS_BUTTON]);
+  naRelease(bit_App->imageAssets[BIT_IMAGE_ASSET_ASCII_BUTTON]);
   
-  naRelease(bitApp->monoFont);
+  naRelease(bit_App->monoFont);
   
-  naFree(bitApp);
-}
-
-
-
-BitApplication* bitGetApplication(void) {
-  return bitApp;
+  naFree(bit_App);
 }
 
 
 
 void bitShowApplicationConverterController() {
-  bitShowConverterController(bitApp->converterController);
+  bitShowConverterController(bit_App->converterController);
 }
 void bitShowApplicationAsciiController() {
-  if(!bitApp->asciiController) {
-    bitApp->asciiController = bitAllocAsciiController();
+  if(!bit_App->asciiController) {
+    bit_App->asciiController = bitAllocAsciiController();
   }
-  bitShowAsciiController(bitApp->asciiController);
+  bitShowAsciiController(bit_App->asciiController);
 }
 void bitShowApplicationPreferencesController() {
-  if(!bitApp->preferencesController) {
-    bitApp->preferencesController = bitAllocPreferencesController();
+  if(!bit_App->preferencesController) {
+    bit_App->preferencesController = bitAllocPreferencesController();
   }
-  bitShowPreferencesController(bitApp->preferencesController);
+  bitShowPreferencesController(bit_App->preferencesController);
 }
 void bitShowApplicationAboutController() {
-  if(!bitApp->aboutController) {
-    bitApp->aboutController = bitAllocAboutController();
+  if(!bit_App->aboutController) {
+    bit_App->aboutController = bitAllocAboutController();
   }
-  bitShowAboutController(bitApp->aboutController);
+  bitShowAboutController(bit_App->aboutController);
 }
 
 
 
 void bitRecreateConverterController() {
-  bitDeallocConverterController(bitApp->converterController);
-  bitApp->converterController = bitAllocConverterController();
+  bitDeallocConverterController(bit_App->converterController);
+  bit_App->converterController = bitAllocConverterController();
   bitShowApplicationConverterController();
-}
-
-
-
-NAFont* bitGetMonospaceFont() {
-  return bitApp->monoFont;
 }
 
 
 
 void bitUpdateApp() {
   bitKeepConverterOnTop(
-    bitApp->converterController,
+    bit_App->converterController,
     bitGetPrefsKeepConverterOnTop());
 }
 
