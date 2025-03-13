@@ -8,6 +8,9 @@
 
 struct BitConverterController{
   NABuffer* bitArray;
+  NABool swapEndianness;
+  BitConversionType conversionType;
+  
   NAWindow* window;
 
   NAButton* unsignedOption;
@@ -141,15 +144,23 @@ void bit_CloseConverterWindow(NAReaction reaction) {
 
 
 
+void bit_SetBitConversionType(BitConverterController* con, BitConversionType conversionType) {
+  con->conversionType = conversionType;
+  bitSetPrefsComplementEncoding(conversionType);
+  bitUpdateConverterController(con);
+}
+
+
+
 void bit_SwitchComplement(NAReaction reaction) {
   BitConverterController* con = reaction.controller;
 
   if(reaction.uiElement == con->unsignedOption) {
-    bitSetBitConversionType(COMPUTE_UNSIGNED);
+    bit_SetBitConversionType(con, COMPUTE_UNSIGNED);
   }else if(reaction.uiElement == con->onesOption) {
-    bitSetBitConversionType(COMPUTE_ONES_COMPLEMENT);
+    bit_SetBitConversionType(con, COMPUTE_ONES_COMPLEMENT);
   }else if(reaction.uiElement == con->twosOption) {
-    bitSetBitConversionType(COMPUTE_TWOS_COMPLEMENT);
+    bit_SetBitConversionType(con, COMPUTE_TWOS_COMPLEMENT);
   }else{
     #if NA_DEBUG
       naError("Unknown conversion type");
@@ -286,7 +297,7 @@ void bitUpdateConverterController(BitConverterController* con) {
   bitArray64 = bitCreateBitArrayCopyWithFixedSize(con->bitArray, 64);
   bitArrayn  = bitCreateBitArrayCopyWithFixedSize(con->bitArray, -8);
   
-  NABool byteSwap = bitGetEndiannessSwap();
+  NABool byteSwap = con->swapEndianness;
   naSetCheckBoxState(con->endiannessCheckBox, byteSwap);
   const NAUTF8Char* stringByteSwap = NA_NULL;
   if(byteSwap) {
@@ -298,7 +309,7 @@ void bitUpdateConverterController(BitConverterController* con) {
     bitComputeBitArraySwapBytes(bitArrayn);
   }
 
-  BitConversionType conversionType = bitGetBitConversionType();
+  BitConversionType conversionType = con->conversionType;
   naSetButtonState(con->unsignedOption, conversionType == COMPUTE_UNSIGNED);
   naSetButtonState(con->onesOption, conversionType == COMPUTE_ONES_COMPLEMENT);
   naSetButtonState(con->twosOption, conversionType == COMPUTE_TWOS_COMPLEMENT);
@@ -430,6 +441,30 @@ NATextBox* bit_CreateBitOutputBox(NASize size, NABool withScrolling) {
   return outputbox;
 }
 
+void bit_SwitchEndianness(NAReaction reaction) {
+  BitConverterController* con = reaction.controller;
+  
+  con->swapEndianness = !con->swapEndianness;
+  bitSetPrefsSwapEndianness(con->swapEndianness);
+  bitUpdateConverterController(con);
+}
+
+void bit_SwitchBitConversionType(NAReaction reaction) {
+  BitConverterController* con = reaction.controller;
+
+  const NAKeyStroke* keyStroke = naGetCurrentKeyStroke();
+  switch(naGetKeyStrokeKeyCode(keyStroke)) {
+  case NA_KEYCODE_0: bit_SetBitConversionType(con, COMPUTE_UNSIGNED); break;
+  case NA_KEYCODE_1: bit_SetBitConversionType(con, COMPUTE_ONES_COMPLEMENT); break;
+  case NA_KEYCODE_2: bit_SetBitConversionType(con, COMPUTE_TWOS_COMPLEMENT); break;
+  default:
+    #if NA_DEBUG
+      naError("Undefined keyCode");
+    #endif
+    break;
+  }
+}
+
 
 
 BitConverterController* bitAllocConverterController(void) {
@@ -437,6 +472,8 @@ BitConverterController* bitAllocConverterController(void) {
   naZeron(con, sizeof(BitConverterController));
   
   con->bitArray = naCreateBuffer(NA_FALSE);
+  con->swapEndianness = bitGetPrefsSwapEndianness();
+  con->conversionType = bitGetPrefsComplementEncoding();
 
   NABool show16Bits = bitGetPrefsShow16Bits();
   NABool showNBits = bitGetPrefsShowNBits();
@@ -458,6 +495,17 @@ BitConverterController* bitAllocConverterController(void) {
     0,
     BIT_WINDOW_TAG_CONVERTER);
   naAddUIReaction(con->window, NA_UI_COMMAND_CLOSES, bit_CloseConverterWindow, con);
+
+  uint32 modifier = 0;
+  #if NA_OS == NA_OS_MAC_OS_X
+    modifier = NA_KEY_MODIFIER_COMMAND;
+  #elif NA_OS == NA_OS_WINDOWS
+    modifier = NA_KEY_MODIFIER_CONTROL;
+  #endif
+  naAddUIKeyboardShortcut(con->window, naNewKeyStroke(NA_KEYCODE_E, modifier), bit_SwitchEndianness, con);
+  naAddUIKeyboardShortcut(con->window, naNewKeyStroke(NA_KEYCODE_0, modifier), bit_SwitchBitConversionType, con);
+  naAddUIKeyboardShortcut(con->window, naNewKeyStroke(NA_KEYCODE_1, modifier), bit_SwitchBitConversionType, con);
+  naAddUIKeyboardShortcut(con->window, naNewKeyStroke(NA_KEYCODE_2, modifier), bit_SwitchBitConversionType, con);
 
   NASpace* space = naGetWindowContentSpace(con->window);
   double offsetx = 0;
@@ -482,7 +530,7 @@ BitConverterController* bitAllocConverterController(void) {
   naAddSpaceChild(settingSpace, con->twosOption, naMakePos(71., (double)yposinput));
 
   con->endiannessCheckBox = naNewCheckBox(bitTranslate(BitFiddleConversionByteSwap), 90);
-  naAddUIReaction(con->endiannessCheckBox, NA_UI_COMMAND_PRESSED, bitSwitchAppEndianness, bitGetApplication());
+  naAddUIReaction(con->endiannessCheckBox, NA_UI_COMMAND_PRESSED, bit_SwitchEndianness, con);
   #if NA_OS == NA_OS_WINDOWS
     naAddSpaceChild(settingSpace, con->endiannessCheckBox, naMakePos(15., (double)ypos8));
   #else

@@ -14,8 +14,6 @@
 
 
 struct BitApplication{
-  NABool swapEndianness;
-  BitConversionType conversionType;
   NAFont* monoFont;
 
   NAImageSet* imageAssets[BIT_IMAGE_ASSET_COUNT];
@@ -55,8 +53,6 @@ void bitStartApplication(void) {
     bitSetPrefsSwapEndianness(NA_FALSE);
     bitSetPrefsComplementEncoding(COMPUTE_UNSIGNED);
   }
-  bitApp->swapEndianness = bitGetPrefsSwapEndianness();
-  bitApp->conversionType = bitGetPrefsComplementEncoding();
 
   bitApp->monoFont = naCreateFontWithPreset(
     NA_FONT_KIND_MONOSPACE,
@@ -78,20 +74,9 @@ NAImageSet* bitGetImageAsset(BitImageAsset asset) {
 void bitCreateUI() {
   bitApp->converterController   = bitAllocConverterController();
   bitApp->asciiController       = NA_NULL;
-  bitApp->preferencesController = bitAllocPreferencesController();
-  bitApp->aboutController       = bitAllocAboutController();
+  bitApp->preferencesController = NA_NULL;
+  bitApp->aboutController       = NA_NULL;
   
-  uint32 modifier = 0;
-  #if NA_OS == NA_OS_MAC_OS_X
-    modifier = NA_KEY_MODIFIER_COMMAND;
-  #elif NA_OS == NA_OS_WINDOWS
-    modifier = NA_KEY_MODIFIER_CONTROL;
-  #endif
-  naAddUIKeyboardShortcut(naGetApplication(), naNewKeyStroke(NA_KEYCODE_E, modifier), bitSwitchAppEndianness, bitApp);
-  naAddUIKeyboardShortcut(naGetApplication(), naNewKeyStroke(NA_KEYCODE_0, modifier), bitSwitchBitConversionType, bitApp);
-  naAddUIKeyboardShortcut(naGetApplication(), naNewKeyStroke(NA_KEYCODE_1, modifier), bitSwitchBitConversionType, bitApp);
-  naAddUIKeyboardShortcut(naGetApplication(), naNewKeyStroke(NA_KEYCODE_2, modifier), bitSwitchBitConversionType, bitApp);
-
   bitShowApplicationConverterController();
   
   if(bitGetPrefsShowAsciiOnStartup()) {
@@ -140,9 +125,15 @@ void bitShowApplicationAsciiController() {
   bitShowAsciiController(bitApp->asciiController);
 }
 void bitShowApplicationPreferencesController() {
+  if(!bitApp->preferencesController) {
+    bitApp->preferencesController = bitAllocPreferencesController();
+  }
   bitShowPreferencesController(bitApp->preferencesController);
 }
 void bitShowApplicationAboutController() {
+  if(!bitApp->aboutController) {
+    bitApp->aboutController = bitAllocAboutController();
+  }
   bitShowAboutController(bitApp->aboutController);
 }
 
@@ -170,48 +161,8 @@ void bitUpdateApp() {
 
 
 
-BitConversionType bitGetBitConversionType() {
-  return bitApp->conversionType;
-}
 
 
-
-void bitSetBitConversionType(BitConversionType conversionType) {
-  bitApp->conversionType = conversionType;
-  bitSetPrefsComplementEncoding(conversionType);
-  bitUpdateConverterController(bitApp->converterController);
-}
-
-
-
-NABool bitGetEndiannessSwap() {
-  return bitApp->swapEndianness;
-}
-
-
-
-void bitSwitchAppEndianness(NAReaction reaction) {
-  BitApplication* con = reaction.controller;
-  
-  con->swapEndianness = !con->swapEndianness;
-  bitSetPrefsSwapEndianness(con->swapEndianness);
-  bitUpdateConverterController(con->converterController);
-}
-
-void bitSwitchBitConversionType(NAReaction reaction) {
-  NA_UNUSED(reaction);
-  const NAKeyStroke* keyStroke = naGetCurrentKeyStroke();
-  switch(naGetKeyStrokeKeyCode(keyStroke)) {
-  case NA_KEYCODE_0: bitSetBitConversionType(COMPUTE_UNSIGNED); break;
-  case NA_KEYCODE_1: bitSetBitConversionType(COMPUTE_ONES_COMPLEMENT); break;
-  case NA_KEYCODE_2: bitSetBitConversionType(COMPUTE_TWOS_COMPLEMENT); break;
-  default:
-    #if NA_DEBUG
-      naError("Undefined keyCode");
-    #endif
-    break;
-  }
-}
 
 
 

@@ -39,13 +39,6 @@ void bitShowApplicationPreferencesController(void);
 void bitShowApplicationAboutController(void);
 void bitUpdateApp(void);
 
-BitConversionType bitGetBitConversionType(void);
-void bitSetBitConversionType(BitConversionType conversionType);
-
-NABool bitGetEndiannessSwap(void);
-void bitSwitchAppEndianness(NAReaction reaction);
-void bitSwitchBitConversionType(NAReaction reaction);
-
 void bitRecreateConverterController(void);
 
 NAFont* bitGetMonospaceFont(void);
