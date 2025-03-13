@@ -1,27 +1,47 @@
 
 #include "BitFiddlePreferences.h"
-#include "BitFiddleApplication.h"
 
-const char* BitPrefs[BitPrefCount] = {
-  "useAsciiEscape",
-  "useAsciiHex",
+enum {
+  AsciiUseEscape,
+  AsciiUseHex,
 
-  "showAsciiOnStartup",
-  "resetConversionOnStartup",
-  "keepConverterOnTop",
+  ShowAsciiOnStartup,
+  ResetConversionOnStartup,
+  KeepConverterOnTop,
+  
+  Show16Bits,
+  ShowNBits,
+  ShowBin,
+  ShowAsc,
 
-  "show16Bits",
-  "showNBits",
-  "showBin",
-  "showAsc",
-
-  "swapEndianness",
-  "selectedComplementEncoding",
+  SwapEndianness,
+  SelectedComplementEncoding,
+  
+  BitPrefCount
 };
 
+const char* BitPrefs[BitPrefCount] = {
+  [AsciiUseEscape]             = "useAsciiEscape",
+  [AsciiUseHex]                = "useAsciiHex",
+
+  [ShowAsciiOnStartup]         = "showAsciiOnStartup",
+  [ResetConversionOnStartup]   = "resetConversionOnStartup",
+  [KeepConverterOnTop]         = "keepConverterOnTop",
+
+  [Show16Bits]                 = "show16Bits",
+  [ShowNBits]                  = "showNBits",
+  [ShowBin]                    = "showBin",
+  [ShowAsc]                    = "showAsc",
+
+  [SwapEndianness]             = "swapEndianness",
+  [SelectedComplementEncoding] = "selectedComplementEncoding",
+};
+
+
+
 void bitInitPreferences(void) {
-  naInitPreferencesBool(BitPrefs[UseAsciiEscape], NA_FALSE);
-  naInitPreferencesBool(BitPrefs[UseAsciiHex], NA_FALSE);
+  naInitPreferencesBool(BitPrefs[AsciiUseEscape], NA_FALSE);
+  naInitPreferencesBool(BitPrefs[AsciiUseHex], NA_FALSE);
 
   naInitPreferencesBool(BitPrefs[ShowAsciiOnStartup], NA_FALSE);
   naInitPreferencesBool(BitPrefs[ResetConversionOnStartup], NA_TRUE);
@@ -33,8 +53,97 @@ void bitInitPreferences(void) {
   naInitPreferencesBool(BitPrefs[ShowAsc], NA_TRUE);
 
   naInitPreferencesBool(BitPrefs[SwapEndianness], NA_FALSE);
-  naInitPreferencesEnum(BitPrefs[SelectedComplementEncoding], COMPUTE_UNSIGNED, COMPUTE_BIT_CONVERSION_COUNT);
+  naInitPreferencesEnum(
+    BitPrefs[SelectedComplementEncoding],
+    COMPUTE_UNSIGNED,
+    COMPUTE_BIT_CONVERSION_COUNT);
 }
+
+
+
+NABool bitGetPrefsAsciiUseEscape() {
+  return naGetPreferencesBool(BitPrefs[AsciiUseEscape]);
+}
+void bitSetPrefsAsciiUseEscape(NABool use) {
+  naSetPreferencesBool(BitPrefs[AsciiUseEscape], use);
+}
+
+NABool bitGetPrefsAsciiUseHex() {
+  return naGetPreferencesBool(BitPrefs[AsciiUseHex]);
+}
+void bitSetPrefsAsciiUseHex(NABool use) {
+  naSetPreferencesBool(BitPrefs[AsciiUseHex], use);
+}
+
+
+
+NABool bitGetPrefsShowAsciiOnStartup() {
+  return naGetPreferencesBool(BitPrefs[ShowAsciiOnStartup]);
+}
+void bitSetPrefsShowAsciiOnStartup(NABool show) {
+  naSetPreferencesBool(BitPrefs[ShowAsciiOnStartup], show);
+}
+
+NABool bitGetPrefsResetConversionOnStartup() {
+  return naGetPreferencesBool(BitPrefs[ResetConversionOnStartup]);
+}
+void bitSetPrefsResetConversionOnStartup(NABool reset) {
+  naSetPreferencesBool(BitPrefs[ResetConversionOnStartup], reset);
+}
+
+NABool bitGetPrefsKeepConverterOnTop() {
+  return naGetPreferencesBool(BitPrefs[KeepConverterOnTop]);
+}
+void bitSetPrefsKeepConverterOnTop(NABool keepOnTop) {
+  naSetPreferencesBool(BitPrefs[KeepConverterOnTop], keepOnTop);
+}
+
+
+
+NABool bitGetPrefsShow16Bits() {
+  return naGetPreferencesBool(BitPrefs[Show16Bits]);
+}
+void bitSetPrefsShow16Bits(NABool show) {
+  naSetPreferencesBool(BitPrefs[Show16Bits], show);
+}
+
+NABool bitGetPrefsShowNBits() {
+  return naGetPreferencesBool(BitPrefs[ShowNBits]);
+}
+void bitSetPrefsShowNBits(NABool show) {
+  naSetPreferencesBool(BitPrefs[ShowNBits], show);
+}
+
+NABool bitGetPrefsShowBin() {
+  return naGetPreferencesBool(BitPrefs[ShowBin]);
+}
+void bitSetPrefsShowBin(NABool show) {
+  naSetPreferencesBool(BitPrefs[ShowBin], show);
+}
+
+NABool bitGetPrefsShowAsc() {
+  return naGetPreferencesBool(BitPrefs[ShowAsc]);
+}
+void bitSetPrefsShowAsc(NABool show) {
+  naSetPreferencesBool(BitPrefs[ShowAsc], show);
+}
+
+
+
+NABool bitGetPrefsSwapEndianness() {
+  return naGetPreferencesBool(BitPrefs[SwapEndianness]);
+}
+void bitSetPrefsSwapEndianness(NABool swap) {
+  naSetPreferencesBool(BitPrefs[SwapEndianness], swap);
+}
+
+BitConversionType bitGetPrefsComplementEncoding() {
+  return naGetPreferencesEnum(BitPrefs[SelectedComplementEncoding]);
+}
+void bitSetPrefsComplementEncoding(BitConversionType encoding) {
+  naSetPreferencesEnum(BitPrefs[SelectedComplementEncoding], encoding);
+}
+
 
 
 

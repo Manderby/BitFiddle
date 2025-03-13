@@ -7,6 +7,7 @@ BitPreferencesController* bitAllocPreferencesController(void);
 void bitDeallocPreferencesController(BitPreferencesController* con);
 
 void bitShowPreferencesController(BitPreferencesController* con);
+void bitUpdatePreferencesController(BitPreferencesController* con);
 
 
 

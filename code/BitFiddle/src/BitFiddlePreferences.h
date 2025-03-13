@@ -1,27 +1,52 @@
 
 #include "NAApp/NAPreferences.h"
+#include "BitFiddleApplication.h"
 
-enum {
-  UseAsciiEscape,
-  UseAsciiHex,
 
-  ShowAsciiOnStartup,
-  ResetConversionOnStartup,
-  KeepConverterOnTop,
-  Show16Bits,
-  ShowNBits,
-  ShowBin,
-  ShowAsc,
-
-  SwapEndianness,
-  SelectedComplementEncoding,
-  
-  BitPrefCount
-};
-
-extern const char* BitPrefs[BitPrefCount];
 
 void bitInitPreferences(void);
+
+
+
+NABool bitGetPrefsAsciiUseEscape(void);
+void   bitSetPrefsAsciiUseEscape(NABool use);
+
+NABool bitGetPrefsAsciiUseHex(void);
+void   bitSetPrefsAsciiUseHex(NABool use);
+
+
+
+NABool bitGetPrefsShowAsciiOnStartup(void);
+void   bitSetPrefsShowAsciiOnStartup(NABool show);
+
+NABool bitGetPrefsResetConversionOnStartup(void);
+void   bitSetPrefsResetConversionOnStartup(NABool reset);
+
+NABool bitGetPrefsKeepConverterOnTop(void);
+void   bitSetPrefsKeepConverterOnTop(NABool keepOnTop);
+
+
+
+NABool bitGetPrefsShow16Bits(void);
+void   bitSetPrefsShow16Bits(NABool show);
+
+NABool bitGetPrefsShowNBits(void);
+void   bitSetPrefsShowNBits(NABool show);
+
+NABool bitGetPrefsShowBin(void);
+void   bitSetPrefsShowBin(NABool show);
+
+NABool bitGetPrefsShowAsc(void);
+void   bitSetPrefsShowAsc(NABool show);
+
+
+
+NABool bitGetPrefsSwapEndianness(void);
+void   bitSetPrefsSwapEndianness(NABool swap);
+
+BitConversionType bitGetPrefsComplementEncoding(void);
+void bitSetPrefsComplementEncoding(BitConversionType encoding);
+
 
 
 

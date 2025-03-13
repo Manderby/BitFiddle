@@ -179,7 +179,7 @@ const char* bit_unicodeNames[128] = {
 
 
 
-size_t bit_GetAsciiUISpaceIndex(
+size_t bit_GetAsciiSpaceIndex(
   BitAsciiController* con,
   const NASpace* space)
 {
@@ -199,7 +199,7 @@ size_t bit_GetAsciiUISpaceIndex(
 
 void bit_HoverAsciiItem(NAReaction reaction) {
   BitAsciiController* con = reaction.controller;
-  size_t itemIndex = bit_GetAsciiUISpaceIndex(con, reaction.uiElement);
+  size_t itemIndex = bit_GetAsciiSpaceIndex(con, reaction.uiElement);
   naSetSpaceAlternateBackground(con->spaces[itemIndex], NA_TRUE);
   
   NAUTF8Char* info1String;
@@ -236,7 +236,7 @@ void bit_HoverAsciiItem(NAReaction reaction) {
 
 void bit_UnhoverAsciiItem(NAReaction reaction) {
   BitAsciiController* con = reaction.controller;
-  size_t itemIndex = bit_GetAsciiUISpaceIndex(con, reaction.uiElement);  
+  size_t itemIndex = bit_GetAsciiSpaceIndex(con, reaction.uiElement);  
   naSetSpaceAlternateBackground(con->spaces[itemIndex], NA_FALSE);
 }
 
@@ -245,17 +245,13 @@ void bit_UnhoverAsciiItem(NAReaction reaction) {
 void bit_SwitchAsciiDisplayMode(NAReaction reaction) {
   BitAsciiController* con = reaction.controller;
   if(reaction.uiElement == con->escapeRadio) {
-    con->useEscape = NA_TRUE;
-    naSetPreferencesBool(BitPrefs[UseAsciiEscape], NA_TRUE);
+    bitSetPrefsAsciiUseEscape(NA_TRUE);
   }else if(reaction.uiElement == con->codeRadio) {
-    con->useEscape = NA_FALSE;
-    naSetPreferencesBool(BitPrefs[UseAsciiEscape], NA_FALSE);
+    bitSetPrefsAsciiUseEscape(NA_FALSE);
   }else if(reaction.uiElement == con->hexRadio) {
-    con->useHex = NA_TRUE;
-    naSetPreferencesBool(BitPrefs[UseAsciiHex], NA_TRUE);
+    bitSetPrefsAsciiUseHex(NA_TRUE);
   }else if(reaction.uiElement == con->decRadio) {
-    con->useHex = NA_FALSE;
-    naSetPreferencesBool(BitPrefs[UseAsciiHex], NA_FALSE);
+    bitSetPrefsAsciiUseHex(NA_FALSE);
   }else{
     #if NA_DEBUG
       naError("Unknown uiElement sent message");
@@ -403,9 +399,17 @@ void bitDeallocAsciiController(BitAsciiController* con) {
 
 
 
+void bitShowAsciiController(BitAsciiController* con) {
+  bitUpdateAsciiController(con);
+
+  naShowWindow(con->window);
+}
+
+
+
 void bitUpdateAsciiController(BitAsciiController* con) {
-  con->useEscape = naGetPreferencesBool(BitPrefs[UseAsciiEscape]);
-  con->useHex = naGetPreferencesBool(BitPrefs[UseAsciiHex]);
+  con->useEscape = bitGetPrefsAsciiUseEscape();
+  con->useHex = bitGetPrefsAsciiUseHex();
 
   naSetRadioState(con->escapeRadio, con->useEscape);
   naSetRadioState(con->codeRadio, !con->useEscape);
@@ -433,14 +437,6 @@ void bitUpdateAsciiController(BitAsciiController* con) {
     }
     naSetLabelText(con->chars[i], charStr);
   }
-}
-
-
-
-void bitShowAsciiController(BitAsciiController* con) {
-  bitUpdateAsciiController(con);
-
-  naShowWindow(con->window);
 }
 
 

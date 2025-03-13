@@ -438,10 +438,10 @@ BitConverterController* bitAllocConverterController(void) {
   
   con->bitArray = naCreateBuffer(NA_FALSE);
 
-  NABool show16Bits = naGetPreferencesBool(BitPrefs[Show16Bits]);
-  NABool showNBits = naGetPreferencesBool(BitPrefs[ShowNBits]);
-  NABool showBin = naGetPreferencesBool(BitPrefs[ShowBin]);
-  NABool showAsc = naGetPreferencesBool(BitPrefs[ShowAsc]);
+  NABool show16Bits = bitGetPrefsShow16Bits();
+  NABool showNBits = bitGetPrefsShowNBits();
+  NABool showBin = bitGetPrefsShowBin();
+  NABool showAsc = bitGetPrefsShowAsc();
 
   NAInt yposn = 10;
   NAInt ypos64 = showNBits ? yposn + 73 : yposn;
@@ -692,8 +692,8 @@ void bitShowConverterController(BitConverterController* con) {
 
 
 
-void bitKeepConverterOnTop(BitConverterController* con, NABool onTop) {
-  naKeepWindowOnTop(con->window, onTop);
+void bitKeepConverterOnTop(BitConverterController* con, NABool keepOnTop) {
+  naKeepWindowOnTop(con->window, keepOnTop);
 }
 
 

@@ -51,18 +51,16 @@ void bitStartApplication(void) {
   bitInitTranslations();
   bitInitPreferences();
 
-  bitApp->swapEndianness = naGetPreferencesBool(BitPrefs[SwapEndianness]);
-  bitApp->conversionType = (BitConversionType)naGetPreferencesEnum(BitPrefs[SelectedComplementEncoding]);
+  if(bitGetPrefsResetConversionOnStartup()) {
+    bitSetPrefsSwapEndianness(NA_FALSE);
+    bitSetPrefsComplementEncoding(COMPUTE_UNSIGNED);
+  }
+  bitApp->swapEndianness = bitGetPrefsSwapEndianness();
+  bitApp->conversionType = bitGetPrefsComplementEncoding();
 
   bitApp->monoFont = naCreateFontWithPreset(
     NA_FONT_KIND_MONOSPACE,
     NA_FONT_SIZE_DEFAULT);
-
-  NABool resetsettings = naGetPreferencesBool(BitPrefs[ResetConversionOnStartup]);
-  if(resetsettings) {
-    bitApp->swapEndianness = NA_FALSE;
-    bitApp->conversionType = COMPUTE_UNSIGNED;
-  }
 
   bitApp->imageAssets[BIT_IMAGE_ASSET_HELP_BUTTON] =  bit_LoadImageAsset(NA_NULL, "help", "png");
   bitApp->imageAssets[BIT_IMAGE_ASSET_PREFS_BUTTON] = bit_LoadImageAsset(NA_NULL, "prefs", "png");
@@ -95,8 +93,10 @@ void bitCreateUI() {
   naAddUIKeyboardShortcut(naGetApplication(), naNewKeyStroke(NA_KEYCODE_2, modifier), bitSwitchBitConversionType, bitApp);
 
   bitShowApplicationConverterController();
-  NABool showAsciiOnStartup = naGetPreferencesBool(BitPrefs[ShowAsciiOnStartup]);
-  if(showAsciiOnStartup) {bitShowApplicationAsciiController();}
+  
+  if(bitGetPrefsShowAsciiOnStartup()) {
+    bitShowApplicationAsciiController();
+  }
 
   bitUpdateApp();
 }
@@ -163,8 +163,9 @@ NAFont* bitGetMonospaceFont() {
 
 
 void bitUpdateApp() {
-  NABool keepConverterOnTop = naGetPreferencesBool(BitPrefs[KeepConverterOnTop]);
-  bitKeepConverterOnTop(bitApp->converterController, keepConverterOnTop);
+  bitKeepConverterOnTop(
+    bitApp->converterController,
+    bitGetPrefsKeepConverterOnTop());
 }
 
 
@@ -177,7 +178,7 @@ BitConversionType bitGetBitConversionType() {
 
 void bitSetBitConversionType(BitConversionType conversionType) {
   bitApp->conversionType = conversionType;
-  naSetPreferencesEnum(BitPrefs[SelectedComplementEncoding], conversionType);
+  bitSetPrefsComplementEncoding(conversionType);
   bitUpdateConverterController(bitApp->converterController);
 }
 
@@ -192,8 +193,8 @@ NABool bitGetEndiannessSwap() {
 void bitSwitchAppEndianness(NAReaction reaction) {
   BitApplication* con = reaction.controller;
   
-  con->swapEndianness = !con->swapEndianness;  
-  naSetPreferencesBool(BitPrefs[SwapEndianness], con->swapEndianness);
+  con->swapEndianness = !con->swapEndianness;
+  bitSetPrefsSwapEndianness(con->swapEndianness);
   bitUpdateConverterController(con->converterController);
 }
 
