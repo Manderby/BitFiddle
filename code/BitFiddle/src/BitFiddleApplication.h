@@ -21,6 +21,13 @@ typedef enum{
   BIT_IMAGE_ASSET_COUNT
 } BitImageAsset;
 
+typedef enum{
+  NUMBER_SYSTEM_DEC = 0,
+  NUMBER_SYSTEM_HEX,
+  NUMBER_SYSTEM_BIN,
+  NUMBER_SYSTEM_ASC
+} BitNumberSystem;
+
 #define BIT_WINDOW_TAG_CONVERTER 1
 #define BIT_WINDOW_TAG_PREFERENCES 2
 #define BIT_WINDOW_TAG_ASCII 3
@@ -34,11 +41,11 @@ NAImageSet* bitGetImageAsset(BitImageAsset asset);
 NAFont* bitGetMonospaceFont(void);
 
 void bitRecreateConverterController(void);
+void bitUpdateAppConverterControllerOnTop(void);
 
 void bitShowApplicationAsciiController(void);
 void bitShowApplicationPreferencesController(void);
 void bitShowApplicationAboutController(void);
-void bitUpdateAppConverterControllerOnTop(void);
 
 
 

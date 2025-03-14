@@ -34,11 +34,11 @@ BitFiddleAboutController* bitAllocAboutController(void) {
 
   NAString* bundleApplicationName = naNewApplicationName();
 
-  NARect windowrect = naMakeRectS(20, 300, 340, 348);
+  NARect windowRect = naMakeRectS(20, 300, 340, 348);
   const NAUTF8Char* aboutWindowTitleFormatString = bitTranslate(BitFiddleAbout);
   NAString* aboutWindowTitleString = naNewStringWithFormat(aboutWindowTitleFormatString, naGetStringUTF8Pointer(bundleApplicationName));
   // We have no storage tag as the about window is not really part of the application
-  con->window = naNewWindow(naGetStringUTF8Pointer(aboutWindowTitleString), windowrect, NA_FALSE, BIT_WINDOW_TAG_ABOUT);
+  con->window = naNewWindow(naGetStringUTF8Pointer(aboutWindowTitleString), windowRect, NA_FALSE, BIT_WINDOW_TAG_ABOUT);
   naDelete(aboutWindowTitleString);
   
   NASpace* space = naGetWindowContentSpace(con->window);

@@ -8,6 +8,7 @@ void bitDeallocConverterController(BitConverterController* con);
 
 void bitShowConverterController(BitConverterController* con);
 void bitUpdateConverterController(BitConverterController* con);
+
 void bitKeepConverterOnTop(BitConverterController* con, NABool keepOnTop);
 
 

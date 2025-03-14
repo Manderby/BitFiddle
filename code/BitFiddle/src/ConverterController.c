@@ -21,37 +21,37 @@ struct BitConverterController{
   NAButton* preferencesButton;
   NAButton* asciiButton;
 
-  NATextField* inputdec;
-  NALabel* labeldec;
-  NALabel* bit8dec;
-  NALabel* bit16dec;
-  NALabel* bit32dec;
-  NATextBox* bit64dec;
-  NATextBox* bitndec;
+  NATextField* inputDec;
+  NALabel* labelDec;
+  NALabel* bit8Dec;
+  NALabel* bit16Dec;
+  NALabel* bit32Dec;
+  NATextBox* bit64Dec;
+  NATextBox* bitnDec;
 
-  NATextField* inputhex;
-  NALabel* labelhex;
-  NALabel* bit8hex;
-  NALabel* bit16hex;
-  NALabel* bit32hex;
-  NATextBox* bit64hex;
-  NATextBox* bitnhex;
+  NATextField* inputHex;
+  NALabel* labelHex;
+  NALabel* bit8Hex;
+  NALabel* bit16Hex;
+  NALabel* bit32Hex;
+  NATextBox* bit64Hex;
+  NATextBox* bitnHex;
 
-  NATextField* inputbin;
-  NALabel* labelbin;
-  NALabel* bit8bin;
-  NALabel* bit16bin;
-  NALabel* bit32bin;
-  NATextBox* bit64bin;
-  NATextBox* bitnbin;
+  NATextField* inputBin;
+  NALabel* labelBin;
+  NALabel* bit8Bin;
+  NALabel* bit16Bin;
+  NALabel* bit32Bin;
+  NATextBox* bit64Bin;
+  NATextBox* bitnBin;
 
-  NATextField* inputasc;
-  NALabel* labelasc;
-  NALabel* bit8asc;
-  NALabel* bit16asc;
-  NALabel* bit32asc;
-  NATextBox* bit64asc;
-  NATextBox* bitnasc;
+  NATextField* inputAsc;
+  NALabel* labelAsc;
+  NALabel* bit8Asc;
+  NALabel* bit16Asc;
+  NALabel* bit32Asc;
+  NATextBox* bit64Asc;
+  NATextBox* bitnAsc;
 };
 
 
@@ -59,14 +59,14 @@ struct BitConverterController{
 void bit_ValueChangeDec(NAReaction reaction) {
   BitConverterController* con = reaction.controller;
 
-  naSetTextFieldText(con->inputhex, "");
-  if(con->inputbin) {naSetTextFieldText(con->inputbin, "");}
-  if(con->inputasc) {naSetTextFieldText(con->inputasc, "");}
+  naSetTextFieldText(con->inputHex, "");
+  if(con->inputBin) {naSetTextFieldText(con->inputBin, "");}
+  if(con->inputAsc) {naSetTextFieldText(con->inputAsc, "");}
 
   naRelease(con->bitArray);
-  NAString* instring = naNewStringWithTextFieldText(reaction.uiElement);
-  con->bitArray = bitCreateBitArrayWithDecString(instring);
-  naDelete(instring);
+  NAString* inString = naNewStringWithTextFieldText(reaction.uiElement);
+  con->bitArray = bitCreateBitArrayWithDecString(inString);
+  naDelete(inString);
 
   bitUpdateConverterController(con);
 }
@@ -76,14 +76,14 @@ void bit_ValueChangeDec(NAReaction reaction) {
 void bit_ValueChangeHex(NAReaction reaction) {
   BitConverterController* con = reaction.controller;
 
-  naSetTextFieldText(con->inputdec, "");
-  if(con->inputbin) {naSetTextFieldText(con->inputbin, "");}
-  if(con->inputasc) {naSetTextFieldText(con->inputasc, "");}
+  naSetTextFieldText(con->inputDec, "");
+  if(con->inputBin) {naSetTextFieldText(con->inputBin, "");}
+  if(con->inputAsc) {naSetTextFieldText(con->inputAsc, "");}
 
   naRelease(con->bitArray);
-  NAString* instring = naNewStringWithTextFieldText(reaction.uiElement);
-  con->bitArray = bitCreateBitArrayWithHexString(instring);
-  naDelete(instring);
+  NAString* inString = naNewStringWithTextFieldText(reaction.uiElement);
+  con->bitArray = bitCreateBitArrayWithHexString(inString);
+  naDelete(inString);
 
   bitUpdateConverterController(con);
 }
@@ -93,14 +93,14 @@ void bit_ValueChangeHex(NAReaction reaction) {
 void bit_ValueChangeBin(NAReaction reaction) {
   BitConverterController* con = reaction.controller;
 
-  naSetTextFieldText(con->inputdec, "");
-  naSetTextFieldText(con->inputhex, "");
-  if(con->inputasc) {naSetTextFieldText(con->inputasc, "");}
+  naSetTextFieldText(con->inputDec, "");
+  naSetTextFieldText(con->inputHex, "");
+  if(con->inputAsc) {naSetTextFieldText(con->inputAsc, "");}
 
   naRelease(con->bitArray);
-  NAString* instring = naNewStringWithTextFieldText(reaction.uiElement);
-  con->bitArray = bitCreateBitArrayWithBinString(instring);
-  naDelete(instring);
+  NAString* inString = naNewStringWithTextFieldText(reaction.uiElement);
+  con->bitArray = bitCreateBitArrayWithBinString(inString);
+  naDelete(inString);
 
   bitUpdateConverterController(con);
 }
@@ -110,30 +110,17 @@ void bit_ValueChangeBin(NAReaction reaction) {
 void bit_ValueChangeAsc(NAReaction reaction) {
   BitConverterController* con = reaction.controller;
 
-  naSetTextFieldText(con->inputdec, "");
-  naSetTextFieldText(con->inputhex, "");
-  if(con->inputbin) {naSetTextFieldText(con->inputbin, "");}
+  naSetTextFieldText(con->inputDec, "");
+  naSetTextFieldText(con->inputHex, "");
+  if(con->inputBin) {naSetTextFieldText(con->inputBin, "");}
 
   naRelease(con->bitArray);
-  NAString* instring = naNewStringWithTextFieldText(reaction.uiElement);
-  con->bitArray = bitCreateBitArrayWithAscString(instring);
-  naDelete(instring);
+  NAString* inString = naNewStringWithTextFieldText(reaction.uiElement);
+  con->bitArray = bitCreateBitArrayWithAscString(inString);
+  naDelete(inString);
 
   bitUpdateConverterController(con);
 }
-
-
-//void bit_ResetComplementValues(BitConverterController* con) {
-//  naSetTextFieldText(con->inputdec, "");
-//  naSetTextFieldText(con->inputhex, "");
-//  if(con->inputbin) {naSetTextFieldText(con->inputbin, "");}
-//  if(con->inputasc) {naSetTextFieldText(con->inputasc, "");}
-//
-//  naRelease(con->bitArray);
-//  con->bitArray = naCreateBuffer(NA_FALSE);
-//
-//  bitUpdateConverterController(con);
-//}
 
 
 
@@ -144,7 +131,10 @@ void bit_CloseConverterWindow(NAReaction reaction) {
 
 
 
-void bit_SetBitConversionType(BitConverterController* con, BitConversionType conversionType) {
+void bit_SetBitConversionType(
+  BitConverterController* con,
+  BitConversionType conversionType)
+{
   con->conversionType = conversionType;
   bitSetPrefsComplementEncoding(conversionType);
   bitUpdateConverterController(con);
@@ -166,6 +156,7 @@ void bit_SwitchComplement(NAReaction reaction) {
       naError("Unknown conversion type");
     #endif
   }
+  
   bitUpdateConverterController(con);
 }
 
@@ -189,7 +180,11 @@ void bit_ButtonPressed(NAReaction reaction) {
 
 
 
-void bit_FillOutputFieldWithString(NALabel* outputField, NAString* string, NABool withDecSign) {
+void bit_FillOutputFieldWithString(
+  NALabel* outputField,
+  NAString* string,
+  NABool withDecSign)
+{
   if(!outputField) {return;}
   if(!string) {
     naSetLabelText(outputField, " ");
@@ -197,9 +192,11 @@ void bit_FillOutputFieldWithString(NALabel* outputField, NAString* string, NABoo
     naSetLabelText(outputField, "0");
   }else{
     if(withDecSign) {
-      NAString* signstring = naNewStringWithFormat("-%s", naGetStringUTF8Pointer(string)); 
-      naSetLabelText(outputField, naGetStringUTF8Pointer(signstring));
-      naDelete(signstring);
+      NAUTF8Char* signString = naAllocSprintf(
+        NA_TRUE,
+        "-%s",
+        naGetStringUTF8Pointer(string)); 
+      naSetLabelText(outputField, signString);
     }else{
       naSetLabelText(outputField, naGetStringUTF8Pointer(string));
     }
@@ -208,7 +205,11 @@ void bit_FillOutputFieldWithString(NALabel* outputField, NAString* string, NABoo
 
 
 
-void bit_FillOutputTextBoxWithString(NATextBox* outputTextBox, NAString* string, NABool withDecSign) {
+void bit_FillOutputTextBoxWithString(
+  NATextBox* outputTextBox,
+  NAString* string,
+  NABool withDecSign)
+{
   if(!outputTextBox) {return;}
   if(!string) {
     naSetTextBoxText(outputTextBox, " ");
@@ -216,9 +217,11 @@ void bit_FillOutputTextBoxWithString(NATextBox* outputTextBox, NAString* string,
     naSetTextBoxText(outputTextBox, "0");
   }else{
     if(withDecSign) {
-      NAString* signstring = naNewStringWithFormat("-%s", naGetStringUTF8Pointer(string)); 
-      naSetTextBoxText(outputTextBox, naGetStringUTF8Pointer(signstring));
-      naDelete(signstring);
+      NAUTF8Char* signString = naAllocSprintf(
+        NA_TRUE,
+        "-%s",
+        naGetStringUTF8Pointer(string)); 
+      naSetTextBoxText(outputTextBox, signString);
     }else{
       naSetTextBoxText(outputTextBox, naGetStringUTF8Pointer(string));
     }
@@ -227,53 +230,63 @@ void bit_FillOutputTextBoxWithString(NATextBox* outputTextBox, NAString* string,
 
 
 
-typedef enum{
-  NUMBER_SYSTEM_DEC = 0,
-  NUMBER_SYSTEM_HEX,
-  NUMBER_SYSTEM_BIN,
-  NUMBER_SYSTEM_ASC
-} BitNumberSystem;
-
-
-
-void bit_FillOutputFieldWithBitArray(void* outputField, BitNumberSystem numberSystem, NABuffer* bitArray, NABool withDecSign) {
-  NAString* outstring;
+void bit_FillOutputFieldWithBitArray(
+  void* outputField,
+  BitNumberSystem numberSystem,
+  NABuffer* bitArray,
+  NABool withDecSign)
+{
   if(!outputField) {return;}
   
-  switch(numberSystem) {
-  case NUMBER_SYSTEM_DEC:
-    if(bitArray && naGetBufferRange(bitArray).length && withDecSign && naGetBufferByteAtIndex(bitArray, (size_t)naGetRangei64Max(naGetBufferRange(bitArray)))) {
-      NABuffer* twocomp = naCreateBufferCopy(bitArray, naGetBufferRange(bitArray), NA_FALSE);
-      bitComputeBitArrayTwosComplement(twocomp);
-      outstring = bitNewStringDecWithBitArray(twocomp);
-      naRelease(twocomp);
-    }else{
-      withDecSign = NA_FALSE;
-      outstring = bitNewStringDecWithBitArray(bitArray);
+  NAString* outString = NA_NULL;
+  
+  if(bitArray) {
+    NABool signBit;
+    
+    switch(numberSystem) {
+    case NUMBER_SYSTEM_DEC:
+      signBit = naGetBufferByteAtIndex(
+        bitArray,
+        (size_t)naGetRangei64Max(naGetBufferRange(bitArray)));
+      if(naGetBufferRange(bitArray).length && withDecSign && signBit) {
+        NABuffer* twoComp = naCreateBufferCopy(
+          bitArray,
+          naGetBufferRange(bitArray),
+          NA_FALSE);
+        bitComputeBitArrayTwosComplement(twoComp);
+        outString = bitNewStringDecWithBitArray(twoComp);
+        naRelease(twoComp);
+      }else{
+        withDecSign = NA_FALSE;
+        outString = bitNewStringDecWithBitArray(bitArray);
+      }
+      break;
+    case NUMBER_SYSTEM_HEX:
+      outString = bitNewStringHexWithBitArray(bitArray);
+      break;
+    case NUMBER_SYSTEM_BIN:
+      outString = bitNewStringBinWithBitArray(bitArray);
+      break;
+    case NUMBER_SYSTEM_ASC:
+      outString = bitNewStringAscWithBitArray(bitArray);
+      break;
+    default:
+      #if NA_DEBUG
+        naError("Invalid number system");
+      #endif
+      outString = bitNewStringHexWithBitArray(bitArray);
+      break;
     }
-    break;
-  case NUMBER_SYSTEM_HEX:
-    outstring = bitNewStringHexWithBitArray(bitArray);
-    break;
-  case NUMBER_SYSTEM_BIN:
-    outstring = bitNewStringBinWithBitArray(bitArray);
-    break;
-  case NUMBER_SYSTEM_ASC:
-    outstring = bitNewStringAscWithBitArray(bitArray);
-    break;
-  default:
-    #if NA_DEBUG
-      naError("Invalid number system");
-    #endif
-    outstring = bitNewStringHexWithBitArray(bitArray);
-    break;
   }
+  
   if(naGetUIElementType(outputField) == NA_UI_LABEL) {
-    bit_FillOutputFieldWithString(outputField, outstring, withDecSign);
+    bit_FillOutputFieldWithString(outputField, outString, withDecSign);
   }else{
-    bit_FillOutputTextBoxWithString(outputField, outstring, withDecSign);
+    bit_FillOutputTextBoxWithString(outputField, outString, withDecSign);
   }
-  naDelete(outstring);
+  
+  if(outString)
+    naDelete(outString);
 }
 
 
@@ -341,51 +354,56 @@ void bitUpdateConverterController(BitConverterController* con) {
   
   NAString* windowTitle;
   if(stringByteSwap) {
-    windowTitle = naNewStringWithFormat("BitFiddle     %s     %s", stringConversion, stringByteSwap);
+    windowTitle = naNewStringWithFormat(
+      "BitFiddle     %s     %s",
+      stringConversion,
+      stringByteSwap);
     naSetWindowTitle(con->window, naGetStringUTF8Pointer(windowTitle));
   }else{
-    windowTitle = naNewStringWithFormat("BitFiddle     %s", stringConversion);
+    windowTitle = naNewStringWithFormat(
+      "BitFiddle     %s",
+      stringConversion);
     naSetWindowTitle(con->window, naGetStringUTF8Pointer(windowTitle));
   }
   naDelete(windowTitle);
   
   if(conversionType == COMPUTE_ONES_COMPLEMENT) {
-    bit_FillOutputFieldWithString(con->bit8dec,  NA_NULL, NA_FALSE);
-    bit_FillOutputFieldWithString(con->bit16dec, NA_NULL, NA_FALSE);
-    bit_FillOutputFieldWithString(con->bit32dec, NA_NULL, NA_FALSE);
-    bit_FillOutputTextBoxWithString(con->bit64dec, NA_NULL, NA_FALSE);
-    bit_FillOutputTextBoxWithString(con->bitndec,  NA_NULL, NA_FALSE);
+    bit_FillOutputFieldWithBitArray(con->bit8Dec,  NUMBER_SYSTEM_DEC, NA_NULL, NA_FALSE);
+    bit_FillOutputFieldWithBitArray(con->bit16Dec, NUMBER_SYSTEM_DEC, NA_NULL, NA_FALSE);
+    bit_FillOutputFieldWithBitArray(con->bit32Dec, NUMBER_SYSTEM_DEC, NA_NULL, NA_FALSE);
+    bit_FillOutputFieldWithBitArray(con->bit64Dec, NUMBER_SYSTEM_DEC, NA_NULL, NA_FALSE);
+    bit_FillOutputFieldWithBitArray(con->bitnDec,  NUMBER_SYSTEM_DEC, NA_NULL, NA_FALSE);
   }else if(conversionType == COMPUTE_TWOS_COMPLEMENT) {
-    bit_FillOutputFieldWithBitArray(con->bit8dec,  NUMBER_SYSTEM_DEC, bitArray8,  NA_TRUE);
-    bit_FillOutputFieldWithBitArray(con->bit16dec, NUMBER_SYSTEM_DEC, bitArray16, NA_TRUE);
-    bit_FillOutputFieldWithBitArray(con->bit32dec, NUMBER_SYSTEM_DEC, bitArray32, NA_TRUE);
-    bit_FillOutputFieldWithBitArray(con->bit64dec, NUMBER_SYSTEM_DEC, bitArray64, NA_TRUE);
-    bit_FillOutputFieldWithBitArray(con->bitndec,  NUMBER_SYSTEM_DEC, bitArrayn,  NA_TRUE);
+    bit_FillOutputFieldWithBitArray(con->bit8Dec,  NUMBER_SYSTEM_DEC, bitArray8,  NA_TRUE);
+    bit_FillOutputFieldWithBitArray(con->bit16Dec, NUMBER_SYSTEM_DEC, bitArray16, NA_TRUE);
+    bit_FillOutputFieldWithBitArray(con->bit32Dec, NUMBER_SYSTEM_DEC, bitArray32, NA_TRUE);
+    bit_FillOutputFieldWithBitArray(con->bit64Dec, NUMBER_SYSTEM_DEC, bitArray64, NA_TRUE);
+    bit_FillOutputFieldWithBitArray(con->bitnDec,  NUMBER_SYSTEM_DEC, bitArrayn,  NA_TRUE);
   }else{
-    bit_FillOutputFieldWithBitArray(con->bit8dec,  NUMBER_SYSTEM_DEC, bitArray8,  NA_FALSE);
-    bit_FillOutputFieldWithBitArray(con->bit16dec, NUMBER_SYSTEM_DEC, bitArray16, NA_FALSE);
-    bit_FillOutputFieldWithBitArray(con->bit32dec, NUMBER_SYSTEM_DEC, bitArray32, NA_FALSE);
-    bit_FillOutputFieldWithBitArray(con->bit64dec, NUMBER_SYSTEM_DEC, bitArray64, NA_FALSE);
-    bit_FillOutputFieldWithBitArray(con->bitndec,  NUMBER_SYSTEM_DEC, bitArrayn,  NA_FALSE);
+    bit_FillOutputFieldWithBitArray(con->bit8Dec,  NUMBER_SYSTEM_DEC, bitArray8,  NA_FALSE);
+    bit_FillOutputFieldWithBitArray(con->bit16Dec, NUMBER_SYSTEM_DEC, bitArray16, NA_FALSE);
+    bit_FillOutputFieldWithBitArray(con->bit32Dec, NUMBER_SYSTEM_DEC, bitArray32, NA_FALSE);
+    bit_FillOutputFieldWithBitArray(con->bit64Dec, NUMBER_SYSTEM_DEC, bitArray64, NA_FALSE);
+    bit_FillOutputFieldWithBitArray(con->bitnDec,  NUMBER_SYSTEM_DEC, bitArrayn,  NA_FALSE);
   }
 
-  bit_FillOutputFieldWithBitArray(con->bit8hex,  NUMBER_SYSTEM_HEX, bitArray8,  NA_FALSE);
-  bit_FillOutputFieldWithBitArray(con->bit16hex, NUMBER_SYSTEM_HEX, bitArray16, NA_FALSE);
-  bit_FillOutputFieldWithBitArray(con->bit32hex, NUMBER_SYSTEM_HEX, bitArray32, NA_FALSE);
-  bit_FillOutputFieldWithBitArray(con->bit64hex, NUMBER_SYSTEM_HEX, bitArray64, NA_FALSE);
-  bit_FillOutputFieldWithBitArray(con->bitnhex,  NUMBER_SYSTEM_HEX, bitArrayn,  NA_FALSE);
+  bit_FillOutputFieldWithBitArray(con->bit8Hex,  NUMBER_SYSTEM_HEX, bitArray8,  NA_FALSE);
+  bit_FillOutputFieldWithBitArray(con->bit16Hex, NUMBER_SYSTEM_HEX, bitArray16, NA_FALSE);
+  bit_FillOutputFieldWithBitArray(con->bit32Hex, NUMBER_SYSTEM_HEX, bitArray32, NA_FALSE);
+  bit_FillOutputFieldWithBitArray(con->bit64Hex, NUMBER_SYSTEM_HEX, bitArray64, NA_FALSE);
+  bit_FillOutputFieldWithBitArray(con->bitnHex,  NUMBER_SYSTEM_HEX, bitArrayn,  NA_FALSE);
 
-  bit_FillOutputFieldWithBitArray(con->bit8bin,  NUMBER_SYSTEM_BIN, bitArray8,  NA_FALSE);
-  bit_FillOutputFieldWithBitArray(con->bit16bin, NUMBER_SYSTEM_BIN, bitArray16, NA_FALSE);
-  bit_FillOutputFieldWithBitArray(con->bit32bin, NUMBER_SYSTEM_BIN, bitArray32, NA_FALSE);
-  bit_FillOutputFieldWithBitArray(con->bit64bin, NUMBER_SYSTEM_BIN, bitArray64, NA_FALSE);
-  bit_FillOutputFieldWithBitArray(con->bitnbin,  NUMBER_SYSTEM_BIN, bitArrayn,  NA_FALSE);
+  bit_FillOutputFieldWithBitArray(con->bit8Bin,  NUMBER_SYSTEM_BIN, bitArray8,  NA_FALSE);
+  bit_FillOutputFieldWithBitArray(con->bit16Bin, NUMBER_SYSTEM_BIN, bitArray16, NA_FALSE);
+  bit_FillOutputFieldWithBitArray(con->bit32Bin, NUMBER_SYSTEM_BIN, bitArray32, NA_FALSE);
+  bit_FillOutputFieldWithBitArray(con->bit64Bin, NUMBER_SYSTEM_BIN, bitArray64, NA_FALSE);
+  bit_FillOutputFieldWithBitArray(con->bitnBin,  NUMBER_SYSTEM_BIN, bitArrayn,  NA_FALSE);
 
-  bit_FillOutputFieldWithBitArray(con->bit8asc,  NUMBER_SYSTEM_ASC, bitArray8,  NA_FALSE);
-  bit_FillOutputFieldWithBitArray(con->bit16asc, NUMBER_SYSTEM_ASC, bitArray16, NA_FALSE);
-  bit_FillOutputFieldWithBitArray(con->bit32asc, NUMBER_SYSTEM_ASC, bitArray32, NA_FALSE);
-  bit_FillOutputFieldWithBitArray(con->bit64asc, NUMBER_SYSTEM_ASC, bitArray64, NA_FALSE);
-  bit_FillOutputFieldWithBitArray(con->bitnasc,  NUMBER_SYSTEM_ASC, bitArrayn,  NA_FALSE);
+  bit_FillOutputFieldWithBitArray(con->bit8Asc,  NUMBER_SYSTEM_ASC, bitArray8,  NA_FALSE);
+  bit_FillOutputFieldWithBitArray(con->bit16Asc, NUMBER_SYSTEM_ASC, bitArray16, NA_FALSE);
+  bit_FillOutputFieldWithBitArray(con->bit32Asc, NUMBER_SYSTEM_ASC, bitArray32, NA_FALSE);
+  bit_FillOutputFieldWithBitArray(con->bit64Asc, NUMBER_SYSTEM_ASC, bitArray64, NA_FALSE);
+  bit_FillOutputFieldWithBitArray(con->bitnAsc,  NUMBER_SYSTEM_ASC, bitArrayn,  NA_FALSE);
 
   bitClearBitArray(bitArray8);
   bitClearBitArray(bitArray16);
@@ -396,7 +414,11 @@ void bitUpdateConverterController(BitConverterController* con) {
 
 
 
-NATextField* bit_CreateBitInputField(BitConverterController* con, double width, NAReactionCallback callback) {
+NATextField* bit_CreateBitInputField(
+  BitConverterController* con,
+  double width,
+  NAReactionCallback callback)
+{
   NATextField* textfield = naNewTextField(width);
   NAFont* monoFont = bitGetMonospaceFont();
   naSetTextFieldFont(textfield, monoFont);
@@ -405,7 +427,10 @@ NATextField* bit_CreateBitInputField(BitConverterController* con, double width, 
   return textfield;
 }
 
-NALabel* bit_CreateBitLabelField(const NAUTF8Char* title, double width) {
+NALabel* bit_CreateBitLabelField(
+  const NAUTF8Char* title,
+  double width)
+{
   NALabel* labelfield = naNewLabel(title, width);
   NAFont* monoFont = bitGetMonospaceFont();
   naSetLabelFont(labelfield, monoFont);
@@ -414,7 +439,10 @@ NALabel* bit_CreateBitLabelField(const NAUTF8Char* title, double width) {
   return labelfield;
 }
 
-NALabel* bit_CreateSystemLabelField(const NAUTF8Char* title, double width) {
+NALabel* bit_CreateSystemLabelField(
+  const NAUTF8Char* title,
+  double width)
+{
   NALabel* labelfield = naNewLabel(title, width);
   NAFont* monoFont = bitGetMonospaceFont();
   naSetLabelFont(labelfield, monoFont);
@@ -423,7 +451,9 @@ NALabel* bit_CreateSystemLabelField(const NAUTF8Char* title, double width) {
   return labelfield;
 }
 
-NALabel* bit_CreateBitOutputField(double width) {
+NALabel* bit_CreateBitOutputField(
+  double width)
+{
   NALabel* outputField = naNewLabel("", width);
   NAFont* monoFont = bitGetMonospaceFont();
   naSetLabelFont(outputField, monoFont);
@@ -431,7 +461,10 @@ NALabel* bit_CreateBitOutputField(double width) {
   return outputField;
 }
 
-NATextBox* bit_CreateBitOutputBox(NASize size, NABool withScrolling) {
+NATextBox* bit_CreateBitOutputBox(
+  NASize size,
+  NABool withScrolling)
+{
   NATextBox* outputbox = naNewTextBox(size);
   NAFont* monoFont = bitGetMonospaceFont();
   naSetTextBoxFont(outputbox, monoFont);
@@ -454,9 +487,15 @@ void bit_SwitchBitConversionType(NAReaction reaction) {
 
   const NAKeyStroke* keyStroke = naGetCurrentKeyStroke();
   switch(naGetKeyStrokeKeyCode(keyStroke)) {
-  case NA_KEYCODE_0: bit_SetBitConversionType(con, COMPUTE_UNSIGNED); break;
-  case NA_KEYCODE_1: bit_SetBitConversionType(con, COMPUTE_ONES_COMPLEMENT); break;
-  case NA_KEYCODE_2: bit_SetBitConversionType(con, COMPUTE_TWOS_COMPLEMENT); break;
+  case NA_KEYCODE_0:
+    bit_SetBitConversionType(con, COMPUTE_UNSIGNED);
+    break;
+  case NA_KEYCODE_1:
+    bit_SetBitConversionType(con, COMPUTE_ONES_COMPLEMENT);
+    break;
+  case NA_KEYCODE_2:
+    bit_SetBitConversionType(con, COMPUTE_TWOS_COMPLEMENT);
+    break;
   default:
     #if NA_DEBUG
       naError("Undefined keyCode");
@@ -480,21 +519,25 @@ BitConverterController* bitAllocConverterController(void) {
   NABool showBin = bitGetPrefsShowBin();
   NABool showAsc = bitGetPrefsShowAsc();
 
-  NAInt yposn = 10;
-  NAInt ypos64 = showNBits ? yposn + 73 : yposn;
-  NAInt ypos32 = ypos64 + 39;
-  NAInt ypos16 = show16Bits ? ypos32 + 22 : ypos32;
-  NAInt ypos8 = ypos16 + 22;
-  NAInt yposinput = ypos8 + 27;
-  NAInt yspaceheight = yposinput + 22 + 10;
+  NAInt yPosn = 10;
+  NAInt yPos64 = showNBits ? yPosn + 73 : yPosn;
+  NAInt yPos32 = yPos64 + 39;
+  NAInt yPos16 = show16Bits ? yPos32 + 22 : yPos32;
+  NAInt yPos8 = yPos16 + 22;
+  NAInt yPosInput = yPos8 + 27;
+  NAInt ySpaceHeight = yPosInput + 22 + 10;
 
-  NARect windowrect = naMakeRectS(20., 20., 777., (double)yspaceheight);
+  NARect windowRect = naMakeRectS(20., 20., 777., (double)ySpaceHeight);
   con->window = naNewWindow(
     "Complement",
-    windowrect,
+    windowRect,
     0,
     BIT_WINDOW_TAG_CONVERTER);
-  naAddUIReaction(con->window, NA_UI_COMMAND_CLOSES, bit_CloseConverterWindow, con);
+  naAddUIReaction(
+    con->window,
+    NA_UI_COMMAND_CLOSES,
+    bit_CloseConverterWindow,
+    con);
 
   uint32 modifier = 0;
   #if NA_OS == NA_OS_MAC_OS_X
@@ -502,220 +545,293 @@ BitConverterController* bitAllocConverterController(void) {
   #elif NA_OS == NA_OS_WINDOWS
     modifier = NA_KEY_MODIFIER_CONTROL;
   #endif
-  naAddUIKeyboardShortcut(con->window, naNewKeyStroke(NA_KEYCODE_E, modifier), bit_SwitchEndianness, con);
-  naAddUIKeyboardShortcut(con->window, naNewKeyStroke(NA_KEYCODE_0, modifier), bit_SwitchBitConversionType, con);
-  naAddUIKeyboardShortcut(con->window, naNewKeyStroke(NA_KEYCODE_1, modifier), bit_SwitchBitConversionType, con);
-  naAddUIKeyboardShortcut(con->window, naNewKeyStroke(NA_KEYCODE_2, modifier), bit_SwitchBitConversionType, con);
+  naAddUIKeyboardShortcut(
+    con->window,
+    naNewKeyStroke(NA_KEYCODE_E, modifier),
+    bit_SwitchEndianness,
+    con);
+  naAddUIKeyboardShortcut(
+    con->window,
+    naNewKeyStroke(NA_KEYCODE_0, modifier),
+    bit_SwitchBitConversionType,
+    con);
+  naAddUIKeyboardShortcut(
+    con->window,
+    naNewKeyStroke(NA_KEYCODE_1, modifier),
+    bit_SwitchBitConversionType,
+    con);
+  naAddUIKeyboardShortcut(
+    con->window,
+    naNewKeyStroke(NA_KEYCODE_2, modifier),
+    bit_SwitchBitConversionType,
+    con);
 
   NASpace* space = naGetWindowContentSpace(con->window);
-  double offsetx = 0;
-  int alternateblock = 0;
+  double offsetX = 0;
+  int alternateBlock = 0;
   
   // /////////////////////
 
-  NASpace* settingSpace = naNewSpace(naMakeSize(110., (double)yspaceheight));
-  naSetSpaceAlternateBackground(settingSpace, alternateblock % 2);
-  alternateblock++;
+  NASpace* settingSpace = naNewSpace(naMakeSize(110., (double)ySpaceHeight));
+  naSetSpaceAlternateBackground(settingSpace, alternateBlock % 2);
+  alternateBlock++;
 
   con->unsignedOption = naNewTextStateButton("U", NA_NULL, 28.);
-  naAddUIReaction(con->unsignedOption, NA_UI_COMMAND_PRESSED, bit_SwitchComplement, con);
-  naAddSpaceChild(settingSpace, con->unsignedOption, naMakePos(11., (double)yposinput));
+  naAddUIReaction(
+    con->unsignedOption,
+    NA_UI_COMMAND_PRESSED,
+    bit_SwitchComplement,
+    con);
+  naAddSpaceChild(
+    settingSpace,
+    con->unsignedOption,
+    naMakePos(11., (double)yPosInput));
 
   con->onesOption = naNewTextStateButton("1", NA_NULL, 28.);
-  naAddUIReaction(con->onesOption, NA_UI_COMMAND_PRESSED, bit_SwitchComplement, con);
-  naAddSpaceChild(settingSpace, con->onesOption, naMakePos(41., (double)yposinput));
+  naAddUIReaction(
+    con->onesOption,
+    NA_UI_COMMAND_PRESSED,
+    bit_SwitchComplement,
+    con);
+  naAddSpaceChild(
+    settingSpace,
+    con->onesOption,
+    naMakePos(41., (double)yPosInput));
 
   con->twosOption = naNewTextStateButton("2", NA_NULL, 28.);
-  naAddUIReaction(con->twosOption, NA_UI_COMMAND_PRESSED, bit_SwitchComplement, con);
-  naAddSpaceChild(settingSpace, con->twosOption, naMakePos(71., (double)yposinput));
+  naAddUIReaction(
+    con->twosOption,
+    NA_UI_COMMAND_PRESSED,
+    bit_SwitchComplement,
+    con);
+  naAddSpaceChild(
+    settingSpace,
+    con->twosOption,
+    naMakePos(71., (double)yPosInput));
 
-  con->endiannessCheckBox = naNewCheckBox(bitTranslate(BitFiddleConversionByteSwap), 90);
-  naAddUIReaction(con->endiannessCheckBox, NA_UI_COMMAND_PRESSED, bit_SwitchEndianness, con);
+  con->endiannessCheckBox = naNewCheckBox(
+    bitTranslate(BitFiddleConversionByteSwap),
+    90);
+  naAddUIReaction(
+    con->endiannessCheckBox,
+    NA_UI_COMMAND_PRESSED,
+    bit_SwitchEndianness,
+    con);
   #if NA_OS == NA_OS_WINDOWS
-    naAddSpaceChild(settingSpace, con->endiannessCheckBox, naMakePos(15., (double)ypos8));
+    naAddSpaceChild(
+      settingSpace,
+      con->endiannessCheckBox,
+      naMakePos(15., (double)yPos8));
   #else
-    naAddSpaceChild(settingSpace, con->endiannessCheckBox, naMakePos(10., (double)ypos8));
+    naAddSpaceChild(
+      settingSpace,
+      con->endiannessCheckBox,
+      naMakePos(10., (double)yPos8));
   #endif
 
-  NAImageSet* helpImageSet = bitGetImageAsset(BIT_IMAGE_ASSET_HELP_BUTTON);
-  con->helpButton = naNewImagePushButton(helpImageSet, naMakeSize(20., 20.));
-  naAddUIReaction(con->helpButton, NA_UI_COMMAND_PRESSED, bit_ButtonPressed, con);
-  naAddSpaceChild(settingSpace, con->helpButton, naMakePos(13., 10.));
+  con->helpButton = naNewImagePushButton(
+    bitGetImageAsset(BIT_IMAGE_ASSET_HELP_BUTTON),
+    naMakeSize(20., 20.));
+  naAddUIReaction(
+    con->helpButton,
+    NA_UI_COMMAND_PRESSED,
+    bit_ButtonPressed,
+    con);
+  naAddSpaceChild(
+    settingSpace,
+    con->helpButton,
+    naMakePos(13., 10.));
 
-  NAImageSet* prefImageSet = bitGetImageAsset(BIT_IMAGE_ASSET_PREFS_BUTTON);
-  con->preferencesButton = naNewImagePushButton(prefImageSet, naMakeSize(20., 20.));
-  naAddUIReaction(con->preferencesButton, NA_UI_COMMAND_PRESSED, bit_ButtonPressed, con);
-  naAddSpaceChild(settingSpace, con->preferencesButton, naMakePos(43., 10.));
+  con->preferencesButton = naNewImagePushButton(
+    bitGetImageAsset(BIT_IMAGE_ASSET_PREFS_BUTTON),
+    naMakeSize(20., 20.));
+  naAddUIReaction(
+    con->preferencesButton,
+    NA_UI_COMMAND_PRESSED,
+    bit_ButtonPressed,
+    con);
+  naAddSpaceChild(
+    settingSpace,
+    con->preferencesButton,
+    naMakePos(43., 10.));
 
-  NAImageSet* ascImageSet = bitGetImageAsset(BIT_IMAGE_ASSET_ASCII_BUTTON);
-  con->asciiButton = naNewImagePushButton(ascImageSet, naMakeSize(20., 20.));
-  naAddUIReaction(con->asciiButton, NA_UI_COMMAND_PRESSED, bit_ButtonPressed, con);
-  naAddSpaceChild(settingSpace, con->asciiButton, naMakePos(73., 10.));
+  con->asciiButton = naNewImagePushButton(
+    bitGetImageAsset(BIT_IMAGE_ASSET_ASCII_BUTTON),
+    naMakeSize(20., 20.));
+  naAddUIReaction(
+    con->asciiButton,
+    NA_UI_COMMAND_PRESSED,
+    bit_ButtonPressed,
+    con);
+  naAddSpaceChild(
+    settingSpace,
+    con->asciiButton,
+    naMakePos(73., 10.));
 
-  naAddSpaceChild(space, settingSpace, naMakePos(offsetx, 0.));
-  offsetx += 110;
+  naAddSpaceChild(space, settingSpace, naMakePos(offsetX, 0.));
+  offsetX += 110;
 
   // ////////////////
 
-  NASpace* bitCountspace = naNewSpace(naMakeSize(25, (double)yspaceheight));
-  naSetSpaceAlternateBackground(bitCountspace, alternateblock % 2);
-  alternateblock++;
+  NASpace* bitCountspace = naNewSpace(naMakeSize(25, (double)ySpaceHeight));
+  naSetSpaceAlternateBackground(bitCountspace, alternateBlock % 2);
+  alternateBlock++;
 
   NALabel* bit8label = bit_CreateBitLabelField("8", 25.);
-  naAddSpaceChild(bitCountspace, bit8label, naMakePos(0., (double)ypos8));
+  naAddSpaceChild(bitCountspace, bit8label, naMakePos(0., (double)yPos8));
   if(show16Bits) {
     NALabel* bit16label = bit_CreateBitLabelField("16", 25.);
-    naAddSpaceChild(bitCountspace, bit16label, naMakePos(0., (double)ypos16));
+    naAddSpaceChild(bitCountspace, bit16label, naMakePos(0., (double)yPos16));
   }
   NALabel* bit32label = bit_CreateBitLabelField("32", 25.);
-  naAddSpaceChild(bitCountspace, bit32label, naMakePos(0., (double)ypos32));
+  naAddSpaceChild(bitCountspace, bit32label, naMakePos(0., (double)yPos32));
   NALabel* bit64label = bit_CreateBitLabelField("64", 25.);
-  naAddSpaceChild(bitCountspace, bit64label, naMakePos(0., (double)ypos64));
+  naAddSpaceChild(bitCountspace, bit64label, naMakePos(0., (double)yPos64));
   if(showNBits) {
     NALabel* bitnlabel = bit_CreateBitLabelField("n", 25.);
-    naAddSpaceChild(bitCountspace, bitnlabel, naMakePos(0., (double)yposn));
+    naAddSpaceChild(bitCountspace, bitnlabel, naMakePos(0., (double)yPosn));
   }
 
-  naAddSpaceChild(space, bitCountspace, naMakePos((double)offsetx, 0.));
-  offsetx += 25;
+  naAddSpaceChild(space, bitCountspace, naMakePos((double)offsetX, 0.));
+  offsetX += 25;
 
   // ////////////////
 
-  NASpace* decspace = naNewSpace(naMakeSize(140., (double)yspaceheight));
-  naSetSpaceAlternateBackground(decspace, alternateblock % 2);
-  alternateblock++;
+  NASpace* decSpace = naNewSpace(naMakeSize(140., (double)ySpaceHeight));
+  naSetSpaceAlternateBackground(decSpace, alternateBlock % 2);
+  alternateBlock++;
 
-  con->inputdec = bit_CreateBitInputField(con, 120., bit_ValueChangeDec);
-  naAddSpaceChild(decspace, con->inputdec, naMakePos(10., (double)yposinput));
-  con->labeldec = bit_CreateSystemLabelField("Dec", 30.);
-  naAddSpaceChild(decspace, con->labeldec, naMakePos(10., (double)ypos8));
-  con->bit8dec = bit_CreateBitOutputField(38.);
-  naAddSpaceChild(decspace, con->bit8dec, naMakePos(92., (double)ypos8));
+  con->inputDec = bit_CreateBitInputField(con, 120., bit_ValueChangeDec);
+  naAddSpaceChild(decSpace, con->inputDec, naMakePos(10., (double)yPosInput));
+  con->labelDec = bit_CreateSystemLabelField("Dec", 30.);
+  naAddSpaceChild(decSpace, con->labelDec, naMakePos(10., (double)yPos8));
+  con->bit8Dec = bit_CreateBitOutputField(38.);
+  naAddSpaceChild(decSpace, con->bit8Dec, naMakePos(92., (double)yPos8));
   if(show16Bits) {
-    con->bit16dec = bit_CreateBitOutputField(75.);
-    naAddSpaceChild(decspace, con->bit16dec, naMakePos(55., (double)ypos16));
+    con->bit16Dec = bit_CreateBitOutputField(75.);
+    naAddSpaceChild(decSpace, con->bit16Dec, naMakePos(55., (double)yPos16));
   }
-  con->bit32dec = bit_CreateBitOutputField(120.);
-  naAddSpaceChild(decspace, con->bit32dec, naMakePos(10., (double)ypos32));
-  con->bit64dec = bit_CreateBitOutputBox(naMakeSize(120., 34.), NA_FALSE);
-  naAddSpaceChild(decspace, con->bit64dec, naMakePos(10., (double)ypos64));
+  con->bit32Dec = bit_CreateBitOutputField(120.);
+  naAddSpaceChild(decSpace, con->bit32Dec, naMakePos(10., (double)yPos32));
+  con->bit64Dec = bit_CreateBitOutputBox(naMakeSize(120., 34.), NA_FALSE);
+  naAddSpaceChild(decSpace, con->bit64Dec, naMakePos(10., (double)yPos64));
   if(showNBits) {
-    con->bitndec = bit_CreateBitOutputBox(naMakeSize(120., 68.), NA_TRUE);
-    naAddSpaceChild(decspace, con->bitndec, naMakePos(10., (double)yposn));
+    con->bitnDec = bit_CreateBitOutputBox(naMakeSize(120., 68.), NA_TRUE);
+    naAddSpaceChild(decSpace, con->bitnDec, naMakePos(10., (double)yPosn));
   }
 
-  naAddSpaceChild(space, decspace, naMakePos((double)offsetx, 0.));
-  offsetx += 140;
+  naAddSpaceChild(space, decSpace, naMakePos((double)offsetX, 0.));
+  offsetX += 140;
 
   // ////////////////
 
-  NASpace* hexspace = naNewSpace(naMakeSize(120., (double)yspaceheight));
-  naSetSpaceAlternateBackground(hexspace, alternateblock % 2);
-  alternateblock++;
+  NASpace* hexSpace = naNewSpace(naMakeSize(120., (double)ySpaceHeight));
+  naSetSpaceAlternateBackground(hexSpace, alternateBlock % 2);
+  alternateBlock++;
 
-  con->inputhex = bit_CreateBitInputField(con, 100., bit_ValueChangeHex);
-  naAddSpaceChild(hexspace, con->inputhex, naMakePos(10., (double)yposinput));
-  con->labelhex = bit_CreateSystemLabelField("Hex", 30.);
-  naAddSpaceChild(hexspace, con->labelhex, naMakePos(10., (double)ypos8));
-  con->bit8hex = bit_CreateBitOutputField(25.);
-  naAddSpaceChild(hexspace, con->bit8hex, naMakePos(85., (double)ypos8));
+  con->inputHex = bit_CreateBitInputField(con, 100., bit_ValueChangeHex);
+  naAddSpaceChild(hexSpace, con->inputHex, naMakePos(10., (double)yPosInput));
+  con->labelHex = bit_CreateSystemLabelField("Hex", 30.);
+  naAddSpaceChild(hexSpace, con->labelHex, naMakePos(10., (double)yPos8));
+  con->bit8Hex = bit_CreateBitOutputField(25.);
+  naAddSpaceChild(hexSpace, con->bit8Hex, naMakePos(85., (double)yPos8));
   if(show16Bits) {
-    con->bit16hex = bit_CreateBitOutputField(50.);
-    naAddSpaceChild(hexspace, con->bit16hex, naMakePos(60., (double)ypos16));
+    con->bit16Hex = bit_CreateBitOutputField(50.);
+    naAddSpaceChild(hexSpace, con->bit16Hex, naMakePos(60., (double)yPos16));
   }
-  con->bit32hex = bit_CreateBitOutputField(100.);
-  naAddSpaceChild(hexspace, con->bit32hex, naMakePos(10., (double)ypos32));
-  con->bit64hex = bit_CreateBitOutputBox(naMakeSize(100., 34.), NA_FALSE);
-  naAddSpaceChild(hexspace, con->bit64hex, naMakePos(10., (double)ypos64));
+  con->bit32Hex = bit_CreateBitOutputField(100.);
+  naAddSpaceChild(hexSpace, con->bit32Hex, naMakePos(10., (double)yPos32));
+  con->bit64Hex = bit_CreateBitOutputBox(naMakeSize(100., 34.), NA_FALSE);
+  naAddSpaceChild(hexSpace, con->bit64Hex, naMakePos(10., (double)yPos64));
   if(showNBits) {
-    con->bitnhex = bit_CreateBitOutputBox(naMakeSize(100., 68.), NA_TRUE);
-    naAddSpaceChild(hexspace, con->bitnhex, naMakePos(10., (double)yposn));
+    con->bitnHex = bit_CreateBitOutputBox(naMakeSize(100., 68.), NA_TRUE);
+    naAddSpaceChild(hexSpace, con->bitnHex, naMakePos(10., (double)yPosn));
   }
 
-  naAddSpaceChild(space, hexspace, naMakePos((double)offsetx, 0.));
-  offsetx += 120;
+  naAddSpaceChild(space, hexSpace, naMakePos((double)offsetX, 0.));
+  offsetX += 120;
 
   // ////////////////
 
   if(showBin) {
-    NASpace* binspace = naNewSpace(naMakeSize(305., (double)yspaceheight));
-    naSetSpaceAlternateBackground(binspace, alternateblock % 2);
-  alternateblock++;
+    NASpace* binSpace = naNewSpace(naMakeSize(305., (double)ySpaceHeight));
+    naSetSpaceAlternateBackground(binSpace, alternateBlock % 2);
+  alternateBlock++;
 
-    con->inputbin = bit_CreateBitInputField(con, 285., bit_ValueChangeBin);
-    naAddSpaceChild(binspace, con->inputbin, naMakePos(10., (double)yposinput));
-    con->labelbin = bit_CreateSystemLabelField("Bin", 30.);
-    naAddSpaceChild(binspace, con->labelbin, naMakePos(10., (double)ypos8));
-    con->bit8bin = bit_CreateBitOutputField(75.);
-    naAddSpaceChild(binspace, con->bit8bin, naMakePos(220., (double)ypos8));
+    con->inputBin = bit_CreateBitInputField(con, 285., bit_ValueChangeBin);
+    naAddSpaceChild(binSpace, con->inputBin, naMakePos(10., (double)yPosInput));
+    con->labelBin = bit_CreateSystemLabelField("Bin", 30.);
+    naAddSpaceChild(binSpace, con->labelBin, naMakePos(10., (double)yPos8));
+    con->bit8Bin = bit_CreateBitOutputField(75.);
+    naAddSpaceChild(binSpace, con->bit8Bin, naMakePos(220., (double)yPos8));
     if(show16Bits) {
-      con->bit16bin = bit_CreateBitOutputField(145.);
-      naAddSpaceChild(binspace, con->bit16bin, naMakePos(150., (double)ypos16));
+      con->bit16Bin = bit_CreateBitOutputField(145.);
+      naAddSpaceChild(binSpace, con->bit16Bin, naMakePos(150., (double)yPos16));
     }
-    con->bit32bin = bit_CreateBitOutputField(285.);
-    naAddSpaceChild(binspace, con->bit32bin, naMakePos(10., (double)ypos32));
-    con->bit64bin = bit_CreateBitOutputBox(naMakeSize(285., 34.), NA_FALSE);
-    naAddSpaceChild(binspace, con->bit64bin, naMakePos(10., (double)ypos64));
+    con->bit32Bin = bit_CreateBitOutputField(285.);
+    naAddSpaceChild(binSpace, con->bit32Bin, naMakePos(10., (double)yPos32));
+    con->bit64Bin = bit_CreateBitOutputBox(naMakeSize(285., 34.), NA_FALSE);
+    naAddSpaceChild(binSpace, con->bit64Bin, naMakePos(10., (double)yPos64));
     if(showNBits) {
-      con->bitnbin = bit_CreateBitOutputBox(naMakeSize(285., 68.), NA_TRUE);
-      naAddSpaceChild(binspace, con->bitnbin, naMakePos(10., (double)yposn));
+      con->bitnBin = bit_CreateBitOutputBox(naMakeSize(285., 68.), NA_TRUE);
+      naAddSpaceChild(binSpace, con->bitnBin, naMakePos(10., (double)yPosn));
     }
 
-    naAddSpaceChild(space, binspace, naMakePos((double)offsetx, 0.));
-    offsetx += 305;
+    naAddSpaceChild(space, binSpace, naMakePos((double)offsetX, 0.));
+    offsetX += 305;
   }
 
   // ////////////////
 
   if(showAsc) {
-    NASpace* ascspace = naNewSpace(naMakeSize(75., (double)yspaceheight));
-    naSetSpaceAlternateBackground(ascspace, alternateblock % 2);
-  alternateblock++;
+    NASpace* ascSpace = naNewSpace(naMakeSize(75., (double)ySpaceHeight));
+    naSetSpaceAlternateBackground(ascSpace, alternateBlock % 2);
+  alternateBlock++;
 
-    con->inputasc = bit_CreateBitInputField(con, 55., bit_ValueChangeAsc);
-    naAddSpaceChild(ascspace, con->inputasc, naMakePos(10., (double)yposinput));
-    con->labelasc = bit_CreateSystemLabelField("Asc", 30.);
-    naAddSpaceChild(ascspace, con->labelasc, naMakePos(10., (double)ypos8));
-    con->bit8asc = bit_CreateBitOutputField(30.);
-    naAddSpaceChild(ascspace, con->bit8asc, naMakePos(35., (double)ypos8));
+    con->inputAsc = bit_CreateBitInputField(con, 55., bit_ValueChangeAsc);
+    naAddSpaceChild(ascSpace, con->inputAsc, naMakePos(10., (double)yPosInput));
+    con->labelAsc = bit_CreateSystemLabelField("Asc", 30.);
+    naAddSpaceChild(ascSpace, con->labelAsc, naMakePos(10., (double)yPos8));
+    con->bit8Asc = bit_CreateBitOutputField(30.);
+    naAddSpaceChild(ascSpace, con->bit8Asc, naMakePos(35., (double)yPos8));
     if(show16Bits) {
-      con->bit16asc = bit_CreateBitOutputField(30.);
-      naAddSpaceChild(ascspace, con->bit16asc, naMakePos(35., (double)ypos16));
+      con->bit16Asc = bit_CreateBitOutputField(30.);
+      naAddSpaceChild(ascSpace, con->bit16Asc, naMakePos(35., (double)yPos16));
     }
-    con->bit32asc = bit_CreateBitOutputField(55.);
-    naAddSpaceChild(ascspace, con->bit32asc, naMakePos(10., (double)ypos32));
-    con->bit64asc = bit_CreateBitOutputBox(naMakeSize(55., 34.), NA_FALSE);
-    naAddSpaceChild(ascspace, con->bit64asc, naMakePos(10., (double)ypos64));
+    con->bit32Asc = bit_CreateBitOutputField(55.);
+    naAddSpaceChild(ascSpace, con->bit32Asc, naMakePos(10., (double)yPos32));
+    con->bit64Asc = bit_CreateBitOutputBox(naMakeSize(55., 34.), NA_FALSE);
+    naAddSpaceChild(ascSpace, con->bit64Asc, naMakePos(10., (double)yPos64));
     if(showNBits) {
-      con->bitnasc = bit_CreateBitOutputBox(naMakeSize(55., 68.), NA_TRUE);
-      naAddSpaceChild(ascspace, con->bitnasc, naMakePos(10., (double)yposn));
+      con->bitnAsc = bit_CreateBitOutputBox(naMakeSize(55., 68.), NA_TRUE);
+      naAddSpaceChild(ascSpace, con->bitnAsc, naMakePos(10., (double)yPosn));
     }
 
-    naAddSpaceChild(space, ascspace, naMakePos((double)offsetx, 0.));
-    offsetx += 75;
+    naAddSpaceChild(space, ascSpace, naMakePos((double)offsetX, 0.));
+    offsetX += 75;
   }
 
   // ////////////////
 
-  windowrect = naGetUIElementRect(con->window);
-  windowrect.size.width = offsetx;
+  windowRect = naGetUIElementRect(con->window);
+  windowRect.size.width = offsetX;
 
-  naSetUIElementRect(con->window, windowrect);
+  naSetUIElementRect(con->window, windowRect);
 
-  NATextField* nexttab;
-  naSetWindowFirstTabElement(con->window, con->inputdec);
-  naSetUIElementNextTabElement(con->inputdec, con->inputhex);
-  nexttab = con->inputbin;
-  if(!nexttab) {nexttab = con->inputasc;}
-  if(!nexttab) {nexttab = con->inputdec;}
-  naSetUIElementNextTabElement(con->inputhex, nexttab);
+  NATextField* nextTab;
+  naSetWindowFirstTabElement(con->window, con->inputDec);
+  naSetUIElementNextTabElement(con->inputDec, con->inputHex);
+  nextTab = con->inputBin;
+  if(!nextTab) {nextTab = con->inputAsc;}
+  if(!nextTab) {nextTab = con->inputDec;}
+  naSetUIElementNextTabElement(con->inputHex, nextTab);
   if(showBin) {
-    nexttab = con->inputasc;
-    if(!nexttab) {nexttab = con->inputdec;}
-    naSetUIElementNextTabElement(con->inputbin, nexttab);
+    nextTab = con->inputAsc;
+    if(!nextTab) {nextTab = con->inputDec;}
+    naSetUIElementNextTabElement(con->inputBin, nextTab);
   }
   if(showAsc) {
-    naSetUIElementNextTabElement(con->inputasc, con->inputdec);
+    naSetUIElementNextTabElement(con->inputAsc, con->inputDec);
   }
   
   // ////////////////

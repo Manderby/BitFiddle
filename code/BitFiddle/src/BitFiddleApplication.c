@@ -104,12 +104,18 @@ void bitCreateUI() {
 void bitStopApplication(void* data) {
   NA_UNUSED(data);
   
-  bitDeallocConverterController(bit_App->converterController);
+  if(bit_App->converterController) {
+    bitDeallocConverterController(bit_App->converterController);
+  }
   if(bit_App->asciiController) {
     bitDeallocAsciiController(bit_App->asciiController);
   }
-  bitDeallocPreferencesController(bit_App->preferencesController);
-  bitDeallocAboutController(bit_App->aboutController);
+  if(bit_App->preferencesController) {
+    bitDeallocPreferencesController(bit_App->preferencesController);
+  }
+  if(bit_App->aboutController) {
+    bitDeallocAboutController(bit_App->aboutController);
+  }
   
   naRelease(bit_App->imageAssets[BIT_IMAGE_ASSET_HELP_BUTTON]);
   naRelease(bit_App->imageAssets[BIT_IMAGE_ASSET_PREFS_BUTTON]);
@@ -129,6 +135,12 @@ void bitRecreateConverterController() {
   bit_App->converterController = bitAllocConverterController();
   bitShowConverterController(bit_App->converterController);
   bitUpdateAppConverterControllerOnTop();
+}
+
+void bitUpdateAppConverterControllerOnTop() {
+  bitKeepConverterOnTop(
+    bit_App->converterController,
+    bitGetPrefsKeepConverterOnTop());
 }
 
 
@@ -154,13 +166,6 @@ void bitShowApplicationAboutController() {
   bitShowAboutController(bit_App->aboutController);
 }
 
-
-
-void bitUpdateAppConverterControllerOnTop() {
-  bitKeepConverterOnTop(
-    bit_App->converterController,
-    bitGetPrefsKeepConverterOnTop());
-}
 
 
 
