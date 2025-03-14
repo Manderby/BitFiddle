@@ -53,7 +53,7 @@ void bit_SwitchPreferencesSetting(NAReaction reaction) {
   }
 
   bitUpdatePreferencesController(con);
-  bitUpdateApp();
+  bitUpdateAppConverterControllerOnTop();
 }
 
 

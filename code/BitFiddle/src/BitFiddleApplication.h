@@ -33,13 +33,13 @@ void bitStopApplication(void* data);
 NAImageSet* bitGetImageAsset(BitImageAsset asset);
 NAFont* bitGetMonospaceFont(void);
 
-void bitShowApplicationConverterController(void);
+void bitRecreateConverterController(void);
+
 void bitShowApplicationAsciiController(void);
 void bitShowApplicationPreferencesController(void);
 void bitShowApplicationAboutController(void);
-void bitUpdateApp(void);
+void bitUpdateAppConverterControllerOnTop(void);
 
-void bitRecreateConverterController(void);
 
 
 #endif // BIT_APPLICATION_DEFINED
