@@ -59,12 +59,12 @@ typedef uint32 NANibble;  // A nibble consists of 4 Bits. Here in NALib, they
 // binary zero if available. If size is negative, the full size of srcArray
 // will be used but it will be padded to the next higher bitalignment defined
 // by -size.
-NABuffer* bitCreateBitArrayCopyWithFixedSize(NABuffer* srcArray, NAInt size);
+NABuffer* bitCreateBitArrayCopyWithFixedSize(NABuffer* srcArray, int64 size);
 
 
 // Adds binary zero at the higher endian bits so that the total size of the
 // bit array is divisible by padSize.
-void bitPadBitArray(NABuffer* bitArray, NAInt padSize);
+void bitPadBitArray(NABuffer* bitArray, int64 padSize);
 
 
 // Creates a new bit array out of a shift and/or extension of another bit array
@@ -92,8 +92,8 @@ void bitPadBitArray(NABuffer* bitArray, NAInt padSize);
 //          shift -2 size  -8 ->   11101101
 //NABuffer* bitInitBitArrayShiftExtension(NABuffer* dstarray,
 //                                                   NABuffer* srcArray,
-//                                                         NAInt shift,
-//                                                         NAInt size);
+//                                                         int64 shift,
+//                                                         int64 size);
 
 // Creates a bit array from the given string. The string can contain binary
 // values, decimal values, hexadecimal values. The Ascii-function will create

@@ -45,25 +45,25 @@
 // 12: xxxx xxxx zzzz 0000
 // 13: xxxx xxxx xxxx z000 0000
 
-NA_HIDEF NAInt bit_GetNullTerminationBytesize(NAInt byteSize) {
-  NAInt returnByteSize;
+NA_HIDEF int64 bit_GetNullTerminationBytesize(int64 byteSize) {
+  int64 returnByteSize;
   #if NA_DEBUG
-    if((byteSize >= NA_ZERO))
+    if((byteSize >= NA_ZERO_i64))
       naError("size is not negative");
   #endif
-  returnByteSize = (-byteSize - NA_ONE) + (NA_ADDRESS_BYTES << 1) - ((-byteSize - NA_ONE) % NA_ADDRESS_BYTES);
+  returnByteSize = (-byteSize - NA_ONE_i64) + (NA_ADDRESS_BYTES << 1) - ((-byteSize - NA_ONE_i64) % NA_ADDRESS_BYTES);
   #if NA_DEBUG
-    if(returnByteSize < NA_ZERO)
+    if(returnByteSize < NA_ZERO_i64)
       naError("given negative size is too close to the minimal integer value");
   #endif
   return returnByteSize;
 }
 
 
-void* bit_Malloc(NAInt byteSize) {
+void* bit_Malloc(int64 byteSize) {
   void* retPtr;
   if(byteSize < 0) {
-    NAInt positiveByteSize = bit_GetNullTerminationBytesize(byteSize);
+    int64 positiveByteSize = bit_GetNullTerminationBytesize(byteSize);
     retPtr = naMalloc((size_t)positiveByteSize);
     naZeron(&(((NAByte*)retPtr)[positiveByteSize - 8]), 8);
   }else{
@@ -86,7 +86,7 @@ void* bit_Malloc(NAInt byteSize) {
 // - If count is zero, an empty bit array is returned.
 //
 // The returned bit array is always unititialized.
-NABuffer* bit_CreateBitArrayWithCount(NAInt count) {
+NABuffer* bit_CreateBitArrayWithCount(int64 count) {
   NABuffer* bitArray = naCreateBuffer(NA_FALSE);
   naCacheBufferRange(bitArray, naMakeRangei64(0, count));
   return bitArray;
@@ -94,7 +94,7 @@ NABuffer* bit_CreateBitArrayWithCount(NAInt count) {
 
 
 
-NABuffer* bitCreateBitArrayCopyWithFixedSize(NABuffer* srcArray, NAInt size) {
+NABuffer* bitCreateBitArrayCopyWithFixedSize(NABuffer* srcArray, int64 size) {
   NABuffer* bitArray;
   NARangei64 range = naGetBufferRange(srcArray);
   if(size < 0) {
@@ -113,7 +113,7 @@ NABuffer* bitCreateBitArrayCopyWithFixedSize(NABuffer* srcArray, NAInt size) {
 
 
 
-void bitPadBitArray(NABuffer* bitArray, NAInt padSize) {
+void bitPadBitArray(NABuffer* bitArray, int64 padSize) {
   if(!naIsBufferEmpty(bitArray)) {
     NABufferIterator iter = naMakeBufferModifier(bitArray);
     naLocateBufferAtEnd(&iter, 0);
@@ -126,13 +126,13 @@ void bitPadBitArray(NABuffer* bitArray, NAInt padSize) {
 
 
 
-//NABuffer* bitInitBitArrayShiftExtension( NABuffer* dstarray, NABuffer* srcArray, NAInt shift, NAInt size) {
+//NABuffer* bitInitBitArrayShiftExtension( NABuffer* dstarray, NABuffer* srcArray, int64 shift, int64 size) {
 //
-//  NAInt i = 0;
+//  int64 i = 0;
 //  NABit* srcptr;
 //  NABit* dstptr;
 //  NABit trailbit;
-//  NAInt srcCount;
+//  int64 srcCount;
 //
 //  #if NA_DEBUG
 //    if(!srcArray)
@@ -188,11 +188,11 @@ void bitPadBitArray(NABuffer* bitArray, NAInt padSize) {
 // Looks at the given sizehint and expands or extracts the given bitArray and
 // fills the padding bits with zero if necessary. Warning: expects fullstorage
 // to have enough bits allocated.
-//void binEnsureBitArraySizeHint(NABuffer* bitArray, NAInt sizehint) {
+//void binEnsureBitArraySizeHint(NABuffer* bitArray, int64 sizehint) {
 //  NAUInt bitCount = naGetByteArrayBytesize(&(bitArray->bits));
-//  NAInt arraycount = getBitArraySizeHintCount(sizehint, bitCount);
+//  int64 arraycount = getBitArraySizeHintCount(sizehint, bitCount);
 //
-//  NAInt sizediff = arraycount - bitCount;
+//  int64 sizediff = arraycount - bitCount;
 //  if(!bitCount) {
 //    // if the bitArray was completely empty, just fill it with zeros.
 //    naZeron(naGetByteArrayMutablePointer(&(bitArray->fullstorage)), sizediff);
@@ -358,15 +358,15 @@ void bitClearBitArray(NABuffer* bitArray) {
 
 NAString* bitNewStringDecWithBitArray(const NABuffer* bitArray) {
   NAUTF8Char* charPtr;
-  NAInt outputLen;
-  NAInt finalStringCount;
+  int64 outputLen;
+  int64 finalStringCount;
   NABuffer* work;
-  NAInt i;
-  NAInt j;
+  int64 i;
+  int64 j;
   NAString* string;
   NAString* retString;
 
-  NAInt bitCount = naGetBufferRange(bitArray).length;
+  int64 bitCount = naGetBufferRange(bitArray).length;
   if(!bitCount) {return naNewString();}
   
   NAUTF8Char* stringbuf = bit_Malloc(-bitCount);
@@ -474,7 +474,7 @@ NAString* bitNewStringDecWithBitArray(const NABuffer* bitArray) {
 NAString* bitNewStringHexWithBitArray(NABuffer* bitArray) {
   NABufferIterator iterIn;
   NABufferIterator iterOut;
-  NAInt bitCount;
+  int64 bitCount;
   uint8 nibble;
   
   NAString* string = naNewString();
@@ -514,7 +514,7 @@ NAString* bitNewStringHexWithBitArray(NABuffer* bitArray) {
 NAString* bitNewStringBinWithBitArray(NABuffer* bitArray) {
   NABufferIterator iterIn;
   NABufferIterator iterOut;
-  NAInt bitCount;
+  int64 bitCount;
   
   NAString* string = naNewString();
   NABuffer* buffer = naGetStringBufferMutable(string);
@@ -543,7 +543,7 @@ NAString* bitNewStringBinWithBitArray(NABuffer* bitArray) {
 NAString* bitNewStringAscWithBitArray(NABuffer* bitArray) {
   NABufferIterator iterIn;
   NABufferIterator iterOut;
-  NAInt bitCount;
+  int64 bitCount;
   
   NAString* string = naNewString();
   NABuffer* buffer = naGetStringBufferMutable(string);
@@ -609,8 +609,8 @@ NABuffer* bitCreateBitArrayAddBitArray(NABuffer* srcArray1, NABuffer* srcArray2)
   srcIter1 = naMakeBufferAccessor(srcArray1);
   srcIter2 = naMakeBufferAccessor(srcArray2);
   
-  NAInt srcCount1 = naGetBufferRange(srcArray1).length;
-  NAInt srcCount2 = naGetBufferRange(srcArray2).length;
+  int64 srcCount1 = naGetBufferRange(srcArray1).length;
+  int64 srcCount2 = naGetBufferRange(srcArray2).length;
 
   carry = 0;
   

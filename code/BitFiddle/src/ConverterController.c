@@ -519,13 +519,13 @@ BitConverterController* bitAllocConverterController(void) {
   NABool showBin = bitGetPrefsShowBin();
   NABool showAsc = bitGetPrefsShowAsc();
 
-  NAInt yPosn = 10;
-  NAInt yPos64 = showNBits ? yPosn + 73 : yPosn;
-  NAInt yPos32 = yPos64 + 39;
-  NAInt yPos16 = show16Bits ? yPos32 + 22 : yPos32;
-  NAInt yPos8 = yPos16 + 22;
-  NAInt yPosInput = yPos8 + 27;
-  NAInt ySpaceHeight = yPosInput + 22 + 10;
+  int64 yPosn = 10;
+  int64 yPos64 = showNBits ? yPosn + 73 : yPosn;
+  int64 yPos32 = yPos64 + 39;
+  int64 yPos16 = show16Bits ? yPos32 + 22 : yPos32;
+  int64 yPos8 = yPos16 + 22;
+  int64 yPosInput = yPos8 + 27;
+  int64 ySpaceHeight = yPosInput + 22 + 10;
 
   NARect windowRect = naMakeRectS(20., 20., 777., (double)ySpaceHeight);
   con->window = naNewWindow(

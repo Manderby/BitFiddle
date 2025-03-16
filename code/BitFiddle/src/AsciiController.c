@@ -275,7 +275,7 @@ BitAsciiController* bitAllocAsciiController() {
     BIT_WINDOW_TAG_ASCII);
   
   NASpace* contentSpace = naGetWindowContentSpace(con->window);
-  NAInt curIndex = 0;
+  int64 curIndex = 0;
   
   for(size_t x = 0; x < 8; ++x) {
     NASpace* columnSpace = naNewSpace(naMakeSize(97, 366));
