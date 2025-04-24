@@ -168,6 +168,14 @@ NA_LOC(BitFiddleAsciiAdditionalInfo7d, "LaTeX-escape: \\}");
 NA_LOC(BitFiddleAsciiAdditionalInfo7e, "");
 NA_LOC(BitFiddleAsciiAdditionalInfo7f, "");
 
+// Translations for language selection
+NA_LOC(BitLanguage,               "Sprache / Language / Idioma / 言語");
+NA_LOC(BitLanguageSameAsSystem,   "Wie System");
+NA_LOC(BitLanguageReport,         "Schlechte Übersetzungen melden...");
+NA_LOC(BitLanguageChangeAlertTitle, "Sprachänderung");
+NA_LOC(BitLanguageChangeAlertText, "Die Sprache wurde geändert. Bitte beenden Sie die Anwendung und öffnen Sie sie erneut, damit die Änderungen wirksam werden.");
+NA_LOC(BitLanguageBadTranslationTitle, "Schlechte Übersetzungen melden");
+NA_LOC(BitLanguageBadTranslationText, "Einige Teile dieser Anwendung wurden von künstlicher Intelligenz übersetzt. Helfen Sie, die Übersetzung zu verbessern, indem Sie eine E-Mail an karograph@manderc.com senden (der Link dazu findet sich im Info-Fenster). Bitte geben Sie ausreichend Informationen an, um Ihren Vorschlag an der richtigen Stelle zu integrieren.\n\nIhre Hilfe wird sehr geschätzt!");
 
 
 // This is free and unencumbered software released into the public domain.

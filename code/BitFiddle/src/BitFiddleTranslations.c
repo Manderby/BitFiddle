@@ -11,6 +11,11 @@ void bitInitTranslations() {
   translatorGroup = naRegisterTranslatorGroup();
   #include "../res/BitFiddleStrings_eng.h"
   #include "../res/BitFiddleStrings_deu.h"
+  #include "../res/BitFiddleStrings_spa.h"
+  #include "../res/BitFiddleStrings_fra.h"
+  #include "../res/BitFiddleStrings_tlh.h"
+  #include "../res/BitFiddleStrings_jpn.h"
+  #include "../res/BitFiddleStrings_zho.h"
 }
 
 

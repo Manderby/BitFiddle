@@ -15,6 +15,7 @@
 
 struct BitApplication{
   NAFont* monoFont;
+  NAFont* titleFont;
   NAImageSet* imageAssets[BIT_IMAGE_ASSET_COUNT];
   
   BitConverterController* converterController;
@@ -65,6 +66,9 @@ void bitStartApplication(void) {
   bit_App->monoFont = naCreateFontWithPreset(
     NA_FONT_KIND_MONOSPACE,
     NA_FONT_SIZE_DEFAULT);
+  bit_App->titleFont = naCreateFontWithPreset(
+    NA_FONT_KIND_TITLE,
+    NA_FONT_SIZE_DEFAULT);
 
   bit_App->imageAssets[BIT_IMAGE_ASSET_HELP_BUTTON] =
     bit_LoadImageAsset(NA_NULL, "help", "png");
@@ -82,6 +86,9 @@ NAImageSet* bitGetImageAsset(BitImageAsset asset) {
 
 NAFont* bitGetMonospaceFont() {
   return bit_App->monoFont;
+}
+NAFont* bitGetTitleFont() {
+  return bit_App->titleFont;
 }
 
 
@@ -122,6 +129,7 @@ void bitStopApplication(void* data) {
   naRelease(bit_App->imageAssets[BIT_IMAGE_ASSET_ASCII_BUTTON]);
   
   naRelease(bit_App->monoFont);
+  naRelease(bit_App->titleFont);
   
   naFree(bit_App);
 }

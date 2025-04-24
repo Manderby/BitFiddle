@@ -9,6 +9,18 @@
 struct BitPreferencesController{
   NAWindow* window;
   
+  NALabel* languageLabel;
+  NASelect* languageSelect;
+  NAMenuItem* languageSystem;
+  NAMenuItem* languageDeutsch;
+  NAMenuItem* languageEnglish;
+  NAMenuItem* languageEspanol;
+  NAMenuItem* languageFrancais;
+  NAMenuItem* languageKlingon;
+  NAMenuItem* languageJapanese;
+  NAMenuItem* languageChinese;
+  NAMenuItem* languageReport;
+
   NALabel* startupLabel;
   NACheckBox* showAsciiOnStartupCheckBox;
   NACheckBox* resetConversionOnStartupCheckBox;
@@ -65,12 +77,58 @@ void bit_PressDone(NAReaction reaction) {
 
 
 
+void bit_ChangePreferencesLanguage(NAReaction reaction){
+  BitPreferencesController* con = reaction.controller;
+
+  if(reaction.uiElement == con->languageSystem){
+    bitSetPrefsPreferredLanguage((NALanguageCode3)0);
+  }else if(reaction.uiElement == con->languageDeutsch){
+    bitSetPrefsPreferredLanguage(NA_LANG_DEU);
+  }else if(reaction.uiElement == con->languageEnglish){
+    bitSetPrefsPreferredLanguage(NA_LANG_ENG);
+  }else if(reaction.uiElement == con->languageEspanol){
+    bitSetPrefsPreferredLanguage(NA_LANG_SPA);
+  }else if(reaction.uiElement == con->languageFrancais){
+    bitSetPrefsPreferredLanguage(NA_LANG_FRA);
+  }else if(reaction.uiElement == con->languageKlingon){
+    bitSetPrefsPreferredLanguage(NA_LANG_TLH);
+  }else if(reaction.uiElement == con->languageJapanese){
+    bitSetPrefsPreferredLanguage(NA_LANG_JPN);
+  }else if(reaction.uiElement == con->languageChinese){
+    bitSetPrefsPreferredLanguage(NA_LANG_ZHO);
+  }
+
+  naPresentAlertBox(
+    NA_ALERT_BOX_INFO,
+    bitTranslate(BitLanguageChangeAlertTitle),
+    bitTranslate(BitLanguageChangeAlertText));
+
+  bitUpdatePreferencesController(con);
+}
+
+
+
+void bit_ReportBadTranslation(NAReaction reaction){
+  BitPreferencesController* con = reaction.controller;
+
+  naPresentAlertBox(
+    NA_ALERT_BOX_INFO,
+    bitTranslate(BitLanguageBadTranslationTitle),
+    bitTranslate(BitLanguageBadTranslationText));
+
+  bitUpdatePreferencesController(con);
+}
+
+
+
 BitPreferencesController* bitAllocPreferencesController() {
   BitPreferencesController* con = naAlloc(BitPreferencesController);
 
+  NAFont* titleFont = bitGetTitleFont();
+
   con->window = naNewWindow(
     bitTranslate(BitFiddlePrefsWindowTitle),
-    naMakeRectS(820, 15, 260, 236),
+    naMakeRectS(820, 15, 440, 278),
     0,
     BIT_WINDOW_TAG_PREFERENCES);
     
@@ -78,7 +136,47 @@ BitPreferencesController* bitAllocPreferencesController() {
 
 
 
+  con->languageLabel = naNewLabel(bitTranslate(BitLanguage), 250);
+  con->languageSelect = naNewSelect(150);
+  con->languageSystem = naNewMenuItem(bitTranslate(BitLanguageSameAsSystem));
+  con->languageDeutsch = naNewMenuItem(bitTranslate(BitLanguageDeutsch));
+  con->languageEnglish = naNewMenuItem(bitTranslate(BitLanguageEnglish));
+  con->languageEspanol = naNewMenuItem(bitTranslate(BitLanguageEspanol));
+  con->languageFrancais = naNewMenuItem(bitTranslate(BitLanguageFrancais));
+  con->languageKlingon = naNewMenuItem(bitTranslate(BitLanguageKlingon));
+  con->languageJapanese = naNewMenuItem(bitTranslate(BitLanguageJapanese));
+  con->languageChinese = naNewMenuItem(bitTranslate(BitLanguageChinese));
+  con->languageReport = naNewMenuItem(bitTranslate(BitLanguageReport));
+  naAddSelectMenuItem(con->languageSelect, con->languageSystem, NA_NULL);
+  naAddSelectMenuItem(con->languageSelect, naNewMenuSeparator(), NA_NULL);
+  naAddSelectMenuItem(con->languageSelect, con->languageDeutsch, NA_NULL);
+  naAddSelectMenuItem(con->languageSelect, con->languageEnglish, NA_NULL);
+  naAddSelectMenuItem(con->languageSelect, con->languageEspanol, NA_NULL);
+  naAddSelectMenuItem(con->languageSelect, con->languageFrancais, NA_NULL);
+  naAddSelectMenuItem(con->languageSelect, con->languageKlingon, NA_NULL);
+  naAddSelectMenuItem(con->languageSelect, con->languageJapanese, NA_NULL);
+  naAddSelectMenuItem(con->languageSelect, con->languageChinese, NA_NULL);
+  naAddSelectMenuItem(con->languageSelect, naNewMenuSeparator(), NA_NULL);
+  naAddSelectMenuItem(con->languageSelect, con->languageReport, NA_NULL);
+
+  naAddSpaceChild(contentSpace, con->languageLabel, naMakePos(20, 236));
+  naAddSpaceChild(contentSpace, con->languageSelect, naMakePos(270, 236));
+
+  naAddUIReaction(con->languageSystem, NA_UI_COMMAND_PRESSED, bit_ChangePreferencesLanguage, con);
+  naAddUIReaction(con->languageDeutsch, NA_UI_COMMAND_PRESSED, bit_ChangePreferencesLanguage, con);
+  naAddUIReaction(con->languageEnglish, NA_UI_COMMAND_PRESSED, bit_ChangePreferencesLanguage, con);
+  naAddUIReaction(con->languageEspanol, NA_UI_COMMAND_PRESSED, bit_ChangePreferencesLanguage, con);
+  naAddUIReaction(con->languageFrancais, NA_UI_COMMAND_PRESSED, bit_ChangePreferencesLanguage, con);
+  naAddUIReaction(con->languageKlingon, NA_UI_COMMAND_PRESSED, bit_ChangePreferencesLanguage, con);
+  naAddUIReaction(con->languageJapanese, NA_UI_COMMAND_PRESSED, bit_ChangePreferencesLanguage, con);
+  naAddUIReaction(con->languageChinese, NA_UI_COMMAND_PRESSED, bit_ChangePreferencesLanguage, con);
+
+  naAddUIReaction(con->languageReport, NA_UI_COMMAND_PRESSED, bit_ReportBadTranslation, con);
+
+
+
   con->startupLabel = naNewLabel(bitTranslate(BitFiddlePrefsAtStartup), 330);
+  naSetLabelFont(con->startupLabel, titleFont);
   naAddSpaceChild(
     contentSpace,
     con->startupLabel,
@@ -115,10 +213,11 @@ BitPreferencesController* bitAllocPreferencesController() {
   con->onTopLabel = naNewLabel(
     bitTranslate(BitFiddlePrefsConverterWindow),
     230);
+  naSetLabelFont(con->onTopLabel, titleFont);
   naAddSpaceChild(
     contentSpace,
     con->onTopLabel,
-    naMakePos(20., 118.));
+    naMakePos(20., 108.));
 
   con->keepConverterOnTopCheckBox = naNewCheckBox(
     bitTranslate(BitFiddlePrefsKeepOnTop),
@@ -131,7 +230,7 @@ BitPreferencesController* bitAllocPreferencesController() {
   naAddSpaceChild(
     contentSpace,
     con->keepConverterOnTopCheckBox,
-    naMakePos(30., 96.));
+    naMakePos(30., 86.));
 
   con->show16BitsCheckBox = naNewCheckBox(
     bitTranslate(BitFiddlePrefsShow16Bits),
@@ -144,7 +243,7 @@ BitPreferencesController* bitAllocPreferencesController() {
   naAddSpaceChild(
     contentSpace,
     con->show16BitsCheckBox,
-    naMakePos(30., 74.));
+    naMakePos(30., 64.));
 
   con->showNBitsCheckBox = naNewCheckBox(
     bitTranslate(BitFiddlePrefsShowNBits),
@@ -157,7 +256,7 @@ BitPreferencesController* bitAllocPreferencesController() {
   naAddSpaceChild(
     contentSpace,
     con->showNBitsCheckBox,
-    naMakePos(130., 74.));
+    naMakePos(130., 64.));
 
   con->showBinCheckBox = naNewCheckBox(
     bitTranslate(BitFiddlePrefsShowBin),
@@ -170,7 +269,7 @@ BitPreferencesController* bitAllocPreferencesController() {
   naAddSpaceChild(
     contentSpace,
     con->showBinCheckBox,
-    naMakePos(30., 52.));
+    naMakePos(230., 64.));
 
   con->showAscCheckBox = naNewCheckBox(
     bitTranslate(BitFiddlePrefsShowAsc),
@@ -183,7 +282,7 @@ BitPreferencesController* bitAllocPreferencesController() {
   naAddSpaceChild(
     contentSpace,
     con->showAscCheckBox,
-    naMakePos(130., 52.));
+    naMakePos(330., 64.));
 
 
 
@@ -198,7 +297,7 @@ BitPreferencesController* bitAllocPreferencesController() {
   naAddSpaceChild(
     contentSpace,
     con->doneButton,
-    naMakePos(160., 20.));
+    naMakePos(440/2-80/2, 20.));
 
   naSetButtonSubmit(con->doneButton, bit_PressDone, con);
   naSetButtonAbort(con->doneButton, bit_PressDone, con);
@@ -223,6 +322,19 @@ void bitShowPreferencesController(BitPreferencesController* con) {
 
 
 void bitUpdatePreferencesController(BitPreferencesController* con) {
+  NALanguageCode3 languageCode = bitGetPrefsPreferredLanguage();
+
+  switch(languageCode){
+  case NA_LANG_DEU: naSetSelectItemSelected(con->languageSelect, con->languageDeutsch); break;
+  case NA_LANG_ENG: naSetSelectItemSelected(con->languageSelect, con->languageEnglish); break;
+  case NA_LANG_SPA: naSetSelectItemSelected(con->languageSelect, con->languageEspanol); break;
+  case NA_LANG_FRA: naSetSelectItemSelected(con->languageSelect, con->languageFrancais); break;
+  case NA_LANG_TLH: naSetSelectItemSelected(con->languageSelect, con->languageKlingon); break;
+  case NA_LANG_JPN: naSetSelectItemSelected(con->languageSelect, con->languageJapanese); break;
+  case NA_LANG_ZHO: naSetSelectItemSelected(con->languageSelect, con->languageChinese); break;
+  default: naSetSelectItemSelected(con->languageSelect, con->languageSystem); break;
+  }
+
   naSetCheckBoxState(
     con->showAsciiOnStartupCheckBox,
     bitGetPrefsShowAsciiOnStartup());

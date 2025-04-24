@@ -137,8 +137,9 @@ set(resourceFiles
   res/BitFiddleChangelog.txt
   res/BitFiddleStrings_deu.h
   res/BitFiddleStrings_eng.h
-  res/BitFiddleStrings_esp.h
+  res/BitFiddleStrings_spa.h
   res/BitFiddleStrings_fra.h
+  res/BitFiddleStrings_tlh.h
   res/BitFiddleStrings_jpn.h
   res/BitFiddleStrings_zho.h
   res/ascii.png

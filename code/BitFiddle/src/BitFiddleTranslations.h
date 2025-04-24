@@ -14,6 +14,22 @@ enum{
   BitFiddleConversionTwosComp,
   BitFiddleConversionByteSwap,
 
+  // Strings for Language preference
+  BitLanguage,
+  BitLanguageSameAsSystem,
+  BitLanguageDeutsch,
+  BitLanguageEnglish,
+  BitLanguageEspanol,
+  BitLanguageFrancais,
+  BitLanguageKlingon,
+  BitLanguageJapanese,
+  BitLanguageChinese,
+  BitLanguageReport,
+  BitLanguageChangeAlertTitle,
+  BitLanguageChangeAlertText,
+  BitLanguageBadTranslationTitle,
+  BitLanguageBadTranslationText,
+
   // Expressions in Preferences window
   BitFiddlePrefsWindowTitle,    
   BitFiddlePrefsAtStartup,    

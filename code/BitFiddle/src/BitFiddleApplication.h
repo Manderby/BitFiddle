@@ -39,6 +39,7 @@ void bitStopApplication(void* data);
 
 NAImageSet* bitGetImageAsset(BitImageAsset asset);
 NAFont* bitGetMonospaceFont(void);
+NAFont* bitGetTitleFont(void);
 
 void bitRecreateConverterController(void);
 void bitUpdateAppConverterControllerOnTop(void);

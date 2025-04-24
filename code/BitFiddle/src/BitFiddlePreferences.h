@@ -1,6 +1,7 @@
 
 #include "NAApp/NAPreferences.h"
 #include "BitFiddleApplication.h"
+#include "NAUtility/NATranslator.h"
 
 
 
@@ -47,6 +48,10 @@ void   bitSetPrefsSwapEndianness(NABool swap);
 BitConversionType bitGetPrefsComplementEncoding(void);
 void bitSetPrefsComplementEncoding(BitConversionType encoding);
 
+
+
+NALanguageCode3 bitGetPrefsPreferredLanguage(void);
+void bitSetPrefsPreferredLanguage(NALanguageCode3 languageCode);
 
 
 

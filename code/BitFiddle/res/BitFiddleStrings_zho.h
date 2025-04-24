@@ -2,7 +2,7 @@
 // //////////////////////////////////
 // English
 //
-NA_LOC_LANG("eng");
+NA_LOC_LANG("zho");
 
 // Strings for About Window
 // The %s denotes the application name
@@ -168,6 +168,14 @@ NA_LOC(BitFiddleAsciiAdditionalInfo7d, "LaTeX转义: \\}");
 NA_LOC(BitFiddleAsciiAdditionalInfo7e, "");
 NA_LOC(BitFiddleAsciiAdditionalInfo7f, "");
 
+// Strings for language selection
+NA_LOC(BitLanguage,               "语言 / 言語 / Language / Sprache");
+NA_LOC(BitLanguageSameAsSystem,   "跟随系统");
+NA_LOC(BitLanguageReport,         "报告翻译不当...");
+NA_LOC(BitLanguageChangeAlertTitle, "更改语言");
+NA_LOC(BitLanguageChangeAlertText, "语言已更改。请退出并重新打开应用程序以生效。");
+NA_LOC(BitLanguageBadTranslationTitle, "报告翻译不当");
+NA_LOC(BitLanguageBadTranslationText, "此应用程序的部分内容是由人工智能翻译的。通过发送电子邮件至 karograph@manderc.com（链接在关于窗口中）帮助改进翻译。请提供足够的信息，以便将您的建议正确地整合到适当的位置。\n\n非常感谢您的帮助！");
 
 
 // This is free and unencumbered software released into the public domain.

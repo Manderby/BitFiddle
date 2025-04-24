@@ -57,6 +57,12 @@ void postStartup(void* arg) {
   NA_UNUSED(arg);
 
   naLoadNib("MainMenu", NA_NULL);
+  
+  NALanguageCode3 languageCode = bitGetPrefsPreferredLanguage();
+  if(languageCode != 0){
+    naSetTranslatorLanguagePreference(languageCode);
+  }
+
   bitCreateUI();
 }
 

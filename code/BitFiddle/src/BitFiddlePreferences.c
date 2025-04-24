@@ -1,7 +1,11 @@
 
 #include "BitFiddlePreferences.h"
 
+
+
 enum {
+  PreferredLanguage,
+
   AsciiUseEscape,
   AsciiUseHex,
 
@@ -21,6 +25,8 @@ enum {
 };
 
 const char* BitPrefs[BitPrefCount] = {
+  [PreferredLanguage]        = "preferredLanguage",
+
   [AsciiUseEscape]             = "useAsciiEscape",
   [AsciiUseHex]                = "useAsciiHex",
 
@@ -40,6 +46,12 @@ const char* BitPrefs[BitPrefCount] = {
 
 
 void bitInitPreferences(void) {
+  naInitPreferencesi64(
+    BitPrefs[PreferredLanguage],
+    0,
+    0,
+    NA_MAX_i64);
+
   naInitPreferencesBool(BitPrefs[AsciiUseEscape], NA_FALSE);
   naInitPreferencesBool(BitPrefs[AsciiUseHex], NA_FALSE);
 
@@ -142,6 +154,16 @@ BitConversionType bitGetPrefsComplementEncoding() {
 }
 void bitSetPrefsComplementEncoding(BitConversionType encoding) {
   naSetPreferencesEnum(BitPrefs[SelectedComplementEncoding], encoding);
+}
+
+
+
+NALanguageCode3 bitGetPrefsPreferredLanguage(){
+  return (NALanguageCode3)naGetPreferencesi64(BitPrefs[PreferredLanguage]);
+}
+void bitSetPrefsPreferredLanguage(NALanguageCode3 languageCode){
+  naSetPreferencesi64(BitPrefs[PreferredLanguage], (int64)languageCode);
+  naSetTranslatorLanguagePreference(languageCode);
 }
 
 

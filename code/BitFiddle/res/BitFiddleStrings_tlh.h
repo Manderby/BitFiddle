@@ -2,86 +2,102 @@
 // //////////////////////////////////
 // English
 //
-NA_LOC_LANG("eng");
+NA_LOC_LANG("tlh");
 
 // Strings for About Window
 // The %s denotes the application name
-NA_LOC(BitFiddleAbout,          "Acerca de %s");
-NA_LOC(BitFiddleDone,           "Hecho");
-NA_LOC(BitFiddleVersionBuild,   "Versión %s (Compilación %s)");
-NA_LOC(BitFiddleOnlineHelp,     "Ayuda en línea");
+NA_LOC(BitFiddleAbout,          "chaH %s");
+NA_LOC(BitFiddleDone,           "qavwI'");
+NA_LOC(BitFiddleVersionBuild,   "poH %s (yItIv %s)");
+NA_LOC(BitFiddleOnlineHelp,     "Heghlu'meH QaQ Online");
 NA_LOC(BitFiddleApplicationHelpURL, "http://manderc.com/apps/bitfiddle/help/index_en.php"); // do not translate
 
 /* Expressions in Main Window */
 NA_LOC(BitFiddleConversionUnsigned, "Unsigned"); // do not translate
-NA_LOC(BitFiddleConversionOnesComp, "Complemento a 1");
-NA_LOC(BitFiddleConversionTwosComp, "Complemento a 2");
+NA_LOC(BitFiddleConversionOnesComp, "wa' puv");
+NA_LOC(BitFiddleConversionTwosComp, "cha' puv");
 NA_LOC(BitFiddleConversionByteSwap, "Little ↔ Big"); // do not translate
 
+// Translations for language selection
+NA_LOC(BitLanguage,               "Language / Idioma / 言語 / Sprache");
+NA_LOC(BitLanguageSameAsSystem,   "Same as System");
+NA_LOC(BitLanguageDeutsch,        "Deutsch");
+NA_LOC(BitLanguageEnglish,        "English");
+NA_LOC(BitLanguageEspanol,        "Español");
+NA_LOC(BitLanguageFrancais,       "Français");
+NA_LOC(BitLanguageKlingon,        "tlhIngan");
+NA_LOC(BitLanguageJapanese,       "日本語");
+NA_LOC(BitLanguageChinese,        "中文");
+NA_LOC(BitLanguageReport,         "Report bad translations...");
+NA_LOC(BitLanguageChangeAlertTitle, "Language Change");
+NA_LOC(BitLanguageChangeAlertText, "The language has been changed. Please quit and reopen the application to take effect.");
+NA_LOC(BitLanguageBadTranslationTitle, "Report bad translations");
+NA_LOC(BitLanguageBadTranslationText, "Some parts of this application have been translated by artificial intelligence. Help improve the translation by sending an email to colorpresto@manderc.com (link is in the about window). Please provide sufficient information to incorporate your suggestion at the proper place.\n\nYour help is greatly appreciated!");
+
 // Expressions in Preferences window
-NA_LOC(BitFiddlePrefsWindowTitle,      "Preferencias de Bit Fiddle");
-NA_LOC(BitFiddlePrefsAtStartup,        "Al iniciar la aplicación");
-NA_LOC(BitFiddlePrefsShowAscii,        "Mostrar ventana ASCII");
-NA_LOC(BitFiddlePrefsResetSettings,    "Restablecer configuraciones del convertidor");
-NA_LOC(BitFiddlePrefsConverterWindow,  "Ventana del convertidor");
-NA_LOC(BitFiddlePrefsKeepOnTop,        "Mantener ventana en primer plano");
-NA_LOC(BitFiddlePrefsShow16Bits,       "16 Bits");
-NA_LOC(BitFiddlePrefsShowNBits,        "n Bits");
-NA_LOC(BitFiddlePrefsShowBin,          "Bin");
-NA_LOC(BitFiddlePrefsShowAsc,          "Asc");
-NA_LOC(BitFiddlePrefsDone,             "Hecho");
+NA_LOC(BitFiddlePrefsWindowTitle,      "Bit Fiddle jIlwI'");
+NA_LOC(BitFiddlePrefsAtStartup,        "yIn 'ejwI' veDDaq");
+NA_LOC(BitFiddlePrefsShowAscii,        "ASCII le' yIlm");
+NA_LOC(BitFiddlePrefsResetSettings,    "SoQna'na' choQ");
+NA_LOC(BitFiddlePrefsConverterWindow,  "SoQna'na' le' mIw");
+NA_LOC(BitFiddlePrefsKeepOnTop,        "mejwI' jIH");
+NA_LOC(BitFiddlePrefsShow16Bits,       "16 puv");
+NA_LOC(BitFiddlePrefsShowNBits,        "n puv");
+NA_LOC(BitFiddlePrefsShowBin,          "Bin"); // do not translate
+NA_LOC(BitFiddlePrefsShowAsc,          "Asc"); // do not translate
+NA_LOC(BitFiddlePrefsDone,             "qavwI'");
 
 // Additional information for ascii characters
 NA_LOC(BitFiddleAsciiAdditionalInfo00, "C-escape: \\0");
 NA_LOC(BitFiddleAsciiAdditionalInfo01, "");
 NA_LOC(BitFiddleAsciiAdditionalInfo02, "");
-NA_LOC(BitFiddleAsciiAdditionalInfo03, "Ctrl-C en terminal: Abortar");
+NA_LOC(BitFiddleAsciiAdditionalInfo03, "tIgerwI' ctrl-C: Abort");
 NA_LOC(BitFiddleAsciiAdditionalInfo04, "");
 NA_LOC(BitFiddleAsciiAdditionalInfo05, "");
 NA_LOC(BitFiddleAsciiAdditionalInfo06, "");
-NA_LOC(BitFiddleAsciiAdditionalInfo07, "Emite pitidos en algunos sistemas");
-NA_LOC(BitFiddleAsciiAdditionalInfo08, "Escape C: \\b");
-NA_LOC(BitFiddleAsciiAdditionalInfo09, "Escape C: \\t");
-NA_LOC(BitFiddleAsciiAdditionalInfo0a, "Escape C: \\n\nFin de línea Unix LF Windows CR-LF");
-NA_LOC(BitFiddleAsciiAdditionalInfo0b, "Escape C: \\v");
-NA_LOC(BitFiddleAsciiAdditionalInfo0c, "Escape C: \\f");
-NA_LOC(BitFiddleAsciiAdditionalInfo0d, "Escape C: \\r\nFin de línea Windows CR-LF macOS antiguo CR");
+NA_LOC(BitFiddleAsciiAdditionalInfo07, "Qapchu'meH loDmeyDaq be'chuq");
+NA_LOC(BitFiddleAsciiAdditionalInfo08, "C-escape: \\b");
+NA_LOC(BitFiddleAsciiAdditionalInfo09, "C-escape: \\t");
+NA_LOC(BitFiddleAsciiAdditionalInfo0a, "C-escape: \\n\nQoypa' poH poH Unix LF, Windows CR-LF");
+NA_LOC(BitFiddleAsciiAdditionalInfo0b, "C-escape: \\v");
+NA_LOC(BitFiddleAsciiAdditionalInfo0c, "C-escape: \\f");
+NA_LOC(BitFiddleAsciiAdditionalInfo0d, "C-escape: \\r\nQoypa' Windows CR-LF, macOS CR");
 NA_LOC(BitFiddleAsciiAdditionalInfo0e, "");
 NA_LOC(BitFiddleAsciiAdditionalInfo0f, "");
 
 NA_LOC(BitFiddleAsciiAdditionalInfo10, "");
-NA_LOC(BitFiddleAsciiAdditionalInfo11, "El código a veces también es XON");
+NA_LOC(BitFiddleAsciiAdditionalInfo11, "Code Qapla' XON");
 NA_LOC(BitFiddleAsciiAdditionalInfo12, "");
-NA_LOC(BitFiddleAsciiAdditionalInfo13, "El código a veces también es XOFF");
+NA_LOC(BitFiddleAsciiAdditionalInfo13, "Code Qapla' XOFF");
 NA_LOC(BitFiddleAsciiAdditionalInfo14, "");
-NA_LOC(BitFiddleAsciiAdditionalInfo15, "Ctrl-U en terminal: Eliminar línea");
+NA_LOC(BitFiddleAsciiAdditionalInfo15, "tIgerwI' ctrl-U: Qab qoQ");
 NA_LOC(BitFiddleAsciiAdditionalInfo16, "");
-NA_LOC(BitFiddleAsciiAdditionalInfo17, "Ctrl-W en terminal: Eliminar palabra");
+NA_LOC(BitFiddleAsciiAdditionalInfo17, "tIgerwI' ctrl-W: Qab puS");
 NA_LOC(BitFiddleAsciiAdditionalInfo18, "");
 NA_LOC(BitFiddleAsciiAdditionalInfo19, "");
-NA_LOC(BitFiddleAsciiAdditionalInfo1a, "Ctrl-Z en terminal: Suspender");
-NA_LOC(BitFiddleAsciiAdditionalInfo1b, "Escape C en algunos compiladores: \\e");
+NA_LOC(BitFiddleAsciiAdditionalInfo1a, "tIgerwI' ctrl-Z: qoS");
+NA_LOC(BitFiddleAsciiAdditionalInfo1b, "C-escape qatlh compilers: \\e");
 NA_LOC(BitFiddleAsciiAdditionalInfo1c, "");
 NA_LOC(BitFiddleAsciiAdditionalInfo1d, "");
 NA_LOC(BitFiddleAsciiAdditionalInfo1e, "");
 NA_LOC(BitFiddleAsciiAdditionalInfo1f, "");
 
-NA_LOC(BitFiddleAsciiAdditionalInfo20, "El código a veces también es SP");
+NA_LOC(BitFiddleAsciiAdditionalInfo20, "Code Qapla' SP");
 NA_LOC(BitFiddleAsciiAdditionalInfo21, "");
-NA_LOC(BitFiddleAsciiAdditionalInfo22, "Escape C: \\\"\nEscape HTML: &quot;");
-NA_LOC(BitFiddleAsciiAdditionalInfo23, "Escape LaTeX: \\#\nCasualmente \"Hash\"");
-NA_LOC(BitFiddleAsciiAdditionalInfo24, "Escape LaTeX: \\$");
-NA_LOC(BitFiddleAsciiAdditionalInfo25, "Escape LaTeX: \\%");
+NA_LOC(BitFiddleAsciiAdditionalInfo22, "C-escape: \\\"\nHTML-escape: &quot;");
+NA_LOC(BitFiddleAsciiAdditionalInfo23, "LaTeX-escape: \\#\nQapla' Hash");
+NA_LOC(BitFiddleAsciiAdditionalInfo24, "LaTeX-escape: \\$");
+NA_LOC(BitFiddleAsciiAdditionalInfo25, "LaTeX-escape: \\%");
 NA_LOC(BitFiddleAsciiAdditionalInfo26, "HTML-escape: &amp;\nLaTeX-escape: \\&");
-NA_LOC(BitFiddleAsciiAdditionalInfo27, "C-escape:\\\'\nHTML-escape:&#39;");
+NA_LOC(BitFiddleAsciiAdditionalInfo27, "C-escape: \\'\nHTML-escape:&#39;");
 NA_LOC(BitFiddleAsciiAdditionalInfo28, "");
 NA_LOC(BitFiddleAsciiAdditionalInfo29, "");
-NA_LOC(BitFiddleAsciiAdditionalInfo2a, "Casualmente \"Multiplicación\"");
+NA_LOC(BitFiddleAsciiAdditionalInfo2a, "Qapla' Multiplication");
 NA_LOC(BitFiddleAsciiAdditionalInfo2b, "");
 NA_LOC(BitFiddleAsciiAdditionalInfo2c, "");
-NA_LOC(BitFiddleAsciiAdditionalInfo2d, "Casualmente \"Guion\"");
-NA_LOC(BitFiddleAsciiAdditionalInfo2e, "Casualmente \"Punto\"");
-NA_LOC(BitFiddleAsciiAdditionalInfo2f, "Casualmente \"Barra\" o \"División\"");
+NA_LOC(BitFiddleAsciiAdditionalInfo2d, "Qapla' Dash");
+NA_LOC(BitFiddleAsciiAdditionalInfo2e, "Qapla' Dot");
+NA_LOC(BitFiddleAsciiAdditionalInfo2f, "Qapla' Slash je Division");
 
 NA_LOC(BitFiddleAsciiAdditionalInfo30, "");
 NA_LOC(BitFiddleAsciiAdditionalInfo31, "");
@@ -95,10 +111,10 @@ NA_LOC(BitFiddleAsciiAdditionalInfo38, "");
 NA_LOC(BitFiddleAsciiAdditionalInfo39, "");
 NA_LOC(BitFiddleAsciiAdditionalInfo3a, "");
 NA_LOC(BitFiddleAsciiAdditionalInfo3b, "");
-NA_LOC(BitFiddleAsciiAdditionalInfo3c, "Escape HTML: &lt;");
+NA_LOC(BitFiddleAsciiAdditionalInfo3c, "HTML-escape: &lt;");
 NA_LOC(BitFiddleAsciiAdditionalInfo3d, "");
-NA_LOC(BitFiddleAsciiAdditionalInfo3e, "Escape HTML: &gt;");
-NA_LOC(BitFiddleAsciiAdditionalInfo3f, "Escape C: \\\? (cuando se usan trigráficos)");
+NA_LOC(BitFiddleAsciiAdditionalInfo3e, "HTML-escape: &gt;");
+NA_LOC(BitFiddleAsciiAdditionalInfo3f, "C-escape: \\\? (trigraphs paQ)");
 
 NA_LOC(BitFiddleAsciiAdditionalInfo40, "");
 NA_LOC(BitFiddleAsciiAdditionalInfo41, "");
@@ -113,7 +129,7 @@ NA_LOC(BitFiddleAsciiAdditionalInfo49, "");
 NA_LOC(BitFiddleAsciiAdditionalInfo4a, "");
 NA_LOC(BitFiddleAsciiAdditionalInfo4b, "");
 NA_LOC(BitFiddleAsciiAdditionalInfo4c, "");
-NA_LOC(BitFiddleAsciiAdditionalInfo4d, "La letra favorita del autor");
+NA_LOC(BitFiddleAsciiAdditionalInfo4d, "Qunmey mu' Sa' cha' vItlhutlh");
 NA_LOC(BitFiddleAsciiAdditionalInfo4e, "");
 NA_LOC(BitFiddleAsciiAdditionalInfo4f, "");
 
@@ -129,12 +145,12 @@ NA_LOC(BitFiddleAsciiAdditionalInfo58, "");
 NA_LOC(BitFiddleAsciiAdditionalInfo59, "");
 NA_LOC(BitFiddleAsciiAdditionalInfo5a, "");
 NA_LOC(BitFiddleAsciiAdditionalInfo5b, "");
-NA_LOC(BitFiddleAsciiAdditionalInfo5c, "Escape C: \\\\\nCasualmente \"Barra invertida\"");
+NA_LOC(BitFiddleAsciiAdditionalInfo5c, "C-escape: \\\\\nQapla' \"Backslash\"");
 NA_LOC(BitFiddleAsciiAdditionalInfo5d, "");
-NA_LOC(BitFiddleAsciiAdditionalInfo5e, "Escape LaTeX: \\^\nCasualmente \"Caret\" o \"Potencia\"");
-NA_LOC(BitFiddleAsciiAdditionalInfo5f, "Escape LaTeX: \\_\nCasualmente \"Guion bajo\"");
+NA_LOC(BitFiddleAsciiAdditionalInfo5e, "LaTeX-escape: \\^\nQapla' \"Caret\" je \"Power\"");
+NA_LOC(BitFiddleAsciiAdditionalInfo5f, "LaTeX-escape: \\_\nQapla' \"Underscore\"");
 
-NA_LOC(BitFiddleAsciiAdditionalInfo60, "En programación \"Backtick\"");
+NA_LOC(BitFiddleAsciiAdditionalInfo60, "wo' vItlhutlh \"Backtick\"");
 NA_LOC(BitFiddleAsciiAdditionalInfo61, "");
 NA_LOC(BitFiddleAsciiAdditionalInfo62, "");
 NA_LOC(BitFiddleAsciiAdditionalInfo63, "");
@@ -162,12 +178,20 @@ NA_LOC(BitFiddleAsciiAdditionalInfo77, "");
 NA_LOC(BitFiddleAsciiAdditionalInfo78, "");
 NA_LOC(BitFiddleAsciiAdditionalInfo79, "");
 NA_LOC(BitFiddleAsciiAdditionalInfo7a, "");
-NA_LOC(BitFiddleAsciiAdditionalInfo7b, "Escape LaTeX: \\{");
-NA_LOC(BitFiddleAsciiAdditionalInfo7c, "Casualmente \"Barra\" o \"Pipe\"\nA veces con o sin espacio (barra rota)");
-NA_LOC(BitFiddleAsciiAdditionalInfo7d, "Escape LaTeX: \\}");
+NA_LOC(BitFiddleAsciiAdditionalInfo7b, "LaTeX-escape: \\{");
+NA_LOC(BitFiddleAsciiAdditionalInfo7c, "Qapla' Bar je Pipe\nreD gap je, broken bar");
+NA_LOC(BitFiddleAsciiAdditionalInfo7d, "LaTeX-escape: \\}");
 NA_LOC(BitFiddleAsciiAdditionalInfo7e, "");
 NA_LOC(BitFiddleAsciiAdditionalInfo7f, "");
 
+// Translations for language selection
+NA_LOC(BitLanguage, "Hol / Language / Idioma / 言語");
+NA_LOC(BitLanguageSameAsSystem, "pat rap");
+NA_LOC(BitLanguageReport, "mIgh mughwI' yIcha'...");
+NA_LOC(BitLanguageChangeAlertTitle, "Hol choH");
+NA_LOC(BitLanguageChangeAlertText, "Hol choHpu'. ghoSvetlh 'ej ngeHmeH nabDaq yIQey.");
+NA_LOC(BitLanguageBadTranslationTitle, "mIgh mughwI' yIcha'");
+NA_LOC(BitLanguageBadTranslationText, "ngongHomvam mIwmey mughpu' yIntaHghach ghom. mughwI' tIghqa' ghojmeH vay' yIghIQmeH choghajta' 'ej tItey qInDaq colorpresto@manderc.com (De' 'oH about jey). QaQ wIvDaj Dalo'pu'chugh DuHIvchugh. \n\ngho tlhutlh boghajtaHvIS!");
 
 
 // This is free and unencumbered software released into the public domain.
