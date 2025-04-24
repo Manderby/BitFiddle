@@ -175,7 +175,7 @@ NA_LOC(BitLanguageReport,         "翻訳ミスを報告する...");
 NA_LOC(BitLanguageChangeAlertTitle, "言語の変更");
 NA_LOC(BitLanguageChangeAlertText, "言語が変更されました。変更を有効にするには、アプリケーションを終了して再度開いてください。");
 NA_LOC(BitLanguageBadTranslationTitle, "翻訳ミスを報告する");
-NA_LOC(BitLanguageBadTranslationText, "このアプリケーションの一部は人工知能によって翻訳されています。翻訳を改善するために、karograph@manderc.com にメールを送信してください（リンクは情報ウィンドウにあります）。あなたの提案を適切な場所に組み込むための十分な情報を提供してください。\n\nあなたの助けは非常に感謝されます！");
+NA_LOC(BitLanguageBadTranslationText, "このアプリケーションの一部は人工知能によって翻訳されています。翻訳を改善するために、bitfiddle@manderc.com にメールを送信してください（リンクは情報ウィンドウにあります）。あなたの提案を適切な場所に組み込むための十分な情報を提供してください。\n\nあなたの助けは非常に感謝されます！");
 
 
 

@@ -572,7 +572,7 @@ BitConverterController* bitAllocConverterController(void) {
   
   // /////////////////////
 
-  NASpace* settingSpace = naNewSpace(naMakeSize(110., (double)ySpaceHeight));
+  NASpace* settingSpace = naNewSpace(naMakeSize(120., (double)ySpaceHeight));
   naSetSpaceAlternateBackground(settingSpace, alternateBlock % 2);
   alternateBlock++;
 
@@ -596,7 +596,7 @@ BitConverterController* bitAllocConverterController(void) {
   naAddSpaceChild(
     settingSpace,
     con->onesOption,
-    naMakePos(41., (double)yPosInput));
+    naMakePos(46., (double)yPosInput));
 
   con->twosOption = naNewTextStateButton("2", NA_NULL, 28.);
   naAddUIReaction(
@@ -607,11 +607,11 @@ BitConverterController* bitAllocConverterController(void) {
   naAddSpaceChild(
     settingSpace,
     con->twosOption,
-    naMakePos(71., (double)yPosInput));
+    naMakePos(81., (double)yPosInput));
 
   con->endiannessCheckBox = naNewCheckBox(
     bitTranslate(BitFiddleConversionByteSwap),
-    90);
+    100);
   naAddUIReaction(
     con->endiannessCheckBox,
     NA_UI_COMMAND_PRESSED,
@@ -653,7 +653,7 @@ BitConverterController* bitAllocConverterController(void) {
   naAddSpaceChild(
     settingSpace,
     con->preferencesButton,
-    naMakePos(43., 10.));
+    naMakePos(48., 10.));
 
   con->asciiButton = naNewImagePushButton(
     bitGetImageAsset(BIT_IMAGE_ASSET_ASCII_BUTTON),
@@ -666,10 +666,10 @@ BitConverterController* bitAllocConverterController(void) {
   naAddSpaceChild(
     settingSpace,
     con->asciiButton,
-    naMakePos(73., 10.));
+    naMakePos(83., 10.));
 
   naAddSpaceChild(space, settingSpace, naMakePos(offsetX, 0.));
-  offsetX += 110;
+  offsetX += 120;
 
   // ////////////////
 

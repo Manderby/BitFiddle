@@ -175,7 +175,7 @@ NA_LOC(BitLanguageReport,         "报告翻译不当...");
 NA_LOC(BitLanguageChangeAlertTitle, "更改语言");
 NA_LOC(BitLanguageChangeAlertText, "语言已更改。请退出并重新打开应用程序以生效。");
 NA_LOC(BitLanguageBadTranslationTitle, "报告翻译不当");
-NA_LOC(BitLanguageBadTranslationText, "此应用程序的部分内容是由人工智能翻译的。通过发送电子邮件至 karograph@manderc.com（链接在关于窗口中）帮助改进翻译。请提供足够的信息，以便将您的建议正确地整合到适当的位置。\n\n非常感谢您的帮助！");
+NA_LOC(BitLanguageBadTranslationText, "此应用程序的部分内容是由人工智能翻译的。通过发送电子邮件至 bitfiddle@manderc.com（链接在关于窗口中）帮助改进翻译。请提供足够的信息，以便将您的建议正确地整合到适当的位置。\n\n非常感谢您的帮助！");
 
 
 // This is free and unencumbered software released into the public domain.

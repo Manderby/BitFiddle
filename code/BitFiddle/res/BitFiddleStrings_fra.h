@@ -175,7 +175,7 @@ NA_LOC(BitLanguageReport,         "Signaler des traductions incorrectes...");
 NA_LOC(BitLanguageChangeAlertTitle, "Changement de langue");
 NA_LOC(BitLanguageChangeAlertText, "La langue a été modifiée. Veuillez quitter et rouvrir l'application pour que les changements prennent effet.");
 NA_LOC(BitLanguageBadTranslationTitle, "Signaler des traductions incorrectes");
-NA_LOC(BitLanguageBadTranslationText, "Certaines parties de cette application ont été traduites par intelligence artificielle. Aidez à améliorer la traduction en envoyant un e-mail à karograph@manderc.com (le lien se trouve dans la fenêtre À propos). Veuillez fournir suffisamment d'informations pour intégrer votre suggestion au bon endroit.\n\nVotre aide est grandement appréciée!");
+NA_LOC(BitLanguageBadTranslationText, "Certaines parties de cette application ont été traduites par intelligence artificielle. Aidez à améliorer la traduction en envoyant un e-mail à bitfiddle@manderc.com (le lien se trouve dans la fenêtre À propos). Veuillez fournir suffisamment d'informations pour intégrer votre suggestion au bon endroit.\n\nVotre aide est grandement appréciée!");
 
 
 // This is free and unencumbered software released into the public domain.

@@ -18,22 +18,6 @@ NA_LOC(BitFiddleConversionOnesComp, "wa' puv");
 NA_LOC(BitFiddleConversionTwosComp, "cha' puv");
 NA_LOC(BitFiddleConversionByteSwap, "Little ↔ Big"); // do not translate
 
-// Translations for language selection
-NA_LOC(BitLanguage,               "Language / Idioma / 言語 / Sprache");
-NA_LOC(BitLanguageSameAsSystem,   "Same as System");
-NA_LOC(BitLanguageDeutsch,        "Deutsch");
-NA_LOC(BitLanguageEnglish,        "English");
-NA_LOC(BitLanguageEspanol,        "Español");
-NA_LOC(BitLanguageFrancais,       "Français");
-NA_LOC(BitLanguageKlingon,        "tlhIngan");
-NA_LOC(BitLanguageJapanese,       "日本語");
-NA_LOC(BitLanguageChinese,        "中文");
-NA_LOC(BitLanguageReport,         "Report bad translations...");
-NA_LOC(BitLanguageChangeAlertTitle, "Language Change");
-NA_LOC(BitLanguageChangeAlertText, "The language has been changed. Please quit and reopen the application to take effect.");
-NA_LOC(BitLanguageBadTranslationTitle, "Report bad translations");
-NA_LOC(BitLanguageBadTranslationText, "Some parts of this application have been translated by artificial intelligence. Help improve the translation by sending an email to colorpresto@manderc.com (link is in the about window). Please provide sufficient information to incorporate your suggestion at the proper place.\n\nYour help is greatly appreciated!");
-
 // Expressions in Preferences window
 NA_LOC(BitFiddlePrefsWindowTitle,      "Bit Fiddle jIlwI'");
 NA_LOC(BitFiddlePrefsAtStartup,        "yIn 'ejwI' veDDaq");
@@ -191,7 +175,7 @@ NA_LOC(BitLanguageReport, "mIgh mughwI' yIcha'...");
 NA_LOC(BitLanguageChangeAlertTitle, "Hol choH");
 NA_LOC(BitLanguageChangeAlertText, "Hol choHpu'. ghoSvetlh 'ej ngeHmeH nabDaq yIQey.");
 NA_LOC(BitLanguageBadTranslationTitle, "mIgh mughwI' yIcha'");
-NA_LOC(BitLanguageBadTranslationText, "ngongHomvam mIwmey mughpu' yIntaHghach ghom. mughwI' tIghqa' ghojmeH vay' yIghIQmeH choghajta' 'ej tItey qInDaq colorpresto@manderc.com (De' 'oH about jey). QaQ wIvDaj Dalo'pu'chugh DuHIvchugh. \n\ngho tlhutlh boghajtaHvIS!");
+NA_LOC(BitLanguageBadTranslationText, "ngongHomvam mIwmey mughpu' yIntaHghach ghom. mughwI' tIghqa' ghojmeH vay' yIghIQmeH choghajta' 'ej tItey qInDaq bitfiddle@manderc.com (De' 'oH about jey). QaQ wIvDaj Dalo'pu'chugh DuHIvchugh. \n\ngho tlhutlh boghajtaHvIS!");
 
 
 // This is free and unencumbered software released into the public domain.

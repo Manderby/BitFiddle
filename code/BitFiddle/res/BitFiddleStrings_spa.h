@@ -175,7 +175,7 @@ NA_LOC(BitLanguageReport,         "Reportar traducciones incorrectas...");
 NA_LOC(BitLanguageChangeAlertTitle, "Cambio de Idioma");
 NA_LOC(BitLanguageChangeAlertText, "El idioma ha sido cambiado. Por favor, salga y vuelva a abrir la aplicación para que tenga efecto.");
 NA_LOC(BitLanguageBadTranslationTitle, "Reportar traducciones incorrectas");
-NA_LOC(BitLanguageBadTranslationText, "Algunas partes de esta aplicación han sido traducidas por inteligencia artificial. Ayude a mejorar la traducción enviando un correo electrónico a karograph@manderc.com (el enlace está en la ventana 'Acerca de'). Por favor, proporcione suficiente información para incorporar su sugerencia en el lugar adecuado.\n\n¡Su ayuda es muy apreciada!");
+NA_LOC(BitLanguageBadTranslationText, "Algunas partes de esta aplicación han sido traducidas por inteligencia artificial. Ayude a mejorar la traducción enviando un correo electrónico a bitfiddle@manderc.com (el enlace está en la ventana 'Acerca de'). Por favor, proporcione suficiente información para incorporar su sugerencia en el lugar adecuado.\n\n¡Su ayuda es muy apreciada!");
 
 
 

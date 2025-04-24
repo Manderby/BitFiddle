@@ -182,7 +182,7 @@ NA_LOC(BitLanguageReport,         "Report bad translations...");
 NA_LOC(BitLanguageChangeAlertTitle, "Language Change");
 NA_LOC(BitLanguageChangeAlertText, "The language has been changed. Please quit and reopen the application to take effect.");
 NA_LOC(BitLanguageBadTranslationTitle, "Report bad translations");
-NA_LOC(BitLanguageBadTranslationText, "Some parts of this application have been translated by artificial intelligence. Help improve the translation by sending an email to colorpresto@manderc.com (link is in the about window). Please provide sufficient information to incorporate your suggestion at the proper place.\n\nYour help is greatly appreciated!");
+NA_LOC(BitLanguageBadTranslationText, "Some parts of this application have been translated by artificial intelligence. Help improve the translation by sending an email to bitfiddle@manderc.com (link is in the about window). Please provide sufficient information to incorporate your suggestion at the proper place.\n\nYour help is greatly appreciated!");
 
 
 // This is free and unencumbered software released into the public domain.
