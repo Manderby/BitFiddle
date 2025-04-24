@@ -1,87 +1,87 @@
 
 // //////////////////////////////////
-// German
+// English
 //
-NA_LOC_LANG("deu");
+NA_LOC_LANG("eng");
 
 // Strings for About Window
 // The %s denotes the application name
-NA_LOC(BitFiddleAbout,          "Über %s");
-NA_LOC(BitFiddleDone,           "Fertig");
-NA_LOC(BitFiddleVersionBuild,   "Version %s (Build %s)");
-NA_LOC(BitFiddleOnlineHelp,     "Online Hilfe");
+NA_LOC(BitFiddleAbout,          "Acerca de %s");
+NA_LOC(BitFiddleDone,           "Hecho");
+NA_LOC(BitFiddleVersionBuild,   "Versión %s (Compilación %s)");
+NA_LOC(BitFiddleOnlineHelp,     "Ayuda en línea");
 NA_LOC(BitFiddleApplicationHelpURL, "http://manderc.com/apps/bitfiddle/help/index_en.php"); // do not translate
 
-// Expressions in Main Window
+/* Expressions in Main Window */
 NA_LOC(BitFiddleConversionUnsigned, "Unsigned"); // do not translate
-NA_LOC(BitFiddleConversionOnesComp, "Einerkomplement");
-NA_LOC(BitFiddleConversionTwosComp, "Zweierkomplement");
+NA_LOC(BitFiddleConversionOnesComp, "Complemento a 1");
+NA_LOC(BitFiddleConversionTwosComp, "Complemento a 2");
 NA_LOC(BitFiddleConversionByteSwap, "Little ↔ Big"); // do not translate
 
 // Expressions in Preferences window
-NA_LOC(BitFiddlePrefsWindowTitle,      "Bit Fiddle Einstellungen");
-NA_LOC(BitFiddlePrefsAtStartup,        "Bei Programmstart");
-NA_LOC(BitFiddlePrefsShowAscii,        "ASCII-Fenster anzeigen");
-NA_LOC(BitFiddlePrefsResetSettings,    "Konvertierung zurücksetzen");
-NA_LOC(BitFiddlePrefsConverterWindow,  "Konverter-Fenster");
-NA_LOC(BitFiddlePrefsKeepOnTop,        "Fenster im Vordergrund behalten");
+NA_LOC(BitFiddlePrefsWindowTitle,      "Preferencias de Bit Fiddle");
+NA_LOC(BitFiddlePrefsAtStartup,        "Al iniciar la aplicación");
+NA_LOC(BitFiddlePrefsShowAscii,        "Mostrar ventana ASCII");
+NA_LOC(BitFiddlePrefsResetSettings,    "Restablecer configuraciones del convertidor");
+NA_LOC(BitFiddlePrefsConverterWindow,  "Ventana del convertidor");
+NA_LOC(BitFiddlePrefsKeepOnTop,        "Mantener ventana en primer plano");
 NA_LOC(BitFiddlePrefsShow16Bits,       "16 Bits");
 NA_LOC(BitFiddlePrefsShowNBits,        "n Bits");
-NA_LOC(BitFiddlePrefsShowBin,          "Bin"); // do not translate
-NA_LOC(BitFiddlePrefsShowAsc,          "Asc"); // do not translate
-NA_LOC(BitFiddlePrefsDone,             "Fertig");
+NA_LOC(BitFiddlePrefsShowBin,          "Bin");
+NA_LOC(BitFiddlePrefsShowAsc,          "Asc");
+NA_LOC(BitFiddlePrefsDone,             "Hecho");
 
 // Additional information for ascii characters
 NA_LOC(BitFiddleAsciiAdditionalInfo00, "C-escape: \\0");
 NA_LOC(BitFiddleAsciiAdditionalInfo01, "");
 NA_LOC(BitFiddleAsciiAdditionalInfo02, "");
-NA_LOC(BitFiddleAsciiAdditionalInfo03, "Terminal ctrl-C: Abort");
+NA_LOC(BitFiddleAsciiAdditionalInfo03, "Ctrl-C en terminal: Abortar");
 NA_LOC(BitFiddleAsciiAdditionalInfo04, "");
 NA_LOC(BitFiddleAsciiAdditionalInfo05, "");
 NA_LOC(BitFiddleAsciiAdditionalInfo06, "");
-NA_LOC(BitFiddleAsciiAdditionalInfo07, "Piept auf manchen Systemen");
-NA_LOC(BitFiddleAsciiAdditionalInfo08, "C-escape: \\b");
-NA_LOC(BitFiddleAsciiAdditionalInfo09, "C-escape: \\t");
-NA_LOC(BitFiddleAsciiAdditionalInfo0a, "C-escape: \\n\nZeilenende Unix LF Windows CR-LF");
-NA_LOC(BitFiddleAsciiAdditionalInfo0b, "C-escape: \\v");
-NA_LOC(BitFiddleAsciiAdditionalInfo0c, "C-escape: \\f");
-NA_LOC(BitFiddleAsciiAdditionalInfo0d, "C-escape: \\r\nZeilenende Windows CR-LF altes macOS CR");
+NA_LOC(BitFiddleAsciiAdditionalInfo07, "Emite pitidos en algunos sistemas");
+NA_LOC(BitFiddleAsciiAdditionalInfo08, "Escape C: \\b");
+NA_LOC(BitFiddleAsciiAdditionalInfo09, "Escape C: \\t");
+NA_LOC(BitFiddleAsciiAdditionalInfo0a, "Escape C: \\n\nFin de línea Unix LF Windows CR-LF");
+NA_LOC(BitFiddleAsciiAdditionalInfo0b, "Escape C: \\v");
+NA_LOC(BitFiddleAsciiAdditionalInfo0c, "Escape C: \\f");
+NA_LOC(BitFiddleAsciiAdditionalInfo0d, "Escape C: \\r\nFin de línea Windows CR-LF macOS antiguo CR");
 NA_LOC(BitFiddleAsciiAdditionalInfo0e, "");
 NA_LOC(BitFiddleAsciiAdditionalInfo0f, "");
 
 NA_LOC(BitFiddleAsciiAdditionalInfo10, "");
-NA_LOC(BitFiddleAsciiAdditionalInfo11, "Code manchmal XON");
+NA_LOC(BitFiddleAsciiAdditionalInfo11, "El código a veces también es XON");
 NA_LOC(BitFiddleAsciiAdditionalInfo12, "");
-NA_LOC(BitFiddleAsciiAdditionalInfo13, "Code manchmal XOFF");
+NA_LOC(BitFiddleAsciiAdditionalInfo13, "El código a veces también es XOFF");
 NA_LOC(BitFiddleAsciiAdditionalInfo14, "");
-NA_LOC(BitFiddleAsciiAdditionalInfo15, "Terminal ctrl-U: Zeile löschen");
+NA_LOC(BitFiddleAsciiAdditionalInfo15, "Ctrl-U en terminal: Eliminar línea");
 NA_LOC(BitFiddleAsciiAdditionalInfo16, "");
-NA_LOC(BitFiddleAsciiAdditionalInfo17, "Terminal ctrl-W: Wort löschen");
+NA_LOC(BitFiddleAsciiAdditionalInfo17, "Ctrl-W en terminal: Eliminar palabra");
 NA_LOC(BitFiddleAsciiAdditionalInfo18, "");
 NA_LOC(BitFiddleAsciiAdditionalInfo19, "");
-NA_LOC(BitFiddleAsciiAdditionalInfo1a, "Terminal ctrl-Z: Anhalten (Suspend)");
-NA_LOC(BitFiddleAsciiAdditionalInfo1b, "C-escape bei manchen Compilern: \\e");
+NA_LOC(BitFiddleAsciiAdditionalInfo1a, "Ctrl-Z en terminal: Suspender");
+NA_LOC(BitFiddleAsciiAdditionalInfo1b, "Escape C en algunos compiladores: \\e");
 NA_LOC(BitFiddleAsciiAdditionalInfo1c, "");
 NA_LOC(BitFiddleAsciiAdditionalInfo1d, "");
 NA_LOC(BitFiddleAsciiAdditionalInfo1e, "");
 NA_LOC(BitFiddleAsciiAdditionalInfo1f, "");
 
-NA_LOC(BitFiddleAsciiAdditionalInfo20, "Code manchmal SP");
+NA_LOC(BitFiddleAsciiAdditionalInfo20, "El código a veces también es SP");
 NA_LOC(BitFiddleAsciiAdditionalInfo21, "");
-NA_LOC(BitFiddleAsciiAdditionalInfo22, "C-escape: \\\"\nHTML-escape: &quot;");
-NA_LOC(BitFiddleAsciiAdditionalInfo23, "LaTeX-escape: \\#\nUmgangssprachlich \"Hash\"");
-NA_LOC(BitFiddleAsciiAdditionalInfo24, "LaTeX-escape: \\$");
-NA_LOC(BitFiddleAsciiAdditionalInfo25, "LaTeX-escape: \\%");
+NA_LOC(BitFiddleAsciiAdditionalInfo22, "Escape C: \\\"\nEscape HTML: &quot;");
+NA_LOC(BitFiddleAsciiAdditionalInfo23, "Escape LaTeX: \\#\nCasualmente \"Hash\"");
+NA_LOC(BitFiddleAsciiAdditionalInfo24, "Escape LaTeX: \\$");
+NA_LOC(BitFiddleAsciiAdditionalInfo25, "Escape LaTeX: \\%");
 NA_LOC(BitFiddleAsciiAdditionalInfo26, "HTML-escape: &amp;\nLaTeX-escape: \\&");
 NA_LOC(BitFiddleAsciiAdditionalInfo27, "C-escape:\\\'\nHTML-escape:&#39;");
 NA_LOC(BitFiddleAsciiAdditionalInfo28, "");
 NA_LOC(BitFiddleAsciiAdditionalInfo29, "");
-NA_LOC(BitFiddleAsciiAdditionalInfo2a, "Umgangssprachlich \"Multiplikation\"");
+NA_LOC(BitFiddleAsciiAdditionalInfo2a, "Casualmente \"Multiplicación\"");
 NA_LOC(BitFiddleAsciiAdditionalInfo2b, "");
 NA_LOC(BitFiddleAsciiAdditionalInfo2c, "");
-NA_LOC(BitFiddleAsciiAdditionalInfo2d, "Umgangssprachlich \"Strich\"");
-NA_LOC(BitFiddleAsciiAdditionalInfo2e, "Umgangssprachlich \"Punkt\"");
-NA_LOC(BitFiddleAsciiAdditionalInfo2f, "Umgangssprachlich \"Slash\" oder \"Division\"");
+NA_LOC(BitFiddleAsciiAdditionalInfo2d, "Casualmente \"Guion\"");
+NA_LOC(BitFiddleAsciiAdditionalInfo2e, "Casualmente \"Punto\"");
+NA_LOC(BitFiddleAsciiAdditionalInfo2f, "Casualmente \"Barra\" o \"División\"");
 
 NA_LOC(BitFiddleAsciiAdditionalInfo30, "");
 NA_LOC(BitFiddleAsciiAdditionalInfo31, "");
@@ -95,10 +95,10 @@ NA_LOC(BitFiddleAsciiAdditionalInfo38, "");
 NA_LOC(BitFiddleAsciiAdditionalInfo39, "");
 NA_LOC(BitFiddleAsciiAdditionalInfo3a, "");
 NA_LOC(BitFiddleAsciiAdditionalInfo3b, "");
-NA_LOC(BitFiddleAsciiAdditionalInfo3c, "HTML-escape: &lt;");
+NA_LOC(BitFiddleAsciiAdditionalInfo3c, "Escape HTML: &lt;");
 NA_LOC(BitFiddleAsciiAdditionalInfo3d, "");
-NA_LOC(BitFiddleAsciiAdditionalInfo3e, "HTML-escape: &gt;");
-NA_LOC(BitFiddleAsciiAdditionalInfo3f, "C-escape: \\\? (bei Trigraphen)");
+NA_LOC(BitFiddleAsciiAdditionalInfo3e, "Escape HTML: &gt;");
+NA_LOC(BitFiddleAsciiAdditionalInfo3f, "Escape C: \\\? (cuando se usan trigráficos)");
 
 NA_LOC(BitFiddleAsciiAdditionalInfo40, "");
 NA_LOC(BitFiddleAsciiAdditionalInfo41, "");
@@ -113,7 +113,7 @@ NA_LOC(BitFiddleAsciiAdditionalInfo49, "");
 NA_LOC(BitFiddleAsciiAdditionalInfo4a, "");
 NA_LOC(BitFiddleAsciiAdditionalInfo4b, "");
 NA_LOC(BitFiddleAsciiAdditionalInfo4c, "");
-NA_LOC(BitFiddleAsciiAdditionalInfo4d, "Der Lieblings-Buchstabe des Autors");
+NA_LOC(BitFiddleAsciiAdditionalInfo4d, "La letra favorita del autor");
 NA_LOC(BitFiddleAsciiAdditionalInfo4e, "");
 NA_LOC(BitFiddleAsciiAdditionalInfo4f, "");
 
@@ -129,12 +129,12 @@ NA_LOC(BitFiddleAsciiAdditionalInfo58, "");
 NA_LOC(BitFiddleAsciiAdditionalInfo59, "");
 NA_LOC(BitFiddleAsciiAdditionalInfo5a, "");
 NA_LOC(BitFiddleAsciiAdditionalInfo5b, "");
-NA_LOC(BitFiddleAsciiAdditionalInfo5c, "C-escape: \\\\\nUmgangssprachlich \"Backslash\"");
+NA_LOC(BitFiddleAsciiAdditionalInfo5c, "Escape C: \\\\\nCasualmente \"Barra invertida\"");
 NA_LOC(BitFiddleAsciiAdditionalInfo5d, "");
-NA_LOC(BitFiddleAsciiAdditionalInfo5e, "LaTeX-escape: \\^\nUmgangssprachlich \"Karet\" oder \"Hoch\"");
-NA_LOC(BitFiddleAsciiAdditionalInfo5f, "LaTeX-escape: \\_\nUmgangssprachlich \"Unterstrich\" oder \"Underscore\"");
+NA_LOC(BitFiddleAsciiAdditionalInfo5e, "Escape LaTeX: \\^\nCasualmente \"Caret\" o \"Potencia\"");
+NA_LOC(BitFiddleAsciiAdditionalInfo5f, "Escape LaTeX: \\_\nCasualmente \"Guion bajo\"");
 
-NA_LOC(BitFiddleAsciiAdditionalInfo60, "Beim Programmieren auch \"Backtick\" genannt");
+NA_LOC(BitFiddleAsciiAdditionalInfo60, "En programación \"Backtick\"");
 NA_LOC(BitFiddleAsciiAdditionalInfo61, "");
 NA_LOC(BitFiddleAsciiAdditionalInfo62, "");
 NA_LOC(BitFiddleAsciiAdditionalInfo63, "");
@@ -162,9 +162,9 @@ NA_LOC(BitFiddleAsciiAdditionalInfo77, "");
 NA_LOC(BitFiddleAsciiAdditionalInfo78, "");
 NA_LOC(BitFiddleAsciiAdditionalInfo79, "");
 NA_LOC(BitFiddleAsciiAdditionalInfo7a, "");
-NA_LOC(BitFiddleAsciiAdditionalInfo7b, "LaTeX-escape: \\{");
-NA_LOC(BitFiddleAsciiAdditionalInfo7c, "Umgangssprachlich \"Bar\" oder \"Pipe\"\nManchmal mit oder ohne Lücke (Broken Bar)");
-NA_LOC(BitFiddleAsciiAdditionalInfo7d, "LaTeX-escape: \\}");
+NA_LOC(BitFiddleAsciiAdditionalInfo7b, "Escape LaTeX: \\{");
+NA_LOC(BitFiddleAsciiAdditionalInfo7c, "Casualmente \"Barra\" o \"Pipe\"\nA veces con o sin espacio (barra rota)");
+NA_LOC(BitFiddleAsciiAdditionalInfo7d, "Escape LaTeX: \\}");
 NA_LOC(BitFiddleAsciiAdditionalInfo7e, "");
 NA_LOC(BitFiddleAsciiAdditionalInfo7f, "");
 

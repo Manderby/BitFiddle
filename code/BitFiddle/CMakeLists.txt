@@ -7,8 +7,11 @@ project(BitFiddle)
 
 set(TARGET_NAME BitFiddle)
 
-set(VERSION_STRING 1.4.3)
-set(BUILD_NUMBER_STRING 1.4.5)
+set(BUNDLE_IDENTIFIER_PREFIX "ch.manderim.")
+set(BUNDLE_IDENTIFIER_MAC "Bit-Fiddle")
+
+set(VERSION_STRING 1.5.3)
+set(BUILD_NUMBER_STRING 1.5.3)
 
 if (MSVC)
   add_executable(${TARGET_NAME} WIN32 src/main.c)
@@ -73,9 +76,8 @@ if(MSVC)
         ${CMAKE_CURRENT_SOURCE_DIR}/res/win/icon.png
         \"${OUTPUT_DIRECTORY}icon.png\"
   )
-endif()
 
-if(APPLE)
+elseif(APPLE)
   add_custom_command(TARGET ${TARGET_NAME} POST_BUILD
     COMMAND ${CMAKE_COMMAND} -E copy
         ${CMAKE_CURRENT_SOURCE_DIR}/res/mac/BitFiddle.icns
@@ -86,12 +88,24 @@ if(APPLE)
     COMMAND ${CMAKE_COMMAND} -E copy
         ${CMAKE_CURRENT_SOURCE_DIR}/res/mac/en.lproj/InfoPlist.strings
         \"${OUTPUT_DIRECTORY}en.lproj/InfoPlist.strings\"
+    COMMAND ${CMAKE_COMMAND} -E copy
+        ${CMAKE_CURRENT_SOURCE_DIR}/res/mac/es.lproj/InfoPlist.strings
+        \"${OUTPUT_DIRECTORY}es.lproj/InfoPlist.strings\"
+    COMMAND ${CMAKE_COMMAND} -E copy
+        ${CMAKE_CURRENT_SOURCE_DIR}/res/mac/fr.lproj/InfoPlist.strings
+        \"${OUTPUT_DIRECTORY}fr.lproj/InfoPlist.strings\"
+    COMMAND ${CMAKE_COMMAND} -E copy
+        ${CMAKE_CURRENT_SOURCE_DIR}/res/mac/jp.lproj/InfoPlist.strings
+        \"${OUTPUT_DIRECTORY}jp.lproj/InfoPlist.strings\"
+    COMMAND ${CMAKE_COMMAND} -E copy
+        ${CMAKE_CURRENT_SOURCE_DIR}/res/mac/zh.lproj/InfoPlist.strings
+        \"${OUTPUT_DIRECTORY}zh.lproj/InfoPlist.strings\"
     COMMAND ibtool --compile
         \"${OUTPUT_DIRECTORY}MainMenu.nib\"
         ${CMAKE_CURRENT_SOURCE_DIR}/res/mac/MainMenu.xib
   )
 
-  set(BUNDLE_IDENTIFIER "ch.manderim.Bit-Fiddle")
+  set(BUNDLE_IDENTIFIER "${BUNDLE_IDENTIFIER_PREFIX}${BUNDLE_IDENTIFIER_MAC}")
 
   set_target_properties(${TARGET_NAME} PROPERTIES
     MACOSX_BUNDLE YES
@@ -102,7 +116,18 @@ if(APPLE)
     MACOSX_BUNDLE_BUNDLE_VERSION ${BUILD_NUMBER_STRING}
     MACOSX_BUNDLE_ICON_FILE "BitFiddle.icns"
     XCODE_ATTRIBUTE_CODE_SIGN_IDENTITY ""
+    XCODE_ATTRIBUTE_INSTALL_PATH "$(LOCAL_APPS_DIR)"
+    XCODE_ATTRIBUTE_DEBUG_INFORMATION_FORMAT "dwarf-with-dsym"
+    XCODE_ATTRIBUTE_GCC_GENERATE_DEBUGGING_SYMBOLS "YES"
+    XCODE_ATTRIBUTE_DEPLOYMENT_POSTPROCESSING "YES"
+    XCODE_ATTRIBUTE_SKIP_INSTALL "NO"
+
+    # Uncomment the following line when you are planning to archive and upload.
+    # Beware: The debug build will not have the proper resource folder copied
+    # but the archive will contain it.
+    #XCODE_ATTRIBUTE_CONFIGURATION_BUILD_DIR "$(inherited)"
   )
+  
 endif()
 
 
@@ -112,14 +137,22 @@ set(resourceFiles
   res/BitFiddleChangelog.txt
   res/BitFiddleStrings_deu.h
   res/BitFiddleStrings_eng.h
+  res/BitFiddleStrings_esp.h
+  res/BitFiddleStrings_fra.h
+  res/BitFiddleStrings_jpn.h
+  res/BitFiddleStrings_zho.h
   res/ascii.png
   res/help.png
   res/prefs.png
 )
 
 set(macResourceFiles
-  #res/mac/de.lproj/InfoPlist.strings
-  #res/mac/en.lproj/InfoPlist.strings
+  res/mac/de.lproj/InfoPlist.strings
+  res/mac/en.lproj/InfoPlist.strings
+  res/mac/es.lproj/InfoPlist.strings
+  res/mac/fr.lproj/InfoPlist.strings
+  res/mac/jp.lproj/InfoPlist.strings
+  res/mac/zh.lproj/InfoPlist.strings
   res/mac/BitFiddle.icns
   res/mac/MainMenu.xib
 )
@@ -152,13 +185,6 @@ set(sourceFiles
 
 
 
-# ######### Macro definitions ################
-
-add_definitions(-DBIT_VERSION_STRING=\"${VERSION_STRING}\")
-add_definitions(-DBIT_BUILD_NUMBER_STRING=\"${BUILD_NUMBER_STRING}\")
-
-
-
 # ######### Group sources in project browser ################
 
 source_group("res" FILES ${resourceFiles})
@@ -172,6 +198,13 @@ target_sources(${TARGET_NAME} PRIVATE ${winResourceFiles})
 
 source_group("src" FILES ${sourceFiles})
 target_sources(${TARGET_NAME} PRIVATE ${sourceFiles})
+
+
+
+# ######### Macro definitions ################
+
+add_definitions(-DBIT_VERSION_STRING=\"${VERSION_STRING}\")
+add_definitions(-DBIT_BUILD_NUMBER_STRING=\"${BUILD_NUMBER_STRING}\")
 
 
 

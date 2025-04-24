@@ -14,7 +14,6 @@ struct BitFiddleAboutController{
   NAImageSpace* iconSpace;
   NALabel* appNameLabel;
   NALabel* appVersionLabel;
-  NALabel* appDescLabel;
   NAImageSpace* manderCSpace;
   NALabel* helpLinkLabel;
   NAButton* doneButton;
@@ -34,7 +33,7 @@ BitFiddleAboutController* bitAllocAboutController(void) {
 
   NAString* bundleApplicationName = naNewApplicationName();
 
-  NARect windowRect = naMakeRectS(20, 300, 340, 348);
+  NARect windowRect = naMakeRectS(20, 300, 340, 300);
   const NAUTF8Char* aboutWindowTitleFormatString = bitTranslate(BitFiddleAbout);
   NAString* aboutWindowTitleString = naNewStringWithFormat(aboutWindowTitleFormatString, naGetStringUTF8Pointer(bundleApplicationName));
   // We have no storage tag as the about window is not really part of the application
@@ -49,7 +48,7 @@ BitFiddleAboutController* bitAllocAboutController(void) {
   naRelease(iconImage);
   naDelete(iconPath);
   con->iconSpace = naNewImageSpace(iconImageSet, naMakeSize(128, 128));
-  naAddSpaceChild(space, con->iconSpace, naMakePos(106., 200.));
+  naAddSpaceChild(space, con->iconSpace, naMakePos(106., 150.));
   naRelease(iconImageSet);
 
   con->appNameLabel = naNewLabel(naGetStringUTF8Pointer(bundleApplicationName), 300);
@@ -58,7 +57,7 @@ BitFiddleAboutController* bitAllocAboutController(void) {
   naSetLabelTextAlignment(con->appNameLabel, NA_TEXT_ALIGNMENT_CENTER);
   naSetLabelHeight(con->appNameLabel, 24);
   naRelease(titleFont);
-  naAddSpaceChild(space, con->appNameLabel, naMakePos(20., 166.));
+  naAddSpaceChild(space, con->appNameLabel, naMakePos(20., 116.));
 
   NAString* bundleVersionString = naNewApplicationVersionString();
   NAString* bundleBuildString = naNewApplicationBuildString();
@@ -69,12 +68,7 @@ BitFiddleAboutController* bitAllocAboutController(void) {
   naDelete(bundleVersionString);
   naDelete(bundleBuildString);
   naSetLabelTextAlignment(con->appVersionLabel, NA_TEXT_ALIGNMENT_CENTER);
-  naAddSpaceChild(space, con->appVersionLabel, naMakePos(20., 140.));
-
-  con->appDescLabel = naNewLabel(bitTranslate(BitFiddleApplicationDescription), 300);
-  naSetLabelHeight(con->appDescLabel, 56);
-  naSetLabelTextAlignment(con->appDescLabel, NA_TEXT_ALIGNMENT_CENTER);
-  naAddSpaceChild(space, con->appDescLabel, naMakePos(20., 76.));
+  naAddSpaceChild(space, con->appVersionLabel, naMakePos(20., 90.));
 
   con->helpLinkLabel = naNewLabel(bitTranslate(BitFiddleOnlineHelp), 300);
   naSetLabelTextAlignment(con->helpLinkLabel, NA_TEXT_ALIGNMENT_CENTER);

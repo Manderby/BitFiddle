@@ -1,7 +1,25 @@
 Bit Fiddle Changelog
 
-Version 1.4
------------
+Version 1.5.3
+-------------
+- Lots of internal improvements.
+- Adding Spanish, French, Japanese and Chinese.
+- First version to appear on both systems simultaneously.
+
+Versions 1.5.0 to 1.5.2
+-----------------------
+- Improvements on the windows version
+- New installer on windows.
+- Now the app is on the Windows App store.
+
+Versions 1.4.1 to 1.4.3
+----------------------
+- Making First Version for Windows
+- Adapting and recompiling on both systems multiple times
+- Small Bugfixes
+
+Version 1.4.0
+-------------
 - Completely rewrote UI with new NALib
 - Moving Help online
 

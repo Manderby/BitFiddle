@@ -1,87 +1,87 @@
 
 // //////////////////////////////////
-// German
+// English
 //
-NA_LOC_LANG("deu");
+NA_LOC_LANG("eng");
 
 // Strings for About Window
 // The %s denotes the application name
-NA_LOC(BitFiddleAbout,          "Über %s");
-NA_LOC(BitFiddleDone,           "Fertig");
-NA_LOC(BitFiddleVersionBuild,   "Version %s (Build %s)");
-NA_LOC(BitFiddleOnlineHelp,     "Online Hilfe");
+NA_LOC(BitFiddleAbout,          "关于 %s");
+NA_LOC(BitFiddleDone,           "完成");
+NA_LOC(BitFiddleVersionBuild,   "版本 %s (构建 %s)");
+NA_LOC(BitFiddleOnlineHelp,     "在线帮助");
 NA_LOC(BitFiddleApplicationHelpURL, "http://manderc.com/apps/bitfiddle/help/index_en.php"); // do not translate
 
-// Expressions in Main Window
+/* Expressions in Main Window */
 NA_LOC(BitFiddleConversionUnsigned, "Unsigned"); // do not translate
-NA_LOC(BitFiddleConversionOnesComp, "Einerkomplement");
-NA_LOC(BitFiddleConversionTwosComp, "Zweierkomplement");
+NA_LOC(BitFiddleConversionOnesComp, "1的补码");
+NA_LOC(BitFiddleConversionTwosComp, "2的补码");
 NA_LOC(BitFiddleConversionByteSwap, "Little ↔ Big"); // do not translate
 
 // Expressions in Preferences window
-NA_LOC(BitFiddlePrefsWindowTitle,      "Bit Fiddle Einstellungen");
-NA_LOC(BitFiddlePrefsAtStartup,        "Bei Programmstart");
-NA_LOC(BitFiddlePrefsShowAscii,        "ASCII-Fenster anzeigen");
-NA_LOC(BitFiddlePrefsResetSettings,    "Konvertierung zurücksetzen");
-NA_LOC(BitFiddlePrefsConverterWindow,  "Konverter-Fenster");
-NA_LOC(BitFiddlePrefsKeepOnTop,        "Fenster im Vordergrund behalten");
-NA_LOC(BitFiddlePrefsShow16Bits,       "16 Bits");
-NA_LOC(BitFiddlePrefsShowNBits,        "n Bits");
+NA_LOC(BitFiddlePrefsWindowTitle,      "Bit Fiddle 偏好设置");
+NA_LOC(BitFiddlePrefsAtStartup,        "在应用程序启动时");
+NA_LOC(BitFiddlePrefsShowAscii,        "显示 ASCII 窗口");
+NA_LOC(BitFiddlePrefsResetSettings,    "重置转换器设置");
+NA_LOC(BitFiddlePrefsConverterWindow,  "转换器窗口");
+NA_LOC(BitFiddlePrefsKeepOnTop,        "保持窗口在前");
+NA_LOC(BitFiddlePrefsShow16Bits,       "16 位");
+NA_LOC(BitFiddlePrefsShowNBits,        "n 位");
 NA_LOC(BitFiddlePrefsShowBin,          "Bin"); // do not translate
 NA_LOC(BitFiddlePrefsShowAsc,          "Asc"); // do not translate
-NA_LOC(BitFiddlePrefsDone,             "Fertig");
+NA_LOC(BitFiddlePrefsDone,             "完成");
 
 // Additional information for ascii characters
-NA_LOC(BitFiddleAsciiAdditionalInfo00, "C-escape: \\0");
+NA_LOC(BitFiddleAsciiAdditionalInfo00, "C转义: \\0");
 NA_LOC(BitFiddleAsciiAdditionalInfo01, "");
 NA_LOC(BitFiddleAsciiAdditionalInfo02, "");
-NA_LOC(BitFiddleAsciiAdditionalInfo03, "Terminal ctrl-C: Abort");
+NA_LOC(BitFiddleAsciiAdditionalInfo03, "终端Ctrl-C: 中止");
 NA_LOC(BitFiddleAsciiAdditionalInfo04, "");
 NA_LOC(BitFiddleAsciiAdditionalInfo05, "");
 NA_LOC(BitFiddleAsciiAdditionalInfo06, "");
-NA_LOC(BitFiddleAsciiAdditionalInfo07, "Piept auf manchen Systemen");
-NA_LOC(BitFiddleAsciiAdditionalInfo08, "C-escape: \\b");
-NA_LOC(BitFiddleAsciiAdditionalInfo09, "C-escape: \\t");
-NA_LOC(BitFiddleAsciiAdditionalInfo0a, "C-escape: \\n\nZeilenende Unix LF Windows CR-LF");
-NA_LOC(BitFiddleAsciiAdditionalInfo0b, "C-escape: \\v");
-NA_LOC(BitFiddleAsciiAdditionalInfo0c, "C-escape: \\f");
-NA_LOC(BitFiddleAsciiAdditionalInfo0d, "C-escape: \\r\nZeilenende Windows CR-LF altes macOS CR");
+NA_LOC(BitFiddleAsciiAdditionalInfo07, "在某些系统上发出蜂鸣声");
+NA_LOC(BitFiddleAsciiAdditionalInfo08, "C转义: \\b");
+NA_LOC(BitFiddleAsciiAdditionalInfo09, "C转义: \\t");
+NA_LOC(BitFiddleAsciiAdditionalInfo0a, "C转义: \\n\nUnix行尾LF Windows行尾CR-LF");
+NA_LOC(BitFiddleAsciiAdditionalInfo0b, "C转义: \\v");
+NA_LOC(BitFiddleAsciiAdditionalInfo0c, "C转义: \\f");
+NA_LOC(BitFiddleAsciiAdditionalInfo0d, "C转义: \\r\nWindows行尾CR-LF 旧版macOS行尾CR");
 NA_LOC(BitFiddleAsciiAdditionalInfo0e, "");
 NA_LOC(BitFiddleAsciiAdditionalInfo0f, "");
 
 NA_LOC(BitFiddleAsciiAdditionalInfo10, "");
-NA_LOC(BitFiddleAsciiAdditionalInfo11, "Code manchmal XON");
+NA_LOC(BitFiddleAsciiAdditionalInfo11, "代码有时也表示XON");
 NA_LOC(BitFiddleAsciiAdditionalInfo12, "");
-NA_LOC(BitFiddleAsciiAdditionalInfo13, "Code manchmal XOFF");
+NA_LOC(BitFiddleAsciiAdditionalInfo13, "代码有时也表示XOFF");
 NA_LOC(BitFiddleAsciiAdditionalInfo14, "");
-NA_LOC(BitFiddleAsciiAdditionalInfo15, "Terminal ctrl-U: Zeile löschen");
+NA_LOC(BitFiddleAsciiAdditionalInfo15, "终端Ctrl-U: 删除行");
 NA_LOC(BitFiddleAsciiAdditionalInfo16, "");
-NA_LOC(BitFiddleAsciiAdditionalInfo17, "Terminal ctrl-W: Wort löschen");
+NA_LOC(BitFiddleAsciiAdditionalInfo17, "终端Ctrl-W: 删除单词");
 NA_LOC(BitFiddleAsciiAdditionalInfo18, "");
 NA_LOC(BitFiddleAsciiAdditionalInfo19, "");
-NA_LOC(BitFiddleAsciiAdditionalInfo1a, "Terminal ctrl-Z: Anhalten (Suspend)");
-NA_LOC(BitFiddleAsciiAdditionalInfo1b, "C-escape bei manchen Compilern: \\e");
+NA_LOC(BitFiddleAsciiAdditionalInfo1a, "终端Ctrl-Z: 暂停");
+NA_LOC(BitFiddleAsciiAdditionalInfo1b, "某些编译器中的C转义: \\e");
 NA_LOC(BitFiddleAsciiAdditionalInfo1c, "");
 NA_LOC(BitFiddleAsciiAdditionalInfo1d, "");
 NA_LOC(BitFiddleAsciiAdditionalInfo1e, "");
 NA_LOC(BitFiddleAsciiAdditionalInfo1f, "");
 
-NA_LOC(BitFiddleAsciiAdditionalInfo20, "Code manchmal SP");
+NA_LOC(BitFiddleAsciiAdditionalInfo20, "代码有时也表示SP");
 NA_LOC(BitFiddleAsciiAdditionalInfo21, "");
-NA_LOC(BitFiddleAsciiAdditionalInfo22, "C-escape: \\\"\nHTML-escape: &quot;");
-NA_LOC(BitFiddleAsciiAdditionalInfo23, "LaTeX-escape: \\#\nUmgangssprachlich \"Hash\"");
-NA_LOC(BitFiddleAsciiAdditionalInfo24, "LaTeX-escape: \\$");
-NA_LOC(BitFiddleAsciiAdditionalInfo25, "LaTeX-escape: \\%");
-NA_LOC(BitFiddleAsciiAdditionalInfo26, "HTML-escape: &amp;\nLaTeX-escape: \\&");
-NA_LOC(BitFiddleAsciiAdditionalInfo27, "C-escape:\\\'\nHTML-escape:&#39;");
+NA_LOC(BitFiddleAsciiAdditionalInfo22, "C转义: \\\"\nHTML转义: &quot;");
+NA_LOC(BitFiddleAsciiAdditionalInfo23, "LaTeX转义: \\#\n随意表示 \"Hash\"");
+NA_LOC(BitFiddleAsciiAdditionalInfo24, "LaTeX转义: \\$");
+NA_LOC(BitFiddleAsciiAdditionalInfo25, "LaTeX转义: \\%");
+NA_LOC(BitFiddleAsciiAdditionalInfo26, "HTML转义: &amp;\nLaTeX转义: \\&");
+NA_LOC(BitFiddleAsciiAdditionalInfo27, "C转义: \\\'\nHTML转义: &#39;");
 NA_LOC(BitFiddleAsciiAdditionalInfo28, "");
 NA_LOC(BitFiddleAsciiAdditionalInfo29, "");
-NA_LOC(BitFiddleAsciiAdditionalInfo2a, "Umgangssprachlich \"Multiplikation\"");
+NA_LOC(BitFiddleAsciiAdditionalInfo2a, "随意表示 \"乘法\"");
 NA_LOC(BitFiddleAsciiAdditionalInfo2b, "");
 NA_LOC(BitFiddleAsciiAdditionalInfo2c, "");
-NA_LOC(BitFiddleAsciiAdditionalInfo2d, "Umgangssprachlich \"Strich\"");
-NA_LOC(BitFiddleAsciiAdditionalInfo2e, "Umgangssprachlich \"Punkt\"");
-NA_LOC(BitFiddleAsciiAdditionalInfo2f, "Umgangssprachlich \"Slash\" oder \"Division\"");
+NA_LOC(BitFiddleAsciiAdditionalInfo2d, "随意表示 \"破折号\"");
+NA_LOC(BitFiddleAsciiAdditionalInfo2e, "随意表示 \"点\"");
+NA_LOC(BitFiddleAsciiAdditionalInfo2f, "随意表示 \"斜杠\" 或 \"除法\"");
 
 NA_LOC(BitFiddleAsciiAdditionalInfo30, "");
 NA_LOC(BitFiddleAsciiAdditionalInfo31, "");
@@ -95,10 +95,10 @@ NA_LOC(BitFiddleAsciiAdditionalInfo38, "");
 NA_LOC(BitFiddleAsciiAdditionalInfo39, "");
 NA_LOC(BitFiddleAsciiAdditionalInfo3a, "");
 NA_LOC(BitFiddleAsciiAdditionalInfo3b, "");
-NA_LOC(BitFiddleAsciiAdditionalInfo3c, "HTML-escape: &lt;");
+NA_LOC(BitFiddleAsciiAdditionalInfo3c, "HTML转义: &lt;");
 NA_LOC(BitFiddleAsciiAdditionalInfo3d, "");
-NA_LOC(BitFiddleAsciiAdditionalInfo3e, "HTML-escape: &gt;");
-NA_LOC(BitFiddleAsciiAdditionalInfo3f, "C-escape: \\\? (bei Trigraphen)");
+NA_LOC(BitFiddleAsciiAdditionalInfo3e, "HTML转义: &gt;");
+NA_LOC(BitFiddleAsciiAdditionalInfo3f, "C转义: \\\? (当使用三字符时)");
 
 NA_LOC(BitFiddleAsciiAdditionalInfo40, "");
 NA_LOC(BitFiddleAsciiAdditionalInfo41, "");
@@ -113,7 +113,7 @@ NA_LOC(BitFiddleAsciiAdditionalInfo49, "");
 NA_LOC(BitFiddleAsciiAdditionalInfo4a, "");
 NA_LOC(BitFiddleAsciiAdditionalInfo4b, "");
 NA_LOC(BitFiddleAsciiAdditionalInfo4c, "");
-NA_LOC(BitFiddleAsciiAdditionalInfo4d, "Der Lieblings-Buchstabe des Autors");
+NA_LOC(BitFiddleAsciiAdditionalInfo4d, "作者的最爱字母");
 NA_LOC(BitFiddleAsciiAdditionalInfo4e, "");
 NA_LOC(BitFiddleAsciiAdditionalInfo4f, "");
 
@@ -129,12 +129,12 @@ NA_LOC(BitFiddleAsciiAdditionalInfo58, "");
 NA_LOC(BitFiddleAsciiAdditionalInfo59, "");
 NA_LOC(BitFiddleAsciiAdditionalInfo5a, "");
 NA_LOC(BitFiddleAsciiAdditionalInfo5b, "");
-NA_LOC(BitFiddleAsciiAdditionalInfo5c, "C-escape: \\\\\nUmgangssprachlich \"Backslash\"");
+NA_LOC(BitFiddleAsciiAdditionalInfo5c, "C转义: \\\\\n随意表示 \"反斜杠\"");
 NA_LOC(BitFiddleAsciiAdditionalInfo5d, "");
-NA_LOC(BitFiddleAsciiAdditionalInfo5e, "LaTeX-escape: \\^\nUmgangssprachlich \"Karet\" oder \"Hoch\"");
-NA_LOC(BitFiddleAsciiAdditionalInfo5f, "LaTeX-escape: \\_\nUmgangssprachlich \"Unterstrich\" oder \"Underscore\"");
+NA_LOC(BitFiddleAsciiAdditionalInfo5e, "LaTeX转义: \\^\n随意表示 \"插入符号\" 或 \"幂\"");
+NA_LOC(BitFiddleAsciiAdditionalInfo5f, "LaTeX转义: \\_\n随意表示 \"下划线\"");
 
-NA_LOC(BitFiddleAsciiAdditionalInfo60, "Beim Programmieren auch \"Backtick\" genannt");
+NA_LOC(BitFiddleAsciiAdditionalInfo60, "编程中的 \"反引号\"");
 NA_LOC(BitFiddleAsciiAdditionalInfo61, "");
 NA_LOC(BitFiddleAsciiAdditionalInfo62, "");
 NA_LOC(BitFiddleAsciiAdditionalInfo63, "");
@@ -162,9 +162,9 @@ NA_LOC(BitFiddleAsciiAdditionalInfo77, "");
 NA_LOC(BitFiddleAsciiAdditionalInfo78, "");
 NA_LOC(BitFiddleAsciiAdditionalInfo79, "");
 NA_LOC(BitFiddleAsciiAdditionalInfo7a, "");
-NA_LOC(BitFiddleAsciiAdditionalInfo7b, "LaTeX-escape: \\{");
-NA_LOC(BitFiddleAsciiAdditionalInfo7c, "Umgangssprachlich \"Bar\" oder \"Pipe\"\nManchmal mit oder ohne Lücke (Broken Bar)");
-NA_LOC(BitFiddleAsciiAdditionalInfo7d, "LaTeX-escape: \\}");
+NA_LOC(BitFiddleAsciiAdditionalInfo7b, "LaTeX转义: \\{");
+NA_LOC(BitFiddleAsciiAdditionalInfo7c, "随意表示 \"竖线\" 或 \"管道符\"\n有时有间隙或没有间隙（破折线）");
+NA_LOC(BitFiddleAsciiAdditionalInfo7d, "LaTeX转义: \\}");
 NA_LOC(BitFiddleAsciiAdditionalInfo7e, "");
 NA_LOC(BitFiddleAsciiAdditionalInfo7f, "");
 

@@ -1,87 +1,87 @@
 
 // //////////////////////////////////
-// German
+// English
 //
-NA_LOC_LANG("deu");
+NA_LOC_LANG("eng");
 
 // Strings for About Window
 // The %s denotes the application name
-NA_LOC(BitFiddleAbout,          "Über %s");
-NA_LOC(BitFiddleDone,           "Fertig");
-NA_LOC(BitFiddleVersionBuild,   "Version %s (Build %s)");
-NA_LOC(BitFiddleOnlineHelp,     "Online Hilfe");
+NA_LOC(BitFiddleAbout,          "約 %s");
+NA_LOC(BitFiddleDone,           "完了");
+NA_LOC(BitFiddleVersionBuild,   "バージョン %s (ビルド %s)");
+NA_LOC(BitFiddleOnlineHelp,     "オンラインヘルプ");
 NA_LOC(BitFiddleApplicationHelpURL, "http://manderc.com/apps/bitfiddle/help/index_en.php"); // do not translate
 
-// Expressions in Main Window
+/* Expressions in Main Window */
 NA_LOC(BitFiddleConversionUnsigned, "Unsigned"); // do not translate
-NA_LOC(BitFiddleConversionOnesComp, "Einerkomplement");
-NA_LOC(BitFiddleConversionTwosComp, "Zweierkomplement");
+NA_LOC(BitFiddleConversionOnesComp, "1の補数");
+NA_LOC(BitFiddleConversionTwosComp, "2の補数");
 NA_LOC(BitFiddleConversionByteSwap, "Little ↔ Big"); // do not translate
 
 // Expressions in Preferences window
-NA_LOC(BitFiddlePrefsWindowTitle,      "Bit Fiddle Einstellungen");
-NA_LOC(BitFiddlePrefsAtStartup,        "Bei Programmstart");
-NA_LOC(BitFiddlePrefsShowAscii,        "ASCII-Fenster anzeigen");
-NA_LOC(BitFiddlePrefsResetSettings,    "Konvertierung zurücksetzen");
-NA_LOC(BitFiddlePrefsConverterWindow,  "Konverter-Fenster");
-NA_LOC(BitFiddlePrefsKeepOnTop,        "Fenster im Vordergrund behalten");
-NA_LOC(BitFiddlePrefsShow16Bits,       "16 Bits");
-NA_LOC(BitFiddlePrefsShowNBits,        "n Bits");
+NA_LOC(BitFiddlePrefsWindowTitle,      "Bit Fiddle 設定");
+NA_LOC(BitFiddlePrefsAtStartup,        "アプリケーション起動時");
+NA_LOC(BitFiddlePrefsShowAscii,        "ASCIIウィンドウを表示");
+NA_LOC(BitFiddlePrefsResetSettings,    "変換器の設定をリセット");
+NA_LOC(BitFiddlePrefsConverterWindow,  "変換器ウィンドウ");
+NA_LOC(BitFiddlePrefsKeepOnTop,        "ウィンドウを前面に表示");
+NA_LOC(BitFiddlePrefsShow16Bits,       "16 ビット");
+NA_LOC(BitFiddlePrefsShowNBits,        "n ビット");
 NA_LOC(BitFiddlePrefsShowBin,          "Bin"); // do not translate
 NA_LOC(BitFiddlePrefsShowAsc,          "Asc"); // do not translate
-NA_LOC(BitFiddlePrefsDone,             "Fertig");
+NA_LOC(BitFiddlePrefsDone,             "完了");
 
 // Additional information for ascii characters
-NA_LOC(BitFiddleAsciiAdditionalInfo00, "C-escape: \\0");
+NA_LOC(BitFiddleAsciiAdditionalInfo00, "Cエスケープ: \\0");
 NA_LOC(BitFiddleAsciiAdditionalInfo01, "");
 NA_LOC(BitFiddleAsciiAdditionalInfo02, "");
-NA_LOC(BitFiddleAsciiAdditionalInfo03, "Terminal ctrl-C: Abort");
+NA_LOC(BitFiddleAsciiAdditionalInfo03, "端末のCtrl-C: 中止");
 NA_LOC(BitFiddleAsciiAdditionalInfo04, "");
 NA_LOC(BitFiddleAsciiAdditionalInfo05, "");
 NA_LOC(BitFiddleAsciiAdditionalInfo06, "");
-NA_LOC(BitFiddleAsciiAdditionalInfo07, "Piept auf manchen Systemen");
-NA_LOC(BitFiddleAsciiAdditionalInfo08, "C-escape: \\b");
-NA_LOC(BitFiddleAsciiAdditionalInfo09, "C-escape: \\t");
-NA_LOC(BitFiddleAsciiAdditionalInfo0a, "C-escape: \\n\nZeilenende Unix LF Windows CR-LF");
-NA_LOC(BitFiddleAsciiAdditionalInfo0b, "C-escape: \\v");
-NA_LOC(BitFiddleAsciiAdditionalInfo0c, "C-escape: \\f");
-NA_LOC(BitFiddleAsciiAdditionalInfo0d, "C-escape: \\r\nZeilenende Windows CR-LF altes macOS CR");
+NA_LOC(BitFiddleAsciiAdditionalInfo07, "いくつかのシステムでビープ音を発生");
+NA_LOC(BitFiddleAsciiAdditionalInfo08, "Cエスケープ: \\b");
+NA_LOC(BitFiddleAsciiAdditionalInfo09, "Cエスケープ: \\t");
+NA_LOC(BitFiddleAsciiAdditionalInfo0a, "Cエスケープ: \\n\nUnixの行末LF Windowsの行末CR-LF");
+NA_LOC(BitFiddleAsciiAdditionalInfo0b, "Cエスケープ: \\v");
+NA_LOC(BitFiddleAsciiAdditionalInfo0c, "Cエスケープ: \\f");
+NA_LOC(BitFiddleAsciiAdditionalInfo0d, "Cエスケープ: \\r\nWindowsの行末CR-LF 古いmacOSの行末CR");
 NA_LOC(BitFiddleAsciiAdditionalInfo0e, "");
 NA_LOC(BitFiddleAsciiAdditionalInfo0f, "");
 
 NA_LOC(BitFiddleAsciiAdditionalInfo10, "");
-NA_LOC(BitFiddleAsciiAdditionalInfo11, "Code manchmal XON");
+NA_LOC(BitFiddleAsciiAdditionalInfo11, "コードは時々XONでもあります");
 NA_LOC(BitFiddleAsciiAdditionalInfo12, "");
-NA_LOC(BitFiddleAsciiAdditionalInfo13, "Code manchmal XOFF");
+NA_LOC(BitFiddleAsciiAdditionalInfo13, "コードは時々XOFFでもあります");
 NA_LOC(BitFiddleAsciiAdditionalInfo14, "");
-NA_LOC(BitFiddleAsciiAdditionalInfo15, "Terminal ctrl-U: Zeile löschen");
+NA_LOC(BitFiddleAsciiAdditionalInfo15, "端末のCtrl-U: 行を削除");
 NA_LOC(BitFiddleAsciiAdditionalInfo16, "");
-NA_LOC(BitFiddleAsciiAdditionalInfo17, "Terminal ctrl-W: Wort löschen");
+NA_LOC(BitFiddleAsciiAdditionalInfo17, "端末のCtrl-W: 単語を削除");
 NA_LOC(BitFiddleAsciiAdditionalInfo18, "");
 NA_LOC(BitFiddleAsciiAdditionalInfo19, "");
-NA_LOC(BitFiddleAsciiAdditionalInfo1a, "Terminal ctrl-Z: Anhalten (Suspend)");
-NA_LOC(BitFiddleAsciiAdditionalInfo1b, "C-escape bei manchen Compilern: \\e");
+NA_LOC(BitFiddleAsciiAdditionalInfo1a, "端末のCtrl-Z: 一時停止");
+NA_LOC(BitFiddleAsciiAdditionalInfo1b, "一部のコンパイラではCエスケープ: \\e");
 NA_LOC(BitFiddleAsciiAdditionalInfo1c, "");
 NA_LOC(BitFiddleAsciiAdditionalInfo1d, "");
 NA_LOC(BitFiddleAsciiAdditionalInfo1e, "");
 NA_LOC(BitFiddleAsciiAdditionalInfo1f, "");
 
-NA_LOC(BitFiddleAsciiAdditionalInfo20, "Code manchmal SP");
+NA_LOC(BitFiddleAsciiAdditionalInfo20, "コードは時々SPでもあります");
 NA_LOC(BitFiddleAsciiAdditionalInfo21, "");
-NA_LOC(BitFiddleAsciiAdditionalInfo22, "C-escape: \\\"\nHTML-escape: &quot;");
-NA_LOC(BitFiddleAsciiAdditionalInfo23, "LaTeX-escape: \\#\nUmgangssprachlich \"Hash\"");
-NA_LOC(BitFiddleAsciiAdditionalInfo24, "LaTeX-escape: \\$");
-NA_LOC(BitFiddleAsciiAdditionalInfo25, "LaTeX-escape: \\%");
-NA_LOC(BitFiddleAsciiAdditionalInfo26, "HTML-escape: &amp;\nLaTeX-escape: \\&");
-NA_LOC(BitFiddleAsciiAdditionalInfo27, "C-escape:\\\'\nHTML-escape:&#39;");
+NA_LOC(BitFiddleAsciiAdditionalInfo22, "Cエスケープ: \\\"\nHTMLエスケープ: &quot;");
+NA_LOC(BitFiddleAsciiAdditionalInfo23, "LaTeXエスケープ: \\#\nカジュアルに \"Hash\"");
+NA_LOC(BitFiddleAsciiAdditionalInfo24, "LaTeXエスケープ: \\$");
+NA_LOC(BitFiddleAsciiAdditionalInfo25, "LaTeXエスケープ: \\%");
+NA_LOC(BitFiddleAsciiAdditionalInfo26, "HTMLエスケープ: &amp;\nLaTeXエスケープ: \\&");
+NA_LOC(BitFiddleAsciiAdditionalInfo27, "Cエスケープ: \\\'\nHTMLエスケープ: &#39;");
 NA_LOC(BitFiddleAsciiAdditionalInfo28, "");
 NA_LOC(BitFiddleAsciiAdditionalInfo29, "");
-NA_LOC(BitFiddleAsciiAdditionalInfo2a, "Umgangssprachlich \"Multiplikation\"");
+NA_LOC(BitFiddleAsciiAdditionalInfo2a, "カジュアルに \"掛け算\"");
 NA_LOC(BitFiddleAsciiAdditionalInfo2b, "");
 NA_LOC(BitFiddleAsciiAdditionalInfo2c, "");
-NA_LOC(BitFiddleAsciiAdditionalInfo2d, "Umgangssprachlich \"Strich\"");
-NA_LOC(BitFiddleAsciiAdditionalInfo2e, "Umgangssprachlich \"Punkt\"");
-NA_LOC(BitFiddleAsciiAdditionalInfo2f, "Umgangssprachlich \"Slash\" oder \"Division\"");
+NA_LOC(BitFiddleAsciiAdditionalInfo2d, "カジュアルに \"ダッシュ\"");
+NA_LOC(BitFiddleAsciiAdditionalInfo2e, "カジュアルに \"ドット\"");
+NA_LOC(BitFiddleAsciiAdditionalInfo2f, "カジュアルに \"スラッシュ\" または \"除算\"");
 
 NA_LOC(BitFiddleAsciiAdditionalInfo30, "");
 NA_LOC(BitFiddleAsciiAdditionalInfo31, "");
@@ -95,10 +95,10 @@ NA_LOC(BitFiddleAsciiAdditionalInfo38, "");
 NA_LOC(BitFiddleAsciiAdditionalInfo39, "");
 NA_LOC(BitFiddleAsciiAdditionalInfo3a, "");
 NA_LOC(BitFiddleAsciiAdditionalInfo3b, "");
-NA_LOC(BitFiddleAsciiAdditionalInfo3c, "HTML-escape: &lt;");
+NA_LOC(BitFiddleAsciiAdditionalInfo3c, "HTMLエスケープ: &lt;");
 NA_LOC(BitFiddleAsciiAdditionalInfo3d, "");
-NA_LOC(BitFiddleAsciiAdditionalInfo3e, "HTML-escape: &gt;");
-NA_LOC(BitFiddleAsciiAdditionalInfo3f, "C-escape: \\\? (bei Trigraphen)");
+NA_LOC(BitFiddleAsciiAdditionalInfo3e, "HTMLエスケープ: &gt;");
+NA_LOC(BitFiddleAsciiAdditionalInfo3f, "Cエスケープ: \\\? (トライグラフを使用している場合)");
 
 NA_LOC(BitFiddleAsciiAdditionalInfo40, "");
 NA_LOC(BitFiddleAsciiAdditionalInfo41, "");
@@ -113,7 +113,7 @@ NA_LOC(BitFiddleAsciiAdditionalInfo49, "");
 NA_LOC(BitFiddleAsciiAdditionalInfo4a, "");
 NA_LOC(BitFiddleAsciiAdditionalInfo4b, "");
 NA_LOC(BitFiddleAsciiAdditionalInfo4c, "");
-NA_LOC(BitFiddleAsciiAdditionalInfo4d, "Der Lieblings-Buchstabe des Autors");
+NA_LOC(BitFiddleAsciiAdditionalInfo4d, "著者のお気に入りの文字");
 NA_LOC(BitFiddleAsciiAdditionalInfo4e, "");
 NA_LOC(BitFiddleAsciiAdditionalInfo4f, "");
 
@@ -129,12 +129,12 @@ NA_LOC(BitFiddleAsciiAdditionalInfo58, "");
 NA_LOC(BitFiddleAsciiAdditionalInfo59, "");
 NA_LOC(BitFiddleAsciiAdditionalInfo5a, "");
 NA_LOC(BitFiddleAsciiAdditionalInfo5b, "");
-NA_LOC(BitFiddleAsciiAdditionalInfo5c, "C-escape: \\\\\nUmgangssprachlich \"Backslash\"");
+NA_LOC(BitFiddleAsciiAdditionalInfo5c, "Cエスケープ: \\\\\nカジュアルに \"バックスラッシュ\"");
 NA_LOC(BitFiddleAsciiAdditionalInfo5d, "");
-NA_LOC(BitFiddleAsciiAdditionalInfo5e, "LaTeX-escape: \\^\nUmgangssprachlich \"Karet\" oder \"Hoch\"");
-NA_LOC(BitFiddleAsciiAdditionalInfo5f, "LaTeX-escape: \\_\nUmgangssprachlich \"Unterstrich\" oder \"Underscore\"");
+NA_LOC(BitFiddleAsciiAdditionalInfo5e, "LaTeXエスケープ: \\^\nカジュアルに \"キャレット\" または \"累乗\"");
+NA_LOC(BitFiddleAsciiAdditionalInfo5f, "LaTeXエスケープ: \\_\nカジュアルに \"アンダースコア\"");
 
-NA_LOC(BitFiddleAsciiAdditionalInfo60, "Beim Programmieren auch \"Backtick\" genannt");
+NA_LOC(BitFiddleAsciiAdditionalInfo60, "プログラミングでの \"バックティック\"");
 NA_LOC(BitFiddleAsciiAdditionalInfo61, "");
 NA_LOC(BitFiddleAsciiAdditionalInfo62, "");
 NA_LOC(BitFiddleAsciiAdditionalInfo63, "");
@@ -162,9 +162,9 @@ NA_LOC(BitFiddleAsciiAdditionalInfo77, "");
 NA_LOC(BitFiddleAsciiAdditionalInfo78, "");
 NA_LOC(BitFiddleAsciiAdditionalInfo79, "");
 NA_LOC(BitFiddleAsciiAdditionalInfo7a, "");
-NA_LOC(BitFiddleAsciiAdditionalInfo7b, "LaTeX-escape: \\{");
-NA_LOC(BitFiddleAsciiAdditionalInfo7c, "Umgangssprachlich \"Bar\" oder \"Pipe\"\nManchmal mit oder ohne Lücke (Broken Bar)");
-NA_LOC(BitFiddleAsciiAdditionalInfo7d, "LaTeX-escape: \\}");
+NA_LOC(BitFiddleAsciiAdditionalInfo7b, "LaTeXエスケープ: \\{");
+NA_LOC(BitFiddleAsciiAdditionalInfo7c, "カジュアルに \"バー\" または \"パイプ\"\n時々ギャップ有り無し（破損したバー）");
+NA_LOC(BitFiddleAsciiAdditionalInfo7d, "LaTeXエスケープ: \\}");
 NA_LOC(BitFiddleAsciiAdditionalInfo7e, "");
 NA_LOC(BitFiddleAsciiAdditionalInfo7f, "");
 

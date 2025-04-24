@@ -6,7 +6,6 @@ enum{
   BitFiddleDone,
   BitFiddleVersionBuild,
   BitFiddleOnlineHelp,
-  BitFiddleApplicationDescription,
   BitFiddleApplicationHelpURL,
 
   // Expressions in Main Window

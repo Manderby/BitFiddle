@@ -10,14 +10,13 @@ NA_LOC(BitFiddleAbout,          "About %s");
 NA_LOC(BitFiddleDone,           "Done");
 NA_LOC(BitFiddleVersionBuild,   "Version %s (Build %s)");
 NA_LOC(BitFiddleOnlineHelp,     "Online Help");
-NA_LOC(BitFiddleApplicationDescription, "Conversion tool for binary values\nDesign and implementation: Tobias Stamm");
-NA_LOC(BitFiddleApplicationHelpURL, "http://manderc.com/apps/bitfiddle/help/index_en.php");
+NA_LOC(BitFiddleApplicationHelpURL, "http://manderc.com/apps/bitfiddle/help/index_en.php"); // do not translate
 
 /* Expressions in Main Window */
-NA_LOC(BitFiddleConversionUnsigned, "Unsigned");
+NA_LOC(BitFiddleConversionUnsigned, "Unsigned"); // do not translate
 NA_LOC(BitFiddleConversionOnesComp, "1's Complement");
 NA_LOC(BitFiddleConversionTwosComp, "2's Complement");
-NA_LOC(BitFiddleConversionByteSwap, "Little ↔ Big");
+NA_LOC(BitFiddleConversionByteSwap, "Little ↔ Big"); // do not translate
 
 // Expressions in Preferences window
 NA_LOC(BitFiddlePrefsWindowTitle,      "Bit Fiddle Preferences");
@@ -28,8 +27,8 @@ NA_LOC(BitFiddlePrefsConverterWindow,  "Converter Window");
 NA_LOC(BitFiddlePrefsKeepOnTop,        "Keep window in foreground");
 NA_LOC(BitFiddlePrefsShow16Bits,       "16 Bits");
 NA_LOC(BitFiddlePrefsShowNBits,        "n Bits");
-NA_LOC(BitFiddlePrefsShowBin,          "Bin");
-NA_LOC(BitFiddlePrefsShowAsc,          "Asc");
+NA_LOC(BitFiddlePrefsShowBin,          "Bin"); // do not translate
+NA_LOC(BitFiddlePrefsShowAsc,          "Asc"); // do not translate
 NA_LOC(BitFiddlePrefsDone,             "Done");
 
 // Additional information for ascii characters
