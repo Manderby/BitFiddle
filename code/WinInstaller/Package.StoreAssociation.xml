@@ -377,6 +377,7 @@
     <MainPackageIdentityName>57837TobiasStamm.43731B67CB3A7</MainPackageIdentityName>
     <MainPackageIdentityName>57837TobiasStamm.KaroGraph</MainPackageIdentityName>
     <MainPackageIdentityName>57837TobiasStamm.677EDCDD453</MainPackageIdentityName>
+    <MainPackageIdentityName>57837TobiasStamm.Makeitso</MainPackageIdentityName>
     <MainPackageIdentityName>57837TobiasStamm.MatrixBuddy</MainPackageIdentityName>
     <MainPackageIdentityName>57837TobiasStamm.13848C33895B</MainPackageIdentityName>
   </AccountPackageIdentityNames>
@@ -385,32 +386,32 @@
       <PackageInfo>
         <OsMinVersion>0.0.0.0</OsMinVersion>
         <PackageArchitecture>X86</PackageArchitecture>
-        <PackageMaxArchitectureVersion>1.5.0.0</PackageMaxArchitectureVersion>
+        <PackageMaxArchitectureVersion>1.5.2.0</PackageMaxArchitectureVersion>
       </PackageInfo>
       <PackageInfo>
         <OsMinVersion>0.0.0.0</OsMinVersion>
         <PackageArchitecture>X64</PackageArchitecture>
-        <PackageMaxArchitectureVersion>1.5.0.0</PackageMaxArchitectureVersion>
+        <PackageMaxArchitectureVersion>1.5.2.0</PackageMaxArchitectureVersion>
       </PackageInfo>
       <PackageInfo>
         <OsMinVersion>0.0.0.0</OsMinVersion>
         <PackageArchitecture>Neutral</PackageArchitecture>
-        <PackageMaxArchitectureVersion>1.5.0.0</PackageMaxArchitectureVersion>
+        <PackageMaxArchitectureVersion>1.5.2.0</PackageMaxArchitectureVersion>
       </PackageInfo>
       <PackageInfo>
         <OsMinVersion>0.0.0.0</OsMinVersion>
         <PackageArchitecture>Neutral</PackageArchitecture>
-        <PackageMaxArchitectureVersion>1.5.0.0</PackageMaxArchitectureVersion>
+        <PackageMaxArchitectureVersion>1.5.2.0</PackageMaxArchitectureVersion>
       </PackageInfo>
       <PackageInfo>
         <OsMinVersion>0.0.0.0</OsMinVersion>
         <PackageArchitecture>Neutral</PackageArchitecture>
-        <PackageMaxArchitectureVersion>1.5.0.0</PackageMaxArchitectureVersion>
+        <PackageMaxArchitectureVersion>1.5.2.0</PackageMaxArchitectureVersion>
       </PackageInfo>
       <PackageInfo>
         <OsMinVersion>0.0.0.0</OsMinVersion>
         <PackageArchitecture>Neutral</PackageArchitecture>
-        <PackageMaxArchitectureVersion>1.5.0.0</PackageMaxArchitectureVersion>
+        <PackageMaxArchitectureVersion>1.5.2.0</PackageMaxArchitectureVersion>
       </PackageInfo>
     </BundleInfo>
   </PackageInfoList>
