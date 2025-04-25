@@ -11,7 +11,7 @@ set(BUNDLE_IDENTIFIER_PREFIX "ch.manderim.")
 set(BUNDLE_IDENTIFIER_MAC "Bit-Fiddle")
 
 set(VERSION_STRING 1.5.3)
-set(BUILD_NUMBER_STRING 1.5.3)
+set(BUILD_NUMBER_STRING 1.5.3.1)
 
 if (MSVC)
   add_executable(${TARGET_NAME} WIN32 src/main.c)
@@ -125,7 +125,8 @@ elseif(APPLE)
     # Uncomment the following line when you are planning to archive and upload.
     # Beware: The debug build will not have the proper resource folder copied
     # but the archive will contain it.
-    #XCODE_ATTRIBUTE_CONFIGURATION_BUILD_DIR "$(inherited)"
+    # Note: Sometimes, it works without uncommenting it.
+    # XCODE_ATTRIBUTE_CONFIGURATION_BUILD_DIR "$(inherited)"
   )
   
 endif()
@@ -171,7 +172,6 @@ set(sourceFiles
   src/BitFiddleAboutController.h
   src/BitFiddleApplication.c
   src/BitFiddleApplication.h
-  src/BitFiddleNSApplication.h
   src/BitFiddleNSApplication.m
   src/BitFiddlePreferences.c
   src/BitFiddlePreferences.h

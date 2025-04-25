@@ -3,25 +3,18 @@
 
 #if NA_OS == NA_OS_MAC_OS_X
 
-#include "NAUtility/NAMemory.h"
-
-#import <Carbon/Carbon.h>
-
-#import "BitFiddleNSApplication.h"
+#import <Cocoa/Cocoa.h>
 
 #include "BitFiddleTranslations.h"
-#include "BitFiddlePreferences.h"
-
-#include "AsciiController.h"
-#include "ConverterController.h"
-#include "PreferencesController.h"
 #include "BitFiddleApplication.h"
-#include "BitFiddleAboutController.h"
 
+
+
+@interface BitFiddleNSApplication : NSApplication <NSApplicationDelegate> {
+}
+@end
 
 @implementation BitFiddleNSApplication
-
-
 
 // There are certain macOS specific menu items which should always be the same.
 // Use a standard XIP file, connect the appropriate IBOutlets to these actions

@@ -70,7 +70,9 @@ void bitPreStartupApplication(void* arg) {
   //naPresentAlertBox(NA_ALERT_BOX_INFO, "Resource directory", naGetStringUTF8Pointer(appPath));
   naDelete(appPath);
 
-  naSetApplicationIconPath("icon.png");
+  #if NA_OS == NA_OS_WINDOWS
+    naSetApplicationIconPath("icon.png");
+  #endif
 
   bitInitTranslations();
   bitInitPreferences();

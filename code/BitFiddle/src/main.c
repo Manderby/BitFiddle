@@ -42,13 +42,19 @@ int WINAPI WinMain(
 
 
 
+#include <objc/objc.h>
+#include <objc/runtime.h>
+#include <objc/message.h>
+
 int main(int argc, char *argv[]) {
   NA_UNUSED(argc);
   NA_UNUSED(argv);
 
   naStartRuntime();
 
-  [BitFiddleNSApplication sharedApplication];
+  id nsStringClass = (id)objc_getClass("BitFiddleNSApplication");
+  SEL sel = sel_registerName("sharedApplication");
+  ((id (*)(id, SEL))objc_msgSend)(nsStringClass, sel);
   
   naStartApplication(
     bitPreStartupApplication,
