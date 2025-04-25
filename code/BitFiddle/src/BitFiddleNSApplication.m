@@ -46,44 +46,6 @@
 
 
 
-void preStartup(void* arg) {
-  NA_UNUSED(arg);
-  bitStartApplication();
-}
-
-
-
-void postStartup(void* arg) {
-  NA_UNUSED(arg);
-
-  naLoadNib("MainMenu", NA_NULL);
-  
-  NALanguageCode3 languageCode = bitGetPrefsPreferredLanguage();
-  if(languageCode != 0){
-    naSetTranslatorLanguagePreference(languageCode);
-  }
-
-  bitCreateUI();
-}
-
-
-
-int main(int argc, char *argv[]) {
-  NA_UNUSED(argc);
-  NA_UNUSED(argv);
-  naStartRuntime();
-    [BitFiddleNSApplication sharedApplication];
-    naStartApplication(
-      preStartup,
-      postStartup,
-      bitStopApplication,
-      NA_NULL);
-  naStopRuntime();
-  return 0;
-}
-
-
-
 #endif // NA_OS == NA_OS_MAC_OS_X
 
 

@@ -33,8 +33,8 @@ typedef enum{
 #define BIT_WINDOW_TAG_ASCII 3
 #define BIT_WINDOW_TAG_ABOUT 4
 
-void bitStartApplication(void);
-void bitCreateUI(void);
+void bitPreStartupApplication(void* arg);
+void bitPostStartupApplication(void* arg);
 void bitStopApplication(void* data);
 
 NAImageSet* bitGetImageAsset(BitImageAsset asset);

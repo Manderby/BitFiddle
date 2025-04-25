@@ -52,8 +52,25 @@ NAImageSet* bit_LoadImageAsset(
 
 
 
-void bitStartApplication(void) {
+void bitPreStartupApplication(void* arg) {
+
+  //NAString* appPath = naNewExecutablePath();
+  //naPresentAlertBox(NA_ALERT_BOX_INFO, "Working directory", naGetStringUTF8Pointer(appPath));
+  //naDelete(appPath);
+
   bit_App = naAlloc(BitApplication);
+
+  naSetApplicationName("Bit Fiddle");
+  //naSetApplicationCompanyName("ASuppaCombbany");
+  naSetApplicationVersionString(BIT_VERSION_STRING);
+  naSetApplicationBuildString(BIT_BUILD_NUMBER_STRING);
+
+  NAString* appPath = naNewExecutablePath();
+  naSetApplicationResourceBasePath(naGetStringUTF8Pointer(appPath));
+  //naPresentAlertBox(NA_ALERT_BOX_INFO, "Resource directory", naGetStringUTF8Pointer(appPath));
+  naDelete(appPath);
+
+  naSetApplicationIconPath("icon.png");
 
   bitInitTranslations();
   bitInitPreferences();
@@ -93,7 +110,16 @@ NAFont* bitGetTitleFont() {
 
 
 
-void bitCreateUI() {
+void bitPostStartupApplication(void* arg) {
+  #if NA_OS == NA_OS_MAC_OS_X
+    naLoadNib("MainMenu", NA_NULL);
+  #endif
+
+  NALanguageCode3 languageCode = bitGetPrefsPreferredLanguage();
+  if(languageCode != 0){
+    naSetTranslatorLanguagePreference(languageCode);
+  }
+
   bit_App->converterController   = NA_NULL;
   bit_App->asciiController       = NA_NULL;
   bit_App->preferencesController = NA_NULL;

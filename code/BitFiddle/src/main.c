@@ -1,86 +1,36 @@
 
-#include "NABase/NABase.h"
-
-#if NA_OS == NA_OS_WINDOWS
-#if (NA_COMPILE_GUI == 1)
-
-
-
 #include "NAUtility/NAMemory.h"
-#include "NAApp/NAApp.h"
-#include "NAUtility/NAString.h"
-#include "BitFiddleNSApplication.h"
-#include "BitFiddleTranslations.h"
-#include "BitFiddlePreferences.h"
-#include "AsciiController.h"
 #include "BitFiddleApplication.h"
 
 
 
-void preStartup(void* arg) {
-  NA_UNUSED(arg);
+#if NA_OS == NA_OS_WINDOWS
 
 
 
-  //naOpenConsoleWindow();
+#include <windows.h>
 
-  //wchar_t buffer2[5120];
-  //GetModuleFileName(NULL, buffer2, 5120);
-  //printf("%ls\n", buffer2);
-
-  //NAString* appName = naNewApplicationName();
-  //printf("%s\n", naGetStringUTF8Pointer(appName));
-  //naDelete(appName);
-
-  //NAString* cwd = naNewStringWithCurWorkingDirectory();
-  //printf("%s\n", naGetStringUTF8Pointer(cwd));
-  //naDelete(cwd);
-
-  
-  naSetApplicationName("Bit Fiddle");
-  //naSetApplicationCompanyName("ASuppaCombbany");
-  naSetApplicationVersionString("1.5.2");
-  naSetApplicationBuildString("1.5.2");
-
-  NAString* appPath = naNewExecutablePath();
-  naSetApplicationResourceBasePath(naGetStringUTF8Pointer(appPath));
-  //naPresentAlertBox(NA_ALERT_BOX_INFO, "Resource directory", naGetStringUTF8Pointer(appPath));
-  naDelete(appPath);
-
-  //NAString* iconPath = naNewStringWithFormat("%s%cicon.png", naGetStringUTF8Pointer(appPath), NA_PATH_DELIMITER_WIN);
-  //naSetApplicationIconPath(naGetStringUTF8Pointer(iconPath));
-  
-  naSetApplicationIconPath("icon.png");
-
-  //naDelete(iconPath);
-  //naDelete(appPath);
-
-  bitStartApplication();
-}
-
-
-
-void postStartup(void* arg) {
-  NA_UNUSED(arg);
-
-  //NAString* appPath = naNewExecutablePath();
-  //naPresentAlertBox(NA_ALERT_BOX_INFO, "Working directory", naGetStringUTF8Pointer(appPath));
-  //naDelete(appPath);
-
-  bitCreateUI();
-}
-
-
-
-int WINAPI WinMain(_In_ HINSTANCE hInstance, _In_opt_ HINSTANCE hPrevInstance, _In_ LPSTR lpCmdLine, _In_ int nShowCmd) {
+int WINAPI WinMain(
+  _In_ HINSTANCE hInstance,
+  _In_opt_ HINSTANCE hPrevInstance,
+  _In_ LPSTR lpCmdLine,
+  _In_ int nShowCmd)
+{
   NA_UNUSED(hInstance);
   NA_UNUSED(hPrevInstance);
   NA_UNUSED(lpCmdLine);
   NA_UNUSED(nShowCmd);
+
   //naOpenConsoleWindow();
 
   naStartRuntime();
-  naStartApplication(preStartup, postStartup, NA_NULL, NA_NULL);
+
+  naStartApplication(
+    bitPreStartupApplication,
+    bitPostStartupApplication,
+    bitStopApplication,
+    NA_NULL);
+  
   naStopRuntime();
 
   return 0;
@@ -88,8 +38,32 @@ int WINAPI WinMain(_In_ HINSTANCE hInstance, _In_opt_ HINSTANCE hPrevInstance, _
 
 
 
-#endif // (NA_COMPILE_GUI == 1)
-#endif // NA_OS == NA_OS_WINDOWS
+#elif NA_OS == NA_OS_MAC_OS_X
+
+
+
+int main(int argc, char *argv[]) {
+  NA_UNUSED(argc);
+  NA_UNUSED(argv);
+
+  naStartRuntime();
+
+  [BitFiddleNSApplication sharedApplication];
+  
+  naStartApplication(
+    bitPreStartupApplication,
+    bitPostStartupApplication,
+    bitStopApplication,
+    NA_NULL);
+  
+  naStopRuntime();
+  
+  return 0;
+}
+
+
+
+#endif // NA_OS
 
 
 
