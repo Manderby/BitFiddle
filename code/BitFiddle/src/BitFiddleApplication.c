@@ -61,7 +61,6 @@ void bitPreStartupApplication(void* arg) {
   bit_App = naAlloc(BitApplication);
 
   naSetApplicationName("Bit Fiddle");
-  //naSetApplicationCompanyName("ASuppaCombbany");
   naSetApplicationVersionString(BIT_VERSION_STRING);
   naSetApplicationBuildString(BIT_BUILD_NUMBER_STRING);
 
