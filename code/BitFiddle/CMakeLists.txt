@@ -10,8 +10,8 @@ set(TARGET_NAME BitFiddle)
 set(BUNDLE_IDENTIFIER_PREFIX "ch.manderim.")
 set(BUNDLE_IDENTIFIER_MAC "Bit-Fiddle")
 
-set(VERSION_STRING 1.5.3)
-set(BUILD_NUMBER_STRING 1.5.4)
+set(VERSION_STRING 1.5.4)
+set(BUILD_NUMBER_STRING 1.5.5)
 
 if (MSVC)
   add_executable(${TARGET_NAME} WIN32 src/main.c)

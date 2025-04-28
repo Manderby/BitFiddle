@@ -1,6 +1,9 @@
 Bit Fiddle Changelog
 
+Version 1.5.4
+-------------
 - Internal improvements
+- Fixing japanese language detection
 
 Version 1.5.3
 -------------
