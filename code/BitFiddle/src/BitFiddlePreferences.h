@@ -9,6 +9,11 @@ void bitInitPreferences(void);
 
 
 
+NALanguageCode3 bitGetPrefsPreferredLanguage(void);
+void bitSetPrefsPreferredLanguage(NALanguageCode3 languageCode);
+
+
+
 NABool bitGetPrefsAsciiUseEscape(void);
 void   bitSetPrefsAsciiUseEscape(NABool use);
 
@@ -47,12 +52,6 @@ void   bitSetPrefsSwapEndianness(NABool swap);
 
 BitConversionType bitGetPrefsComplementEncoding(void);
 void bitSetPrefsComplementEncoding(BitConversionType encoding);
-
-
-
-NALanguageCode3 bitGetPrefsPreferredLanguage(void);
-void bitSetPrefsPreferredLanguage(NALanguageCode3 languageCode);
-
 
 
 // This is free and unencumbered software released into the public domain.

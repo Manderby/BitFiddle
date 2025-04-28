@@ -73,6 +73,16 @@ void bitInitPreferences(void) {
 
 
 
+NALanguageCode3 bitGetPrefsPreferredLanguage(){
+  return (NALanguageCode3)naGetPreferencesi64(BitPrefs[PreferredLanguage]);
+}
+void bitSetPrefsPreferredLanguage(NALanguageCode3 languageCode){
+  naSetPreferencesi64(BitPrefs[PreferredLanguage], (int64)languageCode);
+  naSetTranslatorLanguagePreference(languageCode);
+}
+
+
+
 NABool bitGetPrefsAsciiUseEscape() {
   return naGetPreferencesBool(BitPrefs[AsciiUseEscape]);
 }
@@ -155,17 +165,6 @@ BitConversionType bitGetPrefsComplementEncoding() {
 void bitSetPrefsComplementEncoding(BitConversionType encoding) {
   naSetPreferencesEnum(BitPrefs[SelectedComplementEncoding], encoding);
 }
-
-
-
-NALanguageCode3 bitGetPrefsPreferredLanguage(){
-  return (NALanguageCode3)naGetPreferencesi64(BitPrefs[PreferredLanguage]);
-}
-void bitSetPrefsPreferredLanguage(NALanguageCode3 languageCode){
-  naSetPreferencesi64(BitPrefs[PreferredLanguage], (int64)languageCode);
-  naSetTranslatorLanguagePreference(languageCode);
-}
-
 
 
 
