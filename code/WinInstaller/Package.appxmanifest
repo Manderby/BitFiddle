@@ -9,7 +9,7 @@
   <Identity
     Name="57837TobiasStamm.BitFiddle"
     Publisher="CN=2CD9127F-1744-474C-A2F6-BF5825CC72FC"
-    Version="1.5.3.0" />
+    Version="1.5.4.0" />
 
   <Properties>
     <DisplayName>Bit Fiddle</DisplayName>
@@ -23,7 +23,7 @@
   </Dependencies>
 
   <Resources>
-    <Resource Language="x-generate"/>
+    <Resource Language="x-generate" />
   </Resources>
 
   <Applications>

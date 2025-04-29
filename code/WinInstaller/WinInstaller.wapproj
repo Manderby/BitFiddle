@@ -102,6 +102,12 @@
     </AppxManifest>
   </ItemGroup>
   <ItemGroup>
+    <Content Include="Strings\en-US\Resources.resw" />
+    <Content Include="Strings\de-DE\Resources.resw" />
+    <Content Include="Strings\es-ES\Resources.resw" />
+    <Content Include="Strings\fr-FR\Resources.resw" />
+    <Content Include="Strings\ja-JP\Resources.resw" />
+    <Content Include="Strings\zh-CN\Resources.resw" />
     <Content Include="BitFiddle\ascii.png" />
     <Content Include="BitFiddle\help.png" />
     <Content Include="BitFiddle\icon.png" />

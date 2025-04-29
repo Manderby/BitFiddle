@@ -1,0 +1,2 @@
+When Installing, copy the Strings folder to the packaging project.
+Otherwise, the languages will not be detected by the microsoft partner center.

@@ -136,8 +136,8 @@ endif()
 
 set(resourceFiles
   res/BitFiddleChangelog.txt
-  res/BitFiddleStrings_deu.h
   res/BitFiddleStrings_eng.h
+  res/BitFiddleStrings_deu.h
   res/BitFiddleStrings_spa.h
   res/BitFiddleStrings_fra.h
   res/BitFiddleStrings_tlh.h
@@ -149,18 +149,37 @@ set(resourceFiles
 )
 
 set(macResourceFiles
-  #res/mac/de.lproj/InfoPlist.strings
-  #res/mac/en.lproj/InfoPlist.strings
-  #res/mac/es.lproj/InfoPlist.strings
-  #res/mac/fr.lproj/InfoPlist.strings
-  #res/mac/ja.lproj/InfoPlist.strings
-  #res/mac/zh.lproj/InfoPlist.strings
+  res/mac/de.lproj/InfoPlist.strings
+  res/mac/en.lproj/InfoPlist.strings
+  res/mac/es.lproj/InfoPlist.strings
+  res/mac/fr.lproj/InfoPlist.strings
+  res/mac/ja.lproj/InfoPlist.strings
+  res/mac/zh.lproj/InfoPlist.strings
   res/mac/BitFiddle.icns
   res/mac/MainMenu.xib
 )
 
 set(winResourceFiles
   res/win/icon.png
+)
+
+set(winResourceStringEnFiles
+  res/win/Strings/en-US/Resources.resw
+)
+set(winResourceStringDeFiles
+  res/win/Strings/de-DE/Resources.resw
+)
+set(winResourceStringEsFiles
+  res/win/Strings/es-ES/Resources.resw
+)
+set(winResourceStringFrFiles
+  res/win/Strings/fr-FR/Resources.resw
+)
+set(winResourceStringJaFiles
+  res/win/Strings/ja-JP/Resources.resw
+)
+set(winResourceStringZhFiles
+  res/win/Strings/zh-cn/Resources.resw
 )
 
 set(sourceFiles
@@ -196,6 +215,19 @@ target_sources(${TARGET_NAME} PRIVATE ${macResourceFiles})
 
 source_group("res/win" FILES ${winResourceFiles})
 target_sources(${TARGET_NAME} PRIVATE ${winResourceFiles})
+
+source_group("res/win/Strings/en-US" FILES ${winResourceStringEnFiles})
+target_sources(${TARGET_NAME} PRIVATE ${winResourceStringEnFiles})
+source_group("res/win/Strings/de-DE" FILES ${winResourceStringDeFiles})
+target_sources(${TARGET_NAME} PRIVATE ${winResourceStringDeFiles})
+source_group("res/win/Strings/es-ES" FILES ${winResourceStringEsFiles})
+target_sources(${TARGET_NAME} PRIVATE ${winResourceStringEsFiles})
+source_group("res/win/Strings/fr-FR" FILES ${winResourceStringFrFiles})
+target_sources(${TARGET_NAME} PRIVATE ${winResourceStringFrFiles})
+source_group("res/win/Strings/ja-JP" FILES ${winResourceStringJaFiles})
+target_sources(${TARGET_NAME} PRIVATE ${winResourceStringJaFiles})
+source_group("res/win/Strings/zh-CN" FILES ${winResourceStringZhFiles})
+target_sources(${TARGET_NAME} PRIVATE ${winResourceStringZhFiles})
 
 source_group("src" FILES ${sourceFiles})
 target_sources(${TARGET_NAME} PRIVATE ${sourceFiles})
