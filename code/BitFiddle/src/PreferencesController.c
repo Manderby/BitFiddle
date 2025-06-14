@@ -129,24 +129,25 @@ BitPreferencesController* bitAllocPreferencesController() {
   con->window = naNewWindow(
     bitTranslate(BitFiddlePrefsWindowTitle),
     naMakeRectS(820, 15, 440, 278),
-    0,
-    BIT_WINDOW_TAG_PREFERENCES);
+    0);
     
+  naSetWindowStorageTag(con->window, BIT_WINDOW_TAG_PREFERENCES);
+
   NASpace* contentSpace = naGetWindowContentSpace(con->window);
 
 
 
   con->languageLabel = naNewLabel(bitTranslate(BitLanguage), 250);
   con->languageSelect = naNewSelect(150);
-  con->languageSystem = naNewMenuItem(bitTranslate(BitLanguageSameAsSystem));
-  con->languageDeutsch = naNewMenuItem(bitTranslate(BitLanguageDeutsch));
-  con->languageEnglish = naNewMenuItem(bitTranslate(BitLanguageEnglish));
-  con->languageEspanol = naNewMenuItem(bitTranslate(BitLanguageEspanol));
-  con->languageFrancais = naNewMenuItem(bitTranslate(BitLanguageFrancais));
-  con->languageKlingon = naNewMenuItem(bitTranslate(BitLanguageKlingon));
-  con->languageJapanese = naNewMenuItem(bitTranslate(BitLanguageJapanese));
-  con->languageChinese = naNewMenuItem(bitTranslate(BitLanguageChinese));
-  con->languageReport = naNewMenuItem(bitTranslate(BitLanguageReport));
+  con->languageSystem = naNewMenuItem(bitTranslate(BitLanguageSameAsSystem), NA_NULL);
+  con->languageDeutsch = naNewMenuItem(bitTranslate(BitLanguageDeutsch), NA_NULL);
+  con->languageEnglish = naNewMenuItem(bitTranslate(BitLanguageEnglish), NA_NULL);
+  con->languageEspanol = naNewMenuItem(bitTranslate(BitLanguageEspanol), NA_NULL);
+  con->languageFrancais = naNewMenuItem(bitTranslate(BitLanguageFrancais), NA_NULL);
+  con->languageKlingon = naNewMenuItem(bitTranslate(BitLanguageKlingon), NA_NULL);
+  con->languageJapanese = naNewMenuItem(bitTranslate(BitLanguageJapanese), NA_NULL);
+  con->languageChinese = naNewMenuItem(bitTranslate(BitLanguageChinese), NA_NULL);
+  con->languageReport = naNewMenuItem(bitTranslate(BitLanguageReport), NA_NULL);
   naAddSelectMenuItem(con->languageSelect, con->languageSystem, NA_NULL);
   naAddSelectMenuItem(con->languageSelect, naNewMenuSeparator(), NA_NULL);
   naAddSelectMenuItem(con->languageSelect, con->languageDeutsch, NA_NULL);

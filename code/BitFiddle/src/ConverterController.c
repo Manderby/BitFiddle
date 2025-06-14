@@ -531,8 +531,10 @@ BitConverterController* bitAllocConverterController(void) {
   con->window = naNewWindow(
     "Complement",
     windowRect,
-    0,
-    BIT_WINDOW_TAG_CONVERTER);
+    0);
+    
+  naSetWindowStorageTag(con->window, BIT_WINDOW_TAG_CONVERTER);
+    
   naAddUIReaction(
     con->window,
     NA_UI_COMMAND_CLOSES,

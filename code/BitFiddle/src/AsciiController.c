@@ -271,9 +271,10 @@ BitAsciiController* bitAllocAsciiController() {
   con->window = naNewWindow(
     "ASCII",
     naMakeRectS(400, 300, 776, 430),
-    0,
-    BIT_WINDOW_TAG_ASCII);
+    0);
   
+  naSetWindowStorageTag(con->window, BIT_WINDOW_TAG_ASCII);
+
   NASpace* contentSpace = naGetWindowContentSpace(con->window);
   int64 curIndex = 0;
   
