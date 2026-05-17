@@ -35,18 +35,18 @@ NAImageSet* bit_LoadImageAsset(
   const NAUTF8Char* baseBame,
   const NAUTF8Char* suffix)
 {
-  NAString* imagePath = naNewApplicationResourcePath(
+  NAString* imageUrl = naNewApplicationResourceUrl(
     dir,
     baseBame,
     suffix);
-  NAImage* image = naCreateImageWithFilePath(
-    naGetStringUTF8Pointer(imagePath));
+  NAImage* image = naCreateImageWithFileUrl(
+    naGetStringUTF8Pointer(imageUrl));
   NAImageSet* imageSet = naCreateImageSet(
     image,
     NA_UI_RESOLUTION_2x,
     NA_BLEND_ERODE_LIGHT);
   naRelease(image);
-  naDelete(imagePath);
+  naDelete(imageUrl);
   return imageSet;
 }
 
@@ -54,9 +54,9 @@ NAImageSet* bit_LoadImageAsset(
 
 void bitPreStartupApplication(void* arg) {
 
-  //NAString* appPath = naNewExecutablePath();
-  //naPresentAlertBox(NA_ALERT_BOX_INFO, "Working directory", naGetStringUTF8Pointer(appPath));
-  //naDelete(appPath);
+  //NAString* appUrl = naNewExecutableUrl();
+  //naPresentAlertBox(NA_ALERT_BOX_INFO, "Working directory", naGetStringUTF8Pointer(appUrl));
+  //naDelete(appUrl);
 
   bit_App = naAlloc(BitApplication);
 
@@ -64,13 +64,13 @@ void bitPreStartupApplication(void* arg) {
   naSetApplicationVersionString(BIT_VERSION_STRING);
   naSetApplicationBuildString(BIT_BUILD_NUMBER_STRING);
 
-  NAString* appPath = naNewExecutablePath();
-  naSetApplicationResourceBasePath(naGetStringUTF8Pointer(appPath));
-  //naPresentAlertBox(NA_ALERT_BOX_INFO, "Resource directory", naGetStringUTF8Pointer(appPath));
-  naDelete(appPath);
+  NAString* appUrl = naNewExecutableUrl();
+  naSetApplicationResourceBaseUrl(naGetStringUTF8Pointer(appUrl));
+  //naPresentAlertBox(NA_ALERT_BOX_INFO, "Resource directory", naGetStringUTF8Pointer(appUrl));
+  naDelete(appUrl);
 
   #if NA_OS == NA_OS_WINDOWS
-    naSetApplicationIconPath("icon.png");
+    naSetApplicationIconUrl("icon.png");
   #endif
 
   bitInitTranslations();
