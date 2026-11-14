@@ -50,7 +50,10 @@ BitFiddleAboutController* bitAllocAboutController(void) {
 
   NAString* iconUrl = naNewApplicationIconUrl();
   NAImage* iconImage = naCreateImageWithFileUrl(naGetStringUTF8Pointer(iconUrl));
-  NAImageSet* iconImageSet = naCreateImageSet(iconImage, NA_UI_RESOLUTION_2x, NA_BLEND_ZERO);
+  NASizes iconSize = naGetImageSize(iconImage);
+  iconSize.width /= 2;
+  iconSize.height /= 2;
+  NAImageSet* iconImageSet = naCreateImageSet(iconImage, iconSize, NA_BLEND_ZERO);
   naRelease(iconImage);
   naDelete(iconUrl);
   con->iconSpace = naNewImageSpace(iconImageSet, naMakeSize(128, 128));
@@ -60,7 +63,7 @@ BitFiddleAboutController* bitAllocAboutController(void) {
   con->appNameLabel = naNewLabel(naGetStringUTF8Pointer(bundleApplicationName), 300);
   NAFont* titleFont = naCreateFontWithPreset(NA_FONT_KIND_TITLE, NA_FONT_SIZE_BIG);
   naSetLabelFont(con->appNameLabel, titleFont);
-  naSetLabelTextAlignment(con->appNameLabel, NA_TEXT_ALIGNMENT_CENTER);
+  naSetLabelTextAlignment(con->appNameLabel, NA_ALIGNMENT_CENTER);
   naSetLabelHeight(con->appNameLabel, 24);
   naRelease(titleFont);
   naAddSpaceChild(space, con->appNameLabel, naMakePos(20., 116.));
@@ -73,11 +76,11 @@ BitFiddleAboutController* bitAllocAboutController(void) {
   naDelete(aboutVersionString);
   naDelete(bundleVersionString);
   naDelete(bundleBuildString);
-  naSetLabelTextAlignment(con->appVersionLabel, NA_TEXT_ALIGNMENT_CENTER);
+  naSetLabelTextAlignment(con->appVersionLabel, NA_ALIGNMENT_CENTER);
   naAddSpaceChild(space, con->appVersionLabel, naMakePos(20., 90.));
 
   con->helpLinkLabel = naNewLabel(bitTranslate(BitFiddleOnlineHelp), 300);
-  naSetLabelTextAlignment(con->helpLinkLabel, NA_TEXT_ALIGNMENT_CENTER);
+  naSetLabelTextAlignment(con->helpLinkLabel, NA_ALIGNMENT_CENTER);
   naSetLabelLink(con->helpLinkLabel, bitTranslate(BitFiddleApplicationHelpURL));
   naAddSpaceChild(space, con->helpLinkLabel, naMakePos(20., 54.));
 

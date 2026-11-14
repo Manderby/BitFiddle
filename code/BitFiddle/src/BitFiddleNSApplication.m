@@ -32,7 +32,7 @@
 
 - (IBAction)openHelp:(NSMenuItem*)sender{
   NA_UNUSED(sender);
-  naOpenURLInBrowser(bitTranslate(BitFiddleApplicationHelpURL));
+  naOpenUrlInBrowser(bitTranslate(BitFiddleApplicationHelpURL));
 }
 
 @end

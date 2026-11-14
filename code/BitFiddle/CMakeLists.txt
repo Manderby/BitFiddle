@@ -47,7 +47,7 @@ if (MSVC)
 
 else()
 
-  set(OUTPUT_DIRECTORY ${CMAKE_CURRENT_BINARY_DIR}/$CONFIGURATION/${TARGET_NAME}.app/Contents/Resources/)
+  set(OUTPUT_DIRECTORY ${CMAKE_CURRENT_BINARY_DIR}/$(CONFIGURATION)/${TARGET_NAME}.app/Contents/Resources/)
 
 endif()
 
@@ -179,12 +179,12 @@ set(winResourceStringJaFiles
   res/win/Strings/ja-JP/Resources.resw
 )
 set(winResourceStringZhFiles
-  res/win/Strings/zh-cn/Resources.resw
+  res/win/Strings/zh-CN/Resources.resw
 )
 
 set(sourceFiles
-  src/ASCIIController.c
-  src/ASCIIController.h
+  src/AsciiController.c
+  src/AsciiController.h
   src/BitArray.c
   src/BitArray.h
   src/BitFiddleAboutController.c

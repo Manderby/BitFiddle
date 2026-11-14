@@ -422,7 +422,7 @@ NATextField* bit_CreateBitInputField(
   NATextField* textfield = naNewTextField(width);
   NAFont* monoFont = bitGetMonospaceFont();
   naSetTextFieldFont(textfield, monoFont);
-  naSetTextFieldTextAlignment(textfield, NA_TEXT_ALIGNMENT_RIGHT);
+  naSetTextFieldTextAlignment(textfield, NA_ALIGNMENT_END);
   naAddUIReaction(textfield, NA_UI_COMMAND_EDITED, callback, con);
   return textfield;
 }
@@ -434,7 +434,7 @@ NALabel* bit_CreateBitLabelField(
   NALabel* labelfield = naNewLabel(title, width);
   NAFont* monoFont = bitGetMonospaceFont();
   naSetLabelFont(labelfield, monoFont);
-  naSetLabelTextAlignment(labelfield, NA_TEXT_ALIGNMENT_CENTER);
+  naSetLabelTextAlignment(labelfield, NA_ALIGNMENT_CENTER);
   naSetLabelEnabled(labelfield, NA_FALSE);
   return labelfield;
 }
@@ -446,7 +446,7 @@ NALabel* bit_CreateSystemLabelField(
   NALabel* labelfield = naNewLabel(title, width);
   NAFont* monoFont = bitGetMonospaceFont();
   naSetLabelFont(labelfield, monoFont);
-  naSetLabelTextAlignment(labelfield, NA_TEXT_ALIGNMENT_LEFT);
+  naSetLabelTextAlignment(labelfield, NA_ALIGNMENT_BEGIN);
   naSetLabelEnabled(labelfield, NA_FALSE);
   return labelfield;
 }
@@ -457,7 +457,7 @@ NALabel* bit_CreateBitOutputField(
   NALabel* outputField = naNewLabel("", width);
   NAFont* monoFont = bitGetMonospaceFont();
   naSetLabelFont(outputField, monoFont);
-  naSetLabelTextAlignment(outputField, NA_TEXT_ALIGNMENT_RIGHT);
+  naSetLabelTextAlignment(outputField, NA_ALIGNMENT_END);
   return outputField;
 }
 
@@ -468,7 +468,7 @@ NATextBox* bit_CreateBitOutputBox(
   NATextBox* outputbox = naNewTextBox(size);
   NAFont* monoFont = bitGetMonospaceFont();
   naSetTextBoxFont(outputbox, monoFont);
-  naSetTextBoxTextAlignment(outputbox, NA_TEXT_ALIGNMENT_RIGHT);
+  naSetTextBoxTextAlignment(outputbox, NA_ALIGNMENT_END);
   naSetTextBoxEditable(outputbox, NA_FALSE);
   naSetTextBoxUseVerticalScrolling(outputbox, withScrolling);
   return outputbox;

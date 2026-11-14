@@ -301,7 +301,7 @@ BitAsciiController* bitAllocAsciiController() {
       // Character number
       con->labels[curIndex] = naNewLabel("", 32);
       naSetLabelFont(con->labels[curIndex], monoFont);
-      naSetLabelTextAlignment(con->labels[curIndex], NA_TEXT_ALIGNMENT_RIGHT);
+      naSetLabelTextAlignment(con->labels[curIndex], NA_ALIGNMENT_END);
       naSetLabelEnabled(con->labels[curIndex], NA_FALSE);
       naAddSpaceChild(
         con->spaces[curIndex],
@@ -311,7 +311,7 @@ BitAsciiController* bitAllocAsciiController() {
       // Character
       con->chars[curIndex] = naNewLabel("", 50);
       naSetLabelFont(con->chars[curIndex], monoFont);
-      naSetLabelTextAlignment(con->chars[curIndex], NA_TEXT_ALIGNMENT_CENTER);
+      naSetLabelTextAlignment(con->chars[curIndex], NA_ALIGNMENT_CENTER);
       naAddSpaceChild(
         con->spaces[curIndex],
         con->chars[curIndex],
