@@ -1,0 +1,8 @@
+{
+	"InstallScripts" : 
+	[
+		"/Users/stammt/programme/BitFiddle/code/BitFiddle/cmake_install.cmake",
+		"/Users/stammt/programme/BitFiddle/code/BitFiddle/NALib/cmake_install.cmake"
+	],
+	"Parallel" : false
+}

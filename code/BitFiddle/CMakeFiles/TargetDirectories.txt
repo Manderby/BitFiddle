@@ -1,0 +1,6 @@
+/Users/stammt/programme/BitFiddle/code/BitFiddle/CMakeFiles/KaroGraph.dir
+/Users/stammt/programme/BitFiddle/code/BitFiddle/CMakeFiles/ALL_BUILD.dir
+/Users/stammt/programme/BitFiddle/code/BitFiddle/CMakeFiles/ZERO_CHECK.dir
+/Users/stammt/programme/BitFiddle/code/BitFiddle/NALib/CMakeFiles/NALib.dir
+/Users/stammt/programme/BitFiddle/code/BitFiddle/NALib/CMakeFiles/ALL_BUILD.dir
+/Users/stammt/programme/BitFiddle/code/BitFiddle/NALib/CMakeFiles/ZERO_CHECK.dir

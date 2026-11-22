@@ -137,8 +137,8 @@ BitPreferencesController* bitAllocPreferencesController() {
 
 
 
-  con->languageLabel = naNewLabel(bitTranslate(BitLanguage), 250);
-  con->languageSelect = naNewSelect(150);
+  con->languageLabel = naNewLabel(bitTranslate(BitLanguage));
+  con->languageSelect = naNewSelect();
   con->languageSystem = naNewMenuItem(bitTranslate(BitLanguageSameAsSystem), NA_NULL);
   con->languageDeutsch = naNewMenuItem(bitTranslate(BitLanguageDeutsch), NA_NULL);
   con->languageEnglish = naNewMenuItem(bitTranslate(BitLanguageEnglish), NA_NULL);
@@ -160,8 +160,16 @@ BitPreferencesController* bitAllocPreferencesController() {
   naAddSelectMenuItem(con->languageSelect, naNewMenuSeparator(), NA_NULL);
   naAddSelectMenuItem(con->languageSelect, con->languageReport, NA_NULL);
 
-  naAddSpaceChild(contentSpace, con->languageLabel, naMakePos(20, 236));
-  naAddSpaceChild(contentSpace, con->languageSelect, naMakePos(270, 236));
+  naAddSpaceChild(
+    contentSpace,
+    con->languageLabel,
+    naMakePos(20, 236),
+    naMakeInlineSize(250.));
+  naAddSpaceChild(
+    contentSpace,
+    con->languageSelect,
+    naMakePos(270, 236),
+    naMakeInlineSize(150.));
 
   naAddUIReaction(con->languageSystem, NA_UI_COMMAND_PRESSED, bit_ChangePreferencesLanguage, con);
   naAddUIReaction(con->languageDeutsch, NA_UI_COMMAND_PRESSED, bit_ChangePreferencesLanguage, con);
@@ -176,16 +184,16 @@ BitPreferencesController* bitAllocPreferencesController() {
 
 
 
-  con->startupLabel = naNewLabel(bitTranslate(BitFiddlePrefsAtStartup), 330);
+  con->startupLabel = naNewLabel(bitTranslate(BitFiddlePrefsAtStartup));
   naSetLabelFont(con->startupLabel, titleFont);
   naAddSpaceChild(
     contentSpace,
     con->startupLabel,
-    naMakePos(20., 194.));
+    naMakePos(20., 194.),
+    naMakeInlineSize(330.));
 
   con->showAsciiOnStartupCheckBox = naNewCheckBox(
-    bitTranslate(BitFiddlePrefsShowAscii),
-    220);
+    bitTranslate(BitFiddlePrefsShowAscii));
   naAddUIReaction(
     con->showAsciiOnStartupCheckBox,
     NA_UI_COMMAND_PRESSED,
@@ -194,11 +202,11 @@ BitPreferencesController* bitAllocPreferencesController() {
   naAddSpaceChild(
     contentSpace,
     con->showAsciiOnStartupCheckBox,
-    naMakePos(30., 172.));
+    naMakePos(30., 172.),
+    naMakeInlineSize(220.));
 
   con->resetConversionOnStartupCheckBox = naNewCheckBox(
-    bitTranslate(BitFiddlePrefsResetSettings),
-    220);
+    bitTranslate(BitFiddlePrefsResetSettings));
   naAddUIReaction(
     con->resetConversionOnStartupCheckBox,
     NA_UI_COMMAND_PRESSED,
@@ -207,22 +215,22 @@ BitPreferencesController* bitAllocPreferencesController() {
   naAddSpaceChild(
     contentSpace,
     con->resetConversionOnStartupCheckBox,
-    naMakePos(30., 150.));
+    naMakePos(30., 150.),
+    naMakeInlineSize(220.));
 
 
 
   con->onTopLabel = naNewLabel(
-    bitTranslate(BitFiddlePrefsConverterWindow),
-    230);
+    bitTranslate(BitFiddlePrefsConverterWindow));
   naSetLabelFont(con->onTopLabel, titleFont);
   naAddSpaceChild(
     contentSpace,
     con->onTopLabel,
-    naMakePos(20., 108.));
+    naMakePos(20., 108.),
+    naMakeInlineSize(230.));
 
   con->keepConverterOnTopCheckBox = naNewCheckBox(
-    bitTranslate(BitFiddlePrefsKeepOnTop),
-    220);
+    bitTranslate(BitFiddlePrefsKeepOnTop));
   naAddUIReaction(
     con->keepConverterOnTopCheckBox,
     NA_UI_COMMAND_PRESSED,
@@ -231,11 +239,11 @@ BitPreferencesController* bitAllocPreferencesController() {
   naAddSpaceChild(
     contentSpace,
     con->keepConverterOnTopCheckBox,
-    naMakePos(30., 86.));
+    naMakePos(30., 86.),
+    naMakeInlineSize(220.));
 
   con->show16BitsCheckBox = naNewCheckBox(
-    bitTranslate(BitFiddlePrefsShow16Bits),
-    80);
+    bitTranslate(BitFiddlePrefsShow16Bits));
   naAddUIReaction(
     con->show16BitsCheckBox,
     NA_UI_COMMAND_PRESSED,
@@ -244,11 +252,11 @@ BitPreferencesController* bitAllocPreferencesController() {
   naAddSpaceChild(
     contentSpace,
     con->show16BitsCheckBox,
-    naMakePos(30., 64.));
+    naMakePos(30., 64.),
+    naMakeInlineSize(80.));
 
   con->showNBitsCheckBox = naNewCheckBox(
-    bitTranslate(BitFiddlePrefsShowNBits),
-    80);
+    bitTranslate(BitFiddlePrefsShowNBits));
   naAddUIReaction(
     con->showNBitsCheckBox,
     NA_UI_COMMAND_PRESSED,
@@ -257,11 +265,11 @@ BitPreferencesController* bitAllocPreferencesController() {
   naAddSpaceChild(
     contentSpace,
     con->showNBitsCheckBox,
-    naMakePos(130., 64.));
+    naMakePos(130., 64.),
+    naMakeInlineSize(80.));
 
   con->showBinCheckBox = naNewCheckBox(
-    bitTranslate(BitFiddlePrefsShowBin),
-    80);
+    bitTranslate(BitFiddlePrefsShowBin));
   naAddUIReaction(
     con->showBinCheckBox,
     NA_UI_COMMAND_PRESSED,
@@ -270,11 +278,11 @@ BitPreferencesController* bitAllocPreferencesController() {
   naAddSpaceChild(
     contentSpace,
     con->showBinCheckBox,
-    naMakePos(230., 64.));
+    naMakePos(230., 64.),
+    naMakeInlineSize(80.));
 
   con->showAscCheckBox = naNewCheckBox(
-    bitTranslate(BitFiddlePrefsShowAsc),
-    80);
+    bitTranslate(BitFiddlePrefsShowAsc));
   naAddUIReaction(
     con->showAscCheckBox,
     NA_UI_COMMAND_PRESSED,
@@ -283,13 +291,13 @@ BitPreferencesController* bitAllocPreferencesController() {
   naAddSpaceChild(
     contentSpace,
     con->showAscCheckBox,
-    naMakePos(330., 64.));
+    naMakePos(330., 64.),
+    naMakeInlineSize(80.));
 
 
 
   con->doneButton = naNewTextPushButton(
-    bitTranslate(BitFiddlePrefsDone),
-    80);
+    bitTranslate(BitFiddlePrefsDone));
   naAddUIReaction(
     con->doneButton,
     NA_UI_COMMAND_PRESSED,
@@ -298,7 +306,8 @@ BitPreferencesController* bitAllocPreferencesController() {
   naAddSpaceChild(
     contentSpace,
     con->doneButton,
-    naMakePos(440/2-80/2, 20.));
+    naMakePos(440/2-80/2, 20.),
+    naMakeInlineSize(80.));
 
   naSetButtonSubmit(con->doneButton, bit_PressDone, con);
   naSetButtonAbort(con->doneButton, bit_PressDone, con);

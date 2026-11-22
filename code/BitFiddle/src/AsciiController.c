@@ -279,11 +279,11 @@ BitAsciiController* bitAllocAsciiController() {
   int64 curIndex = 0;
   
   for(size_t x = 0; x < 8; ++x) {
-    NASpace* columnSpace = naNewSpace(naMakeSize(97, 366));
+    NASpace* columnSpace = naNewSpace();
     naSetSpaceAlternateBackground(columnSpace, (x % 2 == 0));
 
     for(size_t y = 0; y < 16; ++y) {
-      con->spaces[curIndex] = naNewSpace(naMakeSize(87, 22));
+      con->spaces[curIndex] = naNewSpace();
       
       naAddUIReaction(
         con->spaces[curIndex],
@@ -299,28 +299,31 @@ BitAsciiController* bitAllocAsciiController() {
       NAFont* monoFont = bitGetMonospaceFont();
 
       // Character number
-      con->labels[curIndex] = naNewLabel("", 32);
+      con->labels[curIndex] = naNewLabel(NA_NULL);
       naSetLabelFont(con->labels[curIndex], monoFont);
       naSetLabelTextAlignment(con->labels[curIndex], NA_ALIGNMENT_END);
       naSetLabelEnabled(con->labels[curIndex], NA_FALSE);
       naAddSpaceChild(
         con->spaces[curIndex],
         con->labels[curIndex],
-        naMakePos(0, 0));
+        naMakePos(0, 0),
+        naMakeInlineSize(32.));
 
       // Character
-      con->chars[curIndex] = naNewLabel("", 50);
+      con->chars[curIndex] = naNewLabel(NA_NULL);
       naSetLabelFont(con->chars[curIndex], monoFont);
       naSetLabelTextAlignment(con->chars[curIndex], NA_ALIGNMENT_CENTER);
       naAddSpaceChild(
         con->spaces[curIndex],
         con->chars[curIndex],
-        naMakePos(37, 0));
+        naMakePos(37, 0),
+        naMakeInlineSize(50.));
       
       naAddSpaceChild(
         columnSpace,
         con->spaces[curIndex],
-        naMakePos(5., (15. - y) * 22. + 5.));
+        naMakePos(5., (15. - y) * 22. + 5.),
+        naMakeSize(87, 22));
         
       curIndex++;
     }
@@ -328,10 +331,11 @@ BitAsciiController* bitAllocAsciiController() {
     naAddSpaceChild(
       contentSpace,
       columnSpace,
-      naMakePos(x * 97., 64.));
+      naMakePos(x * 97., 64.),
+      naMakeSize(97, 366));
   }
   
-  con->codeRadio = naNewRadio("Code", 70);
+  con->codeRadio = naNewRadio("Code");
   naAddUIReaction(
     con->codeRadio,
     NA_UI_COMMAND_PRESSED,
@@ -340,9 +344,10 @@ BitAsciiController* bitAllocAsciiController() {
   naAddSpaceChild(
     contentSpace,
     con->codeRadio,
-    naMakePos(15, 10));
+    naMakePos(15, 10),
+    naMakeInlineSize(70.));
 
-  con->escapeRadio = naNewRadio("Escape", 70);
+  con->escapeRadio = naNewRadio("Escape");
   naAddUIReaction(
     con->escapeRadio,
     NA_UI_COMMAND_PRESSED,
@@ -351,9 +356,10 @@ BitAsciiController* bitAllocAsciiController() {
   naAddSpaceChild(
     contentSpace,
     con->escapeRadio,
-    naMakePos(15, 32));
+    naMakePos(15, 32),
+    naMakeInlineSize(70.));
 
-  con->hexRadio = naNewRadio("Hex", 70);
+  con->hexRadio = naNewRadio("Hex");
   naAddUIReaction(
     con->hexRadio,
     NA_UI_COMMAND_PRESSED,
@@ -362,9 +368,10 @@ BitAsciiController* bitAllocAsciiController() {
   naAddSpaceChild(
     contentSpace,
     con->hexRadio,
-    naMakePos(112, 10));
+    naMakePos(112, 10),
+    naMakeInlineSize(70.));
 
-  con->decRadio = naNewRadio("Dec", 70);
+  con->decRadio = naNewRadio("Dec");
   naAddUIReaction(
     con->decRadio,
     NA_UI_COMMAND_PRESSED,
@@ -373,21 +380,24 @@ BitAsciiController* bitAllocAsciiController() {
   naAddSpaceChild(
     contentSpace,
     con->decRadio,
-    naMakePos(112, 32));
+    naMakePos(112, 32),
+    naMakeInlineSize(70.));
   
-  con->info1 = naNewLabel("", 184);
+  con->info1 = naNewLabel(NA_NULL);
   naSetLabelHeight(con->info1, 40);
   naAddSpaceChild(
     contentSpace,
     con->info1,
-    naMakePos(209, 5));
+    naMakePos(209, 5),
+    naMakeInlineSize(184.));
 
-  con->info2 = naNewLabel("", 368);
+  con->info2 = naNewLabel(NA_NULL);
   naSetLabelHeight(con->info2, 40);
   naAddSpaceChild(
     contentSpace,
     con->info2,
-    naMakePos(403, 5));
+    naMakePos(403, 5),
+    naMakeInlineSize(368.));
 
   return con;
 }
