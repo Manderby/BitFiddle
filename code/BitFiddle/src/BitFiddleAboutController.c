@@ -50,10 +50,10 @@ BitFiddleAboutController* bitAllocAboutController(void) {
 
   NAString* iconUrl = naNewApplicationIconUrl();
   NAImage* iconImage = naCreateImageWithFileUrl(naGetStringUTF8Pointer(iconUrl));
-  NASizes iconSize = naGetImageSize(iconImage);
-  iconSize.width /= 2;
-  iconSize.height /= 2;
-  NAImageSet* iconImageSet = naCreateImageSet(iconImage, iconSize, NA_BLEND_ZERO);
+  NAImageSet* iconImageSet = naCreateImageSet(
+    iconImage,
+    naMakeSizeHalfs(naGetImageSize(iconImage)),
+    NA_BLEND_ZERO);
   naRelease(iconImage);
   naDelete(iconUrl);
   con->iconSpace = naNewImageSpace(iconImageSet);

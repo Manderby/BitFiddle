@@ -41,12 +41,9 @@ NAImageSet* bit_LoadImageAsset(
     suffix);
   NAImage* image = naCreateImageWithFileUrl(
     naGetStringUTF8Pointer(imageUrl));
-  NASizes imageSize = naGetImageSize(image);
-  imageSize.width /= 2;
-  imageSize.height /= 2;
   NAImageSet* imageSet = naCreateImageSet(
     image,
-    imageSize,
+    naMakeSizeHalfs(naGetImageSize(image)),
     NA_BLEND_ERODE_LIGHT);
   naRelease(image);
   naDelete(imageUrl);
